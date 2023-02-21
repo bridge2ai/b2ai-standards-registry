@@ -4277,7 +4277,8 @@ data_standardortools_collection:
     name: JPEG
     description: Joint Photographic Experts Group Format
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
     - Image
     purpose_detail: A method of lossy compression for digital images.
@@ -4367,7 +4368,8 @@ data_standardortools_collection:
     name: MP3
     description: MPEG-1 Audio Layer 3 | MPEG-2 Audio Layer 3
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
     - Waveform
     purpose_detail: MP3 (formally MPEG-1 Audio Layer III or MPEG-2 Audio Layer III) is a coding format for digital audio.
@@ -4380,9 +4382,11 @@ data_standardortools_collection:
     name: MPEG-4
     description: MPEG-4 Part 14 digital multimedia container format
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
-    - Image, Waveform
+    - Image
+    - Waveform
     has_relevant_organization: 
     - ISO
     purpose_detail: A digital multimedia container format most commonly used to store video and audio, but it can also be used to store other data such as subtitles and still images. Like most modern container formats, it allows streaming over the Internet.
@@ -4435,7 +4439,8 @@ data_standardortools_collection:
     name: OGG Speex
     description: Ogg Speex Audio Format
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
     - Waveform
     purpose_detail: File format and bitstream encoding for for spoken content, targeted at a wide range of devices other than mobile phones.
@@ -4498,7 +4503,8 @@ data_standardortools_collection:
     collection:
     - File Format
     concerns_data_topic:
-    - Image, Text
+    - Image
+    - Text
     purpose_detail: A file format to present documents, including text formatting and images, in a manner independent of application software, hardware, and operating systems.
     is_open: True
     requires_registration: False
@@ -4522,7 +4528,8 @@ data_standardortools_collection:
     collection:
     - File Format
     concerns_data_topic:
-    - Image, Text
+    - Image
+    - Text
     purpose_detail: A page description language.
     is_open: True
     requires_registration: False
@@ -4670,7 +4677,8 @@ data_standardortools_collection:
     name: SVG
     description: Scalable Vector Graphics Format
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
     - Image
     has_relevant_organization: 
@@ -4698,7 +4706,8 @@ data_standardortools_collection:
     name: SGI
     description: Silicon Graphics image format
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
     - Image
     purpose_detail: A raster graphics file format.
@@ -4773,7 +4782,8 @@ data_standardortools_collection:
     name: TIFF
     description: Tagged Image File Format
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
     - Image
     purpose_detail: An image file format for storing raster graphics images.
@@ -4823,7 +4833,8 @@ data_standardortools_collection:
     name: WAV
     description: Waveform Audio File Format
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
     - Waveform
     purpose_detail: Waveform Audio File Format (WAVE or WAV due to its filename extension is an audio file format standard.
@@ -4859,7 +4870,9 @@ data_standardortools_collection:
     name: XBM
     description: X PixMap bitmap image format
     collection:
-    - Audiovisual Standard, Deprecated, File Format
+    - Audiovisual Standard
+    - Deprecated
+    - File Format
     concerns_data_topic:
     - Image
     purpose_detail: X PixMap (XBM) is an image file format used by the X Window System. Replaced by XPM.
@@ -4871,7 +4884,8 @@ data_standardortools_collection:
     name: XPM
     description: X PixMap image format
     collection:
-    - Audiovisual Standard, File Format
+    - Audiovisual Standard
+    - File Format
     concerns_data_topic:
     - Image
     purpose_detail: X PixMap (XPM) is an image file format used by the X Window System.
@@ -5013,7 +5027,8 @@ data_standardortools_collection:
     concerns_data_topic:
     - Clinical Observations
     has_relevant_organization: 
-    - ASA, ANSI
+    - ASA
+    - ANSI
     purpose_detail: Definitions for terms used in human bioacoustics.
     is_open: False
     requires_registration: True
@@ -5433,7 +5448,8 @@ data_standardortools_collection:
     name: DTO
     description: Drug Target Ontology
     concerns_data_topic:
-    - Drug, Protein
+    - Drug
+    - Protein
     purpose_detail: Drug Target Ontology (DTO) is being developed at the University of Miami in the research group of Stephan Schürer. DTO was developed as part of the Illuminating the Druggable Genome (IDG) project (https://commonfund.nih.gov/idg/overview), is supported by grant (IDG Knowledge Management Center, (U54CA189205). DTO is a novel semantic framework to formalize knowledge about drug targets and is developed as a reference for drug targets with the longer-term goal to create a community standard that will facilitate the integration of diverse drug discovery information from numerous heterogeneous resources.
     is_open: True
     requires_registration: False
@@ -6314,7 +6330,8 @@ data_standardortools_collection:
     collection:
     - OBO Foundry
     concerns_data_topic:
-    - Clinical Observations, Disease
+    - Clinical Observations
+    - Disease
     purpose_detail: Treatment of disease and diagnosis and on carcinomas and other pathological entities.
     is_open: True
     requires_registration: False
@@ -6358,7 +6375,8 @@ data_standardortools_collection:
     collection:
     - OBO Foundry
     concerns_data_topic:
-    - Clinical Observations, Disease
+    - Clinical Observations
+    - Disease
     purpose_detail: Adverse clinical events.
     is_open: True
     requires_registration: False
@@ -6554,7 +6572,11 @@ data_standardortools_collection:
     name: PHENIO
     description: Phenomics Integrated Ontology
     concerns_data_topic:
-    - Cheminformatics, Disease, Gene, Networks and Pathways, Phenotype
+    - Cheminformatics
+    - Disease
+    - Gene
+    - Networks and Pathways
+    - Phenotype
     has_relevant_organization: 
     - Monarch
     purpose_detail: An application ontology for accessing and comparing knowledge concerning phenotypes across species and genetic backgrounds.
@@ -6689,7 +6711,8 @@ data_standardortools_collection:
     name: RxNorm
     description: RxNorm
     collection:
-    - Code System, UMLS
+    - Code System
+    - UMLS
     concerns_data_topic:
     - Drug
     has_relevant_organization: 
@@ -6799,7 +6822,8 @@ data_standardortools_collection:
     name: SNOMED CT
     description: Systematized Nomenclature of Medicine - Clinical Terms
     collection:
-    - Code System, UMLS
+    - Code System
+    - UMLS
     concerns_data_topic:
     - EHR
     has_relevant_organization: 
@@ -6896,7 +6920,8 @@ data_standardortools_collection:
     collection:
     - OBO Foundry
     concerns_data_topic:
-    - Gene, Genome
+    - Gene
+    - Genome
     purpose_detail: A formal ontology of genes and genomes of biological organisms.
     is_open: True
     requires_registration: False
@@ -7084,7 +7109,8 @@ data_standardortools_collection:
     concerns_data_topic:
     - Demographics
     has_relevant_organization: 
-    - CDC, HL7
+    - CDC
+    - HL7
     purpose_detail: A code set for use in coding race and ethnicity data.
     is_open: True
     requires_registration: False
@@ -7095,7 +7121,8 @@ data_standardortools_collection:
     name: RFC 5646
     description: IETF Request for Comment 5646 Tags for Identifying Languages
     concerns_data_topic:
-    - Data, Demographics
+    - Data
+    - Demographics
     has_relevant_organization: 
     - IETF
     purpose_detail: Best practices for the structure, content, construction, and semantics of language tags for use in cases where it is desirable to indicate the language used in an information object.
@@ -7157,7 +7184,12 @@ data_standardortools_collection:
     name: Alliance ingest
     description: Alliance of Genome Resources Knowledge Graph
     concerns_data_topic:
-    - Disease, Gene, Literature, Networks and Pathways, Phenotype, Transcript
+    - Disease
+    - Gene
+    - Literature
+    - Networks and Pathways
+    - Phenotype
+    - Transcript
     has_relevant_organization: 
     - Monarch
     purpose_detail: The Alliance of Genome Resources contains a subset of model organism data from member databases that is harmonized to the same model. This is the graph ingest of Alliance data prepared for loading into the Monarch Initiative graph resource.
@@ -7385,7 +7417,8 @@ data_standardortools_collection:
     name: DECIPHER
     description: DatabasE of genomiC varIation and Phenotype in Humans using Ensembl Resources
     concerns_data_topic:
-    - Genome, Phenotype
+    - Genome
+    - Phenotype
     has_relevant_organization: 
     - EMBL-EBI
     purpose_detail: DECIPHER is used by the clinical community to share and compare phenotypic and genotypic data. The DECIPHER database contains data from 44,062 patients who have given consent for broad data-sharing; DECIPHER also supports more limited sharing via consortia.
@@ -7398,7 +7431,9 @@ data_standardortools_collection:
     name: dbGaP
     description: Database of Genotypes and Phenotypes
     concerns_data_topic:
-    - Gene, Genome, Phenotype
+    - Gene
+    - Genome
+    - Phenotype
     has_relevant_organization: 
     - NIH NLM
     purpose_detail: The database of Genotypes and Phenotypes (dbGaP) was developed to archive and distribute the data and results from studies that have investigated the interaction of genotype and phenotype in Humans.
@@ -7627,7 +7662,9 @@ data_standardortools_collection:
     name: GIC
     description: Genomic Information Commons
     concerns_data_topic:
-    - Genome, Phenotype, Variant
+    - Genome
+    - Phenotype
+    - Variant
     purpose_detail: A continuously updating, queryable, federated genomic data commons.
     is_open: False
     requires_registration: True
@@ -7688,7 +7725,8 @@ data_standardortools_collection:
     name: HPOA phenotype
     description: HPOA - Disease Annotations
     concerns_data_topic:
-    - Disease, Phenotype
+    - Disease
+    - Phenotype
     has_relevant_organization: 
     - Monarch
     purpose_detail: Annotations on Human Phenotype Ontology terms for Orphanet diseases.
@@ -7701,7 +7739,8 @@ data_standardortools_collection:
     name: HPOA genes to phenotype
     description: HPOA - Gene to Phenotype Associations
     concerns_data_topic:
-    - Gene, Phenotype
+    - Gene
+    - Phenotype
     has_relevant_organization: 
     - Monarch
     purpose_detail: Annotations on Human Phenotype Ontology terms for genes.
@@ -7714,7 +7753,8 @@ data_standardortools_collection:
     name: HPOA phenotype to genes
     description: HPOA - Phenotype to Gene Associations
     concerns_data_topic:
-    - Gene, Phenotype
+    - Gene
+    - Phenotype
     has_relevant_organization: 
     - Monarch
     purpose_detail: Annotations on Human Phenotype Ontology terms for genes.
@@ -7752,7 +7792,8 @@ data_standardortools_collection:
     collection:
     - Protein Data
     concerns_data_topic:
-    - Protein, Proteome
+    - Protein
+    - Proteome
     purpose_detail: The Human Protein Atlas is a Swedish-based program initiated in 2003 with the aim to map all the human proteins in cells, tissues, and organs using an integration of various omics technologies, including antibody-based imaging, mass spectrometry-based proteomics, transcriptomics, and systems biology. All the data in the knowledge resource is open access to allow scientists both in academia and industry to freely access the data for exploration of the human proteome.
     is_open: True
     requires_registration: False
@@ -7876,7 +7917,9 @@ data_standardortools_collection:
     name: MIMIC
     description: Medical Information Mart for Intensive Care
     collection:
-    - Clinical Data, Multimodal Data Integration, Text Data
+    - Clinical Data
+    - Multimodal Data Integration
+    - Text Data
     concerns_data_topic:
     - EHR
     has_relevant_organization: 
@@ -7986,7 +8029,8 @@ data_standardortools_collection:
     collection:
     - Multimodal Data Integration
     concerns_data_topic:
-    - Protein, Proteome
+    - Protein
+    - Proteome
     purpose_detail: Two central approaches for mapping cellular structure – protein fluorescent imaging and protein biophysical association – each generate extensive datasets but of distinct qualities and resolutions that are typically treated separately. The MuSIC map is designed to address this challenge, by integrating immunofluorescent images in the Human Protein Atlas with ongoing affinity purification experiments from the BioPlex resource. The result is a unified hierarchical map of eukaryotic cell architecture. In the MuSIC hierarchy, nodes represent systems and arrows indicate containment of the lower system by the upper. Node color indicates known (gold) or putative novel (purple) systems. The size of each circle is based on the number of proteins in the system. The relative height of each system in the layout is determined based on the predicted diameter of the system in MuSIC.
     is_open: True
     requires_registration: False
@@ -8047,7 +8091,8 @@ data_standardortools_collection:
     name: NLM-Chem-BC7
     description: NLM-Chem BioCreative VII Chemical Identification corpus
     concerns_data_topic:
-    - Literature, Cheminformatics
+    - Literature
+    - Cheminformatics
     has_relevant_organization: 
     - NIH NLM
     purpose_detail: 204 full-text PubMed Central (PMC) articles, fully annotated for chemical entities by 12 NLM indexers for both span (i.e. named entity recognition) and normalization (i.e. entity linking) using MeSH.
@@ -8075,7 +8120,8 @@ data_standardortools_collection:
     collection:
     - Clinical Data
     concerns_data_topic:
-    - Disease, Phenotype
+    - Disease
+    - Phenotype
     has_relevant_organization: 
     - Columbia DBMI
     purpose_detail: A real-world-data-derived resource with annotation for rare-disease-related phenotypes. This resource is derived from the EHRs of two academic health institutions containing more than 10 million individuals spanning wide age ranges and different disease subgroups. By leveraging ontology mapping and advanced natural-language-processing (NLP) methods, OARD automatically and efficiently extracts concepts for both rare diseases and their phenotypic traits from billing codes and lab tests as well as over 100 million clinical narratives.
@@ -8271,9 +8317,11 @@ data_standardortools_collection:
     name: SWC
     description: Spoken Wikipedia Corpora
     collection:
-    - Speech Data, Text Data
+    - Speech Data
+    - Text Data
     concerns_data_topic:
-    - Literature, Voice
+    - Literature
+    - Voice
     purpose_detail: Text-aligned spoken Wikipedia articles.
     is_open: True
     requires_registration: False
@@ -8336,7 +8384,8 @@ data_standardortools_collection:
     name: SUPERFAMILY
     description: SUPERFAMILY database
     concerns_data_topic:
-    - Genome, Protein
+    - Genome
+    - Protein
     purpose_detail: A database of structural and functional annotation for all proteins and genomes. The SUPERFAMILY annotation is based on a collection of hidden Markov models, which represent structural protein domains at the SCOP superfamily level. A superfamily groups together domains which have an evolutionary relationship. The annotation is produced by scanning protein sequences from over 3,200 completely sequenced genomes against the hidden Markov models.
     is_open: True
     requires_registration: False
