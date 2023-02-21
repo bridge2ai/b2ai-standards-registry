@@ -1,5 +1,4 @@
 # Organization Registry
-# TODO: make subclass_of a list, as it's multivalue
 
 organizations:
 
@@ -12,7 +11,8 @@ organizations:
 
   - id: STANDARDSORGANIZATION:2
     name: AHRQ
-    subclass_of: STANDARDSORGANIZATION:39
+    subclass_of:
+    - STANDARDSORGANIZATION:39
     description: US Agency for Healthcare Research and Quality
     ror_id: ror:03jmfdf59
     wikipedia_id: wikidata:Q4692008
@@ -84,13 +84,15 @@ organizations:
 
   - id: STANDARDSORGANIZATION:13
     name: CDC IIS
-    subclass_of: STANDARDSORGANIZATION:12
+    subclass_of:
+    - STANDARDSORGANIZATION:12
     description: CDC Immunization Information Systems
     url: https://www.cdc.gov/vaccines/programs/iis/index.html
 
   - id: STANDARDSORGANIZATION:14
     name: CDC NCHS
-    subclass_of: STANDARDSORGANIZATION:12
+    subclass_of:
+    - STANDARDSORGANIZATION:12
     description: CDC National Center for Health Statistics
     ror_id: ror:03p15s250
     wikipedia_id: wikidata:Q3336854
@@ -151,7 +153,8 @@ organizations:
 
   - id: STANDARDSORGANIZATION:24
     name: DeepMind
-    subclass_of: STANDARDSORGANIZATION:37
+    subclass_of:
+    - STANDARDSORGANIZATION:37
     description: DeepMind Technologies
     ror_id: ror:00971b260
     wikipedia_id: wikidata:Q15733006
@@ -327,7 +330,8 @@ organizations:
 
   - id: STANDARDSORGANIZATION:53
     name: LOINC
-    subclass_of: STANDARDSORGANIZATION:84
+    subclass_of:
+    - STANDARDSORGANIZATION:84
     description: Logical Observation Identifiers Names and Codes
     wikipedia_id: wikidata:Q502480
     url: https://loinc.org/
@@ -413,7 +417,8 @@ organizations:
 
   - id: STANDARDSORGANIZATION:67
     name: NIH
-    subclass_of: STANDARDSORGANIZATION:39
+    subclass_of:
+    - STANDARDSORGANIZATION:39
     description: National Institutes of Health
     ror_id: ror:01cwqze88
     wikipedia_id: wikidata:Q390551
@@ -421,14 +426,16 @@ organizations:
 
   - id: STANDARDSORGANIZATION:68
     name: NIH Common Fund
-    subclass_of: STANDARDSORGANIZATION:67
+    subclass_of:
+    - STANDARDSORGANIZATION:67
     description: NIH Common Fund
     wikipedia_id: wikidata:Q16932298
     url: https://commonfund.nih.gov/
 
   - id: STANDARDSORGANIZATION:69
     name: NIH NCATS
-    subclass_of: STANDARDSORGANIZATION:67
+    subclass_of:
+    - STANDARDSORGANIZATION:67
     description: National Center for Advancing Translational Sciences
     ror_id: ror:04pw6fb54
     wikipedia_id: wikidata:Q16932123
@@ -436,13 +443,15 @@ organizations:
 
   - id: STANDARDSORGANIZATION:70
     name: NIH NCATS Translator
-    subclass_of: STANDARDSORGANIZATION:69
+    subclass_of:
+    - STANDARDSORGANIZATION:69
     description: NIH NCATS Biomedical Data Translator Consortium
     url: https://ncats.nih.gov/translator
 
   - id: STANDARDSORGANIZATION:71
     name: NIH NCI
-    subclass_of: STANDARDSORGANIZATION:67
+    subclass_of:
+    - STANDARDSORGANIZATION:67
     description: NIH National Cancer Institute
     ror_id: ror:040gcmg81
     wikipedia_id: wikidata:Q664846
@@ -450,13 +459,15 @@ organizations:
 
   - id: STANDARDSORGANIZATION:72
     name: NIH NCI BBRB
-    subclass_of: STANDARDSORGANIZATION:71
+    subclass_of:
+    - STANDARDSORGANIZATION:71
     description: Biorepositories and Biospecimen Research Branch of the Cancer Diagnosis Program, formerly Office of Biorepositories and Biospecimen Research
     url: https://biospecimens.cancer.gov/
 
   - id: STANDARDSORGANIZATION:73
     name: NIH NHGRI
-    subclass_of: STANDARDSORGANIZATION:67
+    subclass_of:
+    - STANDARDSORGANIZATION:67
     description: NIH National Human Genome Research Institute
     ror_id: ror:00baak391
     wikipedia_id: wikidata:Q1634459
@@ -464,7 +475,8 @@ organizations:
 
   - id: STANDARDSORGANIZATION:74
     name: NIH NLM
-    subclass_of: STANDARDSORGANIZATION:67
+    subclass_of:
+    - STANDARDSORGANIZATION:67
     description: NIH National Library of Medicine
     ror_id: ror:0060t0j89
     wikipedia_id: wikidata:Q611833

@@ -1,11 +1,11 @@
 # Data Topics
-# TODO: subclass_of and related_to are multiple and must be lists
 
 data_topics_collection:
 
   - id: STANDARDSDATATOPIC:1
     name: Biology
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of: 
+    - STANDARDSDATATOPIC:5
     edam_id: edam.topic:3070
     mesh_id: mesh:D001695
     ncit_id: ncit:C16345
@@ -13,14 +13,16 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:2
     name: Cell
-    subclass_of: STANDARDSDATATOPIC:20
+    subclass_of: 
+    - STANDARDSDATATOPIC:20
     mesh_id: mesh:D002477
     ncit_id: ncit:C12508
     description: Observations and measurements of cellular physiology and variation in cell types.
 
   - id: STANDARDSDATATOPIC:3
     name: Cheminformatics
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     edam_id: edam.data:1086
     mesh_id: mesh:D000080911
     ncit_id: ncit:C188483
@@ -28,7 +30,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:4
     name: Clinical Observations
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     mesh_id: mesh:D008499
     ncit_id: ncit:C15783
     description: All data derived from observations of individual clinical patients, whether as part of a clinical trial or in the course of diagnosis, treatment, and follow-up.
@@ -42,14 +45,16 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:6
     name: Demographics
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     mesh_id: mesh:D003710
     ncit_id: ncit:C16495
     description: Data describing a subset of a population, including sex, age, ethnicity, geographic location, or other factors.
 
   - id: STANDARDSDATATOPIC:7
     name: Disease
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     related_to: Phenotype
     edam_id: edam.data:3667
     mesh_id: mesh:D004194
@@ -58,7 +63,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:8
     name: Drug
-    subclass_of: STANDARDSDATATOPIC:3
+    subclass_of:
+    - STANDARDSDATATOPIC:3
     edam_id: edam.data:0993
     mesh_id: mesh:D004364
     ncit_id: ncit:C1909
@@ -66,7 +72,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:9
     name: EHR
-    subclass_of: STANDARDSDATATOPIC:4
+    subclass_of:
+    - STANDARDSDATATOPIC:4
     edam_id: edam.data:3861
     mesh_id: mesh:D055991
     ncit_id: ncit:C142529
@@ -74,15 +81,18 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:10
     name: EKG
-    subclass_of: STANDARDSDATATOPIC:37
+    subclass_of:
+    - STANDARDSDATATOPIC:37
     mesh_id: mesh:D004562
     ncit_id: ncit:C168186
     description: Measurements of the electrical signals of the heart over time.
 
   - id: STANDARDSDATATOPIC:11
     name: Environment
-    subclass_of: STANDARDSDATATOPIC:1
-    related_to: STANDARDSDATATOPIC:3
+    subclass_of:
+    - STANDARDSDATATOPIC:1
+    related_to:
+    - STANDARDSDATATOPIC:3
     edam_id: edam.topic:3855
     mesh_id: mesh:D004777
     ncit_id: ncit:C16551
@@ -90,7 +100,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:12
     name: Gene
-    subclass_of: STANDARDSDATATOPIC:13
+    subclass_of:
+    - STANDARDSDATATOPIC:13
     edam_id: edam.data:3494
     mesh_id: mesh:D005796
     ncit_id: ncit:C16612
@@ -98,7 +109,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:13
     name: Genome
-    subclass_of: STANDARDSDATATOPIC:23
+    subclass_of:
+    - STANDARDSDATATOPIC:23
     edam_id: edam.data:1288
     mesh_id: mesh:D016678
     ncit_id: ncit:C16629
@@ -106,43 +118,51 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:14
     name: Geolocation
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     edam_id: edam.data:3720
     ncit_id: ncit:C25341
     description: Measurements describing the location of an object or person on planet Earth.
 
   - id: STANDARDSDATATOPIC:15
     name: Image
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     edam_id: edam.data:2968
     ncit_id: ncit:C48179
     description: Visual representation of an observation, including but not limited to photographs, micrographs, radiology results, or data plots.
 
   - id: STANDARDSDATATOPIC:16
     name: Literature
-    subclass_of: STANDARDSDATATOPIC:32
+    subclass_of:
+    - STANDARDSDATATOPIC:32
     mesh_id: mesh:D008091
     ncit_id: ncit:C48471
     description: The unstructured text contents of a selection of scholarly documents and/or the metadata of those documents.
 
   - id: STANDARDSDATATOPIC:17
     name: Metabolome
-    subclass_of: STANDARDSDATATOPIC:23
-    related_to: STANDARDSDATATOPIC:3
+    subclass_of:
+    - STANDARDSDATATOPIC:23
+    related_to:
+    - STANDARDSDATATOPIC:3
     edam_id: edam.data:2603
     mesh_id: mesh:D055442
     description: Measurements of the presence, structure, and potential amount of small molecule metabolites within a sample from one individual, cell, organ, sample, or site.
 
   - id: STANDARDSDATATOPIC:18
     name: mHealth
-    subclass_of: STANDARDSDATATOPIC:5
-    related_to: STANDARDSDATATOPIC:14
+    subclass_of:
+    - STANDARDSDATATOPIC:5
+    related_to:
+    - STANDARDSDATATOPIC:14
     ncit_id: ncit:C97005
     description: Mobile health data generated by individuals using health-related mobile applications and devices, concerning location, physical activity, and physiological metrics.
 
   - id: STANDARDSDATATOPIC:19
     name: Microscale Imaging
-    subclass_of: STANDARDSDATATOPIC:15
+    subclass_of:
+    - STANDARDSDATATOPIC:15
     edam_id: edam.data:3424
     mesh_id: mesh:D008853
     ncit_id: ncit:C16853
@@ -150,7 +170,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:20
     name: Molecular Biology
-    subclass_of: STANDARDSDATATOPIC:1
+    subclass_of:
+    - STANDARDSDATATOPIC:1
     edam_id: edam.topic:3047
     mesh_id: mesh:D008967
     ncit_id: ncit:C16872
@@ -158,14 +179,16 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:21
     name: Networks and Pathways
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     edam_id: edam.data:2600
     ncit_id: ncit:C61377
     description: Models of the interactions among biological entities or concepts.
 
   - id: STANDARDSDATATOPIC:22
     name: Neurologic Imaging
-    subclass_of: STANDARDSDATATOPIC:15
+    subclass_of:
+    - STANDARDSDATATOPIC:15
     edam_id: edam.data:3424
     mesh_id: mesh:D059906
     ncit_id: ncit:C173635
@@ -173,20 +196,23 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:23
     name: Omics
-    subclass_of: STANDARDSDATATOPIC:20
+    subclass_of:
+    - STANDARDSDATATOPIC:20
     edam_id: edam.topic:3391
     mesh_id: mesh:D000095028
     description: Data involving two or more comprehensive biomolecular screens, such as those of genomes, transcriptomes, proteomes, or others.
 
   - id: STANDARDSDATATOPIC:24
     name: Ophthalmic Imaging
-    subclass_of: STANDARDSDATATOPIC:15
+    subclass_of:
+    - STANDARDSDATATOPIC:15
     ncit_id: ncit:C38060
     description: Images of the interior and/or exterior of the eye.
 
   - id: STANDARDSDATATOPIC:25
     name: Phenotype
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     edam_id: edam.data:3275
     mesh_id: mesh:D010641
     ncit_id: ncit:C16977
@@ -194,7 +220,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:26
     name: Protein
-    subclass_of: STANDARDSDATATOPIC:28
+    subclass_of:
+    - STANDARDSDATATOPIC:28
     edam_id: edam.data:2976
     mesh_id: mesh:D011506
     ncit_id: ncit:C17021
@@ -202,7 +229,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:27
     name: Protein Structure Model
-    subclass_of: STANDARDSDATATOPIC:26
+    subclass_of:
+    - STANDARDSDATATOPIC:26
     edam_id: edam.data:1460
     mesh_id: mesh:D011487
     ncit_id: ncit:C13303
@@ -210,14 +238,16 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:28
     name: Proteome
-    subclass_of: STANDARDSDATATOPIC:23
+    subclass_of:
+    - STANDARDSDATATOPIC:23
     mesh_id: mesh:D020543
     ncit_id: ncit:C18276
     description: Measurements of the presence, sequence, and potential amount of proteins within a sample from one individual, organ, sample, or site.
 
   - id: STANDARDSDATATOPIC:29
     name: SDoH
-    subclass_of: STANDARDSDATATOPIC:6
+    subclass_of:
+    - STANDARDSDATATOPIC:6
     related_to:
     - STANDARDSDATATOPIC:11
     - STANDARDSDATATOPIC:14
@@ -227,7 +257,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:30
     name: Social Media
-    subclass_of: STANDARDSDATATOPIC:32
+    subclass_of:
+    - STANDARDSDATATOPIC:32
     related_to:
     - STANDARDSDATATOPIC:6
     - STANDARDSDATATOPIC:14
@@ -237,7 +268,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:31
     name: Survey
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     related_to:
     - STANDARDSDATATOPIC:6
     - STANDARDSDATATOPIC:14
@@ -247,14 +279,16 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:32
     name: Text
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     edam_id: edam.data:2526
     ncit_id: ncit:C25704
     description: Any unstructured or semi-structured collection of written human language.
 
   - id: STANDARDSDATATOPIC:33
     name: Transcript
-    subclass_of: STANDARDSDATATOPIC:34
+    subclass_of:
+    - STANDARDSDATATOPIC:34
     edam_id: edam.data:3495
     mesh_id: mesh:D012333
     ncit_id: ncit:C1936
@@ -262,7 +296,8 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:34
     name: Transcriptome
-    subclass_of: STANDARDSDATATOPIC:23
+    subclass_of:
+    - STANDARDSDATATOPIC:23
     edam_id: edam.data:2603
     mesh_id: mesh:D059467
     ncit_id: ncit:C153194
@@ -270,19 +305,22 @@ data_topics_collection:
 
   - id: STANDARDSDATATOPIC:35
     name: Variant
-    subclass_of: STANDARDSDATATOPIC:12
+    subclass_of:
+    - STANDARDSDATATOPIC:12
     mesh_id: mesh:D014644
     ncit_id: ncit:C25713
     description: An alteration in a gene sequence relative to another set of sequences, whether associated with a phenotype or not.
 
   - id: STANDARDSDATATOPIC:36
     name: Voice
-    subclass_of: STANDARDSDATATOPIC:37
+    subclass_of:
+    - STANDARDSDATATOPIC:37
     mesh_id: mesh:D014831
     ncit_id: ncit:C92692
     description: Audio data produced by human speech, not including non-linguistic utterances.
 
   - id: STANDARDSDATATOPIC:37
     name: Waveform
-    subclass_of: STANDARDSDATATOPIC:5
+    subclass_of:
+    - STANDARDSDATATOPIC:5
     description: Representations of a signal as a function of time, including audio recordings or electrocardiogram readings.
