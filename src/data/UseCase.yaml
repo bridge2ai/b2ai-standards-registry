@@ -1,7 +1,6 @@
 # Use Case Catalog
 # TODO: add Known Limitations where known
 # TODO: add Data Substrates where known
-# TODO: translate standards and tools to identifiers
 # TODO: add alternative standards whre applicable
 # TODO: populate other empty fields where possible
 
@@ -15,13 +14,13 @@ use_cases:
     - aireadi
     - chorus
     - voice
-    data_topics: 
-    - Image
-    - Clinical Observations
-    standards_and_tools_for_dgp_use: 
-    - DICOM
-    - OMOP CDM
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:15
+    - STANDARDSDATATOPIC:4
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:98
+    - STANDARDSDATASTANDARDORTOOL:243
+    enables:
     - STANDARDSUSECASE:5
     - STANDARDSUSECASE:13
     - STANDARDSUSECASE:17
@@ -36,12 +35,12 @@ use_cases:
     description: Magnetic resonance imaging (MRI) is a medical imaging technique that produces detailed images of the body's internal structures, including the brain. These images can be used to diagnose a variety of medical conditions and to evaluate the health of the brain. Brain MRI image data refers to the detailed images of the brain that are produced by the MRI machine.
     relevance_to_dgps:
     - aireadi
-    data_topics: 
-    - Clinical Observations
-    - Neurologic Imaging
-    standards_and_tools_for_dgp_use: 
-    - BIDS
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:22
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:33
+    enables:
     - STANDARDSUSECASE:19
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -53,12 +52,12 @@ use_cases:
     description: Clinical waveform data from an electrocardiogram (EKG or ECG) is a representation of the electrical activity of the heart. The EKG measures the voltage between different points on the body and records the resulting waveform. This waveform can be used to diagnose a variety of heart conditions, including arrhythmias and heart attacks. It is typically recorded using a machine that is attached to the patient via electrodes.
     relevance_to_dgps:
     - aireadi
-    data_topics: 
-    - EHR
-    - EKG
-    standards_and_tools_for_dgp_use: 
-    - WFDB Format
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:9
+    - STANDARDSDATATOPIC:10
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:202
+    enables:
     - STANDARDSUSECASE:18
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -70,12 +69,12 @@ use_cases:
     description: Ophthalmic image data is data that is collected from images of the eye. This type of data is typically used in the field of ophthalmology, which is the branch of medicine that deals with the diagnosis and treatment of eye diseases and disorders. Ophthalmic images can provide valuable information about the health of the eye, including the structure and function of the various parts of the eye, such as the retina, cornea, and lens.
     relevance_to_dgps:
     - aireadi
-    data_topics: 
-    - Clinical Observations
-    - Ophthalmic Imaging
-    standards_and_tools_for_dgp_use: 
-    - DICOM
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:24
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:98
+    enables:
     - STANDARDSUSECASE:19
     - STANDARDSUSECASE:26
     involved_in_experimental_design: True
@@ -88,13 +87,13 @@ use_cases:
     description: Patient data from laboratory analysis typically includes results from tests that have been performed on samples taken from the patient, such as blood, urine, or other bodily fluids. Serological testing is a type of laboratory analysis that involves testing blood serum (the liquid part of blood) for the presence of various indicators of disease or health. Urinalysis is another common type of laboratory analysis that involves testing urine samples for various factors, such as the presence of bacteria, glucose, or other substances. Test results may or may not be derived from EHR data. Here, data includes records from mobile devices used to complement laboratory diagnostics, including continuous glucose monitoring.
     relevance_to_dgps:
     - aireadi
-    data_topics: 
-    - Clinical Observations
-    - EHR
-    - mHealth
-    standards_and_tools_for_dgp_use: 
-    - OMOP CDM
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:9
+    - STANDARDSDATATOPIC:18
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:243
+    enables:
     - STANDARDSUSECASE:17
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -107,11 +106,11 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     - chorus
-    data_topics: 
-    - mHealth
-    standards_and_tools_for_dgp_use: 
-    - Open mHealth
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:18
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:246
+    enables:
     - STANDARDSUSECASE:17
     - STANDARDSUSECASE:26
     - STANDARDSUSECASE:28
@@ -126,17 +125,17 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     - voice
-    data_topics: 
-    - Genome
-    - Variant
-    standards_and_tools_for_dgp_use: 
-    - BED
-    - GenomicStudy
-    - refget
-    - SPDI
-    - VCF
-    - VRS
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:13
+    - STANDARDSDATATOPIC:35
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:36
+    - STANDARDSDATASTANDARDORTOOL:154
+    - STANDARDSDATASTANDARDORTOOL:819
+    - STANDARDSDATASTANDARDORTOOL:278
+    - STANDARDSDATASTANDARDORTOOL:299
+    - STANDARDSDATASTANDARDORTOOL:301
+    enables:
     - STANDARDSUSECASE:20
     - STANDARDSUSECASE:26
     - STANDARDSUSECASE:28
@@ -152,15 +151,15 @@ use_cases:
     description: Perform voice data collection, either in a clinical setting or through a mobile device. Includes a process for patients to consent to voice data collection, voice data sharing and utilization as part of voice AI technology.
     relevance_to_dgps:
     - voice
-    data_topics: 
-    - Survey
-    - Voice
-    standards_and_tools_for_dgp_use: 
-    - AtriumDB
-    - AWS
-    - REDCap
-    - Wasabi
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:31
+    - STANDARDSDATATOPIC:36
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:732
+    - STANDARDSDATASTANDARDORTOOL:723
+    - STANDARDSDATASTANDARDORTOOL:821
+    - STANDARDSDATASTANDARDORTOOL:839
+    enables:
     - STANDARDSUSECASE:13
     - STANDARDSUSECASE:22
     - STANDARDSUSECASE:27
@@ -176,12 +175,12 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     - chorus
-    data_topics: 
-    - SDoH
-    - Survey
-    standards_and_tools_for_dgp_use: 
-    - OMOP CDM
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:29
+    - STANDARDSDATATOPIC:31
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:243
+    enables:
     - STANDARDSUSECASE:17
     - STANDARDSUSECASE:26
     - STANDARDSUSECASE:28
@@ -196,11 +195,11 @@ use_cases:
     description: Images of objects at the microscale (i.e., those at 0.1–100μm) are obtained through a variety of microscopy approaches. In the CM4AI project, images of cell structures are obtained through confocal immunofluorescence microscopy.
     relevance_to_dgps:
     - cm4ai
-    data_topics: 
-    - Microscale Imaging
-    standards_and_tools_for_dgp_use: 
-    - FAIRSCAPE
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:19
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:764
+    enables:
     - STANDARDSUSECASE:16
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -212,11 +211,11 @@ use_cases:
     description: The proteome is the complete set of proteins that is expressed by a genome, cell, tissue, or organism at a given time and set of conditions. Proteome data refers to the information that is generated from studies of the proteome, such as the identification and characterization of the proteins that are expressed, their relative abundance, and any modifications that they may undergo. In the CM4AI project, proteome data is obtained through affinity purification coupled with tandem mass spectroscopy (AP-MS/MS).
     relevance_to_dgps:
     - cm4ai
-    data_topics: 
-    - Proteome
-    standards_and_tools_for_dgp_use: 
-    - FAIRSCAPE
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:28
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:764
+    enables:
     - STANDARDSUSECASE:16
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -229,11 +228,11 @@ use_cases:
     description: In the CM4AI project, transcriptome data is collected through single-cell RNA sequencing from cells subjected to CRISPR-driven mutagenesis.
     relevance_to_dgps:
     - cm4ai
-    data_topics: 
-    - Transcriptome
-    standards_and_tools_for_dgp_use: 
-    - FAIRSCAPE
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:34
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:764
+    enables:
     - STANDARDSUSECASE:16
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -246,14 +245,14 @@ use_cases:
     description: Clinical records generally do not include mechanisms for accessing voice recordings. Data records must therefore be linked to associate voice data samples with their source patients.
     relevance_to_dgps:
     - voice
-    data_topics: 
-    - EHR
-    - Voice
-    standards_and_tools_for_dgp_use: 
-    - AtriumDB
-    - FHIR
-    - ReproSchema
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:9
+    - STANDARDSDATATOPIC:36
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:732
+    - STANDARDSDATASTANDARDORTOOL:109
+    - STANDARDSDATASTANDARDORTOOL:271
+    enables:
     - STANDARDSUSECASE:17
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -265,11 +264,11 @@ use_cases:
     description: Transforming data from OMOP to the i2b2 standard involves converting the data from OMOP's schema to the i2b2 schema, which allows for the data to be more easily queried and analyzed using i2b2's tools and platforms. This involves mapping the data to equivalent concepts in the i2b2 schema, and may also involve cleaning and preprocessing the data to ensure that it is in the correct format for use with i2b2.
     relevance_to_dgps:
     - chorus
-    data_topics: 
-    - Clinical Observations
-    standards_and_tools_for_dgp_use: 
-    - i2b2
-    - OMOP CDM
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:775
+    - STANDARDSDATASTANDARDORTOOL:243
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -280,10 +279,10 @@ use_cases:
     description: "The sets of identifiers shared between two or more data products serve as points of commonality between observations, but in practice, a desired level of interoperability may not be achievable without mapping some identifiers to equivalent terms. This may be necessary for entire namespaces (e.g., mapping all NCBI Gene identifiers to their corresponding UniProtKB protein accessions) or for a subset (e.g., mapping ChEBI entries for drugs to their identifiers in a drug-centric knowledge base). There may also be a need to define inexact matches: an identifier’s best mapping in another resource may be to a more broadly-defined concept."
     relevance_to_dgps:
     - chorus
-    data_topics: 
-    - Data
-    standards_and_tools_for_dgp_use: 
-    - SSSOM
+    data_topics:
+    - STANDARDSDATATOPIC:5
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:378
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -294,14 +293,14 @@ use_cases:
     description: "As per Qin et al. (2021) Nature (https://doi.org/10.1038/s41586-021-04115-9), imaging data and biophysical association data may be combined to develop measurements of protein distance within subcellular systems. This use case builds on that strategy by adding a third component: measurement of transcript changes under perturbation conditions for each protein. For the CM4AI DGP, this process involves evidence graphs. The result here is not a full subcellular map, but rather the integrated data necessary to assemble such a map."
     relevance_to_dgps:
     - cm4ai
-    data_topics: 
-    - Microscale Imaging
-    - Proteome
-    - Protein Model
-    - Transcriptome
-    standards_and_tools_for_dgp_use: 
-    - FAIRSCAPE
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:19
+    - STANDARDSDATATOPIC:28
+    - STANDARDSDATATOPIC:27
+    - STANDARDSDATATOPIC:34
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:764
+    enables:
     - STANDARDSUSECASE:24
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -315,21 +314,21 @@ use_cases:
     - aireadi
     - chorus
     - voice
-    data_topics: 
+    data_topics:
     - Demographic
-    - Clinical Observations
-    - EHR
-    - mHealth
-    - SDoH
-    - Survey
-    standards_and_tools_for_dgp_use: 
-    - CCDEF
-    - LOINC
-    - MONAI
-    - OMOP CDM
-    - ReproSchema
-    - Spark
-    enables: 
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:9
+    - STANDARDSDATATOPIC:18
+    - STANDARDSDATATOPIC:29
+    - STANDARDSDATATOPIC:31
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:71
+    - STANDARDSDATASTANDARDORTOOL:187
+    - STANDARDSDATASTANDARDORTOOL:788
+    - STANDARDSDATASTANDARDORTOOL:243
+    - STANDARDSDATASTANDARDORTOOL:271
+    - STANDARDSDATASTANDARDORTOOL:727
+    enables:
     - STANDARDSUSECASE:26
     - STANDARDSUSECASE:28
     - STANDARDSUSECASE:29
@@ -344,12 +343,12 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     - chorus
-    data_topics: 
-    - EHR
-    - EKG
-    standards_and_tools_for_dgp_use: 
-    - MONAI
-    - WFDB Format
+    data_topics:
+    - STANDARDSDATATOPIC:9
+    - STANDARDSDATATOPIC:10
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:788
+    - STANDARDSDATASTANDARDORTOOL:202
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -362,14 +361,14 @@ use_cases:
     - aireadi
     - chorus
     - voice
-    data_topics: 
-    - Image
-    - Ophthalmic Imaging
-    standards_and_tools_for_dgp_use: 
-    - CCDEF
-    - DICOM
-    - MONAI
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:15
+    - STANDARDSDATATOPIC:24
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:71
+    - STANDARDSDATASTANDARDORTOOL:98
+    - STANDARDSDATASTANDARDORTOOL:788
+    enables:
     - STANDARDSUSECASE:25
     - STANDARDSUSECASE:30
     involved_in_experimental_design: False
@@ -383,10 +382,10 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     - voice
-    data_topics: 
-    - Genome
-    standards_and_tools_for_dgp_use: 
-    - FHIR
+    data_topics:
+    - STANDARDSDATATOPIC:13
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:109
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -397,11 +396,11 @@ use_cases:
     description: As per Qin et al. (2021) Nature (https://doi.org/10.1038/s41586-021-04115-9), imaging data and biophysical association data may be combined to develop measurements of protein distance within subcellular systems. When combined with other data (see STANDARDSUSECASE:16) the result is a map of cell architecture. Some degree of standardization will be necessary among these maps, such that they may be combined while retaining consistent biologically-relevant observations.
     relevance_to_dgps:
     - cm4ai
-    data_topics: 
-    - Microscale Imaging
-    - Protein Model
-    - Proteome
-    - Transcriptome
+    data_topics:
+    - STANDARDSDATATOPIC:19
+    - STANDARDSDATATOPIC:27
+    - STANDARDSDATATOPIC:28
+    - STANDARDSDATATOPIC:34
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -412,9 +411,9 @@ use_cases:
     description: Standardizing voice recordings involves ensuring that all recordings have consistent properties, including volume, equalization, and noise reduction. These standards also incorporate processes for storing metadata about recorded voice samples.
     relevance_to_dgps:
     - voice
-    data_topics: 
-    - Voice
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:36
+    enables:
     - STANDARDSUSECASE:31
     - STANDARDSUSECASE:32
     involved_in_experimental_design: False
@@ -427,10 +426,10 @@ use_cases:
     description: Computational provenance is a record of the processes and data used to produce a computational result. Constructing standards for computational provenance involves establishing protocols for how this information should be recorded, stored, and shared. This can include what information provenance records must contain, their format(s), and any connections to the resulting computation. Additionally, standards may be established for how provenance should be validated and authenticated to ensure its accuracy and trustworthiness.
     relevance_to_dgps:
     - cm4ai
-    data_topics: 
-    - Data
-    standards_and_tools_for_dgp_use: 
-    - EVI
+    data_topics:
+    - STANDARDSDATATOPIC:5
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:444
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -441,11 +440,11 @@ use_cases:
     description: Given the availability of integrated imaging, biophysical, and transcriptome data centered on a specific set of proteins (see STANDARDSUSECASE:16), we may then use these results to assemble maps of the physical proximities and relationships among those proteins.
     relevance_to_dgps:
     - cm4ai
-    data_topics: 
-    - Microscale Imaging
-    - Protein Model
-    - Proteome
-    - Transcriptome
+    data_topics:
+    - STANDARDSDATATOPIC:19
+    - STANDARDSDATATOPIC:27
+    - STANDARDSDATATOPIC:28
+    - STANDARDSDATATOPIC:34
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -456,11 +455,11 @@ use_cases:
     description: Developing models of clinical image data may involve annotation, preprocessing, and model training. Generally, annotation requires labeling  images with disease or clinical phenotype-relevant information such as labels, bounding boxes, and segmentation masks. The annotation process may be assisted by automated methods, particularly in cases where patient features are already known. Preprocessing such as resizing, normalization, and data augmentation then prepares the labeled images for model training. The training process applies machine learning algorithms to learn patterns from the data and make predictions on new images.
     relevance_to_dgps:
     - chorus
-    data_topics: 
-    - Image
-    standards_and_tools_for_dgp_use: 
-    - MONAI
-    enables: 
+    data_topics:
+    - STANDARDSDATATOPIC:15
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:788
+    enables:
     - STANDARDSUSECASE:30
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -472,13 +471,13 @@ use_cases:
     description: As presented by the AI-READI DGP, developing pseudotime patient models of health and salutogenesis hinges on the idea that health is a time-sensitive process, with various events contributing to a progression towards clinical outcomes in a chronological fashion. The exact amount of time between events may not be as important as their order and may therefore be abstracted.
     relevance_to_dgps:
     - aireadi
-    data_topics: 
-    - Clinical Observations
-    - EKG
-    - Genome
-    - mHealth
-    - Ophthalmic Imaging
-    - SDoH
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:10
+    - STANDARDSDATATOPIC:13
+    - STANDARDSDATATOPIC:18
+    - STANDARDSDATATOPIC:24
+    - STANDARDSDATATOPIC:29
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -489,13 +488,13 @@ use_cases:
     description: As presented by the Voice DGP, a set of patient voice recordings may be analyzed in an automated manner through the machine learning approach of federated learning. In federated learning, a central model is first trained on a dataset distributed among many devices or clients. Individual clients train their own copies of the model on their own data, then send updated model parameters to the central server. The server then averages newly updated parameters from all clients to produce a new global model. It returns the new model to the clients and the process repeats.
     relevance_to_dgps:
     - voice
-    data_topics: 
-    - Clinical Observations
-    - Survey
-    - Voice
-    standards_and_tools_for_dgp_use: 
-    - AWS
-    - Wasabi
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:31
+    - STANDARDSDATATOPIC:36
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:723
+    - STANDARDSDATASTANDARDORTOOL:839
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -506,13 +505,13 @@ use_cases:
     description: As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on cognitive function. This case does not depend upon availability of pseudotime models, unlike STANDARDSUSECASE:29.
     relevance_to_dgps:
     - aireadi
-    data_topics: 
-    - Clinical Observations
-    - EKG
-    - Genome
-    - mHealth
-    - Ophthalmic Imaging
-    - SDoH
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:10
+    - STANDARDSDATATOPIC:13
+    - STANDARDSDATATOPIC:18
+    - STANDARDSDATATOPIC:24
+    - STANDARDSDATATOPIC:29
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -524,13 +523,13 @@ use_cases:
     Known Limitations: Depends upon availability of pseudotime models.
     relevance_to_dgps:
     - aireadi
-    data_topics: 
-    - Clinical Observations
-    - EKG
-    - Genome
-    - mHealth
-    - Ophthalmic Imaging
-    - SDoH
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:10
+    - STANDARDSDATATOPIC:13
+    - STANDARDSDATATOPIC:18
+    - STANDARDSDATATOPIC:24
+    - STANDARDSDATATOPIC:29
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -541,10 +540,10 @@ use_cases:
     description: Given the availability of a model of clinical image data (as produced by STANDARDSUSECASE:25), testing and deploying the model generally involves creating a test data set, preprocessing the data by normalizing and converting it into a format that can be used by the model, evaluating the model's performance on the test set, then optimizing the model by re-training under different parameters or input data until the desired level of performance is achieved. There may be a need for converting the model to a format that can be used in a specific runtime environment or monitoring the model's performance in a production environment and making adjustments as needed. Deploying the analytical model may require consideration of validation, regulatory approval, ethics, and compliance with patient privacy laws.
     relevance_to_dgps:
     - chorus
-    data_topics: 
-    - Image
-    standards_and_tools_for_dgp_use: 
-    - MONAI
+    data_topics:
+    - STANDARDSDATATOPIC:15
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:788
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -555,10 +554,17 @@ use_cases:
     description: Developing software and cloud infrastructure for automated voice data collection in this use case first requires development of a smartphone application. The application would need to be able to record audio, allow user logins, upload the recorded audio to cloud storage, and permit users to view and manage recorded audio data. The cloud infrastructure would need to store and process the audio data to handle the storage, as well as potentially using machine learning algorithms to analyze the audio data. Additionally, the infrastructure would need to have a secure and reliable means of transmitting data between the smartphone application and the cloud.
     relevance_to_dgps:
     - voice
-    data_topics: 
-    - Survey
-    - Voice
-    alternative_standards_and_tools: AWS, Azure, DigitalOcean, GCP, Linode, MinIO, Wasabi
+    data_topics:
+    - STANDARDSDATATOPIC:31
+    - STANDARDSDATATOPIC:36
+    alternative_standards_and_tools:
+    - STANDARDSDATASTANDARDORTOOL:723
+    - STANDARDSDATASTANDARDORTOOL:790
+    - STANDARDSDATASTANDARDORTOOL:758
+    - STANDARDSDATASTANDARDORTOOL:767
+    - STANDARDSDATASTANDARDORTOOL:785
+    - STANDARDSDATASTANDARDORTOOL:791
+    - STANDARDSDATASTANDARDORTOOL:839
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
@@ -569,13 +575,20 @@ use_cases:
     description: Building a database of human voice samples and associations with biomarkers of health may begin with a secure database, either on-premise or based in cloud infrastructure. Data organization and labeling should support retrieval and analysis. Machine learning algorithms can be applied to the data to identify patterns and associations between the voice samples and the biomarkers of health. Regularly updating the database with new data and re-analyzing the data could improve the accuracy and resolution of the predicted associations.
     relevance_to_dgps:
     - voice
-    data_topics: 
-    - Clinical Observations
-    - Variant
-    - Voice
-    standards_and_tools_for_dgp_use: 
-    - AtriumDB
-    alternative_standards_and_tools: AWS, Azure, DigitalOcean, GCP, Linode, MinIO, Wasabi
+    data_topics:
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:35
+    - STANDARDSDATATOPIC:36
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:732
+    alternative_standards_and_tools:
+    - STANDARDSDATASTANDARDORTOOL:723
+    - STANDARDSDATASTANDARDORTOOL:790
+    - STANDARDSDATASTANDARDORTOOL:758
+    - STANDARDSDATASTANDARDORTOOL:767
+    - STANDARDSDATASTANDARDORTOOL:785
+    - STANDARDSDATASTANDARDORTOOL:791
+    - STANDARDSDATASTANDARDORTOOL:839
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -584,8 +597,8 @@ use_cases:
     name: Build a relational database of arbitrary data types.
     use_case_category: application
     description: To set up a relational database, first choose a relational database management system (RDBMS). Create a schema to define the database structure, including the tables and fields. Build tables within the schema and define the fields and data types for each table, then populate them with data by inserting rows. It's also crucial to set up relationships between tables, such as linking a primary key in one table to a foreign key in another table. This ensures data integrity and simplifies querying.
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -594,8 +607,8 @@ use_cases:
     name: Query a relational database of arbitrary data types.
     use_case_category: application
     description: Querying a relational database covers a variety of actions to retrieve subsets of its contents.
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     alternative_standards_and_tools: Neo4j
     involved_in_experimental_design: True
     involved_in_metadata_management: True
@@ -605,8 +618,8 @@ use_cases:
     name: Build a graph database of arbitrary data types.
     use_case_category: application
     description: To set up a graph database, first choose a graph database management system. Create a graph data model to define the nodes, edges, and properties of the graph. Once the data model is in place, create nodes, edges, and properties in the graph corresponding to input data. Depending on the graph database platform, there may be functionality to set up indexes on certain properties to optimize query performance. Setting up constraints on the data can help to ensure data integrity. 
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -615,8 +628,8 @@ use_cases:
     name: Query a graph database of arbitrary data types.
     use_case_category: application
     description: Querying a graph database covers a variety of actions to retrieve subsets of its contents, often by yielding subsets of the graph (i.e., subgraphs).
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -625,8 +638,8 @@ use_cases:
     name: Train a linear regression model on data in an R tibble.
     use_case_category: modeling
     description: Training a linear regression model on data in the R tibble data structure generally involves R’s lm() function. To see the summary of the resulting model, use the summary() function on the model object. To make predictions using the model, use the predict() function on the model object and provide new data as the argument.
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: True
@@ -635,8 +648,8 @@ use_cases:
     name: Train a binary classification model on data in one or more Bioconductor objects.
     use_case_category: modeling
     description: Training a binary classification model on Bioconductor objects can be a convenient way to work with R statistical functions on large quantities of heterogeneous data. After any necessary preprocessing of the data, such as normalizing or filtering, split it into a training and test set. Then select a classification algorithm and use the training data to train a model. Test data may be used to evaluate the performance of the model and adjust any parameters as necessary.
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: False
@@ -645,8 +658,8 @@ use_cases:
     name: Train a neural network model on tensor data.
     use_case_category: modeling
     description: Training a neural network model on tensor data is a frequent use case for developing data analysis and prediction methods. 
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: False
@@ -655,11 +668,10 @@ use_cases:
     name: Transform FHIR data to TSV.
     use_case_category: integration
     description: Data described through the HL7 FHIR standard may take a variety of forms, owing to the standard’s intentional flexibility. A highly interpretable, easily parsed format such as TSV may be desirable as part of transformation or subsequent analysis.
-    data_topics: 
-    - Data
-    standards_and_tools_for_dgp_use: 
-    - FHIR
-    - TSV
+    data_topics:
+    - STANDARDSDATATOPIC:5
+    standards_and_tools_for_dgp_use:
+    - STANDARDSDATASTANDARDORTOOL:109
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
@@ -668,8 +680,8 @@ use_cases:
     name: Determine whether enough data is available to train a computational model of interest.
     use_case_category: assessment
     description: Computational models may require a certain amount or complexity of data for their training to be effective. It may be useful to define these properties before beginning modeling.
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: True
@@ -678,8 +690,8 @@ use_cases:
     name: Assess the quality of a computational model in terms of its ability to complete a specific task.
     use_case_category: assessment
     description: Independent of their application, computational models may be evaluated using a core set of metrics, including accuracy, precision, and recall.
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: True
@@ -688,8 +700,8 @@ use_cases:
     name: Assess the potential bias in a computational model.
     use_case_category: assessment
     description: Even a high-performing computational model may be subject to bias, both explicitly and implicitly. The model may not accurately represent the population it was trained on. It may be algorithmically biased, with some features gaining weight over others in unexpected ways. There may be biases resulting from human preconceptions, e.g., human curators may have already made assumptions about disease status of patients contributing data to the model’s training set. There may also be unexpected confounders, such as social or economic factors contributing to clinical outcomes.
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: False
     involved_in_metadata_management: False
     involved_in_quality_control: True
@@ -698,8 +710,8 @@ use_cases:
     name: Assess the explainability of a computational model.
     use_case_category: assessment
     description: Computational models are not equivalently explainable. A model’s operations may appear correct, but without the ability to justify its responses based on a particular reasoning process, it may remain challenging to identify its weaknesses.
-    data_topics: 
-    - Data
+    data_topics:
+    - STANDARDSDATATOPIC:5
     involved_in_experimental_design: False
     involved_in_metadata_management: False
     involved_in_quality_control: True
