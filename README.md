@@ -16,6 +16,7 @@ Our Standards Registry goals are threefold: (1) ensure integration of the standa
 ## Repository Structure
 
 * [src/](src/) - source files
+  * [schema](src/schema) - a copy of the standards-schemas - see https://github.com/bridge2ai/standards-schemas
   * [data](src/data) - data in YAML format
 
 ## Developer Documentation
