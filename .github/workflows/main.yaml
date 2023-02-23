@@ -38,10 +38,10 @@ jobs:
         run: poetry install --no-interaction --no-root
 
       #----------------------------------------------
-      #    install your root project, if required 
+      #    Skip installing the root package
       #----------------------------------------------      
-      - name: Install library
-        run: poetry install --no-interaction
+      #- name: Install library
+      #  run: poetry install --no-interaction
 
       #----------------------------------------------
       #    Run tests
