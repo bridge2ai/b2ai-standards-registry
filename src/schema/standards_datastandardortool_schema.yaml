@@ -1,0 +1,255 @@
+id: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+name: standards-datastandardortool-schema
+title: standards-datastandardortool-schema
+description: |-
+  Data schema for Bridge2AI standards and tools.
+license: MIT
+see_also:
+  - https://bridge2ai.github.io/standards-datastandardortool-schema
+
+prefixes:
+  STANDARDSDATASTANDARDORTOOL: https://w3id.org/bridge2ai/standards-datastandardortool-schema/
+  STANDARDSORGANIZATION: https://w3id.org/bridge2ai/standards-organization-schema/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+default_prefix: STANDARDSDATASTANDARDORTOOL
+default_range: string
+
+imports:
+  - linkml:types
+  - standards_schema
+  - standards_organization_schema
+  - standards_datatopic_schema
+
+
+classes:
+
+  DataStandardOrTool:
+    is_a: NamedThing
+    description: >-
+      Represents a standard or tool in the Bridge2AI
+      Standards Registry.
+    slots:
+      - collection
+      - concerns_data_topic
+      - has_relevant_organization
+      - purpose_detail
+      - is_open
+      - requires_registration
+      - url
+      - publication
+      - formal_specification
+
+  DataStandard:
+    is_a: DataStandardOrTool
+    description: >-
+      Represents a general purpose standard in the
+      Bridge2AI Standards Registry.
+
+  BiomedicalStandard:
+    is_a: DataStandard
+    description: >-
+      Represents a standard in the Bridge2AI
+      Standards Registry with particular applications
+      or relevance to clinical or biomedical research
+      purposes.
+
+  Registry:
+    is_a: DataStandardOrTool
+    description: >-
+      Represents a resource in the Bridge2AI
+      Standards Registry serving to curate and/or
+      index other resources.
+
+  OntologyOrVocabulary:
+    is_a: DataStandardOrTool
+    description: >-
+      A set of concepts and categories, potentially
+      defined or accompanied by their hierarchical
+      relationships.
+  
+  ModelRepository:
+    is_a: DataStandardOrTool
+    description: >-
+      Represents a resource in the Bridge2AI
+      Standards Registry serving to curate and
+      store computational models. To be a respository,
+      the resource must not index models alone.
+
+  ReferenceDataOrDataset:
+    is_a: DataStandardOrTool
+    description: >-
+      Represents a resource in the Bridge2AI
+      Standards Registry serving as a standardized,
+      reusable data source.
+  
+  SoftwareOrTool:
+    is_a: DataStandardOrTool
+    description: >-
+      Represents a piece of software or computational tool
+      in the Bridge2AI Standards Registry.
+
+  ReferenceImplementation:
+    is_a: DataStandardOrTool
+    description: >-
+      Represents an implementation of one or more standards
+      or tools in the Bridge2AI Standards Registry, whether
+      as a full specification in a particular language or
+      as an application to a specific use case.
+
+  TrainingProgram:
+    is_a: DataStandardOrTool
+    description: >-
+      Represents a training program for skills and experience
+      related to standards or tools in the Bridge2AI Standards
+      Registry.
+
+  DataStandardOrToolContainer:
+    description: >-
+      A container for DataStandardOrTool(s).
+    slots:
+      - data_standardortools_collection
+
+slots:
+
+  collection:
+    is_a: node property
+    range: StandardsCollectionTag
+    description: >-
+      Tags for specific sets of standards.
+    multivalued: true
+  
+  purpose_detail:
+    range: string
+    is_a: node property
+    description: >-
+      Text description of the standard or tool.
+  
+  is_open:
+    is_a: node property
+    range: boolean
+    description: >-
+      Is the standard or tool FAIR and available
+      free of cost?
+  
+  requires_registration:
+    is_a: node property
+    range: boolean
+    description: >-
+      Does usage of the standard or tool
+      require registrion of a user or group
+      with some organization or managerial body?
+
+  concerns_data_topic:
+    is_a: related_to
+    description: >-
+      Subject standard is generally applied
+      in the context of object data topic.
+    domain: DataStandardOrTool
+    range: DataTopic
+  
+  publication:
+    is_a: node property
+    range: uriorcurie
+    description: >-
+      Relevant publication for the standard
+      or tool. Prefer a DOI or PUBMED.
+
+  formal_specification:
+    is_a: node property
+    range: uriorcurie
+    description: >-
+      Relevant code repository or other location
+      for a formal specification of the standard
+      or tool. Often a URL, particularly to
+      a Git repository.
+
+  has_relevant_organization:
+    is_a: related_to
+    description: >-
+      Subject standard is managed or otherwise guided
+      buy the object organization(s).
+    domain: DataStandardOrTool
+    range: Organization
+
+  data_standardortools_collection:
+    range: DataStandardOrTool
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
+
+enums:
+  StandardsCollectionTag:
+    description: Tags for specific sets of standards.
+    permissible_values:
+      audiovisual:
+        description: Audiovisual Standard
+      deprecated:
+        description: Deprecated
+      fileformat:
+        description: File Format
+      toolkit:
+        description: Bioinformatics Toolkit
+      clinicaldata:
+        description: Clinical Data
+      multimodal:
+        description: Multimodal Data Integration
+      text:
+        description: Text Data
+      cloudplatform:
+        description: Cloud Research Platform
+      cloudservice:
+        description: Cloud Service
+      codesystem:
+        description: Code System
+      datamodel:
+        description: Data Model
+      dataregistry:
+        description: Data Registry
+      softwareregistry:
+        description: Software Registry
+      datavisualization:
+        description: Data Visualization
+      notebookplatform:
+        description: Notebook Platform
+      datasheets:
+        description: Datasheets
+      machinelearningframework:
+        description: Machine Learning Framework
+      workflowlanguage:
+        description: Workflow Language
+      diagnosticinstrument:
+        description: Diagnostic Instrument
+      drugdata:
+        description: Drug Data
+      eyedata:
+        description: Eye Data
+      markuplanguage:
+        description: Markup Language
+      graphdataplatform:
+        description: Graph Data Platform
+      guidelines:
+        description: Guidelines
+      minimuminformationschema:
+        description: Minimum Information Schema
+      modelcards:
+        description: Model Cards
+      obofoundry:
+        description: OBO Foundry
+      ontologyregistry:
+        description: Ontology Registry
+      policy:
+        description: Policy
+      proteindata:
+        description: Protein Data
+      referencegenome:
+        description: Reference Genome
+      scrnaseqanalysis:
+        description: scRNA-seq Analysis
+      speechdata:
+        description: Speech Data
+      standardsregistry:
+        description: Standards Registry
+      
