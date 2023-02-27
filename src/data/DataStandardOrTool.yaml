@@ -2805,7 +2805,8 @@ data_standardortools_collection:
     name: mzXML
     description: mzXML format
     collection:
-    - deprecated, File Format
+    - deprecated
+    - fileformat
     concerns_data_topic:
     - STANDARDSDATATOPIC:28
     purpose_detail: mzXML an open, generic XML (extensible markup language) representation of MS data. This format is now deprecated and it has been superseded by mzML.
@@ -3150,7 +3151,7 @@ data_standardortools_collection:
     concerns_data_topic:
     - STANDARDSDATATOPIC:4
     has_relevant_organization: 
-    - MD PnP
+    - STANDARDSORGANIZATION:54
     purpose_detail: OpenICE is an initiative to create a community implementation of an Integrated Clinical Environment. The initiative encompasses not only software implementation but also an architecture for a wider clinical ecosystem to enable new avenues of clinical research. OpenICE seeks to integrate an inclusive framework of healthcare devices and clinical applications to existing Healthcare IT ecosystems.
     is_open: True
     requires_registration: False
@@ -3202,7 +3203,7 @@ data_standardortools_collection:
     concerns_data_topic:
     - STANDARDSDATATOPIC:4
     has_relevant_organization: 
-    - MD PnP
+    - STANDARDSORGANIZATION:54
     purpose_detail: This standard specifies the characteristics necessary for the safe integration of MEDICAL DEVICES and other equipment, via an electronic interface, from different MANUFACTURERS into a single medical system for the care of a single high acuity PATIENT. This standard establishes requirements for a medical system that is intended to have greater error resistance and improved PATIENT safety, treatment efficacy and workflow efficiency than can be achieved with independently used MEDICAL DEVICES.
     is_open: False
     requires_registration: False
@@ -3956,7 +3957,8 @@ data_standardortools_collection:
     name: AIFF
     description: Audio Interchange File Format
     collection:
-    - audiovisual, File Format
+    - audiovisual
+    - fileformat
     concerns_data_topic:
     - STANDARDSDATATOPIC:37
     purpose_detail: File format for sound that wraps various sound bitstreams, ranging from uncompressed waveform to MIDI.
@@ -4137,7 +4139,8 @@ data_standardortools_collection:
     name: FIPS
     description: Federal Information Processing System Codes for States and Counties
     collection:
-    - codesystem, Deprecated
+    - codesystem
+    - deprecated
     purpose_detail: FIPS codes are numbers which uniquely identify geographic areas. As of database version 55, FIPS has been merged with the Geographic Names Information System (GNIS).
     is_open: True
     requires_registration: False
@@ -5322,7 +5325,7 @@ data_standardortools_collection:
     collection:
     - obofoundry
     has_relevant_organization: 
-    - CDC IIS
+    - STANDARDSORGANIZATION:13
     purpose_detail: Code set for active and inactive vaccines available in the US.
     is_open: True
     requires_registration: False
@@ -5342,7 +5345,8 @@ data_standardortools_collection:
     name: CTCAE
     description: Common Terminology Criteria for Adverse Events
     concerns_data_topic:
-    - STANDARDSDATATOPIC:4, Disease
+    - STANDARDSDATATOPIC:4
+    - STANDARDSDATATOPIC:7
     purpose_detail: Common Terminology Criteria for Adverse Events (CTCAE) is widely accepted throughout the oncology community as the standard classification and severity grading scale for adverse events in cancer therapy clinical trials and other oncology settings.
     is_open: True
     requires_registration: False
@@ -6005,7 +6009,7 @@ data_standardortools_collection:
     name: MVX
     description: Manufacturers of Vaccines
     has_relevant_organization: 
-    - CDC IIS
+    - STANDARDSORGANIZATION:13
     purpose_detail: Code set for active and inactive manufacturers of vaccines in the US.
     is_open: True
     requires_registration: False
@@ -6066,7 +6070,7 @@ data_standardortools_collection:
     name: MED-RT
     description: Medication Reference Terminology
     collection:
-    - codesystem, UMLS
+    - codesystem
     concerns_data_topic:
     - STANDARDSDATATOPIC:8
     has_relevant_organization: 
@@ -6762,7 +6766,6 @@ data_standardortools_collection:
     description: RxNorm
     collection:
     - codesystem
-    - UMLS
     concerns_data_topic:
     - STANDARDSDATATOPIC:8
     has_relevant_organization: 
@@ -6873,7 +6876,6 @@ data_standardortools_collection:
     description: Systematized Nomenclature of Medicine - Clinical Terms
     collection:
     - codesystem
-    - UMLS
     concerns_data_topic:
     - STANDARDSDATATOPIC:9
     has_relevant_organization: 
@@ -6886,8 +6888,6 @@ data_standardortools_collection:
   - id: STANDARDSDATASTANDARDORTOOL:554
     name: SNMI
     description: Systematized Nomenclature of Medicine, International Version
-    collection:
-    - UMLS
     has_relevant_organization: 
     - STANDARDSORGANIZATION:74
     purpose_detail: SNOMED, not SNOMED-CT
@@ -7016,8 +7016,6 @@ data_standardortools_collection:
   - id: STANDARDSDATASTANDARDORTOOL:564
     name: Metathesaurus
     description: UMLS Metathesaurus
-    collection:
-    - UMLS
     has_relevant_organization: 
     - STANDARDSORGANIZATION:74
     purpose_detail: Biomedical terminology and hierarchical relationships between concepts.
@@ -7377,11 +7375,11 @@ data_standardortools_collection:
     name: CATH
     description: CATH
     collection:
-    - STANDARDSDATATOPIC:26 Data
+    - proteindata
     concerns_data_topic:
     - STANDARDSDATATOPIC:26
     has_relevant_organization: 
-    - UCL Orengo
+    - STANDARDSORGANIZATION:95
     purpose_detail: A free, publicly available online resource that provides information on the evolutionary relationships of protein structural domains.
     is_open: True
     requires_registration: False
@@ -7586,7 +7584,9 @@ data_standardortools_collection:
     name: eICU-CRD
     description: eICU Collaborative Research Database
     collection:
-    - clinicaldata, Multimodal Data Integration, Text Data
+    - clinicaldata
+    - multimodal
+    - text
     concerns_data_topic:
     - STANDARDSDATATOPIC:9
     has_relevant_organization: 
@@ -7626,7 +7626,7 @@ data_standardortools_collection:
     name: ECOD
     description: Evolutionary Classification of Protein Domains
     collection:
-    - STANDARDSDATATOPIC:26 Data
+    - proteindata
     concerns_data_topic:
     - STANDARDSDATATOPIC:26
     purpose_detail: A hierarchical classification of protein domains according to their evolutionary relationships. Only proteins with experimentally determined spatial structures from the PDB database are currently classified in ECOD.
@@ -7840,7 +7840,7 @@ data_standardortools_collection:
     name: HPA
     description: Human Protein Atlas
     collection:
-    - STANDARDSDATATOPIC:26 Data
+    - proteindata
     concerns_data_topic:
     - STANDARDSDATATOPIC:26
     - STANDARDSDATATOPIC:28
@@ -7880,7 +7880,7 @@ data_standardortools_collection:
     name: InterPro
     description: InterPro
     collection:
-    - STANDARDSDATATOPIC:26 Data
+    - proteindata
     concerns_data_topic:
     - STANDARDSDATATOPIC:26
     has_relevant_organization: 
@@ -8173,7 +8173,7 @@ data_standardortools_collection:
     - STANDARDSDATATOPIC:7
     - STANDARDSDATATOPIC:25
     has_relevant_organization: 
-    - Columbia DBMI
+    - STANDARDSORGANIZATION:18
     purpose_detail: A real-world-data-derived resource with annotation for rare-disease-related phenotypes. This resource is derived from the EHRs of two academic health institutions containing more than 10 million individuals spanning wide age ranges and different disease subgroups. By leveraging ontology mapping and advanced natural-language-processing (NLP) methods, OARD automatically and efficiently extracts concepts for both rare diseases and their phenotypic traits from billing codes and lab tests as well as over 100 million clinical narratives.
     is_open: True
     requires_registration: False
@@ -8395,7 +8395,7 @@ data_standardortools_collection:
     name: SCOP
     description: Structural Classification of Proteins
     collection:
-    - STANDARDSDATATOPIC:26 Data
+    - proteindata
     concerns_data_topic:
     - STANDARDSDATATOPIC:26
     purpose_detail: The SCOP database, created by manual inspection and abetted by a battery of automated methods, aims to provide a detailed and comprehensive description of the structural and evolutionary relationships between all proteins whose structure is known.
@@ -9593,7 +9593,8 @@ data_standardortools_collection:
     name: GrAPE
     description: Graph Representation leArning, Predictions and Evaluation library
     collection:
-    - graphdataplatform, Machine Learning Framework
+    - graphdataplatform
+    - machinelearningframework
     concerns_data_topic:
     - STANDARDSDATATOPIC:21
     purpose_detail: A fast graph processing and embedding library, designed to scale with big graphs and to run on both off-the-shelf laptop and desktop computers and High Performance Computing clusters of workstations.
