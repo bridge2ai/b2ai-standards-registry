@@ -28,7 +28,7 @@ DataTopicContainer \
 OrganizationContainer \
 UseCaseContainer
 
-pairlist = $(if $1$2,$(firstword $1) -C $(firstword $2) $(call pairup,$(wordlist 2,$(words $1),$1),$(wordlist 2,$(words $2),$2)))
+pairlist = $(if $1$2,$(firstword $1) -C $(firstword $2))
 
 RUN = poetry run
 .PHONY: clean-schemas update-schemas
