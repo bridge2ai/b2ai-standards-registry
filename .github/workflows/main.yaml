@@ -50,7 +50,7 @@ jobs:
       #  run: make test
 
       #----------------------------------------------
-      #    Run LinkML validation
+      #    Validate data
       #----------------------------------------------
-      #- name: Run LinkML example validation
-      #  run: make combined-extras
+      - name: Run linkml-validate on data
+        run: make validate
