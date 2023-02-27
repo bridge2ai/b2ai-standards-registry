@@ -26,6 +26,7 @@ Our Standards Registry goals are threefold: (1) ensure integration of the standa
 Use the `make` command to generate project artifacts:
 
 * `make all`: make everything
+* `make update-schemas`: update the standards-schemas
 * `make test`: test the validators
 * `make validate`: validate the data
 * `make deploy`: deploys site
