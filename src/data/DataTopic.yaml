@@ -37,7 +37,7 @@ data_topics_collection:
     description: All data derived from observations of individual clinical patients, whether as part of a clinical trial or in the course of diagnosis, treatment, and follow-up.
 
   - id: STANDARDSDATATOPIC:5
-    name: Data	
+    name: Data
     edam_id: edam.data:0006
     mesh_id: mesh:D003625
     ncit_id: ncit:C25474
@@ -55,7 +55,8 @@ data_topics_collection:
     name: Disease
     subclass_of:
     - STANDARDSDATATOPIC:5
-    related_to: Phenotype
+    related_to:
+    - STANDARDSDATATOPIC:25
     edam_id: edam.data:3667
     mesh_id: mesh:D004194
     ncit_id: ncit:C2991
