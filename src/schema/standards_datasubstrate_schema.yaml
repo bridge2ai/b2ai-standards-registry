@@ -1,0 +1,84 @@
+id: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+name: standards-datasubstrate-schema
+title: standards-datasubstrate-schema
+description: |-
+  Data schema for Bridge2AI data substrates.
+license: MIT
+see_also:
+  - https://bridge2ai.github.io/standards-datasubstrate-schema
+
+prefixes:
+  STANDARDSDATASUBSTRATE: https://w3id.org/bridge2ai/standards-datasubstrate-schema/
+  edam.data: http://edamontology.org/data_
+  edam.format: http://edamontology.org/format_
+  edam.operation: http://edamontology.org/operation_
+  edam.topic: http://edamontology.org/topic_
+  MeSH: http://id.nlm.nih.gov/mesh/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+default_prefix: STANDARDSDATASUBSTRATE
+default_range: string
+
+imports:
+  - linkml:types
+  - standards_schema
+
+classes:
+
+  DataSubstrate:
+    is_a: NamedThing
+    description: >-
+      Represents a data substrate for Bridge2AI data.
+      This may be a high-level data structure
+      or a specific implementation of that structure.
+      Interpret as "data, in this form or format",
+      as compared to DataStandard, which refers to the
+      set of rules defining a standard. For example,
+      data in TSV format is represented as a DataSubstrate
+      but the concept of TSV format is a DataStandard.
+    slots:
+      - edam_id
+      - mesh_id
+      - ncit_id
+      - metadata_storage
+      - file_extensions
+      - limitations
+
+  DataSubstrateContainer:
+    description: >-
+      A container for DataSubstrates.
+    slots:
+      - data_substrates_collection
+
+slots:
+
+  # TODO: need the "transform to" relation
+  # TODO: need to specify related_to relation
+  metadata_storage:
+    is_a: node property
+    range: string
+    any_of:
+      - range: DataSubstrate
+      - equals_string: file headers
+    description: Data Substrate in which metadata is stored.
+    multivalued: true
+  file_extensions:
+    is_a: node property
+    range: string
+    description: Commonly used file extensions for this substrate.
+    multivalued: true
+  limitations:
+    is_a: node property
+    range: string
+    description: >-
+      Potential obstacles particular to this substrate
+      or implementation. 
+    multivalued: true
+  data_substrates_collection:
+    range: DataSubstrate
+    inlined: true
+    inlined_as_list: true
+    multivalued: true

@@ -1,5 +1,8 @@
-# b2ai-standards-registry
+# Bridge2AI Standards Registry and Use Case Catalog
+
 Bridge2AI Standards Registry data models, API specification, and other documentation.
+
+Data objects are defined according to the [standards-schemas](https://github.com/bridge2ai/standards-schemas).
 
 From the Standards Core grant proposal:
 
@@ -9,6 +12,24 @@ From the Standards Core grant proposal:
 >
 > The Registry will maintain attributed use cases and validation rules and examples associated with each standard or element. Where possible, existing standards (e.g., minimal information specifications[71–73]) will be used to inform data element selection. Importantly, the Registry will include records for standards outside the scope of data modeling, such as specifications for preferred file formats, exchange protocols, and common APIs. We will also annotate standards with their readiness for different forms of AI algorithms as well as developing tools for cleaning and pre-processing; for example, image data for GCNs, data frames for traditional statistical ML, linked data for graph-based ML. The Standards Registry will be linked and synchronized with existing resources such as BioPortal[74] and FAIRsharing[75].
 Our Standards Registry goals are threefold: (1) ensure integration of the standards development lifecycle within the context of B2AI activities; (2) narrow the large space of standards to what is relevant; and (3) provide computational access and utilities for schemas and standards, rather than links to often outdated PDFs. We will enable programmatic access to the Registry via standardized APIs (defined via the OpenAPI specification and registered in SmartAPI[76]) to query standards metadata, elements, and validation rules.
+
+## Repository Structure
+
+* [src/](src/) - source files
+  * [schema](src/schema) - a copy of the standards-schemas - see https://github.com/bridge2ai/standards-schemas
+  * [data](src/data) - data in YAML format
+
+## Developer Documentation
+
+### Project Generation
+
+Use the `make` command to generate project artifacts:
+
+* `make all`: make everything
+* `make update-schemas`: update the standards-schemas
+* `make test`: test the validators
+* `make validate`: validate the data
+* `make deploy`: deploys site
 
 <details>
 <summary>References</summary>

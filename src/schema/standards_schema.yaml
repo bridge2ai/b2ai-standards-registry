@@ -1,0 +1,167 @@
+id: https://w3id.org/bridge2ai/standards-schema
+name: standards-schema
+title: standards-schema
+description: |-
+  High-level classes for Bridge2AI Standards schemas.
+license: MIT
+see_also:
+  - https://bridge2ai.github.io/standards-schema
+
+prefixes:
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  STANDARDS: https://w3id.org/bridge2ai/standards-schema/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  ncit: http://purl.obolibrary.org/obo/NCIT_
+  mesh: http://id.nlm.nih.gov/mesh/
+  edam.data: http://edamontology.org/data_
+  edam.format: http://edamontology.org/format_
+  edam.operation: http://edamontology.org/operation_
+  edam.topic: http://edamontology.org/topic_
+
+default_prefix: STANDARDS
+default_range: string
+
+imports:
+  - linkml:types
+
+types:
+  edam_identifier:
+    typeof: uriorcurie
+    id_prefixes:
+      - edam.data
+      - edam.format
+      - edam.operation
+      - edam.topic
+  mesh_identifier:
+    typeof: uriorcurie
+    id_prefixes:
+      - mesh
+  ncit_identifier:
+    typeof: uriorcurie
+    id_prefixes:
+      - ncit
+
+classes:
+
+  NamedThing:
+    description: >-
+      A generic grouping for any identifiable entity
+    slots:
+      - id
+      - name
+      - description
+      - subclass_of
+      - related_to
+    class_uri: schema:Thing
+
+slots:
+  node property:
+    description: >-
+      A grouping for any property that holds
+      between a node and a value.
+    domain: NamedThing
+  id:
+    identifier: true
+    slot_uri: schema:identifier
+    range: uriorcurie
+    description: A unique identifier for a thing.
+    required: true
+  name:
+    slot_uri: schema:name
+    description: A human-readable name for a thing.
+    range: string
+  description:
+    slot_uri: schema:description
+    description: A human-readable description for a thing.
+    range: string
+  edam_id:
+    examples:
+      - value: edam.data:0006
+    range: edam_identifier
+    values_from:
+      - edam.data
+      - edam.format
+      - edam.operation
+      - edam.topic
+  mesh_id:
+    examples:
+      - value: MeSH:D014831
+    range: mesh_identifier
+    values_from:
+      - MeSH
+  ncit_id:
+    examples:
+      - value: NCIT:C92692
+    range: ncit_identifier
+    values_from:
+      - NCIT
+  url:
+    is_a: node property
+    range: uriorcurie
+    description: >-
+      URL for basic documentation of the standard
+      or tool.
+  xref:
+    is_a: node property
+    aliases: [ 'dbxref', 'Dbxref', 'DbXref' ]
+    domain: NamedThing
+    range: uriorcurie
+    description: >-
+      URI of corresponding class in an ontology
+      of experimental procedures, in CURIE form.
+    multivalued: true
+
+  related_to:
+    description: >-
+      A relationship that is asserted between two named things.
+    domain: NamedThing
+    range: NamedThing
+    multivalued: true
+    inherited: true
+    symmetric: true
+
+  # TODO: Could be more specific with is_a relationships.
+  subclass_of:
+    is_a: related_to
+    description: >-
+      Holds between two classes where the domain class is
+      a specialization of the range class.
+    domain: NamedThing
+    range: NamedThing
+    multivalued: True
+    exact_mappings:
+      - rdfs:subClassOf
+      - MESH:isa
+    narrow_mappings:
+      - rdfs:subPropertyOf
+
+enums:
+  DataGeneratingProject:
+    description: One of the Bridge2AI Data Generating Projects.
+    permissible_values:
+      aireadi:
+        description: >-
+          AI-READI: Uncovering the details of how human health is restored
+          after disease, using type 2 diabetes as a model.
+        meaning: https://reporter.nih.gov/project-details/10471118
+      chorus:
+        description: >-
+          CHoRUS: Collaborative Hospital Repository Uniting Standards.
+          Using imaging, clinical, and other data collected in
+          an ICU setting for diagnosis and risk prediction.
+        meaning: https://reporter.nih.gov/project-details/10472824
+      cm4ai:
+        description: >-
+          CM4AI: Cell Maps for AI. Mapping spatiotemporal architecture
+          of human cells to interpret cell structure/function in health
+          and disease.
+        meaning: https://reporter.nih.gov/project-details/10473403
+      voice:
+        description: >-
+          Voice as a Biomarker of Health: Building an ethically
+          sourced, bioaccoustic database to understand disease
+          like never before.
+        meaning: https://reporter.nih.gov/project-details/10473236

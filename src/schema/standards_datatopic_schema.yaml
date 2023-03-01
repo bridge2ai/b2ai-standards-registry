@@ -1,0 +1,53 @@
+id: https://w3id.org/bridge2ai/standards-datatopic-schema
+name: standards-datatopic-schema
+title: standards-datatopic-schema
+description: |-
+  Data schema for Bridge2AI data topic types.
+license: MIT
+see_also:
+  - https://bridge2ai.github.io/standards-datatopic-schema
+
+prefixes:
+  edam.data: http://edamontology.org/data_
+  edam.format: http://edamontology.org/format_
+  edam.operation: http://edamontology.org/operation_
+  edam.topic: http://edamontology.org/topic_
+  MeSH: http://id.nlm.nih.gov/mesh/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  STANDARDSDATATOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+default_prefix: STANDARDSDATATOPIC
+default_range: string
+
+imports:
+  - linkml:types
+  - standards_schema
+
+classes:
+
+  DataTopic:
+    is_a: NamedThing
+    description: >-
+      Represents a general data topic for Bridge2AI
+      data or the tools/standards applied to the data.
+    slots:
+      - edam_id
+      - mesh_id
+      - ncit_id
+
+  DataTopicContainer:
+    description: >-
+      A container for DataTopics.
+    slots:
+      - data_topics_collection
+
+slots:
+
+  data_topics_collection:
+    range: DataTopic
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
