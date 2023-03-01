@@ -58,4 +58,6 @@ validate:
 		printf "Validating $${key}..." ; \
 		$(RUN_VALIDATE) -C $${CLASSES[$${key}]} $${key} ; \
 	done
-	
+
+gendoc: $(DOCDIR)
+	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
