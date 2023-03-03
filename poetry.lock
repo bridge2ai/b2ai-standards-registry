@@ -1,4 +1,16 @@
 [[package]]
+name = "airium"
+version = "0.2.5"
+description = "Easy and quick html builder with natural syntax correspondence (python->html). No templates needed. Serves pure pythonic library with no dependencies."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+dev = ["pdbpp (>=0.10,<1.0)", "pytest (>=6.2,<7.0)", "pytest-cov (>=3.0,<4.0)", "pytest-mock (>=3.6,<4.0)"]
+parse = ["beautifulsoup4 (>=4.10,<5.0)", "requests (>=2.12,<3)"]
+
+[[package]]
 name = "alabaster"
 version = "0.7.13"
 description = "A configurable sidebar-enabled Sphinx theme"
@@ -500,6 +512,23 @@ jsonpatch = "*"
 jsonpath-ng = "*"
 linkml-runtime = ">=1.1.6"
 "ruamel.yaml" = "*"
+
+[[package]]
+name = "linkml-renderer"
+version = "0.1.2"
+description = "linkml-renderer"
+category = "main"
+optional = false
+python-versions = ">=3.8,<4.0"
+
+[package.dependencies]
+airium = ">=0.2.5,<0.3.0"
+click = ">=8.1.3,<9.0.0"
+linkml = ">=1.4.1,<2.0.0"
+linkml-runtime = ">=1.4.1,<2.0.0"
+
+[package.extras]
+docs = ["myst-parser[docs] (>=0.18.1,<0.19.0)", "sphinx-autodoc-typehints[docs] (>=1.19.4,<2.0.0)", "sphinx-click[docs] (>=4.3.0,<5.0.0)", "sphinx-rtd-theme[docs] (>=1.0.0,<2.0.0)", "sphinx[docs] (>=5.3.0,<6.0.0)"]
 
 [[package]]
 name = "linkml-runtime"
@@ -1446,9 +1475,13 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a61b797b3bdc9ce753b4f921468dccb9936658558f5ae78f2671d45620444eee"
+content-hash = "f0fa8e2e327d3bb5e8cfaf292baea61703b17f554102f6790de7aa22c7eef7c8"
 
 [metadata.files]
+airium = [
+    {file = "airium-0.2.5-py3-none-any.whl", hash = "sha256:6b4d75a2ff1aca0d9f787bcd3a69df13a189a75806b2fa2c9acda2e30f0ef5be"},
+    {file = "airium-0.2.5.tar.gz", hash = "sha256:39a715fee1f6d81a75c31efa62bd13915d8648ea03937adf1ac07a6065f7cbec"},
+]
 alabaster = [
     {file = "alabaster-0.7.13-py3-none-any.whl", hash = "sha256:1ee19aca801bbabb5ba3f5f258e4422dfa86f82f3e9cefb0859b283cdd7f62a3"},
     {file = "alabaster-0.7.13.tar.gz", hash = "sha256:a27a4a084d5e690e16e01e03ad2b2e552c61a65469419b907243193de1a84ae2"},
@@ -1762,6 +1795,10 @@ linkml = [
 linkml-dataops = [
     {file = "linkml_dataops-0.1.0-py3-none-any.whl", hash = "sha256:193cf7f659e5f07946d2c2761896910d5f7151d91282543b1363801f68307f4c"},
     {file = "linkml_dataops-0.1.0.tar.gz", hash = "sha256:4550eab65e78b70dc3b9c651724a94ac2b1d1edb2fbe576465f1d6951a54ed04"},
+]
+linkml-renderer = [
+    {file = "linkml_renderer-0.1.2-py3-none-any.whl", hash = "sha256:ff6f0bf421133eea500be61f62b5fa4b2ccbfc3a7883c255c08b854ad4e7ad2e"},
+    {file = "linkml_renderer-0.1.2.tar.gz", hash = "sha256:f368a7e4e70faa794c180efdf77f8670e85b4dd35bfd5bba8ecf1af4475fd88e"},
 ]
 linkml-runtime = [
     {file = "linkml_runtime-1.4.8-py3-none-any.whl", hash = "sha256:2a48767c0e0a8d82d2483bd46d8218ec7a3afc8d54135999ef560be60153cbcd"},
