@@ -27,6 +27,7 @@ Use the `make` command to generate project artifacts:
 
 * `make all`: make everything
 * `make update-schemas`: update the standards-schemas
+* `make all-data`: make data serializations
 * `make test`: test the validators
 * `make validate`: validate the data
 * `make deploy`: deploys site
