@@ -83,6 +83,10 @@ all-data:
 	; for key in "$${!CLASSES[@]}" ; do \
 		for format in $(FORMATS) ; do \
 			printf "Converting $${key} to $${format}...\n" ; \
-			$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${key}.$${format} $${key} ; \
+			newfn=$${key##*/} ; \
+			extension=$${newfn##*.} ; \
+			newfn=$${newfn%.*}.$${format} ; \
+			newpath=$(SERIAL_DATA_DIR)$${newfn} ; \
+			$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
 	done
