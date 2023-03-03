@@ -27,6 +27,11 @@ DATA_FILE_PATHS := $(foreach file,$(DATA_FILES),$(DATA_DIR)$(file))
 
 RUN = poetry run
 RUN_VALIDATE = $(RUN) linkml-validate -s $(ROOT_SCHEMA)
+RUN_CONVERT = $(RUN) linkml-convert -s $(ROOT_SCHEMA)
+
+SERIAL_DATA_DIR = project/data/
+
+FORMATS = json tsv
 
 .PHONY: clean-schemas update-schemas
 
@@ -61,3 +66,23 @@ validate:
 
 gendoc: $(DOCDIR)
 	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+
+# Make alternative serializations of data:
+# json and tsv for now
+# Output goes in project/data/
+all-data:
+	@echo "Removing any previously created serializations..."
+	rm -rf $(SERIAL_DATA_DIR) ;
+	mkdir -p $(SERIAL_DATA_DIR) ;
+	@echo "Making serializations with linkml-convert..."
+	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
+		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
+		["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer" \
+		["$(DATA_DIR)Organization.yaml"]="OrganizationContainer" \
+		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" ) \
+	; for key in "$${!CLASSES[@]}" ; do \
+		for format in $(FORMATS) ; do \
+			printf "Converting $${key} to $${format}...\n" ; \
+			$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${key}.$${format} $${key} ; \
+		done \
+	done
