@@ -143,5 +143,12 @@ issue-templates:
 		printf "labels: [ New ]\n" >> $${newpath} ; \
 		printf "assignees:\n  - caufieldjh\n" >> $${newpath} ; \
 		printf "body:\n" >> $${newpath} ; \
-		printf "  - type: markdown\n    attributes:\n      value: This is the form for requesting a new $${CLASSES[$${key}]} in the Bridge2AI Standards Registry." >> $${newpath} ; \
+		printf "  - type: markdown\n    attributes:\n      value: This is the form for requesting a new $${CLASSES[$${key}]} in the Bridge2AI Standards Registry.\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: name\n    attributes:\n      label: Name\n      description: What is the short name of this entity? An acronym or short phrase works best.\n      placeholder: e.g., ESM Atlas, W3C, Molecular Biology\n    validations:\n      required: true\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: description\n    attributes:\n      label: Description\n      description: What is the description of this entity, in a sentence or two?\n      placeholder: e.g., Any data concerning studies of the structure, function, and interactions of biological molecules.\n    validations:\n      required: true\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: subclass_of\n    attributes:\n      label: Subclass_Of\n      description: (Optional) Is this a subclass of another entity? Please use an identifier.\n      placeholder: e.g., \"STANDARDSDATATOPIC:5\"\n    validations:\n      required: false\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: related_to\n    attributes:\n      label: Related_To\n      description: (Optional) Is this related to another entity? Please use an identifier.\n      placeholder: e.g., \"STANDARDSDATATOPIC:5\"\n    validations:\n      required: false\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: contributor_name\n    attributes:\n      label: Contributor Name\n      description: What is your name? This will be used for attribution.\n      placeholder: e.g., Tabatha Butterscotch\n    validations:\n      required: true\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: contributor_github\n    attributes:\n      label: Contributor GitHub\n      description: What is your GitHub name, without the @ symbol?\n      placeholder: e.g., tbuttersco\n    validations:\n      required: true\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: contributor_orcid\n    attributes:\n      label: Contributor ORCID\n      description: What is your ORCID iD?\n      placeholder: e.g., 0000-0001-2345-6789\n    validations:\n      required: true\n" >> $${newpath} ; \
 	done
