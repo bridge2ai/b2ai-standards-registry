@@ -36,7 +36,9 @@ DOCS_DATA_DIR = docs/data/
 FORMATS = json tsv
 RENDERS = html markdown
 
-.PHONY: clean-schemas update-schemas validate all-data doc-data
+ISSUE_TEMPLATE_DIR = .github/ISSUE_TEMPLATE/
+
+.PHONY: clean-schemas update-schemas validate all-data doc-data issue-templates
 
 # Remove old versions of schemas.
 clean-schemas:
@@ -116,4 +118,30 @@ doc-data:
 			newpath=$(DOCS_DATA_DIR)$${newfn} ; \
 			$(RUN_RENDER) -r $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
+	done
+
+# Prepare new issue templates based off the schema.
+issue-templates:
+	@echo "Removing any previously created issue templates..."
+	rm -rf $(ISSUE_TEMPLATE_DIR) ;
+	mkdir -p $(ISSUE_TEMPLATE_DIR) ;
+	@echo "Assembling issue templates..."
+	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="data standard or tool" \
+		["$(DATA_DIR)DataSubstrate.yaml"]="data substrate" \
+		["$(DATA_DIR)DataTopic.yaml"]="data topic" \
+		["$(DATA_DIR)Organization.yaml"]="organization" \
+		["$(DATA_DIR)UseCase.yaml"]="use case" ) \
+	; for key in "$${!CLASSES[@]}" ; do \
+		printf "Building template for $${CLASSES[$${key}]}s...\n" ; \
+		newfn=new$${key##*/} ; \
+		newfn=$${newfn%.*}.yml ; \
+		newpath=$(ISSUE_TEMPLATE_DIR)$${newfn} ; \
+		touch $${newpath} ; \
+		printf "name: Request new $${CLASSES[$${key}]}\n" >> $${newpath} ; \
+		printf "description: Request addition of a new $${CLASSES[$${key}]}.\n" >> $${newpath} ; \
+		printf "title: Add this new $${CLASSES[$${key}]} - [Name Here]\n" >> $${newpath} ; \
+		printf "labels: [ New ]\n" >> $${newpath} ; \
+		printf "assignees:\n  - caufieldjh\n" >> $${newpath} ; \
+		printf "body:\n" >> $${newpath} ; \
+		printf "  - type: markdown\n    attributes:\n      value: This is the form for requesting a new $${CLASSES[$${key}]} in the Bridge2AI Standards Registry." >> $${newpath} ; \
 	done
