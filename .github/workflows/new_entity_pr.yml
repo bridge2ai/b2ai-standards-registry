@@ -1,0 +1,36 @@
+name: "Create PR for new entity"
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [ opened ]
+
+jobs:
+  create_new_entity:
+    name: Create PR for new entity
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.9 ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.3
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+      - name: Process the issue
+        id: process_issue
+        run: python ./.github/scripts/process_issue.py --github 
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch-suffix: short-commit-hash
+          labels: New
+          body: ${{ steps.update.outputs.BR_BODY }}
+          title: ${{ steps.update.outputs.BR_TITLE }}
