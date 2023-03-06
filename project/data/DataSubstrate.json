@@ -1,0 +1,634 @@
+{
+  "data_substrates_collection": [
+    {
+      "id": "STANDARDSDATASUBSTRATE:1",
+      "name": "Array",
+      "description": "A data type that represents a collection of elements (values or variables), each selected by one or more indices.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ],
+      "edam_id": "edam.data:2082",
+      "ncit_id": "ncit:C26358"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:2",
+      "name": "Associative Array",
+      "description": "A data structure that stores a collection of key-value pairs, where each key is associated with a value. It allows for fast and efficient lookups by using the keys as indices to access the corresponding values.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:1"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:3",
+      "name": "BIDS",
+      "description": "Data conforming to the Brain Imaging Data Structure (BIDS).",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:19",
+        "STANDARDSDATASUBSTRATE:49"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:33"
+      ],
+      "metadata_storage": [
+        "JSON"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:4",
+      "name": "BigQuery",
+      "description": "A fully managed, serverless data warehouse that enables scalable analysis over petabytes of data. It is a Platform as a Service (PaaS) that supports querying using ANSI SQL.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:5"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:735"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:5",
+      "name": "Column Store",
+      "description": "A database that stores data tables by column rather than by row.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:9"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:6",
+      "name": "Comma-separated values",
+      "description": "Any text or mixed data with distinct records in columns separated by commas and rows separated by newlines.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:10"
+      ],
+      "edam_id": "edam.format:3752",
+      "ncit_id": "ncit:C182456",
+      "file_extensions": [
+        "csv"
+      ],
+      "limitations": [
+        "Differences in newline characters can cause inconsistency across operating systems."
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:7",
+      "name": "Data",
+      "description": "Any collection of discrete values conveying information.",
+      "edam_id": "edam.data:0006",
+      "mesh_id": "mesh:D064886",
+      "ncit_id": "ncit:C25474"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:8",
+      "name": "Data Frame",
+      "description": "A data structure that organizes data into a 2-dimensional table of rows and columns.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:9",
+      "name": "Database",
+      "description": "An organized collection of structured information, stored electronically and organized for rapid search and retrieval.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ],
+      "mesh_id": "mesh:D019991",
+      "ncit_id": "ncit:C15426"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:10",
+      "name": "Delimited Text",
+      "description": "Any data with distinct records separated or delimited by a specific character pattern.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:43"
+      ],
+      "edam_id": "edam.format:3751",
+      "file_extensions": [
+        "txt"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:11",
+      "name": "DICOM",
+      "description": "An image and metadata format for radiology imaging.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:36"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:98"
+      ],
+      "edam_id": "edam.format:3548",
+      "ncit_id": "ncit:C63537",
+      "metadata_storage": [
+        "File headers"
+      ],
+      "file_extensions": [
+        "dicom",
+        "dcm"
+      ],
+      "limitations": [
+        "Files are generally named using unique identifiers that may not be compatible across all operating systems (i.e., they may be too long).",
+        "Patient data is included in each image file header so all files must be processed in order to anonymize them."
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:12",
+      "name": "Directed acyclic graph",
+      "description": "A directed graph with no directed cycles.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:14"
+      ],
+      "ncit_id": "ncit:C45803"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:13",
+      "name": "Document Database",
+      "description": "A database that stores and retrieves information in documents.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:9"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:14",
+      "name": "Graph",
+      "description": "A structure of nodes (sometimes called vertices) and edges between them.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:768"
+      ],
+      "edam_id": "edam.format:3617",
+      "ncit_id": "ncit:C75914"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:15",
+      "name": "Graph Database",
+      "description": "A type of database that stores nodes and relationships instead of tables or documents.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:9",
+        "STANDARDSDATASUBSTRATE:14"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:16",
+      "name": "HDF5",
+      "description": "A data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:18"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:339"
+      ],
+      "edam_id": "edam.format:3590",
+      "ncit_id": "ncit:C184763",
+      "file_extensions": [
+        "h5",
+        "hdf5"
+      ],
+      "limitations": [
+        "Structure is not optimized for data access through cloud storage infrastructure."
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:17",
+      "name": "Heap",
+      "description": "A complete binary tree, i.e., each node has no more than two children.",
+      "subclass_of": [
+        "Tree"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:18",
+      "name": "Hierarchical Array",
+      "description": "A data structure of a list, such that list elements may be subsets of other elements.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:1"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:19",
+      "name": "Image",
+      "description": "Any visual representation of something.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ],
+      "edam_id": "edam.data:2968",
+      "ncit_id": "ncit:C48179"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:20",
+      "name": "JSON",
+      "description": "JavaScript Object Notation (JSON) is a lightweight format for storing and transporting data.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:2",
+        "STANDARDSDATASUBSTRATE:18"
+      ],
+      "edam_id": "edam.format:3464",
+      "ncit_id": "ncit:C184769",
+      "file_extensions": [
+        "json"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:21",
+      "name": "KGX TSV",
+      "description": "A tab-delimited data format for exchanging property graph data.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:32",
+        "STANDARDSDATASUBSTRATE:41"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:346"
+      ],
+      "file_extensions": [
+        "tsv"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:22",
+      "name": "MongoDB",
+      "description": "A non-relational document database that provides support for JSON-like storage.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:13"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:797"
+      ],
+      "file_extensions": [
+        "mongo"
+      ],
+      "limitations": [
+        "The maximum size of an individual document in MongoDB is 16MB with a nested depth of 100 levels."
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:23",
+      "name": "MySQL",
+      "description": "A relational database management system developed by Oracle that is based on structured query language (SQL).",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:37"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:801"
+      ],
+      "file_extensions": [
+        "mysql",
+        "sql"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:24",
+      "name": "N-Dimensional Array",
+      "description": "A data structure that can store a collection of items, where each item is identified by a set of indices. The number of indices required to identify an item is referred to as the dimension of the array, hence the name N-dimensional array.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:1"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:25",
+      "name": "Neo4j",
+      "description": "A popular graph database platform.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:15"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:802"
+      ],
+      "limitations": [
+        "All data is stored locally - this can cause slowdowns when data exceeds available memory."
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:26",
+      "name": "Neural Network Model",
+      "description": "The result of training a neural network on a certain set of inputs.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ],
+      "mesh_id": "mesh:D016571",
+      "ncit_id": "ncit:C17429"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:27",
+      "name": "NNEF",
+      "description": "An exchange format for neural network models produced using Torch, Caffe, TensorFlow, Theano, Chainer, Caffe2, PyTorch, or MXNet.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:26"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:354"
+      ],
+      "file_extensions": [
+        "nnef"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:28",
+      "name": "ONNX",
+      "description": "An open format built to represent machine learning models.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:26"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:357"
+      ],
+      "file_extensions": [
+        "onnx"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:29",
+      "name": "Pandas DataFrame",
+      "description": "A two-dimensional, size-mutable, potentially heterogeneous tabular data object.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:8"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:813"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:30",
+      "name": "Parquet",
+      "description": "Apache Parquet is a free and open-source column-oriented data storage format in the Apache Hadoop ecosystem.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:5"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:359"
+      ],
+      "file_extensions": [
+        "parquet",
+        "pqt"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:31",
+      "name": "PostgreSQL",
+      "description": "An open-source relational database management system emphasizing extensibility and SQL compliance.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:37"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:815"
+      ],
+      "file_extensions": [
+        "sql"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:32",
+      "name": "Property graph",
+      "description": "A graph model in which nodes and edges may be assigned properties (i.e., values or key-value pairs).",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:14"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:33",
+      "name": "PyTorch Tensor",
+      "description": "In PyTorch, a torch.Tensor is a multi-dimensional matrix containing elements of a single data type.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:42"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:816"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:34",
+      "name": "R data.frame",
+      "description": "A tightly coupled collection of variables that shares many of the properties of matrices and of lists.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:8"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:833"
+      ],
+      "limitations": [
+        "Memory-limited."
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:35",
+      "name": "R tibble",
+      "description": "A redesigned version of an R data frame. Never changes the input type, can have columns that are lists, can have non-standard variable names, can start with a number or contain spaces, only recycles vectors of length 1, and never creates row names.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:8"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:833"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:36",
+      "name": "Raster Image",
+      "description": "Any visual representation of something represented as a two-dimensional matrix of pixel values denoting intensity, potentially accompanied by other values for colors or other image properties (e.g., compression).",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:19"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:37",
+      "name": "Relational Database",
+      "description": "A database that stores and provides access to data points related to one another.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:9"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:38",
+      "name": "Set",
+      "description": "A sorted data structure of unique elements of the same type.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:39",
+      "name": "String",
+      "description": "An array data structure of bytes (or words) that stores a sequence of elements, typically characters, using some character encoding.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ],
+      "ncit_id": "ncit:C45253"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:40",
+      "name": "SummarizedExperiment",
+      "description": "The SummarizedExperiment Bioconductor container contains one or more assays, each represented by a matrix-like object of numeric or other mode. The rows typically represent genomic ranges of interest and the columns represent samples.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:18"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:705",
+        "STANDARDSDATASTANDARDORTOOL:833",
+        "STANDARDSDATASTANDARDORTOOL:286"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:41",
+      "name": "Tab-separated values",
+      "description": "Any text or mixed data with distinct records in columns separated by tab characters and rows separated by newlines.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:10"
+      ],
+      "edam_id": "edam.format:3475",
+      "ncit_id": "ncit:C164049",
+      "file_extensions": [
+        "tsv"
+      ],
+      "limitations": [
+        "Differences in newline characters can cause inconsistency across operating systems."
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:42",
+      "name": "Tensor",
+      "description": "An algebraic object that describes a multilinear relationship between sets of algebraic objects related to a vector space.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:43",
+      "name": "Text",
+      "description": "Any form of written information that is composed of letters, words, and sentences. This may include anything from written documents, articles, or books, to emails, social media posts, and transcribed speech. It may also include unstructured, human-readable fields of documents containing other data.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:39"
+      ],
+      "edam_id": "edam.data:2526",
+      "ncit_id": "ncit:C25704",
+      "file_extensions": [
+        "txt"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:44",
+      "name": "Tree",
+      "description": "An undirected graph with each pair of vertices connected by no more than one path. Also known as a connected acyclic undirected graph.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:14"
+      ],
+      "ncit_id": "ncit:C45418"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:45",
+      "name": "Trie",
+      "description": "A sorted, associative tree. Also known as a radix tree or prefix tree.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:44"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:46",
+      "name": "Vector",
+      "description": "A mathematical object that has magnitude and direction. A vector is often represented as a one-dimensional array or list with numerical elements.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ],
+      "ncit_id": "ncit:C54169"
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:47",
+      "name": "Vector Image",
+      "description": "Any visual representation of something represented as a set of geometric shapes defined on a Cartesian plane.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:19"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:48",
+      "name": "Waveform Audio File Format",
+      "description": "An audio file format standard. Generally supported by digital audio software.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:49"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:387"
+      ],
+      "metadata_storage": [
+        "File headers"
+      ],
+      "file_extensions": [
+        "wav"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:49",
+      "name": "Waveform Data",
+      "description": "The two-dimensional representation of a signal as a function of time.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:50",
+      "name": "xarray",
+      "description": "A format for defining arrays with labels in the form of dimensions, coordinates, and attributes on top of raw NumPy-like arrays, which allows for more intuitive, more concise, and less error-prone user experience.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:24"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:392"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:51",
+      "name": "Zarr",
+      "description": "A format for storage of large N-dimensional typed arrays. Has implementations in multiple programming languages.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:24"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:394"
+      ],
+      "edam_id": "edam.format:3915",
+      "file_extensions": [
+        "zarr"
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:52",
+      "name": "Compressed Data",
+      "description": "Data in which information is represented with fewer bits than the original, uncompressed representation.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:7"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:384",
+        "STANDARDSDATASTANDARDORTOOL:395"
+      ],
+      "ncit_id": "ncit:C190416",
+      "file_extensions": [
+        "tar",
+        "zip"
+      ],
+      "limitations": [
+        "Must be decompressed before reading.",
+        "Compression may be lossy, i.e., it discards information in the process of encoding."
+      ]
+    },
+    {
+      "id": "STANDARDSDATASUBSTRATE:53",
+      "name": "BED",
+      "description": "BED (Browser Extensible Data) format provides a flexible way to define the data lines that are displayed in a genome annotation track.",
+      "subclass_of": [
+        "STANDARDSDATASUBSTRATE:10"
+      ],
+      "related_to": [
+        "STANDARDSDATASTANDARDORTOOL:36"
+      ],
+      "edam_id": "edam.format:3003",
+      "ncit_id": "ncit:C153367",
+      "metadata_storage": [
+        "File headers"
+      ],
+      "file_extensions": [
+        "txt",
+        "bed"
+      ]
+    }
+  ],
+  "@type": "DataSubstrateContainer"
+}

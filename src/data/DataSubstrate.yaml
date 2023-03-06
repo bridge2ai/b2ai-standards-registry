@@ -23,7 +23,8 @@ data_substrates_collection:
     - STANDARDSDATASUBSTRATE:49
     related_to: 
     - STANDARDSDATASTANDARDORTOOL:33
-    metadata_storage: JSON
+    metadata_storage:
+    - JSON
     description: Data conforming to the Brain Imaging Data Structure (BIDS).
 
   - id: STANDARDSDATASUBSTRATE:4
@@ -48,7 +49,8 @@ data_substrates_collection:
     ncit_id: ncit:C182456
     file_extensions: 
     - csv
-    limitations: Differences in newline characters can cause inconsistency across operating systems.
+    limitations:
+    - Differences in newline characters can cause inconsistency across operating systems.
     description: Any text or mixed data with distinct records in columns separated by commas and rows separated by newlines.
 
   - id: STANDARDSDATASUBSTRATE:7
@@ -87,13 +89,16 @@ data_substrates_collection:
     - STANDARDSDATASUBSTRATE:36
     related_to: 
     - STANDARDSDATASTANDARDORTOOL:98
-    metadata_storage: File headers
+    metadata_storage:
+    - File headers
     edam_id: edam.format:3548
     ncit_id: ncit:C63537
     file_extensions: 
     - dicom
     - dcm
-    limitations: Files are generally named using unique identifiers that may not be compatible across all operating systems (i.e., they may be too long). Patient data is included in each image file header so all files must be processed in order to anonymize them.
+    limitations:
+    - Files are generally named using unique identifiers that may not be compatible across all operating systems (i.e., they may be too long).
+    - Patient data is included in each image file header so all files must be processed in order to anonymize them.
     description: An image and metadata format for radiology imaging.
 
   - id: STANDARDSDATASUBSTRATE:12
@@ -137,7 +142,8 @@ data_substrates_collection:
     file_extensions: 
     - h5
     - hdf5
-    limitations: Structure is not optimized for data access through cloud storage infrastructure.
+    limitations:
+    - Structure is not optimized for data access through cloud storage infrastructure.
     description: A data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data.
 
   - id: STANDARDSDATASUBSTRATE:17
@@ -190,7 +196,8 @@ data_substrates_collection:
     - STANDARDSDATASTANDARDORTOOL:797
     file_extensions: 
     - mongo
-    limitations: The maximum size of an individual document in MongoDB is 16MB with a nested depth of 100 levels.
+    limitations:
+    - The maximum size of an individual document in MongoDB is 16MB with a nested depth of 100 levels.
     description: A non-relational document database that provides support for JSON-like storage.
 
   - id: STANDARDSDATASUBSTRATE:23
@@ -216,7 +223,8 @@ data_substrates_collection:
     - STANDARDSDATASUBSTRATE:15
     related_to: 
     - STANDARDSDATASTANDARDORTOOL:802
-    limitations: All data is stored locally - this can cause slowdowns when data exceeds available memory.
+    limitations:
+    - All data is stored locally - this can cause slowdowns when data exceeds available memory.
     description: A popular graph database platform.
 
   - id: STANDARDSDATASUBSTRATE:26
@@ -296,7 +304,8 @@ data_substrates_collection:
     - STANDARDSDATASUBSTRATE:8
     related_to: 
     - STANDARDSDATASTANDARDORTOOL:833
-    limitations: Memory-limited.
+    limitations:
+    - Memory-limited.
     description: A tightly coupled collection of variables that shares many of the properties of matrices and of lists.
 
   - id: STANDARDSDATASUBSTRATE:35
@@ -350,7 +359,8 @@ data_substrates_collection:
     ncit_id: ncit:C164049
     file_extensions: 
     - tsv
-    limitations: Differences in newline characters can cause inconsistency across operating systems.
+    limitations:
+    - Differences in newline characters can cause inconsistency across operating systems.
     description: Any text or mixed data with distinct records in columns separated by tab characters and rows separated by newlines.
 
   - id: STANDARDSDATASUBSTRATE:42
@@ -401,7 +411,8 @@ data_substrates_collection:
     - STANDARDSDATASUBSTRATE:49
     related_to: 
     - STANDARDSDATASTANDARDORTOOL:387
-    metadata_storage: File headers
+    metadata_storage:
+    - File headers
     file_extensions: 
     - wav
     description: An audio file format standard. Generally supported by digital audio software.
@@ -410,7 +421,6 @@ data_substrates_collection:
     name: Waveform Data
     subclass_of: 
     - STANDARDSDATASUBSTRATE:7
-    metadata_storage: NA
     description: The two-dimensional representation of a signal as a function of time.
 
   - id: STANDARDSDATASUBSTRATE:50
@@ -443,7 +453,9 @@ data_substrates_collection:
     file_extensions: 
     - tar
     - zip
-    limitations: Must be decompressed before reading. Compression may be lossy, i.e., it discards information in the process of encoding.
+    limitations:
+    - Must be decompressed before reading.
+    - Compression may be lossy, i.e., it discards information in the process of encoding.
     description: Data in which information is represented with fewer bits than the original, uncompressed representation.
 
   - id: STANDARDSDATASUBSTRATE:53
@@ -452,7 +464,8 @@ data_substrates_collection:
     - STANDARDSDATASUBSTRATE:10
     related_to: 
     - STANDARDSDATASTANDARDORTOOL:36
-    metadata_storage: File headers
+    metadata_storage:
+    - File headers
     edam_id: edam.format:3003
     ncit_id: ncit:C153367
     file_extensions: 

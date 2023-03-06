@@ -27,8 +27,16 @@ DATA_FILE_PATHS := $(foreach file,$(DATA_FILES),$(DATA_DIR)$(file))
 
 RUN = poetry run
 RUN_VALIDATE = $(RUN) linkml-validate -s $(ROOT_SCHEMA)
+RUN_CONVERT = $(RUN) linkml-convert -s $(ROOT_SCHEMA)
+RUN_RENDER = $(RUN) linkml-render -s $(ROOT_SCHEMA)
 
-.PHONY: clean-schemas update-schemas
+SERIAL_DATA_DIR = project/data/
+DOCS_DATA_DIR = docs/data/
+
+FORMATS = json tsv
+RENDERS = html markdown
+
+.PHONY: clean-schemas update-schemas validate all-data doc-data
 
 # Remove old versions of schemas.
 clean-schemas:
@@ -61,3 +69,51 @@ validate:
 
 gendoc: $(DOCDIR)
 	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
+
+# Make alternative serializations of data:
+# json and tsv for now
+# Output goes in project/data/
+all-data:
+	@echo "Removing any previously created serializations..."
+	rm -rf $(SERIAL_DATA_DIR) ;
+	mkdir -p $(SERIAL_DATA_DIR) ;
+	@echo "Making serializations with linkml-convert..."
+	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
+		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
+		["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer" \
+		["$(DATA_DIR)Organization.yaml"]="OrganizationContainer" \
+		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" ) \
+	; for key in "$${!CLASSES[@]}" ; do \
+		for format in $(FORMATS) ; do \
+			printf "Converting $${key} to $${format}...\n" ; \
+			newfn=$${key##*/} ; \
+			extension=$${newfn##*.} ; \
+			newfn=$${newfn%.*}.$${format} ; \
+			newpath=$(SERIAL_DATA_DIR)$${newfn} ; \
+			$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
+		done \
+	done
+
+# Prepare Markdown and HTML versions of data
+# Like all-data, but not really a conversion
+# as much as a reformatting
+doc-data:
+	@echo "Removing any previously created data docs..."
+	rm -rf $(DOCS_DATA_DIR) ;
+	mkdir -p $(DOCS_DATA_DIR) ;
+	@echo "Making data docs with linkml-renderer..."
+	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
+		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
+		["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer" \
+		["$(DATA_DIR)Organization.yaml"]="OrganizationContainer" \
+		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" ) \
+	; for key in "$${!CLASSES[@]}" ; do \
+		for format in $(RENDERS) ; do \
+			printf "Converting $${key} to $${format}...\n" ; \
+			newfn=$${key##*/} ; \
+			extension=$${newfn##*.} ; \
+			newfn=$${newfn%.*}.$${format} ; \
+			newpath=$(DOCS_DATA_DIR)$${newfn} ; \
+			$(RUN_RENDER) -r $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
+		done \
+	done
