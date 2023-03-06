@@ -126,7 +126,8 @@
         "dcm"
       ],
       "limitations": [
-        "Files are generally named using unique identifiers that may not be compatible across all operating systems (i.e., they may be too long). Patient data is included in each image file header so all files must be processed in order to anonymize them."
+        "Files are generally named using unique identifiers that may not be compatible across all operating systems (i.e., they may be too long).",
+        "Patient data is included in each image file header so all files must be processed in order to anonymize them."
       ]
     },
     {
@@ -559,9 +560,6 @@
       "description": "The two-dimensional representation of a signal as a function of time.",
       "subclass_of": [
         "STANDARDSDATASUBSTRATE:7"
-      ],
-      "metadata_storage": [
-        "NA"
       ]
     },
     {
@@ -607,7 +605,8 @@
         "zip"
       ],
       "limitations": [
-        "Must be decompressed before reading. Compression may be lossy, i.e., it discards information in the process of encoding."
+        "Must be decompressed before reading.",
+        "Compression may be lossy, i.e., it discards information in the process of encoding."
       ]
     },
     {
