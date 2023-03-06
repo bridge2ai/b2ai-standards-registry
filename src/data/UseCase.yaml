@@ -143,7 +143,8 @@ use_cases:
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
-    xref: EDAM:topic_3673
+    xref:
+    - EDAM:topic_3673
 
   - id: STANDARDSUSECASE:8
     name: Obtain voice data from patients.
@@ -220,7 +221,8 @@ use_cases:
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
-    xref: EDAM:topic_0121
+    xref:
+    - EDAM:topic_0121
 
   - id: STANDARDSUSECASE:12
     name: Obtain transcriptome data from human cell populations perturbed through CRISPR-driven mutagenesis.
@@ -237,7 +239,8 @@ use_cases:
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
-    xref: EDAM:topic_3170
+    xref:
+    - EDAM:topic_3170
 
   - id: STANDARDSUSECASE:13
     name: Integrate clinical record data with voice data.
@@ -609,7 +612,8 @@ use_cases:
     description: Querying a relational database covers a variety of actions to retrieve subsets of its contents.
     data_topics:
     - STANDARDSDATATOPIC:5
-    alternative_standards_and_tools: Neo4j
+    alternative_standards_and_tools:
+    - STANDARDSDATASTANDARDORTOOL:802
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
