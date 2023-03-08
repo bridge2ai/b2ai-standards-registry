@@ -24,7 +24,7 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Process the issue
         id: process_issue
-        run: python ./.github/scripts/process_issue.py --github 
+        run: poetry run python ./.github/scripts/process_issue.py --github 
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Create PR
