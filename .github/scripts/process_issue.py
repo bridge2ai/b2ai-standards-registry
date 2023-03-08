@@ -15,7 +15,6 @@ import os
 import pathlib
 import sys
 import time
-import yaml
 from subprocess import CalledProcessError, check_output
 from typing import Any, Dict, Iterable, Mapping, Optional, Sequence, Set
 from uuid import uuid4
@@ -24,6 +23,7 @@ import click
 import more_itertools
 import pystow
 import requests
+import yaml
 
 logger = logging.getLogger(__name__)
 
@@ -64,7 +64,9 @@ def has_token() -> bool:
     return pystow.get_config("github", "token") is not None
 
 
-def get_issues_with_pr(issue_ids: Iterable[int], token: Optional[str] = None) -> Set[int]:
+def get_issues_with_pr(
+    issue_ids: Iterable[int], token: Optional[str] = None
+) -> Set[int]:
     """Get the set of issues that are already closed by a pull request."""
     pulls = list_pulls(owner="bridge2ai", repo="b2ai-standards-registry", token=token)
     return {
@@ -181,7 +183,11 @@ def get_b2ai_standards_registry_form_data(
     :return: A mapping from GitHub issue issue data
     """
     return get_form_data(
-        owner="bridge2ai", repo="b2ai_standards_registry", labels=labels, token=token, remapping=remapping
+        owner="bridge2ai",
+        repo="b2ai_standards_registry",
+        labels=labels,
+        token=token,
+        remapping=remapping,
     )
 
 
@@ -238,7 +244,9 @@ def parse_body(body: str) -> Dict[str, Any]:
     """
     rv = {}
     lines = [line.strip() for line in body.splitlines() if line.strip()]
-    for group in more_itertools.split_before(lines, lambda line: line.startswith("### ")):
+    for group in more_itertools.split_before(
+        lines, lambda line: line.startswith("### ")
+    ):
         header, *rest = group
         header = header.lstrip("#").lstrip()
         rest = " ".join(x.strip() for x in rest)
@@ -302,6 +310,7 @@ def _git(*args: str) -> Optional[str]:
         else:
             return ret.strip().decode("utf-8")
 
+
 def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
     """Get new entity request issues from the GitHub API.
 
@@ -319,20 +328,20 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
         name = resource_data.pop("name")
         desc = resource_data.pop("description")
         contributor = {
-            "name":resource_data.pop("contributor_name"),
-            "orcid":_pop_orcid(resource_data),
-            "email":resource_data.pop("contributor_email", None),
-            "github":resource_data.pop("contributor_github")
+            "name": resource_data.pop("contributor_name"),
+            "orcid": _pop_orcid(resource_data),
+            "email": resource_data.pop("contributor_email", None),
+            "github": resource_data.pop("contributor_github"),
         }
 
         mappings: Optional[Mapping]
 
         rv[issue_id] = {
-            "name":name,
-            "decription":desc,
-            "contributor":contributor,
-            "github_request_issue":issue_id,
-            "mappings":mappings,
+            "name": name,
+            "decription": desc,
+            "contributor": contributor,
+            "github_request_issue": issue_id,
+            "mappings": mappings,
             **resource_data,
         }
     return rv
@@ -369,16 +378,22 @@ def make_title(prefixes: Sequence[str]) -> str:
 
 @click.command()
 @click.option("--dry", is_flag=True, help="Dry run - do not create any PRs")
-@click.option("--github", is_flag=True, help="Use this flag in a GHA setting to set run variables")
+@click.option(
+    "--github", is_flag=True, help="Use this flag in a GHA setting to set run variables"
+)
 def main(dry: bool, github: bool, force: bool):
     """Run the automatic curator."""
     status_porcelain_result = status_porcelain()
     if status_porcelain_result and not force and not dry:
-        click.secho(f"The working directory is dirty:\n\n{status_porcelain_result}", fg="red")
+        click.secho(
+            f"The working directory is dirty:\n\n{status_porcelain_result}", fg="red"
+        )
         sys.exit(1)
 
     if not has_token():
-        click.secho("No GitHub access token is available through GITHUB_TOKEN", fg="red")
+        click.secho(
+            "No GitHub access token is available through GITHUB_TOKEN", fg="red"
+        )
         sys.exit(1)
 
     issue_to_resource = get_new_request_issues()
@@ -386,7 +401,8 @@ def main(dry: bool, github: bool, force: bool):
         click.echo(f"Found {len(issue_to_resource)} new request issues:")
         for issue_number in sorted(issue_to_resource, reverse=True):
             link = click.style(
-                f"https://github.com/bridge2ai/b2ai-standards-registry/issues/{issue_number}", fg="cyan"
+                f"https://github.com/bridge2ai/b2ai-standards-registry/issues/{issue_number}",
+                fg="cyan",
             )
             click.echo(f" - {link}")
     else:
@@ -397,7 +413,8 @@ def main(dry: bool, github: bool, force: bool):
         click.echo(f"Found PRs covering {len(pulled_issues)} new request issues:")
         for pr_number in sorted(pulled_issues, reverse=True):
             link = click.style(
-                f"https://github.com/bridge2ai/b2ai-standards-registry/pulls/{pr_number}", fg="cyan"
+                f"https://github.com/bridge2ai/b2ai-standards-registry/pulls/{pr_number}",
+                fg="cyan",
             )
             click.echo(f" - {link}")
     else:
@@ -419,17 +436,19 @@ def main(dry: bool, github: bool, force: bool):
     for issue_number, resource in issue_to_resource.items():
         click.echo(f"🚀 Adding {resource.name} (#{issue_number})")
         # TODO: write to a specific file based on the issue
-        with open(DATA_PATH, 'r') as yamlfile:
+        with open(DATA_PATH, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             # TODO: the collection name will also vary depending on the file,
             # so we need to provide a map like what the project.Makefile uses
-            this_yaml['data_standardortools_collection'].update(resource)
+            this_yaml["data_standardortools_collection"].update(resource)
 
         if this_yaml:
-            with open(DATA_PATH, 'w') as yamlfile:
+            with open(DATA_PATH, "w") as yamlfile:
                 yaml.safe_dump(this_yaml, yamlfile)
 
-    title = make_title(sorted(resource.prefix for resource in issue_to_resource.values()))
+    title = make_title(
+        sorted(resource.prefix for resource in issue_to_resource.values())
+    )
     body = ", ".join(f"Closes #{issue}" for issue in issue_to_resource)
     message = f"{title}\n\n{body}"
     branch_name = str(uuid4())[:8]
@@ -444,7 +463,8 @@ def main(dry: bool, github: bool, force: bool):
         return sys.exit(0)
     elif dry:
         click.secho(
-            f"Skipping making branch {branch_name}, committing, pushing, and PRing", fg="yellow"
+            f"Skipping making branch {branch_name}, committing, pushing, and PRing",
+            fg="yellow",
         )
         return sys.exit(0)
 
