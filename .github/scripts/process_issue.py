@@ -1,12 +1,45 @@
 """
 Processes GitHub issues to new pull requests for the Bridge2AI Standards Registry.
 
-Based on a script by Charles Tapley Hoyt (@cthoyt):
-https://github.com/biopragmatics/bioregistry/blob/main/src/bioregistry/gh/new_prefix.py
-This version does *not* check if a requested entity is already present in the registry.
+This script does *not* check if a requested entity is already present in the registry.
 It parses an issue,
 makes proposed changes on the appropriate document,
 and creates a PR for the proposed changes.
+
+Some portions of this code originally developed by Charles Tapley Hoyt (@cthoyt)
+for Bioregistry and used under MIT License (see below).
+Sources:
+https://github.com/biopragmatics/bioregistry/blob/main/.github/workflows/new_prefix_pr.yml
+https://github.com/biopragmatics/bioregistry/blob/main/src/bioregistry/gh/new_prefix.py
+https://github.com/biopragmatics/bioregistry/blob/main/src/bioregistry/gh/github_client.py
+
+Scripts were modified to refer to this project (b2ai-standards-registry) and its data types.
+Code from multiple Python modules were also merged into a single file; function references
+were updated accordingly.
+---
+MIT License
+
+Copyright (c) 2020-2021 Charles Tapley Hoyt
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+---
+
 """
 
 import itertools as itt
