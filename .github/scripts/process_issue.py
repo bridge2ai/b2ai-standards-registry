@@ -414,6 +414,9 @@ def make_title(prefixes: Sequence[str]) -> str:
 @click.option(
     "--github", is_flag=True, help="Use this flag in a GHA setting to set run variables"
 )
+@click.option(
+    "--force", is_flag=True, help="Force processing script to run even if working dir is dirty"
+)
 def main(dry: bool, github: bool, force: bool):
     """Run the automatic curator."""
     status_porcelain_result = status_porcelain()
