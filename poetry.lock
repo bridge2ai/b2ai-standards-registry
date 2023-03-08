@@ -696,6 +696,14 @@ requests = "*"
 setuptools = ">=18.5"
 
 [[package]]
+name = "more-itertools"
+version = "9.1.0"
+description = "More routines for operating on iterables, beyond itertools"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "myst-parser"
 version = "0.19.1"
 description = "An extended [CommonMark](https://spec.commonmark.org/) compliant parser,"
@@ -1514,7 +1522,7 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "7781f1971af515e52de77786155df9845a84955feb5dbf62a22b8104122fca3b"
+content-hash = "a6c98ad23df7d0ce59d8011be2cdf8f9cfc829c6af33f573cd3c6936fa4b41af"
 
 [metadata.files]
 airium = [
@@ -1917,6 +1925,10 @@ mkdocs-material-extensions = [
 mkdocs-mermaid2-plugin = [
     {file = "mkdocs-mermaid2-plugin-0.6.0.tar.gz", hash = "sha256:99cca6db7c6b4a954a701dcb6b507191bc32a7b0b47eacf2885c1bacf77d1af1"},
     {file = "mkdocs_mermaid2_plugin-0.6.0-py3-none-any.whl", hash = "sha256:ffbe8a7daa7ed718cb800c44c5ce4c0ff413caebf7b8b63d9c4a998dfd78a64d"},
+]
+more-itertools = [
+    {file = "more-itertools-9.1.0.tar.gz", hash = "sha256:cabaa341ad0389ea83c17a94566a53ae4c9d07349861ecb14dc6d0345cf9ac5d"},
+    {file = "more_itertools-9.1.0-py3-none-any.whl", hash = "sha256:d2bc7f02446e86a68911e58ded76d6561eea00cddfb2a91e7019bbb586c799f3"},
 ]
 myst-parser = [
     {file = "myst-parser-0.19.1.tar.gz", hash = "sha256:f2dc168ed380e01d77973ad22a64fff1377cc72a3d1ac4bced423f28258d0a42"},
