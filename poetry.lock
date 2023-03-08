@@ -459,7 +459,7 @@ format-nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-
 
 [[package]]
 name = "linkml"
-version = "1.4.6"
+version = "1.4.7"
 description = "Linked Open Data Modeling Language"
 category = "main"
 optional = false
@@ -532,7 +532,7 @@ docs = ["myst-parser[docs] (>=0.18.1,<0.19.0)", "sphinx-autodoc-typehints[docs] 
 
 [[package]]
 name = "linkml-runtime"
-version = "1.4.8"
+version = "1.4.9"
 description = "Runtime environment for LinkML, the Linked open data modeling language"
 category = "main"
 optional = false
@@ -697,7 +697,7 @@ setuptools = ">=18.5"
 
 [[package]]
 name = "myst-parser"
-version = "0.19.1"
+version = "1.0.0"
 description = "An extended [CommonMark](https://spec.commonmark.org/) compliant parser,"
 category = "main"
 optional = false
@@ -1093,7 +1093,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "setuptools"
-version = "67.5.1"
+version = "67.6.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
 category = "main"
 optional = false
@@ -1777,8 +1777,8 @@ jsonschema = [
     {file = "jsonschema-4.17.3.tar.gz", hash = "sha256:0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"},
 ]
 linkml = [
-    {file = "linkml-1.4.6-py3-none-any.whl", hash = "sha256:76d5328bfcd4865469bf258726a27b95cccad7e8f0fdfc502c9fd510c5709dff"},
-    {file = "linkml-1.4.6.tar.gz", hash = "sha256:d699d8426abeffad4c6e7c880994b51e7aad3d156cd8070ee023cb451b517662"},
+    {file = "linkml-1.4.7-py3-none-any.whl", hash = "sha256:2722387b35b8f3787e34dceee864b157814b300482abaafdd8b2d07904b5ec83"},
+    {file = "linkml-1.4.7.tar.gz", hash = "sha256:f0b59ab13bc25888a5890931f2414bdf702c2034612a84500d4f4ca9eba4955a"},
 ]
 linkml-dataops = [
     {file = "linkml_dataops-0.1.0-py3-none-any.whl", hash = "sha256:193cf7f659e5f07946d2c2761896910d5f7151d91282543b1363801f68307f4c"},
@@ -1789,8 +1789,8 @@ linkml-renderer = [
     {file = "linkml_renderer-0.1.2.tar.gz", hash = "sha256:f368a7e4e70faa794c180efdf77f8670e85b4dd35bfd5bba8ecf1af4475fd88e"},
 ]
 linkml-runtime = [
-    {file = "linkml_runtime-1.4.8-py3-none-any.whl", hash = "sha256:2a48767c0e0a8d82d2483bd46d8218ec7a3afc8d54135999ef560be60153cbcd"},
-    {file = "linkml_runtime-1.4.8.tar.gz", hash = "sha256:7ead386bdc71d61b512650ab81d5f505b28010a0fdd6e0f3a4f10dc5019b385a"},
+    {file = "linkml_runtime-1.4.9-py3-none-any.whl", hash = "sha256:62bf8618ddf362be0f173f2fa1821c3e29309c897b8f1e2f83fb41dc599e72a6"},
+    {file = "linkml_runtime-1.4.9.tar.gz", hash = "sha256:64c383ce05351b0dce18fcbbdb38884f180466968dcf09c90689e1bfa72d4aa4"},
 ]
 markdown = [
     {file = "Markdown-3.3.7-py3-none-any.whl", hash = "sha256:f5da449a6e1c989a4cea2631aa8ee67caa5a2ef855d551c88f9e309f4634c621"},
@@ -1881,8 +1881,8 @@ mkdocs-mermaid2-plugin = [
     {file = "mkdocs_mermaid2_plugin-0.6.0-py3-none-any.whl", hash = "sha256:ffbe8a7daa7ed718cb800c44c5ce4c0ff413caebf7b8b63d9c4a998dfd78a64d"},
 ]
 myst-parser = [
-    {file = "myst-parser-0.19.1.tar.gz", hash = "sha256:f2dc168ed380e01d77973ad22a64fff1377cc72a3d1ac4bced423f28258d0a42"},
-    {file = "myst_parser-0.19.1-py3-none-any.whl", hash = "sha256:356b38aef29ed09144285ad222e5c3cb7a8e7fae8015d53dba40dbb8b9f73e2c"},
+    {file = "myst-parser-1.0.0.tar.gz", hash = "sha256:502845659313099542bd38a2ae62f01360e7dd4b1310f025dd014dfc0439cdae"},
+    {file = "myst_parser-1.0.0-py3-none-any.whl", hash = "sha256:69fb40a586c6fa68995e6521ac0a525793935db7e724ca9bac1d33be51be9a4c"},
 ]
 openpyxl = [
     {file = "openpyxl-3.1.1-py2.py3-none-any.whl", hash = "sha256:a0266e033e65f33ee697254b66116a5793c15fc92daf64711080000df4cfe0a8"},
@@ -2134,8 +2134,8 @@ ruamel-yaml-clib = [
     {file = "ruamel.yaml.clib-0.2.7.tar.gz", hash = "sha256:1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"},
 ]
 setuptools = [
-    {file = "setuptools-67.5.1-py3-none-any.whl", hash = "sha256:1c39d42bda4cb89f7fdcad52b6762e3c309ec8f8715b27c684176b7d71283242"},
-    {file = "setuptools-67.5.1.tar.gz", hash = "sha256:15136a251127da2d2e77ac7a1bc231eb504654f7e3346d93613a13f2e2787535"},
+    {file = "setuptools-67.6.0-py3-none-any.whl", hash = "sha256:b78aaa36f6b90a074c1fa651168723acbf45d14cb1196b6f02c0fd07f17623b2"},
+    {file = "setuptools-67.6.0.tar.gz", hash = "sha256:2ee892cd5f29f3373097f5a814697e397cf3ce313616df0af11231e2ad118077"},
 ]
 shexjsg = [
     {file = "ShExJSG-0.8.2-py2.py3-none-any.whl", hash = "sha256:3b0d8432dd313bee9e1343382c5e02e9908dd941a7dd7342bf8c0200fe523766"},
