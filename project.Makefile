@@ -36,7 +36,9 @@ DOCS_DATA_DIR = docs/data/
 FORMATS = json tsv
 RENDERS = html markdown
 
-.PHONY: clean-schemas update-schemas validate all-data doc-data
+ISSUE_TEMPLATE_DIR = .github/ISSUE_TEMPLATE/
+
+.PHONY: clean-schemas update-schemas validate all-data doc-data issue-templates
 
 # Remove old versions of schemas.
 clean-schemas:
@@ -116,4 +118,37 @@ doc-data:
 			newpath=$(DOCS_DATA_DIR)$${newfn} ; \
 			$(RUN_RENDER) -r $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
+	done
+
+# Prepare new issue templates based off the schema.
+issue-templates:
+	@echo "Removing any previously created issue templates..."
+	rm -rf $(ISSUE_TEMPLATE_DIR) ;
+	mkdir -p $(ISSUE_TEMPLATE_DIR) ;
+	@echo "Assembling issue templates..."
+	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="data standard or tool" \
+		["$(DATA_DIR)DataSubstrate.yaml"]="data substrate" \
+		["$(DATA_DIR)DataTopic.yaml"]="data topic" \
+		["$(DATA_DIR)Organization.yaml"]="organization" \
+		["$(DATA_DIR)UseCase.yaml"]="use case" ) \
+	; for key in "$${!CLASSES[@]}" ; do \
+		printf "Building template for $${CLASSES[$${key}]}s...\n" ; \
+		newfn=new$${key##*/} ; \
+		newfn=$${newfn%.*}.yml ; \
+		newpath=$(ISSUE_TEMPLATE_DIR)$${newfn} ; \
+		touch $${newpath} ; \
+		printf "name: Request new $${CLASSES[$${key}]}\n" >> $${newpath} ; \
+		printf "description: Request addition of a new $${CLASSES[$${key}]}.\n" >> $${newpath} ; \
+		printf "title: Add this new $${CLASSES[$${key}]} - [Name Here]\n" >> $${newpath} ; \
+		printf "labels: [ New ]\n" >> $${newpath} ; \
+		printf "assignees:\n  - caufieldjh\n" >> $${newpath} ; \
+		printf "body:\n" >> $${newpath} ; \
+		printf "  - type: markdown\n    attributes:\n      value: This is the form for requesting a new $${CLASSES[$${key}]} in the Bridge2AI Standards Registry.\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: name\n    attributes:\n      label: Name\n      description: What is the short name of this entity? An acronym or short phrase works best.\n      placeholder: e.g., ESM Atlas, W3C, Molecular Biology\n    validations:\n      required: true\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: description\n    attributes:\n      label: Description\n      description: What is the description of this entity, in a sentence or two?\n      placeholder: e.g., Any data concerning studies of the structure, function, and interactions of biological molecules.\n    validations:\n      required: true\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: subclass_of\n    attributes:\n      label: Subclass_Of\n      description: (Optional) Is this a subclass of another entity? Please use an identifier.\n      placeholder: e.g., \"STANDARDSDATATOPIC:5\"\n    validations:\n      required: false\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: related_to\n    attributes:\n      label: Related_To\n      description: (Optional) Is this related to another entity? Please use an identifier.\n      placeholder: e.g., \"STANDARDSDATATOPIC:5\"\n    validations:\n      required: false\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: contributor_name\n    attributes:\n      label: Contributor Name\n      description: What is your name? This will be used for attribution.\n      placeholder: e.g., Tabatha Butterscotch\n    validations:\n      required: true\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: contributor_github\n    attributes:\n      label: Contributor GitHub\n      description: What is your GitHub name, without the @ symbol?\n      placeholder: e.g., tbuttersco\n    validations:\n      required: true\n" >> $${newpath} ; \
+		printf "  - type: input\n    id: contributor_orcid\n    attributes:\n      label: Contributor ORCID\n      description: What is your ORCID iD?\n      placeholder: e.g., 0000-0001-2345-6789\n    validations:\n      required: true\n" >> $${newpath} ; \
 	done

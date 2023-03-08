@@ -696,6 +696,14 @@ requests = "*"
 setuptools = ">=18.5"
 
 [[package]]
+name = "more-itertools"
+version = "9.1.0"
+description = "More routines for operating on iterables, beyond itertools"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "myst-parser"
 version = "1.0.0"
 description = "An extended [CommonMark](https://spec.commonmark.org/) compliant parser,"
@@ -914,6 +922,27 @@ jsonasobj = ">=1.2.1"
 pyjsg = ">=0.11.10"
 rdflib-shim = "*"
 shexjsg = ">=0.8.1"
+
+[[package]]
+name = "pystow"
+version = "0.5.0"
+description = "Easily pick a place to store data for your python package."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+click = "*"
+requests = "*"
+tqdm = "*"
+
+[package.extras]
+aws = ["boto3"]
+docs = ["sphinx", "sphinx-autodoc-typehints", "sphinx-automodapi", "sphinx-click", "sphinx-rtd-theme"]
+pandas = ["pandas"]
+rdf = ["rdflib"]
+tests = ["coverage", "pytest", "requests-file"]
+xml = ["lxml"]
 
 [[package]]
 name = "pytest"
@@ -1386,6 +1415,23 @@ docs = ["pygments-github-lexers (>=0.0.5)", "sphinx (>=2.0.0)", "sphinxcontrib-a
 testing = ["flaky (>=3.4.0)", "freezegun (>=0.3.11)", "pathlib2 (>=2.3.3)", "psutil (>=5.6.1)", "pytest (>=4.0.0)", "pytest-cov (>=2.5.1)", "pytest-mock (>=1.10.0)", "pytest-randomly (>=1.0.0)"]
 
 [[package]]
+name = "tqdm"
+version = "4.65.0"
+description = "Fast, Extensible Progress Meter"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+dev = ["py-make (>=0.1.0)", "twine", "wheel"]
+notebook = ["ipywidgets (>=6)"]
+slack = ["slack-sdk"]
+telegram = ["requests"]
+
+[[package]]
 name = "typing-extensions"
 version = "4.5.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -1476,7 +1522,7 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "f0fa8e2e327d3bb5e8cfaf292baea61703b17f554102f6790de7aa22c7eef7c8"
+content-hash = "a6c98ad23df7d0ce59d8011be2cdf8f9cfc829c6af33f573cd3c6936fa4b41af"
 
 [metadata.files]
 airium = [
@@ -1880,6 +1926,10 @@ mkdocs-mermaid2-plugin = [
     {file = "mkdocs-mermaid2-plugin-0.6.0.tar.gz", hash = "sha256:99cca6db7c6b4a954a701dcb6b507191bc32a7b0b47eacf2885c1bacf77d1af1"},
     {file = "mkdocs_mermaid2_plugin-0.6.0-py3-none-any.whl", hash = "sha256:ffbe8a7daa7ed718cb800c44c5ce4c0ff413caebf7b8b63d9c4a998dfd78a64d"},
 ]
+more-itertools = [
+    {file = "more-itertools-9.1.0.tar.gz", hash = "sha256:cabaa341ad0389ea83c17a94566a53ae4c9d07349861ecb14dc6d0345cf9ac5d"},
+    {file = "more_itertools-9.1.0-py3-none-any.whl", hash = "sha256:d2bc7f02446e86a68911e58ded76d6561eea00cddfb2a91e7019bbb586c799f3"},
+]
 myst-parser = [
     {file = "myst-parser-1.0.0.tar.gz", hash = "sha256:502845659313099542bd38a2ae62f01360e7dd4b1310f025dd014dfc0439cdae"},
     {file = "myst_parser-1.0.0-py3-none-any.whl", hash = "sha256:69fb40a586c6fa68995e6521ac0a525793935db7e724ca9bac1d33be51be9a4c"},
@@ -2009,6 +2059,10 @@ pyshex = [
 pyshexc = [
     {file = "PyShExC-0.9.1-py2.py3-none-any.whl", hash = "sha256:efc55ed5cb2453e9df569b03e282505e96bb06597934288f3b23dd980ef10028"},
     {file = "PyShExC-0.9.1.tar.gz", hash = "sha256:35a9975d4b9afeb20ef710fb6680871756381d0c39fbb5470b3b506581a304d3"},
+]
+pystow = [
+    {file = "pystow-0.5.0-py3-none-any.whl", hash = "sha256:816a9da33cd8a3f8fbda577c3d2957cfc99d1fa3ea45032dbfa087b9a21b630f"},
+    {file = "pystow-0.5.0.tar.gz", hash = "sha256:490e9ecbe4f947c72f63297f43f6584323c9ca2f2d48d47f2a22a815dc552bb4"},
 ]
 pytest = [
     {file = "pytest-7.2.2-py3-none-any.whl", hash = "sha256:130328f552dcfac0b1cec75c12e3f005619dc5f874f0a06e8ff7263f0ee6225e"},
@@ -2255,6 +2309,10 @@ tomli = [
 tox = [
     {file = "tox-3.28.0-py2.py3-none-any.whl", hash = "sha256:57b5ab7e8bb3074edc3c0c0b4b192a4f3799d3723b2c5b76f1fa9f2d40316eea"},
     {file = "tox-3.28.0.tar.gz", hash = "sha256:d0d28f3fe6d6d7195c27f8b054c3e99d5451952b54abdae673b71609a581f640"},
+]
+tqdm = [
+    {file = "tqdm-4.65.0-py3-none-any.whl", hash = "sha256:c4f53a17fe37e132815abceec022631be8ffe1b9381c2e6e30aa70edc99e9671"},
+    {file = "tqdm-4.65.0.tar.gz", hash = "sha256:1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.5.0-py3-none-any.whl", hash = "sha256:fb33085c39dd998ac16d1431ebc293a8b3eedd00fd4a32de0ff79002c19511b4"},
