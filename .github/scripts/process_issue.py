@@ -268,7 +268,8 @@ def remap(data: Dict[str, Any], mapping: Mapping[str, str]) -> Dict[str, Any]:
     except KeyError:
         logger.warning("Original dict: %s", data)
         logger.warning("Mapping dict: %s", mapping)
-        raise
+        mapping = {}
+        return mapping
 
 
 def parse_body(body: str) -> Dict[str, Any]:
@@ -349,6 +350,8 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
     """Get new entity request issues from the GitHub API.
 
     This is done by filtering on issues containing the "New" label.
+    For issues with the label but not containing the expected data,
+    
     :param token: The GitHub OAuth token. Not required, but if given, will let
     you make many more queries before getting rate limited.
     :returns: A mapping of issue identifiers to a dict
@@ -359,14 +362,18 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
     )
     rv: Dict[int, dict] = {}
     for issue_id, resource_data in data.items():
-        name = resource_data.pop("name")
-        desc = resource_data.pop("description")
-        contributor = {
-            "name": resource_data.pop("contributor_name"),
-            "orcid": _pop_orcid(resource_data),
-            "email": resource_data.pop("contributor_email", None),
-            "github": resource_data.pop("contributor_github"),
-        }
+        try:
+            name = resource_data.pop("name")
+            desc = resource_data.pop("description")
+            contributor = {
+                "name": resource_data.pop("contributor_name"),
+                "orcid": _pop_orcid(resource_data),
+                "email": resource_data.pop("contributor_email", None),
+                "github": resource_data.pop("contributor_github"),
+            }
+        except KeyError:
+            logger.warning(f"Issue {issue_id} is missing one or more required fields.")
+            continue
 
         mappings: Optional[Mapping]
 
@@ -375,7 +382,7 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
             "decription": desc,
             "contributor": contributor,
             "github_request_issue": issue_id,
-            "mappings": mappings,
+            #"mappings": mappings,
             **resource_data,
         }
     return rv
