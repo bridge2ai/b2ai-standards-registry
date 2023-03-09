@@ -490,7 +490,7 @@ def main(dry: bool, github: bool, force: bool):
                 yaml.safe_dump(this_yaml, yamlfile)
 
     title = make_title(
-        sorted(resource.prefix for resource in issue_to_resource.values())
+        sorted(resource["name"]for resource in issue_to_resource.values())
     )
     body = ", ".join(f"Closes #{issue}" for issue in issue_to_resource)
     message = f"{title}\n\n{body}"
@@ -514,7 +514,7 @@ def main(dry: bool, github: bool, force: bool):
     click.secho("Creating and switching to branch", fg="green")
     click.echo(branch(branch_name))
     click.secho("Committing", fg="green")
-    click.echo(commit(message, DATA_PATH.as_posix()))
+    click.echo(commit(message, DATA_PATH))
     click.secho("Pushing", fg="green")
     click.echo(push("origin", branch_name))
     click.secho(f"Opening PR from {branch_name} to {MAIN_BRANCH}", fg="green")
