@@ -45,7 +45,6 @@ SOFTWARE.
 import itertools as itt
 import logging
 import os
-import pathlib
 import sys
 import time
 from subprocess import CalledProcessError, check_output
@@ -65,13 +64,13 @@ MAPPING = {
     "Description": "description",
     "Subclass_Of": "subclass_of",
     "Related_To": "related_to",
-    "Contributor ORCiD": "contributor_orcid",
+    "Contributor ORCID": "contributor_orcid",
     "Contributor Name": "contributor_name",
     "Contributor GitHub": "contributor_github",
     "Contributor Email": "contributor_email",
 }
 
-DATA_DIR = pathlib.Path(os.path.abspath(os.path.dirname(__file__))) / "src/data"
+DATA_DIR = "src/data/"
 
 # TODO: Include enough detail in issues to identify which dataset we should update
 
@@ -84,7 +83,7 @@ DATA_DIR = pathlib.Path(os.path.abspath(os.path.dirname(__file__))) / "src/data"
 # ]
 
 # Just do one file for now
-DATA_PATH = DATA_DIR / "DataStandardOrTool.yaml"
+DATA_PATH = DATA_DIR + "DataStandardOrTool.yaml"
 
 ORCID_HTTP_PREFIX = "http://orcid.org/"
 ORCID_HTTPS_PREFIX = "https://orcid.org/"
@@ -217,7 +216,7 @@ def get_b2ai_standards_registry_form_data(
     """
     return get_form_data(
         owner="bridge2ai",
-        repo="b2ai_standards_registry",
+        repo="b2ai-standards-registry",
         labels=labels,
         token=token,
         remapping=remapping,
@@ -239,7 +238,7 @@ def get_form_data(
         you make many more queries before getting rate limited.
     :param remapping: A dictionary for mapping the headers of the form into new values. This is useful since
         the headers themselves will be human readable text, and not nice keys for JSON data
-    :return: A mapping from github issue issue data
+    :return: A mapping from github issue to issue data
     """
     labels = labels if isinstance(labels, str) else ",".join(labels)
     res_json = requests_get(
@@ -250,6 +249,7 @@ def get_form_data(
             "state": "open",
         },
     )
+
     rv = {
         issue["number"]: parse_body(issue["body"])
         for issue in res_json
@@ -267,7 +267,8 @@ def remap(data: Dict[str, Any], mapping: Mapping[str, str]) -> Dict[str, Any]:
     except KeyError:
         logger.warning("Original dict: %s", data)
         logger.warning("Mapping dict: %s", mapping)
-        raise
+        mapping = {}
+        return mapping
 
 
 def parse_body(body: str) -> Dict[str, Any]:
@@ -348,6 +349,8 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
     """Get new entity request issues from the GitHub API.
 
     This is done by filtering on issues containing the "New" label.
+    For issues with the label but not containing the expected data,
+    
     :param token: The GitHub OAuth token. Not required, but if given, will let
     you make many more queries before getting rate limited.
     :returns: A mapping of issue identifiers to a dict
@@ -358,14 +361,18 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
     )
     rv: Dict[int, dict] = {}
     for issue_id, resource_data in data.items():
-        name = resource_data.pop("name")
-        desc = resource_data.pop("description")
-        contributor = {
-            "name": resource_data.pop("contributor_name"),
-            "orcid": _pop_orcid(resource_data),
-            "email": resource_data.pop("contributor_email", None),
-            "github": resource_data.pop("contributor_github"),
-        }
+        try:
+            name = resource_data.pop("name")
+            desc = resource_data.pop("description")
+            contributor = {
+                "name": resource_data.pop("contributor_name"),
+                "orcid": _pop_orcid(resource_data),
+                "email": resource_data.pop("contributor_email", None),
+                "github": resource_data.pop("contributor_github"),
+            }
+        except KeyError:
+            logger.warning(f"Issue {issue_id} is missing one or more required fields.")
+            continue
 
         mappings: Optional[Mapping]
 
@@ -374,7 +381,7 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
             "decription": desc,
             "contributor": contributor,
             "github_request_issue": issue_id,
-            "mappings": mappings,
+            #"mappings": mappings,
             **resource_data,
         }
     return rv
@@ -470,20 +477,20 @@ def main(dry: bool, github: bool, force: bool):
         sys.exit(0)
 
     for issue_number, resource in issue_to_resource.items():
-        click.echo(f"🚀 Adding {resource.name} (#{issue_number})")
+        click.echo(f'🚀 Adding {resource["name"]} (#{issue_number})')
         # TODO: write to a specific file based on the issue
         with open(DATA_PATH, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             # TODO: the collection name will also vary depending on the file,
             # so we need to provide a map like what the project.Makefile uses
-            this_yaml["data_standardortools_collection"].update(resource)
-
+            this_yaml["data_standardortools_collection"].append({"id":"PLACEHOLDER",
+                                                                 "name":resource["name"]})
         if this_yaml:
             with open(DATA_PATH, "w") as yamlfile:
-                yaml.safe_dump(this_yaml, yamlfile)
+                yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
 
     title = make_title(
-        sorted(resource.prefix for resource in issue_to_resource.values())
+        sorted(resource["name"]for resource in issue_to_resource.values())
     )
     body = ", ".join(f"Closes #{issue}" for issue in issue_to_resource)
     message = f"{title}\n\n{body}"
@@ -507,7 +514,7 @@ def main(dry: bool, github: bool, force: bool):
     click.secho("Creating and switching to branch", fg="green")
     click.echo(branch(branch_name))
     click.secho("Committing", fg="green")
-    click.echo(commit(message, DATA_PATH.as_posix()))
+    click.echo(commit(message, DATA_PATH))
     click.secho("Pushing", fg="green")
     click.echo(push("origin", branch_name))
     click.secho(f"Opening PR from {branch_name} to {MAIN_BRANCH}", fg="green")
