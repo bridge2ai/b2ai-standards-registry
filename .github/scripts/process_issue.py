@@ -45,7 +45,6 @@ SOFTWARE.
 import itertools as itt
 import logging
 import os
-import pathlib
 import sys
 import time
 from subprocess import CalledProcessError, check_output
@@ -484,7 +483,7 @@ def main(dry: bool, github: bool, force: bool):
             this_yaml = yaml.safe_load(yamlfile)
             # TODO: the collection name will also vary depending on the file,
             # so we need to provide a map like what the project.Makefile uses
-            this_yaml["data_standardortools_collection"].update(resource)
+            this_yaml["data_standardortools_collection"].extend(resource)
 
         if this_yaml:
             with open(DATA_PATH, "w") as yamlfile:
