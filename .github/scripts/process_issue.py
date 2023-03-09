@@ -483,11 +483,11 @@ def main(dry: bool, github: bool, force: bool):
             this_yaml = yaml.safe_load(yamlfile)
             # TODO: the collection name will also vary depending on the file,
             # so we need to provide a map like what the project.Makefile uses
-            this_yaml["data_standardortools_collection"].extend(resource)
-
+            this_yaml["data_standardortools_collection"].append({"id":"PLACEHOLDER",
+                                                                 "name":resource["name"]})
         if this_yaml:
             with open(DATA_PATH, "w") as yamlfile:
-                yaml.safe_dump(this_yaml, yamlfile)
+                yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
 
     title = make_title(
         sorted(resource["name"]for resource in issue_to_resource.values())
