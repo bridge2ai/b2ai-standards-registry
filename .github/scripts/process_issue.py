@@ -65,7 +65,7 @@ MAPPING = {
     "Description": "description",
     "Subclass_Of": "subclass_of",
     "Related_To": "related_to",
-    "Contributor ORCiD": "contributor_orcid",
+    "Contributor ORCID": "contributor_orcid",
     "Contributor Name": "contributor_name",
     "Contributor GitHub": "contributor_github",
     "Contributor Email": "contributor_email",
