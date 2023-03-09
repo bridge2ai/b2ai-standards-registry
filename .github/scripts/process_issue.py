@@ -71,7 +71,7 @@ MAPPING = {
     "Contributor Email": "contributor_email",
 }
 
-DATA_DIR = pathlib.Path(os.path.abspath(os.path.dirname(__file__))) / "src/data"
+DATA_DIR = "src/data/"
 
 # TODO: Include enough detail in issues to identify which dataset we should update
 
@@ -84,7 +84,7 @@ DATA_DIR = pathlib.Path(os.path.abspath(os.path.dirname(__file__))) / "src/data"
 # ]
 
 # Just do one file for now
-DATA_PATH = DATA_DIR / "DataStandardOrTool.yaml"
+DATA_PATH = DATA_DIR + "DataStandardOrTool.yaml"
 
 ORCID_HTTP_PREFIX = "http://orcid.org/"
 ORCID_HTTPS_PREFIX = "https://orcid.org/"
@@ -478,7 +478,7 @@ def main(dry: bool, github: bool, force: bool):
         sys.exit(0)
 
     for issue_number, resource in issue_to_resource.items():
-        click.echo(f"🚀 Adding {resource.name} (#{issue_number})")
+        click.echo(f'🚀 Adding {resource["name"]} (#{issue_number})')
         # TODO: write to a specific file based on the issue
         with open(DATA_PATH, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
