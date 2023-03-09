@@ -217,7 +217,7 @@ def get_b2ai_standards_registry_form_data(
     """
     return get_form_data(
         owner="bridge2ai",
-        repo="b2ai_standards_registry",
+        repo="b2ai-standards-registry",
         labels=labels,
         token=token,
         remapping=remapping,
@@ -239,7 +239,7 @@ def get_form_data(
         you make many more queries before getting rate limited.
     :param remapping: A dictionary for mapping the headers of the form into new values. This is useful since
         the headers themselves will be human readable text, and not nice keys for JSON data
-    :return: A mapping from github issue issue data
+    :return: A mapping from github issue to issue data
     """
     labels = labels if isinstance(labels, str) else ",".join(labels)
     res_json = requests_get(
@@ -250,6 +250,7 @@ def get_form_data(
             "state": "open",
         },
     )
+
     rv = {
         issue["number"]: parse_body(issue["body"])
         for issue in res_json
