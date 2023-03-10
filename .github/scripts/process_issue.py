@@ -404,16 +404,16 @@ def _join(x: Iterable[int], sep=", ") -> str:
     return sep.join(map(str, sorted(x)))
 
 
-def make_title(prefixes: Sequence[str]) -> str:
+def make_title(names: Sequence[str]) -> str:
     """Make a title for the PR."""
-    if len(prefixes) == 0:
+    if len(names) == 0:
         raise ValueError
-    if len(prefixes) == 1:
-        return f"Add prefix: {prefixes[0]}"
-    elif len(prefixes) == 2:
-        return f"Add prefixes: {prefixes[0]} and {prefixes[1]}"
+    if len(names) == 1:
+        return f"Add entity: {names[0]}"
+    elif len(names) == 2:
+        return f"Add entities: {names[0]} and {names[1]}"
     else:
-        return f'Add prefixes: {", ".join(prefixes[:-1])}, and {prefixes[-1]}'
+        return f'Add entity: {", ".join(names[:-1])}, and {names[-1]}'
 
 
 @click.command()
@@ -490,7 +490,7 @@ def main(dry: bool, github: bool, force: bool):
                 yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
 
     title = make_title(
-        sorted(resource["name"]for resource in issue_to_resource.values())
+        sorted(resource["name"] for resource in issue_to_resource.values())
     )
     body = ", ".join(f"Closes #{issue}" for issue in issue_to_resource)
     message = f"{title}\n\n{body}"
