@@ -409,11 +409,11 @@ def make_title(names: Sequence[str]) -> str:
     if len(names) == 0:
         raise ValueError
     if len(names) == 1:
-        return f"Add entity: {names[0]}"
+        return f"Add entity {names[0]}"
     elif len(names) == 2:
-        return f"Add entities: {names[0]} and {names[1]}"
+        return f"Add entities {names[0]} and {names[1]}"
     else:
-        return f'Add entity: {", ".join(names[:-1])}, and {names[-1]}'
+        return f'Add entity {", ".join(names[:-1])}, and {names[-1]}'
 
 
 @click.command()
@@ -505,6 +505,10 @@ def main(dry: bool, github: bool, force: bool):
         )
         return sys.exit(0)
     elif dry:
+        print("New branch would have been:")
+        print(f"title: {title}")
+        print(f"body: {body}")
+        print(f"branch_name: {branch_name}")
         click.secho(
             f"Skipping making branch {branch_name}, committing, pushing, and PRing",
             fg="yellow",
