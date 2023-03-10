@@ -499,8 +499,8 @@ def main(dry: bool, github: bool, force: bool):
     if github:
         click.echo(
             f"""
-          ::set-output name=BR_BODY::{body}
-          ::set-output name=BR_TITLE::{title}
+          ::set-output name=PR_BODY::{body}
+          ::set-output name=PR_TITLE::{title}
         """
         )
         return sys.exit(0)

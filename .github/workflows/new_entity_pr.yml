@@ -32,5 +32,5 @@ jobs:
         with:
           branch-suffix: short-commit-hash
           labels: New
-          body: ${{ steps.update.outputs.BR_BODY }}
-          title: ${{ steps.update.outputs.BR_TITLE }}
+          body: ${{ steps.update.outputs.PR_BODY }}
+          title: ${{ steps.update.outputs.PR_TITLE }}
