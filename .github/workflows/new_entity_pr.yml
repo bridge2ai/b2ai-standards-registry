@@ -24,7 +24,7 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Process the issue
         id: process_issue
-        run: poetry run python ./.github/scripts/process_issue.py --github 
+        run: poetry run python ./.github/scripts/process_issue.py --github
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Create PR
@@ -32,5 +32,5 @@ jobs:
         with:
           branch-suffix: short-commit-hash
           labels: New
-          body: ${{ steps.update.outputs.PR_BODY }}
-          title: ${{ steps.update.outputs.PR_TITLE }}
+          body: ${{ steps.process_issue.outputs.PR_BODY }}
+          title: ${{ steps.process_issue.outputs.PR_TITLE }}
