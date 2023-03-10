@@ -156,8 +156,8 @@ def open_b2ai_standards_registry_pull_request(
 ):
     """Open a pull request to b2ai-standards-registry via :func:`open_pull_request`."""
     return open_pull_request(
-        owner="bioregistry",
-        repo="bioregistry",
+        owner="bridge2ai",
+        repo="b2ai-standards-registry",
         base=MAIN_BRANCH,
         title=title,
         head=head,
