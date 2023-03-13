@@ -4,7 +4,7 @@ _Represents a standard in the Bridge2AI Standards Registry with particular appli
 
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:BiomedicalStandard](https://w3id.org/bridge2ai/standards-datastandardortool-schema/BiomedicalStandard)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:BiomedicalStandard](https://w3id.org/bridge2ai/standards-schema-all/:BiomedicalStandard)
 
 
 
@@ -14,19 +14,33 @@ URI: [STANDARDSDATASTANDARDORTOOL:BiomedicalStandard](https://w3id.org/bridge2ai
       DataStandard <|-- BiomedicalStandard
       
       BiomedicalStandard : collection
+        BiomedicalStandard <.. StandardsCollectionTag : collection
       BiomedicalStandard : concerns_data_topic
+        BiomedicalStandard <.. DataTopic : concerns_data_topic
       BiomedicalStandard : description
+        BiomedicalStandard <.. string : description
       BiomedicalStandard : formal_specification
+        BiomedicalStandard <.. uriorcurie : formal_specification
       BiomedicalStandard : has_relevant_organization
+        BiomedicalStandard <.. Organization : has_relevant_organization
       BiomedicalStandard : id
+        BiomedicalStandard <.. uriorcurie : id
       BiomedicalStandard : is_open
+        BiomedicalStandard <.. boolean : is_open
       BiomedicalStandard : name
+        BiomedicalStandard <.. string : name
       BiomedicalStandard : publication
+        BiomedicalStandard <.. uriorcurie : publication
       BiomedicalStandard : purpose_detail
+        BiomedicalStandard <.. string : purpose_detail
       BiomedicalStandard : related_to
+        BiomedicalStandard <.. NamedThing : related_to
       BiomedicalStandard : requires_registration
+        BiomedicalStandard <.. boolean : requires_registration
       BiomedicalStandard : subclass_of
+        BiomedicalStandard <.. NamedThing : subclass_of
       BiomedicalStandard : url
+        BiomedicalStandard <.. uriorcurie : url
       
 ```
 
@@ -49,15 +63,15 @@ URI: [STANDARDSDATASTANDARDORTOOL:BiomedicalStandard](https://w3id.org/bridge2ai
 | [collection](collection.md) | 0..* <br/> [StandardsCollectionTag](StandardsCollectionTag.md) | Tags for specific sets of standards | [DataStandardOrTool](DataStandardOrTool.md) |
 | [concerns_data_topic](concerns_data_topic.md) | 0..* <br/> [DataTopic](DataTopic.md) | Subject standard is generally applied in the context of object data topic | [DataStandardOrTool](DataStandardOrTool.md) |
 | [has_relevant_organization](has_relevant_organization.md) | 0..* <br/> [Organization](Organization.md) | Subject standard is managed or otherwise guided buy the object organization(s... | [DataStandardOrTool](DataStandardOrTool.md) |
-| [purpose_detail](purpose_detail.md) | 0..1 <br/> [xsd:string](xsd:string) | Text description of the standard or tool | [DataStandardOrTool](DataStandardOrTool.md) |
-| [is_open](is_open.md) | 0..1 <br/> [xsd:boolean](xsd:boolean) | Is the standard or tool FAIR and available free of cost? | [DataStandardOrTool](DataStandardOrTool.md) |
-| [requires_registration](requires_registration.md) | 0..1 <br/> [xsd:boolean](xsd:boolean) | Does usage of the standard or tool require registrion of a user or group with... | [DataStandardOrTool](DataStandardOrTool.md) |
-| [url](url.md) | 0..1 <br/> [xsd:anyURI](xsd:anyURI) | URL for basic documentation of the standard or tool | [DataStandardOrTool](DataStandardOrTool.md) |
-| [publication](publication.md) | 0..1 <br/> [xsd:anyURI](xsd:anyURI) | Relevant publication for the standard or tool | [DataStandardOrTool](DataStandardOrTool.md) |
-| [formal_specification](formal_specification.md) | 0..1 <br/> [xsd:anyURI](xsd:anyURI) | Relevant code repository or other location for a formal specification of the ... | [DataStandardOrTool](DataStandardOrTool.md) |
-| [id](id.md) | 1..1 <br/> [xsd:anyURI](xsd:anyURI) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
-| [name](name.md) | 0..1 <br/> [xsd:string](xsd:string) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
-| [description](description.md) | 0..1 <br/> [xsd:string](xsd:string) | A human-readable description for a thing | [NamedThing](NamedThing.md) |
+| [purpose_detail](purpose_detail.md) | 0..1 <br/> [String](String.md) | Text description of the standard or tool | [DataStandardOrTool](DataStandardOrTool.md) |
+| [is_open](is_open.md) | 0..1 <br/> [Boolean](Boolean.md) | Is the standard or tool FAIR and available free of cost? | [DataStandardOrTool](DataStandardOrTool.md) |
+| [requires_registration](requires_registration.md) | 0..1 <br/> [Boolean](Boolean.md) | Does usage of the standard or tool require registrion of a user or group with... | [DataStandardOrTool](DataStandardOrTool.md) |
+| [url](url.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URL for basic documentation of the standard or tool | [DataStandardOrTool](DataStandardOrTool.md) |
+| [publication](publication.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Relevant publication for the standard or tool | [DataStandardOrTool](DataStandardOrTool.md) |
+| [formal_specification](formal_specification.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Relevant code repository or other location for a formal specification of the ... | [DataStandardOrTool](DataStandardOrTool.md) |
+| [id](id.md) | 1..1 <br/> [Uriorcurie](Uriorcurie.md) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
+| [name](name.md) | 0..1 <br/> [String](String.md) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | A human-readable description for a thing | [NamedThing](NamedThing.md) |
 | [subclass_of](subclass_of.md) | 0..* <br/> [NamedThing](NamedThing.md) | Holds between two classes where the domain class is a specialization of the r... | [NamedThing](NamedThing.md) |
 | [related_to](related_to.md) | 0..* <br/> [NamedThing](NamedThing.md) | A relationship that is asserted between two named things | [NamedThing](NamedThing.md) |
 
@@ -80,7 +94,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:BiomedicalStandard](https://w3id.org/bridge2ai
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -90,8 +104,8 @@ URI: [STANDARDSDATASTANDARDORTOOL:BiomedicalStandard](https://w3id.org/bridge2ai
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | STANDARDSDATASTANDARDORTOOL:BiomedicalStandard |
-| native | STANDARDSDATASTANDARDORTOOL:BiomedicalStandard |
+| self | https://w3id.org/bridge2ai/standards-schema-all/:BiomedicalStandard |
+| native | https://w3id.org/bridge2ai/standards-schema-all/:BiomedicalStandard |
 
 
 
@@ -108,7 +122,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:BiomedicalStandard](https://w3id.org/bridge2ai
 name: BiomedicalStandard
 description: Represents a standard in the Bridge2AI Standards Registry with particular
   applications or relevance to clinical or biomedical research purposes.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: DataStandard
 
@@ -122,14 +136,14 @@ is_a: DataStandard
 name: BiomedicalStandard
 description: Represents a standard in the Bridge2AI Standards Registry with particular
   applications or relevance to clinical or biomedical research purposes.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: DataStandard
 attributes:
   collection:
     name: collection
     description: Tags for specific sets of standards.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -143,7 +157,7 @@ attributes:
     name: concerns_data_topic
     description: Subject standard is generally applied in the context of object data
       topic.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: related_to
     domain: DataStandardOrTool
@@ -157,7 +171,7 @@ attributes:
   has_relevant_organization:
     name: has_relevant_organization
     description: Subject standard is managed or otherwise guided buy the object organization(s).
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: related_to
     domain: DataStandardOrTool
@@ -171,7 +185,7 @@ attributes:
   purpose_detail:
     name: purpose_detail
     description: Text description of the standard or tool.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -183,7 +197,7 @@ attributes:
   is_open:
     name: is_open
     description: Is the standard or tool FAIR and available free of cost?
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -196,7 +210,7 @@ attributes:
     name: requires_registration
     description: Does usage of the standard or tool require registrion of a user or
       group with some organization or managerial body?
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -208,7 +222,7 @@ attributes:
   url:
     name: url
     description: URL for basic documentation of the standard or tool.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -221,7 +235,7 @@ attributes:
   publication:
     name: publication
     description: Relevant publication for the standard or tool. Prefer a DOI or PUBMED.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -234,7 +248,7 @@ attributes:
     name: formal_specification
     description: Relevant code repository or other location for a formal specification
       of the standard or tool. Often a URL, particularly to a Git repository.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -246,7 +260,7 @@ attributes:
   id:
     name: id
     description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
@@ -259,7 +273,7 @@ attributes:
   name:
     name: name
     description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:name
     alias: name
@@ -270,7 +284,7 @@ attributes:
   description:
     name: description
     description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:description
     alias: description
@@ -282,7 +296,7 @@ attributes:
     name: subclass_of
     description: Holds between two classes where the domain class is a specialization
       of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     exact_mappings:
     - rdfs:subClassOf
     - MESH:isa
@@ -301,7 +315,7 @@ attributes:
   related_to:
     name: related_to
     description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     domain: NamedThing
     multivalued: true

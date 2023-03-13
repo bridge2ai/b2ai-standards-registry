@@ -2,7 +2,7 @@
 _Tags for specific sets of standards._
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:collection](https://w3id.org/bridge2ai/standards-datastandardortool-schema/collection)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:collection](https://w3id.org/bridge2ai/standards-schema-all/:collection)
 
 
 
@@ -59,7 +59,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:collection](https://w3id.org/bridge2ai/standar
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -70,7 +70,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:collection](https://w3id.org/bridge2ai/standar
 ```yaml
 name: collection
 description: Tags for specific sets of standards.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

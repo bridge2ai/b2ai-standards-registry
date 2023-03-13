@@ -2,7 +2,7 @@
 _Relevant publication for the standard or tool. Prefer a DOI or PUBMED._
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:publication](https://w3id.org/bridge2ai/standards-datastandardortool-schema/publication)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:publication](https://w3id.org/bridge2ai/standards-schema-all/:publication)
 
 
 
@@ -38,7 +38,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:publication](https://w3id.org/bridge2ai/standa
 
 ## Properties
 
-* Range: [xsd:anyURI](xsd:anyURI)
+* Range: [Uriorcurie](Uriorcurie.md)
 
 
 
@@ -57,7 +57,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:publication](https://w3id.org/bridge2ai/standa
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -68,7 +68,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:publication](https://w3id.org/bridge2ai/standa
 ```yaml
 name: publication
 description: Relevant publication for the standard or tool. Prefer a DOI or PUBMED.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

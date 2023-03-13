@@ -2,7 +2,7 @@
 _Category of the UseCase. Not all projects will incorporate use cases in all categories._
 
 
-URI: [STANDARDSUSECASE:use_case_category](https://w3id.org/bridge2ai/standards-usecase-schema/use_case_category)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:use_case_category](https://w3id.org/bridge2ai/standards-schema-all/:use_case_category)
 
 
 
@@ -48,7 +48,7 @@ URI: [STANDARDSUSECASE:use_case_category](https://w3id.org/bridge2ai/standards-u
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -60,7 +60,7 @@ URI: [STANDARDSUSECASE:use_case_category](https://w3id.org/bridge2ai/standards-u
 name: use_case_category
 description: Category of the UseCase. Not all projects will incorporate use cases
   in all categories.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

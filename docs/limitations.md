@@ -2,7 +2,7 @@
 _Potential obstacles particular to this substrate or implementation. _
 
 
-URI: [STANDARDSDATASUBSTRATE:limitations](https://w3id.org/bridge2ai/standards-datasubstrate-schema/limitations)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:limitations](https://w3id.org/bridge2ai/standards-schema-all/:limitations)
 
 
 
@@ -29,7 +29,7 @@ URI: [STANDARDSDATASUBSTRATE:limitations](https://w3id.org/bridge2ai/standards-d
 
 ## Properties
 
-* Range: [xsd:string](xsd:string)
+* Range: [String](String.md)
 * Multivalued: True
 
 
@@ -50,7 +50,7 @@ URI: [STANDARDSDATASUBSTRATE:limitations](https://w3id.org/bridge2ai/standards-d
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ URI: [STANDARDSDATASUBSTRATE:limitations](https://w3id.org/bridge2ai/standards-d
 ```yaml
 name: limitations
 description: 'Potential obstacles particular to this substrate or implementation. '
-from_schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

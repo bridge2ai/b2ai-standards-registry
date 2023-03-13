@@ -1,6 +1,6 @@
 # Slot: data_topics_collection
 
-URI: [STANDARDSDATATOPIC:data_topics_collection](https://w3id.org/bridge2ai/standards-datatopic-schema/data_topics_collection)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:data_topics_collection](https://w3id.org/bridge2ai/standards-schema-all/:data_topics_collection)
 
 
 
@@ -43,7 +43,7 @@ URI: [STANDARDSDATATOPIC:data_topics_collection](https://w3id.org/bridge2ai/stan
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datatopic-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -53,7 +53,7 @@ URI: [STANDARDSDATATOPIC:data_topics_collection](https://w3id.org/bridge2ai/stan
 <details>
 ```yaml
 name: data_topics_collection
-from_schema: https://w3id.org/bridge2ai/standards-datatopic-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 multivalued: true
 alias: data_topics_collection

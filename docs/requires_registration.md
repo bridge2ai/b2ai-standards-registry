@@ -2,7 +2,7 @@
 _Does usage of the standard or tool require registrion of a user or group with some organization or managerial body?_
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:requires_registration](https://w3id.org/bridge2ai/standards-datastandardortool-schema/requires_registration)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:requires_registration](https://w3id.org/bridge2ai/standards-schema-all/:requires_registration)
 
 
 
@@ -38,7 +38,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:requires_registration](https://w3id.org/bridge
 
 ## Properties
 
-* Range: [xsd:boolean](xsd:boolean)
+* Range: [Boolean](Boolean.md)
 
 
 
@@ -57,7 +57,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:requires_registration](https://w3id.org/bridge
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -69,7 +69,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:requires_registration](https://w3id.org/bridge
 name: requires_registration
 description: Does usage of the standard or tool require registrion of a user or group
   with some organization or managerial body?
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

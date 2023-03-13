@@ -4,7 +4,7 @@ _A container for UseCase._
 
 
 
-URI: [STANDARDSUSECASE:UseCaseContainer](https://w3id.org/bridge2ai/standards-usecase-schema/UseCaseContainer)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:UseCaseContainer](https://w3id.org/bridge2ai/standards-schema-all/:UseCaseContainer)
 
 
 
@@ -12,6 +12,7 @@ URI: [STANDARDSUSECASE:UseCaseContainer](https://w3id.org/bridge2ai/standards-us
  classDiagram
     class UseCaseContainer
       UseCaseContainer : use_cases
+        UseCaseContainer <.. UseCase : use_cases
       
 ```
 
@@ -46,7 +47,7 @@ URI: [STANDARDSUSECASE:UseCaseContainer](https://w3id.org/bridge2ai/standards-us
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -56,8 +57,8 @@ URI: [STANDARDSUSECASE:UseCaseContainer](https://w3id.org/bridge2ai/standards-us
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | STANDARDSUSECASE:UseCaseContainer |
-| native | STANDARDSUSECASE:UseCaseContainer |
+| self | https://w3id.org/bridge2ai/standards-schema-all/:UseCaseContainer |
+| native | https://w3id.org/bridge2ai/standards-schema-all/:UseCaseContainer |
 
 
 
@@ -73,7 +74,7 @@ URI: [STANDARDSUSECASE:UseCaseContainer](https://w3id.org/bridge2ai/standards-us
 ```yaml
 name: UseCaseContainer
 description: A container for UseCase.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slots:
 - use_cases
@@ -87,12 +88,12 @@ slots:
 ```yaml
 name: UseCaseContainer
 description: A container for UseCase.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 attributes:
   use_cases:
     name: use_cases
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     multivalued: true
     alias: use_cases

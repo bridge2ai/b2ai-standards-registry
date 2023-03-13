@@ -1,6 +1,6 @@
 # Slot: organizations
 
-URI: [STANDARDSORGANIZATION:organizations](https://w3id.org/bridge2ai/standards-organization-schema/organizations)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:organizations](https://w3id.org/bridge2ai/standards-schema-all/:organizations)
 
 
 
@@ -43,7 +43,7 @@ URI: [STANDARDSORGANIZATION:organizations](https://w3id.org/bridge2ai/standards-
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-organization-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -53,7 +53,7 @@ URI: [STANDARDSORGANIZATION:organizations](https://w3id.org/bridge2ai/standards-
 <details>
 ```yaml
 name: organizations
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 multivalued: true
 alias: organizations

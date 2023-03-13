@@ -70,7 +70,7 @@ URI: [StandardsCollectionTag](StandardsCollectionTag)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -81,7 +81,7 @@ URI: [StandardsCollectionTag](StandardsCollectionTag)
 ```yaml
 name: StandardsCollectionTag
 description: Tags for specific sets of standards.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 permissible_values:
   audiovisual:

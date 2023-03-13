@@ -1,6 +1,6 @@
 # Slot: data_standardortools_collection
 
-URI: [STANDARDSDATASTANDARDORTOOL:data_standardortools_collection](https://w3id.org/bridge2ai/standards-datastandardortool-schema/data_standardortools_collection)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:data_standardortools_collection](https://w3id.org/bridge2ai/standards-schema-all/:data_standardortools_collection)
 
 
 
@@ -43,7 +43,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:data_standardortools_collection](https://w3id.
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -53,7 +53,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:data_standardortools_collection](https://w3id.
 <details>
 ```yaml
 name: data_standardortools_collection
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 multivalued: true
 alias: data_standardortools_collection

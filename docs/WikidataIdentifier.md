@@ -2,7 +2,7 @@
 
 
 
-URI: [xsd:anyURI](xsd:anyURI)
+URI: [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI)
 
 * [base](https://w3id.org/linkml/base): URIorCURIE
 
@@ -37,7 +37,7 @@ Instances of this class *should* have identifiers with one of the following pref
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-organization-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 

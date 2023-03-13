@@ -2,7 +2,7 @@
 _True is use case is likely to be implemented as part of data validation operations._
 
 
-URI: [STANDARDSUSECASE:involved_in_quality_control](https://w3id.org/bridge2ai/standards-usecase-schema/involved_in_quality_control)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:involved_in_quality_control](https://w3id.org/bridge2ai/standards-schema-all/:involved_in_quality_control)
 
 
 
@@ -29,7 +29,7 @@ URI: [STANDARDSUSECASE:involved_in_quality_control](https://w3id.org/bridge2ai/s
 
 ## Properties
 
-* Range: [xsd:boolean](xsd:boolean)
+* Range: [Boolean](Boolean.md)
 
 
 
@@ -48,7 +48,7 @@ URI: [STANDARDSUSECASE:involved_in_quality_control](https://w3id.org/bridge2ai/s
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -60,7 +60,7 @@ URI: [STANDARDSUSECASE:involved_in_quality_control](https://w3id.org/bridge2ai/s
 name: involved_in_quality_control
 description: True is use case is likely to be implemented as part of data validation
   operations.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

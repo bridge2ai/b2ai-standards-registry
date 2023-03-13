@@ -1,5 +1,5 @@
 # Auto generated from standards_schema_all.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-03-01T10:12:01
+# Generation date: 2023-03-13T14:58:44
 # Schema: standards-schema-all
 #
 # id: https://w3id.org/bridge2ai/standards-schema-all

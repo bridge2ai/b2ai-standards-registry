@@ -2,7 +2,7 @@
 _Other use case(s) this use case supports or makes possible._
 
 
-URI: [STANDARDSUSECASE:enables](https://w3id.org/bridge2ai/standards-usecase-schema/enables)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:enables](https://w3id.org/bridge2ai/standards-schema-all/:enables)
 
 
 
@@ -50,7 +50,7 @@ URI: [STANDARDSUSECASE:enables](https://w3id.org/bridge2ai/standards-usecase-sch
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ URI: [STANDARDSUSECASE:enables](https://w3id.org/bridge2ai/standards-usecase-sch
 ```yaml
 name: enables
 description: Other use case(s) this use case supports or makes possible.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

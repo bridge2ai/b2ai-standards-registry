@@ -1,6 +1,6 @@
 # Slot: use_cases
 
-URI: [STANDARDSUSECASE:use_cases](https://w3id.org/bridge2ai/standards-usecase-schema/use_cases)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:use_cases](https://w3id.org/bridge2ai/standards-schema-all/:use_cases)
 
 
 
@@ -43,7 +43,7 @@ URI: [STANDARDSUSECASE:use_cases](https://w3id.org/bridge2ai/standards-usecase-s
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -53,7 +53,7 @@ URI: [STANDARDSUSECASE:use_cases](https://w3id.org/bridge2ai/standards-usecase-s
 <details>
 ```yaml
 name: use_cases
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 multivalued: true
 alias: use_cases

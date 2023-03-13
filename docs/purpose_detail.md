@@ -2,7 +2,7 @@
 _Text description of the standard or tool._
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:purpose_detail](https://w3id.org/bridge2ai/standards-datastandardortool-schema/purpose_detail)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:purpose_detail](https://w3id.org/bridge2ai/standards-schema-all/:purpose_detail)
 
 
 
@@ -38,7 +38,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:purpose_detail](https://w3id.org/bridge2ai/sta
 
 ## Properties
 
-* Range: [xsd:string](xsd:string)
+* Range: [String](String.md)
 
 
 
@@ -57,7 +57,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:purpose_detail](https://w3id.org/bridge2ai/sta
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -68,7 +68,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:purpose_detail](https://w3id.org/bridge2ai/sta
 ```yaml
 name: purpose_detail
 description: Text description of the standard or tool.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

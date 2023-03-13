@@ -1,6 +1,6 @@
 # Slot: edam_id
 
-URI: [STANDARDS:edam_id](https://w3id.org/bridge2ai/standards-schema/edam_id)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:edam_id](https://w3id.org/bridge2ai/standards-schema-all/:edam_id)
 
 
 
@@ -49,7 +49,7 @@ URI: [STANDARDS:edam_id](https://w3id.org/bridge2ai/standards-schema/edam_id)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ URI: [STANDARDS:edam_id](https://w3id.org/bridge2ai/standards-schema/edam_id)
 name: edam_id
 examples:
 - value: edam.data:0006
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 values_from:
 - edam.data

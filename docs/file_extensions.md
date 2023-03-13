@@ -2,7 +2,7 @@
 _Commonly used file extensions for this substrate._
 
 
-URI: [STANDARDSDATASUBSTRATE:file_extensions](https://w3id.org/bridge2ai/standards-datasubstrate-schema/file_extensions)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:file_extensions](https://w3id.org/bridge2ai/standards-schema-all/:file_extensions)
 
 
 
@@ -29,7 +29,7 @@ URI: [STANDARDSDATASUBSTRATE:file_extensions](https://w3id.org/bridge2ai/standar
 
 ## Properties
 
-* Range: [xsd:string](xsd:string)
+* Range: [String](String.md)
 * Multivalued: True
 
 
@@ -50,7 +50,7 @@ URI: [STANDARDSDATASUBSTRATE:file_extensions](https://w3id.org/bridge2ai/standar
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ URI: [STANDARDSDATASUBSTRATE:file_extensions](https://w3id.org/bridge2ai/standar
 ```yaml
 name: file_extensions
 description: Commonly used file extensions for this substrate.
-from_schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

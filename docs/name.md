@@ -38,7 +38,7 @@ URI: [schema:name](http://schema.org/name)
 
 ## Properties
 
-* Range: [xsd:string](xsd:string)
+* Range: [String](String.md)
 
 
 
@@ -57,7 +57,7 @@ URI: [schema:name](http://schema.org/name)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -68,7 +68,7 @@ URI: [schema:name](http://schema.org/name)
 ```yaml
 name: name
 description: A human-readable name for a thing.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slot_uri: schema:name
 alias: name
