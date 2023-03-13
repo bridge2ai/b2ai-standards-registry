@@ -2,7 +2,7 @@
 _True if use case is likely to be implemented as part of an experimental procedure or collection of data to be used as part of an experiment._
 
 
-URI: [STANDARDSUSECASE:involved_in_experimental_design](https://w3id.org/bridge2ai/standards-usecase-schema/involved_in_experimental_design)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:involved_in_experimental_design](https://w3id.org/bridge2ai/standards-schema-all/:involved_in_experimental_design)
 
 
 
@@ -29,7 +29,7 @@ URI: [STANDARDSUSECASE:involved_in_experimental_design](https://w3id.org/bridge2
 
 ## Properties
 
-* Range: [xsd:boolean](xsd:boolean)
+* Range: [Boolean](Boolean.md)
 
 
 
@@ -48,7 +48,7 @@ URI: [STANDARDSUSECASE:involved_in_experimental_design](https://w3id.org/bridge2
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -60,7 +60,7 @@ URI: [STANDARDSUSECASE:involved_in_experimental_design](https://w3id.org/bridge2
 name: involved_in_experimental_design
 description: True if use case is likely to be implemented as part of an experimental
   procedure or collection of data to be used as part of an experiment.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

@@ -2,7 +2,7 @@
 _Subject standard is generally applied in the context of object data topic._
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:concerns_data_topic](https://w3id.org/bridge2ai/standards-datastandardortool-schema/concerns_data_topic)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:concerns_data_topic](https://w3id.org/bridge2ai/standards-schema-all/:concerns_data_topic)
 
 
 
@@ -59,7 +59,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:concerns_data_topic](https://w3id.org/bridge2a
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -70,7 +70,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:concerns_data_topic](https://w3id.org/bridge2a
 ```yaml
 name: concerns_data_topic
 description: Subject standard is generally applied in the context of object data topic.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: related_to
 domain: DataStandardOrTool

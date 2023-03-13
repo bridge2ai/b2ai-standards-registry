@@ -2,7 +2,7 @@
 _Data Substrate in which metadata is stored._
 
 
-URI: [STANDARDSDATASUBSTRATE:metadata_storage](https://w3id.org/bridge2ai/standards-datasubstrate-schema/metadata_storage)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:metadata_storage](https://w3id.org/bridge2ai/standards-schema-all/:metadata_storage)
 
 
 
@@ -29,7 +29,7 @@ URI: [STANDARDSDATASUBSTRATE:metadata_storage](https://w3id.org/bridge2ai/standa
 
 ## Properties
 
-* Range: [xsd:string](xsd:string)
+* Range: [String](String.md)
 * Multivalued: True
 
 
@@ -50,7 +50,7 @@ URI: [STANDARDSDATASUBSTRATE:metadata_storage](https://w3id.org/bridge2ai/standa
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ URI: [STANDARDSDATASUBSTRATE:metadata_storage](https://w3id.org/bridge2ai/standa
 ```yaml
 name: metadata_storage
 description: Data Substrate in which metadata is stored.
-from_schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

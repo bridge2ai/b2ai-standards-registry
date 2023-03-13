@@ -2,7 +2,7 @@
 _Is the standard or tool FAIR and available free of cost?_
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:is_open](https://w3id.org/bridge2ai/standards-datastandardortool-schema/is_open)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:is_open](https://w3id.org/bridge2ai/standards-schema-all/:is_open)
 
 
 
@@ -38,7 +38,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:is_open](https://w3id.org/bridge2ai/standards-
 
 ## Properties
 
-* Range: [xsd:boolean](xsd:boolean)
+* Range: [Boolean](Boolean.md)
 
 
 
@@ -57,7 +57,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:is_open](https://w3id.org/bridge2ai/standards-
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -68,7 +68,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:is_open](https://w3id.org/bridge2ai/standards-
 ```yaml
 name: is_open
 description: Is the standard or tool FAIR and available free of cost?
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

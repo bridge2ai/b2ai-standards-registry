@@ -2,7 +2,7 @@
 _Holds between two classes where the domain class is a specialization of the range class._
 
 
-URI: [STANDARDS:subclass_of](https://w3id.org/bridge2ai/standards-schema/subclass_of)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:subclass_of](https://w3id.org/bridge2ai/standards-schema-all/:subclass_of)
 
 
 
@@ -64,7 +64,7 @@ URI: [STANDARDS:subclass_of](https://w3id.org/bridge2ai/standards-schema/subclas
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -76,7 +76,7 @@ URI: [STANDARDS:subclass_of](https://w3id.org/bridge2ai/standards-schema/subclas
 name: subclass_of
 description: Holds between two classes where the domain class is a specialization
   of the range class.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 exact_mappings:
 - rdfs:subClassOf
 - MESH:isa

@@ -1,6 +1,6 @@
 # Slot: wikidata_id
 
-URI: [STANDARDSORGANIZATION:wikidata_id](https://w3id.org/bridge2ai/standards-organization-schema/wikidata_id)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:wikidata_id](https://w3id.org/bridge2ai/standards-schema-all/:wikidata_id)
 
 
 
@@ -48,7 +48,7 @@ URI: [STANDARDSORGANIZATION:wikidata_id](https://w3id.org/bridge2ai/standards-or
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-organization-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -60,7 +60,7 @@ URI: [STANDARDSORGANIZATION:wikidata_id](https://w3id.org/bridge2ai/standards-or
 name: wikidata_id
 examples:
 - value: WIKIDATA:Q282186
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 values_from:
 - WIKIDATA

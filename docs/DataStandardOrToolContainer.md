@@ -4,7 +4,7 @@ _A container for DataStandardOrTool(s)._
 
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:DataStandardOrToolContainer](https://w3id.org/bridge2ai/standards-datastandardortool-schema/DataStandardOrToolContainer)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:DataStandardOrToolContainer](https://w3id.org/bridge2ai/standards-schema-all/:DataStandardOrToolContainer)
 
 
 
@@ -12,6 +12,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:DataStandardOrToolContainer](https://w3id.org/
  classDiagram
     class DataStandardOrToolContainer
       DataStandardOrToolContainer : data_standardortools_collection
+        DataStandardOrToolContainer <.. DataStandardOrTool : data_standardortools_collection
       
 ```
 
@@ -46,7 +47,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:DataStandardOrToolContainer](https://w3id.org/
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -56,8 +57,8 @@ URI: [STANDARDSDATASTANDARDORTOOL:DataStandardOrToolContainer](https://w3id.org/
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | STANDARDSDATASTANDARDORTOOL:DataStandardOrToolContainer |
-| native | STANDARDSDATASTANDARDORTOOL:DataStandardOrToolContainer |
+| self | https://w3id.org/bridge2ai/standards-schema-all/:DataStandardOrToolContainer |
+| native | https://w3id.org/bridge2ai/standards-schema-all/:DataStandardOrToolContainer |
 
 
 
@@ -73,7 +74,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:DataStandardOrToolContainer](https://w3id.org/
 ```yaml
 name: DataStandardOrToolContainer
 description: A container for DataStandardOrTool(s).
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slots:
 - data_standardortools_collection
@@ -87,12 +88,12 @@ slots:
 ```yaml
 name: DataStandardOrToolContainer
 description: A container for DataStandardOrTool(s).
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 attributes:
   data_standardortools_collection:
     name: data_standardortools_collection
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     multivalued: true
     alias: data_standardortools_collection

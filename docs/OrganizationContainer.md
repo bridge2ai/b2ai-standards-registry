@@ -4,7 +4,7 @@ _A container for Organizations._
 
 
 
-URI: [STANDARDSORGANIZATION:OrganizationContainer](https://w3id.org/bridge2ai/standards-organization-schema/OrganizationContainer)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:OrganizationContainer](https://w3id.org/bridge2ai/standards-schema-all/:OrganizationContainer)
 
 
 
@@ -12,6 +12,7 @@ URI: [STANDARDSORGANIZATION:OrganizationContainer](https://w3id.org/bridge2ai/st
  classDiagram
     class OrganizationContainer
       OrganizationContainer : organizations
+        OrganizationContainer <.. Organization : organizations
       
 ```
 
@@ -46,7 +47,7 @@ URI: [STANDARDSORGANIZATION:OrganizationContainer](https://w3id.org/bridge2ai/st
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-organization-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -56,8 +57,8 @@ URI: [STANDARDSORGANIZATION:OrganizationContainer](https://w3id.org/bridge2ai/st
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | STANDARDSORGANIZATION:OrganizationContainer |
-| native | STANDARDSORGANIZATION:OrganizationContainer |
+| self | https://w3id.org/bridge2ai/standards-schema-all/:OrganizationContainer |
+| native | https://w3id.org/bridge2ai/standards-schema-all/:OrganizationContainer |
 
 
 
@@ -73,7 +74,7 @@ URI: [STANDARDSORGANIZATION:OrganizationContainer](https://w3id.org/bridge2ai/st
 ```yaml
 name: OrganizationContainer
 description: A container for Organizations.
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slots:
 - organizations
@@ -87,12 +88,12 @@ slots:
 ```yaml
 name: OrganizationContainer
 description: A container for Organizations.
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 attributes:
   organizations:
     name: organizations
-    from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     multivalued: true
     alias: organizations

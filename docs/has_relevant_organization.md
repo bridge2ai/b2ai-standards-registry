@@ -2,7 +2,7 @@
 _Subject standard is managed or otherwise guided buy the object organization(s)._
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:has_relevant_organization](https://w3id.org/bridge2ai/standards-datastandardortool-schema/has_relevant_organization)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:has_relevant_organization](https://w3id.org/bridge2ai/standards-schema-all/:has_relevant_organization)
 
 
 
@@ -59,7 +59,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:has_relevant_organization](https://w3id.org/br
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -70,7 +70,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:has_relevant_organization](https://w3id.org/br
 ```yaml
 name: has_relevant_organization
 description: Subject standard is managed or otherwise guided buy the object organization(s).
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: related_to
 domain: DataStandardOrTool

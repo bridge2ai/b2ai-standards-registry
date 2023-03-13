@@ -4,7 +4,7 @@ _A container for DataSubstrates._
 
 
 
-URI: [STANDARDSDATASUBSTRATE:DataSubstrateContainer](https://w3id.org/bridge2ai/standards-datasubstrate-schema/DataSubstrateContainer)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:DataSubstrateContainer](https://w3id.org/bridge2ai/standards-schema-all/:DataSubstrateContainer)
 
 
 
@@ -12,6 +12,7 @@ URI: [STANDARDSDATASUBSTRATE:DataSubstrateContainer](https://w3id.org/bridge2ai/
  classDiagram
     class DataSubstrateContainer
       DataSubstrateContainer : data_substrates_collection
+        DataSubstrateContainer <.. DataSubstrate : data_substrates_collection
       
 ```
 
@@ -46,7 +47,7 @@ URI: [STANDARDSDATASUBSTRATE:DataSubstrateContainer](https://w3id.org/bridge2ai/
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -56,8 +57,8 @@ URI: [STANDARDSDATASUBSTRATE:DataSubstrateContainer](https://w3id.org/bridge2ai/
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | STANDARDSDATASUBSTRATE:DataSubstrateContainer |
-| native | STANDARDSDATASUBSTRATE:DataSubstrateContainer |
+| self | https://w3id.org/bridge2ai/standards-schema-all/:DataSubstrateContainer |
+| native | https://w3id.org/bridge2ai/standards-schema-all/:DataSubstrateContainer |
 
 
 
@@ -73,7 +74,7 @@ URI: [STANDARDSDATASUBSTRATE:DataSubstrateContainer](https://w3id.org/bridge2ai/
 ```yaml
 name: DataSubstrateContainer
 description: A container for DataSubstrates.
-from_schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slots:
 - data_substrates_collection
@@ -87,12 +88,12 @@ slots:
 ```yaml
 name: DataSubstrateContainer
 description: A container for DataSubstrates.
-from_schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 attributes:
   data_substrates_collection:
     name: data_substrates_collection
-    from_schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     multivalued: true
     alias: data_substrates_collection

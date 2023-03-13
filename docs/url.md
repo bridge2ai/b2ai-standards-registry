@@ -2,7 +2,7 @@
 _URL for basic documentation of the standard or tool._
 
 
-URI: [STANDARDS:url](https://w3id.org/bridge2ai/standards-schema/url)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:url](https://w3id.org/bridge2ai/standards-schema-all/:url)
 
 
 
@@ -39,7 +39,7 @@ URI: [STANDARDS:url](https://w3id.org/bridge2ai/standards-schema/url)
 
 ## Properties
 
-* Range: [xsd:anyURI](xsd:anyURI)
+* Range: [Uriorcurie](Uriorcurie.md)
 
 
 
@@ -58,7 +58,7 @@ URI: [STANDARDS:url](https://w3id.org/bridge2ai/standards-schema/url)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -69,7 +69,7 @@ URI: [STANDARDS:url](https://w3id.org/bridge2ai/standards-schema/url)
 ```yaml
 name: url
 description: URL for basic documentation of the standard or tool.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing
