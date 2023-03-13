@@ -1,6 +1,6 @@
 # Slot: ror_id
 
-URI: [STANDARDSORGANIZATION:ror_id](https://w3id.org/bridge2ai/standards-organization-schema/ror_id)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:ror_id](https://w3id.org/bridge2ai/standards-schema-all/:ror_id)
 
 
 
@@ -48,7 +48,7 @@ URI: [STANDARDSORGANIZATION:ror_id](https://w3id.org/bridge2ai/standards-organiz
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-organization-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -60,7 +60,7 @@ URI: [STANDARDSORGANIZATION:ror_id](https://w3id.org/bridge2ai/standards-organiz
 name: ror_id
 examples:
 - value: ROR:02mp31p96
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 values_from:
 - ROR

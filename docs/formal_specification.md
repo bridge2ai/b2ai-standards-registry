@@ -2,7 +2,7 @@
 _Relevant code repository or other location for a formal specification of the standard or tool. Often a URL, particularly to a Git repository._
 
 
-URI: [STANDARDSDATASTANDARDORTOOL:formal_specification](https://w3id.org/bridge2ai/standards-datastandardortool-schema/formal_specification)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:formal_specification](https://w3id.org/bridge2ai/standards-schema-all/:formal_specification)
 
 
 
@@ -38,7 +38,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:formal_specification](https://w3id.org/bridge2
 
 ## Properties
 
-* Range: [xsd:anyURI](xsd:anyURI)
+* Range: [Uriorcurie](Uriorcurie.md)
 
 
 
@@ -57,7 +57,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:formal_specification](https://w3id.org/bridge2
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -69,7 +69,7 @@ URI: [STANDARDSDATASTANDARDORTOOL:formal_specification](https://w3id.org/bridge2
 name: formal_specification
 description: Relevant code repository or other location for a formal specification
   of the standard or tool. Often a URL, particularly to a Git repository.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

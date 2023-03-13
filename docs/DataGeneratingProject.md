@@ -40,7 +40,7 @@ URI: [DataGeneratingProject](DataGeneratingProject)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -51,7 +51,7 @@ URI: [DataGeneratingProject](DataGeneratingProject)
 ```yaml
 name: DataGeneratingProject
 description: One of the Bridge2AI Data Generating Projects.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 permissible_values:
   aireadi:

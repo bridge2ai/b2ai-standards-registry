@@ -1,6 +1,6 @@
 # Slot: ncit_id
 
-URI: [STANDARDS:ncit_id](https://w3id.org/bridge2ai/standards-schema/ncit_id)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:ncit_id](https://w3id.org/bridge2ai/standards-schema-all/:ncit_id)
 
 
 
@@ -49,7 +49,7 @@ URI: [STANDARDS:ncit_id](https://w3id.org/bridge2ai/standards-schema/ncit_id)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ URI: [STANDARDS:ncit_id](https://w3id.org/bridge2ai/standards-schema/ncit_id)
 name: ncit_id
 examples:
 - value: NCIT:C92692
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 values_from:
 - NCIT

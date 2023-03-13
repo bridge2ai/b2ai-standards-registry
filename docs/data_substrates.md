@@ -2,7 +2,7 @@
 _Relevance of the use case to one or more data substrates._
 
 
-URI: [STANDARDSUSECASE:data_substrates](https://w3id.org/bridge2ai/standards-usecase-schema/data_substrates)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:data_substrates](https://w3id.org/bridge2ai/standards-schema-all/:data_substrates)
 
 
 
@@ -50,7 +50,7 @@ URI: [STANDARDSUSECASE:data_substrates](https://w3id.org/bridge2ai/standards-use
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ URI: [STANDARDSUSECASE:data_substrates](https://w3id.org/bridge2ai/standards-use
 ```yaml
 name: data_substrates
 description: Relevance of the use case to one or more data substrates.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

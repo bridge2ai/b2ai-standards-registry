@@ -2,7 +2,7 @@
 _Relevance of the use case to one or more data topics._
 
 
-URI: [STANDARDSUSECASE:data_topics](https://w3id.org/bridge2ai/standards-usecase-schema/data_topics)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:data_topics](https://w3id.org/bridge2ai/standards-schema-all/:data_topics)
 
 
 
@@ -50,7 +50,7 @@ URI: [STANDARDSUSECASE:data_topics](https://w3id.org/bridge2ai/standards-usecase
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ URI: [STANDARDSUSECASE:data_topics](https://w3id.org/bridge2ai/standards-usecase
 ```yaml
 name: data_topics
 description: Relevance of the use case to one or more data topics.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

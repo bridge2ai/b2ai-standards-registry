@@ -2,7 +2,7 @@
 _URI of corresponding class in an ontology of experimental procedures, in CURIE form._
 
 
-URI: [STANDARDS:xref](https://w3id.org/bridge2ai/standards-schema/xref)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:xref](https://w3id.org/bridge2ai/standards-schema-all/:xref)
 
 
 
@@ -29,7 +29,7 @@ URI: [STANDARDS:xref](https://w3id.org/bridge2ai/standards-schema/xref)
 
 ## Properties
 
-* Range: [xsd:anyURI](xsd:anyURI)
+* Range: [Uriorcurie](Uriorcurie.md)
 * Multivalued: True
 
 
@@ -57,7 +57,7 @@ URI: [STANDARDS:xref](https://w3id.org/bridge2ai/standards-schema/xref)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -69,7 +69,7 @@ URI: [STANDARDS:xref](https://w3id.org/bridge2ai/standards-schema/xref)
 name: xref
 description: URI of corresponding class in an ontology of experimental procedures,
   in CURIE form.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 aliases:
 - dbxref
 - Dbxref

@@ -4,7 +4,7 @@ _Represents a group or organization related to or responsible for one or more Br
 
 
 
-URI: [STANDARDSORGANIZATION:Organization](https://w3id.org/bridge2ai/standards-organization-schema/Organization)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:Organization](https://w3id.org/bridge2ai/standards-schema-all/:Organization)
 
 
 
@@ -14,13 +14,21 @@ URI: [STANDARDSORGANIZATION:Organization](https://w3id.org/bridge2ai/standards-o
       NamedThing <|-- Organization
       
       Organization : description
+        Organization <.. string : description
       Organization : id
+        Organization <.. uriorcurie : id
       Organization : name
+        Organization <.. string : name
       Organization : related_to
+        Organization <.. NamedThing : related_to
       Organization : ror_id
+        Organization <.. ror_identifier : ror_id
       Organization : subclass_of
+        Organization <.. NamedThing : subclass_of
       Organization : url
+        Organization <.. uriorcurie : url
       Organization : wikidata_id
+        Organization <.. wikidata_identifier : wikidata_id
       
 ```
 
@@ -40,11 +48,11 @@ URI: [STANDARDSORGANIZATION:Organization](https://w3id.org/bridge2ai/standards-o
 | ---  | --- | --- | --- |
 | [ror_id](ror_id.md) | 0..1 <br/> [RorIdentifier](RorIdentifier.md) |  | direct |
 | [wikidata_id](wikidata_id.md) | 0..1 <br/> [WikidataIdentifier](WikidataIdentifier.md) |  | direct |
-| [url](url.md) | 0..1 <br/> [xsd:anyURI](xsd:anyURI) | URL for basic documentation of the standard or tool | direct |
+| [url](url.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URL for basic documentation of the standard or tool | direct |
 | [related_to](related_to.md) | 0..* <br/> [NamedThing](NamedThing.md) | A relationship that is asserted between two named things | direct |
-| [id](id.md) | 1..1 <br/> [xsd:anyURI](xsd:anyURI) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
-| [name](name.md) | 0..1 <br/> [xsd:string](xsd:string) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
-| [description](description.md) | 0..1 <br/> [xsd:string](xsd:string) | A human-readable description for a thing | [NamedThing](NamedThing.md) |
+| [id](id.md) | 1..1 <br/> [Uriorcurie](Uriorcurie.md) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
+| [name](name.md) | 0..1 <br/> [String](String.md) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | A human-readable description for a thing | [NamedThing](NamedThing.md) |
 | [subclass_of](subclass_of.md) | 0..* <br/> [NamedThing](NamedThing.md) | Holds between two classes where the domain class is a specialization of the r... | [NamedThing](NamedThing.md) |
 
 
@@ -83,7 +91,7 @@ URI: [STANDARDSORGANIZATION:Organization](https://w3id.org/bridge2ai/standards-o
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-organization-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -93,8 +101,8 @@ URI: [STANDARDSORGANIZATION:Organization](https://w3id.org/bridge2ai/standards-o
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | STANDARDSORGANIZATION:Organization |
-| native | STANDARDSORGANIZATION:Organization |
+| self | https://w3id.org/bridge2ai/standards-schema-all/:Organization |
+| native | https://w3id.org/bridge2ai/standards-schema-all/:Organization |
 
 
 
@@ -111,7 +119,7 @@ URI: [STANDARDSORGANIZATION:Organization](https://w3id.org/bridge2ai/standards-o
 name: Organization
 description: Represents a group or organization related to or responsible for one
   or more Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: NamedThing
 slots:
@@ -130,7 +138,7 @@ slots:
 name: Organization
 description: Represents a group or organization related to or responsible for one
   or more Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: NamedThing
 attributes:
@@ -138,7 +146,7 @@ attributes:
     name: ror_id
     examples:
     - value: ROR:02mp31p96
-    from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     values_from:
     - ROR
@@ -151,7 +159,7 @@ attributes:
     name: wikidata_id
     examples:
     - value: WIKIDATA:Q282186
-    from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     values_from:
     - WIKIDATA
@@ -163,7 +171,7 @@ attributes:
   url:
     name: url
     description: URL for basic documentation of the standard or tool.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -176,7 +184,7 @@ attributes:
   related_to:
     name: related_to
     description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     domain: NamedThing
     multivalued: true
@@ -191,7 +199,7 @@ attributes:
   id:
     name: id
     description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
@@ -204,7 +212,7 @@ attributes:
   name:
     name: name
     description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:name
     alias: name
@@ -215,7 +223,7 @@ attributes:
   description:
     name: description
     description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:description
     alias: description
@@ -227,7 +235,7 @@ attributes:
     name: subclass_of
     description: Holds between two classes where the domain class is a specialization
       of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     exact_mappings:
     - rdfs:subClassOf
     - MESH:isa

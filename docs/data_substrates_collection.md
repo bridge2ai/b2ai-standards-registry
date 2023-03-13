@@ -1,6 +1,6 @@
 # Slot: data_substrates_collection
 
-URI: [STANDARDSDATASUBSTRATE:data_substrates_collection](https://w3id.org/bridge2ai/standards-datasubstrate-schema/data_substrates_collection)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:data_substrates_collection](https://w3id.org/bridge2ai/standards-schema-all/:data_substrates_collection)
 
 
 
@@ -43,7 +43,7 @@ URI: [STANDARDSDATASUBSTRATE:data_substrates_collection](https://w3id.org/bridge
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -53,7 +53,7 @@ URI: [STANDARDSDATASUBSTRATE:data_substrates_collection](https://w3id.org/bridge
 <details>
 ```yaml
 name: data_substrates_collection
-from_schema: https://w3id.org/bridge2ai/standards-datasubstrate-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 multivalued: true
 alias: data_substrates_collection

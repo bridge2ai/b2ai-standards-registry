@@ -4,7 +4,7 @@ _Represents a general data topic for Bridge2AI data or the tools/standards appli
 
 
 
-URI: [STANDARDSDATATOPIC:DataTopic](https://w3id.org/bridge2ai/standards-datatopic-schema/DataTopic)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:DataTopic](https://w3id.org/bridge2ai/standards-schema-all/:DataTopic)
 
 
 
@@ -14,13 +14,21 @@ URI: [STANDARDSDATATOPIC:DataTopic](https://w3id.org/bridge2ai/standards-datatop
       NamedThing <|-- DataTopic
       
       DataTopic : description
+        DataTopic <.. string : description
       DataTopic : edam_id
+        DataTopic <.. edam_identifier : edam_id
       DataTopic : id
+        DataTopic <.. uriorcurie : id
       DataTopic : mesh_id
+        DataTopic <.. mesh_identifier : mesh_id
       DataTopic : name
+        DataTopic <.. string : name
       DataTopic : ncit_id
+        DataTopic <.. ncit_identifier : ncit_id
       DataTopic : related_to
+        DataTopic <.. NamedThing : related_to
       DataTopic : subclass_of
+        DataTopic <.. NamedThing : subclass_of
       
 ```
 
@@ -41,9 +49,9 @@ URI: [STANDARDSDATATOPIC:DataTopic](https://w3id.org/bridge2ai/standards-datatop
 | [edam_id](edam_id.md) | 0..1 <br/> [EdamIdentifier](EdamIdentifier.md) |  | direct |
 | [mesh_id](mesh_id.md) | 0..1 <br/> [MeshIdentifier](MeshIdentifier.md) |  | direct |
 | [ncit_id](ncit_id.md) | 0..1 <br/> [NcitIdentifier](NcitIdentifier.md) |  | direct |
-| [id](id.md) | 1..1 <br/> [xsd:anyURI](xsd:anyURI) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
-| [name](name.md) | 0..1 <br/> [xsd:string](xsd:string) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
-| [description](description.md) | 0..1 <br/> [xsd:string](xsd:string) | A human-readable description for a thing | [NamedThing](NamedThing.md) |
+| [id](id.md) | 1..1 <br/> [Uriorcurie](Uriorcurie.md) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
+| [name](name.md) | 0..1 <br/> [String](String.md) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | A human-readable description for a thing | [NamedThing](NamedThing.md) |
 | [subclass_of](subclass_of.md) | 0..* <br/> [NamedThing](NamedThing.md) | Holds between two classes where the domain class is a specialization of the r... | [NamedThing](NamedThing.md) |
 | [related_to](related_to.md) | 0..* <br/> [NamedThing](NamedThing.md) | A relationship that is asserted between two named things | [NamedThing](NamedThing.md) |
 
@@ -84,7 +92,7 @@ URI: [STANDARDSDATATOPIC:DataTopic](https://w3id.org/bridge2ai/standards-datatop
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-datatopic-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -94,8 +102,8 @@ URI: [STANDARDSDATATOPIC:DataTopic](https://w3id.org/bridge2ai/standards-datatop
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | STANDARDSDATATOPIC:DataTopic |
-| native | STANDARDSDATATOPIC:DataTopic |
+| self | https://w3id.org/bridge2ai/standards-schema-all/:DataTopic |
+| native | https://w3id.org/bridge2ai/standards-schema-all/:DataTopic |
 
 
 
@@ -112,7 +120,7 @@ URI: [STANDARDSDATATOPIC:DataTopic](https://w3id.org/bridge2ai/standards-datatop
 name: DataTopic
 description: Represents a general data topic for Bridge2AI data or the tools/standards
   applied to the data.
-from_schema: https://w3id.org/bridge2ai/standards-datatopic-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: NamedThing
 slots:
@@ -130,7 +138,7 @@ slots:
 name: DataTopic
 description: Represents a general data topic for Bridge2AI data or the tools/standards
   applied to the data.
-from_schema: https://w3id.org/bridge2ai/standards-datatopic-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: NamedThing
 attributes:
@@ -138,7 +146,7 @@ attributes:
     name: edam_id
     examples:
     - value: edam.data:0006
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     values_from:
     - edam.data
@@ -155,7 +163,7 @@ attributes:
     name: mesh_id
     examples:
     - value: MeSH:D014831
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     values_from:
     - MeSH
@@ -169,7 +177,7 @@ attributes:
     name: ncit_id
     examples:
     - value: NCIT:C92692
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     values_from:
     - NCIT
@@ -182,7 +190,7 @@ attributes:
   id:
     name: id
     description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
@@ -195,7 +203,7 @@ attributes:
   name:
     name: name
     description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:name
     alias: name
@@ -206,7 +214,7 @@ attributes:
   description:
     name: description
     description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:description
     alias: description
@@ -218,7 +226,7 @@ attributes:
     name: subclass_of
     description: Holds between two classes where the domain class is a specialization
       of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     exact_mappings:
     - rdfs:subClassOf
     - MESH:isa
@@ -237,7 +245,7 @@ attributes:
   related_to:
     name: related_to
     description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     domain: NamedThing
     multivalued: true

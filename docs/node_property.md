@@ -2,7 +2,7 @@
 _A grouping for any property that holds between a node and a value._
 
 
-URI: [STANDARDS:node_property](https://w3id.org/bridge2ai/standards-schema/node_property)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:node_property](https://w3id.org/bridge2ai/standards-schema-all/:node_property)
 
 
 
@@ -59,7 +59,7 @@ URI: [STANDARDS:node_property](https://w3id.org/bridge2ai/standards-schema/node_
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -70,7 +70,7 @@ URI: [STANDARDS:node_property](https://w3id.org/bridge2ai/standards-schema/node_
 ```yaml
 name: node property
 description: A grouping for any property that holds between a node and a value.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 domain: NamedThing
 alias: node_property

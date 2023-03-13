@@ -38,7 +38,7 @@ URI: [schema:description](http://schema.org/description)
 
 ## Properties
 
-* Range: [xsd:string](xsd:string)
+* Range: [String](String.md)
 
 
 
@@ -57,7 +57,7 @@ URI: [schema:description](http://schema.org/description)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -68,7 +68,7 @@ URI: [schema:description](http://schema.org/description)
 ```yaml
 name: description
 description: A human-readable description for a thing.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slot_uri: schema:description
 alias: description

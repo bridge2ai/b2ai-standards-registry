@@ -2,7 +2,7 @@
 _Relevance of the use case to one or more DGPs._
 
 
-URI: [STANDARDSUSECASE:relevance_to_dgps](https://w3id.org/bridge2ai/standards-usecase-schema/relevance_to_dgps)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:relevance_to_dgps](https://w3id.org/bridge2ai/standards-schema-all/:relevance_to_dgps)
 
 
 
@@ -45,7 +45,7 @@ URI: [STANDARDSUSECASE:relevance_to_dgps](https://w3id.org/bridge2ai/standards-u
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -56,7 +56,7 @@ URI: [STANDARDSUSECASE:relevance_to_dgps](https://w3id.org/bridge2ai/standards-u
 ```yaml
 name: relevance_to_dgps
 description: Relevance of the use case to one or more DGPs.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 multivalued: true
 alias: relevance_to_dgps

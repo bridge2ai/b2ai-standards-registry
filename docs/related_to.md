@@ -2,7 +2,7 @@
 _A relationship that is asserted between two named things._
 
 
-URI: [STANDARDS:related_to](https://w3id.org/bridge2ai/standards-schema/related_to)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:related_to](https://w3id.org/bridge2ai/standards-schema-all/:related_to)
 
 
 
@@ -66,7 +66,7 @@ URI: [STANDARDS:related_to](https://w3id.org/bridge2ai/standards-schema/related_
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -77,7 +77,7 @@ URI: [STANDARDS:related_to](https://w3id.org/bridge2ai/standards-schema/related_
 ```yaml
 name: related_to
 description: A relationship that is asserted between two named things.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 domain: NamedThing
 multivalued: true

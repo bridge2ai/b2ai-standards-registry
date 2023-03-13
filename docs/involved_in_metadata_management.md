@@ -2,7 +2,7 @@
 _True if use case is likely to be implemented as part of metadata indexing, sample tracking, or any other storage of high-level data properties. Includes use cases in which metadata will be collected along with data._
 
 
-URI: [STANDARDSUSECASE:involved_in_metadata_management](https://w3id.org/bridge2ai/standards-usecase-schema/involved_in_metadata_management)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:involved_in_metadata_management](https://w3id.org/bridge2ai/standards-schema-all/:involved_in_metadata_management)
 
 
 
@@ -29,7 +29,7 @@ URI: [STANDARDSUSECASE:involved_in_metadata_management](https://w3id.org/bridge2
 
 ## Properties
 
-* Range: [xsd:boolean](xsd:boolean)
+* Range: [Boolean](Boolean.md)
 
 
 
@@ -48,7 +48,7 @@ URI: [STANDARDSUSECASE:involved_in_metadata_management](https://w3id.org/bridge2
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -61,7 +61,7 @@ name: involved_in_metadata_management
 description: True if use case is likely to be implemented as part of metadata indexing,
   sample tracking, or any other storage of high-level data properties. Includes use
   cases in which metadata will be collected along with data.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: node property
 domain: NamedThing

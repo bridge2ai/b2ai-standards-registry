@@ -4,7 +4,7 @@ _Represents a use case for Bridge2AI standards._
 
 
 
-URI: [STANDARDSUSECASE:UseCase](https://w3id.org/bridge2ai/standards-usecase-schema/UseCase)
+URI: [https://w3id.org/bridge2ai/standards-schema-all/:UseCase](https://w3id.org/bridge2ai/standards-schema-all/:UseCase)
 
 
 
@@ -14,22 +14,39 @@ URI: [STANDARDSUSECASE:UseCase](https://w3id.org/bridge2ai/standards-usecase-sch
       NamedThing <|-- UseCase
       
       UseCase : alternative_standards_and_tools
+        UseCase <.. DataStandardOrTool : alternative_standards_and_tools
       UseCase : data_substrates
+        UseCase <.. DataSubstrate : data_substrates
       UseCase : data_topics
+        UseCase <.. DataTopic : data_topics
       UseCase : description
+        UseCase <.. string : description
       UseCase : enables
+        UseCase <.. UseCase : enables
       UseCase : id
+        UseCase <.. uriorcurie : id
       UseCase : involved_in_experimental_design
+        UseCase <.. boolean : involved_in_experimental_design
       UseCase : involved_in_metadata_management
+        UseCase <.. boolean : involved_in_metadata_management
       UseCase : involved_in_quality_control
+        UseCase <.. boolean : involved_in_quality_control
       UseCase : known_limitations
+        UseCase <.. string : known_limitations
       UseCase : name
+        UseCase <.. string : name
       UseCase : related_to
+        UseCase <.. NamedThing : related_to
       UseCase : relevance_to_dgps
+        UseCase <.. DataGeneratingProject : relevance_to_dgps
       UseCase : standards_and_tools_for_dgp_use
+        UseCase <.. DataStandardOrTool : standards_and_tools_for_dgp_use
       UseCase : subclass_of
+        UseCase <.. NamedThing : subclass_of
       UseCase : use_case_category
+        UseCase <.. UseCaseCategory : use_case_category
       UseCase : xref
+        UseCase <.. uriorcurie : xref
       
 ```
 
@@ -48,20 +65,20 @@ URI: [STANDARDSUSECASE:UseCase](https://w3id.org/bridge2ai/standards-usecase-sch
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
 | [use_case_category](use_case_category.md) | 0..1 <br/> [UseCaseCategory](UseCaseCategory.md) | Category of the UseCase | direct |
-| [known_limitations](known_limitations.md) | 0..1 <br/> [xsd:string](xsd:string) | Any current obstacles to implementing this use case | direct |
+| [known_limitations](known_limitations.md) | 0..1 <br/> [String](String.md) | Any current obstacles to implementing this use case | direct |
 | [relevance_to_dgps](relevance_to_dgps.md) | 0..* <br/> [DataGeneratingProject](DataGeneratingProject.md) | Relevance of the use case to one or more DGPs | direct |
 | [data_topics](data_topics.md) | 0..* <br/> [DataTopic](DataTopic.md) | Relevance of the use case to one or more data topics | direct |
 | [data_substrates](data_substrates.md) | 0..* <br/> [DataSubstrate](DataSubstrate.md) | Relevance of the use case to one or more data substrates | direct |
 | [standards_and_tools_for_dgp_use](standards_and_tools_for_dgp_use.md) | 0..* <br/> [DataStandardOrTool](DataStandardOrTool.md) | List of identifiers of standards and tools; those planned to be used, or alre... | direct |
 | [alternative_standards_and_tools](alternative_standards_and_tools.md) | 0..* <br/> [DataStandardOrTool](DataStandardOrTool.md) | List of identifiers of standards and tools; those not explicitly planned to b... | direct |
 | [enables](enables.md) | 0..* <br/> [UseCase](UseCase.md) | Other use case(s) this use case supports or makes possible | direct |
-| [involved_in_experimental_design](involved_in_experimental_design.md) | 0..1 <br/> [xsd:boolean](xsd:boolean) | True if use case is likely to be implemented as part of an experimental proce... | direct |
-| [involved_in_metadata_management](involved_in_metadata_management.md) | 0..1 <br/> [xsd:boolean](xsd:boolean) | True if use case is likely to be implemented as part of metadata indexing, sa... | direct |
-| [involved_in_quality_control](involved_in_quality_control.md) | 0..1 <br/> [xsd:boolean](xsd:boolean) | True is use case is likely to be implemented as part of data validation opera... | direct |
-| [xref](xref.md) | 0..* <br/> [xsd:anyURI](xsd:anyURI) | URI of corresponding class in an ontology of experimental procedures, in CURI... | direct |
-| [id](id.md) | 1..1 <br/> [xsd:anyURI](xsd:anyURI) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
-| [name](name.md) | 0..1 <br/> [xsd:string](xsd:string) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
-| [description](description.md) | 0..1 <br/> [xsd:string](xsd:string) | A human-readable description for a thing | [NamedThing](NamedThing.md) |
+| [involved_in_experimental_design](involved_in_experimental_design.md) | 0..1 <br/> [Boolean](Boolean.md) | True if use case is likely to be implemented as part of an experimental proce... | direct |
+| [involved_in_metadata_management](involved_in_metadata_management.md) | 0..1 <br/> [Boolean](Boolean.md) | True if use case is likely to be implemented as part of metadata indexing, sa... | direct |
+| [involved_in_quality_control](involved_in_quality_control.md) | 0..1 <br/> [Boolean](Boolean.md) | True is use case is likely to be implemented as part of data validation opera... | direct |
+| [xref](xref.md) | 0..* <br/> [Uriorcurie](Uriorcurie.md) | URI of corresponding class in an ontology of experimental procedures, in CURI... | direct |
+| [id](id.md) | 1..1 <br/> [Uriorcurie](Uriorcurie.md) | A unique identifier for a thing | [NamedThing](NamedThing.md) |
+| [name](name.md) | 0..1 <br/> [String](String.md) | A human-readable name for a thing | [NamedThing](NamedThing.md) |
+| [description](description.md) | 0..1 <br/> [String](String.md) | A human-readable description for a thing | [NamedThing](NamedThing.md) |
 | [subclass_of](subclass_of.md) | 0..* <br/> [NamedThing](NamedThing.md) | Holds between two classes where the domain class is a specialization of the r... | [NamedThing](NamedThing.md) |
 | [related_to](related_to.md) | 0..* <br/> [NamedThing](NamedThing.md) | A relationship that is asserted between two named things | [NamedThing](NamedThing.md) |
 
@@ -92,7 +109,7 @@ URI: [STANDARDSUSECASE:UseCase](https://w3id.org/bridge2ai/standards-usecase-sch
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -102,8 +119,8 @@ URI: [STANDARDSUSECASE:UseCase](https://w3id.org/bridge2ai/standards-usecase-sch
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | STANDARDSUSECASE:UseCase |
-| native | STANDARDSUSECASE:UseCase |
+| self | https://w3id.org/bridge2ai/standards-schema-all/:UseCase |
+| native | https://w3id.org/bridge2ai/standards-schema-all/:UseCase |
 
 
 
@@ -119,7 +136,7 @@ URI: [STANDARDSUSECASE:UseCase](https://w3id.org/bridge2ai/standards-usecase-sch
 ```yaml
 name: UseCase
 description: Represents a use case for Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: NamedThing
 slots:
@@ -140,7 +157,6 @@ slot_usage:
     name: use_case_category
     domain_of:
     - UseCase
-    - UseCase
     required: true
 
 ```
@@ -152,7 +168,7 @@ slot_usage:
 ```yaml
 name: UseCase
 description: Represents a use case for Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: NamedThing
 slot_usage:
@@ -160,14 +176,13 @@ slot_usage:
     name: use_case_category
     domain_of:
     - UseCase
-    - UseCase
     required: true
 attributes:
   use_case_category:
     name: use_case_category
     description: Category of the UseCase. Not all projects will incorporate use cases
       in all categories.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -182,7 +197,7 @@ attributes:
     description: Any current obstacles to implementing this use case. This could be
       a selection from one or more predefined categories including lack of standards,
       lack of relevant patient cohort, lack of funding, etc.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -194,7 +209,7 @@ attributes:
   relevance_to_dgps:
     name: relevance_to_dgps
     description: Relevance of the use case to one or more DGPs.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     multivalued: true
     alias: relevance_to_dgps
@@ -205,7 +220,7 @@ attributes:
   data_topics:
     name: data_topics
     description: Relevance of the use case to one or more data topics.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -218,7 +233,7 @@ attributes:
   data_substrates:
     name: data_substrates
     description: Relevance of the use case to one or more data substrates.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -234,7 +249,7 @@ attributes:
       or already in use, by one or more Bridge2AI DGPs in addressing this use case,
       from those in the Standards Registry, or TBD if standards/tools not yet finalized
       for this use case.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -249,7 +264,7 @@ attributes:
     description: List of identifiers of standards and tools; those not explicitly
       planned to be used, by one or more Bridge2AI DGPs in addressing this use case
       but serving as viable alternatives, from those in the Standards Registry.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -262,7 +277,7 @@ attributes:
   enables:
     name: enables
     description: Other use case(s) this use case supports or makes possible.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -276,7 +291,7 @@ attributes:
     name: involved_in_experimental_design
     description: True if use case is likely to be implemented as part of an experimental
       procedure or collection of data to be used as part of an experiment.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -290,7 +305,7 @@ attributes:
     description: True if use case is likely to be implemented as part of metadata
       indexing, sample tracking, or any other storage of high-level data properties.
       Includes use cases in which metadata will be collected along with data.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -303,7 +318,7 @@ attributes:
     name: involved_in_quality_control
     description: True is use case is likely to be implemented as part of data validation
       operations.
-    from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -316,7 +331,7 @@ attributes:
     name: xref
     description: URI of corresponding class in an ontology of experimental procedures,
       in CURIE form.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     aliases:
     - dbxref
     - Dbxref
@@ -333,7 +348,7 @@ attributes:
   id:
     name: id
     description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
@@ -346,7 +361,7 @@ attributes:
   name:
     name: name
     description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:name
     alias: name
@@ -357,7 +372,7 @@ attributes:
   description:
     name: description
     description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:description
     alias: description
@@ -369,7 +384,7 @@ attributes:
     name: subclass_of
     description: Holds between two classes where the domain class is a specialization
       of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     exact_mappings:
     - rdfs:subClassOf
     - MESH:isa
@@ -388,7 +403,7 @@ attributes:
   related_to:
     name: related_to
     description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     domain: NamedThing
     multivalued: true

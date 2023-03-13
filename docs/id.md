@@ -38,7 +38,7 @@ URI: [schema:identifier](http://schema.org/identifier)
 
 ## Properties
 
-* Range: [xsd:anyURI](xsd:anyURI)
+* Range: [Uriorcurie](Uriorcurie.md)
 * Required: True
 
 
@@ -59,7 +59,7 @@ URI: [schema:identifier](http://schema.org/identifier)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -70,7 +70,7 @@ URI: [schema:identifier](http://schema.org/identifier)
 ```yaml
 name: id
 description: A unique identifier for a thing.
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slot_uri: schema:identifier
 identifier: true

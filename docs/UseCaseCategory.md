@@ -42,7 +42,7 @@ URI: [UseCaseCategory](UseCaseCategory)
 ### Schema Source
 
 
-* from schema: https://w3id.org/bridge2ai/standards-usecase-schema
+* from schema: https://w3id.org/bridge2ai/standards-schema-all
 
 
 
@@ -53,7 +53,7 @@ URI: [UseCaseCategory](UseCaseCategory)
 ```yaml
 name: UseCaseCategory
 description: Category of use case.
-from_schema: https://w3id.org/bridge2ai/standards-usecase-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 permissible_values:
   acquisition:
