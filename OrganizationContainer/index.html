@@ -196,10 +196,11 @@
 </a>
 <h1 id="class-organizationcontainer">Class: OrganizationContainer</h1>
 <p><em>A container for Organizations.</em></p>
-<p>URI: <a href="https://w3id.org/bridge2ai/standards-organization-schema/OrganizationContainer">STANDARDSORGANIZATION:OrganizationContainer</a></p>
+<p>URI: <a href="https://w3id.org/bridge2ai/standards-schema-all/:OrganizationContainer">https://w3id.org/bridge2ai/standards-schema-all/:OrganizationContainer</a></p>
 <div class="mermaid"> classDiagram
     class OrganizationContainer
       OrganizationContainer : organizations
+        OrganizationContainer &lt;.. Organization : organizations
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -225,7 +226,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/bridge2ai/standards-organization-schema</li>
+<li>from schema: https://w3id.org/bridge2ai/standards-schema-all</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -238,11 +239,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>STANDARDSORGANIZATION:OrganizationContainer</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:OrganizationContainer</td>
 </tr>
 <tr>
 <td>native</td>
-<td>STANDARDSORGANIZATION:OrganizationContainer</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:OrganizationContainer</td>
 </tr>
 </tbody>
 </table>
@@ -252,7 +253,7 @@
 <details>
 <pre><code class="language-yaml">name: OrganizationContainer
 description: A container for Organizations.
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slots:
 - organizations
@@ -263,12 +264,12 @@ slots:
 <details>
 <pre><code class="language-yaml">name: OrganizationContainer
 description: A container for Organizations.
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 attributes:
   organizations:
     name: organizations
-    from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     multivalued: true
     alias: organizations

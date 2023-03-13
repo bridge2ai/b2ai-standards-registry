@@ -216,10 +216,15 @@
       NamedThing &lt;|-- DataSubstrate
 
       NamedThing : description
+        NamedThing &lt;.. string : description
       NamedThing : id
+        NamedThing &lt;.. uriorcurie : id
       NamedThing : name
+        NamedThing &lt;.. string : name
       NamedThing : related_to
+        NamedThing &lt;.. NamedThing : related_to
       NamedThing : subclass_of
+        NamedThing &lt;.. NamedThing : subclass_of
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -246,19 +251,19 @@
 <tbody>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>A unique identifier for a thing</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A human-readable name for a thing</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A human-readable description for a thing</td>
 <td>direct</td>
 </tr>
@@ -1162,7 +1167,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/bridge2ai/standards-schema</li>
+<li>from schema: https://w3id.org/bridge2ai/standards-schema-all</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -1179,7 +1184,7 @@
 </tr>
 <tr>
 <td>native</td>
-<td>STANDARDS:NamedThing</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:NamedThing</td>
 </tr>
 </tbody>
 </table>
@@ -1189,7 +1194,7 @@
 <details>
 <pre><code class="language-yaml">name: NamedThing
 description: A generic grouping for any identifiable entity
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slots:
 - id
@@ -1205,13 +1210,13 @@ class_uri: schema:Thing
 <details>
 <pre><code class="language-yaml">name: NamedThing
 description: A generic grouping for any identifiable entity
-from_schema: https://w3id.org/bridge2ai/standards-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 attributes:
   id:
     name: id
     description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
@@ -1224,7 +1229,7 @@ attributes:
   name:
     name: name
     description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:name
     alias: name
@@ -1235,7 +1240,7 @@ attributes:
   description:
     name: description
     description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:description
     alias: description
@@ -1247,7 +1252,7 @@ attributes:
     name: subclass_of
     description: Holds between two classes where the domain class is a specialization
       of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     exact_mappings:
     - rdfs:subClassOf
     - MESH:isa
@@ -1266,7 +1271,7 @@ attributes:
   related_to:
     name: related_to
     description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     domain: NamedThing
     multivalued: true

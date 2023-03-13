@@ -196,10 +196,11 @@
 </a>
 <h1 id="class-datatopiccontainer">Class: DataTopicContainer</h1>
 <p><em>A container for DataTopics.</em></p>
-<p>URI: <a href="https://w3id.org/bridge2ai/standards-datatopic-schema/DataTopicContainer">STANDARDSDATATOPIC:DataTopicContainer</a></p>
+<p>URI: <a href="https://w3id.org/bridge2ai/standards-schema-all/:DataTopicContainer">https://w3id.org/bridge2ai/standards-schema-all/:DataTopicContainer</a></p>
 <div class="mermaid"> classDiagram
     class DataTopicContainer
       DataTopicContainer : data_topics_collection
+        DataTopicContainer &lt;.. DataTopic : data_topics_collection
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -225,7 +226,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/bridge2ai/standards-datatopic-schema</li>
+<li>from schema: https://w3id.org/bridge2ai/standards-schema-all</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -238,11 +239,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>STANDARDSDATATOPIC:DataTopicContainer</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:DataTopicContainer</td>
 </tr>
 <tr>
 <td>native</td>
-<td>STANDARDSDATATOPIC:DataTopicContainer</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:DataTopicContainer</td>
 </tr>
 </tbody>
 </table>
@@ -252,7 +253,7 @@
 <details>
 <pre><code class="language-yaml">name: DataTopicContainer
 description: A container for DataTopics.
-from_schema: https://w3id.org/bridge2ai/standards-datatopic-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 slots:
 - data_topics_collection
@@ -263,12 +264,12 @@ slots:
 <details>
 <pre><code class="language-yaml">name: DataTopicContainer
 description: A container for DataTopics.
-from_schema: https://w3id.org/bridge2ai/standards-datatopic-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 attributes:
   data_topics_collection:
     name: data_topics_collection
-    from_schema: https://w3id.org/bridge2ai/standards-datatopic-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     multivalued: true
     alias: data_topics_collection

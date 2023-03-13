@@ -201,25 +201,39 @@
 </a>
 <h1 id="class-referencedataordataset">Class: ReferenceDataOrDataset</h1>
 <p><em>Represents a resource in the Bridge2AI Standards Registry serving as a standardized, reusable data source.</em></p>
-<p>URI: <a href="https://w3id.org/bridge2ai/standards-datastandardortool-schema/ReferenceDataOrDataset">STANDARDSDATASTANDARDORTOOL:ReferenceDataOrDataset</a></p>
+<p>URI: <a href="https://w3id.org/bridge2ai/standards-schema-all/:ReferenceDataOrDataset">https://w3id.org/bridge2ai/standards-schema-all/:ReferenceDataOrDataset</a></p>
 <div class="mermaid"> classDiagram
     class ReferenceDataOrDataset
       DataStandardOrTool &lt;|-- ReferenceDataOrDataset
 
       ReferenceDataOrDataset : collection
+        ReferenceDataOrDataset &lt;.. StandardsCollectionTag : collection
       ReferenceDataOrDataset : concerns_data_topic
+        ReferenceDataOrDataset &lt;.. DataTopic : concerns_data_topic
       ReferenceDataOrDataset : description
+        ReferenceDataOrDataset &lt;.. string : description
       ReferenceDataOrDataset : formal_specification
+        ReferenceDataOrDataset &lt;.. uriorcurie : formal_specification
       ReferenceDataOrDataset : has_relevant_organization
+        ReferenceDataOrDataset &lt;.. Organization : has_relevant_organization
       ReferenceDataOrDataset : id
+        ReferenceDataOrDataset &lt;.. uriorcurie : id
       ReferenceDataOrDataset : is_open
+        ReferenceDataOrDataset &lt;.. boolean : is_open
       ReferenceDataOrDataset : name
+        ReferenceDataOrDataset &lt;.. string : name
       ReferenceDataOrDataset : publication
+        ReferenceDataOrDataset &lt;.. uriorcurie : publication
       ReferenceDataOrDataset : purpose_detail
+        ReferenceDataOrDataset &lt;.. string : purpose_detail
       ReferenceDataOrDataset : related_to
+        ReferenceDataOrDataset &lt;.. NamedThing : related_to
       ReferenceDataOrDataset : requires_registration
+        ReferenceDataOrDataset &lt;.. boolean : requires_registration
       ReferenceDataOrDataset : subclass_of
+        ReferenceDataOrDataset &lt;.. NamedThing : subclass_of
       ReferenceDataOrDataset : url
+        ReferenceDataOrDataset &lt;.. uriorcurie : url
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -263,55 +277,55 @@
 </tr>
 <tr>
 <td><a href="../purpose_detail/">purpose_detail</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>Text description of the standard or tool</td>
 <td><a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
 </tr>
 <tr>
 <td><a href="../is_open/">is_open</a></td>
-<td>0..1 <br/> <a href="xsd:boolean">xsd:boolean</a></td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Is the standard or tool FAIR and available free of cost?</td>
 <td><a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
 </tr>
 <tr>
 <td><a href="../requires_registration/">requires_registration</a></td>
-<td>0..1 <br/> <a href="xsd:boolean">xsd:boolean</a></td>
+<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Does usage of the standard or tool require registrion of a user or group with...</td>
 <td><a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
 </tr>
 <tr>
 <td><a href="../url/">url</a></td>
-<td>0..1 <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>URL for basic documentation of the standard or tool</td>
 <td><a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
 </tr>
 <tr>
 <td><a href="../publication/">publication</a></td>
-<td>0..1 <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>Relevant publication for the standard or tool</td>
 <td><a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
 </tr>
 <tr>
 <td><a href="../formal_specification/">formal_specification</a></td>
-<td>0..1 <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>Relevant code repository or other location for a formal specification of the ...</td>
 <td><a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>A unique identifier for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A human-readable name for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A human-readable description for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
@@ -332,7 +346,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema</li>
+<li>from schema: https://w3id.org/bridge2ai/standards-schema-all</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -345,11 +359,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>STANDARDSDATASTANDARDORTOOL:ReferenceDataOrDataset</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:ReferenceDataOrDataset</td>
 </tr>
 <tr>
 <td>native</td>
-<td>STANDARDSDATASTANDARDORTOOL:ReferenceDataOrDataset</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:ReferenceDataOrDataset</td>
 </tr>
 </tbody>
 </table>
@@ -360,7 +374,7 @@
 <pre><code class="language-yaml">name: ReferenceDataOrDataset
 description: Represents a resource in the Bridge2AI Standards Registry serving as
   a standardized, reusable data source.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: DataStandardOrTool
 
@@ -371,14 +385,14 @@ is_a: DataStandardOrTool
 <pre><code class="language-yaml">name: ReferenceDataOrDataset
 description: Represents a resource in the Bridge2AI Standards Registry serving as
   a standardized, reusable data source.
-from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: DataStandardOrTool
 attributes:
   collection:
     name: collection
     description: Tags for specific sets of standards.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -392,7 +406,7 @@ attributes:
     name: concerns_data_topic
     description: Subject standard is generally applied in the context of object data
       topic.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: related_to
     domain: DataStandardOrTool
@@ -406,7 +420,7 @@ attributes:
   has_relevant_organization:
     name: has_relevant_organization
     description: Subject standard is managed or otherwise guided buy the object organization(s).
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: related_to
     domain: DataStandardOrTool
@@ -420,7 +434,7 @@ attributes:
   purpose_detail:
     name: purpose_detail
     description: Text description of the standard or tool.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -432,7 +446,7 @@ attributes:
   is_open:
     name: is_open
     description: Is the standard or tool FAIR and available free of cost?
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -445,7 +459,7 @@ attributes:
     name: requires_registration
     description: Does usage of the standard or tool require registrion of a user or
       group with some organization or managerial body?
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -457,7 +471,7 @@ attributes:
   url:
     name: url
     description: URL for basic documentation of the standard or tool.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -470,7 +484,7 @@ attributes:
   publication:
     name: publication
     description: Relevant publication for the standard or tool. Prefer a DOI or PUBMED.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -483,7 +497,7 @@ attributes:
     name: formal_specification
     description: Relevant code repository or other location for a formal specification
       of the standard or tool. Often a URL, particularly to a Git repository.
-    from_schema: https://w3id.org/bridge2ai/standards-datastandardortool-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -495,7 +509,7 @@ attributes:
   id:
     name: id
     description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
@@ -508,7 +522,7 @@ attributes:
   name:
     name: name
     description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:name
     alias: name
@@ -519,7 +533,7 @@ attributes:
   description:
     name: description
     description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:description
     alias: description
@@ -531,7 +545,7 @@ attributes:
     name: subclass_of
     description: Holds between two classes where the domain class is a specialization
       of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     exact_mappings:
     - rdfs:subClassOf
     - MESH:isa
@@ -550,7 +564,7 @@ attributes:
   related_to:
     name: related_to
     description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     domain: NamedThing
     multivalued: true

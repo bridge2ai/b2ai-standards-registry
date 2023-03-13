@@ -206,19 +206,27 @@
 </a>
 <h1 id="class-organization">Class: Organization</h1>
 <p><em>Represents a group or organization related to or responsible for one or more Bridge2AI standards.</em></p>
-<p>URI: <a href="https://w3id.org/bridge2ai/standards-organization-schema/Organization">STANDARDSORGANIZATION:Organization</a></p>
+<p>URI: <a href="https://w3id.org/bridge2ai/standards-schema-all/:Organization">https://w3id.org/bridge2ai/standards-schema-all/:Organization</a></p>
 <div class="mermaid"> classDiagram
     class Organization
       NamedThing &lt;|-- Organization
 
       Organization : description
+        Organization &lt;.. string : description
       Organization : id
+        Organization &lt;.. uriorcurie : id
       Organization : name
+        Organization &lt;.. string : name
       Organization : related_to
+        Organization &lt;.. NamedThing : related_to
       Organization : ror_id
+        Organization &lt;.. ror_identifier : ror_id
       Organization : subclass_of
+        Organization &lt;.. NamedThing : subclass_of
       Organization : url
+        Organization &lt;.. uriorcurie : url
       Organization : wikidata_id
+        Organization &lt;.. wikidata_identifier : wikidata_id
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -253,7 +261,7 @@
 </tr>
 <tr>
 <td><a href="../url/">url</a></td>
-<td>0..1 <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>URL for basic documentation of the standard or tool</td>
 <td>direct</td>
 </tr>
@@ -265,19 +273,19 @@
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="xsd:anyURI">xsd:anyURI</a></td>
+<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
 <td>A unique identifier for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A human-readable name for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>A human-readable description for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
@@ -371,7 +379,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/bridge2ai/standards-organization-schema</li>
+<li>from schema: https://w3id.org/bridge2ai/standards-schema-all</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -384,11 +392,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>STANDARDSORGANIZATION:Organization</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:Organization</td>
 </tr>
 <tr>
 <td>native</td>
-<td>STANDARDSORGANIZATION:Organization</td>
+<td>https://w3id.org/bridge2ai/standards-schema-all/:Organization</td>
 </tr>
 </tbody>
 </table>
@@ -399,7 +407,7 @@
 <pre><code class="language-yaml">name: Organization
 description: Represents a group or organization related to or responsible for one
   or more Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: NamedThing
 slots:
@@ -415,7 +423,7 @@ slots:
 <pre><code class="language-yaml">name: Organization
 description: Represents a group or organization related to or responsible for one
   or more Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+from_schema: https://w3id.org/bridge2ai/standards-schema-all
 rank: 1000
 is_a: NamedThing
 attributes:
@@ -423,7 +431,7 @@ attributes:
     name: ror_id
     examples:
     - value: ROR:02mp31p96
-    from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     values_from:
     - ROR
@@ -436,7 +444,7 @@ attributes:
     name: wikidata_id
     examples:
     - value: WIKIDATA:Q282186
-    from_schema: https://w3id.org/bridge2ai/standards-organization-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     values_from:
     - WIKIDATA
@@ -448,7 +456,7 @@ attributes:
   url:
     name: url
     description: URL for basic documentation of the standard or tool.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     is_a: node property
     domain: NamedThing
@@ -461,7 +469,7 @@ attributes:
   related_to:
     name: related_to
     description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     domain: NamedThing
     multivalued: true
@@ -476,7 +484,7 @@ attributes:
   id:
     name: id
     description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:identifier
     identifier: true
@@ -489,7 +497,7 @@ attributes:
   name:
     name: name
     description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:name
     alias: name
@@ -500,7 +508,7 @@ attributes:
   description:
     name: description
     description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     rank: 1000
     slot_uri: schema:description
     alias: description
@@ -512,7 +520,7 @@ attributes:
     name: subclass_of
     description: Holds between two classes where the domain class is a specialization
       of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema
+    from_schema: https://w3id.org/bridge2ai/standards-schema-all
     exact_mappings:
     - rdfs:subClassOf
     - MESH:isa
