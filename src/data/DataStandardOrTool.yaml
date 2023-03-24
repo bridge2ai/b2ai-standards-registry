@@ -12820,8 +12820,31 @@ data_standardortools_collection:
   - STANDARDSDATATOPIC:5
   has_relevant_organization:
   - STANDARDSORGANIZATION:74
-  purpose_detail: A registry of standardized, precisely defined questions, paired with sets of allowable responses, used systematically across different sites, studies, or clinical trials to ensure consistent data collection.
+  purpose_detail: A registry of standardized, precisely defined questions, paired
+    with sets of allowable responses, used systematically across different sites,
+    studies, or clinical trials to ensure consistent data collection.
   is_open: true
   requires_registration: false
   url: https://cde.nlm.nih.gov/
   formal_specification: https://cde.nlm.nih.gov/api
+- id: STANDARDSDATASTANDARDORTOOL:860
+  name: BARTOC
+  category: Registry
+  description: Basic Register of Thesauri, Ontologies & Classifications
+  concerns_data_topic:
+  - STANDARDSDATATOPIC:5
+  purpose_detail: A database of Knowledge Organization Systems and KOS related registries.
+  is_open: true
+  requires_registration: false
+  url: https://bartoc.org/
+- id: STANDARDSDATASTANDARDORTOOL:861
+  name: DuckDB
+  category: SoftwareOrTool
+  description: DuckDB
+  concerns_data_topic:
+  - STANDARDSDATATOPIC:5
+  purpose_detail: A database platform designed for working with tabular data.
+  is_open: true
+  requires_registration: false
+  url: https://duckdb.org/
+  formal_specification: https://github.com/neo4j/neo4j
