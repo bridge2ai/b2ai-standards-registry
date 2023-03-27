@@ -6,7 +6,7 @@
 
 use_cases:
 
-  - id: STANDARDSUSECASE:1
+  - id: B2AI_USECASE:1
     name: Obtain patient data from records of clinical visits.
     category: UseCase
     use_case_category: acquisition
@@ -16,21 +16,25 @@ use_cases:
     - chorus
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:15
-    - STANDARDSDATATOPIC:4
+    - B2AI_TOPIC:15
+    - B2AI_TOPIC:4
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:98
-    - STANDARDSDATASTANDARDORTOOL:243
+    - B2AI_STANDARD:98
+    - B2AI_STANDARD:243
     enables:
-    - STANDARDSUSECASE:5
-    - STANDARDSUSECASE:13
-    - STANDARDSUSECASE:17
-    - STANDARDSUSECASE:19
+    - B2AI_USECASE:5
+    - B2AI_USECASE:13
+    - B2AI_USECASE:17
+    - B2AI_USECASE:19
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:2
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:2
     name: Obtain image data from brain magnetic resonance imaging.
     category: UseCase
     use_case_category: acquisition
@@ -38,17 +42,21 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     data_topics:
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:22
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:22
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:33
+    - B2AI_STANDARD:33
     enables:
-    - STANDARDSUSECASE:19
+    - B2AI_USECASE:19
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:3
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:3
     name: Obtain clinical waveform data from patients.
     category: UseCase
     use_case_category: acquisition
@@ -56,17 +64,21 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     data_topics:
-    - STANDARDSDATATOPIC:9
-    - STANDARDSDATATOPIC:10
+    - B2AI_TOPIC:9
+    - B2AI_TOPIC:10
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:202
+    - B2AI_STANDARD:202
     enables:
-    - STANDARDSUSECASE:18
+    - B2AI_USECASE:18
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:4
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:4
     name: Obtain image data from retinal and other ophthalmic imaging.
     category: UseCase
     use_case_category: acquisition
@@ -74,18 +86,22 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     data_topics:
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:24
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:24
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:98
+    - B2AI_STANDARD:98
     enables:
-    - STANDARDSUSECASE:19
-    - STANDARDSUSECASE:26
+    - B2AI_USECASE:19
+    - B2AI_USECASE:26
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:5
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:5
     name: Obtain patient data from laboratory analysis, including serological testing and urinalysis.
     category: UseCase
     use_case_category: acquisition
@@ -93,18 +109,22 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     data_topics:
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:9
-    - STANDARDSDATATOPIC:18
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:9
+    - B2AI_TOPIC:18
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:243
+    - B2AI_STANDARD:243
     enables:
-    - STANDARDSUSECASE:17
+    - B2AI_USECASE:17
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:6
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:6
     name: Obtain patient data from wearable devices.
     category: UseCase
     use_case_category: acquisition
@@ -113,18 +133,22 @@ use_cases:
     - aireadi
     - chorus
     data_topics:
-    - STANDARDSDATATOPIC:18
+    - B2AI_TOPIC:18
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:246
+    - B2AI_STANDARD:246
     enables:
-    - STANDARDSUSECASE:17
-    - STANDARDSUSECASE:26
-    - STANDARDSUSECASE:28
+    - B2AI_USECASE:17
+    - B2AI_USECASE:26
+    - B2AI_USECASE:28
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:7
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:7
     name: Obtain genomics data from patients.
     category: UseCase
     use_case_category: acquisition
@@ -133,27 +157,31 @@ use_cases:
     - aireadi
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:13
-    - STANDARDSDATATOPIC:35
+    - B2AI_TOPIC:13
+    - B2AI_TOPIC:35
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:36
-    - STANDARDSDATASTANDARDORTOOL:154
-    - STANDARDSDATASTANDARDORTOOL:819
-    - STANDARDSDATASTANDARDORTOOL:278
-    - STANDARDSDATASTANDARDORTOOL:299
-    - STANDARDSDATASTANDARDORTOOL:301
+    - B2AI_STANDARD:36
+    - B2AI_STANDARD:154
+    - B2AI_STANDARD:819
+    - B2AI_STANDARD:278
+    - B2AI_STANDARD:299
+    - B2AI_STANDARD:301
     enables:
-    - STANDARDSUSECASE:20
-    - STANDARDSUSECASE:26
-    - STANDARDSUSECASE:28
-    - STANDARDSUSECASE:29
+    - B2AI_USECASE:20
+    - B2AI_USECASE:26
+    - B2AI_USECASE:28
+    - B2AI_USECASE:29
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
     xref:
     - EDAM:topic_3673
 
-  - id: STANDARDSUSECASE:8
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:8
     name: Obtain voice data from patients.
     category: UseCase
     use_case_category: acquisition
@@ -161,23 +189,27 @@ use_cases:
     relevance_to_dgps:
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:31
-    - STANDARDSDATATOPIC:36
+    - B2AI_TOPIC:31
+    - B2AI_TOPIC:36
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:732
-    - STANDARDSDATASTANDARDORTOOL:723
-    - STANDARDSDATASTANDARDORTOOL:821
-    - STANDARDSDATASTANDARDORTOOL:839
+    - B2AI_STANDARD:732
+    - B2AI_STANDARD:723
+    - B2AI_STANDARD:821
+    - B2AI_STANDARD:839
     enables:
-    - STANDARDSUSECASE:13
-    - STANDARDSUSECASE:22
-    - STANDARDSUSECASE:27
-    - STANDARDSUSECASE:31
+    - B2AI_USECASE:13
+    - B2AI_USECASE:22
+    - B2AI_USECASE:27
+    - B2AI_USECASE:31
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:9
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:9
     name: Obtain social determinants of health data from patients.
     category: UseCase
     use_case_category: acquisition
@@ -186,20 +218,24 @@ use_cases:
     - aireadi
     - chorus
     data_topics:
-    - STANDARDSDATATOPIC:29
-    - STANDARDSDATATOPIC:31
+    - B2AI_TOPIC:29
+    - B2AI_TOPIC:31
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:243
+    - B2AI_STANDARD:243
     enables:
-    - STANDARDSUSECASE:17
-    - STANDARDSUSECASE:26
-    - STANDARDSUSECASE:28
-    - STANDARDSUSECASE:29
+    - B2AI_USECASE:17
+    - B2AI_USECASE:26
+    - B2AI_USECASE:28
+    - B2AI_USECASE:29
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:10
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:10
     name: Obtain molecular proximity observations from microscopy images of human cells.
     category: UseCase
     use_case_category: acquisition
@@ -207,16 +243,20 @@ use_cases:
     relevance_to_dgps:
     - cm4ai
     data_topics:
-    - STANDARDSDATATOPIC:19
+    - B2AI_TOPIC:19
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:764
+    - B2AI_STANDARD:764
     enables:
-    - STANDARDSUSECASE:16
+    - B2AI_USECASE:16
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:11
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:11
     name: Obtain proteome data from human cell samples.
     category: UseCase
     use_case_category: acquisition
@@ -224,18 +264,22 @@ use_cases:
     relevance_to_dgps:
     - cm4ai
     data_topics:
-    - STANDARDSDATATOPIC:28
+    - B2AI_TOPIC:28
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:764
+    - B2AI_STANDARD:764
     enables:
-    - STANDARDSUSECASE:16
+    - B2AI_USECASE:16
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
     xref:
     - EDAM:topic_0121
 
-  - id: STANDARDSUSECASE:12
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:12
     name: Obtain transcriptome data from human cell populations perturbed through CRISPR-driven mutagenesis.
     category: UseCase
     use_case_category: acquisition
@@ -243,18 +287,22 @@ use_cases:
     relevance_to_dgps:
     - cm4ai
     data_topics:
-    - STANDARDSDATATOPIC:34
+    - B2AI_TOPIC:34
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:764
+    - B2AI_STANDARD:764
     enables:
-    - STANDARDSUSECASE:16
+    - B2AI_USECASE:16
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
     xref:
     - EDAM:topic_3170
 
-  - id: STANDARDSUSECASE:13
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:13
     name: Integrate clinical record data with voice data.
     category: UseCase
     use_case_category: integration
@@ -262,19 +310,23 @@ use_cases:
     relevance_to_dgps:
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:9
-    - STANDARDSDATATOPIC:36
+    - B2AI_TOPIC:9
+    - B2AI_TOPIC:36
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:732
-    - STANDARDSDATASTANDARDORTOOL:109
-    - STANDARDSDATASTANDARDORTOOL:271
+    - B2AI_STANDARD:732
+    - B2AI_STANDARD:109
+    - B2AI_STANDARD:271
     enables:
-    - STANDARDSUSECASE:17
+    - B2AI_USECASE:17
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:14
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:14
     name: Transform data from OMOP to the i2b2 standard.
     category: UseCase
     use_case_category: integration
@@ -282,15 +334,19 @@ use_cases:
     relevance_to_dgps:
     - chorus
     data_topics:
-    - STANDARDSDATATOPIC:4
+    - B2AI_TOPIC:4
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:775
-    - STANDARDSDATASTANDARDORTOOL:243
+    - B2AI_STANDARD:775
+    - B2AI_STANDARD:243
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:15
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:15
     name: Produce artifacts that map identifiers between source and standardized data representations.
     category: UseCase
     use_case_category: integration
@@ -298,14 +354,18 @@ use_cases:
     relevance_to_dgps:
     - chorus
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:378
+    - B2AI_STANDARD:378
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:16
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:16
     name: Link cellular objects to functions through associations between proteins, cell structure proximity, and transcriptomics.
     category: UseCase
     use_case_category: integration
@@ -313,19 +373,23 @@ use_cases:
     relevance_to_dgps:
     - cm4ai
     data_topics:
-    - STANDARDSDATATOPIC:19
-    - STANDARDSDATATOPIC:28
-    - STANDARDSDATATOPIC:27
-    - STANDARDSDATATOPIC:34
+    - B2AI_TOPIC:19
+    - B2AI_TOPIC:28
+    - B2AI_TOPIC:27
+    - B2AI_TOPIC:34
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:764
+    - B2AI_STANDARD:764
     enables:
-    - STANDARDSUSECASE:24
+    - B2AI_USECASE:24
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:17
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:17
     name: Standardize clinical record data collected from multiple sites and sources.
     category: UseCase
     use_case_category: standardization
@@ -336,27 +400,31 @@ use_cases:
     - voice
     data_topics:
     - Demographic
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:9
-    - STANDARDSDATATOPIC:18
-    - STANDARDSDATATOPIC:29
-    - STANDARDSDATATOPIC:31
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:9
+    - B2AI_TOPIC:18
+    - B2AI_TOPIC:29
+    - B2AI_TOPIC:31
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:71
-    - STANDARDSDATASTANDARDORTOOL:187
-    - STANDARDSDATASTANDARDORTOOL:788
-    - STANDARDSDATASTANDARDORTOOL:243
-    - STANDARDSDATASTANDARDORTOOL:271
-    - STANDARDSDATASTANDARDORTOOL:727
+    - B2AI_STANDARD:71
+    - B2AI_STANDARD:187
+    - B2AI_STANDARD:788
+    - B2AI_STANDARD:243
+    - B2AI_STANDARD:271
+    - B2AI_STANDARD:727
     enables:
-    - STANDARDSUSECASE:26
-    - STANDARDSUSECASE:28
-    - STANDARDSUSECASE:29
+    - B2AI_USECASE:26
+    - B2AI_USECASE:28
+    - B2AI_USECASE:29
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:18
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:18
     name: Standardize clinical waveform data collected from multiple sites and sources.
     category: UseCase
     use_case_category: standardization
@@ -365,16 +433,20 @@ use_cases:
     - aireadi
     - chorus
     data_topics:
-    - STANDARDSDATATOPIC:9
-    - STANDARDSDATATOPIC:10
+    - B2AI_TOPIC:9
+    - B2AI_TOPIC:10
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:788
-    - STANDARDSDATASTANDARDORTOOL:202
+    - B2AI_STANDARD:788
+    - B2AI_STANDARD:202
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:19
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:19
     name: Standardize clinical image data collected from multiple sites and sources.
     category: UseCase
     use_case_category: standardization
@@ -384,20 +456,24 @@ use_cases:
     - chorus
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:15
-    - STANDARDSDATATOPIC:24
+    - B2AI_TOPIC:15
+    - B2AI_TOPIC:24
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:71
-    - STANDARDSDATASTANDARDORTOOL:98
-    - STANDARDSDATASTANDARDORTOOL:788
+    - B2AI_STANDARD:71
+    - B2AI_STANDARD:98
+    - B2AI_STANDARD:788
     enables:
-    - STANDARDSUSECASE:25
-    - STANDARDSUSECASE:30
+    - B2AI_USECASE:25
+    - B2AI_USECASE:30
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:20
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:20
     name: Standardize clinical omics data collected from multiple sites and sources.
     category: UseCase
     use_case_category: standardization
@@ -406,30 +482,38 @@ use_cases:
     - aireadi
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:13
+    - B2AI_TOPIC:13
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:109
+    - B2AI_STANDARD:109
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:21
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:21
     name: Assemble standards for integrated maps of human cell architecture.
     category: UseCase
     use_case_category: standardization
-    description: As per Qin et al. (2021) Nature (https://doi.org/10.1038/s41586-021-04115-9), imaging data and biophysical association data may be combined to develop measurements of protein distance within subcellular systems. When combined with other data (see STANDARDSUSECASE:16) the result is a map of cell architecture. Some degree of standardization will be necessary among these maps, such that they may be combined while retaining consistent biologically-relevant observations.
+    description: As per Qin et al. (2021) Nature (https://doi.org/10.1038/s41586-021-04115-9), imaging data and biophysical association data may be combined to develop measurements of protein distance within subcellular systems. When combined with other data (see B2AI_USECASE:16) the result is a map of cell architecture. Some degree of standardization will be necessary among these maps, such that they may be combined while retaining consistent biologically-relevant observations.
     relevance_to_dgps:
     - cm4ai
     data_topics:
-    - STANDARDSDATATOPIC:19
-    - STANDARDSDATATOPIC:27
-    - STANDARDSDATATOPIC:28
-    - STANDARDSDATATOPIC:34
+    - B2AI_TOPIC:19
+    - B2AI_TOPIC:27
+    - B2AI_TOPIC:28
+    - B2AI_TOPIC:34
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:22
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:22
     name: Assemble standards for voice data.
     category: UseCase
     use_case_category: standardization
@@ -437,15 +521,19 @@ use_cases:
     relevance_to_dgps:
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:36
+    - B2AI_TOPIC:36
     enables:
-    - STANDARDSUSECASE:31
-    - STANDARDSUSECASE:32
+    - B2AI_USECASE:31
+    - B2AI_USECASE:32
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:23
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:23
     name: Construct standards for computational provenance.
     category: UseCase
     use_case_category: standardization
@@ -453,30 +541,38 @@ use_cases:
     relevance_to_dgps:
     - cm4ai
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:444
+    - B2AI_STANDARD:444
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:24
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:24
     name: Develop multi-scale maps of human cell architecture.
     category: UseCase
     use_case_category: modeling
-    description: Given the availability of integrated imaging, biophysical, and transcriptome data centered on a specific set of proteins (see STANDARDSUSECASE:16), we may then use these results to assemble maps of the physical proximities and relationships among those proteins.
+    description: Given the availability of integrated imaging, biophysical, and transcriptome data centered on a specific set of proteins (see B2AI_USECASE:16), we may then use these results to assemble maps of the physical proximities and relationships among those proteins.
     relevance_to_dgps:
     - cm4ai
     data_topics:
-    - STANDARDSDATATOPIC:19
-    - STANDARDSDATATOPIC:27
-    - STANDARDSDATATOPIC:28
-    - STANDARDSDATATOPIC:34
+    - B2AI_TOPIC:19
+    - B2AI_TOPIC:27
+    - B2AI_TOPIC:28
+    - B2AI_TOPIC:34
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:25
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:25
     name: Develop models of clinical image data.
     category: UseCase
     use_case_category: modeling
@@ -484,16 +580,20 @@ use_cases:
     relevance_to_dgps:
     - chorus
     data_topics:
-    - STANDARDSDATATOPIC:15
+    - B2AI_TOPIC:15
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:788
+    - B2AI_STANDARD:788
     enables:
-    - STANDARDSUSECASE:30
+    - B2AI_USECASE:30
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:26
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:26
     name: Develop pseudotime patient models of health and salutogenesis.
     category: UseCase
     use_case_category: modeling
@@ -501,17 +601,21 @@ use_cases:
     relevance_to_dgps:
     - aireadi
     data_topics:
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:10
-    - STANDARDSDATATOPIC:13
-    - STANDARDSDATATOPIC:18
-    - STANDARDSDATATOPIC:24
-    - STANDARDSDATATOPIC:29
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:10
+    - B2AI_TOPIC:13
+    - B2AI_TOPIC:18
+    - B2AI_TOPIC:24
+    - B2AI_TOPIC:29
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:27
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:27
     name: Deploy a Federated Learning System for analysis of voice data.
     category: UseCase
     use_case_category: application
@@ -519,69 +623,85 @@ use_cases:
     relevance_to_dgps:
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:31
-    - STANDARDSDATATOPIC:36
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:31
+    - B2AI_TOPIC:36
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:723
-    - STANDARDSDATASTANDARDORTOOL:839
+    - B2AI_STANDARD:723
+    - B2AI_STANDARD:839
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:28
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:28
     name: Develop cross-sectional AI models of relationships between diabetes severity, cognitive function, and presence of biomarkers.
     category: UseCase
     use_case_category: application
-    description: As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on cognitive function. This case does not depend upon availability of pseudotime models, unlike STANDARDSUSECASE:29.
+    description: As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on cognitive function. This case does not depend upon availability of pseudotime models, unlike B2AI_USECASE:29.
     relevance_to_dgps:
     - aireadi
     data_topics:
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:10
-    - STANDARDSDATATOPIC:13
-    - STANDARDSDATATOPIC:18
-    - STANDARDSDATATOPIC:24
-    - STANDARDSDATATOPIC:29
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:10
+    - B2AI_TOPIC:13
+    - B2AI_TOPIC:18
+    - B2AI_TOPIC:24
+    - B2AI_TOPIC:29
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:29
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:29
     name: Develop predictive models of insulin dependence and salutogenesis.
     category: UseCase
     use_case_category: application
-    description: As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on insulin dependence. Its goal is to produce a model capable of yielding predictions about a given patient’s progression towards a health or disease state. This case depends upon availability of pseudotime models, unlike STANDARDSUSECASE:28.
+    description: As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on insulin dependence. Its goal is to produce a model capable of yielding predictions about a given patient’s progression towards a health or disease state. This case depends upon availability of pseudotime models, unlike B2AI_USECASE:28.
     known_limitations: Depends upon availability of pseudotime models.
     relevance_to_dgps:
     - aireadi
     data_topics:
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:10
-    - STANDARDSDATATOPIC:13
-    - STANDARDSDATATOPIC:18
-    - STANDARDSDATATOPIC:24
-    - STANDARDSDATATOPIC:29
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:10
+    - B2AI_TOPIC:13
+    - B2AI_TOPIC:18
+    - B2AI_TOPIC:24
+    - B2AI_TOPIC:29
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:30
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:30
     name: Test and deploy analytical models of clinical image data.
     category: UseCase
     use_case_category: application
-    description: Given the availability of a model of clinical image data (as produced by STANDARDSUSECASE:25), testing and deploying the model generally involves creating a test data set, preprocessing the data by normalizing and converting it into a format that can be used by the model, evaluating the model's performance on the test set, then optimizing the model by re-training under different parameters or input data until the desired level of performance is achieved. There may be a need for converting the model to a format that can be used in a specific runtime environment or monitoring the model's performance in a production environment and making adjustments as needed. Deploying the analytical model may require consideration of validation, regulatory approval, ethics, and compliance with patient privacy laws.
+    description: Given the availability of a model of clinical image data (as produced by B2AI_USECASE:25), testing and deploying the model generally involves creating a test data set, preprocessing the data by normalizing and converting it into a format that can be used by the model, evaluating the model's performance on the test set, then optimizing the model by re-training under different parameters or input data until the desired level of performance is achieved. There may be a need for converting the model to a format that can be used in a specific runtime environment or monitoring the model's performance in a production environment and making adjustments as needed. Deploying the analytical model may require consideration of validation, regulatory approval, ethics, and compliance with patient privacy laws.
     relevance_to_dgps:
     - chorus
     data_topics:
-    - STANDARDSDATATOPIC:15
+    - B2AI_TOPIC:15
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:788
+    - B2AI_STANDARD:788
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:31 
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:31 
     name: Develop software and cloud infrastructure for automated voice data collection through a smartphone application.
     category: UseCase
     use_case_category: application
@@ -589,21 +709,25 @@ use_cases:
     relevance_to_dgps:
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:31
-    - STANDARDSDATATOPIC:36
+    - B2AI_TOPIC:31
+    - B2AI_TOPIC:36
     alternative_standards_and_tools:
-    - STANDARDSDATASTANDARDORTOOL:723
-    - STANDARDSDATASTANDARDORTOOL:790
-    - STANDARDSDATASTANDARDORTOOL:758
-    - STANDARDSDATASTANDARDORTOOL:767
-    - STANDARDSDATASTANDARDORTOOL:785
-    - STANDARDSDATASTANDARDORTOOL:791
-    - STANDARDSDATASTANDARDORTOOL:839
+    - B2AI_STANDARD:723
+    - B2AI_STANDARD:790
+    - B2AI_STANDARD:758
+    - B2AI_STANDARD:767
+    - B2AI_STANDARD:785
+    - B2AI_STANDARD:791
+    - B2AI_STANDARD:839
     involved_in_experimental_design: False
     involved_in_metadata_management: True
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:32
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:32
     name: Build a database of human voice samples and associations with biomarkers of health.
     category: UseCase
     use_case_category: application
@@ -611,155 +735,207 @@ use_cases:
     relevance_to_dgps:
     - voice
     data_topics:
-    - STANDARDSDATATOPIC:4
-    - STANDARDSDATATOPIC:35
-    - STANDARDSDATATOPIC:36
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:35
+    - B2AI_TOPIC:36
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:732
+    - B2AI_STANDARD:732
     alternative_standards_and_tools:
-    - STANDARDSDATASTANDARDORTOOL:723
-    - STANDARDSDATASTANDARDORTOOL:790
-    - STANDARDSDATASTANDARDORTOOL:758
-    - STANDARDSDATASTANDARDORTOOL:767
-    - STANDARDSDATASTANDARDORTOOL:785
-    - STANDARDSDATASTANDARDORTOOL:791
-    - STANDARDSDATASTANDARDORTOOL:839
+    - B2AI_STANDARD:723
+    - B2AI_STANDARD:790
+    - B2AI_STANDARD:758
+    - B2AI_STANDARD:767
+    - B2AI_STANDARD:785
+    - B2AI_STANDARD:791
+    - B2AI_STANDARD:839
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:33
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:33
     name: Build a relational database of arbitrary data types.
     category: UseCase
     use_case_category: application
     description: To set up a relational database, first choose a relational database management system (RDBMS). Create a schema to define the database structure, including the tables and fields. Build tables within the schema and define the fields and data types for each table, then populate them with data by inserting rows. It's also crucial to set up relationships between tables, such as linking a primary key in one table to a foreign key in another table. This ensures data integrity and simplifies querying.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:34
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:34
     name: Query a relational database of arbitrary data types.
     category: UseCase
     use_case_category: application
     description: Querying a relational database covers a variety of actions to retrieve subsets of its contents.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     alternative_standards_and_tools:
-    - STANDARDSDATASTANDARDORTOOL:802
+    - B2AI_STANDARD:802
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:35
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:35
     name: Build a graph database of arbitrary data types.
     category: UseCase
     use_case_category: application
     description: To set up a graph database, first choose a graph database management system. Create a graph data model to define the nodes, edges, and properties of the graph. Once the data model is in place, create nodes, edges, and properties in the graph corresponding to input data. Depending on the graph database platform, there may be functionality to set up indexes on certain properties to optimize query performance. Setting up constraints on the data can help to ensure data integrity. 
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:36
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:36
     name: Query a graph database of arbitrary data types.
     category: UseCase
     use_case_category: application
     description: Querying a graph database covers a variety of actions to retrieve subsets of its contents, often by yielding subsets of the graph (i.e., subgraphs).
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:37
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:37
     name: Train a linear regression model on data in an R tibble.
     category: UseCase
     use_case_category: modeling
     description: Training a linear regression model on data in the R tibble data structure generally involves R’s lm() function. To see the summary of the resulting model, use the summary() function on the model object. To make predictions using the model, use the predict() function on the model object and provide new data as the argument.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:38
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:38
     name: Train a binary classification model on data in one or more Bioconductor objects.
     category: UseCase
     use_case_category: modeling
     description: Training a binary classification model on Bioconductor objects can be a convenient way to work with R statistical functions on large quantities of heterogeneous data. After any necessary preprocessing of the data, such as normalizing or filtering, split it into a training and test set. Then select a classification algorithm and use the training data to train a model. Test data may be used to evaluate the performance of the model and adjust any parameters as necessary.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:39
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:39
     name: Train a neural network model on tensor data.
     category: UseCase
     use_case_category: modeling
     description: Training a neural network model on tensor data is a frequent use case for developing data analysis and prediction methods. 
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:40
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:40
     name: Transform FHIR data to TSV.
     category: UseCase
     use_case_category: integration
     description: Data described through the HL7 FHIR standard may take a variety of forms, owing to the standard’s intentional flexibility. A highly interpretable, easily parsed format such as TSV may be desirable as part of transformation or subsequent analysis.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     standards_and_tools_for_dgp_use:
-    - STANDARDSDATASTANDARDORTOOL:109
+    - B2AI_STANDARD:109
     involved_in_experimental_design: True
     involved_in_metadata_management: True
     involved_in_quality_control: False
 
-  - id: STANDARDSUSECASE:41
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:41
     name: Determine whether enough data is available to train a computational model of interest.
     category: UseCase
     use_case_category: assessment
     description: Computational models may require a certain amount or complexity of data for their training to be effective. It may be useful to define these properties before beginning modeling.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:42
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:42
     name: Assess the quality of a computational model in terms of its ability to complete a specific task.
     category: UseCase
     use_case_category: assessment
     description: Independent of their application, computational models may be evaluated using a core set of metrics, including accuracy, precision, and recall.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: True
     involved_in_metadata_management: False
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:43
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:43
     name: Assess the potential bias in a computational model.
     category: UseCase
     use_case_category: assessment
     description: Even a high-performing computational model may be subject to bias, both explicitly and implicitly. The model may not accurately represent the population it was trained on. It may be algorithmically biased, with some features gaining weight over others in unexpected ways. There may be biases resulting from human preconceptions, e.g., human curators may have already made assumptions about disease status of patients contributing data to the model’s training set. There may also be unexpected confounders, such as social or economic factors contributing to clinical outcomes.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: False
     involved_in_metadata_management: False
     involved_in_quality_control: True
 
-  - id: STANDARDSUSECASE:44
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"
+
+  - id: B2AI_USECASE:44
     name: Assess the explainability of a computational model.
     category: UseCase
     use_case_category: assessment
     description: Computational models are not equivalently explainable. A model’s operations may appear correct, but without the ability to justify its responses based on a particular reasoning process, it may remain challenging to identify its weaknesses.
     data_topics:
-    - STANDARDSDATATOPIC:5
+    - B2AI_TOPIC:5
     involved_in_experimental_design: False
     involved_in_metadata_management: False
     involved_in_quality_control: True
+
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: "ORCID:0000-0001-5705-7831"

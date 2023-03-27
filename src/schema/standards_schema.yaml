@@ -9,19 +9,19 @@ see_also:
 
 prefixes:
   rdfs: http://www.w3.org/2000/01/rdf-schema#
-  STANDARDS: https://w3id.org/bridge2ai/standards-schema/
+  B2AI: https://w3id.org/bridge2ai/standards-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
-  ncit: http://purl.obolibrary.org/obo/NCIT_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
   mesh: http://id.nlm.nih.gov/mesh/
   edam.data: http://edamontology.org/data_
   edam.format: http://edamontology.org/format_
   edam.operation: http://edamontology.org/operation_
   edam.topic: http://edamontology.org/topic_
 
-default_prefix: STANDARDS
+default_prefix: B2AI
 default_range: string
 
 imports:
@@ -33,6 +33,7 @@ types:
     description: >-
       A primitive type in which the value denotes a class within the model.
   edam_identifier:
+    description: Identifier from EDAM ontology
     typeof: uriorcurie
     id_prefixes:
       - edam.data
@@ -40,13 +41,18 @@ types:
       - edam.operation
       - edam.topic
   mesh_identifier:
+    description: >-
+      Identifier from Medical Subject Headings (MeSH) biomedical vocabulary.
     typeof: uriorcurie
     id_prefixes:
       - mesh
   ncit_identifier:
+    description: >-
+      Identifier from NCIT reference terminology with broad
+      coverage of the cancer domain.
     typeof: uriorcurie
     id_prefixes:
-      - ncit
+      - NCIT
 
 classes:
 
@@ -60,10 +66,14 @@ classes:
       - description
       - subclass_of
       - related_to
+      - contributor_name
+      - contributor_github_name
+      - contributor_orcid
+      - contribution_date
     class_uri: schema:Thing
 
 slots:
-  node property:
+  node_property:
     description: >-
       A grouping for any property that holds
       between a node and a value.
@@ -75,6 +85,9 @@ slots:
     description: A unique identifier for a thing.
     required: true
   type:
+    description: >-
+      A generic slot for any label corresponding to the label 
+      for an entity type associated to the class.
     domain: NamedThing
   category:
     is_a: type
@@ -93,6 +106,7 @@ slots:
     description: A human-readable description for a thing.
     range: string
   edam_id:
+    description: Unique EDAM identifier
     examples:
       - value: edam.data:0006
     range: edam_identifier
@@ -102,25 +116,27 @@ slots:
       - edam.operation
       - edam.topic
   mesh_id:
+    description: Unique MeSH identifier
     examples:
       - value: MeSH:D014831
     range: mesh_identifier
     values_from:
       - MeSH
   ncit_id:
+    description: Unique NCIt Identifier
     examples:
       - value: NCIT:C92692
     range: ncit_identifier
     values_from:
       - NCIT
   url:
-    is_a: node property
+    is_a: node_property
     range: uriorcurie
     description: >-
       URL for basic documentation of the standard
       or tool.
   xref:
-    is_a: node property
+    is_a: node_property
     aliases: [ 'dbxref', 'Dbxref', 'DbXref' ]
     domain: NamedThing
     range: uriorcurie
@@ -128,6 +144,27 @@ slots:
       URI of corresponding class in an ontology
       of experimental procedures, in CURIE form.
     multivalued: true
+
+  contributor_name:
+    is_a: node_property
+    range: string
+    description: The name of the person who added this node.
+  contributor_github_name:
+    is_a: node_property
+    range: string
+    description: The name of the github user who added this node.
+  contributor_orcid:
+    is_a: node_property
+    range: uriorcurie
+    description: The ORCiD of the person who added this node.
+    examples:
+      - value: "ORCID:0000-0001-1234-5678"
+  contribution_date:
+    is_a: node_property
+    range: date
+    description: The date on which the node was added.
+    examples:
+      - value: "2023-03-20"
 
   related_to:
     description: >-
