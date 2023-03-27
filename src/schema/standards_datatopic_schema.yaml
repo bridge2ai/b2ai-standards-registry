@@ -14,12 +14,12 @@ prefixes:
   edam.topic: http://edamontology.org/topic_
   MeSH: http://id.nlm.nih.gov/mesh/
   NCIT: http://purl.obolibrary.org/obo/NCIT_
-  STANDARDSDATATOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
+  B2AI_TOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
-default_prefix: STANDARDSDATATOPIC
+default_prefix: B2AI_TOPIC
 default_range: string
 
 imports:
@@ -47,6 +47,7 @@ classes:
 slots:
 
   data_topics_collection:
+    description: Collection of associated data topics.
     range: DataTopic
     inlined: true
     inlined_as_list: true
