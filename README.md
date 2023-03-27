@@ -31,6 +31,22 @@ Our Standards Registry goals are threefold:
   * [schema](src/schema) - a copy of the standards-schemas - see https://github.com/bridge2ai/standards-schemas
   * [data](src/data) - Data in YAML format
 
+## User Documentation
+
+### Quick Reference
+
+The Standards Registry contains three main components: the list of standards and tools, the list of use cases, and the collection of associated metadata types (spanning organizations, data topics, and data substrates).
+
+For a quick overview of each of these components, see the following tab-delimited files:
+
+| Component | Location |
+|-----------|----------|
+| Standards Registry          | [DataStandardOrTool.tsv](project/data/DataStandardOrTool.tsv)         |
+| Use Cases                   | [UseCase.tsv](project/data/UseCase.tsv)                               |
+| Data Substrates             | [DataSubstrates.tsv](project/data/DataSubstrate.tsv)                  |
+| Data Topics                 | [DataTopic.tsv](project/data/DataTopic.tsv)                           |
+| Organizations               | [Organization.tsv](project/data/Organizations.tsv)                    |
+
 ## Developer Documentation
 
 ### Project Generation
