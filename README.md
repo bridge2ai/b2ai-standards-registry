@@ -45,7 +45,7 @@ For a quick overview of each of these components, see the following tab-delimite
 | Use Cases                   | [UseCase.tsv](project/data/UseCase.tsv)                               |
 | Data Substrates             | [DataSubstrates.tsv](project/data/DataSubstrate.tsv)                  |
 | Data Topics                 | [DataTopic.tsv](project/data/DataTopic.tsv)                           |
-| Organizations               | [Organization.tsv](project/data/Organizations.tsv)                    |
+| Organizations               | [Organization.tsv](project/data/Organization.tsv)                     |
 
 ## Developer Documentation
 
