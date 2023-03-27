@@ -9,6 +9,7 @@ Data objects are defined according to the [standards-schemas](https://github.com
 This Registry is assembled as part of the [Bridge2AI program](https://bridge2ai.org/). Its overall purpose is to support generation of standardized, interoperable, and machine-readable data from biomedical research.
 
 The standards in the registry fall into three categories:
+
 1. Standards for structuring data used for testing, training, and validating AI models (e.g., genomics file formats and standards for EHR data such as FHIR, OMOP, and ISO).
 2. Standards for describing specific datasets (i.e., standard computable elements associated with specific data types for use in Datasheets<sup>1</sup>).
 3. Standards for describing machine learning models themselves (i.e., standard computable elements associated with specific ML models for use in Model Cards<sup>2</sup>).
@@ -16,15 +17,35 @@ The standards in the registry fall into three categories:
 Where possible, existing standards (e.g., minimal information specifications<sup>3-5</sup>) are used to inform data element selection. The Registry also includes records for standards outside the scope of data modeling, such as specifications for preferred file formats, exchange protocols, and common APIs.
 
 Our Standards Registry goals are threefold:
+
 1. Ensure integration of the standards development lifecycle within the context of B2AI activities.
 2. Narrow the large space of standards to what is relevant.
 3. Provide computational access and utilities for schemas and standards, rather than links to often outdated PDFs. 
 
 ## Repository Structure
 
+* [docs](docs/) - Project documentation
+* [project](project/)
+  * [data](project/data) - Generated data serializations.
 * [src/](src/) - source files
   * [schema](src/schema) - a copy of the standards-schemas - see https://github.com/bridge2ai/standards-schemas
-  * [data](src/data) - data in YAML format
+  * [data](src/data) - Data in YAML format
+
+## User Documentation
+
+### Quick Reference
+
+The Standards Registry contains three main components: the list of standards and tools, the list of use cases, and the collection of associated metadata types (spanning organizations, data topics, and data substrates).
+
+For a quick overview of each of these components, see the following tab-delimited files:
+
+| Component | Location |
+|-----------|----------|
+| Standards Registry          | [DataStandardOrTool.tsv](project/data/DataStandardOrTool.tsv)         |
+| Use Cases                   | [UseCase.tsv](project/data/UseCase.tsv)                               |
+| Data Substrates             | [DataSubstrates.tsv](project/data/DataSubstrate.tsv)                  |
+| Data Topics                 | [DataTopic.tsv](project/data/DataTopic.tsv)                           |
+| Organizations               | [Organization.tsv](project/data/Organizations.tsv)                    |
 
 ## Developer Documentation
 

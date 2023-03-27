@@ -8,14 +8,14 @@ see_also:
   - https://bridge2ai.github.io/standards-organization-schema
 
 prefixes:
-  STANDARDSORGANIZATION: https://w3id.org/bridge2ai/standards-organization-schema/
+  B2AI_ORG: https://w3id.org/bridge2ai/standards-organization-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
   ror: https://ror.org/
-  wikidata: http://identifiers.org/wikidata/
-default_prefix: STANDARDSORGANIZATION
+  wikidata: http://www.wikidata.org/wiki/
+default_prefix: B2AI_ORG
 default_range: string
 
 imports:
@@ -24,10 +24,12 @@ imports:
 
 types:
   ror_identifier:
+    description: Identifier from Research Organization Registry.
     typeof: uriorcurie
     id_prefixes:
       - ror
   wikidata_identifier:
+    description: Identifier from Wikidata open knowledge base.
     typeof: uriorcurie
     id_prefixes:
       - wikidata
@@ -54,18 +56,21 @@ classes:
 slots:
 
   ror_id:
+    description: Unique ROR identifier.
     examples:
       - value: ROR:02mp31p96
     range: ror_identifier
     values_from:
       - ROR
   wikidata_id:
+    description: Unique Wikidata identifier.
     examples:
       - value: WIKIDATA:Q282186
     range: wikidata_identifier
     values_from:
       - WIKIDATA
   organizations:
+    description: Collection of associated organizations.
     range: Organization
     inlined: true
     inlined_as_list: true

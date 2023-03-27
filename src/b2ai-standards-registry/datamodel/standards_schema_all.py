@@ -192,7 +192,7 @@ class DataTopic(NamedThing):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATATOPIC.DataTopic
-    class_class_curie: ClassVar[str] = "STANDARDSDATATOPIC:DataTopic"
+    class_class_curie: ClassVar[str] = "B2AI_TOPIC:DataTopic"
     class_name: ClassVar[str] = "DataTopic"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataTopic")
 
@@ -227,7 +227,7 @@ class DataTopicContainer(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATATOPIC.DataTopicContainer
-    class_class_curie: ClassVar[str] = "STANDARDSDATATOPIC:DataTopicContainer"
+    class_class_curie: ClassVar[str] = "B2AI_TOPIC:DataTopicContainer"
     class_name: ClassVar[str] = "DataTopicContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataTopicContainer")
 
@@ -250,7 +250,7 @@ class DataSubstrate(NamedThing):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASUBSTRATE.DataSubstrate
-    class_class_curie: ClassVar[str] = "STANDARDSDATASUBSTRATE:DataSubstrate"
+    class_class_curie: ClassVar[str] = "B2AI_SUBSTRATE:DataSubstrate"
     class_name: ClassVar[str] = "DataSubstrate"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataSubstrate")
 
@@ -300,7 +300,7 @@ class DataSubstrateContainer(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASUBSTRATE.DataSubstrateContainer
-    class_class_curie: ClassVar[str] = "STANDARDSDATASUBSTRATE:DataSubstrateContainer"
+    class_class_curie: ClassVar[str] = "B2AI_SUBSTRATE:DataSubstrateContainer"
     class_name: ClassVar[str] = "DataSubstrateContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataSubstrateContainer")
 
@@ -320,7 +320,7 @@ class Organization(NamedThing):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSORGANIZATION.Organization
-    class_class_curie: ClassVar[str] = "STANDARDSORGANIZATION:Organization"
+    class_class_curie: ClassVar[str] = "B2AI_ORG:Organization"
     class_name: ClassVar[str] = "Organization"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/Organization")
 
@@ -360,7 +360,7 @@ class OrganizationContainer(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = STANDARDSORGANIZATION.OrganizationContainer
-    class_class_curie: ClassVar[str] = "STANDARDSORGANIZATION:OrganizationContainer"
+    class_class_curie: ClassVar[str] = "B2AI_ORG:OrganizationContainer"
     class_name: ClassVar[str] = "OrganizationContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/OrganizationContainer")
 
@@ -380,7 +380,7 @@ class DataStandardOrTool(NamedThing):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.DataStandardOrTool
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:DataStandardOrTool"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:DataStandardOrTool"
     class_name: ClassVar[str] = "DataStandardOrTool"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataStandardOrTool")
 
@@ -442,7 +442,7 @@ class DataStandard(DataStandardOrTool):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.DataStandard
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:DataStandard"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:DataStandard"
     class_name: ClassVar[str] = "DataStandard"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataStandard")
 
@@ -466,7 +466,7 @@ class BiomedicalStandard(DataStandard):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.BiomedicalStandard
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:BiomedicalStandard"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:BiomedicalStandard"
     class_name: ClassVar[str] = "BiomedicalStandard"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/BiomedicalStandard")
 
@@ -489,7 +489,7 @@ class Registry(DataStandardOrTool):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.Registry
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:Registry"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:Registry"
     class_name: ClassVar[str] = "Registry"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/Registry")
 
@@ -512,7 +512,7 @@ class OntologyOrVocabulary(DataStandardOrTool):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.OntologyOrVocabulary
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:OntologyOrVocabulary"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:OntologyOrVocabulary"
     class_name: ClassVar[str] = "OntologyOrVocabulary"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/OntologyOrVocabulary")
 
@@ -536,7 +536,7 @@ class ModelRepository(DataStandardOrTool):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.ModelRepository
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:ModelRepository"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:ModelRepository"
     class_name: ClassVar[str] = "ModelRepository"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/ModelRepository")
 
@@ -559,7 +559,7 @@ class ReferenceDataOrDataset(DataStandardOrTool):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.ReferenceDataOrDataset
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:ReferenceDataOrDataset"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:ReferenceDataOrDataset"
     class_name: ClassVar[str] = "ReferenceDataOrDataset"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/ReferenceDataOrDataset")
 
@@ -582,7 +582,7 @@ class SoftwareOrTool(DataStandardOrTool):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.SoftwareOrTool
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:SoftwareOrTool"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:SoftwareOrTool"
     class_name: ClassVar[str] = "SoftwareOrTool"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/SoftwareOrTool")
 
@@ -606,7 +606,7 @@ class ReferenceImplementation(DataStandardOrTool):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.ReferenceImplementation
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:ReferenceImplementation"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:ReferenceImplementation"
     class_name: ClassVar[str] = "ReferenceImplementation"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/ReferenceImplementation")
 
@@ -630,7 +630,7 @@ class TrainingProgram(DataStandardOrTool):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.TrainingProgram
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:TrainingProgram"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:TrainingProgram"
     class_name: ClassVar[str] = "TrainingProgram"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/TrainingProgram")
 
@@ -653,7 +653,7 @@ class DataStandardOrToolContainer(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = STANDARDSDATASTANDARDORTOOL.DataStandardOrToolContainer
-    class_class_curie: ClassVar[str] = "STANDARDSDATASTANDARDORTOOL:DataStandardOrToolContainer"
+    class_class_curie: ClassVar[str] = "B2AI_STANDARD:DataStandardOrToolContainer"
     class_name: ClassVar[str] = "DataStandardOrToolContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataStandardOrToolContainer")
 
@@ -673,7 +673,7 @@ class UseCase(NamedThing):
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
     class_class_uri: ClassVar[URIRef] = STANDARDSUSECASE.UseCase
-    class_class_curie: ClassVar[str] = "STANDARDSUSECASE:UseCase"
+    class_class_curie: ClassVar[str] = "B2AI_USECASE:UseCase"
     class_name: ClassVar[str] = "UseCase"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/UseCase")
 
@@ -753,7 +753,7 @@ class UseCaseContainer(YAMLRoot):
     _inherited_slots: ClassVar[List[str]] = []
 
     class_class_uri: ClassVar[URIRef] = STANDARDSUSECASE.UseCaseContainer
-    class_class_curie: ClassVar[str] = "STANDARDSUSECASE:UseCaseContainer"
+    class_class_curie: ClassVar[str] = "B2AI_USECASE:UseCaseContainer"
     class_name: ClassVar[str] = "UseCaseContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/UseCaseContainer")
 

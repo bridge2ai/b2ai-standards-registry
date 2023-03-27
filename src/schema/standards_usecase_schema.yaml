@@ -5,16 +5,16 @@ description: |-
   Data schema for Bridge2AI Standards Use Cases.
 license: MIT
 see_also:
-  - https://bridge2ai.github.io/standards-usecase-schema
+  - https://bridge2ai.github.io/standards-schema
 
 prefixes:
-  STANDARDSUSECASE: https://w3id.org/bridge2ai/standards-usecase-schema/
-  STANDARDSDATASUBSTRATE: https://w3id.org/bridge2ai/standards-datasubstrate-schema/
+  B2AI_USECASE: https://w3id.org/bridge2ai/standards-usecase-schema/
+  B2AI_SUBSTRATE: https://w3id.org/bridge2ai/standards-datasubstrate-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   schema: http://schema.org/
   PATO: http://purl.obolibrary.org/obo/PATO_
-default_prefix: STANDARDSUSECASE
+default_prefix: B2AI_USECASE
 default_range: string
 
 imports:
@@ -56,13 +56,13 @@ classes:
 slots:
 
   use_case_category:
-    is_a: node property
+    is_a: node_property
     range: UseCaseCategory
     description: >-
       Category of the UseCase.
       Not all projects will incorporate use cases in all categories.
   known_limitations:
-    is_a: node property
+    is_a: node_property
     range: string
     description: >-
       Any current obstacles to implementing this use case.
@@ -74,18 +74,18 @@ slots:
     description: Relevance of the use case to one or more DGPs.
     multivalued: true
   data_topics:
-    is_a: node property
+    is_a: node_property
     range: DataTopic
     description: Relevance of the use case to one or more data topics.
     multivalued: true
   data_substrates:
-    is_a: node property
+    is_a: node_property
     range: DataSubstrate
     description: Relevance of the use case to one or more data substrates. 
     multivalued: true
   standards_and_tools_for_dgp_use:
     # TODO: add option for this to be TBD
-    is_a: node property
+    is_a: node_property
     range: DataStandardOrTool
     description: >-
       List of identifiers of standards and tools;
@@ -95,7 +95,7 @@ slots:
       or TBD if standards/tools not yet finalized for this use case.
     multivalued: true
   alternative_standards_and_tools:
-    is_a: node property
+    is_a: node_property
     range: DataStandardOrTool
     description: >-
       List of identifiers of standards and tools;
@@ -105,19 +105,19 @@ slots:
       from those in the Standards Registry.
     multivalued: true
   enables:  # Should probably be an association type
-    is_a: node property
+    is_a: node_property
     range: UseCase
     description: Other use case(s) this use case supports or makes possible.
     multivalued: true
   involved_in_experimental_design:
-    is_a: node property
+    is_a: node_property
     range: boolean
     description: >-
       True if use case is likely to be implemented as
       part of an experimental procedure or collection
       of data to be used as part of an experiment.
   involved_in_metadata_management:
-    is_a: node property
+    is_a: node_property
     range: boolean
     description: >-
       True if use case is likely to be implemented as
@@ -126,12 +126,13 @@ slots:
       Includes use cases in which metadata will be
       collected along with data.
   involved_in_quality_control:
-    is_a: node property
+    is_a: node_property
     range: boolean
     description: >-
       True is use case is likely to be implemented as
       part of data validation operations.
   use_cases:
+    description: Collection of associated use cases
     range: UseCase
     inlined: true
     inlined_as_list: true
