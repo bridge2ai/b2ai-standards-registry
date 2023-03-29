@@ -55,15 +55,13 @@ src/schema:
 		wget -N -P src/schema $${url} ; \
 	done
 
-# This and the following target replace
+# This replaces
 # the standard linkml doc builder
 # since we are making docs for data,
 # not the schema
-site: doc-data gendoc
-
-gendoc: $(DOCDIR)
+site: doc-data
 	mkdocs build
-
+	
 # Use schemas to validate the data.
 # could use IN ZIP_LISTS if this was CMake, but it isn't
 # so we do a somewhat messy array instead
@@ -106,9 +104,6 @@ all-data:
 # Like all-data, but not really a conversion
 # as much as a reformatting
 doc-data:
-	@echo "Removing any previously created data docs..."
-	rm -rf $(DOCDIR) ;
-	mkdir -p $(DOCDIR) ;
 	@echo "Making data docs with linkml-renderer..."
 	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
 		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
@@ -121,7 +116,7 @@ doc-data:
 			newfn=$${key##*/} ; \
 			extension=$${newfn##*.} ; \
 			newfn=$${newfn%.*}.$${format} ; \
-			newpath=$(DOCDIR)$${newfn} ; \
+			newpath=$(DOCDIR)/$${newfn} ; \
 			$(RUN_RENDER) -r $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
 	done
