@@ -44,7 +44,7 @@ status: check-config
 	@echo "Source: $(SOURCE_SCHEMA_PATH)"
 
 # generate products and add everything to github
-setup: install gen-project gen-examples gendoc git-init-add
+setup: install gen-project gen-examples git-init-add
 
 # install any dependencies required for building
 install:
@@ -75,7 +75,6 @@ create-data-harmonizer:
 	npm init data-harmonizer $(SOURCE_SCHEMA_PATH)
 
 all: site
-site: gen-project gendoc
 %.yaml: gen-project
 deploy: all mkd-gh-deploy
 
@@ -125,16 +124,6 @@ $(PYMODEL):
 
 $(DOCDIR):
 	mkdir -p $@
-
-gendoc: $(DOCDIR)
-	cp $(SRC)/docs/*md $(DOCDIR) ; \
-	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
-
-testdoc: gendoc serve
-
-MKDOCS = $(RUN) mkdocs
-mkd-%:
-	$(MKDOCS) $*
 
 PROJECT_FOLDERS = sqlschema shex shacl protobuf prefixmap owl jsonschema jsonld graphql excel
 git-init-add: git-init git-add git-commit git-status

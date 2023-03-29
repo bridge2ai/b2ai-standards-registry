@@ -60,7 +60,7 @@ src/schema:
 # since we are making docs for data,
 # not the schema
 site: doc-data
-	mkdocs build
+	mkdocs build ;
 	
 # Use schemas to validate the data.
 # could use IN ZIP_LISTS if this was CMake, but it isn't
