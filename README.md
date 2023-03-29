@@ -58,7 +58,7 @@ Use the `make` command to generate project artifacts:
 * `make all-data`: make data serializations
 * `make test`: test the validators
 * `make validate`: validate the data
-* `make doc-data`: prepare Markdown and HTML versions of the data
+* `make site`: prepare data documentation site
 * `make deploy`: deploys site
 
 ## Accessing Registry Data
