@@ -31,10 +31,10 @@ RUN_CONVERT = $(RUN) linkml-convert -s $(ROOT_SCHEMA)
 RUN_RENDER = $(RUN) linkml-render -s $(ROOT_SCHEMA)
 
 SERIAL_DATA_DIR = project/data/
-DOCS_DATA_DIR = docs/data/
 
 FORMATS = json tsv
-RENDERS = html markdown
+## RENDERS = html markdown
+RENDERS = markdown
 
 ISSUE_TEMPLATE_DIR = .github/ISSUE_TEMPLATE/
 
@@ -55,6 +55,15 @@ src/schema:
 		wget -N -P src/schema $${url} ; \
 	done
 
+# This and the following target replace
+# the standard linkml doc builder
+# since we are making docs for data,
+# not the schema
+site: doc-data gendoc
+
+gendoc: $(DOCDIR)
+	mkdocs build
+
 # Use schemas to validate the data.
 # could use IN ZIP_LISTS if this was CMake, but it isn't
 # so we do a somewhat messy array instead
@@ -68,9 +77,6 @@ validate:
 		printf "Validating $${key}..." ; \
 		$(RUN_VALIDATE) -C $${CLASSES[$${key}]} $${key} ; \
 	done
-
-gendoc: $(DOCDIR)
-	$(RUN) gen-doc -d $(DOCDIR) $(SOURCE_SCHEMA_PATH)
 
 # Make alternative serializations of data:
 # json and tsv for now
@@ -96,13 +102,13 @@ all-data:
 		done \
 	done
 
-# Prepare Markdown and HTML versions of data
+# Prepare Markdown versions of data
 # Like all-data, but not really a conversion
 # as much as a reformatting
 doc-data:
 	@echo "Removing any previously created data docs..."
-	rm -rf $(DOCS_DATA_DIR) ;
-	mkdir -p $(DOCS_DATA_DIR) ;
+	rm -rf $(DOCDIR) ;
+	mkdir -p $(DOCDIR) ;
 	@echo "Making data docs with linkml-renderer..."
 	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
 		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
@@ -115,7 +121,7 @@ doc-data:
 			newfn=$${key##*/} ; \
 			extension=$${newfn##*.} ; \
 			newfn=$${newfn%.*}.$${format} ; \
-			newpath=$(DOCS_DATA_DIR)$${newfn} ; \
+			newpath=$(DOCDIR)$${newfn} ; \
 			$(RUN_RENDER) -r $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
 	done
