@@ -1,20 +1,48 @@
-site_name: "b2ai-standards-registry"
+site_name: "Bridge2AI Standards Registry"
 theme:
   name: material
-#  palette:
-#    scheme: slate
-#    primary: cyan
+  font: 
+    text: Inter
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      primary: deep purple
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - content.tabs.link
+    - toc.integrate
 plugins:
   - search
-  - mermaid2
+  - table-reader:
+      base_path: "config_dir"
+      data_path: "project/data"
+      search_page_directory: True
+      allow_missing_files: False
 nav:
-#  - Home: home.md
   - Index: index.md
   - About: about.md
+  - Standards: DataStandardOrTool.markdown
+  - Use Cases: UseCase.markdown
+  - Substrates: DataSubstrate.markdown
+  - Topics: DataTopic.markdown
+  - Organizations: Organization.markdown
 site_url: https://bridge2ai.github.io/b2ai-standards-registry
 repo_url: https://github.com/bridge2ai/b2ai-standards-registry
+markdown_extensions:
+  - tables
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
 
 # Uncomment this block to enable use of Google Analytics. 
 # Replace the property value with your own ID.
