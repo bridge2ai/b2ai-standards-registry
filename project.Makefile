@@ -33,6 +33,7 @@ RUN_RENDER = $(RUN) linkml-render -s $(ROOT_SCHEMA)
 SERIAL_DATA_DIR = project/data/
 
 MAKE_HTML_LINKS = find $(SERIAL_DATA_DIR) -type f -name '*.tsv' -exec sed -i 's/http\S*/<a href="&">&<\/a>/g' {} \;
+MAKE_STD_LINKS = find $(SERIAL_DATA_DIR) -type f -name '*.tsv' -exec sed -i -e 's/B2AI_USECASE\S*/\[&\]\(UseCase.markdown\)/g' -e 's/B2AI_ORG\S*/\[&\]\(Organization.markdown\)/g' -e 's/B2AI_TOPIC\S*/\[&\]\(DataTopic.markdown\)/g' -e 's/B2AI_SUBSTRATE\S*/\[&\]\(DataSubstrate.markdown\)/g' -e 's/B2AI_STANDARD\S*/\[&\]\(DataStandardOrTool.markdown\)/g'  {} \;
 
 FORMATS = json tsv
 ## RENDERS = html markdown
@@ -105,6 +106,7 @@ all-data:
 		done \
 	done
 	$(MAKE_HTML_LINKS)
+	$(MAKE_STD_LINKS)
 
 # Prepare Markdown versions of data
 # Like all-data, but not really a conversion
