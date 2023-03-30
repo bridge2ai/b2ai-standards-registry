@@ -32,6 +32,8 @@ RUN_RENDER = $(RUN) linkml-render -s $(ROOT_SCHEMA)
 
 SERIAL_DATA_DIR = project/data/
 
+MAKE_HTML_LINKS = find $(SERIAL_DATA_DIR) -type f -name '*.tsv' -exec sed -i 's/http\S*/<a href="&">&<\/a>/g' {} \;
+
 FORMATS = json tsv
 ## RENDERS = html markdown
 RENDERS = markdown
@@ -55,11 +57,11 @@ src/schema:
 		wget -N -P src/schema $${url} ; \
 	done
 
-# This replaces
-# the standard linkml doc builder
+# This replaces the standard linkml doc builder
 # since we are making docs for data,
-# not the schema
-site: doc-data
+# not the schema.
+# Mkdocs reads the tsv versions.
+site: all-data
 	mkdocs build ;
 	
 # Use schemas to validate the data.
@@ -79,6 +81,9 @@ validate:
 # Make alternative serializations of data:
 # json and tsv for now
 # Output goes in project/data/
+# The TSV files get some added enrichment
+# with hyperlinks so they can be represented
+# in the docs
 all-data:
 	@echo "Removing any previously created serializations..."
 	rm -rf $(SERIAL_DATA_DIR) ;
@@ -99,11 +104,12 @@ all-data:
 			$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
 	done
+	$(MAKE_HTML_LINKS)
 
 # Prepare Markdown versions of data
 # Like all-data, but not really a conversion
 # as much as a reformatting
-doc-data:
+doc-data-markdown:
 	@echo "Making data docs with linkml-renderer..."
 	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
 		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
