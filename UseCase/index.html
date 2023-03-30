@@ -1,732 +1,1361 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bridge2ai.github.io/b2ai-standards-registry/UseCase/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Use Cases - Bridge2AI Standards Registry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://bridge2ai.github.io/b2ai-standards-registry/UseCase/" rel="canonical"/>
-<link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: UseCase - b2ai-standards-registry</title>
-<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="None" data-md-color-primary="None" data-md-color-scheme="default" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#class-usecase">
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#use-case-table" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="b2ai-standards-registry" class="md-header__button md-logo" data-md-component="logo" href=".." title="b2ai-standards-registry">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
-            b2ai-standards-registry
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bridge2AI Standards Registry" class="md-header__button md-logo" aria-label="Bridge2AI Standards Registry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bridge2AI Standards Registry
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
-              Class: UseCase
+              Use Cases
             
           </span>
-</div>
-</div>
-</div>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
     GitHub
   </div>
 </a>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="b2ai-standards-registry" class="md-nav__button md-logo" data-md-component="logo" href=".." title="b2ai-standards-registry">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-    b2ai-standards-registry
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bridge2AI Standards Registry" class="md-nav__button md-logo" aria-label="Bridge2AI Standards Registry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Bridge2AI Standards Registry
   </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
     GitHub
   </div>
 </a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="..">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         Index
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
         About
       </a>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#inheritance">
-    Inheritance
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
-    Slots
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-    Usages
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identifier-and-mapping-information">
-    Identifier and Mapping Information
-  </a>
-<nav aria-label="Identifier and Mapping Information" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#schema-source">
-    Schema Source
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mappings">
-    Mappings
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#linkml-source">
-    LinkML Source
-  </a>
-<nav aria-label="LinkML Source" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#direct">
-    Direct
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/bridge2ai/b2ai-standards-registry/edit/master/docs/UseCase.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
-</a>
-<h1 id="class-usecase">Class: UseCase</h1>
-<p><em>Represents a use case for Bridge2AI standards.</em></p>
-<p>URI: <a href="https://w3id.org/bridge2ai/standards-schema-all/:UseCase">https://w3id.org/bridge2ai/standards-schema-all/:UseCase</a></p>
-<div class="mermaid"> classDiagram
-    class UseCase
-      NamedThing &lt;|-- UseCase
+    </li>
+  
 
-      UseCase : alternative_standards_and_tools
-        UseCase &lt;.. DataStandardOrTool : alternative_standards_and_tools
-      UseCase : data_substrates
-        UseCase &lt;.. DataSubstrate : data_substrates
-      UseCase : data_topics
-        UseCase &lt;.. DataTopic : data_topics
-      UseCase : description
-        UseCase &lt;.. string : description
-      UseCase : enables
-        UseCase &lt;.. UseCase : enables
-      UseCase : id
-        UseCase &lt;.. uriorcurie : id
-      UseCase : involved_in_experimental_design
-        UseCase &lt;.. boolean : involved_in_experimental_design
-      UseCase : involved_in_metadata_management
-        UseCase &lt;.. boolean : involved_in_metadata_management
-      UseCase : involved_in_quality_control
-        UseCase &lt;.. boolean : involved_in_quality_control
-      UseCase : known_limitations
-        UseCase &lt;.. string : known_limitations
-      UseCase : name
-        UseCase &lt;.. string : name
-      UseCase : related_to
-        UseCase &lt;.. NamedThing : related_to
-      UseCase : relevance_to_dgps
-        UseCase &lt;.. DataGeneratingProject : relevance_to_dgps
-      UseCase : standards_and_tools_for_dgp_use
-        UseCase &lt;.. DataStandardOrTool : standards_and_tools_for_dgp_use
-      UseCase : subclass_of
-        UseCase &lt;.. NamedThing : subclass_of
-      UseCase : use_case_category
-        UseCase &lt;.. UseCaseCategory : use_case_category
-      UseCase : xref
-        UseCase &lt;.. uriorcurie : xref
+    
+      
+      
+      
 
-</div>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><a href="../NamedThing/">NamedThing</a><ul>
-<li><strong>UseCase</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="slots">Slots</h2>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataStandardOrTool/" class="md-nav__link">
+        Standards
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Use Cases
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataSubstrate/" class="md-nav__link">
+        Substrates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataTopic/" class="md-nav__link">
+        Topics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Organization/" class="md-nav__link">
+        Organizations
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/bridge2ai/b2ai-standards-registry/edit/master/docs/UseCase.markdown" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="use-case-table">Use Case Table</h1>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Cardinality and Range</th>
-<th>Description</th>
-<th>Inheritance</th>
+<th align="left">id</th>
+<th align="left">category</th>
+<th align="left">name</th>
+<th align="left">description</th>
+<th align="left">contributor_name</th>
+<th align="left">contributor_github_name</th>
+<th align="left">contributor_orcid</th>
+<th align="left">use_case_category</th>
+<th align="left">relevance_to_dgps</th>
+<th align="left">data_topics</th>
+<th align="left">standards_and_tools_for_dgp_use</th>
+<th align="left">enables</th>
+<th align="left">involved_in_experimental_design</th>
+<th align="left">involved_in_metadata_management</th>
+<th align="left">involved_in_quality_control</th>
+<th align="left">xref</th>
+<th align="left">known_limitations</th>
+<th align="left">alternative_standards_and_tools</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../use_case_category/">use_case_category</a></td>
-<td>0..1 <br/> <a href="../UseCaseCategory/">UseCaseCategory</a></td>
-<td>Category of the UseCase</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:1</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain patient data from records of clinical visits.</td>
+<td align="left">Collecting clinical data from patient visits involves the process of gathering information about a patient's medical history, current symptoms, and other relevant information during a healthcare appointment. This typically includes taking a detailed medical history, conducting a physical examination, ordering and interpreting diagnostic tests, and documenting the findings in the patient's medical record. This may also include more focused evaluations, as with the AI-READI project’s assessments of cognitive function and visual acuity. Medical records may include structured/unstructured text, values for lab results, and/or images.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[aireadi|chorus|voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:15|B2AI_TOPIC:4]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:98|B2AI_STANDARD:243]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:5|B2AI_USECASE:13|B2AI_USECASE:17|B2AI_USECASE:19]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../known_limitations/">known_limitations</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>Any current obstacles to implementing this use case</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:2</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain image data from brain magnetic resonance imaging.</td>
+<td align="left">Magnetic resonance imaging (MRI) is a medical imaging technique that produces detailed images of the body's internal structures, including the brain. These images can be used to diagnose a variety of medical conditions and to evaluate the health of the brain. Brain MRI image data refers to the detailed images of the brain that are produced by the MRI machine.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[aireadi]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4|B2AI_TOPIC:22]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:33]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:19]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../relevance_to_dgps/">relevance_to_dgps</a></td>
-<td>0..* <br/> <a href="../DataGeneratingProject/">DataGeneratingProject</a></td>
-<td>Relevance of the use case to one or more DGPs</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:3</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain clinical waveform data from patients.</td>
+<td align="left">Clinical waveform data from an electrocardiogram (EKG or ECG) is a representation of the electrical activity of the heart. The EKG measures the voltage between different points on the body and records the resulting waveform. This waveform can be used to diagnose a variety of heart conditions, including arrhythmias and heart attacks. It is typically recorded using a machine that is attached to the patient via electrodes.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[aireadi]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:9|B2AI_TOPIC:10]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:202]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:18]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../data_topics/">data_topics</a></td>
-<td>0..* <br/> <a href="../DataTopic/">DataTopic</a></td>
-<td>Relevance of the use case to one or more data topics</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:4</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain image data from retinal and other ophthalmic imaging.</td>
+<td align="left">Ophthalmic image data is data that is collected from images of the eye. This type of data is typically used in the field of ophthalmology, which is the branch of medicine that deals with the diagnosis and treatment of eye diseases and disorders. Ophthalmic images can provide valuable information about the health of the eye, including the structure and function of the various parts of the eye, such as the retina, cornea, and lens.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[aireadi]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4|B2AI_TOPIC:24]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:98]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:19|B2AI_USECASE:26]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../data_substrates/">data_substrates</a></td>
-<td>0..* <br/> <a href="../DataSubstrate/">DataSubstrate</a></td>
-<td>Relevance of the use case to one or more data substrates</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:5</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain patient data from laboratory analysis, including serological testing and urinalysis.</td>
+<td align="left">Patient data from laboratory analysis typically includes results from tests that have been performed on samples taken from the patient, such as blood, urine, or other bodily fluids. Serological testing is a type of laboratory analysis that involves testing blood serum (the liquid part of blood) for the presence of various indicators of disease or health. Urinalysis is another common type of laboratory analysis that involves testing urine samples for various factors, such as the presence of bacteria, glucose, or other substances. Test results may or may not be derived from EHR data. Here, data includes records from mobile devices used to complement laboratory diagnostics, including continuous glucose monitoring.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[aireadi]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4|B2AI_TOPIC:9|B2AI_TOPIC:18]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:243]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:17]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../standards_and_tools_for_dgp_use/">standards_and_tools_for_dgp_use</a></td>
-<td>0..* <br/> <a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
-<td>List of identifiers of standards and tools; those planned to be used, or alre...</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:6</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain patient data from wearable devices.</td>
+<td align="left">Wearable devices are small electronic devices that can be worn on the body to collect data about the user's activity, movements, and other physiological information. This data can include things like steps taken, heart rate, sleep patterns, and other metrics that can be used to track health and fitness. Activity data may be viewed in aggregate (e.g., number of steps per day above a threshold rather than exact counts or geolocation data) to serve as approximates of physical fitness assessments otherwise performed by clinical personnel.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[aireadi|chorus]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:18]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:246]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:17|B2AI_USECASE:26|B2AI_USECASE:28]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../alternative_standards_and_tools/">alternative_standards_and_tools</a></td>
-<td>0..* <br/> <a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
-<td>List of identifiers of standards and tools; those not explicitly planned to b...</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:7</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain genomics data from patients.</td>
+<td align="left">Clinical genomics data refers to the genetic information collected from individuals as part of their medical care or clinical research. This data may include information about an individual's DNA sequence, as well as any genetic variations or mutations that may be associated with disease phenotypes.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[aireadi|voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:13|B2AI_TOPIC:35]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:36|B2AI_STANDARD:154|B2AI_STANDARD:819|B2AI_STANDARD:278|B2AI_STANDARD:299|B2AI_STANDARD:301]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:20|B2AI_USECASE:26|B2AI_USECASE:28|B2AI_USECASE:29]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">[EDAM:topic_3673]</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../enables/">enables</a></td>
-<td>0..* <br/> <a href="./">UseCase</a></td>
-<td>Other use case(s) this use case supports or makes possible</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:8</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain voice data from patients.</td>
+<td align="left">Perform voice data collection, either in a clinical setting or through a mobile device. Includes a process for patients to consent to voice data collection, voice data sharing and utilization as part of voice AI technology.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:31|B2AI_TOPIC:36]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:732|B2AI_STANDARD:723|B2AI_STANDARD:821|B2AI_STANDARD:839]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:13|B2AI_USECASE:22|B2AI_USECASE:27|B2AI_USECASE:31]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../involved_in_experimental_design/">involved_in_experimental_design</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>True if use case is likely to be implemented as part of an experimental proce...</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:9</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain social determinants of health data from patients.</td>
+<td align="left">Social determinants of health (SDoH) are the conditions in which people are born, grow, live, work, and age. These conditions are shaped by the distribution of money, power, and resources at global, national, and local levels. SDoH are largely responsible for health inequities - unfair and avoidable differences in health status from person to person. SDoH data may be collected directly from individuals or based on integration with other data, but it generally includes at least one of the following factors poverty and income inequality, education and literacy, employment and working conditions, gender and gender equality, social exclusion and discrimination, housing and living conditions, or access to healthcare.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[aireadi|chorus]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:29|B2AI_TOPIC:31]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:243]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:17|B2AI_USECASE:26|B2AI_USECASE:28|B2AI_USECASE:29]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../involved_in_metadata_management/">involved_in_metadata_management</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>True if use case is likely to be implemented as part of metadata indexing, sa...</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:10</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain molecular proximity observations from microscopy images of human cells.</td>
+<td align="left">Images of objects at the microscale (i.e., those at 0.1–100μm) are obtained through a variety of microscopy approaches. In the CM4AI project, images of cell structures are obtained through confocal immunofluorescence microscopy.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[cm4ai]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:19]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:764]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:16]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../involved_in_quality_control/">involved_in_quality_control</a></td>
-<td>0..1 <br/> <a href="../Boolean/">Boolean</a></td>
-<td>True is use case is likely to be implemented as part of data validation opera...</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:11</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain proteome data from human cell samples.</td>
+<td align="left">The proteome is the complete set of proteins that is expressed by a genome, cell, tissue, or organism at a given time and set of conditions. Proteome data refers to the information that is generated from studies of the proteome, such as the identification and characterization of the proteins that are expressed, their relative abundance, and any modifications that they may undergo. In the CM4AI project, proteome data is obtained through affinity purification coupled with tandem mass spectroscopy (AP-MS/MS).</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[cm4ai]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:28]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:764]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:16]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">[EDAM:topic_0121]</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../xref/">xref</a></td>
-<td>0..* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>URI of corresponding class in an ontology of experimental procedures, in CURI...</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_USECASE:12</a></td>
+<td align="left">UseCase</td>
+<td align="left">Obtain transcriptome data from human cell populations perturbed through CRISPR-driven mutagenesis.</td>
+<td align="left">In the CM4AI project, transcriptome data is collected through single-cell RNA sequencing from cells subjected to CRISPR-driven mutagenesis.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">acquisition</td>
+<td align="left">[cm4ai]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:34]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:764]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:16]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">[EDAM:topic_3170]</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>A unique identifier for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_USECASE:13</a></td>
+<td align="left">UseCase</td>
+<td align="left">Integrate clinical record data with voice data.</td>
+<td align="left">Clinical records generally do not include mechanisms for accessing voice recordings. Data records must therefore be linked to associate voice data samples with their source patients.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">integration</td>
+<td align="left">[voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:9|B2AI_TOPIC:36]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:732|B2AI_STANDARD:109|B2AI_STANDARD:271]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:17]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable name for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_USECASE:14</a></td>
+<td align="left">UseCase</td>
+<td align="left">Transform data from OMOP to the i2b2 standard.</td>
+<td align="left">Transforming data from OMOP to the i2b2 standard involves converting the data from OMOP's schema to the i2b2 schema, which allows for the data to be more easily queried and analyzed using i2b2's tools and platforms. This involves mapping the data to equivalent concepts in the i2b2 schema, and may also involve cleaning and preprocessing the data to ensure that it is in the correct format for use with i2b2.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">integration</td>
+<td align="left">[chorus]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:775|B2AI_STANDARD:243]</a></td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable description for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_USECASE:15</a></td>
+<td align="left">UseCase</td>
+<td align="left">Produce artifacts that map identifiers between source and standardized data representations.</td>
+<td align="left">The sets of identifiers shared between two or more data products serve as points of commonality between observations, but in practice, a desired level of interoperability may not be achievable without mapping some identifiers to equivalent terms. This may be necessary for entire namespaces (e.g., mapping all NCBI Gene identifiers to their corresponding UniProtKB protein accessions) or for a subset (e.g., mapping ChEBI entries for drugs to their identifiers in a drug-centric knowledge base). There may also be a need to define inexact matches: an identifier’s best mapping in another resource may be to a more broadly-defined concept.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">integration</td>
+<td align="left">[chorus]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:378]</a></td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../subclass_of/">subclass_of</a></td>
-<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
-<td>Holds between two classes where the domain class is a specialization of the r...</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_USECASE:16</a></td>
+<td align="left">UseCase</td>
+<td align="left">Link cellular objects to functions through associations between proteins, cell structure proximity, and transcriptomics.</td>
+<td align="left">As per Qin et al. (2021) Nature (<a href="https://doi.org/10.1038/s41586-021-04115-9),">https://doi.org/10.1038/s41586-021-04115-9),</a> imaging data and biophysical association data may be combined to develop measurements of protein distance within subcellular systems. This use case builds on that strategy by adding a third component: measurement of transcript changes under perturbation conditions for each protein. For the CM4AI DGP, this process involves evidence graphs. The result here is not a full subcellular map, but rather the integrated data necessary to assemble such a map.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">integration</td>
+<td align="left">[cm4ai]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:19|B2AI_TOPIC:28|B2AI_TOPIC:27|B2AI_TOPIC:34]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:764]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:24]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../related_to/">related_to</a></td>
-<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
-<td>A relationship that is asserted between two named things</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_USECASE:17</a></td>
+<td align="left">UseCase</td>
+<td align="left">Standardize clinical record data collected from multiple sites and sources.</td>
+<td align="left">Standardizing clinical record data across multiple sites and sources involves several steps, all with the goal of rendering it more usable in subsequent analyses. Data is first collected from electronic health records, clinical databases, surveys, and potentially other sources. Next, the data is cleaned and transformed to a consistent format. This may include removing duplicate records, filling in missing data, and standardizing field names and values. The data is then validated to ensure that it is accurate and complete. Standardized data is then integrated into a central repository.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">standardization</td>
+<td align="left">[aireadi|chorus|voice]</td>
+<td align="left"><a href="../DataTopic/">Demographic|[B2AI_TOPIC:4|B2AI_TOPIC:9|B2AI_TOPIC:18|B2AI_TOPIC:29|B2AI_TOPIC:31]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:71|B2AI_STANDARD:187|B2AI_STANDARD:788|B2AI_STANDARD:243|B2AI_STANDARD:271|B2AI_STANDARD:727]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:26|B2AI_USECASE:28|B2AI_USECASE:29]</a></td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:18</a></td>
+<td align="left">UseCase</td>
+<td align="left">Standardize clinical waveform data collected from multiple sites and sources.</td>
+<td align="left">As with other clinical observations and records, standardizing waveform data is largely a process of collection, cleaning, transformation, validation, and storage. The features of waveforms, whether audio or cardiac in origin, require specific handling to ensure physiologically-relevant details are retained. Raw waveform data is quite large and therefore consumes more disk space than most database architectures are prepared to operate with. This data may be collected continuously, leading to accumulation of large quantities of incoming observations to store and analyze. standardization must therefore be sensitive to the size and resolution of waveform data.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">standardization</td>
+<td align="left">[aireadi|chorus]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:9|B2AI_TOPIC:10]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:788|B2AI_STANDARD:202]</a></td>
+<td align="left">nan</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:19</a></td>
+<td align="left">UseCase</td>
+<td align="left">Standardize clinical image data collected from multiple sites and sources.</td>
+<td align="left">Standardizing clinical images across sites and sources involves ensuring that images are captured and stored in a consistent manner, so that they can be easily compared and analyzed. This may include following guidelines for image acquisition, e.g., recommended image resolution, contrast, and lighting conditions. It also includes image metadata properties such as consistent labeling and format. Depending on subsequent applications, it may require image processing, such as normalization, to correct for variations in appearance due to differences in equipment or patient positioning.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">standardization</td>
+<td align="left">[aireadi|chorus|voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:15|B2AI_TOPIC:24]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:71|B2AI_STANDARD:98|B2AI_STANDARD:788]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:25|B2AI_USECASE:30]</a></td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:20</a></td>
+<td align="left">UseCase</td>
+<td align="left">Standardize clinical omics data collected from multiple sites and sources.</td>
+<td align="left">Standardizing clinical omics data involves methods for ensuring consistency and comparability across different sources. This can be achieved through common data formats, controlled vocabularies, and ontologies. It may also involve some degree of quality control, as data from multiple sources may not be subject to identical validation or filtering procedures.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">standardization</td>
+<td align="left">[aireadi|voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:13]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:109]</a></td>
+<td align="left">nan</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:21</a></td>
+<td align="left">UseCase</td>
+<td align="left">Assemble standards for integrated maps of human cell architecture.</td>
+<td align="left">As per Qin et al. (2021) Nature (<a href="https://doi.org/10.1038/s41586-021-04115-9),">https://doi.org/10.1038/s41586-021-04115-9),</a> imaging data and biophysical association data may be combined to develop measurements of protein distance within subcellular systems. When combined with other data (see <a href="./">B2AI_USECASE:16)</a> the result is a map of cell architecture. Some degree of standardization will be necessary among these maps, such that they may be combined while retaining consistent biologically-relevant observations.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">standardization</td>
+<td align="left">[cm4ai]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:19|B2AI_TOPIC:27|B2AI_TOPIC:28|B2AI_TOPIC:34]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:22</a></td>
+<td align="left">UseCase</td>
+<td align="left">Assemble standards for voice data.</td>
+<td align="left">Standardizing voice recordings involves ensuring that all recordings have consistent properties, including volume, equalization, and noise reduction. These standards also incorporate processes for storing metadata about recorded voice samples.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">standardization</td>
+<td align="left">[voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:36]</a></td>
+<td align="left">nan</td>
+<td align="left"><a href="./">[B2AI_USECASE:31|B2AI_USECASE:32]</a></td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:23</a></td>
+<td align="left">UseCase</td>
+<td align="left">Construct standards for computational provenance.</td>
+<td align="left">Computational provenance is a record of the processes and data used to produce a computational result. Constructing standards for computational provenance involves establishing protocols for how this information should be recorded, stored, and shared. This can include what information provenance records must contain, their format(s), and any connections to the resulting computation. Additionally, standards may be established for how provenance should be validated and authenticated to ensure its accuracy and trustworthiness.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">standardization</td>
+<td align="left">[cm4ai]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:444]</a></td>
+<td align="left">nan</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:24</a></td>
+<td align="left">UseCase</td>
+<td align="left">Develop multi-scale maps of human cell architecture.</td>
+<td align="left">Given the availability of integrated imaging, biophysical, and transcriptome data centered on a specific set of proteins (see <a href="./">B2AI_USECASE:16),</a> we may then use these results to assemble maps of the physical proximities and relationships among those proteins.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">modeling</td>
+<td align="left">[cm4ai]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:19|B2AI_TOPIC:27|B2AI_TOPIC:28|B2AI_TOPIC:34]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:25</a></td>
+<td align="left">UseCase</td>
+<td align="left">Develop models of clinical image data.</td>
+<td align="left">Developing models of clinical image data may involve annotation, preprocessing, and model training. Generally, annotation requires labeling  images with disease or clinical phenotype-relevant information such as labels, bounding boxes, and segmentation masks. The annotation process may be assisted by automated methods, particularly in cases where patient features are already known. Preprocessing such as resizing, normalization, and data augmentation then prepares the labeled images for model training. The training process applies machine learning algorithms to learn patterns from the data and make predictions on new images.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">modeling</td>
+<td align="left">[chorus]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:15]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:788]</a></td>
+<td align="left"><a href="./">[B2AI_USECASE:30]</a></td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:26</a></td>
+<td align="left">UseCase</td>
+<td align="left">Develop pseudotime patient models of health and salutogenesis.</td>
+<td align="left">As presented by the AI-READI DGP, developing pseudotime patient models of health and salutogenesis hinges on the idea that health is a time-sensitive process, with various events contributing to a progression towards clinical outcomes in a chronological fashion. The exact amount of time between events may not be as important as their order and may therefore be abstracted.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">modeling</td>
+<td align="left">[aireadi]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4|B2AI_TOPIC:10|B2AI_TOPIC:13|B2AI_TOPIC:18|B2AI_TOPIC:24|B2AI_TOPIC:29]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:27</a></td>
+<td align="left">UseCase</td>
+<td align="left">Deploy a Federated Learning System for analysis of voice data.</td>
+<td align="left">As presented by the Voice DGP, a set of patient voice recordings may be analyzed in an automated manner through the machine learning approach of federated learning. In federated learning, a central model is first trained on a dataset distributed among many devices or clients. Individual clients train their own copies of the model on their own data, then send updated model parameters to the central server. The server then averages newly updated parameters from all clients to produce a new global model. It returns the new model to the clients and the process repeats.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">[voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4|B2AI_TOPIC:31|B2AI_TOPIC:36]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:723|B2AI_STANDARD:839]</a></td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:28</a></td>
+<td align="left">UseCase</td>
+<td align="left">Develop cross-sectional AI models of relationships between diabetes severity, cognitive function, and presence of biomarkers.</td>
+<td align="left">As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on cognitive function. This case does not depend upon availability of pseudotime models, unlike <a href="./">B2AI_USECASE:29.</a></td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">[aireadi]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4|B2AI_TOPIC:10|B2AI_TOPIC:13|B2AI_TOPIC:18|B2AI_TOPIC:24|B2AI_TOPIC:29]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:29</a></td>
+<td align="left">UseCase</td>
+<td align="left">Develop predictive models of insulin dependence and salutogenesis.</td>
+<td align="left">As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on insulin dependence. Its goal is to produce a model capable of yielding predictions about a given patient’s progression towards a health or disease state. This case depends upon availability of pseudotime models, unlike <a href="./">B2AI_USECASE:28.</a></td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">[aireadi]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4|B2AI_TOPIC:10|B2AI_TOPIC:13|B2AI_TOPIC:18|B2AI_TOPIC:24|B2AI_TOPIC:29]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">nan</td>
+<td align="left">Depends upon availability of pseudotime models.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:30</a></td>
+<td align="left">UseCase</td>
+<td align="left">Test and deploy analytical models of clinical image data.</td>
+<td align="left">Given the availability of a model of clinical image data (as produced by <a href="./">B2AI_USECASE:25),</a> testing and deploying the model generally involves creating a test data set, preprocessing the data by normalizing and converting it into a format that can be used by the model, evaluating the model's performance on the test set, then optimizing the model by re-training under different parameters or input data until the desired level of performance is achieved. There may be a need for converting the model to a format that can be used in a specific runtime environment or monitoring the model's performance in a production environment and making adjustments as needed. Deploying the analytical model may require consideration of validation, regulatory approval, ethics, and compliance with patient privacy laws.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">[chorus]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:15]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:788]</a></td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:31</a></td>
+<td align="left">UseCase</td>
+<td align="left">Develop software and cloud infrastructure for automated voice data collection through a smartphone application.</td>
+<td align="left">Developing software and cloud infrastructure for automated voice data collection in this use case first requires development of a smartphone application. The application would need to be able to record audio, allow user logins, upload the recorded audio to cloud storage, and permit users to view and manage recorded audio data. The cloud infrastructure would need to store and process the audio data to handle the storage, as well as potentially using machine learning algorithms to analyze the audio data. Additionally, the infrastructure would need to have a secure and reliable means of transmitting data between the smartphone application and the cloud.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">[voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:31|B2AI_TOPIC:36]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:723|B2AI_STANDARD:790|B2AI_STANDARD:758|B2AI_STANDARD:767|B2AI_STANDARD:785|B2AI_STANDARD:791|B2AI_STANDARD:839]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:32</a></td>
+<td align="left">UseCase</td>
+<td align="left">Build a database of human voice samples and associations with biomarkers of health.</td>
+<td align="left">Building a database of human voice samples and associations with biomarkers of health may begin with a secure database, either on-premise or based in cloud infrastructure. Data organization and labeling should support retrieval and analysis. Machine learning algorithms can be applied to the data to identify patterns and associations between the voice samples and the biomarkers of health. Regularly updating the database with new data and re-analyzing the data could improve the accuracy and resolution of the predicted associations.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">[voice]</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:4|B2AI_TOPIC:35|B2AI_TOPIC:36]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:732]</a></td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:723|B2AI_STANDARD:790|B2AI_STANDARD:758|B2AI_STANDARD:767|B2AI_STANDARD:785|B2AI_STANDARD:791|B2AI_STANDARD:839]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:33</a></td>
+<td align="left">UseCase</td>
+<td align="left">Build a relational database of arbitrary data types.</td>
+<td align="left">To set up a relational database, first choose a relational database management system (RDBMS). Create a schema to define the database structure, including the tables and fields. Build tables within the schema and define the fields and data types for each table, then populate them with data by inserting rows. It's also crucial to set up relationships between tables, such as linking a primary key in one table to a foreign key in another table. This ensures data integrity and simplifies querying.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:34</a></td>
+<td align="left">UseCase</td>
+<td align="left">Query a relational database of arbitrary data types.</td>
+<td align="left">Querying a relational database covers a variety of actions to retrieve subsets of its contents.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:802]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:35</a></td>
+<td align="left">UseCase</td>
+<td align="left">Build a graph database of arbitrary data types.</td>
+<td align="left">To set up a graph database, first choose a graph database management system. Create a graph data model to define the nodes, edges, and properties of the graph. Once the data model is in place, create nodes, edges, and properties in the graph corresponding to input data. Depending on the graph database platform, there may be functionality to set up indexes on certain properties to optimize query performance. Setting up constraints on the data can help to ensure data integrity.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:36</a></td>
+<td align="left">UseCase</td>
+<td align="left">Query a graph database of arbitrary data types.</td>
+<td align="left">Querying a graph database covers a variety of actions to retrieve subsets of its contents, often by yielding subsets of the graph (i.e., subgraphs).</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">application</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:37</a></td>
+<td align="left">UseCase</td>
+<td align="left">Train a linear regression model on data in an R tibble.</td>
+<td align="left">Training a linear regression model on data in the R tibble data structure generally involves R’s lm() function. To see the summary of the resulting model, use the summary() function on the model object. To make predictions using the model, use the predict() function on the model object and provide new data as the argument.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">modeling</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:38</a></td>
+<td align="left">UseCase</td>
+<td align="left">Train a binary classification model on data in one or more Bioconductor objects.</td>
+<td align="left">Training a binary classification model on Bioconductor objects can be a convenient way to work with R statistical functions on large quantities of heterogeneous data. After any necessary preprocessing of the data, such as normalizing or filtering, split it into a training and test set. Then select a classification algorithm and use the training data to train a model. Test data may be used to evaluate the performance of the model and adjust any parameters as necessary.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">modeling</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:39</a></td>
+<td align="left">UseCase</td>
+<td align="left">Train a neural network model on tensor data.</td>
+<td align="left">Training a neural network model on tensor data is a frequent use case for developing data analysis and prediction methods.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">modeling</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:40</a></td>
+<td align="left">UseCase</td>
+<td align="left">Transform FHIR data to TSV.</td>
+<td align="left">Data described through the HL7 FHIR standard may take a variety of forms, owing to the standard’s intentional flexibility. A highly interpretable, easily parsed format such as TSV may be desirable as part of transformation or subsequent analysis.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">integration</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left"><a href="../DataStandardOrTool/">[B2AI_STANDARD:109]</a></td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:41</a></td>
+<td align="left">UseCase</td>
+<td align="left">Determine whether enough data is available to train a computational model of interest.</td>
+<td align="left">Computational models may require a certain amount or complexity of data for their training to be effective. It may be useful to define these properties before beginning modeling.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">assessment</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:42</a></td>
+<td align="left">UseCase</td>
+<td align="left">Assess the quality of a computational model in terms of its ability to complete a specific task.</td>
+<td align="left">Independent of their application, computational models may be evaluated using a core set of metrics, including accuracy, precision, and recall.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">assessment</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">True</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:43</a></td>
+<td align="left">UseCase</td>
+<td align="left">Assess the potential bias in a computational model.</td>
+<td align="left">Even a high-performing computational model may be subject to bias, both explicitly and implicitly. The model may not accurately represent the population it was trained on. It may be algorithmically biased, with some features gaining weight over others in unexpected ways. There may be biases resulting from human preconceptions, e.g., human curators may have already made assumptions about disease status of patients contributing data to the model’s training set. There may also be unexpected confounders, such as social or economic factors contributing to clinical outcomes.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">assessment</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">False</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_USECASE:44</a></td>
+<td align="left">UseCase</td>
+<td align="left">Assess the explainability of a computational model.</td>
+<td align="left">Computational models are not equivalently explainable. A model’s operations may appear correct, but without the ability to justify its responses based on a particular reasoning process, it may remain challenging to identify its weaknesses.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">assessment</td>
+<td align="left">nan</td>
+<td align="left"><a href="../DataTopic/">[B2AI_TOPIC:5]</a></td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left">False</td>
+<td align="left">False</td>
+<td align="left">True</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="./">UseCase</a></td>
-<td><a href="../enables/">enables</a></td>
-<td>range</td>
-<td><a href="./">UseCase</a></td>
-</tr>
-<tr>
-<td><a href="../UseCaseContainer/">UseCaseContainer</a></td>
-<td><a href="../use_cases/">use_cases</a></td>
-<td>range</td>
-<td><a href="./">UseCase</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/bridge2ai/standards-schema-all</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>https://w3id.org/bridge2ai/standards-schema-all/:UseCase</td>
-</tr>
-<tr>
-<td>native</td>
-<td>https://w3id.org/bridge2ai/standards-schema-all/:UseCase</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-<h3 id="direct">Direct</h3>
-<details>
-<pre><code class="language-yaml">name: UseCase
-description: Represents a use case for Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-schema-all
-rank: 1000
-is_a: NamedThing
-slots:
-- use_case_category
-- known_limitations
-- relevance_to_dgps
-- data_topics
-- data_substrates
-- standards_and_tools_for_dgp_use
-- alternative_standards_and_tools
-- enables
-- involved_in_experimental_design
-- involved_in_metadata_management
-- involved_in_quality_control
-- xref
-slot_usage:
-  use_case_category:
-    name: use_case_category
-    domain_of:
-    - UseCase
-    required: true
 
-</code></pre>
-</details>
-<h3 id="induced">Induced</h3>
-<details>
-<pre><code class="language-yaml">name: UseCase
-description: Represents a use case for Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-schema-all
-rank: 1000
-is_a: NamedThing
-slot_usage:
-  use_case_category:
-    name: use_case_category
-    domain_of:
-    - UseCase
-    required: true
-attributes:
-  use_case_category:
-    name: use_case_category
-    description: Category of the UseCase. Not all projects will incorporate use cases
-      in all categories.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    alias: use_case_category
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: UseCaseCategory
-    required: true
-  known_limitations:
-    name: known_limitations
-    description: Any current obstacles to implementing this use case. This could be
-      a selection from one or more predefined categories including lack of standards,
-      lack of relevant patient cohort, lack of funding, etc.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    alias: known_limitations
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: string
-  relevance_to_dgps:
-    name: relevance_to_dgps
-    description: Relevance of the use case to one or more DGPs.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    multivalued: true
-    alias: relevance_to_dgps
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: DataGeneratingProject
-  data_topics:
-    name: data_topics
-    description: Relevance of the use case to one or more data topics.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    multivalued: true
-    alias: data_topics
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: DataTopic
-  data_substrates:
-    name: data_substrates
-    description: Relevance of the use case to one or more data substrates.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    multivalued: true
-    alias: data_substrates
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: DataSubstrate
-  standards_and_tools_for_dgp_use:
-    name: standards_and_tools_for_dgp_use
-    description: List of identifiers of standards and tools; those planned to be used,
-      or already in use, by one or more Bridge2AI DGPs in addressing this use case,
-      from those in the Standards Registry, or TBD if standards/tools not yet finalized
-      for this use case.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    multivalued: true
-    alias: standards_and_tools_for_dgp_use
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: DataStandardOrTool
-  alternative_standards_and_tools:
-    name: alternative_standards_and_tools
-    description: List of identifiers of standards and tools; those not explicitly
-      planned to be used, by one or more Bridge2AI DGPs in addressing this use case
-      but serving as viable alternatives, from those in the Standards Registry.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    multivalued: true
-    alias: alternative_standards_and_tools
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: DataStandardOrTool
-  enables:
-    name: enables
-    description: Other use case(s) this use case supports or makes possible.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    multivalued: true
-    alias: enables
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: UseCase
-  involved_in_experimental_design:
-    name: involved_in_experimental_design
-    description: True if use case is likely to be implemented as part of an experimental
-      procedure or collection of data to be used as part of an experiment.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    alias: involved_in_experimental_design
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: boolean
-  involved_in_metadata_management:
-    name: involved_in_metadata_management
-    description: True if use case is likely to be implemented as part of metadata
-      indexing, sample tracking, or any other storage of high-level data properties.
-      Includes use cases in which metadata will be collected along with data.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    alias: involved_in_metadata_management
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: boolean
-  involved_in_quality_control:
-    name: involved_in_quality_control
-    description: True is use case is likely to be implemented as part of data validation
-      operations.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    alias: involved_in_quality_control
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: boolean
-  xref:
-    name: xref
-    description: URI of corresponding class in an ontology of experimental procedures,
-      in CURIE form.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    aliases:
-    - dbxref
-    - Dbxref
-    - DbXref
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    multivalued: true
-    alias: xref
-    owner: UseCase
-    domain_of:
-    - UseCase
-    range: uriorcurie
-  id:
-    name: id
-    description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    slot_uri: schema:identifier
-    identifier: true
-    alias: id
-    owner: UseCase
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    required: true
-  name:
-    name: name
-    description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    slot_uri: schema:name
-    alias: name
-    owner: UseCase
-    domain_of:
-    - NamedThing
-    range: string
-  description:
-    name: description
-    description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    slot_uri: schema:description
-    alias: description
-    owner: UseCase
-    domain_of:
-    - NamedThing
-    range: string
-  subclass_of:
-    name: subclass_of
-    description: Holds between two classes where the domain class is a specialization
-      of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    exact_mappings:
-    - rdfs:subClassOf
-    - MESH:isa
-    narrow_mappings:
-    - rdfs:subPropertyOf
-    rank: 1000
-    is_a: related_to
-    domain: NamedThing
-    multivalued: true
-    inherited: true
-    alias: subclass_of
-    owner: UseCase
-    domain_of:
-    - NamedThing
-    range: NamedThing
-  related_to:
-    name: related_to
-    description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    domain: NamedThing
-    multivalued: true
-    inherited: true
-    alias: related_to
-    owner: UseCase
-    domain_of:
-    - NamedThing
-    - Organization
-    symmetric: true
-    range: NamedThing
 
-</code></pre>
-</details>
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-</div>
-</main>
-<footer class="md-footer">
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../DataStandardOrTool/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Standards" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Standards
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../DataSubstrate/" class="md-footer__link md-footer__link--next" aria-label="Next: Substrates" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Substrates
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "toc.integrate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../javascripts/tablesort.js"></script>
+      
+    
+    
+  </body>
 </html>

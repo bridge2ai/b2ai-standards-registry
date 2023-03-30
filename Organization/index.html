@@ -1,568 +1,1811 @@
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bridge2ai.github.io/b2ai-standards-registry/Organization/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Organizations - Bridge2AI Standards Registry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
 
-<html class="no-js" lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://bridge2ai.github.io/b2ai-standards-registry/Organization/" rel="canonical"/>
-<link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: Organization - b2ai-standards-registry</title>
-<link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
-<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
-<body data-md-color-accent="None" data-md-color-primary="None" data-md-color-scheme="default" dir="ltr">
-<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-<label class="md-overlay" for="__drawer"></label>
-<div data-md-component="skip">
-<a class="md-skip" href="#class-organization">
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#organization-table" class="md-skip">
           Skip to content
         </a>
-</div>
-<div data-md-component="announce">
-</div>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
 <header class="md-header" data-md-component="header">
-<nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="b2ai-standards-registry" class="md-header__button md-logo" data-md-component="logo" href=".." title="b2ai-standards-registry">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-<label class="md-header__button md-icon" for="__drawer">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
-</label>
-<div class="md-header__title" data-md-component="header-title">
-<div class="md-header__ellipsis">
-<div class="md-header__topic">
-<span class="md-ellipsis">
-            b2ai-standards-registry
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bridge2AI Standards Registry" class="md-header__button md-logo" aria-label="Bridge2AI Standards Registry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bridge2AI Standards Registry
           </span>
-</div>
-<div class="md-header__topic" data-md-component="header-topic">
-<span class="md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
-              Class: Organization
+              Organizations
             
           </span>
-</div>
-</div>
-</div>
-<label class="md-header__button md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-</label>
-<div class="md-search" data-md-component="search" role="dialog">
-<label class="md-search__overlay" for="__search"></label>
-<div class="md-search__inner" role="search">
-<form class="md-search__form" name="search">
-<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
-<label class="md-search__icon md-icon" for="__search">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
-</label>
-<nav aria-label="Search" class="md-search__options">
-<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
-</button>
-</nav>
-</form>
-<div class="md-search__output">
-<div class="md-search__scrollwrap" data-md-scrollfix="">
-<div class="md-search-result" data-md-component="search-result">
-<div class="md-search-result__meta">
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
             Initializing search
           </div>
-<ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="md-header__source">
-<a class="md-source" data-md-component="source" href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
     GitHub
   </div>
 </a>
-</div>
-</nav>
+      </div>
+    
+  </nav>
+  
 </header>
-<div class="md-container" data-md-component="container">
-<main class="md-main" data-md-component="main">
-<div class="md-main__inner md-grid">
-<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
-<label class="md-nav__title" for="__drawer">
-<a aria-label="b2ai-standards-registry" class="md-nav__button md-logo" data-md-component="logo" href=".." title="b2ai-standards-registry">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
-</a>
-    b2ai-standards-registry
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bridge2AI Standards Registry" class="md-nav__button md-logo" aria-label="Bridge2AI Standards Registry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Bridge2AI Standards Registry
   </label>
-<div class="md-nav__source">
-<a class="md-source" data-md-component="source" href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository">
-<div class="md-source__icon md-icon">
-<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
-</div>
-<div class="md-source__repository">
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
     GitHub
   </div>
 </a>
-</div>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="..">
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         Index
       </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../about/">
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
         About
       </a>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
-<div class="md-sidebar__scrollwrap">
-<div class="md-sidebar__inner">
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#inheritance">
-    Inheritance
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#slots">
-    Slots
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-    Usages
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identifier-and-mapping-information">
-    Identifier and Mapping Information
-  </a>
-<nav aria-label="Identifier and Mapping Information" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#schema-source">
-    Schema Source
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#mappings">
-    Mappings
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#linkml-source">
-    LinkML Source
-  </a>
-<nav aria-label="LinkML Source" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#direct">
-    Direct
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#induced">
-    Induced
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="md-content" data-md-component="content">
-<article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/bridge2ai/b2ai-standards-registry/edit/master/docs/Organization.md" title="Edit this page">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
-</a>
-<h1 id="class-organization">Class: Organization</h1>
-<p><em>Represents a group or organization related to or responsible for one or more Bridge2AI standards.</em></p>
-<p>URI: <a href="https://w3id.org/bridge2ai/standards-schema-all/:Organization">https://w3id.org/bridge2ai/standards-schema-all/:Organization</a></p>
-<div class="mermaid"> classDiagram
-    class Organization
-      NamedThing &lt;|-- Organization
+    </li>
+  
 
-      Organization : description
-        Organization &lt;.. string : description
-      Organization : id
-        Organization &lt;.. uriorcurie : id
-      Organization : name
-        Organization &lt;.. string : name
-      Organization : related_to
-        Organization &lt;.. NamedThing : related_to
-      Organization : ror_id
-        Organization &lt;.. ror_identifier : ror_id
-      Organization : subclass_of
-        Organization &lt;.. NamedThing : subclass_of
-      Organization : url
-        Organization &lt;.. uriorcurie : url
-      Organization : wikidata_id
-        Organization &lt;.. wikidata_identifier : wikidata_id
+    
+      
+      
+      
 
-</div>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><a href="../NamedThing/">NamedThing</a><ul>
-<li><strong>Organization</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="slots">Slots</h2>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataStandardOrTool/" class="md-nav__link">
+        Standards
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UseCase/" class="md-nav__link">
+        Use Cases
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataSubstrate/" class="md-nav__link">
+        Substrates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DataTopic/" class="md-nav__link">
+        Topics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Organizations
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/bridge2ai/b2ai-standards-registry/edit/master/docs/Organization.markdown" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="organization-table">Organization Table</h1>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Cardinality and Range</th>
-<th>Description</th>
-<th>Inheritance</th>
+<th align="left">id</th>
+<th align="left">category</th>
+<th align="left">name</th>
+<th align="left">description</th>
+<th align="left">contributor_name</th>
+<th align="left">contributor_github_name</th>
+<th align="left">contributor_orcid</th>
+<th align="left">ror_id</th>
+<th align="left">wikidata_id</th>
+<th align="left">url</th>
+<th align="left">subclass_of</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../ror_id/">ror_id</a></td>
-<td>0..1 <br/> <a href="../RorIdentifier/">RorIdentifier</a></td>
-<td></td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_ORG:1</a></td>
+<td align="left">Organization</td>
+<td align="left">7B</td>
+<td align="left">Seven Bridges Genomics</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:02r7ybh06</td>
+<td align="left">wikidata:Q50039372</td>
+<td align="left"><a href="https://www.sevenbridges.com/">https://www.sevenbridges.com/</a></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../wikidata_id/">wikidata_id</a></td>
-<td>0..1 <br/> <a href="../WikidataIdentifier/">WikidataIdentifier</a></td>
-<td></td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_ORG:2</a></td>
+<td align="left">Organization</td>
+<td align="left">AHRQ</td>
+<td align="left">US Agency for Healthcare Research and Quality</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03jmfdf59</td>
+<td align="left">wikidata:Q4692008</td>
+<td align="left"><a href="https://www.ahrq.gov/">https://www.ahrq.gov/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:39]</a></td>
 </tr>
 <tr>
-<td><a href="../url/">url</a></td>
-<td>0..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>URL for basic documentation of the standard or tool</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_ORG:3</a></td>
+<td align="left">Organization</td>
+<td align="left">AMA</td>
+<td align="left">American Medical Association</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03p6gt485</td>
+<td align="left">wikidata:Q465697</td>
+<td align="left"><a href="https://www.ama-assn.org/">https://www.ama-assn.org/</a></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../related_to/">related_to</a></td>
-<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
-<td>A relationship that is asserted between two named things</td>
-<td>direct</td>
+<td align="left"><a href="./">B2AI_ORG:4</a></td>
+<td align="left">Organization</td>
+<td align="left">ANSI</td>
+<td align="left">American National Standards Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:02ttqft70</td>
+<td align="left">wikidata:Q180003</td>
+<td align="left"><a href="https://www.ansi.org/">https://www.ansi.org/</a></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>A unique identifier for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_ORG:5</a></td>
+<td align="left">Organization</td>
+<td align="left">Apache</td>
+<td align="left">Apache Software Foundation</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q489709</td>
+<td align="left"><a href="https://www.apache.org/">https://www.apache.org/</a></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable name for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_ORG:6</a></td>
+<td align="left">Organization</td>
+<td align="left">ARDC</td>
+<td align="left">Australian Research Data Commons</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:038sjwq14</td>
+<td align="left">wikidata:Q4824459</td>
+<td align="left"><a href="https://ardc.edu.au/">https://ardc.edu.au/</a></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human-readable description for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_ORG:7</a></td>
+<td align="left">Organization</td>
+<td align="left">ASA</td>
+<td align="left">Acoustical Society of America</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:049e4we54</td>
+<td align="left">wikidata:Q4064243</td>
+<td align="left"><a href="https://acousticalsociety.org/">https://acousticalsociety.org/</a></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td><a href="../subclass_of/">subclass_of</a></td>
-<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
-<td>Holds between two classes where the domain class is a specialization of the r...</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<td align="left"><a href="./">B2AI_ORG:8</a></td>
+<td align="left">Organization</td>
+<td align="left">ASTM</td>
+<td align="left">ASTM International</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:01x994m09</td>
+<td align="left">wikidata:Q621977</td>
+<td align="left"><a href="https://www.astm.org/">https://www.astm.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:9</a></td>
+<td align="left">Organization</td>
+<td align="left">BMRB</td>
+<td align="left">Biological Magnetic Resonance Data Bank</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q48814267</td>
+<td align="left"><a href="https://bmrb.io/">https://bmrb.io/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:10</a></td>
+<td align="left">Organization</td>
+<td align="left">BPM+</td>
+<td align="left">BPM+</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.bpm-plus.org/">https://www.bpm-plus.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:11</a></td>
+<td align="left">Organization</td>
+<td align="left">CARMEN</td>
+<td align="left">Code Analysis Repository and Modelling for E-Neuroscience project</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.jstor.org/stable/25704705">https://www.jstor.org/stable/25704705</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:12</a></td>
+<td align="left">Organization</td>
+<td align="left">CDC</td>
+<td align="left">Centers for Disease Control and Prevention</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:042twtr12</td>
+<td align="left">wikidata:Q583725</td>
+<td align="left"><a href="https://www.cdc.gov/">https://www.cdc.gov/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:13</a></td>
+<td align="left">Organization</td>
+<td align="left">CDC IIS</td>
+<td align="left">CDC Immunization Information Systems</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.cdc.gov/vaccines/programs/iis/index.html">https://www.cdc.gov/vaccines/programs/iis/index.html</a></td>
+<td align="left"><a href="./">[B2AI_ORG:12]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:14</a></td>
+<td align="left">Organization</td>
+<td align="left">CDC NCHS</td>
+<td align="left">CDC National Center for Health Statistics</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03p15s250</td>
+<td align="left">wikidata:Q3336854</td>
+<td align="left"><a href="https://www.cdc.gov/nchs/index.htm">https://www.cdc.gov/nchs/index.htm</a></td>
+<td align="left"><a href="./">[B2AI_ORG:12]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:15</a></td>
+<td align="left">Organization</td>
+<td align="left">CDISC</td>
+<td align="left">Clinical Data Interchange Standards Consortium</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q571067</td>
+<td align="left"><a href="https://www.cdisc.org/">https://www.cdisc.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:16</a></td>
+<td align="left">Organization</td>
+<td align="left">CLSI</td>
+<td align="left">Clinical and Laboratory Standards Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:04j5ay321</td>
+<td align="left">wikidata:Q5133808</td>
+<td align="left"><a href="https://clsi.org/">https://clsi.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:17</a></td>
+<td align="left">Organization</td>
+<td align="left">CMS</td>
+<td align="left">U.S. Centers for Medicare &amp; Medicaid Services</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:02g02rq35</td>
+<td align="left">wikidata:Q5060058</td>
+<td align="left"><a href="https://www.cms.gov/">https://www.cms.gov/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:18</a></td>
+<td align="left">Organization</td>
+<td align="left">Columbia DBMI</td>
+<td align="left">Department of Biomedical Informatics at Columbia University Medical Center</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.dbmi.columbia.edu/">https://www.dbmi.columbia.edu/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:19</a></td>
+<td align="left">Organization</td>
+<td align="left">COMBINE</td>
+<td align="left">COmputational Modeling in BIology NEtwork</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q16950320</td>
+<td align="left"><a href="https://co.mbine.org/">https://co.mbine.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:20</a></td>
+<td align="left">Organization</td>
+<td align="left">COMPUTIS</td>
+<td align="left">COMPUTIS project</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.computis.org/">https://www.computis.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:21</a></td>
+<td align="left">Organization</td>
+<td align="left">COSMOS</td>
+<td align="left">COordination Of Standards In MetabOlomicS Project</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://link.springer.com/article/10.1007/s11306-015-0810-y">https://link.springer.com/article/10.1007/s11306-015-0810-y</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:22</a></td>
+<td align="left">Organization</td>
+<td align="left">DAMA</td>
+<td align="left">Data Management Association International</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q111966878</td>
+<td align="left"><a href="https://www.dama.org/cpages/home">https://www.dama.org/cpages/home</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:23</a></td>
+<td align="left">Organization</td>
+<td align="left">DDI</td>
+<td align="left">Data Documentation Initiative Alliance</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q1172209</td>
+<td align="left"><a href="https://ddialliance.org/">https://ddialliance.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:24</a></td>
+<td align="left">Organization</td>
+<td align="left">DeepMind</td>
+<td align="left">DeepMind Technologies</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:00971b260</td>
+<td align="left">wikidata:Q15733006</td>
+<td align="left"><a href="https://www.deepmind.com/">https://www.deepmind.com/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:37]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:25</a></td>
+<td align="left">Organization</td>
+<td align="left">DICOM</td>
+<td align="left">Digital Imaging and Communications in Medicine Standards Committee</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.dicomstandard.org/">https://www.dicomstandard.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:26</a></td>
+<td align="left">Organization</td>
+<td align="left">DirectTrust</td>
+<td align="left">DirectTrust</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://directtrust.org/">https://directtrust.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:27</a></td>
+<td align="left">Organization</td>
+<td align="left">ECRI</td>
+<td align="left">Emergency Care Research Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03f47x024</td>
+<td align="left">wikidata:Q5322742</td>
+<td align="left"><a href="https://www.ecri.org/">https://www.ecri.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:28</a></td>
+<td align="left">Organization</td>
+<td align="left">ELIXIR</td>
+<td align="left">European life-sciences Infrastructure for biological Information</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:044rwnt51</td>
+<td align="left">wikidata:Q12269561</td>
+<td align="left"><a href="https://elixir-europe.org/">https://elixir-europe.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:29</a></td>
+<td align="left">Organization</td>
+<td align="left">EMBL-EBI</td>
+<td align="left">European Molecular Biology Laboratory European Bioinformatics Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03mstc592</td>
+<td align="left">wikidata:Q695267</td>
+<td align="left"><a href="https://www.ebi.ac.uk/">https://www.ebi.ac.uk/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:30</a></td>
+<td align="left">Organization</td>
+<td align="left">FACIT</td>
+<td align="left">Functional Assessment of Chronic Illness Therapy</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.facit.org/">https://www.facit.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:31</a></td>
+<td align="left">Organization</td>
+<td align="left">FDA</td>
+<td align="left">United States Food and Drug Administration</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:034xvzb47</td>
+<td align="left">wikidata:Q204711</td>
+<td align="left"><a href="https://www.fda.gov/">https://www.fda.gov/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:32</a></td>
+<td align="left">Organization</td>
+<td align="left">FORCE11</td>
+<td align="left">Future of Scholarly Communication and e-Scholarship</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://force11.org/">https://force11.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:33</a></td>
+<td align="left">Organization</td>
+<td align="left">FSCAI</td>
+<td align="left">Fraunhofer Institute for Algorithms and Scientific Computing</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.scai.fraunhofer.de/en.html">https://www.scai.fraunhofer.de/en.html</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:34</a></td>
+<td align="left">Organization</td>
+<td align="left">GA4GH</td>
+<td align="left">Global Alliance for Genomics and Health</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q60750423</td>
+<td align="left"><a href="https://www.ga4gh.org/">https://www.ga4gh.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:35</a></td>
+<td align="left">Organization</td>
+<td align="left">GMDNA</td>
+<td align="left">GMDN Agency Ltd.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.gmdnagency.org/">https://www.gmdnagency.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:36</a></td>
+<td align="left">Organization</td>
+<td align="left">GO</td>
+<td align="left">Gene Ontology Consortium</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q23809253</td>
+<td align="left"><a href="http://geneontology.org/">http://geneontology.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:37</a></td>
+<td align="left">Organization</td>
+<td align="left">Google</td>
+<td align="left">Google LLC</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:00njsd438</td>
+<td align="left">wikidata:Q95</td>
+<td align="left"><a href="https://www.google.com/">https://www.google.com/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:38</a></td>
+<td align="left">Organization</td>
+<td align="left">GSC</td>
+<td align="left">Genomic Standards Consortium</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q5533496</td>
+<td align="left"><a href="https://www.gensc.org/">https://www.gensc.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:39</a></td>
+<td align="left">Organization</td>
+<td align="left">HHS</td>
+<td align="left">United States Department of Health and Human Services</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:033jnv181</td>
+<td align="left">wikidata:Q942326</td>
+<td align="left"><a href="https://www.hhs.gov/">https://www.hhs.gov/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:40</a></td>
+<td align="left">Organization</td>
+<td align="left">HL7</td>
+<td align="left">Health Level Seven</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:029ga8k16</td>
+<td align="left">wikidata:Q17054989</td>
+<td align="left"><a href="https://www.hl7.org/">https://www.hl7.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:41</a></td>
+<td align="left">Organization</td>
+<td align="left">HUPO-PSI</td>
+<td align="left">Human Proteome Organization Proteomics Standards Initiative</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.psidev.info/">https://www.psidev.info/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:42</a></td>
+<td align="left">Organization</td>
+<td align="left">i2b2</td>
+<td align="left">Informatics for Integrating Biology &amp; the Bedside</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.i2b2.org/">https://www.i2b2.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:43</a></td>
+<td align="left">Organization</td>
+<td align="left">IA</td>
+<td align="left">Internet Archive</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:02z468g17</td>
+<td align="left">wikidata:Q461</td>
+<td align="left"><a href="https://archive.org/">https://archive.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:44</a></td>
+<td align="left">Organization</td>
+<td align="left">IEEE</td>
+<td align="left">Institute of Electrical and Electronics Engineers</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:01n002310</td>
+<td align="left">wikidata:Q131566</td>
+<td align="left"><a href="https://www.ieee.org/">https://www.ieee.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:45</a></td>
+<td align="left">Organization</td>
+<td align="left">IETF</td>
+<td align="left">Internet Engineering Task Force</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.ietf.org/">https://www.ietf.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:46</a></td>
+<td align="left">Organization</td>
+<td align="left">IHE</td>
+<td align="left">Integrating the Healthcare Enterprise</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.ihe.net/">https://www.ihe.net/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:47</a></td>
+<td align="left">Organization</td>
+<td align="left">ISA Commons</td>
+<td align="left">ISA Commons</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.isacommons.org/">https://www.isacommons.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:48</a></td>
+<td align="left">Organization</td>
+<td align="left">ISBER</td>
+<td align="left">International Society for Biological and Environmental Repositories</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q17087916</td>
+<td align="left"><a href="https://www.isber.org/">https://www.isber.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:49</a></td>
+<td align="left">Organization</td>
+<td align="left">ISO</td>
+<td align="left">International Organization for Standardization</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q15028</td>
+<td align="left"><a href="https://www.iso.org/home.html">https://www.iso.org/home.html</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:50</a></td>
+<td align="left">Organization</td>
+<td align="left">ITU</td>
+<td align="left">International Telecommunication Union</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:005vs4q67</td>
+<td align="left">wikidata:Q376150</td>
+<td align="left"><a href="https://www.itu.int/">https://www.itu.int/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:51</a></td>
+<td align="left">Organization</td>
+<td align="left">IUPAC</td>
+<td align="left">International Union of Pure and Applied Chemistry</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03ne2zw20</td>
+<td align="left">wikidata:Q33438</td>
+<td align="left"><a href="https://iupac.org/">https://iupac.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:52</a></td>
+<td align="left">Organization</td>
+<td align="left">KEGG</td>
+<td align="left">Kyoto Encyclopedia of Genes and Genomes</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q909442</td>
+<td align="left"><a href="https://www.genome.jp/kegg/">https://www.genome.jp/kegg/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:53</a></td>
+<td align="left">Organization</td>
+<td align="left">LOINC</td>
+<td align="left">Logical Observation Identifiers Names and Codes</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q502480</td>
+<td align="left"><a href="https://loinc.org/">https://loinc.org/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:84]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:54</a></td>
+<td align="left">Organization</td>
+<td align="left">MD PnP</td>
+<td align="left">The Medical Device Plug-and-Play Interoperability &amp; Cybersecurity Program</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://mdpnp.org/">https://mdpnp.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:55</a></td>
+<td align="left">Organization</td>
+<td align="left">Meta</td>
+<td align="left">Meta Platforms, Inc., doing business as Meta and formerly named Facebook, Inc.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:01zbnvs85</td>
+<td align="left">wikidata:Q380</td>
+<td align="left"><a href="https://www.meta.com/">https://www.meta.com/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:56</a></td>
+<td align="left">Organization</td>
+<td align="left">Microsoft</td>
+<td align="left">Microsoft Corporation</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:00d0nc645</td>
+<td align="left">wikidata:Q2283</td>
+<td align="left"><a href="https://www.microsoft.com/">https://www.microsoft.com/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:57</a></td>
+<td align="left">Organization</td>
+<td align="left">MIT-LCP</td>
+<td align="left">Massachusetts Institute of Technology Laboratory for Computational Physiology</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://lcp.mit.edu/">https://lcp.mit.edu/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:58</a></td>
+<td align="left">Organization</td>
+<td align="left">Monarch</td>
+<td align="left">Monarch Initiative</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://monarchinitiative.org/">https://monarchinitiative.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:59</a></td>
+<td align="left">Organization</td>
+<td align="left">Mozilla</td>
+<td align="left">Mozilla Foundation</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:01y8r3379</td>
+<td align="left">wikidata:Q55672</td>
+<td align="left"><a href="https://foundation.mozilla.org/en/">https://foundation.mozilla.org/en/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:60</a></td>
+<td align="left">Organization</td>
+<td align="left">NASEM</td>
+<td align="left">National Academies of Sciences, Engineering, and Medicine</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:02eq2w707</td>
+<td align="left">wikidata:Q3233780</td>
+<td align="left"><a href="https://www.nationalacademies.org/">https://www.nationalacademies.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:61</a></td>
+<td align="left">Organization</td>
+<td align="left">NC-IUBMB</td>
+<td align="left">Nomenclature Committee of the International Union of Biochemistry and Molecular Biology</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://iubmb.qmul.ac.uk/">https://iubmb.qmul.ac.uk/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:62</a></td>
+<td align="left">Organization</td>
+<td align="left">NCEAS</td>
+<td align="left">National Center for Ecological Analysis and Synthesis</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:0146z4r19</td>
+<td align="left">wikidata:Q6971323</td>
+<td align="left"><a href="https://www.nceas.ucsb.edu/">https://www.nceas.ucsb.edu/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:63</a></td>
+<td align="left">Organization</td>
+<td align="left">NCPDP</td>
+<td align="left">National Council for Prescription Drug Programs</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.ncpdp.org/">https://www.ncpdp.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:64</a></td>
+<td align="left">Organization</td>
+<td align="left">NESTcc</td>
+<td align="left">National Evaluation System for health Technology Coordinating Center</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://nestcc.org/">https://nestcc.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:65</a></td>
+<td align="left">Organization</td>
+<td align="left">Netflix</td>
+<td align="left">Netflix, Inc.</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:0197qw696</td>
+<td align="left">wikidata:Q907311</td>
+<td align="left"><a href="https://www.netflix.com/">https://www.netflix.com/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:66</a></td>
+<td align="left">Organization</td>
+<td align="left">NHTSA</td>
+<td align="left">National Highway Traffic Safety Administration</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:04gcfqs37</td>
+<td align="left">wikidata:Q1967350</td>
+<td align="left"><a href="https://www.nhtsa.gov/">https://www.nhtsa.gov/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:67</a></td>
+<td align="left">Organization</td>
+<td align="left">NIH</td>
+<td align="left">National Institutes of Health</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:01cwqze88</td>
+<td align="left">wikidata:Q390551</td>
+<td align="left"><a href="https://www.nih.gov/">https://www.nih.gov/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:39]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:68</a></td>
+<td align="left">Organization</td>
+<td align="left">NIH Common Fund</td>
+<td align="left">NIH Common Fund</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q16932298</td>
+<td align="left"><a href="https://commonfund.nih.gov/">https://commonfund.nih.gov/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:67]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:69</a></td>
+<td align="left">Organization</td>
+<td align="left">NIH NCATS</td>
+<td align="left">National Center for Advancing Translational Sciences</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:04pw6fb54</td>
+<td align="left">wikidata:Q16932123</td>
+<td align="left"><a href="https://ncats.nih.gov/">https://ncats.nih.gov/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:67]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:70</a></td>
+<td align="left">Organization</td>
+<td align="left">NIH NCATS Translator</td>
+<td align="left">NIH NCATS Biomedical Data Translator Consortium</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://ncats.nih.gov/translator">https://ncats.nih.gov/translator</a></td>
+<td align="left"><a href="./">[B2AI_ORG:69]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:71</a></td>
+<td align="left">Organization</td>
+<td align="left">NIH NCI</td>
+<td align="left">NIH National Cancer Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:040gcmg81</td>
+<td align="left">wikidata:Q664846</td>
+<td align="left"><a href="https://www.cancer.gov/">https://www.cancer.gov/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:67]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:72</a></td>
+<td align="left">Organization</td>
+<td align="left">NIH NCI BBRB</td>
+<td align="left">Biorepositories and Biospecimen Research Branch of the Cancer Diagnosis Program, formerly Office of Biorepositories and Biospecimen Research</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://biospecimens.cancer.gov/">https://biospecimens.cancer.gov/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:71]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:73</a></td>
+<td align="left">Organization</td>
+<td align="left">NIH NHGRI</td>
+<td align="left">NIH National Human Genome Research Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:00baak391</td>
+<td align="left">wikidata:Q1634459</td>
+<td align="left"><a href="https://www.genome.gov/">https://www.genome.gov/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:67]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:74</a></td>
+<td align="left">Organization</td>
+<td align="left">NIH NLM</td>
+<td align="left">NIH National Library of Medicine</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:0060t0j89</td>
+<td align="left">wikidata:Q611833</td>
+<td align="left"><a href="https://www.nlm.nih.gov/">https://www.nlm.nih.gov/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:67]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:75</a></td>
+<td align="left">Organization</td>
+<td align="left">OBO Foundry</td>
+<td align="left">Open Biological and Biomedical Ontology Foundry</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q4117183</td>
+<td align="left"><a href="https://obofoundry.org/">https://obofoundry.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:76</a></td>
+<td align="left">Organization</td>
+<td align="left">OHDSI</td>
+<td align="left">Observational Health Data Sciences and Informatics</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.ohdsi.org/">https://www.ohdsi.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:77</a></td>
+<td align="left">Organization</td>
+<td align="left">OME</td>
+<td align="left">Open Microscopy Environment Consortium</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q115207411</td>
+<td align="left"><a href="https://www.openmicroscopy.org/">https://www.openmicroscopy.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:78</a></td>
+<td align="left">Organization</td>
+<td align="left">OMOP</td>
+<td align="left">Observational Medical Outcomes Partnership</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://ohdsi.org/omop/">https://ohdsi.org/omop/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:79</a></td>
+<td align="left">Organization</td>
+<td align="left">openEHR</td>
+<td align="left">openEHR Foundation</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.openehr.org/">https://www.openehr.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:80</a></td>
+<td align="left">Organization</td>
+<td align="left">Orphanet</td>
+<td align="left">Orphanet</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03d3kf570</td>
+<td align="left">wikidata:Q1515833</td>
+<td align="left"><a href="https://www.orpha.net/">https://www.orpha.net/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:81</a></td>
+<td align="left">Organization</td>
+<td align="left">PCORI</td>
+<td align="left">Patient-Centered Outcomes Research Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:014q65q44</td>
+<td align="left">wikidata:Q7144950</td>
+<td align="left"><a href="http://www.pcori.org/">http://www.pcori.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:82</a></td>
+<td align="left">Organization</td>
+<td align="left">PDB</td>
+<td align="left">Worldwide Protein Data Bank</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q8036801</td>
+<td align="left"><a href="http://www.wwpdb.org/">http://www.wwpdb.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:83</a></td>
+<td align="left">Organization</td>
+<td align="left">RDA</td>
+<td align="left">Research Data Alliance</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:037x9qj67</td>
+<td align="left">wikidata:Q106411999</td>
+<td align="left"><a href="https://www.rd-alliance.org/">https://www.rd-alliance.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:84</a></td>
+<td align="left">Organization</td>
+<td align="left">RI</td>
+<td align="left">Regenstrief Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:05f2ywb48</td>
+<td align="left">wikidata:Q7308063</td>
+<td align="left"><a href="https://www.regenstrief.org/">https://www.regenstrief.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:85</a></td>
+<td align="left">Organization</td>
+<td align="left">RSNA</td>
+<td align="left">Radiological Society of North America</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:00rj4x019</td>
+<td align="left">wikidata:Q980502</td>
+<td align="left"><a href="https://www.rsna.org/">https://www.rsna.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:86</a></td>
+<td align="left">Organization</td>
+<td align="left">Sage</td>
+<td align="left">Sage Bionetworks</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:049ncjx51</td>
+<td align="left">wikidata:Q891621</td>
+<td align="left"><a href="https://sagebionetworks.org/">https://sagebionetworks.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:87</a></td>
+<td align="left">Organization</td>
+<td align="left">Samwald</td>
+<td align="left">Samwald research group at Section for Artificial Intelligence and Decision Support, Medical University of Vienna</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://samwald.info/">https://samwald.info/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:88</a></td>
+<td align="left">Organization</td>
+<td align="left">SDMX</td>
+<td align="left">SDMX Initiative</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q2713163</td>
+<td align="left"><a href="https://sdmx.org/">https://sdmx.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:89</a></td>
+<td align="left">Organization</td>
+<td align="left">Sentinel</td>
+<td align="left">Sentinel Initiative</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">wikidata:Q65075162</td>
+<td align="left"><a href="https://www.sentinelinitiative.org/">https://www.sentinelinitiative.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:90</a></td>
+<td align="left">Organization</td>
+<td align="left">Seqera</td>
+<td align="left">Seqera Labs</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://seqera.io/">https://seqera.io/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:91</a></td>
+<td align="left">Organization</td>
+<td align="left">STROBE</td>
+<td align="left">STROBE Initiative</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.strobe-statement.org/">https://www.strobe-statement.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:92</a></td>
+<td align="left">Organization</td>
+<td align="left">SVA</td>
+<td align="left">Swedish National Veterinary Institute</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:00awbw743</td>
+<td align="left">wikidata:Q10677733</td>
+<td align="left"><a href="https://www.sva.se/en/">https://www.sva.se/en/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:93</a></td>
+<td align="left">Organization</td>
+<td align="left">TDWG</td>
+<td align="left">Biodiversity Information Standards</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03k171441</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.tdwg.org/">https://www.tdwg.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:94</a></td>
+<td align="left">Organization</td>
+<td align="left">UAB</td>
+<td align="left">University of Alabama at Birmingham</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:008s83205</td>
+<td align="left">wikidata:Q1472663</td>
+<td align="left"><a href="https://www.uab.edu/home/">https://www.uab.edu/home/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:95</a></td>
+<td align="left">Organization</td>
+<td align="left">UCL Orengo</td>
+<td align="left">Christine Orengo research group at University College London</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="http://orengogroup.info/">http://orengogroup.info/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:96</a></td>
+<td align="left">Organization</td>
+<td align="left">UFBMI</td>
+<td align="left">University of Florida, Biomedical Informatics</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.ctsi.ufl.edu/about/ctsi-programs/biomedical-informatics/">https://www.ctsi.ufl.edu/about/ctsi-programs/biomedical-informatics/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:97</a></td>
+<td align="left">Organization</td>
+<td align="left">UKDA</td>
+<td align="left">UK Data Archive, University of Essex</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:03fknw408</td>
+<td align="left">wikidata:Q17039301</td>
+<td align="left"><a href="https://www.data-archive.ac.uk/">https://www.data-archive.ac.uk/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:98</a></td>
+<td align="left">Organization</td>
+<td align="left">USGS</td>
+<td align="left">US Geological Survey</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:035a68863</td>
+<td align="left">wikidata:Q193755</td>
+<td align="left"><a href="https://www.usgs.gov/">https://www.usgs.gov/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:99</a></td>
+<td align="left">Organization</td>
+<td align="left">W3C</td>
+<td align="left">World Wide Web Consortium</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:0059y1582</td>
+<td align="left">wikidata:37033</td>
+<td align="left"><a href="https://www.w3.org/">https://www.w3.org/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:100</a></td>
+<td align="left">Organization</td>
+<td align="left">WHO</td>
+<td align="left">World Health Organisation</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:01f80g185</td>
+<td align="left">wikidata:Q7817</td>
+<td align="left"><a href="https://www.who.int/">https://www.who.int/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:101</a></td>
+<td align="left">Organization</td>
+<td align="left">Zeiss</td>
+<td align="left">Carl Zeiss AG</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:02mp31p96</td>
+<td align="left">wikidata:Q282186</td>
+<td align="left"><a href="https://www.zeiss.com/">https://www.zeiss.com/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:102</a></td>
+<td align="left">Organization</td>
+<td align="left">ONC</td>
+<td align="left">Office of the National Coordinator for Health Information Technology</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:02fm3sv87</td>
+<td align="left">wikidata:Q7079383</td>
+<td align="left"><a href="https://www.healthit.gov/">https://www.healthit.gov/</a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:103</a></td>
+<td align="left">Organization</td>
+<td align="left">ISA</td>
+<td align="left">Interoperability Standards Advisory</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">nan</td>
+<td align="left">nan</td>
+<td align="left"><a href="https://www.healthit.gov/isa/">https://www.healthit.gov/isa/</a></td>
+<td align="left"><a href="./">[B2AI_ORG:102]</a></td>
+</tr>
+<tr>
+<td align="left"><a href="./">B2AI_ORG:104</a></td>
+<td align="left">Organization</td>
+<td align="left">IBM</td>
+<td align="left">The International Business Machines Corporation</td>
+<td align="left">Harry Caufield</td>
+<td align="left">caufieldjh</td>
+<td align="left">ORCID:0000-0001-5705-7831</td>
+<td align="left">ror:05hh8d621</td>
+<td align="left">wikidata:Q37156</td>
+<td align="left"><a href="https://www.ibm.com/">https://www.ibm.com/</a></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../DataStandardOrTool/">DataStandardOrTool</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../DataStandard/">DataStandard</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../BiomedicalStandard/">BiomedicalStandard</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../Registry/">Registry</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../OntologyOrVocabulary/">OntologyOrVocabulary</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../ModelRepository/">ModelRepository</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../ReferenceDataOrDataset/">ReferenceDataOrDataset</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../SoftwareOrTool/">SoftwareOrTool</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../ReferenceImplementation/">ReferenceImplementation</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../TrainingProgram/">TrainingProgram</a></td>
-<td><a href="../has_relevant_organization/">has_relevant_organization</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-<tr>
-<td><a href="../OrganizationContainer/">OrganizationContainer</a></td>
-<td><a href="../organizations/">organizations</a></td>
-<td>range</td>
-<td><a href="./">Organization</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/bridge2ai/standards-schema-all</li>
-</ul>
-<h2 id="mappings">Mappings</h2>
-<table>
-<thead>
-<tr>
-<th>Mapping Type</th>
-<th>Mapped Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>self</td>
-<td>https://w3id.org/bridge2ai/standards-schema-all/:Organization</td>
-</tr>
-<tr>
-<td>native</td>
-<td>https://w3id.org/bridge2ai/standards-schema-all/:Organization</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linkml-source">LinkML Source</h2>
-<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
-<h3 id="direct">Direct</h3>
-<details>
-<pre><code class="language-yaml">name: Organization
-description: Represents a group or organization related to or responsible for one
-  or more Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-schema-all
-rank: 1000
-is_a: NamedThing
-slots:
-- ror_id
-- wikidata_id
-- url
-- related_to
 
-</code></pre>
-</details>
-<h3 id="induced">Induced</h3>
-<details>
-<pre><code class="language-yaml">name: Organization
-description: Represents a group or organization related to or responsible for one
-  or more Bridge2AI standards.
-from_schema: https://w3id.org/bridge2ai/standards-schema-all
-rank: 1000
-is_a: NamedThing
-attributes:
-  ror_id:
-    name: ror_id
-    examples:
-    - value: ROR:02mp31p96
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    values_from:
-    - ROR
-    alias: ror_id
-    owner: Organization
-    domain_of:
-    - Organization
-    range: ror_identifier
-  wikidata_id:
-    name: wikidata_id
-    examples:
-    - value: WIKIDATA:Q282186
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    values_from:
-    - WIKIDATA
-    alias: wikidata_id
-    owner: Organization
-    domain_of:
-    - Organization
-    range: wikidata_identifier
-  url:
-    name: url
-    description: URL for basic documentation of the standard or tool.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    is_a: node property
-    domain: NamedThing
-    alias: url
-    owner: Organization
-    domain_of:
-    - DataStandardOrTool
-    - Organization
-    range: uriorcurie
-  related_to:
-    name: related_to
-    description: A relationship that is asserted between two named things.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    domain: NamedThing
-    multivalued: true
-    inherited: true
-    alias: related_to
-    owner: Organization
-    domain_of:
-    - NamedThing
-    - Organization
-    symmetric: true
-    range: NamedThing
-  id:
-    name: id
-    description: A unique identifier for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    slot_uri: schema:identifier
-    identifier: true
-    alias: id
-    owner: Organization
-    domain_of:
-    - NamedThing
-    range: uriorcurie
-    required: true
-  name:
-    name: name
-    description: A human-readable name for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    slot_uri: schema:name
-    alias: name
-    owner: Organization
-    domain_of:
-    - NamedThing
-    range: string
-  description:
-    name: description
-    description: A human-readable description for a thing.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    rank: 1000
-    slot_uri: schema:description
-    alias: description
-    owner: Organization
-    domain_of:
-    - NamedThing
-    range: string
-  subclass_of:
-    name: subclass_of
-    description: Holds between two classes where the domain class is a specialization
-      of the range class.
-    from_schema: https://w3id.org/bridge2ai/standards-schema-all
-    exact_mappings:
-    - rdfs:subClassOf
-    - MESH:isa
-    narrow_mappings:
-    - rdfs:subPropertyOf
-    rank: 1000
-    is_a: related_to
-    domain: NamedThing
-    multivalued: true
-    inherited: true
-    alias: subclass_of
-    owner: Organization
-    domain_of:
-    - NamedThing
-    range: NamedThing
 
-</code></pre>
-</details>
-</article>
-</div>
-<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-</div>
-</main>
-<footer class="md-footer">
-<div class="md-footer-meta md-typeset">
-<div class="md-footer-meta__inner md-grid">
-<div class="md-copyright">
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../DataTopic/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Topics" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Topics
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
       Material for MkDocs
     </a>
+  
 </div>
-</div>
-</div>
+      
+    </div>
+  </div>
 </footer>
-</div>
-<div class="md-dialog" data-md-component="dialog">
-<div class="md-dialog__inner md-typeset"></div>
-</div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "toc.integrate"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../javascripts/tablesort.js"></script>
+      
+    
+    
+  </body>
 </html>
