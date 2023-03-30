@@ -23,7 +23,11 @@ theme:
     - toc.integrate
 plugins:
   - search
-  - mermaid2
+  - table-reader:
+      base_path: "config_dir"
+      data_path: "project/data"
+      search_page_directory: True
+      allow_missing_files: False
 nav:
   - Index: index.md
   - About: about.md

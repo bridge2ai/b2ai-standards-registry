@@ -121,6 +121,7 @@ doc-data:
 		done \
 	done
 
+
 # Prepare new issue templates based off the schema.
 issue-templates:
 	@echo "Removing any previously created issue templates..."
