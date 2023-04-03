@@ -60,6 +60,7 @@ import yaml
 logger = logging.getLogger(__name__)
 
 MAPPING = {
+    "Entity Type": "entity_type",
     "Name": "name",
     "Description": "description",
     "Subclass_Of": "subclass_of",
