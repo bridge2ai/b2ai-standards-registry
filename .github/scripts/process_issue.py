@@ -487,8 +487,11 @@ def main(dry: bool, github: bool, force: bool):
         with open(data_path, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
+            # TODO: instead of PLACEHOLDER, find the id of the 
+            # previous entity and +1
             this_yaml[collection_name].append({"id":"PLACEHOLDER",
                                                 "name":resource["name"],
+                                                "description":resource["description"],
                                                 "contributor_name":resource["contributor"]["name"],
                                                 "contributor_github_name":resource["contributor"]["github"],
                                                 "contributor_orcid":resource["contributor"]["orcid"]})
