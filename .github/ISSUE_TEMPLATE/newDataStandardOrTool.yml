@@ -1,6 +1,6 @@
-name: Request new data standard or tool
-description: Request addition of a new data standard or tool.
-title: Add this new data standard or tool - [Name Here]
+name: Request new entity
+description: Request addition of something new to the registry, including standards, concepts, use cases.
+title: Add this entity - [Name Here]
 labels: [ New ]
 assignees:
   - caufieldjh
@@ -8,6 +8,20 @@ body:
   - type: markdown
     attributes:
       value: This is the form for requesting a new data standard or tool in the Bridge2AI Standards Registry.
+  - type: dropdown
+    id: entity_type
+    attributes:
+      label: Entity Type
+      description: What kind of thing is this?
+      multiple: false
+      options:
+        - Data Standard or Tool
+        - Data Substrate
+        - Data Topic
+        - Organization
+        - Use Case
+    validations:
+      required: true
   - type: input
     id: name
     attributes:
