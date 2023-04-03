@@ -488,7 +488,10 @@ def main(dry: bool, github: bool, force: bool):
             this_yaml = yaml.safe_load(yamlfile)
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
             this_yaml[collection_name].append({"id":"PLACEHOLDER",
-                                                "name":resource["name"]})
+                                                "name":resource["name"],
+                                                "contributor_name":resource["contributor"]["name"],
+                                                "contributor_github_name":resource["contributor"]["github"],
+                                                "contributor_orcid":resource["contributor"]["orcid"]})
         if this_yaml:
             with open(data_path, "w") as yamlfile:
                 yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
