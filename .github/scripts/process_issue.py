@@ -72,18 +72,21 @@ MAPPING = {
 
 DATA_DIR = "src/data/"
 
-# TODO: Include enough detail in issues to identify which dataset we should update
+DATA_PATHS = {
+    "Data Standard or Tool":"DataStandardOrTool.yaml",
+    "Data Substrate":"DataSubstrate.yaml",
+    "Data Topic":"DataTopic.yaml",
+    "Organization":"Organization.yaml",
+    "Use Case":"UseCase.yaml",
+}
 
-# DATA_PATHS = [
-#     DATA_DIR / "DataStandardOrTool.yaml",
-#     DATA_DIR / "DataSubstrate.yaml",
-#     DATA_DIR / "DataTopic.yaml",
-#     DATA_DIR / "Organization.yaml",
-#     DATA_DIR / "UseCase.yaml",
-# ]
-
-# Just do one file for now
-DATA_PATH = DATA_DIR + "DataStandardOrTool.yaml"
+COLLECTION_NAMES = {
+    "Data Standard or Tool":"data_standardortools_collection",
+    "Data Substrate":"data_substrates_collection",
+    "Data Topic":"data_topics_collection",
+    "Organization":"organizations",
+    "Use Case":"use_cases",
+}
 
 ORCID_HTTP_PREFIX = "http://orcid.org/"
 ORCID_HTTPS_PREFIX = "https://orcid.org/"
@@ -364,6 +367,7 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
         try:
             name = resource_data.pop("name")
             desc = resource_data.pop("description")
+            entity_type = resource_data.pop("entity_type")
             contributor = {
                 "name": resource_data.pop("contributor_name"),
                 "orcid": _pop_orcid(resource_data),
@@ -381,6 +385,7 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
             "decription": desc,
             "contributor": contributor,
             "github_request_issue": issue_id,
+            "entity_type": entity_type,
             #"mappings": mappings,
             **resource_data,
         }
@@ -478,15 +483,14 @@ def main(dry: bool, github: bool, force: bool):
 
     for issue_number, resource in issue_to_resource.items():
         click.echo(f'🚀 Adding {resource["name"]} (#{issue_number})')
-        # TODO: write to a specific file based on the issue
-        with open(DATA_PATH, "r") as yamlfile:
+        data_path = DATA_DIR + DATA_PATHS[resource["entity_type"]]
+        with open(data_path, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
-            # TODO: the collection name will also vary depending on the file,
-            # so we need to provide a map like what the project.Makefile uses
-            this_yaml["data_standardortools_collection"].append({"id":"PLACEHOLDER",
-                                                                 "name":resource["name"]})
+            collection_name = COLLECTION_NAMES[resource["entity_type"]]
+            this_yaml[collection_name].append({"id":"PLACEHOLDER",
+                                                "name":resource["name"]})
         if this_yaml:
-            with open(DATA_PATH, "w") as yamlfile:
+            with open(data_path, "w") as yamlfile:
                 yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
 
     title = make_title(
@@ -518,7 +522,7 @@ def main(dry: bool, github: bool, force: bool):
     click.secho("Creating and switching to branch", fg="green")
     click.echo(branch(branch_name))
     click.secho("Committing", fg="green")
-    click.echo(commit(message, DATA_PATH))
+    click.echo(commit(message, data_path))
     click.secho("Pushing", fg="green")
     click.echo(push("origin", branch_name))
     click.secho(f"Opening PR from {branch_name} to {MAIN_BRANCH}", fg="green")
