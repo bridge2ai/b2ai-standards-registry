@@ -60,6 +60,7 @@ import yaml
 logger = logging.getLogger(__name__)
 
 MAPPING = {
+    "Entity Type": "entity_type",
     "Name": "name",
     "Description": "description",
     "Subclass_Of": "subclass_of",
@@ -382,7 +383,7 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
 
         rv[issue_id] = {
             "name": name,
-            "decription": desc,
+            "description": desc,
             "contributor": contributor,
             "github_request_issue": issue_id,
             "entity_type": entity_type,
