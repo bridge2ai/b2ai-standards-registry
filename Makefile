@@ -117,6 +117,10 @@ examples/%.ttl: src/data/examples/%.yaml
 # Test documentation locally
 serve: mkd-serve
 
+MKDOCS = $(RUN) mkdocs
+mkd-%:
+	$(MKDOCS) $*
+
 # Python datamodel
 $(PYMODEL):
 	mkdir -p $@
