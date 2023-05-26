@@ -61,6 +61,7 @@ logger = logging.getLogger(__name__)
 
 MAPPING = {
     "Entity Type": "entity_type",
+    "Category": "category",
     "Name": "name",
     "Description": "description",
     "Subclass_Of": "subclass_of",
@@ -366,6 +367,7 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
     rv: Dict[int, dict] = {}
     for issue_id, resource_data in data.items():
         try:
+            category = resource_data.pop("category")
             name = resource_data.pop("name")
             desc = resource_data.pop("description")
             entity_type = resource_data.pop("entity_type")
@@ -383,6 +385,7 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
 
         rv[issue_id] = {
             "name": name,
+            "category": category,
             "description": desc,
             "contributor": contributor,
             "github_request_issue": issue_id,
@@ -491,6 +494,7 @@ def main(dry: bool, github: bool, force: bool):
             # TODO: instead of PLACEHOLDER, find the id of the 
             # previous entity and +1
             this_yaml[collection_name].append({"id":"PLACEHOLDER",
+                                                "category":resource["category"],
                                                 "name":resource["name"],
                                                 "description":resource["description"],
                                                 "contributor_name":resource["contributor"]["name"],

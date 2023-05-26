@@ -7,7 +7,7 @@ assignees:
 body:
   - type: markdown
     attributes:
-      value: This is the form for requesting a new data standard or tool in the Bridge2AI Standards Registry.
+      value: This is the form for requesting a new entity (e.g., a data standard, tool, or topic) in the Bridge2AI Standards Registry.
   - type: dropdown
     id: entity_type
     attributes:
@@ -22,6 +22,12 @@ body:
         - Use Case
     validations:
       required: true
+  - type: input
+    id: category
+    attributes:
+      label: Category
+      description: What should the category be, based on the classes of the Bridge2AI Standards Schemas (https://bridge2ai.github.io/standards-schemas/)? If in doubt, leave blank.
+      placeholder: NamedThing
   - type: input
     id: name
     attributes:
