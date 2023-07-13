@@ -8,19 +8,20 @@ see_also:
   - https://bridge2ai.github.io/standards-schema
 
 prefixes:
-  rdfs: http://www.w3.org/2000/01/rdf-schema#
   B2AI: https://w3id.org/bridge2ai/standards-schema/
-  linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-  NCIT: http://purl.obolibrary.org/obo/NCIT_
-  mesh: http://id.nlm.nih.gov/mesh/
   edam.data: http://edamontology.org/data_
   edam.format: http://edamontology.org/format_
   edam.operation: http://edamontology.org/operation_
   edam.topic: http://edamontology.org/topic_
-
+  linkml: https://w3id.org/linkml/
+  mesh: http://id.nlm.nih.gov/mesh/
+  ncit: http://purl.obolibrary.org/obo/NCIT_
+  pato: http://purl.obolibrary.org/obo/PATO_
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  schema: http://schema.org/
+  uberon: http://purl.obolibrary.org/obo/uberon/core#
+  wikidata: http://www.wikidata.org/wiki/
 default_prefix: B2AI
 default_range: string
 
@@ -71,6 +72,18 @@ classes:
       - contributor_orcid
       - contribution_date
     class_uri: schema:Thing
+
+  AnatomicalEntity:  # Based on Biolink Model v.3.2.6
+    is_a: NamedThing
+    description: >-
+      A subcellular location, cell type or gross anatomical part
+    exact_mappings:
+      - uberon:0001062
+      - wikidata:Q4936952
+    narrow_mappings:
+      - ncit:C12219 # human anatomical entity
+    id_prefixes:
+      - uberon
 
 slots:
   node_property:

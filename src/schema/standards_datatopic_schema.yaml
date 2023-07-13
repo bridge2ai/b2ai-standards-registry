@@ -8,17 +8,19 @@ see_also:
   - https://bridge2ai.github.io/standards-datatopic-schema
 
 prefixes:
+  B2AI_TOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
+  MeSH: http://id.nlm.nih.gov/mesh/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  RO: http://purl.obolibrary.org/obo/RO_
+  biolink: https://w3id.org/biolink/vocab/
   edam.data: http://edamontology.org/data_
   edam.format: http://edamontology.org/format_
   edam.operation: http://edamontology.org/operation_
   edam.topic: http://edamontology.org/topic_
-  MeSH: http://id.nlm.nih.gov/mesh/
-  NCIT: http://purl.obolibrary.org/obo/NCIT_
-  B2AI_TOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/vocab/
   schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
+  uberon: http://purl.obolibrary.org/obo/uberon/core#
 default_prefix: B2AI_TOPIC
 default_range: string
 
@@ -37,6 +39,7 @@ classes:
       - edam_id
       - mesh_id
       - ncit_id
+      - topic_involves_anatomy
 
   DataTopicContainer:
     description: >-
@@ -52,3 +55,13 @@ slots:
     inlined: true
     inlined_as_list: true
     multivalued: true
+
+  topic_involves_anatomy:
+    description: >-
+      A relationship between a DataTopic and an anatomical entity.
+    is_a: related_to
+    domain: DataTopic
+    range: AnatomicalEntity
+    multivalued: True
+    exact_mappings:
+      - RO:0004026
