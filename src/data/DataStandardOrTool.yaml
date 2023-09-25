@@ -3671,7 +3671,7 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
 - id: B2AI_STANDARD:192
-  name: null
+  name: MSGISO
   category: BiomedicalStandard
   description: Measuring Sex, Gender Identity, and Sexual Orientation
   collection:
@@ -15568,7 +15568,8 @@ data_standardortools_collection:
   - B2AI_TOPIC:29
   has_relevant_organization:
   - B2AI_ORG:105
-  purpose_detail: Care coordination module focused on social determinant of health factors. Part of the Epic EHR platform.
+  purpose_detail: Care coordination module focused on social determinant of health
+    factors. Part of the Epic EHR platform.
   is_open: false
   requires_registration: true
   url: https://www.epic.com/software/population-health
@@ -15597,7 +15598,9 @@ data_standardortools_collection:
   description: Pinecone vector database
   concerns_data_topic:
   - B2AI_TOPIC:5
-  purpose_detail: A database platform built around creating vector representations of data. The basic implementation is a managed, cloud-native product, though there is a free tier.
+  purpose_detail: A database platform built around creating vector representations
+    of data. The basic implementation is a managed, cloud-native product, though there
+    is a free tier.
   is_open: false
   requires_registration: true
   url: https://www.pinecone.io/
@@ -15613,7 +15616,8 @@ data_standardortools_collection:
   - guidelines
   concerns_data_topic:
   - B2AI_TOPIC:5
-  purpose_detail: An open-source guide to help with writing command-line programs, based on UNIX principles.
+  purpose_detail: An open-source guide to help with writing command-line programs,
+    based on UNIX principles.
   is_open: true
   requires_registration: false
   url: https://clig.dev/
@@ -15621,3 +15625,105 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
   contribution_date: '2023-06-20'
+- id: B2AI_STANDARD:873
+  category: BiomedicalStandard
+  name: MINSEQE
+  description: Minimum Information about a high-throughput nucleotide SEQuencing Experiment
+  collection:
+  - minimuminformationschema
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  purpose_detail: Five elements of experimental description considered essential when making sequencing data available.
+  is_open: true
+  requires_registration: false
+  url: https://www.fged.org/projects/minseqe/
+  formal_specification: https://zenodo.org/record/5706412
+  contributor_name: Harry Caufield
+  contributor_github_name: caufieldjh
+  contributor_orcid: 0000-0001-5705-7831
+  contribution_date: '2023-09-25'
+- id: B2AI_STANDARD:874
+  category: SoftwareOrTool
+  name: GGIR
+  description: GGIR accelerometry package
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  purpose_detail: An R package to process multi-day raw accelerometer data for physical activity and sleep research.
+  is_open: true
+  requires_registration: false
+  url: https://cran.r-project.org/web/packages/GGIR/vignettes/GGIR.html
+  formal_specification: https://github.com/wadpac/GGIR
+  contributor_name: Harry Caufield
+  contributor_github_name: caufieldjh
+  contributor_orcid: 0000-0001-5705-7831
+  contribution_date: '2023-09-25'
+- id: B2AI_STANDARD:875
+  category: BiomedicalStandard
+  name: Badawy et al. 2019
+  description: Metadata Concepts for Advancing the Use of Digital Health Technologies in Clinical Research
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  purpose_detail: A proposed metadata set for digital health studies.
+  is_open: true
+  requires_registration: false
+  url: https://figshare.com/articles/dataset/Supplementary_Material_for_Metadata_Concepts_for_Advancing_the_Use_of_Digital_Health_Technologies_in_Clinical_Research/9944303
+  publication: doi:10.1159/000502951
+  contributor_name: Harry Caufield
+  contributor_github_name: caufieldjh
+  contributor_orcid: 0000-0001-5705-7831
+  contribution_date: '2023-09-25'
+- id: B2AI_STANDARD:876
+  category: BiomedicalStandard
+  name: GSCID/BRC CMS v1.5
+  description: GSCID/BRC Clinical Metadata Standard
+  has_relevant_organization:
+  - B2AI_ORG:118
+  purpose_detail: A general standard for clinical metadata.
+  is_open: true
+  requires_registration: false
+  url: https://www.niaid.nih.gov/research/clinical-metadata-standard
+  contributor_name: Harry Caufield
+  contributor_github_name: caufieldjh
+  contributor_orcid: 0000-0001-5705-7831
+  contribution_date: '2023-09-25'
+- id: B2AI_STANDARD:877
+  category: BiomedicalStandard
+  name: MI-CLAIM
+  description: Minimum information about clinical artificial intelligence modeling
+  collection:
+  - minimuminformationschema
+  purpose_detail: A schema designed to allow rapid replication of the technical design process of a clinical AI study.
+  is_open: true
+  requires_registration: false
+  publication: doi:10.1038/s41591-020-1041-y
+  formal_specification: https://github.com/beaunorgeot/MI-CLAIM
+  contributor_name: Harry Caufield
+  contributor_github_name: caufieldjh
+  contributor_orcid: 0000-0001-5705-7831
+  contribution_date: '2023-09-25'
+- id: B2AI_STANDARD:878
+  category: DataStandardOrTool
+  name: CSVW
+  description: CSV on the Web
+  purpose_detail: A standard for describing and clarifying the content of CSV tables.
+  is_open: true
+  requires_registration: false
+  url: https://csvw.org/
+  formal_specification: https://w3c.github.io/csvw/syntax/
+  contributor_name: Harry Caufield
+  contributor_github_name: caufieldjh
+  contributor_orcid: 0000-0001-5705-7831
+  contribution_date: '2023-09-25'
+- id: B2AI_STANDARD:879
+  category: DataStandardOrTool
+  name: BagIt
+  description: BagIt file packaging format
+  purpose_detail: A set of hierarchical file layout conventions for storage and transfer of arbitrary digital content.
+  is_open: true
+  requires_registration: false
+  publication: doi:10.17487/RFC8493
+  formal_specification: https://datatracker.ietf.org/doc/rfc8493/
+  contributor_name: Harry Caufield
+  contributor_github_name: caufieldjh
+  contributor_orcid: 0000-0001-5705-7831
+  contribution_date: '2023-09-25'
