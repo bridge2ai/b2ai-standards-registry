@@ -7,6 +7,7 @@ on:
 
 jobs:
   create_new_entity:
+    if: contains(github.event.issue.labels.*.name, 'New')
     name: Create PR for new entity
     runs-on: ubuntu-latest
     strategy:
