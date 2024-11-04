@@ -71,7 +71,7 @@ classes:
       A set of concepts and categories, potentially
       defined or accompanied by their hierarchical
       relationships.
-  
+
   ModelRepository:
     is_a: DataStandardOrTool
     description: >-
@@ -86,7 +86,7 @@ classes:
       Represents a resource in the Bridge2AI
       Standards Registry serving as a standardized,
       reusable data source.
-  
+
   SoftwareOrTool:
     is_a: DataStandardOrTool
     description: >-
@@ -122,20 +122,30 @@ slots:
     description: >-
       Tags for specific sets of standards.
     multivalued: true
-  
+
   purpose_detail:
     range: string
     is_a: node_property
     description: >-
       Text description of the standard or tool.
-  
+
   is_open:
     is_a: node_property
     range: boolean
     description: >-
       Is the standard or tool FAIR and available
       free of cost?
-  
+
+  use_conditions:
+    is_a: node_property
+    range: uriorcurie
+    multivalued: true
+    values_from:
+      - DUO
+    description: >-
+      Applicable conditions on use, as defined
+      by the Data Use Ontology (DUO).
+
   requires_registration:
     is_a: node_property
     range: boolean
@@ -151,7 +161,7 @@ slots:
       in the context of object data topic.
     domain: DataStandardOrTool
     range: DataTopic
-  
+
   publication:
     is_a: node_property
     range: uriorcurie
@@ -261,4 +271,12 @@ enums:
         description: Speech Data
       standardsregistry:
         description: Standards Registry
-      
+      has_ai_application:
+        description: >-
+          Has a direct AI application, defined as standards/tools that are:
+          associated with ML or neural networks;
+          schemas, or have schemas;
+          data models;
+          associated with DICOM;
+          associated with AI;
+          associated with standards used within Bridge2AI
