@@ -1,5 +1,5 @@
 # Auto generated from standards_schema_all.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-03-29T17:14:34
+# Generation date: 2024-11-04T17:40:51
 # Schema: standards-schema-all
 #
 # id: https://w3id.org/bridge2ai/standards-schema-all
@@ -39,9 +39,13 @@ B2AI_SUBSTRATE = CurieNamespace('B2AI_SUBSTRATE', 'https://w3id.org/bridge2ai/st
 B2AI_TOPIC = CurieNamespace('B2AI_TOPIC', 'https://w3id.org/bridge2ai/standards-datatopic-schema/')
 B2AI_USECASE = CurieNamespace('B2AI_USECASE', 'https://w3id.org/bridge2ai/standards-usecase-schema/')
 MESH = CurieNamespace('MESH', 'http://id.nlm.nih.gov/mesh/')
+RO = CurieNamespace('RO', 'http://purl.obolibrary.org/obo/RO_')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
+NCIT = CurieNamespace('ncit', 'http://purl.obolibrary.org/obo/NCIT_')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
+UBERON = CurieNamespace('uberon', 'http://purl.obolibrary.org/obo/uberon/core#')
+WIKIDATA = CurieNamespace('wikidata', 'http://www.wikidata.org/wiki/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = CurieNamespace('', 'https://w3id.org/bridge2ai/standards-schema-all/')
 
@@ -97,6 +101,10 @@ class WikidataIdentifier(Uriorcurie):
 
 # Class references
 class NamedThingId(URIorCURIE):
+    pass
+
+
+class AnatomicalEntityId(NamedThingId):
     pass
 
 
@@ -213,6 +221,29 @@ class NamedThing(YAMLRoot):
 
         if self.contribution_date is not None and not isinstance(self.contribution_date, XSDDate):
             self.contribution_date = XSDDate(self.contribution_date)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class AnatomicalEntity(NamedThing):
+    """
+    A subcellular location, cell type or gross anatomical part
+    """
+    _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
+
+    class_class_uri: ClassVar[URIRef] = B2AI.AnatomicalEntity
+    class_class_curie: ClassVar[str] = "B2AI:AnatomicalEntity"
+    class_name: ClassVar[str] = "AnatomicalEntity"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/AnatomicalEntity")
+
+    id: Union[str, AnatomicalEntityId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, AnatomicalEntityId):
+            self.id = AnatomicalEntityId(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -592,7 +623,7 @@ class DataTopic(NamedThing):
     """
     Represents a general data topic for Bridge2AI data or the tools/standards applied to the data.
     """
-    _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
+    _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "topic_involves_anatomy"]
 
     class_class_uri: ClassVar[URIRef] = B2AI_TOPIC.DataTopic
     class_class_curie: ClassVar[str] = "B2AI_TOPIC:DataTopic"
@@ -603,6 +634,7 @@ class DataTopic(NamedThing):
     edam_id: Optional[Union[str, EdamIdentifier]] = None
     mesh_id: Optional[Union[str, MeshIdentifier]] = None
     ncit_id: Optional[Union[str, NcitIdentifier]] = None
+    topic_involves_anatomy: Optional[Union[Union[str, AnatomicalEntityId], List[Union[str, AnatomicalEntityId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -618,6 +650,10 @@ class DataTopic(NamedThing):
 
         if self.ncit_id is not None and not isinstance(self.ncit_id, NcitIdentifier):
             self.ncit_id = NcitIdentifier(self.ncit_id)
+
+        if not isinstance(self.topic_involves_anatomy, list):
+            self.topic_involves_anatomy = [self.topic_involves_anatomy] if self.topic_involves_anatomy is not None else []
+        self.topic_involves_anatomy = [v if isinstance(v, AnatomicalEntityId) else AnatomicalEntityId(v) for v in self.topic_involves_anatomy]
 
         super().__post_init__(**kwargs)
 
@@ -897,6 +933,8 @@ class StandardsCollectionTag(EnumDefinitionImpl):
                                            description="Speech Data")
     standardsregistry = PermissibleValue(text="standardsregistry",
                                                          description="Standards Registry")
+    has_ai_application = PermissibleValue(text="has_ai_application",
+                                                           description="Has a direct AI application, defined as standards/tools that are: associated with ML or neural networks; schemas, or have schemas; data models; associated with DICOM; associated with AI; associated with standards used within Bridge2AI")
 
     _defn = EnumDefinition(
         name="StandardsCollectionTag",
@@ -989,6 +1027,9 @@ slots.purpose_detail = Slot(uri=B2AI_STANDARD.purpose_detail, name="purpose_deta
 slots.is_open = Slot(uri=B2AI_STANDARD.is_open, name="is_open", curie=B2AI_STANDARD.curie('is_open'),
                    model_uri=DEFAULT_.is_open, domain=NamedThing, range=Optional[Union[bool, Bool]])
 
+slots.use_conditions = Slot(uri=B2AI_STANDARD.use_conditions, name="use_conditions", curie=B2AI_STANDARD.curie('use_conditions'),
+                   model_uri=DEFAULT_.use_conditions, domain=NamedThing, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
+
 slots.requires_registration = Slot(uri=B2AI_STANDARD.requires_registration, name="requires_registration", curie=B2AI_STANDARD.curie('requires_registration'),
                    model_uri=DEFAULT_.requires_registration, domain=NamedThing, range=Optional[Union[bool, Bool]])
 
@@ -1024,6 +1065,9 @@ slots.data_substrates_collection = Slot(uri=B2AI_SUBSTRATE.data_substrates_colle
 
 slots.data_topics_collection = Slot(uri=B2AI_TOPIC.data_topics_collection, name="data_topics_collection", curie=B2AI_TOPIC.curie('data_topics_collection'),
                    model_uri=DEFAULT_.data_topics_collection, domain=None, range=Optional[Union[Dict[Union[str, DataTopicId], Union[dict, DataTopic]], List[Union[dict, DataTopic]]]])
+
+slots.topic_involves_anatomy = Slot(uri=B2AI_TOPIC.topic_involves_anatomy, name="topic_involves_anatomy", curie=B2AI_TOPIC.curie('topic_involves_anatomy'),
+                   model_uri=DEFAULT_.topic_involves_anatomy, domain=DataTopic, range=Optional[Union[Union[str, AnatomicalEntityId], List[Union[str, AnatomicalEntityId]]]])
 
 slots.ror_id = Slot(uri=B2AI_ORG.ror_id, name="ror_id", curie=B2AI_ORG.curie('ror_id'),
                    model_uri=DEFAULT_.ror_id, domain=None, range=Optional[Union[str, RorIdentifier]])
