@@ -40,11 +40,11 @@ def get_rows_from_tsv(file_path: str):
     return rows
 
 
-def populate_table(syn: Synapse, update_file: str, table_id: int) -> None:
+def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
     """Populate the table with updated data
     :param syn: synapse client
     :param update_file: path for tsv file containing data to populate the table
-    :param table_id: id for table to populate
+    :param table_id: synapse id for table to populate
     """
     rows_to_add = get_rows_from_tsv(update_file)
     print(f"Populating table for file: {update_file}")
