@@ -36,6 +36,7 @@ classes:
       - collection
       - concerns_data_topic
       - has_relevant_organization
+      - has_training_resource
       - purpose_detail
       - is_open
       - requires_registration
@@ -77,7 +78,7 @@ classes:
     description: >-
       Represents a resource in the Bridge2AI
       Standards Registry serving to curate and
-      store computational models. To be a respository,
+      store computational models. To be a repository,
       the resource must not index models alone.
 
   ReferenceDataOrDataset:
@@ -151,7 +152,7 @@ slots:
     range: boolean
     description: >-
       Does usage of the standard or tool
-      require registrion of a user or group
+      require registration of a user or group
       with some organization or managerial body?
 
   concerns_data_topic:
@@ -185,6 +186,14 @@ slots:
       buy the object organization(s).
     domain: DataStandardOrTool
     range: Organization
+
+  has_training_resource:
+    is_a: node_property
+    range: DataStandardOrTool
+    description: >-
+      Relevant training resources, standard usage manuals,
+      or other documentation for the standard or tool.
+    multivalued: true
 
   data_standardortools_collection:
     description: Collection of associated data standards or tools
