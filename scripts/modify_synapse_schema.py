@@ -72,14 +72,14 @@ COLUMN_TEMPLATES = {
         name=ColumnName.CONTRIBUTOR_ORCID.value, columnType="STRING", maximumSize=50
     ),
     ColumnName.COLLECTION: Column(
-        name="collection", columnType="STRING", maximumSize=100
+        name="collection", columnType="STRING_LIST"
     ),
     ColumnName.PURPOSE_DETAIL: Column(name="purpose_detail", columnType="MEDIUMTEXT"),
     ColumnName.CONCERNS_DATA_TOPIC: Column(
-        name="concerns_data_topic", columnType="STRING", maximumSize=255
+        name="concerns_data_topic", columnType="STRING_LIST"
     ),
     ColumnName.SUBCLASS_OF: Column(
-        name=ColumnName.SUBCLASS_OF.value, columnType="STRING", maximumSize=100
+        name=ColumnName.SUBCLASS_OF.value, columnType="STRING_LIST"
     ),
     ColumnName.URL: Column(name=ColumnName.URL.value, columnType="MEDIUMTEXT"),
     ColumnName.IS_OPEN: Column(name=ColumnName.IS_OPEN.value, columnType="BOOLEAN"),
@@ -96,13 +96,13 @@ COLUMN_TEMPLATES = {
         name=ColumnName.NCIT_ID.value, columnType="STRING", maximumSize=25
     ),
     ColumnName.RELATED_TO: Column(
-        name=ColumnName.RELATED_TO.value, columnType="STRING", maximumSize=255
+        name=ColumnName.RELATED_TO.value, columnType="MEDIUMTEXT"
     ),
     ColumnName.METADATA_STORAGE: Column(
-        name=ColumnName.METADATA_STORAGE.value, columnType="STRING", maximumSize=255
+        name=ColumnName.METADATA_STORAGE.value, columnType="STRING_LIST"
     ),
     ColumnName.FILE_EXTENSIONS: Column(
-        name=ColumnName.FILE_EXTENSIONS.value, columnType="STRING", maximumSize=255
+        name=ColumnName.FILE_EXTENSIONS.value, columnType="STRING_LIST"
     ),
     ColumnName.LIMITATIONS: Column(
         name=ColumnName.LIMITATIONS.value, columnType="MEDIUMTEXT"
@@ -118,30 +118,27 @@ COLUMN_TEMPLATES = {
     ),
     ColumnName.HAS_RELEVANT_ORGANIZATION: Column(
         name=ColumnName.HAS_RELEVANT_ORGANIZATION.value,
-        columnType="STRING",
-        maximumSize=100,
+        columnType="STRING_LIST"
     ),
     ColumnName.HAS_TRAINING_RESOURCE: Column(
         name=ColumnName.HAS_TRAINING_RESOURCE.value,
-        columnType="STRING",
-        maximumSize=255,
+        columnType="STRING_LIST",
     ),
     ColumnName.USE_CASE_CATEGORY: Column(
         name=ColumnName.USE_CASE_CATEGORY.value, columnType="STRING", maximumSize=100
     ),
     ColumnName.RELEVANT_TO_DGPS: Column(
-        name=ColumnName.RELEVANT_TO_DGPS.value, columnType="STRING", maximumSize=255
+        name=ColumnName.RELEVANT_TO_DGPS.value, columnType="STRING_LIST"
     ),
     ColumnName.DATA_TOPICS: Column(
-        name=ColumnName.DATA_TOPICS.value, columnType="STRING", maximumSize=255
+        name=ColumnName.DATA_TOPICS.value, columnType="STRING_LIST"
     ),
     ColumnName.STANDARDS_AND_TOOLS_FOR_DGP_USE: Column(
         name=ColumnName.STANDARDS_AND_TOOLS_FOR_DGP_USE.value,
-        columnType="STRING",
-        maximumSize=255,
+        columnType="STRING_LIST"
     ),
     ColumnName.ENABLES: Column(
-        name=ColumnName.ENABLES.value, columnType="STRING", maximumSize=255
+        name=ColumnName.ENABLES.value, columnType="STRING_LIST"
     ),
     ColumnName.INVOLVED_IN_EXPERIMENTAL_DESIGN: Column(
         name=ColumnName.INVOLVED_IN_EXPERIMENTAL_DESIGN.value, columnType="BOOLEAN"
@@ -153,12 +150,11 @@ COLUMN_TEMPLATES = {
         name=ColumnName.INVOLVED_IN_QUALITY_CONTROL.value, columnType="BOOLEAN"
     ),
     ColumnName.XREF: Column(
-        name=ColumnName.XREF.value, columnType="STRING", maximumSize=255
+        name=ColumnName.XREF.value, columnType="STRING_LIST"
     ),
     ColumnName.ALTERNATIVE_STANDARDS_AND_TOOLS: Column(
         name=ColumnName.ALTERNATIVE_STANDARDS_AND_TOOLS.value,
-        columnType="STRING",
-        maximumSize=255,
+        columnType="STRING_LIST",
     ),
     ColumnName.ROR_ID: Column(
         name=ColumnName.ROR_ID.value, columnType="STRING", maximumSize=35
@@ -204,12 +200,12 @@ class TableSchema(Enum):
             ColumnName.NAME,
             ColumnName.DESCRIPTION,
             ColumnName.SUBCLASS_OF,
+            ColumnName.RELATED_TO,
             ColumnName.CONTRIBUTOR_NAME,
             ColumnName.CONTRIBUTOR_GITHUB_NAME,
             ColumnName.CONTRIBUTOR_ORCID,
             ColumnName.EDAM_ID,
             ColumnName.NCIT_ID,
-            ColumnName.RELATED_TO,
             ColumnName.METADATA_STORAGE,
             ColumnName.FILE_EXTENSIONS,
             ColumnName.LIMITATIONS,
