@@ -29,13 +29,14 @@ class ColumnName(Enum):
     METADATA_STORAGE = "metadata_storage"
     FILE_EXTENSIONS = "file_extensions"
     LIMITATIONS = "limitations"
+    KNOWN_LIMITATIONS = "known_limitations"
     CONTRIBUTION_DATE = "contribution_date"
     PUBLICATION = "publication"
     FORMAL_SPECIFICATION = "formal_specification"
     HAS_RELEVANT_ORGANIZATION = "has_relevant_organization"
     HAS_TRAINING_RESOURCE = "has_training_resource"
     USE_CASE_CATEGORY = "use_case_category"
-    RELEVANT_TO_DGPS = "relevant_to_dgps"
+    RELEVANCE_TO_DGPS = "relevance_to_dgps"
     DATA_TOPICS = "data_topics"
     STANDARDS_AND_TOOLS_FOR_DGP_USE = "standards_and_tools_for_dgp_use"
     ENABLES = "enables"
@@ -72,14 +73,16 @@ COLUMN_TEMPLATES = {
         name=ColumnName.CONTRIBUTOR_ORCID.value, columnType="STRING", maximumSize=50
     ),
     ColumnName.COLLECTION: Column(
-        name="collection", columnType="STRING", maximumSize=100
+        name="collection", columnType="STRING_LIST", maximumListLength=25
     ),
     ColumnName.PURPOSE_DETAIL: Column(name="purpose_detail", columnType="MEDIUMTEXT"),
     ColumnName.CONCERNS_DATA_TOPIC: Column(
-        name="concerns_data_topic", columnType="STRING", maximumSize=255
+        name="concerns_data_topic", columnType="STRING_LIST", maximumListLength=25
     ),
     ColumnName.SUBCLASS_OF: Column(
-        name=ColumnName.SUBCLASS_OF.value, columnType="STRING", maximumSize=100
+        name=ColumnName.SUBCLASS_OF.value,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.URL: Column(name=ColumnName.URL.value, columnType="MEDIUMTEXT"),
     ColumnName.IS_OPEN: Column(name=ColumnName.IS_OPEN.value, columnType="BOOLEAN"),
@@ -96,16 +99,23 @@ COLUMN_TEMPLATES = {
         name=ColumnName.NCIT_ID.value, columnType="STRING", maximumSize=25
     ),
     ColumnName.RELATED_TO: Column(
-        name=ColumnName.RELATED_TO.value, columnType="STRING", maximumSize=255
+        name=ColumnName.RELATED_TO.value, columnType="STRING_LIST", maximumListLength=25
     ),
     ColumnName.METADATA_STORAGE: Column(
-        name=ColumnName.METADATA_STORAGE.value, columnType="STRING", maximumSize=255
+        name=ColumnName.METADATA_STORAGE.value,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.FILE_EXTENSIONS: Column(
-        name=ColumnName.FILE_EXTENSIONS.value, columnType="STRING", maximumSize=255
+        name=ColumnName.FILE_EXTENSIONS.value,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.LIMITATIONS: Column(
         name=ColumnName.LIMITATIONS.value, columnType="MEDIUMTEXT"
+    ),
+    ColumnName.KNOWN_LIMITATIONS: Column(
+        name=ColumnName.KNOWN_LIMITATIONS.value, columnType="MEDIUMTEXT"
     ),
     ColumnName.CONTRIBUTION_DATE: Column(
         name=ColumnName.CONTRIBUTION_DATE.value, columnType="STRING", maximumSize=50
@@ -118,30 +128,34 @@ COLUMN_TEMPLATES = {
     ),
     ColumnName.HAS_RELEVANT_ORGANIZATION: Column(
         name=ColumnName.HAS_RELEVANT_ORGANIZATION.value,
-        columnType="STRING",
-        maximumSize=100,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.HAS_TRAINING_RESOURCE: Column(
         name=ColumnName.HAS_TRAINING_RESOURCE.value,
-        columnType="STRING",
-        maximumSize=255,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.USE_CASE_CATEGORY: Column(
         name=ColumnName.USE_CASE_CATEGORY.value, columnType="STRING", maximumSize=100
     ),
-    ColumnName.RELEVANT_TO_DGPS: Column(
-        name=ColumnName.RELEVANT_TO_DGPS.value, columnType="STRING", maximumSize=255
+    ColumnName.RELEVANCE_TO_DGPS: Column(
+        name=ColumnName.RELEVANCE_TO_DGPS.value,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.DATA_TOPICS: Column(
-        name=ColumnName.DATA_TOPICS.value, columnType="STRING", maximumSize=255
+        name=ColumnName.DATA_TOPICS.value,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.STANDARDS_AND_TOOLS_FOR_DGP_USE: Column(
         name=ColumnName.STANDARDS_AND_TOOLS_FOR_DGP_USE.value,
-        columnType="STRING",
-        maximumSize=255,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.ENABLES: Column(
-        name=ColumnName.ENABLES.value, columnType="STRING", maximumSize=255
+        name=ColumnName.ENABLES.value, columnType="STRING_LIST", maximumListLength=25
     ),
     ColumnName.INVOLVED_IN_EXPERIMENTAL_DESIGN: Column(
         name=ColumnName.INVOLVED_IN_EXPERIMENTAL_DESIGN.value, columnType="BOOLEAN"
@@ -153,12 +167,12 @@ COLUMN_TEMPLATES = {
         name=ColumnName.INVOLVED_IN_QUALITY_CONTROL.value, columnType="BOOLEAN"
     ),
     ColumnName.XREF: Column(
-        name=ColumnName.XREF.value, columnType="STRING", maximumSize=255
+        name=ColumnName.XREF.value, columnType="STRING_LIST", maximumListLength=25
     ),
     ColumnName.ALTERNATIVE_STANDARDS_AND_TOOLS: Column(
         name=ColumnName.ALTERNATIVE_STANDARDS_AND_TOOLS.value,
-        columnType="STRING",
-        maximumSize=255,
+        columnType="STRING_LIST",
+        maximumListLength=25,
     ),
     ColumnName.ROR_ID: Column(
         name=ColumnName.ROR_ID.value, columnType="STRING", maximumSize=35
@@ -204,12 +218,12 @@ class TableSchema(Enum):
             ColumnName.NAME,
             ColumnName.DESCRIPTION,
             ColumnName.SUBCLASS_OF,
+            ColumnName.RELATED_TO,
             ColumnName.CONTRIBUTOR_NAME,
             ColumnName.CONTRIBUTOR_GITHUB_NAME,
             ColumnName.CONTRIBUTOR_ORCID,
             ColumnName.EDAM_ID,
             ColumnName.NCIT_ID,
-            ColumnName.RELATED_TO,
             ColumnName.METADATA_STORAGE,
             ColumnName.FILE_EXTENSIONS,
             ColumnName.LIMITATIONS,
@@ -261,7 +275,7 @@ class TableSchema(Enum):
             ColumnName.CONTRIBUTOR_GITHUB_NAME,
             ColumnName.CONTRIBUTOR_ORCID,
             ColumnName.USE_CASE_CATEGORY,
-            ColumnName.RELEVANT_TO_DGPS,
+            ColumnName.RELEVANCE_TO_DGPS,
             ColumnName.DATA_TOPICS,
             ColumnName.STANDARDS_AND_TOOLS_FOR_DGP_USE,
             ColumnName.ENABLES,
@@ -269,7 +283,7 @@ class TableSchema(Enum):
             ColumnName.INVOLVED_IN_METADATA_MANAGEMENT,
             ColumnName.INVOLVED_IN_QUALITY_CONTROL,
             ColumnName.XREF,
-            ColumnName.LIMITATIONS,
+            ColumnName.KNOWN_LIMITATIONS,
             ColumnName.ALTERNATIVE_STANDARDS_AND_TOOLS,
         ],
     }
