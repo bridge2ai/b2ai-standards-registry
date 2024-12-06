@@ -19,7 +19,7 @@ def delete_table_rows(syn: Synapse, table_id: str) -> None:
     :param syn: synapse client
     :param table_id: table id to delete rows for
     """
-    print("Deleting rows from table {table_id}")
+    print(f"Deleting rows from table {table_id}")
     results = syn.tableQuery(f"select * from {table_id}")
     syn.delete(results)
     print("Finished deleting rows")
