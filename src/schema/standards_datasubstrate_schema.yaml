@@ -13,8 +13,8 @@ prefixes:
   edam.format: http://edamontology.org/format_
   edam.operation: http://edamontology.org/operation_
   edam.topic: http://edamontology.org/topic_
-  MeSH: http://id.nlm.nih.gov/mesh/
-  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  mesh: http://id.nlm.nih.gov/mesh/
+  ncit: http://purl.obolibrary.org/obo/NCIT_
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/vocab/
   schema: http://schema.org/
@@ -75,7 +75,7 @@ slots:
     range: string
     description: >-
       Potential obstacles particular to this substrate
-      or implementation. 
+      or implementation.
     multivalued: true
   data_substrates_collection:
     description: Collection of associated data substrates
