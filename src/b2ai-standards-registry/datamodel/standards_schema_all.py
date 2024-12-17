@@ -1,5 +1,5 @@
-# Auto generated from standards_schema_all.yaml by pythongen.py version: 0.9.0
-# Generation date: 2024-11-04T17:40:51
+# Auto generated from standards_schema_all.yaml by pythongen.py version: 0.0.1
+# Generation date: 2024-11-20T12:01:06
 # Schema: standards-schema-all
 #
 # id: https://w3id.org/bridge2ai/standards-schema-all
@@ -7,21 +7,56 @@
 # license: https://creativecommons.org/publicdomain/zero/1.0/
 
 import dataclasses
-import sys
 import re
-from jsonasobj2 import JsonObj, as_dict
-from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+from datetime import (
+    date,
+    datetime,
+    time
+)
+from typing import (
+    Any,
+    ClassVar,
+    Dict,
+    List,
+    Optional,
+    Union
+)
 
-from linkml_runtime.utils.slot import Slot
-from linkml_runtime.utils.metamodelcore import empty_list, empty_dict, bnode
-from linkml_runtime.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
-from linkml_runtime.utils.enumerations import EnumDefinitionImpl
-from rdflib import Namespace, URIRef
+from jsonasobj2 import (
+    JsonObj,
+    as_dict
+)
+from linkml_runtime.linkml_model.meta import (
+    EnumDefinition,
+    PermissibleValue,
+    PvFormulaOptions
+)
 from linkml_runtime.utils.curienamespace import CurieNamespace
+from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
+from linkml_runtime.utils.enumerations import EnumDefinitionImpl
+from linkml_runtime.utils.formatutils import (
+    camelcase,
+    sfx,
+    underscore
+)
+from linkml_runtime.utils.metamodelcore import (
+    bnode,
+    empty_dict,
+    empty_list
+)
+from linkml_runtime.utils.slot import Slot
+from linkml_runtime.utils.yamlutils import (
+    YAMLRoot,
+    extended_float,
+    extended_int,
+    extended_str
+)
+from rdflib import (
+    Namespace,
+    URIRef
+)
+
 from linkml_runtime.linkml_model.types import Boolean, Date, String, Uriorcurie
 from linkml_runtime.utils.metamodelcore import Bool, URIorCURIE, XSDDate
 
@@ -42,6 +77,7 @@ MESH = CurieNamespace('MESH', 'http://id.nlm.nih.gov/mesh/')
 RO = CurieNamespace('RO', 'http://purl.obolibrary.org/obo/RO_')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 NCIT = CurieNamespace('ncit', 'http://purl.obolibrary.org/obo/NCIT_')
+RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 UBERON = CurieNamespace('uberon', 'http://purl.obolibrary.org/obo/uberon/core#')
@@ -51,17 +87,9 @@ DEFAULT_ = CurieNamespace('', 'https://w3id.org/bridge2ai/standards-schema-all/'
 
 
 # Types
-class CategoryType(Uriorcurie):
-    """ A primitive type in which the value denotes a class within the model. """
-    type_class_uri = XSD.anyURI
-    type_class_curie = "xsd:anyURI"
-    type_name = "category_type"
-    type_model_uri = URIRef("https://w3id.org/bridge2ai/standards-schema-all/CategoryType")
-
-
 class EdamIdentifier(Uriorcurie):
     """ Identifier from EDAM ontology """
-    type_class_uri = XSD.anyURI
+    type_class_uri = XSD["anyURI"]
     type_class_curie = "xsd:anyURI"
     type_name = "edam_identifier"
     type_model_uri = URIRef("https://w3id.org/bridge2ai/standards-schema-all/EdamIdentifier")
@@ -69,7 +97,7 @@ class EdamIdentifier(Uriorcurie):
 
 class MeshIdentifier(Uriorcurie):
     """ Identifier from Medical Subject Headings (MeSH) biomedical vocabulary. """
-    type_class_uri = XSD.anyURI
+    type_class_uri = XSD["anyURI"]
     type_class_curie = "xsd:anyURI"
     type_name = "mesh_identifier"
     type_model_uri = URIRef("https://w3id.org/bridge2ai/standards-schema-all/MeshIdentifier")
@@ -77,7 +105,7 @@ class MeshIdentifier(Uriorcurie):
 
 class NcitIdentifier(Uriorcurie):
     """ Identifier from NCIT reference terminology with broad coverage of the cancer domain. """
-    type_class_uri = XSD.anyURI
+    type_class_uri = XSD["anyURI"]
     type_class_curie = "xsd:anyURI"
     type_name = "ncit_identifier"
     type_model_uri = URIRef("https://w3id.org/bridge2ai/standards-schema-all/NcitIdentifier")
@@ -85,7 +113,7 @@ class NcitIdentifier(Uriorcurie):
 
 class RorIdentifier(Uriorcurie):
     """ Identifier from Research Organization Registry. """
-    type_class_uri = XSD.anyURI
+    type_class_uri = XSD["anyURI"]
     type_class_curie = "xsd:anyURI"
     type_name = "ror_identifier"
     type_model_uri = URIRef("https://w3id.org/bridge2ai/standards-schema-all/RorIdentifier")
@@ -93,7 +121,7 @@ class RorIdentifier(Uriorcurie):
 
 class WikidataIdentifier(Uriorcurie):
     """ Identifier from Wikidata open knowledge base. """
-    type_class_uri = XSD.anyURI
+    type_class_uri = XSD["anyURI"]
     type_class_curie = "xsd:anyURI"
     type_name = "wikidata_identifier"
     type_model_uri = URIRef("https://w3id.org/bridge2ai/standards-schema-all/WikidataIdentifier")
@@ -164,20 +192,20 @@ class UseCaseId(NamedThingId):
     pass
 
 
-@dataclass
+@dataclass(repr=False)
 class NamedThing(YAMLRoot):
     """
     A generic grouping for any identifiable entity
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
-    class_class_uri: ClassVar[URIRef] = SCHEMA.Thing
+    class_class_uri: ClassVar[URIRef] = SCHEMA["Thing"]
     class_class_curie: ClassVar[str] = "schema:Thing"
     class_name: ClassVar[str] = "NamedThing"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/NamedThing")
 
     id: Union[str, NamedThingId] = None
-    category: Optional[Union[str, CategoryType]] = None
+    category: Optional[Union[str, URIorCURIE]] = None
     name: Optional[str] = None
     description: Optional[str] = None
     subclass_of: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
@@ -193,8 +221,7 @@ class NamedThing(YAMLRoot):
         if not isinstance(self.id, NamedThingId):
             self.id = NamedThingId(self.id)
 
-        if self.category is not None and not isinstance(self.category, CategoryType):
-            self.category = CategoryType(self.category)
+        self.category = str(self.class_class_curie)
 
         if self.name is not None and not isinstance(self.name, str):
             self.name = str(self.name)
@@ -225,14 +252,39 @@ class NamedThing(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+    def __new__(cls, *args, **kwargs):
+
+        type_designator = "category"
+        if not type_designator in kwargs:
+            return super().__new__(cls,*args,**kwargs)
+        else:
+            type_designator_value = kwargs[type_designator]
+            target_cls = cls._class_for("class_class_curie", type_designator_value)
+
+
+            if target_cls is None:
+                target_cls = cls._class_for("class_class_uri", type_designator_value)
+
+
+            if target_cls is None:
+                target_cls = cls._class_for("class_model_uri", type_designator_value)
+
+
+            if target_cls is None:
+                raise ValueError(f"Wrong type designator value: class {cls.__name__} "
+                                 f"has no subclass with ['class_class_curie', 'class_class_uri', 'class_model_uri']='{kwargs[type_designator]}'")
+            return super().__new__(target_cls,*args,**kwargs)
+
+
+
+@dataclass(repr=False)
 class AnatomicalEntity(NamedThing):
     """
     A subcellular location, cell type or gross anatomical part
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI.AnatomicalEntity
+    class_class_uri: ClassVar[URIRef] = B2AI["AnatomicalEntity"]
     class_class_curie: ClassVar[str] = "B2AI:AnatomicalEntity"
     class_name: ClassVar[str] = "AnatomicalEntity"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/AnatomicalEntity")
@@ -246,16 +298,17 @@ class AnatomicalEntity(NamedThing):
             self.id = AnatomicalEntityId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DataStandardOrTool(NamedThing):
     """
     Represents a standard or tool in the Bridge2AI Standards Registry.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.DataStandardOrTool
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["DataStandardOrTool"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:DataStandardOrTool"
     class_name: ClassVar[str] = "DataStandardOrTool"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataStandardOrTool")
@@ -264,6 +317,7 @@ class DataStandardOrTool(NamedThing):
     collection: Optional[Union[Union[str, "StandardsCollectionTag"], List[Union[str, "StandardsCollectionTag"]]]] = empty_list()
     concerns_data_topic: Optional[Union[Union[str, DataTopicId], List[Union[str, DataTopicId]]]] = empty_list()
     has_relevant_organization: Optional[Union[Union[str, OrganizationId], List[Union[str, OrganizationId]]]] = empty_list()
+    has_training_resource: Optional[Union[Union[str, DataStandardOrToolId], List[Union[str, DataStandardOrToolId]]]] = empty_list()
     purpose_detail: Optional[str] = None
     is_open: Optional[Union[bool, Bool]] = None
     requires_registration: Optional[Union[bool, Bool]] = None
@@ -290,6 +344,10 @@ class DataStandardOrTool(NamedThing):
             self.has_relevant_organization = [self.has_relevant_organization] if self.has_relevant_organization is not None else []
         self.has_relevant_organization = [v if isinstance(v, OrganizationId) else OrganizationId(v) for v in self.has_relevant_organization]
 
+        if not isinstance(self.has_training_resource, list):
+            self.has_training_resource = [self.has_training_resource] if self.has_training_resource is not None else []
+        self.has_training_resource = [v if isinstance(v, DataStandardOrToolId) else DataStandardOrToolId(v) for v in self.has_training_resource]
+
         if self.purpose_detail is not None and not isinstance(self.purpose_detail, str):
             self.purpose_detail = str(self.purpose_detail)
 
@@ -312,16 +370,17 @@ class DataStandardOrTool(NamedThing):
             self.not_relevant_to_dgps = Bool(self.not_relevant_to_dgps)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DataStandard(DataStandardOrTool):
     """
     Represents a general purpose standard in the Bridge2AI Standards Registry.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.DataStandard
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["DataStandard"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:DataStandard"
     class_name: ClassVar[str] = "DataStandard"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataStandard")
@@ -335,9 +394,10 @@ class DataStandard(DataStandardOrTool):
             self.id = DataStandardId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class BiomedicalStandard(DataStandard):
     """
     Represents a standard in the Bridge2AI Standards Registry with particular applications or relevance to clinical or
@@ -345,7 +405,7 @@ class BiomedicalStandard(DataStandard):
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.BiomedicalStandard
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["BiomedicalStandard"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:BiomedicalStandard"
     class_name: ClassVar[str] = "BiomedicalStandard"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/BiomedicalStandard")
@@ -359,16 +419,17 @@ class BiomedicalStandard(DataStandard):
             self.id = BiomedicalStandardId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class Registry(DataStandardOrTool):
     """
     Represents a resource in the Bridge2AI Standards Registry serving to curate and/or index other resources.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.Registry
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["Registry"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:Registry"
     class_name: ClassVar[str] = "Registry"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/Registry")
@@ -382,16 +443,17 @@ class Registry(DataStandardOrTool):
             self.id = RegistryId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class OntologyOrVocabulary(DataStandardOrTool):
     """
     A set of concepts and categories, potentially defined or accompanied by their hierarchical relationships.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.OntologyOrVocabulary
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["OntologyOrVocabulary"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:OntologyOrVocabulary"
     class_name: ClassVar[str] = "OntologyOrVocabulary"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/OntologyOrVocabulary")
@@ -405,17 +467,18 @@ class OntologyOrVocabulary(DataStandardOrTool):
             self.id = OntologyOrVocabularyId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ModelRepository(DataStandardOrTool):
     """
     Represents a resource in the Bridge2AI Standards Registry serving to curate and store computational models. To be
-    a respository, the resource must not index models alone.
+    a repository, the resource must not index models alone.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.ModelRepository
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["ModelRepository"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:ModelRepository"
     class_name: ClassVar[str] = "ModelRepository"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/ModelRepository")
@@ -429,16 +492,17 @@ class ModelRepository(DataStandardOrTool):
             self.id = ModelRepositoryId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ReferenceDataOrDataset(DataStandardOrTool):
     """
     Represents a resource in the Bridge2AI Standards Registry serving as a standardized, reusable data source.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.ReferenceDataOrDataset
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["ReferenceDataOrDataset"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:ReferenceDataOrDataset"
     class_name: ClassVar[str] = "ReferenceDataOrDataset"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/ReferenceDataOrDataset")
@@ -452,16 +516,17 @@ class ReferenceDataOrDataset(DataStandardOrTool):
             self.id = ReferenceDataOrDatasetId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class SoftwareOrTool(DataStandardOrTool):
     """
     Represents a piece of software or computational tool in the Bridge2AI Standards Registry.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.SoftwareOrTool
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["SoftwareOrTool"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:SoftwareOrTool"
     class_name: ClassVar[str] = "SoftwareOrTool"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/SoftwareOrTool")
@@ -475,9 +540,10 @@ class SoftwareOrTool(DataStandardOrTool):
             self.id = SoftwareOrToolId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class ReferenceImplementation(DataStandardOrTool):
     """
     Represents an implementation of one or more standards or tools in the Bridge2AI Standards Registry, whether as a
@@ -485,7 +551,7 @@ class ReferenceImplementation(DataStandardOrTool):
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.ReferenceImplementation
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["ReferenceImplementation"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:ReferenceImplementation"
     class_name: ClassVar[str] = "ReferenceImplementation"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/ReferenceImplementation")
@@ -499,9 +565,10 @@ class ReferenceImplementation(DataStandardOrTool):
             self.id = ReferenceImplementationId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class TrainingProgram(DataStandardOrTool):
     """
     Represents a training program for skills and experience related to standards or tools in the Bridge2AI Standards
@@ -509,7 +576,7 @@ class TrainingProgram(DataStandardOrTool):
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "concerns_data_topic", "has_relevant_organization"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.TrainingProgram
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["TrainingProgram"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:TrainingProgram"
     class_name: ClassVar[str] = "TrainingProgram"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/TrainingProgram")
@@ -523,16 +590,17 @@ class TrainingProgram(DataStandardOrTool):
             self.id = TrainingProgramId(self.id)
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DataStandardOrToolContainer(YAMLRoot):
     """
     A container for DataStandardOrTool(s).
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD.DataStandardOrToolContainer
+    class_class_uri: ClassVar[URIRef] = B2AI_STANDARD["DataStandardOrToolContainer"]
     class_class_curie: ClassVar[str] = "B2AI_STANDARD:DataStandardOrToolContainer"
     class_name: ClassVar[str] = "DataStandardOrToolContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataStandardOrToolContainer")
@@ -545,7 +613,7 @@ class DataStandardOrToolContainer(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class DataSubstrate(NamedThing):
     """
     Represents a data substrate for Bridge2AI data. This may be a high-level data structure or a specific
@@ -555,7 +623,7 @@ class DataSubstrate(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_SUBSTRATE.DataSubstrate
+    class_class_uri: ClassVar[URIRef] = B2AI_SUBSTRATE["DataSubstrate"]
     class_class_curie: ClassVar[str] = "B2AI_SUBSTRATE:DataSubstrate"
     class_name: ClassVar[str] = "DataSubstrate"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataSubstrate")
@@ -596,16 +664,17 @@ class DataSubstrate(NamedThing):
         self.limitations = [v if isinstance(v, str) else str(v) for v in self.limitations]
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DataSubstrateContainer(YAMLRoot):
     """
     A container for DataSubstrates.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = B2AI_SUBSTRATE.DataSubstrateContainer
+    class_class_uri: ClassVar[URIRef] = B2AI_SUBSTRATE["DataSubstrateContainer"]
     class_class_curie: ClassVar[str] = "B2AI_SUBSTRATE:DataSubstrateContainer"
     class_name: ClassVar[str] = "DataSubstrateContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataSubstrateContainer")
@@ -618,14 +687,14 @@ class DataSubstrateContainer(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class DataTopic(NamedThing):
     """
     Represents a general data topic for Bridge2AI data or the tools/standards applied to the data.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "topic_involves_anatomy"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_TOPIC.DataTopic
+    class_class_uri: ClassVar[URIRef] = B2AI_TOPIC["DataTopic"]
     class_class_curie: ClassVar[str] = "B2AI_TOPIC:DataTopic"
     class_name: ClassVar[str] = "DataTopic"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataTopic")
@@ -656,16 +725,17 @@ class DataTopic(NamedThing):
         self.topic_involves_anatomy = [v if isinstance(v, AnatomicalEntityId) else AnatomicalEntityId(v) for v in self.topic_involves_anatomy]
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class DataTopicContainer(YAMLRoot):
     """
     A container for DataTopics.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = B2AI_TOPIC.DataTopicContainer
+    class_class_uri: ClassVar[URIRef] = B2AI_TOPIC["DataTopicContainer"]
     class_class_curie: ClassVar[str] = "B2AI_TOPIC:DataTopicContainer"
     class_name: ClassVar[str] = "DataTopicContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataTopicContainer")
@@ -678,14 +748,14 @@ class DataTopicContainer(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Organization(NamedThing):
     """
     Represents a group or organization related to or responsible for one or more Bridge2AI standards.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_ORG.Organization
+    class_class_uri: ClassVar[URIRef] = B2AI_ORG["Organization"]
     class_class_curie: ClassVar[str] = "B2AI_ORG:Organization"
     class_name: ClassVar[str] = "Organization"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/Organization")
@@ -716,16 +786,17 @@ class Organization(NamedThing):
         self.related_to = [v if isinstance(v, NamedThingId) else NamedThingId(v) for v in self.related_to]
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class OrganizationContainer(YAMLRoot):
     """
     A container for Organizations.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = B2AI_ORG.OrganizationContainer
+    class_class_uri: ClassVar[URIRef] = B2AI_ORG["OrganizationContainer"]
     class_class_curie: ClassVar[str] = "B2AI_ORG:OrganizationContainer"
     class_name: ClassVar[str] = "OrganizationContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/OrganizationContainer")
@@ -738,14 +809,14 @@ class OrganizationContainer(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class UseCase(NamedThing):
     """
     Represents a use case for Bridge2AI standards.
     """
     _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to"]
 
-    class_class_uri: ClassVar[URIRef] = B2AI_USECASE.UseCase
+    class_class_uri: ClassVar[URIRef] = B2AI_USECASE["UseCase"]
     class_class_curie: ClassVar[str] = "B2AI_USECASE:UseCase"
     class_name: ClassVar[str] = "UseCase"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/UseCase")
@@ -816,16 +887,17 @@ class UseCase(NamedThing):
         self.xref = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.xref]
 
         super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
 
 
-@dataclass
+@dataclass(repr=False)
 class UseCaseContainer(YAMLRoot):
     """
     A container for UseCase.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = B2AI_USECASE.UseCaseContainer
+    class_class_uri: ClassVar[URIRef] = B2AI_USECASE["UseCaseContainer"]
     class_class_curie: ClassVar[str] = "B2AI_USECASE:UseCaseContainer"
     class_name: ClassVar[str] = "UseCaseContainer"
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/UseCaseContainer")
@@ -843,18 +915,22 @@ class DataGeneratingProject(EnumDefinitionImpl):
     """
     One of the Bridge2AI Data Generating Projects.
     """
-    aireadi = PermissibleValue(text="aireadi",
-                                     description="AI-READI: Uncovering the details of how human health is restored after disease, using type 2 diabetes as a model.",
-                                     meaning=None)
-    chorus = PermissibleValue(text="chorus",
-                                   description="CHoRUS: Collaborative Hospital Repository Uniting Standards. Using imaging, clinical, and other data collected in an ICU setting for diagnosis and risk prediction.",
-                                   meaning=None)
-    cm4ai = PermissibleValue(text="cm4ai",
-                                 description="CM4AI: Cell Maps for AI. Mapping spatiotemporal architecture of human cells to interpret cell structure/function in health and disease.",
-                                 meaning=None)
-    voice = PermissibleValue(text="voice",
-                                 description="Voice as a Biomarker of Health: Building an ethically sourced, bioaccoustic database to understand disease like never before.",
-                                 meaning=None)
+    aireadi = PermissibleValue(
+        text="aireadi",
+        description="""AI-READI: Uncovering the details of how human health is restored after disease, using type 2 diabetes as a model.""",
+        meaning=None)
+    chorus = PermissibleValue(
+        text="chorus",
+        description="""CHoRUS: Collaborative Hospital Repository Uniting Standards. Using imaging, clinical, and other data collected in an ICU setting for diagnosis and risk prediction.""",
+        meaning=None)
+    cm4ai = PermissibleValue(
+        text="cm4ai",
+        description="""CM4AI: Cell Maps for AI. Mapping spatiotemporal architecture of human cells to interpret cell structure/function in health and disease.""",
+        meaning=None)
+    voice = PermissibleValue(
+        text="voice",
+        description="""Voice as a Biomarker of Health: Building an ethically sourced, bioaccoustic database to understand disease like never before.""",
+        meaning=None)
 
     _defn = EnumDefinition(
         name="DataGeneratingProject",
@@ -865,76 +941,111 @@ class StandardsCollectionTag(EnumDefinitionImpl):
     """
     Tags for specific sets of standards.
     """
-    audiovisual = PermissibleValue(text="audiovisual",
-                                             description="Audiovisual Standard")
-    deprecated = PermissibleValue(text="deprecated",
-                                           description="Deprecated")
-    fileformat = PermissibleValue(text="fileformat",
-                                           description="File Format")
-    toolkit = PermissibleValue(text="toolkit",
-                                     description="Bioinformatics Toolkit")
-    clinicaldata = PermissibleValue(text="clinicaldata",
-                                               description="Clinical Data")
-    multimodal = PermissibleValue(text="multimodal",
-                                           description="Multimodal Data Integration")
-    text = PermissibleValue(text="text",
-                               description="Text Data")
-    cloudplatform = PermissibleValue(text="cloudplatform",
-                                                 description="Cloud Research Platform")
-    cloudservice = PermissibleValue(text="cloudservice",
-                                               description="Cloud Service")
-    codesystem = PermissibleValue(text="codesystem",
-                                           description="Code System")
-    datamodel = PermissibleValue(text="datamodel",
-                                         description="Data Model")
-    dataregistry = PermissibleValue(text="dataregistry",
-                                               description="Data Registry")
-    softwareregistry = PermissibleValue(text="softwareregistry",
-                                                       description="Software Registry")
-    datavisualization = PermissibleValue(text="datavisualization",
-                                                         description="Data Visualization")
-    notebookplatform = PermissibleValue(text="notebookplatform",
-                                                       description="Notebook Platform")
-    datasheets = PermissibleValue(text="datasheets",
-                                           description="Datasheets")
-    machinelearningframework = PermissibleValue(text="machinelearningframework",
-                                                                       description="Machine Learning Framework")
-    workflowlanguage = PermissibleValue(text="workflowlanguage",
-                                                       description="Workflow Language")
-    diagnosticinstrument = PermissibleValue(text="diagnosticinstrument",
-                                                               description="Diagnostic Instrument")
-    drugdata = PermissibleValue(text="drugdata",
-                                       description="Drug Data")
-    eyedata = PermissibleValue(text="eyedata",
-                                     description="Eye Data")
-    markuplanguage = PermissibleValue(text="markuplanguage",
-                                                   description="Markup Language")
-    graphdataplatform = PermissibleValue(text="graphdataplatform",
-                                                         description="Graph Data Platform")
-    guidelines = PermissibleValue(text="guidelines",
-                                           description="Guidelines")
-    minimuminformationschema = PermissibleValue(text="minimuminformationschema",
-                                                                       description="Minimum Information Schema")
-    modelcards = PermissibleValue(text="modelcards",
-                                           description="Model Cards")
-    obofoundry = PermissibleValue(text="obofoundry",
-                                           description="OBO Foundry")
-    ontologyregistry = PermissibleValue(text="ontologyregistry",
-                                                       description="Ontology Registry")
-    policy = PermissibleValue(text="policy",
-                                   description="Policy")
-    proteindata = PermissibleValue(text="proteindata",
-                                             description="Protein Data")
-    referencegenome = PermissibleValue(text="referencegenome",
-                                                     description="Reference Genome")
-    scrnaseqanalysis = PermissibleValue(text="scrnaseqanalysis",
-                                                       description="scRNA-seq Analysis")
-    speechdata = PermissibleValue(text="speechdata",
-                                           description="Speech Data")
-    standardsregistry = PermissibleValue(text="standardsregistry",
-                                                         description="Standards Registry")
-    has_ai_application = PermissibleValue(text="has_ai_application",
-                                                           description="Has a direct AI application, defined as standards/tools that are: associated with ML or neural networks; schemas, or have schemas; data models; associated with DICOM; associated with AI; associated with standards used within Bridge2AI")
+    audiovisual = PermissibleValue(
+        text="audiovisual",
+        description="Audiovisual Standard")
+    deprecated = PermissibleValue(
+        text="deprecated",
+        description="Deprecated")
+    fileformat = PermissibleValue(
+        text="fileformat",
+        description="File Format")
+    toolkit = PermissibleValue(
+        text="toolkit",
+        description="Bioinformatics Toolkit")
+    clinicaldata = PermissibleValue(
+        text="clinicaldata",
+        description="Clinical Data")
+    multimodal = PermissibleValue(
+        text="multimodal",
+        description="Multimodal Data Integration")
+    text = PermissibleValue(
+        text="text",
+        description="Text Data")
+    cloudplatform = PermissibleValue(
+        text="cloudplatform",
+        description="Cloud Research Platform")
+    cloudservice = PermissibleValue(
+        text="cloudservice",
+        description="Cloud Service")
+    codesystem = PermissibleValue(
+        text="codesystem",
+        description="Code System")
+    datamodel = PermissibleValue(
+        text="datamodel",
+        description="Data Model")
+    dataregistry = PermissibleValue(
+        text="dataregistry",
+        description="Data Registry")
+    softwareregistry = PermissibleValue(
+        text="softwareregistry",
+        description="Software Registry")
+    datavisualization = PermissibleValue(
+        text="datavisualization",
+        description="Data Visualization")
+    notebookplatform = PermissibleValue(
+        text="notebookplatform",
+        description="Notebook Platform")
+    datasheets = PermissibleValue(
+        text="datasheets",
+        description="Datasheets")
+    machinelearningframework = PermissibleValue(
+        text="machinelearningframework",
+        description="Machine Learning Framework")
+    workflowlanguage = PermissibleValue(
+        text="workflowlanguage",
+        description="Workflow Language")
+    diagnosticinstrument = PermissibleValue(
+        text="diagnosticinstrument",
+        description="Diagnostic Instrument")
+    drugdata = PermissibleValue(
+        text="drugdata",
+        description="Drug Data")
+    eyedata = PermissibleValue(
+        text="eyedata",
+        description="Eye Data")
+    markuplanguage = PermissibleValue(
+        text="markuplanguage",
+        description="Markup Language")
+    graphdataplatform = PermissibleValue(
+        text="graphdataplatform",
+        description="Graph Data Platform")
+    guidelines = PermissibleValue(
+        text="guidelines",
+        description="Guidelines")
+    minimuminformationschema = PermissibleValue(
+        text="minimuminformationschema",
+        description="Minimum Information Schema")
+    modelcards = PermissibleValue(
+        text="modelcards",
+        description="Model Cards")
+    obofoundry = PermissibleValue(
+        text="obofoundry",
+        description="OBO Foundry")
+    ontologyregistry = PermissibleValue(
+        text="ontologyregistry",
+        description="Ontology Registry")
+    policy = PermissibleValue(
+        text="policy",
+        description="Policy")
+    proteindata = PermissibleValue(
+        text="proteindata",
+        description="Protein Data")
+    referencegenome = PermissibleValue(
+        text="referencegenome",
+        description="Reference Genome")
+    scrnaseqanalysis = PermissibleValue(
+        text="scrnaseqanalysis",
+        description="scRNA-seq Analysis")
+    speechdata = PermissibleValue(
+        text="speechdata",
+        description="Speech Data")
+    standardsregistry = PermissibleValue(
+        text="standardsregistry",
+        description="Standards Registry")
+    has_ai_application = PermissibleValue(
+        text="has_ai_application",
+        description="""Has a direct AI application, defined as standards/tools that are: associated with ML or neural networks; schemas, or have schemas; data models; associated with DICOM; associated with AI; associated with standards used within Bridge2AI""")
 
     _defn = EnumDefinition(
         name="StandardsCollectionTag",
@@ -945,18 +1056,24 @@ class UseCaseCategory(EnumDefinitionImpl):
     """
     Category of use case.
     """
-    acquisition = PermissibleValue(text="acquisition",
-                                             description="Acquisition")
-    integration = PermissibleValue(text="integration",
-                                             description="Integration")
-    standardization = PermissibleValue(text="standardization",
-                                                     description="Standardization")
-    modeling = PermissibleValue(text="modeling",
-                                       description="Modeling")
-    application = PermissibleValue(text="application",
-                                             description="Application")
-    assessment = PermissibleValue(text="assessment",
-                                           description="Assessment")
+    acquisition = PermissibleValue(
+        text="acquisition",
+        description="Acquisition")
+    integration = PermissibleValue(
+        text="integration",
+        description="Integration")
+    standardization = PermissibleValue(
+        text="standardization",
+        description="Standardization")
+    modeling = PermissibleValue(
+        text="modeling",
+        description="Modeling")
+    application = PermissibleValue(
+        text="application",
+        description="Application")
+    assessment = PermissibleValue(
+        text="assessment",
+        description="Assessment")
 
     _defn = EnumDefinition(
         name="UseCaseCategory",
@@ -973,11 +1090,8 @@ slots.node_property = Slot(uri=B2AI.node_property, name="node_property", curie=B
 slots.id = Slot(uri=SCHEMA.identifier, name="id", curie=SCHEMA.curie('identifier'),
                    model_uri=DEFAULT_.id, domain=None, range=URIRef)
 
-slots.type = Slot(uri=B2AI.type, name="type", curie=B2AI.curie('type'),
-                   model_uri=DEFAULT_.type, domain=NamedThing, range=Optional[str])
-
-slots.category = Slot(uri=B2AI.category, name="category", curie=B2AI.curie('category'),
-                   model_uri=DEFAULT_.category, domain=NamedThing, range=Optional[Union[str, CategoryType]])
+slots.category = Slot(uri=RDF.type, name="category", curie=RDF.curie('type'),
+                   model_uri=DEFAULT_.category, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
                    model_uri=DEFAULT_.name, domain=None, range=Optional[str])
@@ -1044,6 +1158,9 @@ slots.formal_specification = Slot(uri=B2AI_STANDARD.formal_specification, name="
 
 slots.has_relevant_organization = Slot(uri=B2AI_STANDARD.has_relevant_organization, name="has_relevant_organization", curie=B2AI_STANDARD.curie('has_relevant_organization'),
                    model_uri=DEFAULT_.has_relevant_organization, domain=DataStandardOrTool, range=Optional[Union[Union[str, OrganizationId], List[Union[str, OrganizationId]]]])
+
+slots.has_training_resource = Slot(uri=B2AI_STANDARD.has_training_resource, name="has_training_resource", curie=B2AI_STANDARD.curie('has_training_resource'),
+                   model_uri=DEFAULT_.has_training_resource, domain=NamedThing, range=Optional[Union[Union[str, DataStandardOrToolId], List[Union[str, DataStandardOrToolId]]]])
 
 slots.data_standardortools_collection = Slot(uri=B2AI_STANDARD.data_standardortools_collection, name="data_standardortools_collection", curie=B2AI_STANDARD.curie('data_standardortools_collection'),
                    model_uri=DEFAULT_.data_standardortools_collection, domain=None, range=Optional[Union[Dict[Union[str, DataStandardOrToolId], Union[dict, DataStandardOrTool]], List[Union[dict, DataStandardOrTool]]]])

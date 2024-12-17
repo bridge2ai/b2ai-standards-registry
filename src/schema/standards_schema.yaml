@@ -53,7 +53,7 @@ types:
       coverage of the cancer domain.
     typeof: uriorcurie
     id_prefixes:
-      - NCIT
+      - ncit
 
 classes:
 
@@ -99,7 +99,7 @@ slots:
     required: true
   type:
     description: >-
-      A generic slot for any label corresponding to the label 
+      A generic slot for any label corresponding to the label
       for an entity type associated to the class.
     domain: NamedThing
   category:
@@ -108,8 +108,9 @@ slots:
     range: category_type
     designates_type: true
     description: >-
-      Name of the high level ontology class in which this entity is categorized.
-      Corresponds to the label for the entity type class, e.g., "BiomedicalStandard".
+      CURIE for the high level ontology class in which this entity is
+      categorized. Corresponds to the label for the entity type class,
+      e.g., "B2AI_STANDARD:DataStandard".
   name:
     slot_uri: schema:name
     description: A human-readable name for a thing.
@@ -131,17 +132,17 @@ slots:
   mesh_id:
     description: Unique MeSH identifier
     examples:
-      - value: MeSH:D014831
+      - value: mesh:D014831
     range: mesh_identifier
     values_from:
-      - MeSH
+      - mesh
   ncit_id:
     description: Unique NCIt Identifier
     examples:
-      - value: NCIT:C92692
+      - value: ncit:C92692
     range: ncit_identifier
     values_from:
-      - NCIT
+      - ncit
   url:
     is_a: node_property
     range: uriorcurie
