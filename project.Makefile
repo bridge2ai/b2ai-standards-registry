@@ -133,6 +133,47 @@ doc-data-markdown:
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datasubstrate-schema\/\([0-9]\+\)\)/DataSubstrate.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datastandardortool-schema\/\([0-9]\+\)\)/DataStandardOrTool.markdown/g' {} \;
 # Now fix links where we want to map to a specific page
+# This is messy and would probably be better as a mapping between ID and page name
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/\[B2AI_TOPIC:1\](DataTopic.markdown)/\[B2AI_TOPIC:1\](topics\/Biology.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:2\](DataTopic.markdown)/\[B2AI_TOPIC:2\](topics\/Cell.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:3\](DataTopic.markdown)/\[B2AI_TOPIC:3\](topics\/Cheminformatics.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:4\](DataTopic.markdown)/\[B2AI_TOPIC:4\](topics\/ClinicalObservations.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:5\](DataTopic.markdown)/\[B2AI_TOPIC:5\](topics\/Data.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:6\](DataTopic.markdown)/\[B2AI_TOPIC:6\](topics\/Demographics.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:7\](DataTopic.markdown)/\[B2AI_TOPIC:7\](topics\/Disease.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:8\](DataTopic.markdown)/\[B2AI_TOPIC:8\](topics\/Drug.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:9\](DataTopic.markdown)/\[B2AI_TOPIC:9\](topics\/EHR.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:10\](DataTopic.markdown)/\[B2AI_TOPIC:10\](topics\/EKG.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:11\](DataTopic.markdown)/\[B2AI_TOPIC:11\](topics\/Environment.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:12\](DataTopic.markdown)/\[B2AI_TOPIC:12\](topics\/Gene.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:13\](DataTopic.markdown)/\[B2AI_TOPIC:13\](topics\/Genome.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:14\](DataTopic.markdown)/\[B2AI_TOPIC:14\](topics\/Geolocation.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:15\](DataTopic.markdown)/\[B2AI_TOPIC:15\](topics\/Image.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:16\](DataTopic.markdown)/\[B2AI_TOPIC:16\](topics\/Literature.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:17\](DataTopic.markdown)/\[B2AI_TOPIC:17\](topics\/Metabolome.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:18\](DataTopic.markdown)/\[B2AI_TOPIC:18\](topics\/mHealth.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:19\](DataTopic.markdown)/\[B2AI_TOPIC:19\](topics\/MicroscaleImaging.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:20\](DataTopic.markdown)/\[B2AI_TOPIC:20\](topics\/MolecularBiology.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:21\](DataTopic.markdown)/\[B2AI_TOPIC:21\](topics\/NetworksAndPathways.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:22\](DataTopic.markdown)/\[B2AI_TOPIC:22\](topics\/NeurologicImaging.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:23\](DataTopic.markdown)/\[B2AI_TOPIC:23\](topics\/Omics.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:24\](DataTopic.markdown)/\[B2AI_TOPIC:24\](topics\/OphthalmicImaging.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:25\](DataTopic.markdown)/\[B2AI_TOPIC:25\](topics\/Phenotype.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:26\](DataTopic.markdown)/\[B2AI_TOPIC:26\](topics\/Protein.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:27\](DataTopic.markdown)/\[B2AI_TOPIC:27\](topics\/ProteinStructureModel.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:28\](DataTopic.markdown)/\[B2AI_TOPIC:28\](topics\/Proteome.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:29\](DataTopic.markdown)/\[B2AI_TOPIC:29\](topics\/SDoH.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:30\](DataTopic.markdown)/\[B2AI_TOPIC:30\](topics\/SocialMedia.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:31\](DataTopic.markdown)/\[B2AI_TOPIC:31\](topics\/Survey.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:32\](DataTopic.markdown)/\[B2AI_TOPIC:32\](topics\/Text.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:33\](DataTopic.markdown)/\[B2AI_TOPIC:33\](topics\/Transcript.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:34\](DataTopic.markdown)/\[B2AI_TOPIC:34\](topics\/Transcriptome.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:35\](DataTopic.markdown)/\[B2AI_TOPIC:35\](topics\/Variant.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:36\](DataTopic.markdown)/\[B2AI_TOPIC:36\](topics\/Voice.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:37\](DataTopic.markdown)/\[B2AI_TOPIC:37\](topics\/Waveform.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:38\](DataTopic.markdown)/\[B2AI_TOPIC:38\](topics\/GlucoseMonitoring.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:39\](DataTopic.markdown)/\[B2AI_TOPIC:39\](topics\/ActivityMonitoring.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:40\](DataTopic.markdown)/\[B2AI_TOPIC:40\](topics\/Governance.markdown)/g' {} \;
 #	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/B2AI_USECASE\S*/\[&\]\(UseCase.markdown\)/g' -e 's/B2AI_ORG\S*/\[&\]\(Organization.markdown\)/g' -e 's/B2AI_TOPIC\S*/\[&\]\(DataTopic.markdown\)/g' -e 's/B2AI_SUBSTRATE\S*/\[&\]\(DataSubstrate.markdown\)/g' -e 's/B2AI_STANDARD\S*/\[&\]\(DataStandardOrTool.markdown\)/g'  {} \;
 
 
