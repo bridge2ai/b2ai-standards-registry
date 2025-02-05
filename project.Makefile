@@ -32,14 +32,13 @@ RUN_RENDER = $(RUN) linkml-render -s $(ROOT_SCHEMA)
 
 SERIAL_DATA_DIR = project/data/
 
-MAKE_HTML_LINKS = find $(SERIAL_DATA_DIR) -type f -name '*.tsv' -exec sed -i 's/http\S*/<a href="&">&<\/a>/g' {} \;
-MAKE_STD_LINKS = find $(SERIAL_DATA_DIR) -type f -name '*.tsv' -exec sed -i -e 's/B2AI_USECASE\S*/\[&\]\(UseCase.markdown\)/g' -e 's/B2AI_ORG\S*/\[&\]\(Organization.markdown\)/g' -e 's/B2AI_TOPIC\S*/\[&\]\(DataTopic.markdown\)/g' -e 's/B2AI_SUBSTRATE\S*/\[&\]\(DataSubstrate.markdown\)/g' -e 's/B2AI_STANDARD\S*/\[&\]\(DataStandardOrTool.markdown\)/g'  {} \;
-
 FORMATS = json tsv
 ## RENDERS = html markdown
 RENDERS = markdown
 
 ISSUE_TEMPLATE_DIR = .github/ISSUE_TEMPLATE/
+
+CONVERT_ENTRIES_TO_PAGES = $(shell python ./utils/convert_entries_to_pages.py $(DATA_DIR)/DataTopic.yaml $(DOCDIR)/topics)
 
 .PHONY: clean-schemas update-schemas validate all-data doc-data issue-templates
 
@@ -62,7 +61,7 @@ src/schema:
 # since we are making docs for data,
 # not the schema.
 # Mkdocs reads the tsv versions.
-site: all-data
+site: all-data doc-data-markdown
 	mkdocs build ;
 	
 # Use schemas to validate the data.
@@ -82,9 +81,6 @@ validate:
 # Make alternative serializations of data:
 # json and tsv for now
 # Output goes in project/data/
-# The TSV files get some added enrichment
-# with hyperlinks so they can be represented
-# in the docs
 all-data:
 	@echo "Removing any previously created serializations..."
 	rm -rf $(SERIAL_DATA_DIR) ;
@@ -105,12 +101,9 @@ all-data:
 			$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
 	done
-	$(MAKE_HTML_LINKS)
-	$(MAKE_STD_LINKS)
 
 # Prepare Markdown versions of data
-# Like all-data, but not really a conversion
-# as much as a reformatting
+# Also fix links so they go the right place(s)
 doc-data-markdown:
 	@echo "Making data docs with linkml-renderer..."
 	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
@@ -128,7 +121,64 @@ doc-data-markdown:
 			$(RUN_RENDER) -r $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
 	done
-
+	@echo "Setting up links..."
+# This is for top-level links, where there isn't a specific page 
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/(B2AI_USECASE:\([0-9]\+\))/(UseCase.markdown)/g' \
+		-e 's/(B2AI_ORG:\([0-9]\+\))/(Organization.markdown)/g' \
+		-e 's/(B2AI_TOPIC:\([0-9]\+\))/(DataTopic.markdown)/g' \
+		-e 's/(B2AI_SUBSTRATE:\([0-9]\+\))/(DataSubstrate.markdown)/g' \
+		-e 's/(B2AI_STANDARD:\([0-9]\+\))/(DataStandardOrTool.markdown)/g' {} \;
+# This is for revising w3id links, since we just want internal links
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-usecase-schema\/\([0-9]\+\)\)/UseCase.markdown/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-organization-schema\/\([0-9]\+\)\)/Organization.markdown/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datatopic-schema\/\([0-9]\+\)\)/DataTopic.markdown/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datasubstrate-schema\/\([0-9]\+\)\)/DataSubstrate.markdown/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datastandardortool-schema\/\([0-9]\+\)\)/DataStandardOrTool.markdown/g' {} \;
+# Now fix links where we want to map to a specific page
+# This is messy and would probably be better as a mapping between ID and page name
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/\[B2AI_TOPIC:1\](DataTopic.markdown)/\[B2AI_TOPIC:1\](topics\/Biology.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:2\](DataTopic.markdown)/\[B2AI_TOPIC:2\](topics\/Cell.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:3\](DataTopic.markdown)/\[B2AI_TOPIC:3\](topics\/Cheminformatics.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:4\](DataTopic.markdown)/\[B2AI_TOPIC:4\](topics\/ClinicalObservations.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:5\](DataTopic.markdown)/\[B2AI_TOPIC:5\](topics\/Data.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:6\](DataTopic.markdown)/\[B2AI_TOPIC:6\](topics\/Demographics.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:7\](DataTopic.markdown)/\[B2AI_TOPIC:7\](topics\/Disease.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:8\](DataTopic.markdown)/\[B2AI_TOPIC:8\](topics\/Drug.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:9\](DataTopic.markdown)/\[B2AI_TOPIC:9\](topics\/EHR.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:10\](DataTopic.markdown)/\[B2AI_TOPIC:10\](topics\/EKG.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:11\](DataTopic.markdown)/\[B2AI_TOPIC:11\](topics\/Environment.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:12\](DataTopic.markdown)/\[B2AI_TOPIC:12\](topics\/Gene.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:13\](DataTopic.markdown)/\[B2AI_TOPIC:13\](topics\/Genome.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:14\](DataTopic.markdown)/\[B2AI_TOPIC:14\](topics\/Geolocation.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:15\](DataTopic.markdown)/\[B2AI_TOPIC:15\](topics\/Image.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:16\](DataTopic.markdown)/\[B2AI_TOPIC:16\](topics\/Literature.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:17\](DataTopic.markdown)/\[B2AI_TOPIC:17\](topics\/Metabolome.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:18\](DataTopic.markdown)/\[B2AI_TOPIC:18\](topics\/mHealth.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:19\](DataTopic.markdown)/\[B2AI_TOPIC:19\](topics\/MicroscaleImaging.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:20\](DataTopic.markdown)/\[B2AI_TOPIC:20\](topics\/MolecularBiology.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:21\](DataTopic.markdown)/\[B2AI_TOPIC:21\](topics\/NetworksAndPathways.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:22\](DataTopic.markdown)/\[B2AI_TOPIC:22\](topics\/NeurologicImaging.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:23\](DataTopic.markdown)/\[B2AI_TOPIC:23\](topics\/Omics.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:24\](DataTopic.markdown)/\[B2AI_TOPIC:24\](topics\/OphthalmicImaging.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:25\](DataTopic.markdown)/\[B2AI_TOPIC:25\](topics\/Phenotype.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:26\](DataTopic.markdown)/\[B2AI_TOPIC:26\](topics\/Protein.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:27\](DataTopic.markdown)/\[B2AI_TOPIC:27\](topics\/ProteinStructureModel.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:28\](DataTopic.markdown)/\[B2AI_TOPIC:28\](topics\/Proteome.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:29\](DataTopic.markdown)/\[B2AI_TOPIC:29\](topics\/SDoH.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:30\](DataTopic.markdown)/\[B2AI_TOPIC:30\](topics\/SocialMedia.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:31\](DataTopic.markdown)/\[B2AI_TOPIC:31\](topics\/Survey.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:32\](DataTopic.markdown)/\[B2AI_TOPIC:32\](topics\/Text.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:33\](DataTopic.markdown)/\[B2AI_TOPIC:33\](topics\/Transcript.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:34\](DataTopic.markdown)/\[B2AI_TOPIC:34\](topics\/Transcriptome.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:35\](DataTopic.markdown)/\[B2AI_TOPIC:35\](topics\/Variant.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:36\](DataTopic.markdown)/\[B2AI_TOPIC:36\](topics\/Voice.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:37\](DataTopic.markdown)/\[B2AI_TOPIC:37\](topics\/Waveform.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:38\](DataTopic.markdown)/\[B2AI_TOPIC:38\](topics\/GlucoseMonitoring.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:39\](DataTopic.markdown)/\[B2AI_TOPIC:39\](topics\/ActivityMonitoring.markdown)/g' \
+		-e 's/\[B2AI_TOPIC:40\](DataTopic.markdown)/\[B2AI_TOPIC:40\](topics\/Governance.markdown)/g' {} \;
+# Finally, copy individual topic metadata to each topic page
+	@echo "Copying individual topic metadata to each topic page..."
+	$(CONVERT_ENTRIES_TO_PAGES)
 
 # Prepare new issue templates based off the schema.
 issue-templates:

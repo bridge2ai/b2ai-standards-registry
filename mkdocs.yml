@@ -1,15 +1,15 @@
 site_name: "Bridge2AI Standards Registry"
 theme:
   name: material
-  font: 
+  font:
     text: Inter
-  palette: 
+  palette:
 
     # Palette toggle for light mode
     - scheme: default
       primary: deep purple
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for dark mode
@@ -23,19 +23,58 @@ theme:
     - toc.integrate
 plugins:
   - search
-  - table-reader:
-      base_path: "config_dir"
-      data_path: "project/data"
-      search_page_directory: True
-      allow_missing_files: False
 nav:
-  - Index: index.md
-  - About: about.md
-  - Standards: DataStandardOrTool.markdown
-  - Use Cases: UseCase.markdown
-  - Substrates: DataSubstrate.markdown
-  - Topics: DataTopic.markdown
-  - Organizations: Organization.markdown
+  - Home: index.md
+  - Standards:
+      - All Standards: DataStandardOrTool.markdown
+  - Use Cases:
+      - All Use Cases: UseCase.markdown
+  - Substrates:
+      - All Substrates: DataSubstrate.markdown
+  - Topics:
+      - All Topics: DataTopic.markdown
+      - Biology: topics/Biology.markdown
+      - Cell: topics/Cell.markdown
+      - Cheminformatics: topics/Cheminformatics.markdown
+      - Clinical Observations: topics/ClinicalObservations.markdown
+      - Data: topics/Data.markdown
+      - Demographics: topics/Demographics.markdown
+      - Disease: topics/Disease.markdown
+      - Drug: topics/Drug.markdown
+      - EHR: topics/EHR.markdown
+      - EKG: topics/EKG.markdown
+      - Environment: topics/Environment.markdown
+      - Gene: topics/Gene.markdown
+      - Genome: topics/Genome.markdown
+      - Geolocation: topics/Geolocation.markdown
+      - Image: topics/Image.markdown
+      - Literature: topics/Literature.markdown
+      - Metabolome: topics/Metabolome.markdown
+      - mHealth: topics/mHealth.markdown
+      - Microscale Imaging: topics/MicroscaleImaging.markdown
+      - Molecular Biology: topics/MolecularBiology.markdown
+      - Networks and Pathways: topics/NetworksandPathways.markdown
+      - Neurologic Imaging: topics/NeurologicImaging.markdown
+      - Omics: topics/Omics.markdown
+      - Ophthalmic Imaging: topics/OphthalmicImaging.markdown
+      - Phenotype: topics/Phenotype.markdown
+      - Protein: topics/Protein.markdown
+      - Protein Structure Model: topics/ProteinStructureModel.markdown
+      - Proteome: topics/Proteome.markdown
+      - SDoH: topics/SDoH.markdown
+      - Social Media: topics/SocialMedia.markdown
+      - Survey: topics/Survey.markdown
+      - Text: topics/Text.markdown
+      - Transcript: topics/Transcript.markdown
+      - Transcriptome: topics/Transcriptome.markdown
+      - Variant: topics/Variant.markdown
+      - Voice: topics/Voice.markdown
+      - Waveform: topics/Waveform.markdown
+      - Glucose Monitoring: topics/GlucoseMonitoring.markdown
+      - Activity Monitoring: topics/ActivityMonitoring.markdown
+      - Governance: topics/Governance.markdown
+  - Organizations:
+      - All Organizations: Organization.markdown
 site_url: https://bridge2ai.github.io/b2ai-standards-registry
 repo_url: https://github.com/bridge2ai/b2ai-standards-registry
 markdown_extensions:
@@ -43,10 +82,8 @@ markdown_extensions:
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
-
-# Uncomment this block to enable use of Google Analytics. 
-# Replace the property value with your own ID.
-# extra:
-#   analytics:
-#     provider: google
-#     property: G-XXXXXXXXXX
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bridge2ai/b2ai-standards-registry
+      name: Standards Registry GitHub
