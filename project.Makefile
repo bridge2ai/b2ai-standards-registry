@@ -62,7 +62,7 @@ src/schema:
 # since we are making docs for data,
 # not the schema.
 # Mkdocs reads the tsv versions.
-site: all-data
+site: all-data doc-data-markdown
 	mkdocs build ;
 	
 # Use schemas to validate the data.
