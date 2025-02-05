@@ -1,15 +1,15 @@
 site_name: "Bridge2AI Standards Registry"
 theme:
   name: material
-  font: 
+  font:
     text: Inter
-  palette: 
+  palette:
 
     # Palette toggle for light mode
     - scheme: default
       primary: deep purple
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for dark mode
@@ -23,14 +23,8 @@ theme:
     - toc.integrate
 plugins:
   - search
-  - table-reader:
-      base_path: "config_dir"
-      data_path: "project/data"
-      search_page_directory: True
-      allow_missing_files: False
 nav:
   - Index: index.md
-  - About: about.md
   - Standards: DataStandardOrTool.markdown
   - Use Cases: UseCase.markdown
   - Substrates: DataSubstrate.markdown
@@ -43,10 +37,8 @@ markdown_extensions:
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
-
-# Uncomment this block to enable use of Google Analytics. 
-# Replace the property value with your own ID.
-# extra:
-#   analytics:
-#     provider: google
-#     property: G-XXXXXXXXXX
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bridge2ai/b2ai-standards-registry
+      name: Standards Registry GitHub
