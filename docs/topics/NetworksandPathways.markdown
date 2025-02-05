@@ -1,14 +1,14 @@
-**id:** B2AI_TOPIC:32
+**id:** B2AI_TOPIC:21
 
 **subclass of:**
 
 - [B2AI_TOPIC:5](../DataTopic.markdown)
 
-**edam id:** edam.data:2526
+**edam id:** edam.data:2600
 
-**ncit id:** ncit:C25704
+**ncit id:** ncit:C61377
 
-**description:** Any unstructured or semi-structured collection of written human language.
+**description:** Models of the interactions among biological entities or concepts.
 
 **contributor name:** Harry Caufield
 

@@ -38,6 +38,8 @@ RENDERS = markdown
 
 ISSUE_TEMPLATE_DIR = .github/ISSUE_TEMPLATE/
 
+CONVERT_ENTRIES_TO_PAGES = $(shell python ./utils/convert_entries_to_pages.py $(DATA_DIR)/DataTopic.yaml $(DOCDIR)/topics)
+
 .PHONY: clean-schemas update-schemas validate all-data doc-data issue-templates
 
 # Remove old versions of schemas.
@@ -174,8 +176,9 @@ doc-data-markdown:
 		-e 's/\[B2AI_TOPIC:38\](DataTopic.markdown)/\[B2AI_TOPIC:38\](topics\/GlucoseMonitoring.markdown)/g' \
 		-e 's/\[B2AI_TOPIC:39\](DataTopic.markdown)/\[B2AI_TOPIC:39\](topics\/ActivityMonitoring.markdown)/g' \
 		-e 's/\[B2AI_TOPIC:40\](DataTopic.markdown)/\[B2AI_TOPIC:40\](topics\/Governance.markdown)/g' {} \;
-#	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/B2AI_USECASE\S*/\[&\]\(UseCase.markdown\)/g' -e 's/B2AI_ORG\S*/\[&\]\(Organization.markdown\)/g' -e 's/B2AI_TOPIC\S*/\[&\]\(DataTopic.markdown\)/g' -e 's/B2AI_SUBSTRATE\S*/\[&\]\(DataSubstrate.markdown\)/g' -e 's/B2AI_STANDARD\S*/\[&\]\(DataStandardOrTool.markdown\)/g'  {} \;
-
+# Finally, copy individual topic metadata to each topic page
+	@echo "Copying individual topic metadata to each topic page..."
+	$(CONVERT_ENTRIES_TO_PAGES)
 
 # Prepare new issue templates based off the schema.
 issue-templates:
