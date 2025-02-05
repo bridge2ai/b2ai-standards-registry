@@ -32,9 +32,6 @@ RUN_RENDER = $(RUN) linkml-render -s $(ROOT_SCHEMA)
 
 SERIAL_DATA_DIR = project/data/
 
-MAKE_HTML_LINKS = find $(SERIAL_DATA_DIR) -type f -name '*.tsv' -exec sed -i 's/http\S*/<a href="&">&<\/a>/g' {} \;
-MAKE_STD_LINKS = find $(SERIAL_DATA_DIR) -type f -name '*.tsv' -exec sed -i -e 's/B2AI_USECASE\S*/\[&\]\(UseCase.markdown\)/g' -e 's/B2AI_ORG\S*/\[&\]\(Organization.markdown\)/g' -e 's/B2AI_TOPIC\S*/\[&\]\(DataTopic.markdown\)/g' -e 's/B2AI_SUBSTRATE\S*/\[&\]\(DataSubstrate.markdown\)/g' -e 's/B2AI_STANDARD\S*/\[&\]\(DataStandardOrTool.markdown\)/g'  {} \;
-
 FORMATS = json tsv
 ## RENDERS = html markdown
 RENDERS = markdown
@@ -82,9 +79,6 @@ validate:
 # Make alternative serializations of data:
 # json and tsv for now
 # Output goes in project/data/
-# The TSV files get some added enrichment
-# with hyperlinks so they can be represented
-# in the docs
 all-data:
 	@echo "Removing any previously created serializations..."
 	rm -rf $(SERIAL_DATA_DIR) ;
@@ -105,12 +99,9 @@ all-data:
 			$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
 	done
-	$(MAKE_HTML_LINKS)
-	$(MAKE_STD_LINKS)
 
 # Prepare Markdown versions of data
-# Like all-data, but not really a conversion
-# as much as a reformatting
+# Also fix links so they go the right place(s)
 doc-data-markdown:
 	@echo "Making data docs with linkml-renderer..."
 	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
@@ -128,6 +119,20 @@ doc-data-markdown:
 			$(RUN_RENDER) -r $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
 		done \
 	done
+	@echo "Setting up links..."
+# This is for top-level links, where there isn't a specific page 
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/(B2AI_USECASE:\([0-9]\+\))/(UseCase.markdown)/g' \
+		-e 's/(B2AI_ORG:\([0-9]\+\))/(Organization.markdown)/g' \
+		-e 's/(B2AI_TOPIC:\([0-9]\+\))/(DataTopic.markdown)/g' \
+		-e 's/(B2AI_SUBSTRATE:\([0-9]\+\))/(DataSubstrate.markdown)/g' \
+		-e 's/(B2AI_STANDARD:\([0-9]\+\))/(DataStandardOrTool.markdown)/g' {} \;
+# This is for revising w3id links, since we just want internal links
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-usecase-schema\/\([0-9]\+\)\)/\(UseCase.markdown\)/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-organization-schema\/\([0-9]\+\)\)/\(Organization.markdown\)/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datatopic-schema\/\([0-9]\+\)\)/\(DataTopic.markdown\)/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datasubstrate-schema\/\([0-9]\+\)\)/\(DataSubstrate.markdown\)/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datastandardortool-schema\/\([0-9]\+\)\)/\(DataStandardOrTool.markdown\)/g' {} \;
+#	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/B2AI_USECASE\S*/\[&\]\(UseCase.markdown\)/g' -e 's/B2AI_ORG\S*/\[&\]\(Organization.markdown\)/g' -e 's/B2AI_TOPIC\S*/\[&\]\(DataTopic.markdown\)/g' -e 's/B2AI_SUBSTRATE\S*/\[&\]\(DataSubstrate.markdown\)/g' -e 's/B2AI_STANDARD\S*/\[&\]\(DataStandardOrTool.markdown\)/g'  {} \;
 
 
 # Prepare new issue templates based off the schema.
