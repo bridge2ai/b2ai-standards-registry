@@ -1,8 +1,8 @@
 # Bridge2AI Standards Registry and Use Case Catalog
 
-Bridge2AI Standards Registry data models, API specification, and other documentation.
+This is the Bridge2AI Standards Registry, a collection of data standards used in biomedical research and data science, with an emphasis on standards used to prepare data for artificial intelligence-driven applications.
 
-Data objects are defined according to the [standards-schemas](https://github.com/bridge2ai/standards-schemas).
+⚠ [Please use this form to suggest an addition.](https://github.com/bridge2ai/b2ai-standards-registry/issues/new?template=newEntity.yml)
 
 ## Purpose
 
@@ -37,7 +37,9 @@ Our Standards Registry goals are threefold:
 
 The Standards Registry contains three main components: the list of standards and tools, the list of use cases, and the collection of associated metadata types (spanning organizations, data topics, and data substrates).
 
-For a quick overview of each of these components, see the following tab-delimited files:
+For a quick overview of each of these components, see the documentation pages here: https://bridge2ai.github.io/b2ai-standards-registry/
+
+You may also reference the following tab-delimited files:
 
 | Component | Location |
 |-----------|----------|
@@ -47,7 +49,15 @@ For a quick overview of each of these components, see the following tab-delimite
 | Data Topics                 | [DataTopic.tsv](project/data/DataTopic.tsv)                           |
 | Organizations               | [Organization.tsv](project/data/Organization.tsv)                     |
 
+### Submitting a New Standard
+
+To submit a new data standard or other entry to the Registry (including data topics, organizations, or others), please open an issue on this repository using this form: https://github.com/bridge2ai/b2ai-standards-registry/issues/new?template=newEntity.yml
+
 ## Developer Documentation
+
+### Data Model
+
+Data objects are defined according to the [standards-schemas](https://github.com/bridge2ai/standards-schemas).
 
 ### Project Generation
 
@@ -64,8 +74,6 @@ Use the `make` command to generate project artifacts:
 ## Accessing Registry Data
 
 Please see the [src/data](src/data) directory for data in YAML format or the [project/data](project/data) directory for other formats.
-
-*TBD* - We will enable programmatic access to the Registry via standardized APIs to query standards metadata, elements, and validation rules.
 
 <details>
 <summary>References</summary>
