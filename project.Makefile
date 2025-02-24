@@ -1,5 +1,5 @@
 ## Add your own custom Makefile targets here
-SHELL=/bin/bash
+SHELL := /usr/bin/env bash
 
 SCHEMA_FILES := standards_datastandardortool_schema.yaml \
 standards_datasubstrate_schema.yaml \
@@ -63,7 +63,7 @@ src/schema:
 # Mkdocs reads the tsv versions.
 site: all-data doc-data-markdown
 	mkdocs build ;
-	
+
 # Use schemas to validate the data.
 # could use IN ZIP_LISTS if this was CMake, but it isn't
 # so we do a somewhat messy array instead
