@@ -16816,6 +16816,8 @@ data_standardortools_collection:
       - B2AI_ORG:117
     concerns_data_topic:
       - B2AI_TOPIC:36
+    related_to:
+      - B2AI_STANDARD:887
     purpose_detail: >-
       Praat is software for working with voice data, including speech analysis,
       segmentation, and synthesis.
@@ -16827,3 +16829,28 @@ data_standardortools_collection:
     contributor_github_name: caufieldjh
     contributor_orcid: ORCID:0000-0001-5705-7831
     contribution_date: "2025-02-16"
+  - id: B2AI_STANDARD:887
+    name: Parselmouth
+    category: B2AI_STANDARD:SoftwareOrTool
+    description: Parselmouth software
+    has_relevant_organization:
+      - B2AI_ORG:117
+    concerns_data_topic:
+      - B2AI_TOPIC:36
+    related_to:
+      - B2AI_STANDARD:886
+    purpose_detail: >-
+      Parselmouth is a Python library for working with Praat software.
+      Parselmouth directly accesses Praat's C/C++ code (which means
+      the algorithms and their output are exactly the same as in Praat)
+      and provides efficient access to the program's data, but also
+      provides an interface that looks no different from any other
+      Python library.
+    is_open: true
+    requires_registration: false
+    url: https://parselmouth.readthedocs.io/en/stable/
+    formal_specification: https://github.com/YannickJadoul/Parselmouth
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    contribution_date: "2025-03-05"
