@@ -61,6 +61,8 @@ Data objects are defined according to the [standards-schemas](https://github.com
 
 ### Requirements
 
+#### Bash
+
 This project requires **GNU Make** and **Bash**. Ensure you have a recent version of Bash installed:
 
 * **Linux**: Bash is usually pre-installed
@@ -80,6 +82,12 @@ bash --version
 
 If you encounter issues, ensure your system is using the correct version of Bash.
 
+#### Poetry
+
+You must install [poetry](https://python-poetry.org/docs/#installation).
+
+`poetry install`: initiate poetry environment for development and build environment
+
 ### Project Generation
 
 Use the `make` command to generate project artifacts:
@@ -91,6 +99,21 @@ Use the `make` command to generate project artifacts:
 * `make validate`: validate the data
 * `make site`: prepare data documentation site
 * `make deploy`: deploys site
+
+### Data Model Workflow
+
+In order to update the schema, you must first do this in the
+[standards-schemas](https://github.com/bridge2ai/standards-schemas).
+
+Once this work is merged into the `main` branch, you should run the following:
+
+```shell
+make update-schemas
+```
+
+This will update the source yaml files in [src/schema](./src/schema/).
+
+Afterwards, you will be able to modify the source yaml files in [src/data](./src/data/).
 
 ## Accessing Registry Data
 
