@@ -208,6 +208,7 @@ class TableSchema(Enum):
             ColumnName.HAS_TRAINING_RESOURCE,
             ColumnName.SUBCLASS_OF,
             ColumnName.CONTRIBUTION_DATE,
+            ColumnName.RELATED_TO,
         ],
     }
     DataSubstrate = {
