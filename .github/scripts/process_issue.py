@@ -355,7 +355,7 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
 
     This is done by filtering on issues containing the "New" label.
     For issues with the label but not containing the expected data,
-    
+
     :param token: The GitHub OAuth token. Not required, but if given, will let
     you make many more queries before getting rate limited.
     :returns: A mapping of issue identifiers to a dict
@@ -491,7 +491,7 @@ def main(dry: bool, github: bool, force: bool):
         with open(data_path, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
-            # TODO: instead of PLACEHOLDER, find the id of the 
+            # TODO: instead of PLACEHOLDER, find the id of the
             # previous entity and +1
             this_yaml[collection_name].append({"id":"PLACEHOLDER",
                                                 "category":resource["category"],

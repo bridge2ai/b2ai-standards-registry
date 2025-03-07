@@ -88,6 +88,20 @@ You must install [poetry](https://python-poetry.org/docs/#installation).
 
 `poetry install`: initiate poetry environment for development and build environment
 
+#### Pre-commit
+
+We use [pre-commit](https://pre-commit.com/#usage>) to run conformance tests before
+commits. This provides checks for:
+
+* Code format and style
+* Added large files
+
+Before your first commit, run:
+
+```shell
+pre-commit install
+```
+
 ### Project Generation
 
 Use the `make` command to generate project artifacts:

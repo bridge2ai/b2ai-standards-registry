@@ -18,4 +18,4 @@ Our Standards Registry goals are threefold:
 
 1. Ensure integration of the standards development lifecycle within the context of B2AI activities.
 2. Narrow the large space of standards to what is relevant.
-3. Provide computational access and utilities for schemas and standards, rather than links to often outdated PDFs. 
+3. Provide computational access and utilities for schemas and standards, rather than links to often outdated PDFs.
