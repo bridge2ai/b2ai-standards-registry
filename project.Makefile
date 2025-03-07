@@ -122,7 +122,7 @@ doc-data-markdown:
 		done \
 	done
 	@echo "Setting up links..."
-# This is for top-level links, where there isn't a specific page 
+# This is for top-level links, where there isn't a specific page
 	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/(B2AI_USECASE:\([0-9]\+\))/(UseCase.markdown)/g' \
 		-e 's/(B2AI_ORG:\([0-9]\+\))/(Organization.markdown)/g' \
 		-e 's/(B2AI_TOPIC:\([0-9]\+\))/(DataTopic.markdown)/g' \
