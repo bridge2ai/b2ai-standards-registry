@@ -30,7 +30,7 @@ This is particularly useful to do for resources used by GCs but not yet represen
 2. When a relevant entity is mentioned, check if it exists in the registry already. The easiest way to do so (for now) is to use the search bar at the top of [these data docs](https://bridge2ai.github.io/b2ai-standards-registry/). This will tell you if a term or name is used anywhere in a table, but you will need to search in the table to find the specific entry.
 3. If it exists, that's great! If not, create a new issue to add it. The issue form will ask if this entity is related to another. Please put the ID of the corresponding GC (see Table 1 above) in this field.
 
-## Connecting Standards and Tools to Organizations
+## Connect Standards and Tools to Organizations
 
 A connection between an standard/tool and an organization (e.g., Precision Public Health [B2AI_ORG:117] uses the Praat software [B2AI_STANDARD:886]) can be defined within the DataStandardOrTool table.
 
@@ -39,5 +39,17 @@ A connection between an standard/tool and an organization (e.g., Precision Publi
     ```yaml
     has_relevant_organization:
       - B2AI_ORG:117
+    ```
+3. Save your changes. Open a PR to add them to the repository.
+
+## Connect Standards and Tools to other Standards and Tools
+
+A connection between an standard/tool and another standard or tool (e.g., the Parselmouth software [B2AI_STANDARD:887] is an interface for the Praat software [B2AI_STANDARD:886]) can be defined within the DataStandardOrTool table.
+
+1. Identify a connection between a standard/tool and another. This does not include relationships in which one standard or tool is purely a part of another or one of several iterative versions, but two entities may be related in a variety of other ways.
+2. Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the related standard or tool to the `related_to` field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:
+    ```yaml
+    related_to:
+      - B2AI_STANDARD:887
     ```
 3. Save your changes. Open a PR to add them to the repository.
