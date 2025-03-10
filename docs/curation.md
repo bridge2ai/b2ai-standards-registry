@@ -6,6 +6,8 @@ The "source of truth" data for the Registry is all located in the `b2ai-standard
 
 Each YAML document in this directory is a single data table named for its contents (e.g., every item in `DataStandardOrTool.yaml` is an object of the `DataStandardOrTool` class in the [corresponding schema](https://github.com/bridge2ai/b2ai-standards-registry/blob/main/src/schema/standards_datastandardortool_schema.yaml)).
 
+A list of all IDs and names of entities in the Registry [may be found here](https://github.com/bridge2ai/b2ai-standards-registry/blob/main/src/all_ids.tsv).
+
 Some tasks refer to the dataset documentation for the Grand Challenges (GCs).
 
 Table 1 contains the names of each GC, its identifier, and links to each its dataset documentation.
@@ -27,7 +29,7 @@ To add a new entity (e.g., a standard, tool, or organization) to the Registry, u
 
 This is particularly useful to do for resources used by GCs but not yet represented in the registry. To curate these entities:
 1. Visit one of the data documentation pages linked in the table above.
-2. When a relevant entity is mentioned, check if it exists in the registry already. The easiest way to do so (for now) is to use the search bar at the top of [these data docs](https://bridge2ai.github.io/b2ai-standards-registry/). This will tell you if a term or name is used anywhere in a table, but you will need to search in the table to find the specific entry.
+2. When a relevant entity is mentioned, check if it exists in the registry already. The easiest way to do so (for now) is to search the [list of all identifiers](https://github.com/bridge2ai/b2ai-standards-registry/blob/main/src/all_ids.tsv).
 3. If it exists, that's great! If not, create a new issue to add it. The issue form will ask if this entity is related to another. Please put the ID of the corresponding GC (see Table 1 above) in this field.
 
 ## Connect Standards and Tools to Organizations
