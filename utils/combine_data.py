@@ -24,6 +24,6 @@ for filename in os.listdir(directory):
 
 # Write the combined data to a TSV file
 with open(output_file, 'w', newline='') as tsvfile:
-    writer = csv.writer(tsvfile, delimiter='\t')
+    writer = csv.writer(tsvfile, delimiter='\t', lineterminator='\n')
     writer.writerow(['id', 'name'])  # Write header
     writer.writerows(combined_data)
