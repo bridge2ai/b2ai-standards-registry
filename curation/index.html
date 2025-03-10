@@ -786,7 +786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../topics/NetworksandPathways/" class="md-nav__link">
+      <a href="../topics/NetworksAndPathways/" class="md-nav__link">
         Networks and Pathways
       </a>
     </li>
@@ -1181,35 +1181,47 @@
 <p>You can help with the following tasks:</p>
 <h2 id="add-new-entities">Add New Entities</h2>
 <p>To add a new entity (e.g., a standard, tool, or organization) to the Registry, use <a href="https://github.com/bridge2ai/b2ai-standards-registry/issues/new?template=newEntity.yml">this GitHub form</a> to create a new issue.</p>
-<p>This is particularly useful to do for resources used by GCs but not yet represented in the registry. To curate these entities:
-1. Visit one of the data documentation pages linked in the table above.
-2. When a relevant entity is mentioned, check if it exists in the registry already. The easiest way to do so (for now) is to search the <a href="https://github.com/bridge2ai/b2ai-standards-registry/blob/main/src/all_ids.tsv">list of all identifiers</a>.
-3. If it exists, that's great! If not, create a new issue to add it. The issue form will ask if this entity is related to another. Please put the ID of the corresponding GC (see Table 1 above) in this field.</p>
+<p>This is particularly useful to do for resources used by GCs but not yet represented in the registry. To curate these entities:</p>
+<ol>
+<li>
+<p>Visit one of the data documentation pages linked in the table above.</p>
+</li>
+<li>
+<p>When a relevant entity is mentioned, check if it exists in the registry already. The easiest way to do so (for now) is to search the <a href="https://github.com/bridge2ai/b2ai-standards-registry/blob/main/src/all_ids.tsv">list of all identifiers</a>.</p>
+</li>
+<li>
+<p>If it exists, that's great! If not, create a new issue to add it. The issue form will ask if this entity is related to another. Please put the ID of the corresponding GC (see Table 1 above) in this field.</p>
+</li>
+</ol>
 <h2 id="connect-standards-and-tools-to-organizations">Connect Standards and Tools to Organizations</h2>
 <p>A connection between an standard/tool and an organization (e.g., Precision Public Health [B2AI_ORG:117] uses the Praat software [B2AI_STANDARD:886]) can be defined within the DataStandardOrTool table.</p>
 <ol>
-<li>Identify a connection between an entity and an organization. A common and informative type is a standard or tool used by one of the Bridge2AI GCs, so consult their data documentation.</li>
-<li>Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the organization to the <code>has_relevant_organization</code> field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:
-    ```yaml
-    has_relevant_organization:<ul>
-<li>B2AI_ORG:117
-```</li>
-</ul>
+<li>
+<p>Identify a connection between an entity and an organization. A common and informative type is a standard or tool used by one of the Bridge2AI GCs, so consult their data documentation.</p>
 </li>
-<li>Save your changes. Open a PR to add them to the repository.</li>
+<li>
+<p>Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the organization to the <code>has_relevant_organization</code> field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:</p>
+<p>has_relevant_organization:
+  - B2AI_ORG:117</p>
+</li>
+<li>
+<p>Save your changes. Open a PR to add them to the repository.</p>
+</li>
 </ol>
 <h2 id="connect-standards-and-tools-to-other-standards-and-tools">Connect Standards and Tools to other Standards and Tools</h2>
 <p>A connection between an standard/tool and another standard or tool (e.g., the Parselmouth software [B2AI_STANDARD:887] is an interface for the Praat software [B2AI_STANDARD:886]) can be defined within the DataStandardOrTool table.</p>
 <ol>
-<li>Identify a connection between a standard/tool and another. This does not include relationships in which one standard or tool is purely a part of another or one of several iterative versions, but two entities may be related in a variety of other ways.</li>
-<li>Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the related standard or tool to the <code>related_to</code> field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:
-    ```yaml
-    related_to:<ul>
-<li>B2AI_STANDARD:887
-```</li>
-</ul>
+<li>
+<p>Identify a connection between a standard/tool and another. This does not include relationships in which one standard or tool is purely a part of another or one of several iterative versions, but two entities may be related in a variety of other ways.</p>
 </li>
-<li>Save your changes. Open a PR to add them to the repository.</li>
+<li>
+<p>Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the related standard or tool to the <code>related_to</code> field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:</p>
+<p>related_to:
+  - B2AI_STANDARD:887</p>
+</li>
+<li>
+<p>Save your changes. Open a PR to add them to the repository.</p>
+</li>
 </ol>
 
 
