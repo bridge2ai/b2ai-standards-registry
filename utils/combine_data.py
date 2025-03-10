@@ -5,7 +5,7 @@ import yaml
 import csv
 
 # Directory containing YAML files
-directory = '../src/data/'
+directory = './src/data/'
 
 # Output TSV file
 output_file = 'all_ids.tsv'
