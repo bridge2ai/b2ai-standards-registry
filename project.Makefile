@@ -39,6 +39,7 @@ RENDERS = markdown
 ISSUE_TEMPLATE_DIR = .github/ISSUE_TEMPLATE/
 
 CONVERT_ENTRIES_TO_PAGES = $(shell python ./utils/convert_entries_to_pages.py $(DATA_DIR)/DataTopic.yaml $(DOCDIR)/topics)
+COMBINE_DATA = $(shell python ./utils/combine_data.py)
 
 .PHONY: clean-schemas update-schemas validate all-data doc-data issue-templates
 
@@ -57,11 +58,15 @@ src/schema:
 		wget -N -P src/schema $${url} ; \
 	done
 
+src/all_ids.tsv:
+	$(COMBINE_DATA)
+	mv all_ids.tsv src/all_ids.tsv
+
 # This replaces the standard linkml doc builder
 # since we are making docs for data,
 # not the schema.
 # Mkdocs reads the tsv versions.
-site: all-data doc-data-markdown
+site: all-data doc-data-markdown src/all_ids.tsv
 	mkdocs build ;
 
 # Use schemas to validate the data.
