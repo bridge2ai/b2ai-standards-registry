@@ -28,8 +28,11 @@ You can help with the following tasks:
 To add a new entity (e.g., a standard, tool, or organization) to the Registry, use [this GitHub form](https://github.com/bridge2ai/b2ai-standards-registry/issues/new?template=newEntity.yml) to create a new issue.
 
 This is particularly useful to do for resources used by GCs but not yet represented in the registry. To curate these entities:
+
 1. Visit one of the data documentation pages linked in the table above.
+
 2. When a relevant entity is mentioned, check if it exists in the registry already. The easiest way to do so (for now) is to search the [list of all identifiers](https://github.com/bridge2ai/b2ai-standards-registry/blob/main/src/all_ids.tsv).
+
 3. If it exists, that's great! If not, create a new issue to add it. The issue form will ask if this entity is related to another. Please put the ID of the corresponding GC (see Table 1 above) in this field.
 
 ## Connect Standards and Tools to Organizations
@@ -37,11 +40,12 @@ This is particularly useful to do for resources used by GCs but not yet represen
 A connection between an standard/tool and an organization (e.g., Precision Public Health [B2AI_ORG:117] uses the Praat software [B2AI_STANDARD:886]) can be defined within the DataStandardOrTool table.
 
 1. Identify a connection between an entity and an organization. A common and informative type is a standard or tool used by one of the Bridge2AI GCs, so consult their data documentation.
+
 2. Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the organization to the `has_relevant_organization` field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:
-    ```yaml
+
     has_relevant_organization:
       - B2AI_ORG:117
-    ```
+
 3. Save your changes. Open a PR to add them to the repository.
 
 ## Connect Standards and Tools to other Standards and Tools
@@ -49,9 +53,11 @@ A connection between an standard/tool and an organization (e.g., Precision Publi
 A connection between an standard/tool and another standard or tool (e.g., the Parselmouth software [B2AI_STANDARD:887] is an interface for the Praat software [B2AI_STANDARD:886]) can be defined within the DataStandardOrTool table.
 
 1. Identify a connection between a standard/tool and another. This does not include relationships in which one standard or tool is purely a part of another or one of several iterative versions, but two entities may be related in a variety of other ways.
+
 2. Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the related standard or tool to the `related_to` field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:
-    ```yaml
+
+
     related_to:
       - B2AI_STANDARD:887
-    ```
+
 3. Save your changes. Open a PR to add them to the repository.
