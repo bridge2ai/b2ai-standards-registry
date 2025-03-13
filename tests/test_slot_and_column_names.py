@@ -1,4 +1,5 @@
 from linkml_runtime.loaders import yaml_loader
+from pathlib import Path
 import subprocess
 
 DATA_DIR = "src/data"
@@ -10,6 +11,26 @@ def _get_modified_yaml_files():
 	result = subprocess.run(["git", "diff", "--name-only", "origin/main"], capture_output=True, text=True)
 	modified_files = [file for file in result.stdout.splitlines() if file.endswith(".yaml") and DATA_DIR in file]
 	return modified_files
+
+def get_modified_slots(file_path):
+	"""Extract only modified slot entries from a YAML file using Git."""
+	result = subprocess.run(["git", "diff", "origin/main", "-U0", file_path], capture_output=True, text=True)
+	modified_lines = result.stdout.splitlines()
+
+	modified_slots = set()
+	for line in modified_lines:
+		if line.startswith("+") and not line.startswith("+++"):  # Added lines only
+			print(line)
+	# 		try:
+	# 			data = yaml_loader.load(line[1:])  # Load without '+'
+	# 			print(data)
+	# 		# 	if isinstance(data, dict) and "slots" in data:
+	# 		# 		modified_slots.update(data["slots"])
+	# 		except yaml_loader.YAMLError:
+	# 				pass  # Ignore parsing errors (since diff output may contain non-YAML changes)
+	
+	# # return modified_slots
+	# return ""
 
 
 def test_slot_and_column_names():
@@ -24,7 +45,12 @@ def test_slot_and_column_names():
 	# Parse the lines for added slot names
 	# Add new slots to the dict for the appropriate file (table)
 	modified_files = _get_modified_yaml_files()
-	added_slots = {}
+	files_with_added_slots = {}
+  
+	for file in modified_files:
+		table_name = Path(file).stem
+		files_with_added_slots[table_name] = get_modified_slots(file)
+	
 
 
 	# PART 2: Check if the new slots were added to column definitions in modify_snyapse_schema.py
