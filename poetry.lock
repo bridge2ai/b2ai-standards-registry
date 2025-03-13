@@ -1097,14 +1097,14 @@ tabulate = ">=0.8.7"
 
 [[package]]
 name = "more-itertools"
-version = "9.1.0"
+version = "10.6.0"
 description = "More routines for operating on iterables, beyond itertools"
 optional = false
-python-versions = ">=3.7"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "more-itertools-9.1.0.tar.gz", hash = "sha256:cabaa341ad0389ea83c17a94566a53ae4c9d07349861ecb14dc6d0345cf9ac5d"},
-    {file = "more_itertools-9.1.0-py3-none-any.whl", hash = "sha256:d2bc7f02446e86a68911e58ded76d6561eea00cddfb2a91e7019bbb586c799f3"},
+    {file = "more-itertools-10.6.0.tar.gz", hash = "sha256:2cd7fad1009c31cc9fb6a035108509e6547547a7a738374f10bd49a09eb3ee3b"},
+    {file = "more_itertools-10.6.0-py3-none-any.whl", hash = "sha256:6eb054cb4b6db1473f6e15fcc676a08e4732548acd47c708f0e179c2c7c01e89"},
 ]
 
 [[package]]
@@ -1687,31 +1687,6 @@ jsonasobj = ">=1.2.1"
 pyjsg = ">=0.11.10"
 rdflib-shim = "*"
 shexjsg = ">=0.8.1"
-
-[[package]]
-name = "pystow"
-version = "0.5.6"
-description = "Easily pick a place to store data for your python package."
-optional = false
-python-versions = ">=3.7"
-groups = ["main"]
-files = [
-    {file = "pystow-0.5.6-py3-none-any.whl", hash = "sha256:3a44349dccc1260238e8f4c8f2dec5d72e2952a126fb897df663e94e6a910c86"},
-    {file = "pystow-0.5.6.tar.gz", hash = "sha256:db567e82a5b7aea34cdcf4ae00ba822cd64a51ae2f465b1995599676e4cdbff2"},
-]
-
-[package.dependencies]
-click = "*"
-requests = "*"
-tqdm = "*"
-
-[package.extras]
-aws = ["boto3"]
-docs = ["sphinx (<8.0)", "sphinx-autodoc-typehints", "sphinx-automodapi", "sphinx-click", "sphinx-rtd-theme"]
-pandas = ["pandas"]
-rdf = ["rdflib"]
-tests = ["coverage", "pytest", "requests-file"]
-xml = ["lxml"]
 
 [[package]]
 name = "pytest"
@@ -2444,28 +2419,6 @@ files = [
 ]
 
 [[package]]
-name = "tqdm"
-version = "4.67.1"
-description = "Fast, Extensible Progress Meter"
-optional = false
-python-versions = ">=3.7"
-groups = ["main"]
-files = [
-    {file = "tqdm-4.67.1-py3-none-any.whl", hash = "sha256:26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2"},
-    {file = "tqdm-4.67.1.tar.gz", hash = "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"},
-]
-
-[package.dependencies]
-colorama = {version = "*", markers = "platform_system == \"Windows\""}
-
-[package.extras]
-dev = ["nbval", "pytest (>=6)", "pytest-asyncio (>=0.24)", "pytest-cov", "pytest-timeout"]
-discord = ["requests"]
-notebook = ["ipywidgets (>=6)"]
-slack = ["slack-sdk"]
-telegram = ["requests"]
-
-[[package]]
 name = "types-python-dateutil"
 version = "2.9.0.20241206"
 description = "Typing stubs for python-dateutil"
@@ -2702,4 +2655,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.9"
-content-hash = "da428829e19c735bb06843083745d89a55ba839735d3ff19cb41224824dfce76"
+content-hash = "e72dcd216ce98b2694f31fbbcd91661751d92589136c82d79e9ef84fd6b1e231"

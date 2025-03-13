@@ -53,35 +53,12 @@ from uuid import uuid4
 
 import click
 import more_itertools
-import pystow
 import requests
 import yaml
 
 logger = logging.getLogger(__name__)
 
-MAPPING = {
-    "Entity Type": "entity_type",
-    "Category": "category",
-    "Name": "name",
-    "Description": "description",
-    "Subclass_Of": "subclass_of",
-    "Related_To": "related_to",
-    "Contributor ORCID": "contributor_orcid",
-    "Contributor Name": "contributor_name",
-    "Contributor GitHub": "contributor_github",
-    "Contributor Email": "contributor_email",
-}
-
 DATA_DIR = "src/data/"
-
-DATA_PATHS = {
-    "Data Standard or Tool":"DataStandardOrTool.yaml",
-    "Data Substrate":"DataSubstrate.yaml",
-    "Data Topic":"DataTopic.yaml",
-    "Organization":"Organization.yaml",
-    "Use Case":"UseCase.yaml",
-}
-
 COLLECTION_NAMES = {
     "Data Standard or Tool":"data_standardortools_collection",
     "Data Substrate":"data_substrates_collection",
@@ -96,13 +73,8 @@ ORCID_HTTPS_PREFIX = "https://orcid.org/"
 MAIN_BRANCH = "main"
 
 
-def has_token() -> bool:
-    """Check if there is a github token available."""
-    return pystow.get_config("github", "token") is not None
-
-
 def get_issues_with_pr(
-    issue_ids: Iterable[int], token: Optional[str] = None
+    issue_ids: Iterable[int], token: str
 ) -> Set[int]:
     """Get the set of issues that are already closed by a pull request."""
     pulls = list_pulls(owner="bridge2ai", repo="b2ai-standards-registry", token=token)
@@ -113,19 +85,13 @@ def get_issues_with_pr(
     }
 
 
-def get_headers(token: Optional[str] = None):
+def get_headers(token: str):
     """Get GitHub headers."""
-    headers = {
-        "Accept": "application/vnd.github.v3+json",
-    }
-    token = pystow.get_config("github", "token", passthrough=token)
-    if token:
-        headers["Authorization"] = f"token {token}"
-    return headers
+    return {"Authorization": f"token {token}"}
 
 
 def requests_get(
-    path: str, token: Optional[str] = None, params: Optional[Mapping[str, Any]] = None
+    path: str, token: str, params: Optional[Mapping[str, Any]] = None
 ):
     """Send a get request to the GitHub API."""
     path = path.lstrip("/")
@@ -140,13 +106,12 @@ def list_pulls(
     *,
     owner: str,
     repo: str,
-    token: Optional[str] = None,
+    token: str,
 ):
     """List pull requests.
     :param owner: The name of the owner/organization for the repository.
     :param repo: The name of the repository.
-    :param token: The GitHub OAuth token. Not required, but if given, will let
-        you make many more queries before getting rate limited.
+    :param token: The GitHub OAuth token
     :returns: JSON response from GitHub
     """
     return requests_get(f"repos/{owner}/{repo}/pulls", token=token)
@@ -157,7 +122,7 @@ def open_b2ai_standards_registry_pull_request(
     title: str,
     head: str,
     body: Optional[str] = None,
-    token: Optional[str] = None,
+    token: str,
 ):
     """Open a pull request to b2ai-standards-registry via :func:`open_pull_request`."""
     return open_pull_request(
@@ -179,7 +144,7 @@ def open_pull_request(
     head: str,
     base: str,
     body: Optional[str] = None,
-    token: Optional[str] = None,
+    token: str,
 ):
     """Open a pull request.
     :param owner: The name of the owner/organization for the repository.
@@ -188,8 +153,7 @@ def open_pull_request(
     :param head: name of the source branch
     :param base: name of the target branch
     :param body: body of the PR (optional)
-    :param token: The GitHub OAuth token. Not required, but if given, will let
-        you make many more queries before getting rate limited.
+    :param token: The GitHub OAuth token
     :returns: JSON response from GitHub
     """
     data = {
@@ -208,15 +172,11 @@ def open_pull_request(
 
 def get_b2ai_standards_registry_form_data(
     labels: Iterable[str],
-    token: Optional[str] = None,
-    remapping: Optional[Mapping[str, str]] = None,
+    token: str,
 ) -> Mapping[int, Dict[str, str]]:
     """Get parsed form data from issues on b2ai_standards_registry matching the given labels via :func:get_form_data`.
     :param labels: Labels to match
-    :param token: The GitHub OAuth token. Not required, but if given, will let
-        you make many more queries before getting rate limited.
-    :param remapping: A dictionary for mapping the headers of the form into new values. This is useful since
-        the headers themselves will be human readable text, and not nice keys for JSON data
+    :param token: The GitHub OAuth token
     :return: A mapping from GitHub issue issue data
     """
     return get_form_data(
@@ -224,7 +184,6 @@ def get_b2ai_standards_registry_form_data(
         repo="b2ai-standards-registry",
         labels=labels,
         token=token,
-        remapping=remapping,
     )
 
 
@@ -232,17 +191,13 @@ def get_form_data(
     owner: str,
     repo: str,
     labels: Iterable[str],
-    token: Optional[str] = None,
-    remapping: Optional[Mapping[str, str]] = None,
+    token: str,
 ) -> Mapping[int, Dict[str, str]]:
     """Get parsed form data from issues matching the given labels.
     :param owner: The name of the owner/organization for the repository.
     :param repo: The name of the repository.
     :param labels: Labels to match
-    :param token: The GitHub OAuth token. Not required, but if given, will let
-        you make many more queries before getting rate limited.
-    :param remapping: A dictionary for mapping the headers of the form into new values. This is useful since
-        the headers themselves will be human readable text, and not nice keys for JSON data
+    :param token: The GitHub OAuth token
     :return: A mapping from github issue to issue data
     """
     labels = labels if isinstance(labels, str) else ",".join(labels)
@@ -260,20 +215,13 @@ def get_form_data(
         for issue in res_json
         if "pull_request" not in issue
     }
-    if remapping:
-        rv = {issue: remap(body_data, remapping) for issue, body_data in rv.items()}
+    rv = {issue: remap(body_data) for issue, body_data in rv.items()}
     return rv
 
 
-def remap(data: Dict[str, Any], mapping: Mapping[str, str]) -> Dict[str, Any]:
-    """Map the keys in dictionary ``d`` based on dictionary ``m``."""
-    try:
-        return {mapping[key]: value for key, value in data.items()}
-    except KeyError:
-        logger.warning("Original dict: %s", data)
-        logger.warning("Mapping dict: %s", mapping)
-        mapping = {}
-        return mapping
+def remap(data: Dict[str, Any]) -> Dict[str, Any]:
+    """Map the keys in dictionary."""
+    return {key.lower().replace(" ", "_"): value for key, value in data.items()}
 
 
 def parse_body(body: str) -> Dict[str, Any]:
@@ -321,11 +269,6 @@ def home() -> Optional[str]:
     return _git("checkout", MAIN_BRANCH)
 
 
-def commit(message: str, *args: str) -> Optional[str]:
-    """Make a commit with the following message."""
-    return _git("commit", *args, "-m", message)
-
-
 def commit_all(message: str) -> Optional[str]:
     """Make a commit with the following message.
     :param message: The message to go with the commit.
@@ -350,19 +293,18 @@ def _git(*args: str) -> Optional[str]:
             return ret.strip().decode("utf-8")
 
 
-def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
+def get_new_request_issues(token: str) -> Mapping[int, dict]:
     """Get new entity request issues from the GitHub API.
 
     This is done by filtering on issues containing the "New" label.
     For issues with the label but not containing the expected data,
 
-    :param token: The GitHub OAuth token. Not required, but if given, will let
-    you make many more queries before getting rate limited.
+    :param token: The GitHub OAuth token
     :returns: A mapping of issue identifiers to a dict
     that has been parsed out of the issue form.
     """
     data = get_b2ai_standards_registry_form_data(
-        ["New"], remapping=MAPPING, token=token
+        ["New"], token=token
     )
     rv: Dict[int, dict] = {}
     for issue_id, resource_data in data.items():
@@ -381,8 +323,6 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
             logger.warning(f"Issue {issue_id} is missing one or more required fields.")
             continue
 
-        mappings: Optional[Mapping]
-
         rv[issue_id] = {
             "name": name,
             "category": category,
@@ -390,7 +330,6 @@ def get_new_request_issues(token: Optional[str] = None) -> Mapping[int, dict]:
             "contributor": contributor,
             "github_request_issue": issue_id,
             "entity_type": entity_type,
-            #"mappings": mappings,
             **resource_data,
         }
     return rv
@@ -407,10 +346,6 @@ def _trim_orcid(orcid: str) -> str:
     if orcid.startswith(ORCID_HTTPS_PREFIX):
         return orcid[len(ORCID_HTTPS_PREFIX) :]
     return orcid
-
-
-def _join(x: Iterable[int], sep=", ") -> str:
-    return sep.join(map(str, sorted(x)))
 
 
 def make_title(names: Sequence[str]) -> str:
@@ -442,13 +377,12 @@ def main(dry: bool, github: bool, force: bool):
         )
         sys.exit(1)
 
-    if not has_token():
-        click.secho(
-            "No GitHub access token is available through GITHUB_TOKEN", fg="red"
-        )
-        sys.exit(1)
+    token = os.getenv("GITHUB_TOKEN")
+    if not token:
+        logging.error("Missing `GITHUB_TOKEN` environment variable.")
+        return sys.exit(0)
 
-    issue_to_resource = get_new_request_issues()
+    issue_to_resource = get_new_request_issues(token)
     if issue_to_resource:
         click.echo(f"Found {len(issue_to_resource)} new request issues:")
         for issue_number in sorted(issue_to_resource, reverse=True):
@@ -460,7 +394,7 @@ def main(dry: bool, github: bool, force: bool):
     else:
         click.echo("Found no applicable issues.")
 
-    pulled_issues = get_issues_with_pr(issue_to_resource)
+    pulled_issues = get_issues_with_pr(issue_to_resource, token)
     if pulled_issues:
         click.echo(f"Found PRs covering {len(pulled_issues)} new request issues:")
         for pr_number in sorted(pulled_issues, reverse=True):
@@ -487,7 +421,7 @@ def main(dry: bool, github: bool, force: bool):
 
     for issue_number, resource in issue_to_resource.items():
         click.echo(f'🚀 Adding {resource["name"]} (#{issue_number})')
-        data_path = DATA_DIR + DATA_PATHS[resource["entity_type"]]
+        data_path = f"{DATA_DIR}{''.join(resource['entity_type'].title().split())}.yaml"
         with open(data_path, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
@@ -532,16 +466,23 @@ def main(dry: bool, github: bool, force: bool):
 
     click.secho("Creating and switching to branch", fg="green")
     click.echo(branch(branch_name))
+
     click.secho("Committing", fg="green")
-    click.echo(commit(message, data_path))
+    commit_msg = commit_all(message)
+    click.echo(commit_msg)
+    if not commit_msg:
+        return sys.exit(0)
+
     click.secho("Pushing", fg="green")
     click.echo(push("origin", branch_name))
+
     click.secho(f"Opening PR from {branch_name} to {MAIN_BRANCH}", fg="green")
     time.sleep(2)  # avoid race condition?
     rv = open_b2ai_standards_registry_pull_request(
         title=title,
         head=branch_name,
         body=body,
+        token=token
     )
     if "url" in rv:
         click.secho(f'PR at {rv["url"]}')
