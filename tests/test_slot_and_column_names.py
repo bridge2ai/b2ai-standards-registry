@@ -1,6 +1,8 @@
+import re
 from linkml_runtime.loaders import yaml_loader
 from pathlib import Path
 import subprocess
+from scripts.modify_synapse_schema import ColumnName, COLUMN_TEMPLATES, TableSchema
 
 DATA_DIR = "src/data"
 STANDARDS_SCHEMA_FILE = "src/schema/standards_schema.yaml"
@@ -20,17 +22,16 @@ def get_modified_slots(file_path):
 	modified_slots = set()
 	for line in modified_lines:
 		if line.startswith("+") and not line.startswith("+++"):  # Added lines only
-			print(line)
-	# 		try:
-	# 			data = yaml_loader.load(line[1:])  # Load without '+'
-	# 			print(data)
-	# 		# 	if isinstance(data, dict) and "slots" in data:
-	# 		# 		modified_slots.update(data["slots"])
-	# 		except yaml_loader.YAMLError:
-	# 				pass  # Ignore parsing errors (since diff output may contain non-YAML changes)
-	
-	# # return modified_slots
-	# return ""
+
+			# Ignore lines that start with '+   -' (variable spaces between + and -) - these aren't slots
+			# Otherwise, get all text between the starting '+     ' and the ":" - these are slot names
+			match = re.match(r"^\+\s*(?!-)([\w_]+):", line)
+			slot_name = match.group(1) if match else None
+
+			if slot_name:
+				modified_slots.add(slot_name)
+
+	return modified_slots
 
 
 def test_slot_and_column_names():
@@ -46,11 +47,17 @@ def test_slot_and_column_names():
 	# Add new slots to the dict for the appropriate file (table)
 	modified_files = _get_modified_yaml_files()
 	files_with_added_slots = {}
-  
+	slot_set = set()
+
 	for file in modified_files:
 		table_name = Path(file).stem
-		files_with_added_slots[table_name] = get_modified_slots(file)
-	
+		modified_slots = get_modified_slots(file)
+
+		files_with_added_slots[table_name] = modified_slots
+		slot_set.update(modified_slots)
+
+	# print(files_with_added_slots)
+	# print(slot_set)
 
 
 	# PART 2: Check if the new slots were added to column definitions in modify_snyapse_schema.py
@@ -59,8 +66,27 @@ def test_slot_and_column_names():
 	# grab the following:
 		# ColumnName(Enum)
 		# COLUMN_TEMPLATES
-		# EACH TableSchema(Enum).{src/data/file (table) that was changed} 
+		# EACH TableSchema(Enum).{src/data/file (table) that was changed}
 	# Ensure the new column name was added in each of these places - if not, the test fails
+
+
+	for slot in slot_set:
+		print("slot:", slot)
+		# print(slot in ColumnName)
+		if(not slot in ColumnName):
+			print(f"{slot} not in ColumnName")
+		elif(not ColumnName(slot) in list(COLUMN_TEMPLATES.keys())):
+			print(f"{slot} not in COLUMN_TEMPLATES")
+
+	print("")
+	for table, slots in files_with_added_slots.items():
+		print(table, slots)
+		for slot in slots:
+			print(f"	{slot}:")
+			print(f"	{table} in TableSchema => {table in TableSchema.__members__.keys()}")
+			print(f"	TableSchema[table] =", TableSchema[table])
+			if(not table in TableSchema.__members__.keys() or not slot in TableSchema[table].value["columns"]):
+				print(f"	{slot} not in TableSchema[{table}]")
 
 
 	# PART 3: Ensure the column is in `standards_schema.yaml` > 'slots'
