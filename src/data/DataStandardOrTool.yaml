@@ -16294,51 +16294,96 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
   contribution_date: '2025-03-05'
-- id: PLACEHOLDER
-  category: DataStandard
+- id: B2AI_STANDARD:888
+  category: B2AI_STANDARD:DataStandard
   name: BigTIFF
-  description: BigTIFF is an image format. It is a variant of the TIFF format that
+  description: BigTIFF format
+  collection:
+  - audiovisual
+  - fileformat
+  purpose_detail: BigTIFF is an image format. It is a variant of the TIFF format that
     uses 64-bit offsets thereby supporting files up to 18,000 petabytes in size, vastly
     transcending TIFF's normal 4 GB limit. Since the format also supports all of the
     normal features and header tags of TIFF_6 and the extended metadata offered by
     GeoTIFF, it provides good service in the GIS domain, medical imaging, and other
     applications that employ large scanners or cameras.
+  is_open: true
+  requires_registration: false
+  url: https://www.loc.gov/preservation/digital/formats/fdd/fdd000328.shtml
+  related_to:
+  - B2AI_STANDARD:383
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
-  contributor_orcid: 0000-0001-5705-7831
-- id: PLACEHOLDER
-  category: SoftwareOrTool
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  contribution_date: '2025-03-13'
+- id: B2AI_STANDARD:889
+  category: B2AI_STANDARD:SoftwareOrTool
   name: torchaudio
-  description: A software library for audio and signal processing with PyTorch. Used
-    by Voice GC. See https://pytorch.org/audio/stable/index.html
+  description: TorchAudio library
+  purpose_detail: A software library for audio and signal processing with PyTorch.
+  url: https://pytorch.org/audio/stable/index.html
+  is_open: true
+  requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:37
+  related_to:
+  - B2AI_STANDARD:816
+  has_relevant_organization:
+  - B2AI_ORG:117
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
-  contributor_orcid: 0000-0001-5705-7831
-- id: PLACEHOLDER
-  category: DataStandardOrTool
-  name: RadElement Common Data Elements (CDEs) for Radiology
-  description: see https://www.radelement.org/
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  contribution_date: '2025-03-13'
+- id: B2AI_STANDARD:890
+  category: B2AI_STANDARD:BiomedicalStandard
+  name: RadElement
+  description: RadElement Common Data Elements (CDEs) for Radiology
+  purpose_detail: A set of common data elements for radiology research.
+  url: https://www.radelement.org/
+  is_open: true
+  requires_registration: false
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
-  contributor_orcid: 0000-0001-5705-7831
-- id: PLACEHOLDER
-  category: DataStandardOrTool
-  name: FAIR Genomes Semantic Model
-  description: See https://github.com/fairgenomes/fairgenomes-semantic-model
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  contribution_date: '2025-03-13'
+- id: B2AI_STANDARD:891
+  category: B2AI_STANDARD:BiomedicalStandard
+  name: FAIRGenomes
+  description: FAIR Genomes Semantic Model
+  purpose_detail: A semantic model for describing genomic data in a FAIR manner.
+  url: https://github.com/fairgenomes/fairgenomes-semantic-model
+  formal_specification: https://github.com/fairgenomes/fairgenomes-semantic-model/blob/main/fair-genomes.yml
+  is_open: true
+  requires_registration: false
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
-  contributor_orcid: 0000-0001-5705-7831
-- id: PLACEHOLDER
-  category: DataStandardOrTool
-  name: Identifying Data Quality Dimensions for Person-Generated Wearable Device Data
-  description: See https://mhealth.jmir.org/2021/12/e31618
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  contribution_date: '2025-03-13'
+- id: B2AI_STANDARD:892
+  category: B2AI_STANDARD:ReferenceImplementation
+  name: Cho2021
+  description: Identifying Data Quality Dimensions for Person-Generated Wearable Device Data
+  publication: doi:10.2196/31618
+  is_open: true
+  requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:18
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
-  contributor_orcid: 0000-0001-5705-7831
-- id: PLACEHOLDER
-  category: DataStandardOrTool
-  name: Recommended Metadata for Biological Images (REMBI)
-  description: See https://www.nature.com/articles/s41592-021-01166-8
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  contribution_date: '2025-03-13'
+- id: B2AI_STANDARD:893
+  category: B2AI_STANDARD:BiomedicalStandard
+  name: REMBI
+  description: Recommended Metadata for Biological Images (REMBI)
+  purpose_detail: Draft metadata guidelines to begin addressing the needs of diverse communities within light and electron microscopy
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  publication: doi:10.1038/s41592-021-01166-8
+  url: https://docs.google.com/spreadsheets/d/1Ck1NeLp-ZN4eMGdNYo2nV6KLEdSfN6oQBKnnWU6Npeo/edit?gid=1023506919#gid=1023506919
+  is_open: true
+  requires_registration: false
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
-  contributor_orcid: 0000-0001-5705-7831
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  contribution_date: '2025-03-13'
