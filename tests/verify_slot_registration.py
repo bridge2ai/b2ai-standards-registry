@@ -40,8 +40,8 @@ def _get_modified_slots(file_path):
 	return modified_slots
 
 
-def verify_slot_registration():
-	# PART ONE: find out if a column (slot) was added or modified in any data file (e.g., table)
+def main():
+	# PART ONE: Determine which (if any) data files contain slots that were added or modified, and capture those slots
 	modified_data_files = _get_modified_data_files()
 	files_with_modified_slots = {}
 	modified_slot_set = set()
@@ -87,4 +87,4 @@ def verify_slot_registration():
 	return True
 
 if __name__ == "__main__":
-    verify_slot_registration()
+    main()
