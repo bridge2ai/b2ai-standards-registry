@@ -67,7 +67,7 @@ src/all_ids.tsv:
 # not the schema.
 # Mkdocs reads the tsv versions.
 site: all-data doc-data-markdown src/all_ids.tsv
-	mkdocs build ;
+	$(RUN) mkdocs build ;
 
 # Use schemas to validate the data.
 # could use IN ZIP_LISTS if this was CMake, but it isn't
