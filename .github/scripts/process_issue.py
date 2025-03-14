@@ -427,13 +427,19 @@ def main(dry: bool, github: bool, force: bool):
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
             # TODO: instead of PLACEHOLDER, find the id of the
             # previous entity and +1
-            this_yaml[collection_name].append({"id":"PLACEHOLDER",
-                                                "category":resource["category"],
-                                                "name":resource["name"],
-                                                "description":resource["description"],
-                                                "contributor_name":resource["contributor"]["name"],
-                                                "contributor_github_name":resource["contributor"]["github"],
-                                                "contributor_orcid":resource["contributor"]["orcid"]})
+            entity = {
+                "id":"PLACEHOLDER",
+                "category":resource["category"],
+                "name":resource["name"],
+                "description":resource["description"],
+                "contributor_name":resource["contributor"]["name"],
+                "contributor_github_name":resource["contributor"]["github"],
+                "contributor_orcid":resource["contributor"]["orcid"]
+            }
+            purpose_detail = resource.get("purpose_detail")
+            if purpose_detail:
+                entity["purpose_detail"] = purpose_detail
+            this_yaml[collection_name].append(entity)
         if this_yaml:
             with open(data_path, "w") as yamlfile:
                 yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)

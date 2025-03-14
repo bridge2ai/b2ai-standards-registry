@@ -40,10 +40,18 @@ body:
     id: description
     attributes:
       label: Description
+      description: What is the extended name of this entity?
+      placeholder: e.g., ESM Metagenomic Atlas or World Wide Web Consortium
+    validations:
+      required: true
+  - type: input
+    id: purpose_detail
+    attributes:
+      label: Purpose Detail
       description: What is the description of this entity, in a sentence or two?
       placeholder: e.g., Any data concerning studies of the structure, function, and interactions of biological molecules.
     validations:
-      required: true
+      required: false
   - type: input
     id: subclass_of
     attributes:
