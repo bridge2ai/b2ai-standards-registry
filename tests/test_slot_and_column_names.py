@@ -70,7 +70,8 @@ def verify_slot_registration():
 			print(f"'{table}' not in 'TableSchema")
 		else:
 			for slot in table_slots:
-				if(not slot in TableSchema[table].value["columns"]):
+				# print(TableSchema[table].value["columns"])
+				if(not (ColumnName(slot) if slot in ColumnName else None) in TableSchema[table].value["columns"]):
 					print(f"'{slot}' not in `TableSchema[{table}]`")
 
 if __name__ == "__main__":
