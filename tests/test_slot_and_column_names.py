@@ -5,8 +5,15 @@ import subprocess
 from scripts.modify_synapse_schema import ColumnName, COLUMN_TEMPLATES, TableSchema
 
 DATA_DIR = "src/data"
-MODIFIED_SYNAPSE_SCHEMA_FILE = "path/to/modified_synapse_schema.py"
+MODIFIED_SYNAPSE_SCHEMA_FILE = "scripts/modify_synapse_schema.py"
 STANDARDS_SCHEMA_FILE = "src/schema/standards_schema.yaml"
+
+class SlotRegistrationException(Exception):
+	"""Exception raised when slots have not been properly registered in all relevant locations"""
+
+	def __init__(self, message):
+		self.message = message
+		super().__init__(self.message)
 
 def _get_modified_data_files():
 	"""Retrieve a list of modified YAML files."""
@@ -36,14 +43,14 @@ def _get_modified_slots(file_path):
 def verify_slot_registration():
 	# PART ONE: find out if a column (slot) was added or modified in any data file (e.g., table)
 	modified_data_files = _get_modified_data_files()
-	files_with_added_slots = {}
-	slot_set = set()
+	files_with_modified_slots = {}
+	modified_slot_set = set()
 
 	for file in modified_data_files:
 		modified_slots = _get_modified_slots(file)
 		table_name = Path(file).stem
-		files_with_added_slots[table_name] = modified_slots
-		slot_set.update(modified_slots)
+		files_with_modified_slots[table_name] = modified_slots
+		modified_slot_set.update(modified_slots)
 
 
 	# PART TWO:
@@ -53,26 +60,31 @@ def verify_slot_registration():
 	with open(STANDARDS_SCHEMA_FILE, "r") as file:
 		standards_schema = yaml.safe_load(file)
 
-	registered_slots = standards_schema["slots"].keys()
+	registered_standards_schema_slots = standards_schema["slots"].keys()
 
-	for slot in slot_set:
+	for slot in modified_slot_set:
 		if(not slot in ColumnName):
-			print(f"'{slot}' not in `ColumnName`")
+			error_message = f"'{slot}' not in {MODIFIED_SYNAPSE_SCHEMA_FILE} > 'ColumnName'"
+			raise SlotRegistrationException(error_message)
 		elif(not ColumnName(slot) in list(COLUMN_TEMPLATES.keys())):
-			print(f"'{slot}' not in `COLUMN_TEMPLATES`")
+			error_message = f"'{slot}' not in {MODIFIED_SYNAPSE_SCHEMA_FILE} > 'COLUMN_TEMPLATES'"
+			raise SlotRegistrationException(error_message)
 
-		if(not slot in registered_slots):
-			print(f"'{slot}' is not registered in 'standards_schema.yaml'")
+		if(not slot in registered_standards_schema_slots):
+			error_message = f"'{slot}' is not registered in {STANDARDS_SCHEMA_FILE}"
+			raise SlotRegistrationException(error_message)
 
-	print("")
-	for table, table_slots in files_with_added_slots.items():
+	for table, modified_table_slots in files_with_modified_slots.items():
 		if(not table in TableSchema.__members__.keys()):
-			print(f"'{table}' not in 'TableSchema")
+			error_message = f"'{table}' not in {MODIFIED_SYNAPSE_SCHEMA_FILE} > 'TableSchema"
+			raise SlotRegistrationException(error_message)
 		else:
-			for slot in table_slots:
-				# print(TableSchema[table].value["columns"])
+			for slot in modified_table_slots:
 				if(not (ColumnName(slot) if slot in ColumnName else None) in TableSchema[table].value["columns"]):
-					print(f"'{slot}' not in `TableSchema[{table}]`")
+					error_message = f"'{slot}' not in {MODIFIED_SYNAPSE_SCHEMA_FILE} > 'TableSchema[{table}]'"
+					raise SlotRegistrationException(error_message)
+
+	return True
 
 if __name__ == "__main__":
     verify_slot_registration()
