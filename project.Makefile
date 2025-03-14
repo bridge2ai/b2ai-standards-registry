@@ -128,20 +128,20 @@ doc-data-markdown:
 	done
 	@echo "Setting up links..."
 # This is for top-level links, where there isn't a specific page
-	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/(B2AI_USECASE:\([0-9]\+\))/(UseCase.markdown)/g' \
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i "" -e 's/(B2AI_USECASE:\([0-9]\+\))/(UseCase.markdown)/g' \
 		-e 's/(B2AI_ORG:\([0-9]\+\))/(Organization.markdown)/g' \
 		-e 's/(B2AI_TOPIC:\([0-9]\+\))/(DataTopic.markdown)/g' \
 		-e 's/(B2AI_SUBSTRATE:\([0-9]\+\))/(DataSubstrate.markdown)/g' \
 		-e 's/(B2AI_STANDARD:\([0-9]\+\))/(DataStandardOrTool.markdown)/g' {} \;
 # This is for revising w3id links, since we just want internal links
-	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-usecase-schema\/\([0-9]\+\)\)/UseCase.markdown/g' \
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i "" -e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-usecase-schema\/\([0-9]\+\)\)/UseCase.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-organization-schema\/\([0-9]\+\)\)/Organization.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datatopic-schema\/\([0-9]\+\)\)/DataTopic.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datasubstrate-schema\/\([0-9]\+\)\)/DataSubstrate.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datastandardortool-schema\/\([0-9]\+\)\)/DataStandardOrTool.markdown/g' {} \;
 # Now fix links where we want to map to a specific page
 # This is messy and would probably be better as a mapping between ID and page name
-	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i -e 's/\[B2AI_TOPIC:1\](DataTopic.markdown)/\[B2AI_TOPIC:1\](topics\/Biology.markdown)/g' \
+	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i "" -e 's/\[B2AI_TOPIC:1\](DataTopic.markdown)/\[B2AI_TOPIC:1\](topics\/Biology.markdown)/g' \
 		-e 's/\[B2AI_TOPIC:2\](DataTopic.markdown)/\[B2AI_TOPIC:2\](topics\/Cell.markdown)/g' \
 		-e 's/\[B2AI_TOPIC:3\](DataTopic.markdown)/\[B2AI_TOPIC:3\](topics\/Cheminformatics.markdown)/g' \
 		-e 's/\[B2AI_TOPIC:4\](DataTopic.markdown)/\[B2AI_TOPIC:4\](topics\/ClinicalObservations.markdown)/g' \
