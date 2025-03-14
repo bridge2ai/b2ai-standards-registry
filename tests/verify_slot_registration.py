@@ -9,10 +9,17 @@ MODIFIED_SYNAPSE_SCHEMA_FILE = "scripts/modify_synapse_schema.py"
 STANDARDS_SCHEMA_FILE = "src/schema/standards_schema.yaml"
 
 class SlotRegistrationException(Exception):
-	"""Exception raised when slots have not been properly registered in all relevant locations"""
+	"""Exception raised when slots have not been properly registered in 'scripts/modify_synapse_schema.py'"""
 
 	def __init__(self, message):
 		self.message = message
+		super().__init__(self.message)
+
+class SchemaException(Exception):
+	"""Exception raised when slots have not been properly registered in the 'standards-schemas' repo"""
+
+	def __init__(self, message):
+		self.message = message + " Update the 'standards-schemas' repo first."
 		super().__init__(self.message)
 
 def _get_modified_data_files():
@@ -62,6 +69,7 @@ def main():
 
 	registered_standards_schema_slots = standards_schema["slots"].keys()
 
+	# All slots should be registered in these places
 	for slot in modified_slot_set:
 		if(not slot in ColumnName):
 			error_message = f"'{slot}' not in {MODIFIED_SYNAPSE_SCHEMA_FILE} > 'ColumnName'"
@@ -74,15 +82,20 @@ def main():
 			error_message = f"'{slot}' is not registered in {STANDARDS_SCHEMA_FILE}"
 			raise SlotRegistrationException(error_message)
 
+	# Table-specific slot registration
 	for table, modified_table_slots in files_with_modified_slots.items():
-		if(not table in TableSchema.__members__.keys()):
-			error_message = f"'{table}' not in {MODIFIED_SYNAPSE_SCHEMA_FILE} > 'TableSchema"
-			raise SlotRegistrationException(error_message)
-		else:
-			for slot in modified_table_slots:
-				if(not (ColumnName(slot) if slot in ColumnName else None) in TableSchema[table].value["columns"]):
-					error_message = f"'{slot}' not in {MODIFIED_SYNAPSE_SCHEMA_FILE} > 'TableSchema[{table}]'"
-					raise SlotRegistrationException(error_message)
+		table_schema_file = "standards_" + table.lower() + "_schema.yaml"
+		table_schema = yaml.safe_load(table_schema_file)
+		registered_table_schema_slots = table_schema["slots"].keys()
+
+		for slot in modified_table_slots:
+			if(not (ColumnName(slot) if slot in ColumnName else None) in TableSchema[table].value["columns"]):
+				error_message = f"'{slot}' not in {MODIFIED_SYNAPSE_SCHEMA_FILE} > 'TableSchema[{table}]."
+				raise SchemaException(error_message)
+
+			if(not slot in registered_table_schema_slots):
+				error_message = f"'{slot}' is not registered in {table_schema_file}."
+				raise SlotRegistrationException(error_message)
 
 	return True
 
