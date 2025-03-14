@@ -56,9 +56,6 @@ def test_slot_and_column_names():
 		files_with_added_slots[table_name] = modified_slots
 		slot_set.update(modified_slots)
 
-	# print(files_with_added_slots)
-	# print(slot_set)
-
 
 	# PART 2: Check if the new slots were added to column definitions in modify_snyapse_schema.py
 
@@ -69,24 +66,18 @@ def test_slot_and_column_names():
 		# EACH TableSchema(Enum).{src/data/file (table) that was changed}
 	# Ensure the new column name was added in each of these places - if not, the test fails
 
-
 	for slot in slot_set:
-		print("slot:", slot)
 		# print(slot in ColumnName)
 		if(not slot in ColumnName):
-			print(f"{slot} not in ColumnName")
+			print(f"'{slot}' not in `ColumnName`")
 		elif(not ColumnName(slot) in list(COLUMN_TEMPLATES.keys())):
-			print(f"{slot} not in COLUMN_TEMPLATES")
+			print(f"'{slot}' not in `COLUMN_TEMPLATES`")
 
 	print("")
 	for table, slots in files_with_added_slots.items():
-		print(table, slots)
 		for slot in slots:
-			print(f"	{slot}:")
-			print(f"	{table} in TableSchema => {table in TableSchema.__members__.keys()}")
-			print(f"	TableSchema[table] =", TableSchema[table])
 			if(not table in TableSchema.__members__.keys() or not slot in TableSchema[table].value["columns"]):
-				print(f"	{slot} not in TableSchema[{table}]")
+				print(f"'{slot}' not in `TableSchema[{table}]`")
 
 
 	# PART 3: Ensure the column is in `standards_schema.yaml` > 'slots'
