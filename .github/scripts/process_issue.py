@@ -425,7 +425,7 @@ def main(dry: bool, github: bool, force: bool):
         with open(data_path, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
-            prev_id_prefix, prev_id = this_yaml[collection_name][-1]["id"]
+            prev_id_prefix, prev_id = this_yaml[collection_name][-1]["id"].split(":")
             entity = {
                 "id":f"{prev_id_prefix}:{int(prev_id) + 1}",
                 "category":resource["category"],
