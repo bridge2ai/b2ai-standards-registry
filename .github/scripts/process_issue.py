@@ -45,6 +45,7 @@ SOFTWARE.
 import itertools as itt
 import logging
 import os
+import re
 import sys
 import time
 from subprocess import CalledProcessError, check_output
@@ -221,7 +222,10 @@ def get_form_data(
 
 def remap(data: Dict[str, Any]) -> Dict[str, Any]:
     """Map the keys in dictionary."""
-    return {key.lower().replace(" ", "_"): value for key, value in data.items()}
+    remapped = {key.lower().replace(" ", "_"): value for key, value in data.items()}
+    if remapped.get("related_to"):
+        remapped["related_to"] = re.split(r"\s+", remapped["related_to"])
+    return remapped
 
 
 def parse_body(body: str) -> Dict[str, Any]:
@@ -436,9 +440,15 @@ def main(dry: bool, github: bool, force: bool):
                 "contributor_github_name":resource["contributor"]["github"],
                 "contributor_orcid":resource["contributor"]["orcid"]
             }
+
             purpose_detail = resource.get("purpose_detail")
             if purpose_detail:
                 entity["purpose_detail"] = purpose_detail
+
+            related_to = resource.get("related_to")
+            if related_to:
+                entity["related_to"] = related_to
+
             this_yaml[collection_name].append(entity)
         if this_yaml:
             with open(data_path, "w") as yamlfile:
