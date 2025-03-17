@@ -68,6 +68,14 @@ COLLECTION_NAMES = {
     "Use Case":"use_cases",
 }
 
+EXPECTED_PREFIXES = [
+    "B2AI_STANDARD",
+    "B2AI_SUBSTRATE",
+    "B2AI_TOPIC",
+    "B2AI_ORG",
+    "B2AI_USECASE",
+]
+
 ORCID_HTTP_PREFIX = "http://orcid.org/"
 ORCID_HTTPS_PREFIX = "https://orcid.org/"
 
@@ -429,11 +437,20 @@ def main(dry: bool, github: bool, force: bool):
         with open(data_path, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
-            # TODO: instead of PLACEHOLDER, find the id of the
-            # previous entity and +1
+
+            prev_curie = this_yaml[collection_name][-1]["id"]
+            prev_id_prefix, prev_id = prev_curie.split(":")
+
+            if not prev_id_prefix in EXPECTED_PREFIXES:
+                raise ValueError(f"Prefix for {prev_curie} not in {EXPECTED_PREFIXES}")
+
+            category = resource["category"]
+            if not category.startswith(f"{prev_id_prefix}:"):
+                category = f"{prev_id_prefix}:{category}"
+
             entity = {
-                "id":"PLACEHOLDER",
-                "category":resource["category"],
+                "id":f"{prev_id_prefix}:{int(prev_id) + 1}",
+                "category":category,
                 "name":resource["name"],
                 "description":resource["description"],
                 "contributor_name":resource["contributor"]["name"],
