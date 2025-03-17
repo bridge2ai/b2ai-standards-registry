@@ -425,10 +425,9 @@ def main(dry: bool, github: bool, force: bool):
         with open(data_path, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
-            # TODO: instead of PLACEHOLDER, find the id of the
-            # previous entity and +1
+            prev_id_prefix, prev_id = this_yaml[collection_name][-1]["id"].split(":")
             entity = {
-                "id":"PLACEHOLDER",
+                "id":f"{prev_id_prefix}:{int(prev_id) + 1}",
                 "category":resource["category"],
                 "name":resource["name"],
                 "description":resource["description"],
