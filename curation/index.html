@@ -300,6 +300,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#connect-standards-and-tools-to-sdos" class="md-nav__link">
+    Connect Standards and Tools to SDOs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connect-standards-and-tools-to-other-standards-and-tools" class="md-nav__link">
     Connect Standards and Tools to other Standards and Tools
   </a>
@@ -1194,30 +1201,54 @@
 </li>
 </ol>
 <h2 id="connect-standards-and-tools-to-organizations">Connect Standards and Tools to Organizations</h2>
-<p>A connection between an standard/tool and an organization (e.g., Precision Public Health [B2AI_ORG:117] uses the Praat software [B2AI_STANDARD:886]) can be defined within the DataStandardOrTool table.</p>
+<p>A connection between an standard/tool and an organization (e.g., Precision Public Health <a href="../Organization/">B2AI_ORG:117</a> uses the Praat software <a href="../DataStandardOrTool/">B2AI_STANDARD:886</a>) can be defined within the DataStandardOrTool table.</p>
 <ol>
 <li>
 <p>Identify a connection between an entity and an organization. A common and informative type is a standard or tool used by one of the Bridge2AI GCs, so consult their data documentation.</p>
 </li>
 <li>
 <p>Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the organization to the <code>has_relevant_organization</code> field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:</p>
-<p>has_relevant_organization:
-  - B2AI_ORG:117</p>
+<p>has_relevant_organization:</p>
+<ul>
+<li>B2AI_ORG:117</li>
+</ul>
+</li>
+<li>
+<p>Save your changes. Open a PR to add them to the repository.</p>
+</li>
+</ol>
+<h2 id="connect-standards-and-tools-to-sdos">Connect Standards and Tools to SDOs</h2>
+<p>Standards and tools often are maintained, managed, promoted, and otherwise supported by a dedicated organization. These are often referred to as Standards Development Organizations, or SDOs. Some, such as the International Organization for Standardization (ISO, <a href="../Organization/">B2AI_ORG:49</a>) are responsible for many standards across various domains. Others, such as Health Level Seven (HL7, <a href="../Organization/">B2AI_ORG:40</a>) are focused on biomedical and healthcare-related standards, such as Fast Healthcare Interoperability Resources (FHIR, <a href="../DataStandardOrTool/">B2AI_STANDARD:109</a>).</p>
+<ol>
+<li>
+<p>Identify a connection between an entity and an SDO. An entry for the Organization may already exist. Standards in the category <code>BiomedicalStandard</code> will be most relevant here. If the SDO for a standard is not already known, it can usually be found in its online documentation. Note that multiple SDOs may be responsible for the same standard. </p>
+</li>
+<li>
+<p>Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the organization to the <code>responsible_organization</code> field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:</p>
+<p>responsible_organization:</p>
+<ul>
+<li>B2AI_ORG:40</li>
+</ul>
+</li>
+<li>
+<p>If necessary, add the corresponding Organization(s) to a new entry in the Organization.yaml file. Include a URL for each organization, and if possible, a Research Organization Registry (ROR) ID and/or Wikidata ID in <code>ror_id</code> and <code>wikidata_id</code>, respectively. ROR IDs may be found by searching <a href="https://ror.org">https://ror.org</a>. Wikidata IDs may be found by searching <a href="https://www.wikidata.org/">https://www.wikidata.org/</a>, but please provide the ID for the organization itself rather than a related page (<a href="https://www.wikidata.org/wiki/Q17054989">for example, Health Level Seven International</a> instead of <a href="https://www.wikidata.org/wiki/Q327718">Health Level 7</a>, since the latter is a page for the standards themselves).</p>
 </li>
 <li>
 <p>Save your changes. Open a PR to add them to the repository.</p>
 </li>
 </ol>
 <h2 id="connect-standards-and-tools-to-other-standards-and-tools">Connect Standards and Tools to other Standards and Tools</h2>
-<p>A connection between an standard/tool and another standard or tool (e.g., the Parselmouth software [B2AI_STANDARD:887] is an interface for the Praat software [B2AI_STANDARD:886]) can be defined within the DataStandardOrTool table.</p>
+<p>A connection between an standard/tool and another standard or tool (e.g., the Parselmouth software <a href="../DataStandardOrTool/">B2AI_STANDARD:887</a> is an interface for the Praat software <a href="../DataStandardOrTool/">B2AI_STANDARD:886</a>) can be defined within the DataStandardOrTool table.</p>
 <ol>
 <li>
 <p>Identify a connection between a standard/tool and another. This does not include relationships in which one standard or tool is purely a part of another or one of several iterative versions, but two entities may be related in a variety of other ways.</p>
 </li>
 <li>
 <p>Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the related standard or tool to the <code>related_to</code> field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:</p>
-<p>related_to:
-  - B2AI_STANDARD:887</p>
+<p>related_to:</p>
+<ul>
+<li>B2AI_STANDARD:887</li>
+</ul>
 </li>
 <li>
 <p>Save your changes. Open a PR to add them to the repository.</p>
