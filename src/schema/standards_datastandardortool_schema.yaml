@@ -44,6 +44,7 @@ classes:
       - publication
       - formal_specification
       - not_relevant_to_dgps
+      - responsible_organization
 
   DataStandard:
     is_a: DataStandardOrTool
@@ -182,10 +183,15 @@ slots:
   has_relevant_organization:
     is_a: related_to
     description: >-
-      Subject standard is managed or otherwise guided
-      buy the object organization(s).
+      Subject standard has some relationship
+      to the object organization(s), including
+      as a user. This is distinct from the
+      responsible organization, which is the group
+      providing or supporting the standard
+      or tool.
     domain: DataStandardOrTool
     range: Organization
+    multivalued: true
 
   has_training_resource:
     is_a: node_property
@@ -208,6 +214,15 @@ slots:
     is_a: node_property
     range: boolean
 
+  responsible_organization:
+    description: >-
+      Organization(s) responsible for providing
+      and/or supporting the standard or tool.
+    is_a: node_property
+    domain: DataStandardOrTool
+    range: Organization
+    multivalued: true
+  
 enums:
   StandardsCollectionTag:
     description: Tags for specific sets of standards.
