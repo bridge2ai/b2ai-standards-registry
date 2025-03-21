@@ -49,6 +49,22 @@ A connection between an standard/tool and an organization (e.g., Precision Publi
 
 3. Save your changes. Open a PR to add them to the repository.
 
+## Connect Standards and Tools to SDOs
+
+Standards and tools often are maintained, managed, promoted, and otherwise supported by a dedicated organization. These are often referred to as Standards Development Organizations, or SDOs. Some, such as the International Organization for Standardization (ISO, [B2AI_ORG:49](Organization.markdown)) are responsible for many standards across various domains. Others, such as Health Level Seven (HL7, [B2AI_ORG:40](Organization.markdown)) are focused on biomedical and healthcare-related standards, such as Fast Healthcare Interoperability Resources (FHIR, [B2AI_STANDARD:109](DataStandardOrTool.markdown)).
+
+1. Identify a connection between an entity and an SDO. An entry for the Organization may already exist. Standards in the category `BiomedicalStandard` will be most relevant here. If the SDO for a standard is not already known, it can usually be found in its online documentation. Note that multiple SDOs may be responsible for the same standard. 
+
+2. Edit the DataStandardOrTool.yaml file, preferably in your own Git branch. Find the entry for the standard or tool and add the ID for the organization to the `responsible_organization` field. Create the field if it does not yet exist for this entry. This field expects a list, so it should look like this:
+
+    responsible_organization:
+
+      - B2AI_ORG:40
+
+3. If necessary, add the corresponding Organization(s) to a new entry in the Organization.yaml file. Include a URL for each organization, and if possible, a Research Organization Registry (ROR) ID and/or Wikidata ID in `ror_id` and `wikidata_id`, respectively. ROR IDs may be found by searching <https://ror.org>. Wikidata IDs may be found by searching <https://www.wikidata.org/>, but please provide the ID for the organization itself rather than a related page ([for example, Health Level Seven International](https://www.wikidata.org/wiki/Q17054989) instead of [Health Level 7](https://www.wikidata.org/wiki/Q327718), since the latter is a page for the standards themselves).
+
+4. Save your changes. Open a PR to add them to the repository.
+
 ## Connect Standards and Tools to other Standards and Tools
 
 A connection between an standard/tool and another standard or tool (e.g., the Parselmouth software [B2AI_STANDARD:887](DataStandardOrTool.markdown) is an interface for the Praat software [B2AI_STANDARD:886](DataStandardOrTool.markdown)) can be defined within the DataStandardOrTool table.
