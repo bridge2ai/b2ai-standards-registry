@@ -1,7 +1,8 @@
 ## Add your own custom Makefile targets here
 SHELL := /usr/bin/env bash
 
-SCHEMA_FILES := standards_datastandardortool_schema.yaml \
+SCHEMA_FILES := standards_dataset_schema.yaml \
+standards_datastandardortool_schema.yaml \
 standards_datasubstrate_schema.yaml \
 standards_datatopic_schema.yaml \
 standards_organization_schema.yaml \
