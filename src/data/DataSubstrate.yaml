@@ -897,3 +897,74 @@ data_substrates_collection:
     contributor_name: Harry Caufield
     contributor_github_name: caufieldjh
     contributor_orcid: ORCID:0000-0001-5705-7831
+  - id: B2AI_SUBSTRATE:60
+    name: Sequence
+    subclass_of:
+      - B2AI_SUBSTRATE:39
+    category: B2AI_SUBSTRATE:DataSubstrate
+    description:
+      A sequence is an ordered collection of elements, typically
+      characters or numbers, that may be of fixed or variable length.
+      This specifically refers to a biological sequence, such as a
+      DNA, RNA, or protein sequence, so the characters are typically
+      nucleotides or amino acids accompanied by metadata about
+      the sequence.
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: ORCID:0000-0001-5705-7831
+  - id: B2AI_SUBSTRATE:61
+    name: DNA Sequence Data
+    subclass_of:
+      - B2AI_SUBSTRATE:60
+    category: B2AI_SUBSTRATE:DataSubstrate
+    description:
+      DNA sequence data is a representation of the nucleotide
+      sequence of a DNA molecule. It may be a raw sequence or
+      a processed sequence with additional metadata, such as
+      annotations or quality scores.
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: ORCID:0000-0001-5705-7831
+  - id: B2AI_SUBSTRATE:62
+    name: RNA Sequence Data
+    subclass_of:
+      - B2AI_SUBSTRATE:60
+    category: B2AI_SUBSTRATE:DataSubstrate
+    description:
+      RNA sequence data is a representation of the nucleotide
+      sequence of one or more RNA molecules. It may be a raw sequence or
+      a processed sequence with additional metadata, such as
+      annotations or quality scores. It may be called
+      transcriptomic data when it is derived from RNA sequencing,
+      and in general may be referred to as RNA-seq data.
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: ORCID:0000-0001-5705-7831
+  - id: B2AI_SUBSTRATE:63
+    name: Single-cell RNA Sequence Data
+    subclass_of:
+      - B2AI_SUBSTRATE:62
+    category: B2AI_SUBSTRATE:DataSubstrate
+    description:
+      Single-cell RNA sequence data is a representation of the
+      nucleotide sequence of one or more RNA molecules from
+      individual cells. It may be a raw sequence or a processed
+      sequence with additional metadata, such as annotations or
+      quality scores. It may be called single-cell transcriptomic
+      data when it is derived from single-cell RNA sequencing.
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: ORCID:0000-0001-5705-7831
+  - id: B2AI_SUBSTRATE:64
+    name: Perturb-seq Data
+    subclass_of:
+      - B2AI_SUBSTRATE:63
+    category: B2AI_SUBSTRATE:DataSubstrate
+    description:
+      Perturb-seq data is the result of combining single-cell
+      RNA sequencing (RNA-seq) and clustered regularly interspaced
+      short palindromic repeats (CRISPR)-based perturbations to
+      perform many pooled phenotype assays.
+    contributor_name: Harry Caufield
+    contributor_github_name: caufieldjh
+    contributor_orcid: ORCID:0000-0001-5705-7831
