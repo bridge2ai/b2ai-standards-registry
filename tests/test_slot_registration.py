@@ -42,7 +42,7 @@ def _get_modified_slots(file_path):
 	return modified_slots
 
 
-def main():
+def test_slot_registration():
 	# PART ONE: Determine which (if any) data files contain slots that were added or modified,
 	# and capture those slots + the tables they live in
 	modified_data_files = _get_modified_data_files()
@@ -71,4 +71,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    test_slot_registration()
