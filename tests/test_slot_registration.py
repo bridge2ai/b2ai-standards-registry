@@ -65,16 +65,13 @@ class TestSlotRegistration(unittest.TestCase):
 
 		# All slots should be registered in these places
 		for slot in modified_slot_set:
-			#f"'{slot}' not in '{MODIFIED_SYNAPSE_SCHEMA_FILE}' > 'ColumnName'"
-			self.assertTrue(slot in ColumnName)
-			#f"'{slot}' not in '{MODIFIED_SYNAPSE_SCHEMA_FILE}' > 'COLUMN_TEMPLATES'"
-			self.assertTrue(ColumnName(slot) in list(COLUMN_TEMPLATES.keys()))
+			self.assertTrue(slot in ColumnName, f"'{slot}' not in '{MODIFIED_SYNAPSE_SCHEMA_FILE}' > 'ColumnName'")
+			self.assertTrue(ColumnName(slot) in list(COLUMN_TEMPLATES.keys()), f"'{slot}' not in '{MODIFIED_SYNAPSE_SCHEMA_FILE}' > 'COLUMN_TEMPLATES'")
 
 		# Table-specific slot registration
 		for table, modified_table_slots in files_with_modified_slots.items():
 			for slot in modified_table_slots:
-				#f"'{slot}' not in '{MODIFIED_SYNAPSE_SCHEMA_FILE}' > 'TableSchema[{table}]'"
-				self.assertTrue(ColumnName(slot) in TableSchema[table].value["columns"])
+				self.assertTrue(ColumnName(slot) in TableSchema[table].value["columns"], f"'{slot}' not in '{MODIFIED_SYNAPSE_SCHEMA_FILE}' > 'TableSchema[{table}]'")
 
 
 if __name__ == "__main__":
