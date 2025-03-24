@@ -10,12 +10,6 @@ STANDARDS_SCHEMA_FILE = STANDARDS_SCHEMA_DIRECTORY + "standards_schema.yaml"
 MODIFIED_SYNAPSE_SCHEMA_FILE = "scripts/modify_synapse_schema.py"
 
 
-class SlotRegistrationException(Exception):
-	"""Exception raised when slots have not been properly registered in 'scripts/modify_synapse_schema.py'"""
-	def __init__(self, message):
-		self.message = message
-		super().__init__(self.message)
-
 class TestSlotRegistration(unittest.TestCase):
 
 	@staticmethod
