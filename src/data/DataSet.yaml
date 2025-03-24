@@ -1,22 +1,46 @@
-# STUB DATA
 data_collection:
-- id: B2AI_DATA:3
-  name: Artificial Intelligence in Cell Phenotypes - June 2024 Release
+- id: B2AI_DATA:1
+  name: Cell Maps for Artificial Intelligence - March 2025 Data Release (Beta)
   category: B2AI_DATA:DataSet
   description: >-
-    This dataset is the June 2024 (v2) release of data for the Artificial Intelligence in Cell Phenotypes project.
-    It includes data on cell phenotypes and their relationships to various biological processes.
-  has_parts:
-  - B2AI_TOPIC:4
+    This dataset is the March 2025 Data Release of Cell Maps for Artificial Intelligence
+    (CM4AI; CM4AI.org), the Functional Genomics Grand Challenge in the NIH Bridge2AI program.
+    This Beta release includes perturb-seq data in undifferentiated KOLF2.1J iPSCs;
+    SEC-MS data in undifferentiated KOLF2.1J iPSCs and iPSC-derived NPCs, neurons,
+    and cardiomyocytes; and IF images in MDA-MB-468 breast cancer cells in the presence
+    and absence of chemotherapy (vorinostat and paclitaxel). CM4AI output data are packaged
+    with provenance graphs and rich metadata as AI-ready datasets in RO-Crate format using
+    the FAIRSCAPE framework. Data presented here will be augmented regularly through the end
+    of the project. CM4AI is a collaboration of UCSD, UCSF, Stanford, UVA, Yale, UA Birmingham,
+    Simon Fraser University, and the Hastings Center. This data is Copyright (c) 2025 The
+    Regents of the University of California except where otherwise noted. Spatial proteomics
+    raw image data is copyright (c) 2025 The Board of Trustees of the Leland Stanford Junior
+    University. Dataset licensed for reuse under Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International license
+    (https://creativecommons.org/licenses/by-nc-sa/4.0/). Attribution is required to the
+    copyright holders and the authors. Any publications referencing this data or derived
+    products should cite the Related Publication below, as well as directly citing this
+    data collection (2025-03-04). (2025-03-07)
   has_files:
-  - some_top_level_file.csv
+  - "CRISPR Perturbation Cell Atlas/ro-crate-metadata.json"
+  - "CRISPR Perturbation RNA Sequences - Raw Sequences/ro-crate-metadata.json"
+  - "Protein Localization Subcellular Images/cm4ai-v0.6-beta-if-images-paclitaxel.zip"
+  - "Protein Localization Subcellular Images/cm4ai-v0.6-beta-if-images-untreated.zip"
+  - "Protein Localization Subcellular Images/cm4ai-v0.6-beta-if-images-vorinostat.zip"
+  - "Protein-protein Interaction SEC-MS/ro-crate-metadata.json"
   produced_by:
-  - B2AI_ORG:1
-  data_url: https://example.com/data
-  documentation_url: https://example.com/docs
-  datasheet_url: https://example.com/datasheet
+  - B2AI_ORG:116
+  data_url: https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/B35XWX
+  documentation_url: https://cm4ai.org/product-documentation/
+  datasheet_url: https://docs.google.com/spreadsheets/d/1xhjQKkqVsAlErUQY1YahH5pzbrLOPHdVgYD79CWoEaY/edit?gid=0#gid=0
   is_public: True
   substrates:
-  - B2AI_SUBSTRATE:1
+  - B2AI_SUBSTRATE:56
+  - B2AI_SUBSTRATE:59
+  - B2AI_SUBSTRATE:64
   topics:
-  - B2AI_TOPIC:4
+  - B2AI_TOPIC:2
+  - B2AI_TOPIC:26
+  - B2AI_TOPIC:33
+  - B2AI_TOPIC:41
+  - B2AI_TOPIC:42
