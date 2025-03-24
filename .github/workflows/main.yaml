@@ -2,7 +2,13 @@
 
 name: Build and test b2ai-standards-registry
 
-on: [pull_request]
+on: [push, pull_request]
+
+# prevents duplicate runs of this workflow when the same dev initiates a `push` and `pull_request` simultaneously on the same branch
+concurrency:
+   # format is "{workflow name} - {branch-name} - {username}"
+    group: ${{ github.workflow }} - ${{ github.event.pull_request.head.ref || github.ref_name }} - ${{ github.actor }}
+    cancel-in-progress: true
 
 jobs:
   test:
@@ -44,8 +50,8 @@ jobs:
       #----------------------------------------------
       #    Run tests
       #----------------------------------------------
-      #- name: Run validator tests
-      #  run: make test
+      - name: Run validator tests
+        run: make test
 
       #----------------------------------------------
       #    Validate data
