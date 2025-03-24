@@ -78,7 +78,8 @@ validate:
 		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
 		["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer" \
 		["$(DATA_DIR)Organization.yaml"]="OrganizationContainer" \
-		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" ) \
+		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" \
+		["$(DATA_DIR)DataSet.yaml"]="DataSetContainer" ) \
 	; for key in "$${!CLASSES[@]}" ; do \
 		printf "Validating $${key}..." ; \
 		$(RUN_VALIDATE) -C $${CLASSES[$${key}]} $${key} ; \
@@ -96,7 +97,8 @@ all-data:
 		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
 		["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer" \
 		["$(DATA_DIR)Organization.yaml"]="OrganizationContainer" \
-		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" ) \
+		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" \
+		["$(DATA_DIR)DataSet.yaml"]="DataSetContainer" ) \
 	; for key in "$${!CLASSES[@]}" ; do \
 		for format in $(FORMATS) ; do \
 			printf "Converting $${key} to $${format}...\n" ; \
@@ -116,7 +118,8 @@ doc-data-markdown:
 		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
 		["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer" \
 		["$(DATA_DIR)Organization.yaml"]="OrganizationContainer" \
-		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" ) \
+		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" \
+		["$(DATA_DIR)DataSet.yaml"]="DataSetContainer" ) \
 	; for key in "$${!CLASSES[@]}" ; do \
 		for format in $(RENDERS) ; do \
 			printf "Converting $${key} to $${format}...\n" ; \
@@ -133,12 +136,14 @@ doc-data-markdown:
 		-e 's/(B2AI_ORG:\([0-9]\+\))/(Organization.markdown)/g' \
 		-e 's/(B2AI_TOPIC:\([0-9]\+\))/(DataTopic.markdown)/g' \
 		-e 's/(B2AI_SUBSTRATE:\([0-9]\+\))/(DataSubstrate.markdown)/g' \
+		-e 's/(B2AI_DATA:\([0-9]\+\))/(DataSet.markdown)/g' \
 		-e 's/(B2AI_STANDARD:\([0-9]\+\))/(DataStandardOrTool.markdown)/g' {} \;
 # This is for revising w3id links, since we just want internal links
 	find $(DOCDIR) -type f -name '*.markdown' -exec sed -i "" -e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-usecase-schema\/\([0-9]\+\)\)/UseCase.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-organization-schema\/\([0-9]\+\)\)/Organization.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datatopic-schema\/\([0-9]\+\)\)/DataTopic.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datasubstrate-schema\/\([0-9]\+\)\)/DataSubstrate.markdown/g' \
+		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-dataset-schema\/\([0-9]\+\)\)/DataSet.markdown/g' \
 		-e 's/\(https:\/\/w3id.org\/bridge2ai\/standards-datastandardortool-schema\/\([0-9]\+\)\)/DataStandardOrTool.markdown/g' {} \;
 # Now fix links where we want to map to a specific page
 # This is messy and would probably be better as a mapping between ID and page name
@@ -196,6 +201,7 @@ issue-templates:
 		["$(DATA_DIR)DataSubstrate.yaml"]="data substrate" \
 		["$(DATA_DIR)DataTopic.yaml"]="data topic" \
 		["$(DATA_DIR)Organization.yaml"]="organization" \
+		["$(DATA_DIR)DataSet.yaml"]="data set" \
 		["$(DATA_DIR)UseCase.yaml"]="use case" ) \
 	; for key in "$${!CLASSES[@]}" ; do \
 		printf "Building template for $${CLASSES[$${key}]}s...\n" ; \
