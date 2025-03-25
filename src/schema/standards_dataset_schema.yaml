@@ -1,0 +1,149 @@
+id: https://w3id.org/bridge2ai/standards-dataset-schema
+name: standards-dataset-schema
+title: standards-dataset-schema
+description: |-
+  Data schema for Bridge2AI data set metadata.
+  This is not intended to be a comprehensive schema,
+  but rather a system for indexing and organizing
+  links to data sets and other representations of
+  their metadata (e.g., Datasheets for Datasets).
+license: MIT
+prefixes:
+  B2AI_DATA: https://w3id.org/bridge2ai/standards-dataset-schema/
+  B2AI_ORG: https://w3id.org/bridge2ai/standards-organization-schema/
+  B2AI_SUBSTRATE: https://w3id.org/bridge2ai/standards-datasubstrate-schema/
+  B2AI_TOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+default_prefix: B2AI_DATA
+default_range: string
+
+imports:
+  - linkml:types
+  - standards_schema
+  - standards_organization_schema
+
+
+classes:
+
+  DataSet:
+    is_a: NamedThing
+    description: >-
+      Represents a data set produced by a group
+      in the Bridge2AI consortium.
+    slots:
+      - has_files
+      - has_parts
+      - produced_by
+      - data_url
+      - documentation_url
+      - datasheet_url
+      - is_public
+      - substrates
+      - topics
+
+  DataSetContainer:
+    description: >-
+      A container for DataSets.
+    slots:
+      - data_collection
+
+slots:
+
+  data_collection:
+    description: Collection of associated DataSet objects.
+    range: DataSet
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
+
+  data_url:
+    is_a: node_property
+    description: >-
+      URL where the data set can be accessed.
+    domain: DataSet
+    range: uriorcurie
+
+  documentation_url:
+    is_a: node_property
+    description: >-
+      URL where documentation for the data set
+      can be accessed.
+    domain: DataSet
+    range: uriorcurie
+
+  datasheet_url:
+    is_a: node_property
+    description: >-
+      URL where the datasheet for the data set
+      can be accessed.
+    domain: DataSet
+    range: uriorcurie
+
+  has_files:
+    is_a: related_to
+    description: >-
+      Subject data set has the file(s) listed in
+      this slot as parts. Note that each file is
+      not a data set and does not have its own ID
+      in the registry. For data sets that are parts of
+      this data set, use the `has_parts` slot.
+    domain: DataSet
+    range: string
+    multivalued: true
+
+  has_parts:
+    is_a: related_to
+    description: >-
+      Subject data set has the data set(s) listed
+      in this slot as parts. Note that each part is
+      itself a data set, with its own ID in the
+      registry. For specific files, use the
+      `has_files` slot.
+    domain: DataSet
+    range: DataSet
+    multivalued: true
+
+  is_public:
+    is_a: node_property
+    description: >-
+      True if the data set is publicly available.
+      False if the data set is private or requires
+      special permissions to access.
+    domain: DataSet
+    range: boolean
+
+  produced_by:
+    is_a: related_to
+    description: >-
+      Subject data set was produced by the
+      organization(s) listed in this slot.
+      Must be an Organization object,
+      referenced with its B2AI_ORG ID.
+    domain: DataSet
+    range: Organization
+    multivalued: true
+
+  substrates:
+    is_a: related_to
+    description: >-
+      Subject data set is relevant to the
+      substrate(s) listed in this slot.
+      Must be a DataSubstrate object,
+      referenced with its B2AI_SUBSTRATE ID.
+    domain: DataSet
+    range: DataSubstrate
+    multivalued: true
+
+  topics:
+    is_a: related_to
+    description: >-
+      Subject data set is relevant to the
+      topic(s) listed in this slot.
+      Must be a DataTopic object,
+      referenced with its B2AI_TOPIC ID.
+    domain: DataSet
+    range: DataTopic
+    multivalued: true

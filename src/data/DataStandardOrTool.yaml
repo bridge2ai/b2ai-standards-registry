@@ -433,6 +433,7 @@ data_standardortools_collection:
   description: Binary Alignment Map / Compressed Reference-oriented Alignment Map
   collection:
   - fileformat
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:12
   - B2AI_TOPIC:13
@@ -445,6 +446,9 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   related_to:
   - B2AI_STANDARD:22
+  has_relevant_organization:
+    - B2AI_ORG:117
+    - B2AI_ORG:116
 - id: B2AI_STANDARD:22
   name: BAM
   category: B2AI_STANDARD:BiomedicalStandard
@@ -2133,6 +2137,9 @@ data_standardortools_collection:
   - B2AI_TOPIC:15
   has_relevant_organization:
   - B2AI_ORG:25
+  - B2AI_ORG:115
+  - B2AI_ORG:114
+  - B2AI_ORG:117
   has_training_resource:
   - B2AI_STANDARD:849
   purpose_detail: Radiology imaging, including templates for narrative reports and
@@ -2345,6 +2352,8 @@ data_standardortools_collection:
   name: FHIR
   category: B2AI_STANDARD:BiomedicalStandard
   description: Fast Healthcare Interoperability Resources
+  collection:
+    - has_ai_application
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -2352,6 +2361,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   has_relevant_organization:
   - B2AI_ORG:40
+  - B2AI_ORG:114
+  - B2AI_ORG:117
   purpose_detail: EHR exchange, EHRs
   is_open: true
   requires_registration: true
@@ -2388,6 +2399,7 @@ data_standardortools_collection:
   description: FASTQ Sequence and Sequence Quality Format
   collection:
   - fileformat
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:13
   purpose_detail: A text-based data format for nucleotide and amino acid sequences,
@@ -2398,6 +2410,9 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+  - B2AI_ORG:116
+  - B2AI_ORG:114
 - id: B2AI_STANDARD:112
   name: Common Rule
   category: B2AI_STANDARD:BiomedicalStandard
@@ -4007,10 +4022,13 @@ data_standardortools_collection:
   - B2AI_STANDARD:848
   collection:
   - codesystem
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:9
   has_relevant_organization:
   - B2AI_ORG:53
+  - B2AI_ORG:114
+  - B2AI_ORG:115
   purpose_detail: Tests, observations, diagnostics, and other clinical procedures.
   is_open: true
   requires_registration: true
@@ -4321,6 +4339,7 @@ data_standardortools_collection:
   - B2AI_TOPIC:37
   has_relevant_organization:
   - B2AI_ORG:57
+  - B2AI_ORG:115
   purpose_detail: Format for MIMIC Waveform Database records.
   is_open: true
   requires_registration: false
@@ -5152,6 +5171,8 @@ data_standardortools_collection:
   - B2AI_TOPIC:4
   has_relevant_organization:
   - B2AI_ORG:76
+  - B2AI_ORG:115
+  - B2AI_ORG:114
   purpose_detail: Open community data standard designed to standardize the structure
     and content of observational data and to enable efficient analyses that can produce
     reliable evidence.
@@ -5233,6 +5254,10 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+    - B2AI_ORG:114
+  collection:
+    - has_ai_application
 - id: B2AI_STANDARD:247
   name: OME-TIFF
   category: B2AI_STANDARD:BiomedicalStandard
@@ -6403,6 +6428,7 @@ data_standardortools_collection:
   description: Variant Call Format
   collection:
   - fileformat
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:13
   - B2AI_TOPIC:35
@@ -6416,6 +6442,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+    - B2AI_ORG:117
 - id: B2AI_STANDARD:300
   name: VEP
   category: B2AI_STANDARD:BiomedicalStandard
@@ -6438,6 +6466,7 @@ data_standardortools_collection:
   description: Variation Representation Specification
   has_relevant_organization:
   - B2AI_ORG:34
+  - B2AI_ORG:117
   purpose_detail: variant representation
   is_open: true
   requires_registration: false
@@ -6446,6 +6475,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  collection:
+    - has_ai_application
   responsible_organization:
     - B2AI_ORG:34
 - id: B2AI_STANDARD:302
@@ -7142,6 +7173,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+  - B2AI_ORG:116
 - id: B2AI_STANDARD:340
   name: HDMF
   category: B2AI_STANDARD:DataStandard
@@ -7230,6 +7263,7 @@ data_standardortools_collection:
   collection:
   - audiovisual
   - fileformat
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:15
   purpose_detail: A method of lossy compression for digital images.
@@ -7239,6 +7273,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+  - B2AI_ORG:116
 - id: B2AI_STANDARD:345
   name: JSON-schema
   category: B2AI_STANDARD:DataStandard
@@ -7278,6 +7314,7 @@ data_standardortools_collection:
   description: LinkML
   collection:
   - markuplanguage
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:5
   purpose_detail: LinkML is a flexible modeling language that allows you to author
@@ -7291,6 +7328,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+    - B2AI_ORG:116
 - id: B2AI_STANDARD:348
   name: MathML
   category: B2AI_STANDARD:DataStandard
@@ -7515,6 +7554,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+    - B2AI_ORG:114
 - id: B2AI_STANDARD:360
   name: PURL
   category: B2AI_STANDARD:DataStandard
@@ -7748,6 +7789,10 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  collection:
+    - has_ai_application
+  has_relevant_organization:
+    - B2AI_ORG:116
 - id: B2AI_STANDARD:373
   name: RDF
   category: B2AI_STANDARD:DataStandard
@@ -7949,6 +7994,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+  - B2AI_ORG:116
 - id: B2AI_STANDARD:384
   name: TAR
   category: B2AI_STANDARD:DataStandard
@@ -8958,6 +9005,10 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  collection:
+    - has_ai_application
+  has_relevant_organization:
+    - B2AI_ORG:116
 - id: B2AI_STANDARD:445
   name: ECO
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -10837,6 +10888,7 @@ data_standardortools_collection:
   description: UMLS Metathesaurus
   has_relevant_organization:
   - B2AI_ORG:74
+  - B2AI_ORG:115
   purpose_detail: Biomedical terminology and hierarchical relationships between concepts.
   is_open: true
   requires_registration: true
@@ -12185,10 +12237,14 @@ data_standardortools_collection:
   description: MIMIC Waveform Database for Biomedical Signal Processing
   collection:
   - clinicaldata
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:37
   has_relevant_organization:
   - B2AI_ORG:57
+  - B2AI_ORG:115
+  - B2AI_ORG:114
+  - B2AI_ORG:117
   purpose_detail: A large collection of physiological signals and measurements from
     patients in intensive care units, including electrocardiograms, photoplethysmograms,
     respiration, invasive and non-invasive blood pressure, and more. These measurements
@@ -13907,6 +13963,10 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  collection:
+    - has_ai_application
+  has_relevant_organization:
+    - B2AI_ORG:117
 - id: B2AI_STANDARD:733
   name: ACHILLES
   has_training_resource:
@@ -14449,6 +14509,10 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+    -  B2AI_ORG:116
+  collection:
+    - has_ai_application
 - id: B2AI_STANDARD:765
   name: FastAI
   category: B2AI_STANDARD:SoftwareOrTool
@@ -14502,10 +14566,12 @@ data_standardortools_collection:
   description: Google Cloud Platform
   collection:
   - cloudservice
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:5
   has_relevant_organization:
   - B2AI_ORG:37
+  - B2AI_ORG:115
   purpose_detail: Cloud computing platform.
   is_open: false
   requires_registration: true
@@ -15084,6 +15150,7 @@ data_standardortools_collection:
   description: Multi-Scale Integrated Cell pipeline
   collection:
   - multimodal
+  - has_ai_application
   concerns_data_topic:
   - B2AI_TOPIC:26
   - B2AI_TOPIC:28
@@ -15100,6 +15167,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+    -  B2AI_ORG:116
 - id: B2AI_STANDARD:801
   name: MySQL
   category: B2AI_STANDARD:SoftwareOrTool
@@ -15462,6 +15531,11 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+    - B2AI_ORG:114
+    - B2AI_ORG:117
+  collection:
+    - has_ai_application
 - id: B2AI_STANDARD:822
   name: Synapse
   category: B2AI_STANDARD:SoftwareOrTool
@@ -15964,6 +16038,7 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:40
   - B2AI_ORG:103
+  - B2AI_ORG:117
   purpose_detail: This is subset of all FHIR profiles for the US Realm, i.e., those
     supporting the minimum requirements for clinical data exchange in the United States.
   is_open: true
@@ -15972,6 +16047,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  collection:
+    - has_ai_application
   responsible_organization:
     - B2AI_ORG:40
 - id: B2AI_STANDARD:852
@@ -16014,6 +16091,7 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:40
   - B2AI_ORG:103
+  - B2AI_ORG:117
   purpose_detail: USCDI is the set of basic healthcare data types expected to supported
     by other systems. This is the FHIR US Core profile with all elements required
     by USCDI v1.
@@ -16023,6 +16101,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  collection:
+    - has_ai_application
   responsible_organization:
     - B2AI_ORG:40
 - id: B2AI_STANDARD:854
@@ -16040,6 +16120,7 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:40
   - B2AI_ORG:103
+  - B2AI_ORG:117
   purpose_detail: USCDI is the set of basic healthcare data types expected to supported
     by other systems. This is the FHIR US Core profile with all elements required
     by USCDI v4.
@@ -16049,6 +16130,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
+  collection:
+    - has_ai_application
   responsible_organization:
     - B2AI_ORG:40
 - id: B2AI_STANDARD:855
@@ -16287,6 +16370,7 @@ data_standardortools_collection:
   - B2AI_TOPIC:29
   has_relevant_organization:
   - B2AI_ORG:105
+  - B2AI_ORG:115
   purpose_detail: Care coordination module focused on social determinant of health
     factors. Part of the Epic EHR platform.
   is_open: false
@@ -16296,6 +16380,8 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
   contribution_date: '2023-06-20'
+  collection:
+    - has_ai_application
 - id: B2AI_STANDARD:870
   name: GX
   category: B2AI_STANDARD:SoftwareOrTool
@@ -16691,3 +16777,120 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_orcid: ORCID:0000-0001-5705-7831
   contribution_date: '2025-03-13'
+- id: B2AI_STANDARD:894
+  category: B2AI_STANDARD:SoftwareOrTool
+  name: PRIDE
+  description: PRoteomics IDEntifications Database
+  collection:
+    - dataregistry
+    - has_ai_application
+  concerns_data_topic:
+    - B2AI_TOPIC:5
+    - B2AI_TOPIC:23
+  purpose_detail: The PRIDE PRoteomics IDEntifications (PRIDE) Archive database is a
+    centralized, standards compliant, public data repository for mass spectrometry
+    proteomics data, including protein and peptide identifications and the corresponding
+    expression values, post-translational modifications and supporting mass spectra
+    evidence (both as raw data and peak list files). PRIDE is a core member in the
+    ProteomeXchange (PX) consortium, which provides a standardised way for submitting
+    mass spectrometry based proteomics data to public-domain repositories. Datasets are
+    submitted to ProteomeXchange via PRIDE and are handled by expert bio-curators. All
+    PRIDE public datasets can also be searched in ProteomeCentral, the portal for all
+    ProteomeXchange datasets.
+  is_open: true
+  requires_registration: false
+  url: https://www.ebi.ac.uk/pride/
+  publication: doi:10.1093/nar/gkae1011
+  has_relevant_organization:
+    - B2AI_ORG:116
+- id: B2AI_STANDARD:895
+  category: B2AI_STANDARD:DataStandard
+  name: ASCII File Format Guidelines for Earth Science Data
+  description: American Standard Code for Information Interchange ASCII File Format Guidelines for Earth Science Data
+  collection:
+    - fileformat
+    - has_ai_application
+  concerns_data_topic:
+    - B2AI_TOPIC:5
+  purpose_detail: American Standard Code for Information Interchange (ASCII) file format
+    guidelines for NASA Earth science data.
+  is_open: true
+  requires_registration: false
+  formal_specification: https://www.earthdata.nasa.gov/s3fs-public/imported/ESDS-RFC-027v1.1.pdf
+  url: https://www.earthdata.nasa.gov/about/esdis/esco/standards-practices/ascii-file-format-guidelines-earth-science-data
+  has_relevant_organization:
+    - B2AI_ORG:114
+- id: B2AI_STANDARD:896
+  name: GIS Toolchain
+  description: Geographic Informations Systems Toolchain
+  category: B2AI_STANDARD:SoftwareOrTool
+  purpose_detail: The GIS toolchain consists of extensions to the OMOP schema, extensions
+    to the OMOP Vocabulary, and GIS-specific software for acquiring and working with
+    geospatial data. Together, these enable researchers to use health-related attributes
+    of the regions where patients live in OHDSI study cohort definitions. For example,
+    you can use the GIS toolchain to define cohorts that include regional data on
+    exposure to toxicants or social deprivation along with EHR data on relevant health
+    outcomes. The toolchain also includes informatics resources that support
+    integration with the main OHDSI tool stack (HADES) and integration with externally
+    supported solutions for geocoding and for finding and deriving relevant data
+    sources from catalogs of available data sources.
+    Importantly, the toolchain allows integrated analysis of geospatial and EHR data
+    without sharing any sensitive patient location data.
+  collection:
+  - datamodel
+  - has_ai_application
+  concerns_data_topic:
+    - B2AI_TOPIC:14
+  has_relevant_organization:
+    - B2AI_ORG:76
+    - B2AI_ORG:115
+  is_open: true
+  requires_registration: false
+  url: https://ohdsi.github.io/GIS/
+- id: B2AI_STANDARD:897
+  name: MI-CDM
+  category: B2AI_STANDARD:BiomedicalStandard
+  description: Medical Imaging Common Data Model
+  collection:
+    - datamodel
+    - has_ai_application
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  has_relevant_organization:
+  - B2AI_ORG:76
+  - B2AI_ORG:115
+  purpose_detail: The rapid growth of artificial intelligence (AI) and deep learning
+    techniques require access to large inter-institutional cohorts of data to enable the
+    development of robust models, e.g., targeting the identification of disease
+    biomarkers and quantifying disease progression and treatment efficacy. The
+    Observational Medical Outcomes Partnership Common Data Model (OMOP CDM) has been
+    designed to accommodate a harmonized representation of observational healthcare
+    data. This study proposes the Medical Imaging CDM (MI-CDM) extension, adding two new
+    tables and two vocabularies to the OMOP CDM to address the structural and semantic
+    requirements to support imaging research. The tables provide the capabilities of
+    linking DICOM data sources as well as tracking the provenance of imaging features
+    derived from those images. The implementation of the extension enables phenotype
+    definitions using imaging features and expanding standardized computable imaging
+    biomarkers. This proposal offers a comprehensive and unified approach for conducting
+    imaging research and outcome studies utilizing imaging features.
+  is_open: true
+  requires_registration: false
+  publication: doi:10.1007/s10278-024-00982-6
+- id: B2AI_STANDARD:898
+  name: CX
+  category: B2AI_STANDARD:DataStandard
+  description: Cytoscape Exchange
+  purpose_detail: Cytoscape Exchange (CX) format is a network exchange format, designed
+    as a flexible structure for transmission of networks. It is designed for
+    flexibility, modularity, and extensibility, and as a message payload in common REST
+    protocols. It is not intended as an in-memory data model for use in applications.
+  concerns_data_topic:
+    - B2AI_TOPIC:21
+  collection:
+    - has_ai_application
+    - fileformat
+  is_open: true
+  requires_registration: false
+  url: https://cytoscape.org/cx/
+  has_relevant_organization:
+    - B2AI_ORG:116
