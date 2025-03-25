@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{include = "b2ai-standards-registry", from="src"}]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<3.13"
 linkml = "^1.4.5"
 mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^0.6.0"
@@ -17,6 +17,7 @@ more-itertools = "^10.6.0"
 click = "^8.1.3"
 mkdocs-table-reader-plugin = "^2.0"
 pandas = "^2.2.3"
+synapseclient = "^4.7.0"
 
 
 [build-system]
