@@ -41,14 +41,14 @@ To run these scripts, you’ll need to install the required dependencies. This c
 
 Each script is intended to be run individually. Here’s how to use them:
 
-### Example Script: table_schema_setup.py
+### Example Script: modify_synapse_schema.py
 
 **Description:** Sets up and manages table schemas in Synapse, defining the column structure for each table.
 
 **Run:**
 
 ```bash
-python scripts/table_schema_setup.py
+python scripts/modify_synapse_schema.py
 ```
 
 #### Requirements
