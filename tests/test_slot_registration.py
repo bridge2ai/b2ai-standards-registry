@@ -5,8 +5,6 @@ import unittest
 from scripts.modify_synapse_schema import ColumnName, COLUMN_TEMPLATES, TableSchema
 
 DATA_DIRECTORY = "src/data/"
-STANDARDS_SCHEMA_DIRECTORY = "src/schema/"
-STANDARDS_SCHEMA_FILE = STANDARDS_SCHEMA_DIRECTORY + "standards_schema.yaml"
 MODIFIED_SYNAPSE_SCHEMA_FILE = "scripts/modify_synapse_schema.py"
 
 
@@ -14,25 +12,24 @@ class TestSlotRegistration(unittest.TestCase):
 
 	@staticmethod
 	def _get_modified_data_files():
-		"""Retrieve a list of modified YAML files."""
-		result = subprocess.run(["git", "diff", "--name-only", "origin/main"], capture_output=True, text=True)
-		modified_data_files = [file for file in result.stdout.splitlines() if file.endswith(".yaml") and DATA_DIRECTORY in file]
+		"""Retrieve a list of modified data files."""
+		diff = subprocess.run(["git", "diff", "--name-only", "origin/main"], capture_output=True, text=True)
+		modified_data_files = [file for file in diff.stdout.splitlines() if file.endswith(".yaml") and DATA_DIRECTORY in file]
 		return modified_data_files
 
 
 	@staticmethod
 	def _get_modified_slots(file_path):
-		"""Extract only modified slot entries from a YAML file"""
-		result = subprocess.run(["git", "diff", "origin/main", "-U0", file_path], capture_output=True, text=True)
-		modified_lines = result.stdout.splitlines()
+		"""Extract only modified slot entries from a data file"""
+		diff = subprocess.run(["git", "diff", "origin/main", "-U0", file_path], capture_output=True, text=True)
+		modified_lines = diff.stdout.splitlines()
 
 		modified_slots = set()
+
 		for line in modified_lines:
-			if line.startswith("+") and not line.startswith("+++"):  # Added lines only
-				# All lines will start with a '+', then a variable amount of whitespace
-				# Ignore lines that have a '-' immediately after the whitespace - these lines are *NOT* slots
-				# Capture all other lines - these ARE slots
-				match = re.match(r"^\+\s*(?!-)([\w_]+):", line)
+			if line.startswith("+") and not line.startswith("+++"):  # New/modified lines
+				# Lines with new/modified slots will start with a '+', then 2-4 spaces, then the slot name, then a colon
+				match = re.match(r"^\+ {2,4}(\w+):", line)
 				slot_name = match.group(1) if match else None
 				if slot_name:
 					modified_slots.add(slot_name)
