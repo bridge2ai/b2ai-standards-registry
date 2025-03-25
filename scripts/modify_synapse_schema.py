@@ -47,14 +47,10 @@ class ColumnName(Enum):
     ALTERNATIVE_STANDARDS_AND_TOOLS = "alternative_standards_and_tools"
     ROR_ID = "ror_id"
     WIKIDATA_ID = "wikidata_id"
-    TEST_SLOT = "test_slot"
 
 
 # Possible columns in the standards data tables
 COLUMN_TEMPLATES = {
-    ColumnName.TEST_SLOT: Column(
-        name=ColumnName.TEST_SLOT.value, columnType="STRING", maximumSize=100
-    ),
     ColumnName.ID: Column(
         name=ColumnName.ID.value, columnType="STRING", maximumSize=100
     ),
@@ -213,7 +209,6 @@ class TableSchema(Enum):
             ColumnName.SUBCLASS_OF,
             ColumnName.CONTRIBUTION_DATE,
             ColumnName.RELATED_TO,
-            ColumnName.TEST_SLOT
         ],
     }
     DataSubstrate = {
