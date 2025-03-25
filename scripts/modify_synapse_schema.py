@@ -182,7 +182,7 @@ COLUMN_TEMPLATES = {
         name=ColumnName.WIKIDATA_ID.value, columnType="STRING", maximumSize=25
     ),
     ColumnName.RESPONSIBLE_ORGANIZATION: Column(
-        name=ColumnName.RESPONSIBLE_ORGANIZATION, columnType="STRING_LIST", maximumListLength=25
+        name=ColumnName.RESPONSIBLE_ORGANIZATION.value, columnType="STRING_LIST", maximumListLength=25
     )
 }
 
