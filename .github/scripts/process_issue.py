@@ -472,6 +472,13 @@ def main(dry: bool, github: bool, force: bool):
             with open(data_path, "w") as yamlfile:
                 yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
 
+    try:
+        click.secho("Running `make site`", fg="green")
+        subprocess.run(["make", "site"], check=True)
+    except subprocess.CalledProcessError as e:
+        click.secho(f"An error occurred while running `make site`: {e}", fg="red")
+        return sys.exit(0)
+
     title = make_title(
         sorted(resource["name"] for resource in issue_to_resource.values())
     )
@@ -500,13 +507,6 @@ def main(dry: bool, github: bool, force: bool):
 
     click.secho("Creating and switching to branch", fg="green")
     click.echo(branch(branch_name))
-
-    try:
-        click.secho("Running `make site`", fg="green")
-        subprocess.run(["make", "site"], check=True)
-    except subprocess.CalledProcessError as e:
-        click.secho(f"An error occurred while running `make site`: {e}", fg="red")
-        return sys.exit(0)
 
     click.secho("Committing", fg="green")
     commit_msg = commit_all(message)
