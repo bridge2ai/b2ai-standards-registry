@@ -46,6 +46,7 @@ import itertools as itt
 import logging
 import os
 import re
+import subprocess
 import sys
 import time
 from subprocess import CalledProcessError, check_output
@@ -499,6 +500,13 @@ def main(dry: bool, github: bool, force: bool):
 
     click.secho("Creating and switching to branch", fg="green")
     click.echo(branch(branch_name))
+
+    try:
+        click.secho("Running `make site`", fg="green")
+        subprocess.run(["make", "site"], check=True)
+    except subprocess.CalledProcessError as e:
+        click.secho(f"An error occurred while running `make site`: {e}", fg="red")
+        return sys.exit(0)
 
     click.secho("Committing", fg="green")
     commit_msg = commit_all(message)
