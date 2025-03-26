@@ -53,7 +53,7 @@ python scripts/table_schema_setup.py
 
 ### Script: format_yaml.py
 
-**Description:** Custom formatter that formats .yaml/.yml files in the `src/data` folder
+**Description:** Custom formatter that formats .yaml/.yml files in the `src/data` folder arranging data with `id` key placed first and other keys arragned alphabetically.
 
 **Run:**
 
