@@ -25,7 +25,7 @@ class TestSlotRegistration(unittest.TestCase):
 
 		for line in modified_lines:
 			if line.startswith("+") and not line.startswith("+++"):  # New/modified lines
-				# Lines with new/modified slots will start with a '+', then 2-4 spaces, then thegitslot name, then a colon
+				# Lines with new/modified slots will start with a '+', then 2-4 spaces, then the slot name, then a colon
 				match = re.match(r"^\+ {2,4}(\w+):", line)
 				slot_name = match.group(1) if match else None
 				if slot_name:
