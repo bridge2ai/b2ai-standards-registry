@@ -13,15 +13,15 @@ The scripts in this folder are designed to:
 
 ## Setup
 
-To run these scripts, you’ll need to install the required dependencies. This can be done by installing the dependencies listed in the requirements-scripts.txt file.
-
 1. **Install Dependencies**
 
     In your terminal, navigate to the project root and install the requirements with:
 
-    ```shell
-    pip install -r scripts/requirements-scripts.txt
+    ```bash
+    poetry install --all-groups
     ```
+
+    **Essential:** Be sure to include the `--all-groups` option.
 
 2. **Synapse Authentication**
 
