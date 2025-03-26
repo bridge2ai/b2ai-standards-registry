@@ -1,28 +1,13 @@
-site_name: "Bridge2AI Standards Registry"
-theme:
-  name: material
-  font:
-    text: Inter
-  palette:
-
-    # Palette toggle for light mode
-    - scheme: default
-      primary: deep purple
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - scheme: slate
-      primary: deep purple
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-  features:
-    - content.tabs.link
-    - toc.integrate
-plugins:
-  - search
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/bridge2ai/b2ai-standards-registry
+      name: Standards Registry GitHub
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+markdown_extensions:
+  - tables
 nav:
   - Home: index.md
   - Curation: curation.md
@@ -76,15 +61,26 @@ nav:
       - Governance: topics/Governance.markdown
   - Organizations:
       - All Organizations: Organization.markdown
-site_url: https://bridge2ai.github.io/b2ai-standards-registry
+plugins:
+  - search
 repo_url: https://github.com/bridge2ai/b2ai-standards-registry
-markdown_extensions:
-  - tables
-extra_javascript:
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/tablesort.js
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/bridge2ai/b2ai-standards-registry
-      name: Standards Registry GitHub
+site_name: "Bridge2AI Standards Registry"
+site_url: https://bridge2ai.github.io/b2ai-standards-registry
+theme:
+  features:
+    - content.tabs.link
+    - toc.integrate
+  font:
+    text: Inter
+  name: material
+  palette:
+    - primary: deep purple
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - primary: deep purple
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode

@@ -1,16 +1,31 @@
 id: https://w3id.org/bridge2ai/standards-datatopic-schema
-name: standards-datatopic-schema
-title: standards-datatopic-schema
+classes:
+  DataTopic:
+    description: >-
+      Represents a general data topic for Bridge2AI
+      data or the tools/standards applied to the data.
+    is_a: NamedThing
+    slots:
+      - edam_id
+      - mesh_id
+      - ncit_id
+      - topic_involves_anatomy
+  DataTopicContainer:
+    description: >-
+      A container for DataTopics.
+    slots:
+      - data_topics_collection
+default_prefix: B2AI_TOPIC
+default_range: string
 description: |-
   Data schema for Bridge2AI data topic types.
+imports:
+  - linkml:types
+  - standards_schema
 license: MIT
-see_also:
-  - https://bridge2ai.github.io/standards-datatopic-schema
-
+name: standards-datatopic-schema
 prefixes:
   B2AI_TOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
-  mesh: http://id.nlm.nih.gov/mesh/
-  ncit: http://purl.obolibrary.org/obo/NCIT_
   PATO: http://purl.obolibrary.org/obo/PATO_
   RO: http://purl.obolibrary.org/obo/RO_
   biolink: https://w3id.org/biolink/vocab/
@@ -19,49 +34,26 @@ prefixes:
   edam.operation: http://edamontology.org/operation_
   edam.topic: http://edamontology.org/topic_
   linkml: https://w3id.org/linkml/
+  mesh: http://id.nlm.nih.gov/mesh/
+  ncit: http://purl.obolibrary.org/obo/NCIT_
   schema: http://schema.org/
   uberon: http://purl.obolibrary.org/obo/uberon/core#
-default_prefix: B2AI_TOPIC
-default_range: string
-
-imports:
-  - linkml:types
-  - standards_schema
-
-classes:
-
-  DataTopic:
-    is_a: NamedThing
-    description: >-
-      Represents a general data topic for Bridge2AI
-      data or the tools/standards applied to the data.
-    slots:
-      - edam_id
-      - mesh_id
-      - ncit_id
-      - topic_involves_anatomy
-
-  DataTopicContainer:
-    description: >-
-      A container for DataTopics.
-    slots:
-      - data_topics_collection
-
+see_also:
+  - https://bridge2ai.github.io/standards-datatopic-schema
 slots:
-
   data_topics_collection:
     description: Collection of associated data topics.
-    range: DataTopic
     inlined: true
     inlined_as_list: true
     multivalued: true
-
+    range: DataTopic
   topic_involves_anatomy:
     description: >-
       A relationship between a DataTopic and an anatomical entity.
-    is_a: related_to
     domain: DataTopic
-    range: AnatomicalEntity
-    multivalued: True
     exact_mappings:
       - RO:0004026
+    is_a: related_to
+    multivalued: true
+    range: AnatomicalEntity
+title: standards-datatopic-schema

@@ -1,18 +1,13 @@
-name: Request new entity
-description: Request addition of something new to the registry, including standards, concepts, use cases.
-title: Add this entity - [Name Here]
-labels: [ New ]
 assignees:
   - caufieldjh
 body:
-  - type: markdown
-    attributes:
+  - attributes:
       value: This is the form for requesting a new entity (e.g., a data standard, tool, or topic) in the Bridge2AI Standards Registry.
-  - type: dropdown
-    id: entity_type
+    type: markdown
+  - id: entity_type
     attributes:
-      label: Entity Type
       description: What kind of thing is this?
+      label: Entity Type
       multiple: false
       options:
         - Data Standard or Tool
@@ -20,75 +15,81 @@ body:
         - Data Topic
         - Organization
         - Use Case
+    type: dropdown
     validations:
       required: true
-  - type: input
-    id: category
+  - id: category
     attributes:
-      label: Category
       description: What should the category be, based on the classes of the Bridge2AI Standards Schemas (https://bridge2ai.github.io/standards-schemas/)? If in doubt, leave blank.
+      label: Category
       placeholder: NamedThing
-  - type: input
-    id: name
+    type: input
+  - id: name
     attributes:
-      label: Name
       description: What is the short name of this entity? An acronym or short phrase works best.
+      label: Name
       placeholder: e.g., ESM Atlas, W3C, Molecular Biology
+    type: input
     validations:
       required: true
-  - type: input
-    id: description
+  - id: description
     attributes:
-      label: Description
       description: What is the extended name of this entity?
+      label: Description
       placeholder: e.g., ESM Metagenomic Atlas or World Wide Web Consortium
+    type: input
     validations:
       required: true
-  - type: input
-    id: purpose_detail
+  - id: purpose_detail
     attributes:
-      label: Purpose Detail
       description: What is the description of this entity, in a sentence or two?
+      label: Purpose Detail
       placeholder: e.g., Any data concerning studies of the structure, function, and interactions of biological molecules.
+    type: input
     validations:
       required: false
-  - type: input
-    id: subclass_of
+  - id: subclass_of
     attributes:
-      label: Subclass_Of
       description: (Optional) Is this a subclass of another entity? Please use an identifier.
+      label: Subclass_Of
       placeholder: e.g., "B2AI_TOPIC:5"
+    type: input
     validations:
       required: false
-  - type: textarea
-    id: related_to
+  - id: related_to
     attributes:
-      label: Related_To
       description: (Optional) Is this related to another entity? Please list identifiers on separate lines.
+      label: Related_To
       placeholder: e.g., "B2AI_TOPIC:5"
+    type: textarea
     validations:
       required: false
-  - type: input
-    id: contributor_name
+  - id: contributor_name
     attributes:
-      label: Contributor Name
       description: What is your name? This will be used for attribution.
+      label: Contributor Name
       placeholder: e.g., Tabatha Butterscotch
+    type: input
     validations:
       required: true
-  - type: input
-    id: contributor_github
+  - id: contributor_github
     attributes:
-      label: Contributor GitHub
       description: What is your GitHub name, without the @ symbol?
+      label: Contributor GitHub
       placeholder: e.g., tbuttersco
+    type: input
     validations:
       required: true
-  - type: input
-    id: contributor_orcid
+  - id: contributor_orcid
     attributes:
-      label: Contributor ORCID
       description: What is your ORCID iD?
+      label: Contributor ORCID
       placeholder: e.g., 0000-0001-2345-6789
+    type: input
     validations:
       required: true
+description: Request addition of something new to the registry, including standards, concepts, use cases.
+labels:
+  - New
+name: Request new entity
+title: Add this entity - [Name Here]

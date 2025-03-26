@@ -12,12 +12,12 @@ repos:
           - --fix=lf
     repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
-  - repo: local
-    hooks:
+  - hooks:
       - id: custom-yaml-formatter
-        name: custom-yaml-formatter
-        entry: python scripts/format_yaml.py
-        language: python
-        files: \.(yml|yaml)$
         additional_dependencies:
           - ruamel.yaml
+        entry: python scripts/format_yaml.py
+        files: \.(yml|yaml)$
+        language: python
+        name: custom-yaml-formatter
+    repo: local

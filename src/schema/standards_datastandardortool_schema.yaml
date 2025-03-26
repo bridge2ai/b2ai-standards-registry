@@ -1,37 +1,22 @@
 id: https://w3id.org/bridge2ai/standards-datastandardortool-schema
-name: standards-datastandardortool-schema
-title: standards-datastandardortool-schema
-description: |-
-  Data schema for Bridge2AI standards and tools.
-license: MIT
-see_also:
-  - https://bridge2ai.github.io/standards-datastandardortool-schema
-
-prefixes:
-  B2AI_STANDARD: https://w3id.org/bridge2ai/standards-datastandardortool-schema/
-  B2AI_ORG: https://w3id.org/bridge2ai/standards-organization-schema/
-  B2AI_TOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
-  linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/vocab/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-default_prefix: B2AI_STANDARD
-default_range: string
-
-imports:
-  - linkml:types
-  - standards_schema
-  - standards_organization_schema
-  - standards_datatopic_schema
-
-
 classes:
-
+  BiomedicalStandard:
+    description: >-
+      Represents a standard in the Bridge2AI
+      Standards Registry with particular applications
+      or relevance to clinical or biomedical research
+      purposes.
+    is_a: DataStandard
+  DataStandard:
+    description: >-
+      Represents a general purpose standard in the
+      Bridge2AI Standards Registry.
+    is_a: DataStandardOrTool
   DataStandardOrTool:
-    is_a: NamedThing
     description: >-
       Represents a standard or tool in the Bridge2AI
       Standards Registry.
+    is_a: NamedThing
     slots:
       - collection
       - concerns_data_topic
@@ -45,202 +30,66 @@ classes:
       - formal_specification
       - not_relevant_to_dgps
       - responsible_organization
-
-  DataStandard:
-    is_a: DataStandardOrTool
-    description: >-
-      Represents a general purpose standard in the
-      Bridge2AI Standards Registry.
-
-  BiomedicalStandard:
-    is_a: DataStandard
-    description: >-
-      Represents a standard in the Bridge2AI
-      Standards Registry with particular applications
-      or relevance to clinical or biomedical research
-      purposes.
-
-  Registry:
-    is_a: DataStandardOrTool
-    description: >-
-      Represents a resource in the Bridge2AI
-      Standards Registry serving to curate and/or
-      index other resources.
-
-  OntologyOrVocabulary:
-    is_a: DataStandardOrTool
-    description: >-
-      A set of concepts and categories, potentially
-      defined or accompanied by their hierarchical
-      relationships.
-
-  ModelRepository:
-    is_a: DataStandardOrTool
-    description: >-
-      Represents a resource in the Bridge2AI
-      Standards Registry serving to curate and
-      store computational models. To be a repository,
-      the resource must not index models alone.
-
-  ReferenceDataOrDataset:
-    is_a: DataStandardOrTool
-    description: >-
-      Represents a resource in the Bridge2AI
-      Standards Registry serving as a standardized,
-      reusable data source.
-
-  SoftwareOrTool:
-    is_a: DataStandardOrTool
-    description: >-
-      Represents a piece of software or computational tool
-      in the Bridge2AI Standards Registry.
-
-  ReferenceImplementation:
-    is_a: DataStandardOrTool
-    description: >-
-      Represents an implementation of one or more standards
-      or tools in the Bridge2AI Standards Registry, whether
-      as a full specification in a particular language or
-      as an application to a specific use case.
-
-  TrainingProgram:
-    is_a: DataStandardOrTool
-    description: >-
-      Represents a training program for skills and experience
-      related to standards or tools in the Bridge2AI Standards
-      Registry.
-
   DataStandardOrToolContainer:
     description: >-
       A container for DataStandardOrTool(s).
     slots:
       - data_standardortools_collection
-
-slots:
-
-  collection:
-    is_a: node_property
-    range: StandardsCollectionTag
+  ModelRepository:
     description: >-
-      Tags for specific sets of standards.
-    multivalued: true
-
-  purpose_detail:
-    range: string
-    is_a: node_property
+      Represents a resource in the Bridge2AI
+      Standards Registry serving to curate and
+      store computational models. To be a repository,
+      the resource must not index models alone.
+    is_a: DataStandardOrTool
+  OntologyOrVocabulary:
     description: >-
-      Text description of the standard or tool.
-
-  is_open:
-    is_a: node_property
-    range: boolean
+      A set of concepts and categories, potentially
+      defined or accompanied by their hierarchical
+      relationships.
+    is_a: DataStandardOrTool
+  ReferenceDataOrDataset:
     description: >-
-      Is the standard or tool FAIR and available
-      free of cost?
-
-  use_conditions:
-    is_a: node_property
-    range: uriorcurie
-    multivalued: true
-    values_from:
-      - DUO
+      Represents a resource in the Bridge2AI
+      Standards Registry serving as a standardized,
+      reusable data source.
+    is_a: DataStandardOrTool
+  ReferenceImplementation:
     description: >-
-      Applicable conditions on use, as defined
-      by the Data Use Ontology (DUO).
-
-  requires_registration:
-    is_a: node_property
-    range: boolean
+      Represents an implementation of one or more standards
+      or tools in the Bridge2AI Standards Registry, whether
+      as a full specification in a particular language or
+      as an application to a specific use case.
+    is_a: DataStandardOrTool
+  Registry:
     description: >-
-      Does usage of the standard or tool
-      require registration of a user or group
-      with some organization or managerial body?
-
-  concerns_data_topic:
-    is_a: related_to
+      Represents a resource in the Bridge2AI
+      Standards Registry serving to curate and/or
+      index other resources.
+    is_a: DataStandardOrTool
+  SoftwareOrTool:
     description: >-
-      Subject standard is generally applied
-      in the context of object data topic.
-    domain: DataStandardOrTool
-    range: DataTopic
-
-  publication:
-    is_a: node_property
-    range: uriorcurie
+      Represents a piece of software or computational tool
+      in the Bridge2AI Standards Registry.
+    is_a: DataStandardOrTool
+  TrainingProgram:
     description: >-
-      Relevant publication for the standard
-      or tool. Prefer a DOI or PUBMED.
-
-  formal_specification:
-    is_a: node_property
-    range: uriorcurie
-    description: >-
-      Relevant code repository or other location
-      for a formal specification of the standard
-      or tool. Often a URL, particularly to
-      a Git repository.
-
-  has_relevant_organization:
-    is_a: related_to
-    description: >-
-      Subject standard has some relationship
-      to the object organization(s), including
-      as a user. This is distinct from the
-      responsible organization, which is the group
-      providing or supporting the standard
-      or tool.
-    domain: DataStandardOrTool
-    range: Organization
-    multivalued: true
-
-  has_training_resource:
-    is_a: node_property
-    range: DataStandardOrTool
-    description: >-
-      Relevant training resources, standard usage manuals,
-      or other documentation for the standard or tool.
-    multivalued: true
-
-  data_standardortools_collection:
-    description: Collection of associated data standards or tools
-    range: DataStandardOrTool
-    inlined: true
-    inlined_as_list: true
-    multivalued: true
-
-  not_relevant_to_dgps:
-    description: >-
-      Is the standard or tool currently relevant to DGPs?
-    is_a: node_property
-    range: boolean
-
-  responsible_organization:
-    description: >-
-      Organization(s) responsible for providing
-      and/or supporting the standard or tool.
-    is_a: node_property
-    domain: DataStandardOrTool
-    range: Organization
-    multivalued: true
-
+      Represents a training program for skills and experience
+      related to standards or tools in the Bridge2AI Standards
+      Registry.
+    is_a: DataStandardOrTool
+default_prefix: B2AI_STANDARD
+default_range: string
+description: |-
+  Data schema for Bridge2AI standards and tools.
 enums:
   StandardsCollectionTag:
     description: Tags for specific sets of standards.
     permissible_values:
       audiovisual:
         description: Audiovisual Standard
-      deprecated:
-        description: Deprecated
-      fileformat:
-        description: File Format
-      toolkit:
-        description: Bioinformatics Toolkit
       clinicaldata:
         description: Clinical Data
-      multimodal:
-        description: Multimodal Data Integration
-      text:
-        description: Text Data
       cloudplatform:
         description: Cloud Research Platform
       cloudservice:
@@ -251,34 +100,45 @@ enums:
         description: Data Model
       dataregistry:
         description: Data Registry
-      softwareregistry:
-        description: Software Registry
-      datavisualization:
-        description: Data Visualization
-      notebookplatform:
-        description: Notebook Platform
       datasheets:
         description: Datasheets
-      machinelearningframework:
-        description: Machine Learning Framework
-      workflowlanguage:
-        description: Workflow Language
+      datavisualization:
+        description: Data Visualization
+      deprecated:
+        description: Deprecated
       diagnosticinstrument:
         description: Diagnostic Instrument
       drugdata:
         description: Drug Data
       eyedata:
         description: Eye Data
-      markuplanguage:
-        description: Markup Language
+      fileformat:
+        description: File Format
       graphdataplatform:
         description: Graph Data Platform
       guidelines:
         description: Guidelines
+      has_ai_application:
+        description: >-
+          Has a direct AI application, defined as standards/tools that are:
+          associated with ML or neural networks;
+          schemas, or have schemas;
+          data models;
+          associated with DICOM;
+          associated with AI;
+          associated with standards used within Bridge2AI
+      machinelearningframework:
+        description: Machine Learning Framework
+      markuplanguage:
+        description: Markup Language
       minimuminformationschema:
         description: Minimum Information Schema
       modelcards:
         description: Model Cards
+      multimodal:
+        description: Multimodal Data Integration
+      notebookplatform:
+        description: Notebook Platform
       obofoundry:
         description: OBO Foundry
       ontologyregistry:
@@ -291,16 +151,126 @@ enums:
         description: Reference Genome
       scrnaseqanalysis:
         description: scRNA-seq Analysis
+      softwareregistry:
+        description: Software Registry
       speechdata:
         description: Speech Data
       standardsregistry:
         description: Standards Registry
-      has_ai_application:
-        description: >-
-          Has a direct AI application, defined as standards/tools that are:
-          associated with ML or neural networks;
-          schemas, or have schemas;
-          data models;
-          associated with DICOM;
-          associated with AI;
-          associated with standards used within Bridge2AI
+      text:
+        description: Text Data
+      toolkit:
+        description: Bioinformatics Toolkit
+      workflowlanguage:
+        description: Workflow Language
+imports:
+  - linkml:types
+  - standards_schema
+  - standards_organization_schema
+  - standards_datatopic_schema
+license: MIT
+name: standards-datastandardortool-schema
+prefixes:
+  B2AI_ORG: https://w3id.org/bridge2ai/standards-organization-schema/
+  B2AI_STANDARD: https://w3id.org/bridge2ai/standards-datastandardortool-schema/
+  B2AI_TOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  biolink: https://w3id.org/biolink/vocab/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+see_also:
+  - https://bridge2ai.github.io/standards-datastandardortool-schema
+slots:
+  collection:
+    description: >-
+      Tags for specific sets of standards.
+    is_a: node_property
+    multivalued: true
+    range: StandardsCollectionTag
+  concerns_data_topic:
+    description: >-
+      Subject standard is generally applied
+      in the context of object data topic.
+    domain: DataStandardOrTool
+    is_a: related_to
+    range: DataTopic
+  data_standardortools_collection:
+    description: Collection of associated data standards or tools
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
+    range: DataStandardOrTool
+  formal_specification:
+    description: >-
+      Relevant code repository or other location
+      for a formal specification of the standard
+      or tool. Often a URL, particularly to
+      a Git repository.
+    is_a: node_property
+    range: uriorcurie
+  has_relevant_organization:
+    description: >-
+      Subject standard has some relationship
+      to the object organization(s), including
+      as a user. This is distinct from the
+      responsible organization, which is the group
+      providing or supporting the standard
+      or tool.
+    domain: DataStandardOrTool
+    is_a: related_to
+    multivalued: true
+    range: Organization
+  has_training_resource:
+    description: >-
+      Relevant training resources, standard usage manuals,
+      or other documentation for the standard or tool.
+    is_a: node_property
+    multivalued: true
+    range: DataStandardOrTool
+  is_open:
+    description: >-
+      Is the standard or tool FAIR and available
+      free of cost?
+    is_a: node_property
+    range: boolean
+  not_relevant_to_dgps:
+    description: >-
+      Is the standard or tool currently relevant to DGPs?
+    is_a: node_property
+    range: boolean
+  publication:
+    description: >-
+      Relevant publication for the standard
+      or tool. Prefer a DOI or PUBMED.
+    is_a: node_property
+    range: uriorcurie
+  purpose_detail:
+    description: >-
+      Text description of the standard or tool.
+    is_a: node_property
+    range: string
+  requires_registration:
+    description: >-
+      Does usage of the standard or tool
+      require registration of a user or group
+      with some organization or managerial body?
+    is_a: node_property
+    range: boolean
+  responsible_organization:
+    description: >-
+      Organization(s) responsible for providing
+      and/or supporting the standard or tool.
+    domain: DataStandardOrTool
+    is_a: node_property
+    multivalued: true
+    range: Organization
+  use_conditions:
+    description: >-
+      Applicable conditions on use, as defined
+      by the Data Use Ontology (DUO).
+    is_a: node_property
+    multivalued: true
+    range: uriorcurie
+    values_from:
+      - DUO
+title: standards-datastandardortool-schema

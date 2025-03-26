@@ -1,60 +1,46 @@
 id: https://w3id.org/bridge2ai/standards-organization-schema
-name: standards-organization-schema
-title: standards-organization-schema
-description: |-
-  Data schema for Bridge2AI organizations.
-license: MIT
-see_also:
-  - https://bridge2ai.github.io/standards-organization-schema
-
-prefixes:
-  B2AI_ORG: https://w3id.org/bridge2ai/standards-organization-schema/
-  linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/vocab/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-  ror: https://ror.org/
-  wikidata: http://www.wikidata.org/wiki/
-default_prefix: B2AI_ORG
-default_range: string
-
-imports:
-  - linkml:types
-  - standards_schema
-
-types:
-  ror_identifier:
-    description: Identifier from Research Organization Registry.
-    typeof: uriorcurie
-    id_prefixes:
-      - ror
-  wikidata_identifier:
-    description: Identifier from Wikidata open knowledge base.
-    typeof: uriorcurie
-    id_prefixes:
-      - wikidata
-
 classes:
-
   Organization:
-    is_a: NamedThing
     description: >-
       Represents a group or organization related to or
       responsible for one or more Bridge2AI standards.
+    is_a: NamedThing
     slots:
       - ror_id
       - wikidata_id
       - url
       - related_to
-
   OrganizationContainer:
     description: >-
       A container for Organizations.
     slots:
       - organizations
-
+default_prefix: B2AI_ORG
+default_range: string
+description: |-
+  Data schema for Bridge2AI organizations.
+imports:
+  - linkml:types
+  - standards_schema
+license: MIT
+name: standards-organization-schema
+prefixes:
+  B2AI_ORG: https://w3id.org/bridge2ai/standards-organization-schema/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  biolink: https://w3id.org/biolink/vocab/
+  linkml: https://w3id.org/linkml/
+  ror: https://ror.org/
+  schema: http://schema.org/
+  wikidata: http://www.wikidata.org/wiki/
+see_also:
+  - https://bridge2ai.github.io/standards-organization-schema
 slots:
-
+  organizations:
+    description: Collection of associated organizations.
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
+    range: Organization
   ror_id:
     description: Unique ROR identifier.
     examples:
@@ -69,9 +55,15 @@ slots:
     range: wikidata_identifier
     values_from:
       - WIKIDATA
-  organizations:
-    description: Collection of associated organizations.
-    range: Organization
-    inlined: true
-    inlined_as_list: true
-    multivalued: true
+title: standards-organization-schema
+types:
+  ror_identifier:
+    description: Identifier from Research Organization Registry.
+    id_prefixes:
+      - ror
+    typeof: uriorcurie
+  wikidata_identifier:
+    description: Identifier from Wikidata open knowledge base.
+    id_prefixes:
+      - wikidata
+    typeof: uriorcurie

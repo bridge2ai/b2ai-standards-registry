@@ -1,35 +1,12 @@
 id: https://w3id.org/bridge2ai/standards-usecase-schema
-name: standards-usecase-schema
-title: standards-usecase-schema
-description: |-
-  Data schema for Bridge2AI Standards Use Cases.
-license: MIT
-see_also:
-  - https://bridge2ai.github.io/standards-schema
-
-prefixes:
-  B2AI_USECASE: https://w3id.org/bridge2ai/standards-usecase-schema/
-  B2AI_SUBSTRATE: https://w3id.org/bridge2ai/standards-datasubstrate-schema/
-  linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/vocab/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-default_prefix: B2AI_USECASE
-default_range: string
-
-imports:
-  - linkml:types
-  - standards_schema
-  - standards_datatopic_schema
-  - standards_datasubstrate_schema
-  - standards_datastandardortool_schema
-
 classes:
-
   UseCase:
-    is_a: NamedThing
     description: >-
       Represents a use case for Bridge2AI standards.
+    is_a: NamedThing
+    slot_usage:
+      use_case_category:
+        required: true
     slots:
       - use_case_category
       - known_limitations
@@ -43,105 +20,15 @@ classes:
       - involved_in_metadata_management
       - involved_in_quality_control
       - xref
-    slot_usage:
-      use_case_category:
-        required: true
-
   UseCaseContainer:
     description: >-
       A container for UseCase.
     slots:
       - use_cases
-
-slots:
-
-  use_case_category:
-    is_a: node_property
-    range: UseCaseCategory
-    multivalued: true
-    description: >-
-      Category of the UseCase.
-      Not all projects will incorporate use cases in all categories.
-      This is multivalued, as a use case may span categories.
-  known_limitations:
-    is_a: node_property
-    range: string
-    description: >-
-      Any current obstacles to implementing this use case.
-      This could be a selection from one or more predefined categories
-      including lack of standards, lack of relevant patient cohort,
-      lack of funding, etc.
-  relevance_to_dgps:
-    range: DataGeneratingProject
-    description: Relevance of the use case to one or more DGPs.
-    multivalued: true
-  data_topics:
-    is_a: node_property
-    range: DataTopic
-    description: Relevance of the use case to one or more data topics.
-    multivalued: true
-  data_substrates:
-    is_a: node_property
-    range: DataSubstrate
-    description: Relevance of the use case to one or more data substrates.
-    multivalued: true
-  standards_and_tools_for_dgp_use:
-    is_a: node_property
-    range: DataStandardOrTool
-    description: >-
-      List of identifiers of standards and tools;
-      those planned to be used, or already in use,
-      by one or more Bridge2AI DGPs in addressing this use case,
-      from those in the Standards Registry.
-      If no value is provided here, the use case may not have
-      a direct relationship to a standard or tool.
-    multivalued: true
-  alternative_standards_and_tools:
-    is_a: node_property
-    range: DataStandardOrTool
-    description: >-
-      List of identifiers of standards and tools;
-      those not explicitly planned to be used,
-      by one or more Bridge2AI DGPs in addressing this use case
-      but serving as viable alternatives,
-      from those in the Standards Registry.
-    multivalued: true
-  enables:  # Should probably be an association type
-    is_a: node_property
-    range: UseCase
-    description: >-
-      List of other use case(s) this use case supports
-      or makes possible.
-    multivalued: true
-  involved_in_experimental_design:
-    is_a: node_property
-    range: boolean
-    description: >-
-      True if use case is likely to be implemented as
-      part of an experimental procedure or collection
-      of data to be used as part of an experiment.
-  involved_in_metadata_management:
-    is_a: node_property
-    range: boolean
-    description: >-
-      True if use case is likely to be implemented as
-      part of metadata indexing, sample tracking,
-      or any other storage of high-level data properties.
-      Includes use cases in which metadata will be
-      collected along with data.
-  involved_in_quality_control:
-    is_a: node_property
-    range: boolean
-    description: >-
-      A value of True indicates a use case is likely to be
-      implemented as part of data validation operations.
-  use_cases:
-    description: Collection of associated use cases.
-    range: UseCase
-    inlined: true
-    inlined_as_list: true
-    multivalued: true
-
+default_prefix: B2AI_USECASE
+default_range: string
+description: |-
+  Data schema for Bridge2AI Standards Use Cases.
 enums:
   UseCaseCategory:
     description: >-
@@ -156,21 +43,6 @@ enums:
           Acquisition. The use case involves the collection of data
           from one or more sources, including data
           generation, data capture, and data entry.
-      integration:
-        description: >-
-          Integration. The use case involves the combination of data
-          from multiple sources, including data harmonization,
-          data linkage, and data aggregation.
-      standardization:
-        description: >-
-          Standardization. The use case involves the application of
-          standards to data, including data normalization,
-          data validation, and quality control.
-      modeling:
-        description: >-
-          Modeling. The use case involves the development of
-          models, including predictive models, statistical
-          models, and machine learning models.
       application:
         description: >-
           Application. The use case involves the use of data for
@@ -187,3 +59,123 @@ enums:
           resources. Note this differs from the standardization
           category, which involves the application of standards
           to data.
+      integration:
+        description: >-
+          Integration. The use case involves the combination of data
+          from multiple sources, including data harmonization,
+          data linkage, and data aggregation.
+      modeling:
+        description: >-
+          Modeling. The use case involves the development of
+          models, including predictive models, statistical
+          models, and machine learning models.
+      standardization:
+        description: >-
+          Standardization. The use case involves the application of
+          standards to data, including data normalization,
+          data validation, and quality control.
+imports:
+  - linkml:types
+  - standards_schema
+  - standards_datatopic_schema
+  - standards_datasubstrate_schema
+  - standards_datastandardortool_schema
+license: MIT
+name: standards-usecase-schema
+prefixes:
+  B2AI_SUBSTRATE: https://w3id.org/bridge2ai/standards-datasubstrate-schema/
+  B2AI_USECASE: https://w3id.org/bridge2ai/standards-usecase-schema/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  biolink: https://w3id.org/biolink/vocab/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+see_also:
+  - https://bridge2ai.github.io/standards-schema
+slots:
+  alternative_standards_and_tools:
+    description: >-
+      List of identifiers of standards and tools;
+      those not explicitly planned to be used,
+      by one or more Bridge2AI DGPs in addressing this use case
+      but serving as viable alternatives,
+      from those in the Standards Registry.
+    is_a: node_property
+    multivalued: true
+    range: DataStandardOrTool
+  data_substrates:
+    description: Relevance of the use case to one or more data substrates.
+    is_a: node_property
+    multivalued: true
+    range: DataSubstrate
+  data_topics:
+    description: Relevance of the use case to one or more data topics.
+    is_a: node_property
+    multivalued: true
+    range: DataTopic
+  enables:
+    description: >-
+      List of other use case(s) this use case supports
+      or makes possible.
+    is_a: node_property
+    multivalued: true
+    range: UseCase
+  involved_in_experimental_design:
+    description: >-
+      True if use case is likely to be implemented as
+      part of an experimental procedure or collection
+      of data to be used as part of an experiment.
+    is_a: node_property
+    range: boolean
+  involved_in_metadata_management:
+    description: >-
+      True if use case is likely to be implemented as
+      part of metadata indexing, sample tracking,
+      or any other storage of high-level data properties.
+      Includes use cases in which metadata will be
+      collected along with data.
+    is_a: node_property
+    range: boolean
+  involved_in_quality_control:
+    description: >-
+      A value of True indicates a use case is likely to be
+      implemented as part of data validation operations.
+    is_a: node_property
+    range: boolean
+  known_limitations:
+    description: >-
+      Any current obstacles to implementing this use case.
+      This could be a selection from one or more predefined categories
+      including lack of standards, lack of relevant patient cohort,
+      lack of funding, etc.
+    is_a: node_property
+    range: string
+  relevance_to_dgps:
+    description: Relevance of the use case to one or more DGPs.
+    multivalued: true
+    range: DataGeneratingProject
+  standards_and_tools_for_dgp_use:
+    description: >-
+      List of identifiers of standards and tools;
+      those planned to be used, or already in use,
+      by one or more Bridge2AI DGPs in addressing this use case,
+      from those in the Standards Registry.
+      If no value is provided here, the use case may not have
+      a direct relationship to a standard or tool.
+    is_a: node_property
+    multivalued: true
+    range: DataStandardOrTool
+  use_case_category:
+    description: >-
+      Category of the UseCase.
+      Not all projects will incorporate use cases in all categories.
+      This is multivalued, as a use case may span categories.
+    is_a: node_property
+    multivalued: true
+    range: UseCaseCategory
+  use_cases:
+    description: Collection of associated use cases.
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
+    range: UseCase
+title: standards-usecase-schema
