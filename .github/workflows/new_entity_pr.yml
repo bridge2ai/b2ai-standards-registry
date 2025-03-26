@@ -1,8 +1,18 @@
+name: "Create PR for new entity"
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [ opened ]
+
 jobs:
   create_new_entity:
     if: contains(github.event.issue.labels.*.name, 'New')
     name: Create PR for new entity
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ "3.12" ]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -13,25 +23,15 @@ jobs:
         uses: snok/install-poetry@v1
       - name: Install dependencies
         run: poetry install --no-interaction --no-root
-      - id: process_issue
+      - name: Process the issue
+        id: process_issue
+        run: poetry run python ./.github/scripts/process_issue.py --github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        name: Process the issue
-        run: poetry run python ./.github/scripts/process_issue.py --github
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
         with:
-          body: ${{ steps.process_issue.outputs.PR_BODY }}
           branch-suffix: short-commit-hash
           labels: New
+          body: ${{ steps.process_issue.outputs.PR_BODY }}
           title: ${{ steps.process_issue.outputs.PR_TITLE }}
-    strategy:
-      matrix:
-        python-version:
-          - "3.12"
-name: "Create PR for new entity"
-on:
-  issues:
-    types:
-      - opened
-  workflow_dispatch:

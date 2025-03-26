@@ -1,15 +1,60 @@
+# Main workflow
+
+name: Build and test b2ai-standards-registry
+
+on: [pull_request]
+
 jobs:
-  precommit_hooks:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
+      #----------------------------------------------
+      #       check-out repo and set-up python
+      #----------------------------------------------
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
-      - uses: pre-commit/action@v3.0.1
-        with:
-          extra_args: ${{ matrix.cmd }} --all-files
+          python-version: ${{ matrix.python-version }}
+
+      #----------------------------------------------
+      #          install & configure poetry
+      #----------------------------------------------
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
+      #----------------------------------------------
+      # install dependencies if cache does not exist
+      #----------------------------------------------
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+
+      #----------------------------------------------
+      #    Skip installing the root package
+      #----------------------------------------------
+      #- name: Install library
+      #  run: poetry install --no-interaction
+
+      #----------------------------------------------
+      #    Run tests
+      #----------------------------------------------
+      #- name: Run validator tests
+      #  run: make test
+
+      #----------------------------------------------
+      #    Validate data
+      #----------------------------------------------
+      - name: Run linkml-validate on data
+        run: make validate
+
+  precommit_hooks:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         cmd:
@@ -19,28 +64,14 @@ jobs:
           - "end-of-file-fixer"
           - "mixed-line-ending"
           - "check-merge-conflict"
-  test:
-    runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-      - name: Install dependencies
-        run: poetry install --no-interaction --no-root
-      - name: Run linkml-validate on data
-        run: make validate
-    strategy:
-      matrix:
-        python-version:
-          - "3.9"
-          - "3.10"
-          - "3.11"
-          - "3.12"
-name: Build and test b2ai-standards-registry
-on:
-  - pull_request
+          python-version: "3.x"
+
+      - uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: ${{ matrix.cmd }} --all-files

@@ -1,18 +1,63 @@
 id: https://w3id.org/bridge2ai/standards-schema
-classes:
-  AnatomicalEntity:
+name: standards-schema
+title: standards-schema
+description: |-
+  High-level classes for Bridge2AI Standards schemas.
+license: MIT
+see_also:
+  - https://bridge2ai.github.io/standards-schema
+
+prefixes:
+  B2AI: https://w3id.org/bridge2ai/standards-schema/
+  biolink: https://w3id.org/biolink/vocab/
+  edam.data: http://edamontology.org/data_
+  edam.format: http://edamontology.org/format_
+  edam.operation: http://edamontology.org/operation_
+  edam.topic: http://edamontology.org/topic_
+  linkml: https://w3id.org/linkml/
+  mesh: http://id.nlm.nih.gov/mesh/
+  ncit: http://purl.obolibrary.org/obo/NCIT_
+  pato: http://purl.obolibrary.org/obo/PATO_
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  schema: http://schema.org/
+  uberon: http://purl.obolibrary.org/obo/uberon/core#
+  wikidata: http://www.wikidata.org/wiki/
+default_prefix: B2AI
+default_range: string
+
+imports:
+  - linkml:types
+
+types:
+  category_type:
+    typeof: uriorcurie
     description: >-
-      A subcellular location, cell type or gross anatomical part
-    exact_mappings:
-      - uberon:0001062
-      - wikidata:Q4936952
+      A primitive type in which the value denotes a class within the model.
+  edam_identifier:
+    description: Identifier from EDAM ontology
+    typeof: uriorcurie
     id_prefixes:
-      - uberon
-    is_a: NamedThing
-    narrow_mappings:
-      - ncit:C12219
+      - edam.data
+      - edam.format
+      - edam.operation
+      - edam.topic
+  mesh_identifier:
+    description: >-
+      Identifier from Medical Subject Headings (MeSH) biomedical vocabulary.
+    typeof: uriorcurie
+    id_prefixes:
+      - mesh
+  ncit_identifier:
+    description: >-
+      Identifier from NCIT reference terminology with broad
+      coverage of the cancer domain.
+    typeof: uriorcurie
+    id_prefixes:
+      - ncit
+
+classes:
+
   NamedThing:
-    class_uri: schema:Thing
     description: >-
       A generic grouping for any identifiable entity
     slots:
@@ -26,10 +71,139 @@ classes:
       - contributor_github_name
       - contributor_orcid
       - contribution_date
-default_prefix: B2AI
-default_range: string
-description: |-
-  High-level classes for Bridge2AI Standards schemas.
+    class_uri: schema:Thing
+
+  AnatomicalEntity:  # Based on Biolink Model v.3.2.6
+    is_a: NamedThing
+    description: >-
+      A subcellular location, cell type or gross anatomical part
+    exact_mappings:
+      - uberon:0001062
+      - wikidata:Q4936952
+    narrow_mappings:
+      - ncit:C12219 # human anatomical entity
+    id_prefixes:
+      - uberon
+
+slots:
+  node_property:
+    description: >-
+      A grouping for any property that holds
+      between a node and a value.
+    domain: NamedThing
+  id:
+    identifier: true
+    slot_uri: schema:identifier
+    range: uriorcurie
+    description: A unique identifier for a thing.
+    required: true
+  type:
+    description: >-
+      A generic slot for any label corresponding to the label
+      for an entity type associated to the class.
+    domain: NamedThing
+  category:
+    is_a: type
+    domain: NamedThing
+    range: category_type
+    designates_type: true
+    description: >-
+      CURIE for the high level ontology class in which this entity is
+      categorized. Corresponds to the label for the entity type class,
+      e.g., "B2AI_STANDARD:DataStandard".
+  name:
+    slot_uri: schema:name
+    description: A human-readable name for a thing.
+    range: string
+  description:
+    slot_uri: schema:description
+    description: A human-readable description for a thing.
+    range: string
+  edam_id:
+    description: Unique EDAM identifier
+    examples:
+      - value: edam.data:0006
+    range: edam_identifier
+    values_from:
+      - edam.data
+      - edam.format
+      - edam.operation
+      - edam.topic
+  mesh_id:
+    description: Unique MeSH identifier
+    examples:
+      - value: mesh:D014831
+    range: mesh_identifier
+    values_from:
+      - mesh
+  ncit_id:
+    description: Unique NCIt Identifier
+    examples:
+      - value: ncit:C92692
+    range: ncit_identifier
+    values_from:
+      - ncit
+  url:
+    is_a: node_property
+    range: uriorcurie
+    description: >-
+      URL for basic documentation of the standard
+      or tool.
+  xref:
+    is_a: node_property
+    aliases: [ 'dbxref', 'Dbxref', 'DbXref' ]
+    domain: NamedThing
+    range: uriorcurie
+    description: >-
+      URI of corresponding class in an ontology
+      of experimental procedures, in CURIE form.
+    multivalued: true
+
+  contributor_name:
+    is_a: node_property
+    range: string
+    description: The name of the person who added this node.
+  contributor_github_name:
+    is_a: node_property
+    range: string
+    description: The name of the github user who added this node.
+  contributor_orcid:
+    is_a: node_property
+    range: uriorcurie
+    description: The ORCiD of the person who added this node.
+    examples:
+      - value: "ORCID:0000-0001-1234-5678"
+  contribution_date:
+    is_a: node_property
+    range: date
+    description: The date on which the node was added.
+    examples:
+      - value: "2023-03-20"
+
+  related_to:
+    description: >-
+      A relationship that is asserted between two named things.
+    domain: NamedThing
+    range: NamedThing
+    multivalued: true
+    inherited: true
+    symmetric: true
+
+  # TODO: Could be more specific with is_a relationships.
+  subclass_of:
+    is_a: related_to
+    description: >-
+      Holds between two classes where the domain class is
+      a specialization of the range class.
+    domain: NamedThing
+    range: NamedThing
+    multivalued: True
+    exact_mappings:
+      - rdfs:subClassOf
+      - MESH:isa
+    narrow_mappings:
+      - rdfs:subPropertyOf
+
 enums:
   DataGeneratingProject:
     description: One of the Bridge2AI Data Generating Projects.
@@ -57,168 +231,3 @@ enums:
           sourced, bioaccoustic database to understand disease
           like never before.
         meaning: https://reporter.nih.gov/project-details/10473236
-imports:
-  - linkml:types
-license: MIT
-name: standards-schema
-prefixes:
-  B2AI: https://w3id.org/bridge2ai/standards-schema/
-  biolink: https://w3id.org/biolink/vocab/
-  edam.data: http://edamontology.org/data_
-  edam.format: http://edamontology.org/format_
-  edam.operation: http://edamontology.org/operation_
-  edam.topic: http://edamontology.org/topic_
-  linkml: https://w3id.org/linkml/
-  mesh: http://id.nlm.nih.gov/mesh/
-  ncit: http://purl.obolibrary.org/obo/NCIT_
-  pato: http://purl.obolibrary.org/obo/PATO_
-  rdfs: http://www.w3.org/2000/01/rdf-schema#
-  schema: http://schema.org/
-  uberon: http://purl.obolibrary.org/obo/uberon/core#
-  wikidata: http://www.wikidata.org/wiki/
-see_also:
-  - https://bridge2ai.github.io/standards-schema
-slots:
-  id:
-    description: A unique identifier for a thing.
-    identifier: true
-    range: uriorcurie
-    required: true
-    slot_uri: schema:identifier
-  category:
-    description: >-
-      CURIE for the high level ontology class in which this entity is
-      categorized. Corresponds to the label for the entity type class,
-      e.g., "B2AI_STANDARD:DataStandard".
-    designates_type: true
-    domain: NamedThing
-    is_a: type
-    range: category_type
-  contribution_date:
-    description: The date on which the node was added.
-    examples:
-      - value: "2023-03-20"
-    is_a: node_property
-    range: date
-  contributor_github_name:
-    description: The name of the github user who added this node.
-    is_a: node_property
-    range: string
-  contributor_name:
-    description: The name of the person who added this node.
-    is_a: node_property
-    range: string
-  contributor_orcid:
-    description: The ORCiD of the person who added this node.
-    examples:
-      - value: "ORCID:0000-0001-1234-5678"
-    is_a: node_property
-    range: uriorcurie
-  description:
-    description: A human-readable description for a thing.
-    range: string
-    slot_uri: schema:description
-  edam_id:
-    description: Unique EDAM identifier
-    examples:
-      - value: edam.data:0006
-    range: edam_identifier
-    values_from:
-      - edam.data
-      - edam.format
-      - edam.operation
-      - edam.topic
-  mesh_id:
-    description: Unique MeSH identifier
-    examples:
-      - value: mesh:D014831
-    range: mesh_identifier
-    values_from:
-      - mesh
-  name:
-    description: A human-readable name for a thing.
-    range: string
-    slot_uri: schema:name
-  ncit_id:
-    description: Unique NCIt Identifier
-    examples:
-      - value: ncit:C92692
-    range: ncit_identifier
-    values_from:
-      - ncit
-  node_property:
-    description: >-
-      A grouping for any property that holds
-      between a node and a value.
-    domain: NamedThing
-  related_to:
-    description: >-
-      A relationship that is asserted between two named things.
-    domain: NamedThing
-    inherited: true
-    multivalued: true
-    range: NamedThing
-    symmetric: true
-  subclass_of:
-    description: >-
-      Holds between two classes where the domain class is
-      a specialization of the range class.
-    domain: NamedThing
-    exact_mappings:
-      - rdfs:subClassOf
-      - MESH:isa
-    is_a: related_to
-    multivalued: true
-    narrow_mappings:
-      - rdfs:subPropertyOf
-    range: NamedThing
-  type:
-    description: >-
-      A generic slot for any label corresponding to the label
-      for an entity type associated to the class.
-    domain: NamedThing
-  url:
-    description: >-
-      URL for basic documentation of the standard
-      or tool.
-    is_a: node_property
-    range: uriorcurie
-  xref:
-    aliases:
-      - 'dbxref'
-      - 'Dbxref'
-      - 'DbXref'
-    description: >-
-      URI of corresponding class in an ontology
-      of experimental procedures, in CURIE form.
-    domain: NamedThing
-    is_a: node_property
-    multivalued: true
-    range: uriorcurie
-title: standards-schema
-types:
-  category_type:
-    description: >-
-      A primitive type in which the value denotes a class within the model.
-    typeof: uriorcurie
-  edam_identifier:
-    description: Identifier from EDAM ontology
-    id_prefixes:
-      - edam.data
-      - edam.format
-      - edam.operation
-      - edam.topic
-    typeof: uriorcurie
-  mesh_identifier:
-    description: >-
-      Identifier from Medical Subject Headings (MeSH) biomedical vocabulary.
-    id_prefixes:
-      - mesh
-    typeof: uriorcurie
-  ncit_identifier:
-    description: >-
-      Identifier from NCIT reference terminology with broad
-      coverage of the cancer domain.
-    id_prefixes:
-      - ncit
-    typeof: uriorcurie

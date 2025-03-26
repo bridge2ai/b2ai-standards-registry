@@ -1,13 +1,18 @@
+name: Request new entity
+description: Request addition of something new to the registry, including standards, concepts, use cases.
+title: Add this entity - [Name Here]
+labels: [ New ]
 assignees:
   - caufieldjh
 body:
-  - attributes:
-      value: This is the form for requesting a new entity (e.g., a data standard, tool, or topic) in the Bridge2AI Standards Registry.
-    type: markdown
-  - id: entity_type
+  - type: markdown
     attributes:
-      description: What kind of thing is this?
+      value: This is the form for requesting a new entity (e.g., a data standard, tool, or topic) in the Bridge2AI Standards Registry.
+  - type: dropdown
+    id: entity_type
+    attributes:
       label: Entity Type
+      description: What kind of thing is this?
       multiple: false
       options:
         - Data Standard or Tool
@@ -15,81 +20,75 @@ body:
         - Data Topic
         - Organization
         - Use Case
-    type: dropdown
     validations:
       required: true
-  - id: category
+  - type: input
+    id: category
     attributes:
-      description: What should the category be, based on the classes of the Bridge2AI Standards Schemas (https://bridge2ai.github.io/standards-schemas/)? If in doubt, leave blank.
       label: Category
+      description: What should the category be, based on the classes of the Bridge2AI Standards Schemas (https://bridge2ai.github.io/standards-schemas/)? If in doubt, leave blank.
       placeholder: NamedThing
-    type: input
-  - id: name
+  - type: input
+    id: name
     attributes:
-      description: What is the short name of this entity? An acronym or short phrase works best.
       label: Name
+      description: What is the short name of this entity? An acronym or short phrase works best.
       placeholder: e.g., ESM Atlas, W3C, Molecular Biology
-    type: input
     validations:
       required: true
-  - id: description
+  - type: input
+    id: description
     attributes:
-      description: What is the extended name of this entity?
       label: Description
+      description: What is the extended name of this entity?
       placeholder: e.g., ESM Metagenomic Atlas or World Wide Web Consortium
-    type: input
     validations:
       required: true
-  - id: purpose_detail
+  - type: input
+    id: purpose_detail
     attributes:
-      description: What is the description of this entity, in a sentence or two?
       label: Purpose Detail
+      description: What is the description of this entity, in a sentence or two?
       placeholder: e.g., Any data concerning studies of the structure, function, and interactions of biological molecules.
-    type: input
     validations:
       required: false
-  - id: subclass_of
+  - type: input
+    id: subclass_of
     attributes:
-      description: (Optional) Is this a subclass of another entity? Please use an identifier.
       label: Subclass_Of
+      description: (Optional) Is this a subclass of another entity? Please use an identifier.
       placeholder: e.g., "B2AI_TOPIC:5"
-    type: input
     validations:
       required: false
-  - id: related_to
+  - type: textarea
+    id: related_to
     attributes:
-      description: (Optional) Is this related to another entity? Please list identifiers on separate lines.
       label: Related_To
+      description: (Optional) Is this related to another entity? Please list identifiers on separate lines.
       placeholder: e.g., "B2AI_TOPIC:5"
-    type: textarea
     validations:
       required: false
-  - id: contributor_name
+  - type: input
+    id: contributor_name
     attributes:
-      description: What is your name? This will be used for attribution.
       label: Contributor Name
+      description: What is your name? This will be used for attribution.
       placeholder: e.g., Tabatha Butterscotch
-    type: input
     validations:
       required: true
-  - id: contributor_github
+  - type: input
+    id: contributor_github
     attributes:
-      description: What is your GitHub name, without the @ symbol?
       label: Contributor GitHub
+      description: What is your GitHub name, without the @ symbol?
       placeholder: e.g., tbuttersco
-    type: input
     validations:
       required: true
-  - id: contributor_orcid
+  - type: input
+    id: contributor_orcid
     attributes:
-      description: What is your ORCID iD?
       label: Contributor ORCID
+      description: What is your ORCID iD?
       placeholder: e.g., 0000-0001-2345-6789
-    type: input
     validations:
       required: true
-description: Request addition of something new to the registry, including standards, concepts, use cases.
-labels:
-  - New
-name: Request new entity
-title: Add this entity - [Name Here]
