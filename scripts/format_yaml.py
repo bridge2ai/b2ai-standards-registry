@@ -44,9 +44,14 @@ def find_yaml_files(root_dir="."):
                 yield os.path.join(dirpath, filename)
 
 def main():
-    root = sys.argv[1] if len(sys.argv) > 1 else "."
-    for filepath in find_yaml_files(root):
-        format_yaml_file(filepath)
+    files = sys.argv[1:]
+    if not files:
+        files = list(find_yaml_files("."))
+
+    for filepath in files:
+        if filepath.endswith((".yaml", ".yml")):
+            format_yaml_file(filepath)
+
 
 if __name__ == "__main__":
     main()
