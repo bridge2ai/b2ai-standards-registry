@@ -21,3 +21,12 @@ repos:
         language: python
         name: custom-yaml-formatter
     repo: local
+  - hooks:
+      - id: yaml-check
+        additional_dependencies:
+          - ruamel.yaml
+        entry: python scripts/format_yaml.py --check
+        files: \.(yml|yaml)$
+        language: python
+        name: custom-yaml-check
+    repo: local

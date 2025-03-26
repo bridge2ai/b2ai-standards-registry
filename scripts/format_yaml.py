@@ -3,6 +3,7 @@
 import os
 import sys
 from ruamel.yaml import YAML
+from io import StringIO
 
 yaml = YAML()
 yaml.indent(mapping=2, sequence=4, offset=2)
@@ -23,19 +24,31 @@ def sort_keys(data):
     else:
         return data
 
-def format_yaml_file(filepath):
+def format_yaml_file(filepath, check=False):
     with open(filepath, "r") as f:
         try:
-            data = yaml.load(f)
+            original = f.read()
+            data = yaml.load(original)
         except Exception as e:
             print(f"Error parsing {filepath}: {e}")
-            return
+            return False
 
     data = sort_keys(data)
 
-    with open(filepath, "w") as f:
-        yaml.dump(data, f)
-    print(f"Formatted: {filepath}")
+    out = StringIO()
+    yaml.dump(data, out)
+    formatted = out.getvalue()
+
+    if formatted != original:
+        if check:
+            print(f"{filepath} - would be reformatted")
+        else:
+            with open(filepath, "w") as f:
+                f.write(formatted)
+            print(f"Formatted: {filepath}")
+        return True
+
+    return False
 
 def find_yaml_files(root_dir="."):
     for dirpath, _, filenames in os.walk(root_dir):
@@ -44,14 +57,23 @@ def find_yaml_files(root_dir="."):
                 yield os.path.join(dirpath, filename)
 
 def main():
-    files = sys.argv[1:]
+    args = sys.argv[1:]
+    check_mode = "--check" in args
+    files = [arg for arg in args if not arg.startswith("-")]
+
     if not files:
         files = list(find_yaml_files("."))
 
+    any_changed = False
     for filepath in files:
         if filepath.endswith((".yaml", ".yml")):
-            format_yaml_file(filepath)
+            changed = format_yaml_file(filepath, check=check_mode)
+            if changed:
+                any_changed = True
 
+    if check_mode and any_changed:
+        print("\nSome files would be reformatted. Run without --check to apply changes.")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
