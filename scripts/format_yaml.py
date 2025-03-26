@@ -7,7 +7,7 @@ from ruamel.yaml import YAML
 yaml = YAML()
 yaml.indent(mapping=2, sequence=4, offset=2)
 yaml.preserve_quotes = True
-yaml.width = 4096  # prevents line wrapping
+yaml.width = 4096
 
 def sort_keys(data):
     if isinstance(data, dict):
