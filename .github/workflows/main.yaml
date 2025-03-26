@@ -33,7 +33,7 @@ jobs:
       # install dependencies if cache does not exist
       #----------------------------------------------
       - name: Install dependencies
-        run: poetry install --no-interaction --no-root --all-groups
+        run: poetry install --no-interaction --no-root --with synapse
 
       #----------------------------------------------
       #    Skip installing the root package
