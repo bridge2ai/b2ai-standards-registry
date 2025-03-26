@@ -1,0 +1,7 @@
+
+## data_collection
+
+
+|has_files|has_parts|produced_by|data_url|documentation_url|datasheet_url|is_public|substrates|topics|id|category|name|description|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| some_top_level_file.csv| [B2AI_TOPIC:4](topics/ClinicalObservations.markdown)| [B2AI_ORG:1](Organization.markdown)|[https://example.com/data](https://example.com/data)|[https://example.com/docs](https://example.com/docs)|[https://example.com/datasheet](https://example.com/datasheet)|True| [B2AI_SUBSTRATE:1](DataSubstrate.markdown)| [B2AI_TOPIC:4](topics/ClinicalObservations.markdown)|[B2AI_DATA:3](DataSet.markdown)|[B2AI_DATA:DataSet](https://w3id.org/bridge2ai/standards-dataset-schema/DataSet)|Artificial Intelligence in Cell Phenotypes - June 2024 Release|This dataset is the June 2024 (v2) release of data for the Artificial Intelligence in Cell Phenotypes project. It includes data on cell phenotypes and their relationships to various biological processes.|
