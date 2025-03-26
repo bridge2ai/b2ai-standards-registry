@@ -17,25 +17,25 @@ To run these scripts, you’ll need to install the required dependencies. This c
 
 1. **Install Dependencies**
 
-    In your terminal, navigate to the project root and install the requirements with:
+   In your terminal, navigate to the project root and install the requirements with:
 
-    ```shell
-    pip install -r scripts/requirements-scripts.txt
-    ```
+   ```shell
+   pip install -r scripts/requirements-scripts.txt
+   ```
 
 2. **Synapse Authentication**
 
-    Ensure you have the necessary authentication set up for Synapse access. You can set up your Personal Access Token following the documentation [here](https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens).
+   Ensure you have the necessary authentication set up for Synapse access. You can set up your Personal Access Token following the documentation [here](https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens).
 
-    Once you have your access token, add it to your `~/.synapseConfig` file in your home directory. Replace `<authtoken>` with your token. Also make sure to uncomment the `[authentication]` and `authtoken` lines. (The `username` is not necessary for this script).
+   Once you have your access token, add it to your `~/.synapseConfig` file in your home directory. Replace `<authtoken>` with your token. Also make sure to uncomment the `[authentication]` and `authtoken` lines. (The `username` is not necessary for this script).
 
-    ```shell
-    [authentication]
-    #username = <username> (optionally uncommment this line. If you do, enter your username)
-    authtoken = <authtoken>
-    ```
+   ```shell
+   [authentication]
+   #username = <username> (optionally uncommment this line. If you do, enter your username)
+   authtoken = <authtoken>
+   ```
 
-    If you do not have a `~/.synapseConfig` file, create one and populate it with the template from [this page](https://help.synapse.org/docs/Client-Configuration.1985446156.html).
+   If you do not have a `~/.synapseConfig` file, create one and populate it with the template from [this page](https://help.synapse.org/docs/Client-Configuration.1985446156.html).
 
 ## Usage
 
@@ -49,6 +49,16 @@ Each script is intended to be run individually. Here’s how to use them:
 
 ```bash
 python scripts/table_schema_setup.py
+```
+
+### Script: format_yaml.py
+
+**Description:** Custom formatter that formats .yaml/.yml files in the `src/data` folder
+
+**Run:**
+
+```bash
+python scripts/format_yaml.py
 ```
 
 #### Requirements

@@ -4,13 +4,23 @@ import os
 import sys
 from ruamel.yaml import YAML
 from io import StringIO
+from typing import Any, Generator, List
 
 yaml = YAML()
 yaml.indent(mapping=2, sequence=4, offset=2)
 yaml.preserve_quotes = True
 yaml.width = 4096
 
-def sort_keys(data):
+def sort_keys(data: Any) -> Any:
+    """
+    Recursively sorts keys in a dictionary, placing 'id' first if present.
+
+    Args:
+        data: YML/YAML data to sort. Can be: dict, list or scalar.
+
+    Returns:
+        The sorted data structure with 'id' placed first and other keys in alphabetical order.
+    """
     if isinstance(data, dict):
         sorted_dict = {}
         keys = list(data.keys())
@@ -24,7 +34,17 @@ def sort_keys(data):
     else:
         return data
 
-def format_yaml_file(filepath, check=False):
+def format_yaml_file(filepath: str, check: bool = False) -> bool:
+    """
+    Formats a YML/YAML file by sorting it keys and writing the changes back to original file.
+
+    Args:
+        filepath: Path to the YAML file.
+        check: If True, compares if the formatted file is different to original.
+
+    Returns:
+        True if the file was changed or would be reformatted, False otherwise.
+    """
     with open(filepath, "r") as f:
         try:
             original = f.read()
@@ -50,13 +70,22 @@ def format_yaml_file(filepath, check=False):
 
     return False
 
-def find_yaml_files(root_dir="."):
+def find_yaml_files(root_dir: str = ".") -> Generator[str, None, None]:
+    """
+    Recursively finds all .yaml and .yml files starting from the given directory.
+
+    Args:
+        root_dir: Root directory to search from.
+
+    Yields:
+        Paths to YAML files.
+    """
     for dirpath, _, filenames in os.walk(root_dir):
         for filename in filenames:
             if filename.endswith((".yaml", ".yml")):
                 yield os.path.join(dirpath, filename)
 
-def main():
+def main() -> None:
     args = sys.argv[1:]
     check_mode = "--check" in args
     files = [arg for arg in args if not arg.startswith("-")]
