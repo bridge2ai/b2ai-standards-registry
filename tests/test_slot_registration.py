@@ -39,11 +39,12 @@ class TestSlotRegistration(unittest.TestCase):
 		Verify that each added/modified slot has been added to all column definitions in 'modify_snyapse_schema.py'.
 		This includes the enums `ColumnName` and `TableSchema`, plus the dictionary `COLUMN_TEMPLATES`
 		"""
+
 		table_slots = TestSlotRegistration._get_table_slots()
 		for table, slots in table_slots.items():
 			for slot in slots:
 				# All slots should be registered in these places
-				self.assertTrue(slot in ColumnName, f"'{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'ColumnName'")
+				self.assertTrue(slot in [entry.value for entry in ColumnName], f"'{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'ColumnName'")
 				self.assertTrue(ColumnName(slot) in list(COLUMN_TEMPLATES.keys()), f"'{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'COLUMN_TEMPLATES'")
 
 				# Table-specific slot registration
