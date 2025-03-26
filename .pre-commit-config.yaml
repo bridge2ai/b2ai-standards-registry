@@ -17,7 +17,7 @@ repos:
         additional_dependencies:
           - ruamel.yaml
         entry: python scripts/format_yaml.py
-        files: \.(yml|yaml)$
+        files: ^src/data/.*\.(yml|yaml)$
         language: python
         name: custom-yaml-formatter
     repo: local
@@ -26,7 +26,7 @@ repos:
         additional_dependencies:
           - ruamel.yaml
         entry: python scripts/format_yaml.py --check
-        files: \.(yml|yaml)$
+        files: ^src/data/.*\.(yml|yaml)$
         language: python
         name: custom-yaml-check
     repo: local

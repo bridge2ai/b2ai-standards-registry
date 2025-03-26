@@ -66,6 +66,8 @@ def main():
 
     any_changed = False
     for filepath in files:
+        if not filepath.startswith("src/data/"):
+            continue
         if filepath.endswith((".yaml", ".yml")):
             changed = format_yaml_file(filepath, check=check_mode)
             if changed:
