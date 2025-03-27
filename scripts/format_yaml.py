@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-import os
 import sys
 from ruamel.yaml import YAML
 from io import StringIO
-from typing import Any, Generator, List
+from typing import Any, Generator
+from pathlib import Path
 
 yaml = YAML()
 yaml.indent(mapping=2, sequence=4, offset=2)
@@ -16,7 +16,7 @@ def sort_keys(data: Any) -> Any:
     Recursively sorts keys in a dictionary, placing 'id' first if present.
 
     Args:
-        data: YML/YAML data to sort. Can be: dict, list or scalar.
+        data: .yml/.yaml data to sort. Can be: dict, list or scalar.
 
     Returns:
         The sorted data structure with 'id' placed first and other keys in alphabetical order.
@@ -34,24 +34,23 @@ def sort_keys(data: Any) -> Any:
     else:
         return data
 
-def format_yaml_file(filepath: str, check: bool = False) -> bool:
+def format_yaml_file(filepath: Path, check: bool = False) -> bool:
     """
-    Formats a YML/YAML file by sorting it keys and writing the changes back to original file.
+    Formats a .yml/.yaml file by sorting its keys and writing the changes back to the original file.
 
     Args:
-        filepath: Path to the YAML file.
-        check: If True, compares if the formatted file is different to original.
+        filepath: Path to the .yaml file.
+        check: If True, compares if the formatted file is different from the original.
 
     Returns:
         True if the file was changed or would be reformatted, False otherwise.
     """
-    with open(filepath, "r") as f:
-        try:
-            original = f.read()
-            data = yaml.load(original)
-        except Exception as e:
-            print(f"Error parsing {filepath}: {e}")
-            return False
+    try:
+        original = filepath.read_text()
+        data = yaml.load(original)
+    except Exception as e:
+        print(f"Error parsing {filepath}: {e}")
+        return False
 
     data = sort_keys(data)
 
@@ -63,41 +62,38 @@ def format_yaml_file(filepath: str, check: bool = False) -> bool:
         if check:
             print(f"{filepath} - would be reformatted")
         else:
-            with open(filepath, "w") as f:
-                f.write(formatted)
+            filepath.write_text(formatted)
             print(f"Formatted: {filepath}")
         return True
 
     return False
 
-def find_yaml_files(root_dir: str = ".") -> Generator[str, None, None]:
+def find_yaml_files(root_dir: Path = Path(".")) -> Generator[Path, None, None]:
     """
     Recursively finds all .yaml and .yml files starting from the given directory.
 
     Args:
-        root_dir: Root directory to search from.
+        root_dir: Root directory to search from as a Path object.
 
     Yields:
-        Paths to YAML files.
+        Path objects pointing to .yaml files.
     """
-    for dirpath, _, filenames in os.walk(root_dir):
-        for filename in filenames:
-            if filename.endswith((".yaml", ".yml")):
-                yield os.path.join(dirpath, filename)
+    yield from root_dir.rglob("*.yml")
+    yield from root_dir.rglob("*.yaml")
 
 def main() -> None:
     args = sys.argv[1:]
     check_mode = "--check" in args
-    files = [arg for arg in args if not arg.startswith("-")]
+    files = [Path(arg) for arg in args if not arg.startswith("-")]
 
     if not files:
-        files = list(find_yaml_files("."))
+        files = list(find_yaml_files(Path(".")))
 
     any_changed = False
     for filepath in files:
-        if not filepath.startswith("src/data/"):
+        if not filepath.is_relative_to(Path("src/data")):
             continue
-        if filepath.endswith((".yaml", ".yml")):
+        if filepath.suffix in (".yaml", ".yml"):
             changed = format_yaml_file(filepath, check=check_mode)
             if changed:
                 any_changed = True
