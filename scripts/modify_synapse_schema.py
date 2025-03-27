@@ -47,6 +47,7 @@ class ColumnName(Enum):
     ALTERNATIVE_STANDARDS_AND_TOOLS = "alternative_standards_and_tools"
     ROR_ID = "ror_id"
     WIKIDATA_ID = "wikidata_id"
+    RESPONSIBLE_ORGANIZATION = "responsible_organization"
 
 
 # Possible columns in the standards data tables
@@ -180,6 +181,9 @@ COLUMN_TEMPLATES = {
     ColumnName.WIKIDATA_ID: Column(
         name=ColumnName.WIKIDATA_ID.value, columnType="STRING", maximumSize=25
     ),
+    ColumnName.RESPONSIBLE_ORGANIZATION: Column(
+        name=ColumnName.RESPONSIBLE_ORGANIZATION.value, columnType="STRING_LIST", maximumListLength=25
+    )
 }
 
 
@@ -209,6 +213,7 @@ class TableSchema(Enum):
             ColumnName.SUBCLASS_OF,
             ColumnName.CONTRIBUTION_DATE,
             ColumnName.RELATED_TO,
+            ColumnName.RESPONSIBLE_ORGANIZATION,
         ],
     }
     DataSubstrate = {
