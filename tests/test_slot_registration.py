@@ -3,7 +3,6 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 import yaml
-# from scripts.modify_synapse_schema import ColumnName, COLUMN_TEMPLATES, TableSchema
 import scripts.modify_synapse_schema as modify_synapse_schema
 
 class TestSlotRegistration(unittest.TestCase):
