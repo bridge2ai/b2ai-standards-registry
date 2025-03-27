@@ -18,10 +18,10 @@ The scripts in this folder are designed to:
     In your terminal, navigate to the project root and install the requirements with:
 
     ```bash
-    poetry install --all-groups
+    poetry install --all-extras
     ```
 
-    **Essential:** Be sure to include the `--all-groups` option.
+    **Essential:** Be sure to include the `--all-extras` option.
 
 2. **Synapse Authentication**
 
