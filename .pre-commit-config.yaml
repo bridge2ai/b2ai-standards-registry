@@ -1,8 +1,6 @@
-exclude: '^project/.*$|^docs/.*$'
+exclude: ^project/.*$|^docs/.*$
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
-    hooks:
+  - hooks:
       - id: check-added-large-files
       - id: detect-private-key
       - id: trailing-whitespace
@@ -10,4 +8,25 @@ repos:
       - id: mixed-line-ending
       - id: check-merge-conflict
       - id: mixed-line-ending
-        args: [ --fix=lf ]
+        args:
+          - --fix=lf
+    repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+  - hooks:
+      - id: custom-yaml-formatter
+        additional_dependencies:
+          - ruamel.yaml
+        entry: python scripts/format_yaml.py
+        files: ^src/data/.*\.(yml|yaml)$
+        language: python
+        name: custom-yaml-formatter
+    repo: local
+  - hooks:
+      - id: yaml-check
+        additional_dependencies:
+          - ruamel.yaml
+        entry: python scripts/format_yaml.py --check
+        files: ^src/data/.*\.(yml|yaml)$
+        language: python
+        name: custom-yaml-check
+    repo: local

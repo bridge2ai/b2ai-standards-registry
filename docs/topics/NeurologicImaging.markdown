@@ -3,7 +3,6 @@
 **subclass of:**
 
 - [B2AI_TOPIC:15](../DataTopic.markdown)
-- [B2AI_TOPIC:48](../DataTopic.markdown)
 
 **edam id:** edam.data:3424
 
