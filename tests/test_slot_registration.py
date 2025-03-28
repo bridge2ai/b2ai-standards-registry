@@ -6,96 +6,11 @@ import yaml
 import scripts.modify_synapse_schema as modify_synapse_schema
 
 class TestSlotRegistration(unittest.TestCase):
-	SCHEMA_DIRECTORY = "src/schema"
 	DATA_DIRECTORY = "src/data"
 	MODIFY_SYNAPSE_SCHEMA_FILE = "scripts/modify_synapse_schema.py"
 
-	@staticmethod
-	def _get_inheritable_slots():
-		"""'standards_schema' holds parent classes. Tables can inherit slots from this"""
-		parent_class_slots = {}
 
-		standards_schema_path = Path(TestSlotRegistration.SCHEMA_DIRECTORY + "/standards_schema.yaml")
-		with standards_schema_path.open() as file:
-			file_contents = yaml.safe_load(file)
-			classes = file_contents["classes"]
-
-			for schema_class in classes:
-				if("slots" in schema_class):
-					parent_class_slots[schema_class] = schema_class["slots"]
-
-		return parent_class_slots
-
-
-	# @staticmethod
-	# def _extract_slots(file_path):
-	# 	slot_dict = {}
-
-	# 	with file_path.open() as file:
-	# 		file_contents = yaml.safe_load(file)
-
-	# 	classes = file_contents["classes"]
-	# 	for class_name, class_definition in classes:
-	# 		if("slots" in class_definition):
-	# 			slot_dict[class_name] = class_definition["slots"]
-
-	# 	return slot_dict
-
-
-	@staticmethod
-	def _extract_classes(file_path: Path) -> dict:
-		with file_path.open() as file:
-			file_contents = yaml.safe_load(file)
-
-		return file_contents["classes"]
-
-
-	# @staticmethod
-	# def _extract_slots_from_classes(class_dict: dict) -> dict:
-	# 	slot_dict = {}
-	# 	for class_name, class_definition in class_dict:
-	# 		if("slots" in class_definition):
-	# 			slot_dict[class_name] = class_definition["slots"]
-
-	# 	return slot_dict
-
-
-	@staticmethod
-	def _get_table_slots_from_schema():
-		"""Returns a dictionary containing the names of each table (keys) and a list of their slots (values)"""
-
-		standards_schema_path = Path(TestSlotRegistration.SCHEMA_DIRECTORY + "/standards_schema.yaml")
-		inheritable_classes = TestSlotRegistration._extract_classes(standards_schema_path)
-
-		table_slots = {}
-
-		ignore_files = [
-			"standards_dataset_schema",	# incomplete - work in progress
-			"standards_schema_all",		# contains only metadata, not table definitions
-			"standards_schema"			# contains only parent classes (already captured in `inheritable_classes`)
-		]
-
-		for file_path in Path(TestSlotRegistration.SCHEMA_DIRECTORY).iterdir():
-			if(file_path.is_file() and file_path.stem not in ignore_files):
-				classes = TestSlotRegistration._extract_classes(file_path)
-
-				# The first class is for the table itself
-				table_name =  next(iter(classes))
-				table_class_definition = classes[table_name]
-				slot_list =  table_class_definition["slots"]
-
-				# Check if table inherits any slots from a parent class
-				parent_class_name = table_class_definition["is_a"] if "is_a" in table_class_definition else None
-				if(parent_class_name and (parent_class_name in inheritable_classes) and ("slots" in inheritable_classes[parent_class_name])):
-					slot_list.extend(inheritable_classes[parent_class_name]["slots"])
-
-				table_slots[table_name] = slot_list
-
-		return table_slots
-
-
-	@staticmethod
-	def _get_utilized_slots_by_table():
+	def _get_slots_by_table(self):
 		"""
 		Returns a dictionary of slots used by each table.
 			Keys = table names
@@ -114,28 +29,23 @@ class TestSlotRegistration(unittest.TestCase):
 			table_name = file_path.stem
 
 			for entry in table_data:
-				slots = entry.keys()
-				table_slots.update(slots)
+				entry_slots = entry.keys()
+				table_slots.update(entry_slots)
 
 			slots_by_table[table_name] = table_slots
 
 		return slots_by_table
 
 
-
 	def test_slot_registration(self):
 		"""
-		Verify that each added/modified slot has been added to all column definitions in 'modify_snyapse_schema.py'.
+		Verify that every slot in each table has been added to all column definitions in 'modify_snyapse_schema.py'.
 		This includes the enums `ColumnName` and `TableSchema`, plus the dictionary `COLUMN_TEMPLATES`
 		"""
-
-		slots_by_table = self._get_utilized_slots_by_table()
-
-		# allowable_table_slots = TestSlotRegistration._get_table_slots_from_schema()
 		ColumnName_values = [entry.value for entry in modify_synapse_schema.ColumnName]
 		COLUMN_TEMPLATE_keys = list(modify_synapse_schema.COLUMN_TEMPLATES.keys())
 
-		for table, slots in slots_by_table.items():
+		for table, slots in self._get_slots_by_table().items():
 			for slot in slots:
 				# All slots should be registered in these places
 				self.assertTrue(
@@ -175,7 +85,7 @@ class TestSlotRegistrationTests(unittest.TestCase):
 
 	def setUp(self):
 		table_slots = {"DataStandardOrTool": ['test_slot']}
-		self.table_slots_patcher = patch.object(TestSlotRegistration, '_get_utilized_slots_by_table', return_value=table_slots)
+		self.table_slots_patcher = patch.object(TestSlotRegistration, '_get_slots_by_table', return_value=table_slots)
 		self.mock_table_slots = self.table_slots_patcher.start()
 		self.addCleanup(self.table_slots_patcher.stop)
 
