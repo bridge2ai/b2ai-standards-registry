@@ -1,697 +1,602 @@
----
 data_topics_collection:
   - id: B2AI_TOPIC:1
-    name: Biology
-    subclass_of:
-      - B2AI_TOPIC:5
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Data involving any study of living organisms at any scale.
     edam_id: edam.topic:3070
     mesh_id: mesh:D001695
+    name: Biology
     ncit_id: ncit:C16345
-    category: B2AI_TOPIC:DataTopic
-    description: Data involving any study of living organisms at any scale.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
+    subclass_of:
+      - B2AI_TOPIC:5
   - id: B2AI_TOPIC:2
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Observations and measurements of cellular physiology and variation in cell types.
+    mesh_id: mesh:D002477
     name: Cell
+    ncit_id: ncit:C12508
     subclass_of:
       - B2AI_TOPIC:20
-    mesh_id: mesh:D002477
-    ncit_id: ncit:C12508
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Observations and measurements of cellular physiology and variation
-      in cell types.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:3
-    name: Cheminformatics
-    subclass_of:
-      - B2AI_TOPIC:5
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Data regarding the physical properties of chemical compounds.
     edam_id: edam.data:1086
     mesh_id: mesh:D000080911
+    name: Cheminformatics
     ncit_id: ncit:C188483
-    category: B2AI_TOPIC:DataTopic
-    description: Data regarding the physical properties of chemical compounds.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:4
-    name: Clinical Observations
     subclass_of:
       - B2AI_TOPIC:5
-    mesh_id: mesh:D008499
-    ncit_id: ncit:C15783
+  - id: B2AI_TOPIC:4
     category: B2AI_TOPIC:DataTopic
-    description:
-      All data derived from observations of individual clinical patients,
-      whether as part of a clinical trial or in the course of diagnosis, treatment,
-      and follow-up.
-    contributor_name: Harry Caufield
     contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
     contributor_orcid: ORCID:0000-0001-5705-7831
+    description: All data derived from observations of individual clinical patients, whether as part of a clinical trial or in the course of diagnosis, treatment, and follow-up.
+    mesh_id: mesh:D008499
+    name: Clinical Observations
+    ncit_id: ncit:C15783
+    subclass_of:
+      - B2AI_TOPIC:5
   - id: B2AI_TOPIC:5
-    name: Data
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Collected information at any stage of processing and analysis.
     edam_id: edam.data:0006
     mesh_id: mesh:D003625
+    name: Data
     ncit_id: ncit:C25474
-    category: B2AI_TOPIC:DataTopic
-    description: Collected information at any stage of processing and analysis.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:6
-    name: Demographics
-    subclass_of:
-      - B2AI_TOPIC:5
-    mesh_id: mesh:D003710
-    ncit_id: ncit:C16495
     category: B2AI_TOPIC:DataTopic
-    description:
-      Data describing a subset of a population, including sex, age, ethnicity,
-      geographic location, or other factors.
-    contributor_name: Harry Caufield
     contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
     contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:7
-    name: Disease
+    description: Data describing a subset of a population, including sex, age, ethnicity, geographic location, or other factors.
+    mesh_id: mesh:D003710
+    name: Demographics
+    ncit_id: ncit:C16495
     subclass_of:
       - B2AI_TOPIC:5
-    related_to:
-      - B2AI_TOPIC:25
+  - id: B2AI_TOPIC:7
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Data describing a disordered health state and its relationships to phenotype, genotype, other organisms, and environmental exposures.
     edam_id: edam.data:3667
     mesh_id: mesh:D004194
+    name: Disease
     ncit_id: ncit:C2991
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Data describing a disordered health state and its relationships to
-      phenotype, genotype, other organisms, and environmental exposures.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:8
-    name: Drug
+    related_to:
+      - B2AI_TOPIC:25
     subclass_of:
-      - B2AI_TOPIC:3
+      - B2AI_TOPIC:5
+  - id: B2AI_TOPIC:8
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Data regarding the properties of substances intended to be used or investigated for their therapeutic properties.
     edam_id: edam.data:0993
     mesh_id: mesh:D004364
+    name: Drug
     ncit_id: ncit:C1909
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Data regarding the properties of substances intended to be used or
-      investigated for their therapeutic properties.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:9
-    name: EHR
     subclass_of:
-      - B2AI_TOPIC:4
+      - B2AI_TOPIC:3
+  - id: B2AI_TOPIC:9
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Electronic health record data, including structured and unstructured text, lab values, and associated metadata.
     edam_id: edam.data:3861
     mesh_id: mesh:D055991
+    name: EHR
     ncit_id: ncit:C142529
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Electronic health record data, including structured and unstructured
-      text, lab values, and associated metadata.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
+    subclass_of:
+      - B2AI_TOPIC:4
   - id: B2AI_TOPIC:10
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Measurements of the electrical signals of the heart over time.
+    mesh_id: mesh:D004562
     name: EKG
+    ncit_id: ncit:C168186
     subclass_of:
       - B2AI_TOPIC:37
-    mesh_id: mesh:D004562
-    ncit_id: ncit:C168186
-    category: B2AI_TOPIC:DataTopic
-    description: Measurements of the electrical signals of the heart over time.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:11
-    name: Environment
-    subclass_of:
-      - B2AI_TOPIC:1
-    related_to:
-      - B2AI_TOPIC:3
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Descriptions and measurements of the relationships between people and their ecosystem(s).
     edam_id: edam.topic:3855
     mesh_id: mesh:D004777
+    name: Environment
     ncit_id: ncit:C16551
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Descriptions and measurements of the relationships between people and
-      their ecosystem(s).
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:12
-    name: Gene
-    subclass_of:
-      - B2AI_TOPIC:13
-    edam_id: edam.data:3494
-    mesh_id: mesh:D005796
-    ncit_id: ncit:C16612
-    category: B2AI_TOPIC:DataTopic
-    description:
-      One or a select set of DNA sequences, coding or non-coding, and their
-      properties.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:13
-    name: Genome
-    subclass_of:
-      - B2AI_TOPIC:23
-    edam_id: edam.data:1288
-    mesh_id: mesh:D016678
-    ncit_id: ncit:C16629
-    category: B2AI_TOPIC:DataTopic
-    description:
-      One or more complete collections of gene sequences from a single individual,
-      potentially including ony exon sequences.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:14
-    name: Geolocation
-    subclass_of:
-      - B2AI_TOPIC:5
-    related_to:
-      - B2AI_TOPIC:18
-    edam_id: edam.data:3720
-    ncit_id: ncit:C25341
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Measurements describing the location of an object or person on planet
-      Earth.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:15
-    name: Image
-    subclass_of:
-      - B2AI_TOPIC:5
-    edam_id: edam.data:2968
-    ncit_id: ncit:C48179
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Visual representation of an observation, including but not limited
-      to photographs, micrographs, radiology results, or data plots.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:16
-    name: Literature
-    subclass_of:
-      - B2AI_TOPIC:32
-    mesh_id: mesh:D008091
-    ncit_id: ncit:C48471
-    category: B2AI_TOPIC:DataTopic
-    description:
-      The unstructured text contents of a selection of scholarly documents
-      and/or the metadata of those documents.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:17
-    name: Metabolome
-    subclass_of:
-      - B2AI_TOPIC:23
     related_to:
       - B2AI_TOPIC:3
-    edam_id: edam.data:2603
-    mesh_id: mesh:D055442
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Measurements of the presence, structure, and potential amount of small
-      molecule metabolites within a sample from one individual, cell, organ, sample,
-      or site.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:18
-    name: mHealth
-    subclass_of:
-      - B2AI_TOPIC:5
-    related_to:
-      - B2AI_TOPIC:14
-    ncit_id: ncit:C97005
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Mobile health data generated by individuals using health-related mobile
-      applications and devices, concerning location, physical activity, and physiological
-      metrics.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:19
-    name: Microscale Imaging
-    subclass_of:
-      - B2AI_TOPIC:15
-    edam_id: edam.data:3424
-    mesh_id: mesh:D008853
-    ncit_id: ncit:C16853
-    category: B2AI_TOPIC:DataTopic
-    description: Images obtained through microscopy (e.g., optical, fluorescence, electron).
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:20
-    name: Molecular Biology
     subclass_of:
       - B2AI_TOPIC:1
-    edam_id: edam.topic:3047
-    mesh_id: mesh:D008967
-    ncit_id: ncit:C16872
+  - id: B2AI_TOPIC:12
     category: B2AI_TOPIC:DataTopic
-    description:
-      Any data concerning studies of the structure, function, and interactions
-      of biological molecules.
-    contributor_name: Harry Caufield
     contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
     contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:21
-    name: Networks And Pathways
+    description: One or a select set of DNA sequences, coding or non-coding, and their properties.
+    edam_id: edam.data:3494
+    mesh_id: mesh:D005796
+    name: Gene
+    ncit_id: ncit:C16612
+    subclass_of:
+      - B2AI_TOPIC:13
+  - id: B2AI_TOPIC:13
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: One or more complete collections of gene sequences from a single individual, potentially including ony exon sequences.
+    edam_id: edam.data:1288
+    mesh_id: mesh:D016678
+    name: Genome
+    ncit_id: ncit:C16629
+    subclass_of:
+      - B2AI_TOPIC:23
+  - id: B2AI_TOPIC:14
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Measurements describing the location of an object or person on planet Earth.
+    edam_id: edam.data:3720
+    name: Geolocation
+    ncit_id: ncit:C25341
+    related_to:
+      - B2AI_TOPIC:18
     subclass_of:
       - B2AI_TOPIC:5
-    edam_id: edam.data:2600
-    ncit_id: ncit:C61377
+  - id: B2AI_TOPIC:15
     category: B2AI_TOPIC:DataTopic
-    description: Models of the interactions among biological entities or concepts.
-    contributor_name: Harry Caufield
     contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Visual representation of an observation, including but not limited to photographs, micrographs, radiology results, or data plots.
+    edam_id: edam.data:2968
+    name: Image
+    ncit_id: ncit:C48179
+    subclass_of:
+      - B2AI_TOPIC:5
+  - id: B2AI_TOPIC:16
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: The unstructured text contents of a selection of scholarly documents and/or the metadata of those documents.
+    mesh_id: mesh:D008091
+    name: Literature
+    ncit_id: ncit:C48471
+    subclass_of:
+      - B2AI_TOPIC:32
+  - id: B2AI_TOPIC:17
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Measurements of the presence, structure, and potential amount of small molecule metabolites within a sample from one individual, cell, organ, sample, or site.
+    edam_id: edam.data:2603
+    mesh_id: mesh:D055442
+    name: Metabolome
+    related_to:
+      - B2AI_TOPIC:3
+    subclass_of:
+      - B2AI_TOPIC:23
+  - id: B2AI_TOPIC:18
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Mobile health data generated by individuals using health-related mobile applications and devices, concerning location, physical activity, and physiological metrics.
+    name: mHealth
+    ncit_id: ncit:C97005
+    related_to:
+      - B2AI_TOPIC:14
+    subclass_of:
+      - B2AI_TOPIC:5
+  - id: B2AI_TOPIC:19
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Images obtained through microscopy (e.g., optical, fluorescence, electron).
+    edam_id: edam.data:3424
+    mesh_id: mesh:D008853
+    name: Microscale Imaging
+    ncit_id: ncit:C16853
+    subclass_of:
+      - B2AI_TOPIC:15
+  - id: B2AI_TOPIC:20
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Any data concerning studies of the structure, function, and interactions of biological molecules.
+    edam_id: edam.topic:3047
+    mesh_id: mesh:D008967
+    name: Molecular Biology
+    ncit_id: ncit:C16872
+    subclass_of:
+      - B2AI_TOPIC:1
+  - id: B2AI_TOPIC:21
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Models of the interactions among biological entities or concepts.
+    edam_id: edam.data:2600
+    name: Networks And Pathways
+    ncit_id: ncit:C61377
+    subclass_of:
+      - B2AI_TOPIC:5
+  - id: B2AI_TOPIC:22
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
     contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:22
+    edam_id: edam.data:3424
+    mesh_id: mesh:D059906
     name: Neurologic Imaging
+    ncit_id: ncit:C173635
     subclass_of:
       - B2AI_TOPIC:15
       - B2AI_TOPIC:48
-    edam_id: edam.data:3424
-    mesh_id: mesh:D059906
-    ncit_id: ncit:C173635
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Images obtained through one or more brain imaging techniques, including
-      computed tomography, positron emission tomography, magnetic resonance imaging,
-      or imaging of associated body structures (e.g., angiography).
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:23
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Data involving two or more comprehensive biomolecular screens, such as those of genomes, transcriptomes, proteomes, or others.
+    edam_id: edam.topic:3391
+    mesh_id: mesh:D000095028
     name: Omics
     subclass_of:
       - B2AI_TOPIC:20
-    edam_id: edam.topic:3391
-    mesh_id: mesh:D000095028
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Data involving two or more comprehensive biomolecular screens, such
-      as those of genomes, transcriptomes, proteomes, or others.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:24
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Images of the interior and/or exterior of the eye.
     name: Ophthalmic Imaging
+    ncit_id: ncit:C38060
     subclass_of:
       - B2AI_TOPIC:15
-    ncit_id: ncit:C38060
-    category: B2AI_TOPIC:DataTopic
-    description: Images of the interior and/or exterior of the eye.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:25
-    name: Phenotype
-    subclass_of:
-      - B2AI_TOPIC:5
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: The set of observable traits of an organism, whether constant or in response to a given set of conditions.
     edam_id: edam.data:3275
     mesh_id: mesh:D010641
+    name: Phenotype
     ncit_id: ncit:C16977
-    category: B2AI_TOPIC:DataTopic
-    description:
-      The set of observable traits of an organism, whether constant or in
-      response to a given set of conditions.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:26
-    name: Protein
     subclass_of:
-      - B2AI_TOPIC:28
+      - B2AI_TOPIC:5
+  - id: B2AI_TOPIC:26
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: One or a select set of amino acid sequences and their properties.
     edam_id: edam.data:2976
     mesh_id: mesh:D011506
+    name: Protein
     ncit_id: ncit:C17021
-    category: B2AI_TOPIC:DataTopic
-    description: One or a select set of amino acid sequences and their properties.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:27
-    name: Protein Structure Model
     subclass_of:
-      - B2AI_TOPIC:26
+      - B2AI_TOPIC:28
+  - id: B2AI_TOPIC:27
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Representations of the three-dimensional structure of a protein in one or more states or conformations.
     edam_id: edam.data:1460
     mesh_id: mesh:D011487
+    name: Protein Structure Model
     ncit_id: ncit:C13303
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Representations of the three-dimensional structure of a protein in
-      one or more states or conformations.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
+    subclass_of:
+      - B2AI_TOPIC:26
   - id: B2AI_TOPIC:28
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Measurements of the presence, sequence, and potential amount of proteins within a sample from one individual, organ, sample, or site.
+    mesh_id: mesh:D020543
     name: Proteome
+    ncit_id: ncit:C18276
     subclass_of:
       - B2AI_TOPIC:23
-    mesh_id: mesh:D020543
-    ncit_id: ncit:C18276
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Measurements of the presence, sequence, and potential amount of proteins
-      within a sample from one individual, organ, sample, or site.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:29
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Social Determinants of Health, i.e., properties of one or more people contributing to their health, wellness, and disease risk.
+    mesh_id: mesh:D064890
     name: SDoH
-    subclass_of:
-      - B2AI_TOPIC:6
+    ncit_id: ncit:C171586
     related_to:
       - B2AI_TOPIC:11
       - B2AI_TOPIC:14
-    mesh_id: mesh:D064890
-    ncit_id: ncit:C171586
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Social Determinants of Health, i.e., properties of one or more people
-      contributing to their health, wellness, and disease risk.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
+    subclass_of:
+      - B2AI_TOPIC:6
   - id: B2AI_TOPIC:30
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: The unstructured text derived from social media correspondence.
+    mesh_id: mesh:D061108
     name: Social Media
+    ncit_id: ncit:C97003
+    related_to:
+      - B2AI_TOPIC:6
+      - B2AI_TOPIC:14
     subclass_of:
       - B2AI_TOPIC:32
-    related_to:
-      - B2AI_TOPIC:6
-      - B2AI_TOPIC:14
-    mesh_id: mesh:D061108
-    ncit_id: ncit:C97003
-    category: B2AI_TOPIC:DataTopic
-    description: The unstructured text derived from social media correspondence.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:31
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Data submitted by members of a study population, usually in response to specific questions.
+    mesh_id: mesh:D006306
     name: Survey
-    subclass_of:
-      - B2AI_TOPIC:5
+    ncit_id: ncit:C17176
     related_to:
       - B2AI_TOPIC:6
       - B2AI_TOPIC:14
-    mesh_id: mesh:D006306
-    ncit_id: ncit:C17176
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Data submitted by members of a study population, usually in response
-      to specific questions.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:32
-    name: Text
     subclass_of:
       - B2AI_TOPIC:5
-    edam_id: edam.data:2526
-    ncit_id: ncit:C25704
+  - id: B2AI_TOPIC:32
     category: B2AI_TOPIC:DataTopic
-    description: Any unstructured or semi-structured collection of written human language.
-    contributor_name: Harry Caufield
     contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
     contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:33
-    name: Transcript
+    description: Any unstructured or semi-structured collection of written human language.
+    edam_id: edam.data:2526
+    name: Text
+    ncit_id: ncit:C25704
     subclass_of:
-      - B2AI_TOPIC:34
+      - B2AI_TOPIC:5
+  - id: B2AI_TOPIC:33
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: One or a select set of RNA sequences derived from gene expression, and their properties.
     edam_id: edam.data:3495
     mesh_id: mesh:D012333
+    name: Transcript
     ncit_id: ncit:C1936
-    category: B2AI_TOPIC:DataTopic
-    description:
-      One or a select set of RNA sequences derived from gene expression,
-      and their properties.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:34
-    name: Transcriptome
     subclass_of:
-      - B2AI_TOPIC:23
+      - B2AI_TOPIC:34
+  - id: B2AI_TOPIC:34
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Measurements of the presence, sequence, and potential expression level of gene transcripts within a sample from one individual, cell, organ, sample, or site.
     edam_id: edam.data:2603
     mesh_id: mesh:D059467
+    name: Transcriptome
     ncit_id: ncit:C153194
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Measurements of the presence, sequence, and potential expression level
-      of gene transcripts within a sample from one individual, cell, organ, sample,
-      or site.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
+    subclass_of:
+      - B2AI_TOPIC:23
   - id: B2AI_TOPIC:35
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: An alteration in a gene sequence relative to another set of sequences, whether associated with a phenotype or not.
+    mesh_id: mesh:D014644
     name: Variant
+    ncit_id: ncit:C25713
     subclass_of:
       - B2AI_TOPIC:12
-    mesh_id: mesh:D014644
-    ncit_id: ncit:C25713
-    category: B2AI_TOPIC:DataTopic
-    description:
-      An alteration in a gene sequence relative to another set of sequences,
-      whether associated with a phenotype or not.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:36
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Audio data produced by human speech, not including non-linguistic utterances.
+    mesh_id: mesh:D014831
     name: Voice
+    ncit_id: ncit:C92692
     subclass_of:
       - B2AI_TOPIC:37
-    mesh_id: mesh:D014831
-    ncit_id: ncit:C92692
-    category: B2AI_TOPIC:DataTopic
-    description: Audio data produced by human speech, not including non-linguistic utterances.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:37
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Representations of a signal as a function of time, including audio recordings or electrocardiogram readings.
     name: Waveform
     subclass_of:
       - B2AI_TOPIC:5
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Representations of a signal as a function of time, including audio
-      recordings or electrocardiogram readings.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:38
-    name: Glucose Monitoring
-    subclass_of:
-      - B2AI_TOPIC:18
     category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Tracking a person's glucose levels over time, whether in real-time using a small sensor inserted under the skin, or through glucose readings collected at regular intervals.
     mesh_id: mesh:D015190
+    name: Glucose Monitoring
     ncit_id: ncit:C92744
-    description:
-      Tracking a person's glucose levels over time, whether in real-time
-      using a small sensor inserted under the skin, or through glucose readings collected
-      at regular intervals.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:39
-    name: Activity Monitoring
     subclass_of:
       - B2AI_TOPIC:18
+  - id: B2AI_TOPIC:39
     category: B2AI_TOPIC:DataTopic
-    ncit_id: ncit:C187892
-    description:
-      Mobile health data involving estimates of physical activity frequency,
-      duration, and/or intensity. May include data from accelerometers, pedometers,
-      or other mobile devices.
-    contributor_name: Harry Caufield
     contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
     contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Mobile health data involving estimates of physical activity frequency, duration, and/or intensity. May include data from accelerometers, pedometers, or other mobile devices.
+    name: Activity Monitoring
+    ncit_id: ncit:C187892
+    subclass_of:
+      - B2AI_TOPIC:18
   - id: B2AI_TOPIC:40
-    name: Governance
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: "All data components created to maintain security, privacy, accuracy, availability, and usability of other parts of the same or other data."
     edam_id: edam.topic:3571
+    name: Governance
     subclass_of:
       - B2AI_TOPIC:5
-    category: B2AI_TOPIC:DataTopic
-    description:
-      "All data components created to maintain security, privacy, accuracy,
-      availability, and usability of other parts of the same or other data."
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:41
-    name: Neuron
-    subclass_of:
-      - B2AI_TOPIC:2
-    mesh_id: mesh:D009474
-    ncit_id: ncit:C12623
     category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
     description: >-
       Neurons, also known as nerve cells, are the fundamental
       units of the brain and nervous system. They are responsible
       for transmitting electrical and chemical signals to enable
       communication throughout the body. This topic refers to studies
       of neurons and their properties.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:42
-    name: Cardiomyocyte
+    mesh_id: mesh:D009474
+    name: Neuron
+    ncit_id: ncit:C12623
     subclass_of:
       - B2AI_TOPIC:2
-    mesh_id: mesh:D032383
-    ncit_id: ncit:C13002
+  - id: B2AI_TOPIC:42
     category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
     description: >-
       Cardiomyocytes are the muscle cells of the heart. They are
       responsible for the contraction of the heart muscle, which
       enables the heart to pump blood throughout the body. This
       topic refers to studies of cardiomyocytes and their properties.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
+    mesh_id: mesh:D032383
+    name: Cardiomyocyte
+    ncit_id: ncit:C13002
+    subclass_of:
+      - B2AI_TOPIC:2
   - id: B2AI_TOPIC:43
-    name: Diabetes
-    subclass_of:
-      - B2AI_TOPIC:7
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Diabetes is a chronic disease that occurs when the body is unable to regulate blood sugar levels properly. This topic refers to data related to any form of diabetes mellitus and its management.
     mesh_id: mesh:D003920
+    name: Diabetes
     ncit_id: ncit:C2985
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Diabetes is a chronic disease that occurs when the body
-      is unable to regulate blood sugar levels properly. This topic
-      refers to data related to any form of diabetes mellitus
-      and its management.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
+    subclass_of:
+      - B2AI_TOPIC:7
   - id: B2AI_TOPIC:44
-    name: Eye Diseases
-    subclass_of:
-      - B2AI_TOPIC:7
-    mesh_id: mesh:D005128
-    ncit_id: ncit:C26767
     category: B2AI_TOPIC:DataTopic
-    description:
-      Eye diseases are conditions that affect the eye and its
-      surrounding structures. This topic refers to data related
-      to any eye disease, including but not limited to cataracts,
-      glaucoma, and macular degeneration.
-    contributor_name: Harry Caufield
     contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
     contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:45
-    name: Voice Disorders
+    description: Eye diseases are conditions that affect the eye and its surrounding structures. This topic refers to data related to any eye disease, including but not limited to cataracts, glaucoma, and macular degeneration.
+    mesh_id: mesh:D005128
+    name: Eye Diseases
+    ncit_id: ncit:C26767
     subclass_of:
       - B2AI_TOPIC:7
-      - B2AI_TOPIC:36
+  - id: B2AI_TOPIC:45
     category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
     description: >-
       Voice disorders are conditions that affect the vocal cords
       and other parts of the larynx. This topic refers to data
       related to any voice disorder, including but not limited to
       vocal cord paralysis, laryngitis, and vocal nodules.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:46
-    name: Respiration
+    name: Voice Disorders
     subclass_of:
-      - B2AI_TOPIC:1
+      - B2AI_TOPIC:7
+      - B2AI_TOPIC:36
+  - id: B2AI_TOPIC:46
     category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
     description: >-
       Respiration is the process of breathing, which involves the
       exchange of oxygen and carbon dioxide between the body and
       the environment. This topic refers to data related to any
       aspect of respiration, including but not limited to lung
       function, respiratory diseases, and breathing patterns.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
-  - id: B2AI_TOPIC:47
-    name: Respiratory Disorders
+    name: Respiration
     subclass_of:
-      - B2AI_TOPIC:7
-      - B2AI_TOPIC:46
+      - B2AI_TOPIC:1
+  - id: B2AI_TOPIC:47
     category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
     description: >-
       Respiratory disorders are conditions that affect the lungs
       and other parts of the respiratory system. This topic refers
       to data related to any respiratory disorder, including but
       not limited to asthma, chronic obstructive pulmonary disease
       (COPD), and pneumonia.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
+    name: Respiratory Disorders
+    subclass_of:
+      - B2AI_TOPIC:7
+      - B2AI_TOPIC:46
   - id: B2AI_TOPIC:48
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Neurology is the branch of medicine that deals with disorders of the nervous system, including the brain, spinal cord, and peripheral nerves. This topic refers to data related to any aspect of neurology, including but not limited to neurological diseases, brain imaging, and nerve function.
     name: Neurology
     subclass_of:
       - B2AI_TOPIC:4
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Neurology is the branch of medicine that deals with disorders
-      of the nervous system, including the brain, spinal cord, and
-      peripheral nerves. This topic refers to data related to any
-      aspect of neurology, including but not limited to neurological
-      diseases, brain imaging, and nerve function.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:49
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Neurological disorders are conditions that affect the nervous system, including the brain, spinal cord, and peripheral nerves. This topic refers to data related to any neurological disorder, including but not limited to Alzheimer's disease, Parkinson's disease, and multiple sclerosis.
     name: Neurological Disorders
     subclass_of:
       - B2AI_TOPIC:48
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Neurological disorders are conditions that affect the nervous
-      system, including the brain, spinal cord, and peripheral nerves.
-      This topic refers to data related to any neurological disorder,
-      including but not limited to Alzheimer's disease, Parkinson's
-      disease, and multiple sclerosis.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:50
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Psychiatry is the branch of medicine that deals with mental health disorders, including depression, anxiety, and schizophrenia. This topic refers to data related to any aspect of psychiatry, including but not limited to mental health treatments, psychiatric diagnoses, and psychological assessments.
     name: Psychiatry
     subclass_of:
       - B2AI_TOPIC:4
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Psychiatry is the branch of medicine that deals with mental
-      health disorders, including depression, anxiety, and schizophrenia.
-      This topic refers to data related to any aspect of psychiatry,
-      including but not limited to mental health treatments, psychiatric
-      diagnoses, and psychological assessments.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
   - id: B2AI_TOPIC:51
+    category: B2AI_TOPIC:DataTopic
+    contributor_github_name: caufieldjh
+    contributor_name: Harry Caufield
+    contributor_orcid: ORCID:0000-0001-5705-7831
+    description: Psychiatric disorders are conditions that affect mental health, including mood disorders, anxiety disorders, and psychotic disorders. This topic refers to data related to any psychiatric disorder, including but not limited to major depressive disorder, generalized anxiety disorder, and schizophrenia. It also includes data related to mood disorders.
     name: Psychiatric Disorders
     subclass_of:
       - B2AI_TOPIC:50
-    category: B2AI_TOPIC:DataTopic
-    description:
-      Psychiatric disorders are conditions that affect mental health,
-      including mood disorders, anxiety disorders, and psychotic disorders.
-      This topic refers to data related to any psychiatric disorder,
-      including but not limited to major depressive disorder, generalized
-      anxiety disorder, and schizophrenia. It also includes data related
-      to mood disorders.
-    contributor_name: Harry Caufield
-    contributor_github_name: caufieldjh
-    contributor_orcid: ORCID:0000-0001-5705-7831
