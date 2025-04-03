@@ -1,21 +1,16 @@
-from synapseclient import Synapse, Column, Schema, Table #, Project, File, Folder, Row, RowSet, as_table_columns,
+from synapseclient import Synapse, Column, Schema, Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
 import numpy as np
 from modify_synapse_schema import get_auth_token
 AUTH_TOKEN = get_auth_token()
-# from dotenv import load_dotenv
-# import os
-# load_dotenv('env/.env')
-# AUTH_TOKEN = os.getenv('SYNAPSE_AUTH_TOKEN')
-# PROJECT_ID = os.getenv('SYNAPSE_PROJECT_ID')
 PROJECT_ID='syn63096806'
 
+# The synapse tables that hold source data
 SRC_TABLES = {
     'dst': {        # convention in code, this abbreviation will be referred to as ..._tbl
                     #   ..._table will usually refer to some kind of table object
         'id': 'syn63096833', 'name': 'DataStandardOrTool',
-        # 'id': 'syn63096833.38', 'name': 'DataStandardOrTool', # using specific version because current is empty
     },
     'topic': {
         'id': 'syn63096835', 'name': 'DataTopic',
@@ -23,9 +18,11 @@ SRC_TABLES = {
     'org': {
         'id': 'syn63096836', 'name': 'Organization',
     },
-    # 'uc': { 'id': 'syn63096837', 'name': 'UseCase', }
-    # 'substr': { 'id': 'syn63096834', 'name': 'DataSubstrate', }
+    'uc': { 'id': 'syn63096837', 'name': 'UseCase', },
+    'substr': { 'id': 'syn63096834', 'name': 'DataSubstrate', }
 }
+
+# The table
 DEST_TABLES = {
     'DST_denormalized': {
         'dest_table_name': 'DST_denormalized',
@@ -50,22 +47,15 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'contribution_date',         'alias': 'contributionDate'},
             {'faceted': False, 'name': 'related_to',                'alias': 'relatedTo'},
         ],
-        # 'special_processing': dst_description_trim,
         'join_columns': [
             {'join_tbl': 'topic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
              'dest_cols': [
                 {'faceted': True, 'name': 'name', 'alias': 'topic'},
-                # {'faceted': False,'name': 'topics_json', 'alias': 'Topics',
-                #  'fields': [{ 'name': 'name', 'alias': 'Topic'},
-                #             { 'name': 'description', 'alias': 'Description'}, ]},
             ]},
             {'join_tbl': 'org', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
              'dest_cols': [
                  {'faceted': True,  'name': 'name', 'alias': 'relevantOrgAcronym'},
-                 {'faceted': True,  'name': 'description', 'alias': 'relevantOrgName'},
-                 # {'faceted': False,  'name': 'orgs_json', 'alias': 'Organizations',
-                 #  'fields': [{ 'name': 'name', 'alias': 'Acronym'},
-                 #             { 'name': 'description', 'alias': 'Name'}, ]},
+                 {'faceted': True,  'name': 'description', 'alias': 'organizations'},
              ]},
             {'join_tbl': 'org', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
@@ -83,13 +73,9 @@ DEST_TABLES = {
     },
 }
 
-# def dst_description_trim(dst_table):
-#     pass
-
 def denormalize_tables():
     syn = initialize_synapse()
     src_tables = {tbl: get_src_table(syn, tbl) for tbl in SRC_TABLES}
-    # project = syn.get(PROJECT_ID)
     for dest_table in DEST_TABLES.values():
         make_dest_table(syn, dest_table, src_tables)
 
@@ -288,8 +274,6 @@ def make_col(dest_table, dest_col, src_tables):
     dest_col['col'] = src_table['columns'][name].copy()
     dest_col['col']['name'] = dest_col['alias']
 
-    # if faceted:   # don't know how to deal with facets yet
-    # print(dest_col)
     return dest_col
 
 def get_src_table(syn, tbl):
