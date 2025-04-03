@@ -22,7 +22,7 @@ SRC_TABLES = {
     'substr': { 'id': 'syn63096834.25', 'name': 'DataSubstrate', }
 }
 
-# The table
+# The table used for the explore landing page and to provide data for the home and detailed pages
 DEST_TABLES = {
     'DST_denormalized': {
         'dest_table_name': 'DST_denormalized',
