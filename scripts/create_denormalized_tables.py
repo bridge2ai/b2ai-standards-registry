@@ -1,3 +1,4 @@
+from typing import Any, Dict, List
 from synapseclient import Synapse, Column, Schema, Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
@@ -79,127 +80,206 @@ def denormalize_tables():
     for dest_table in DEST_TABLES.values():
         make_dest_table(syn, dest_table, src_tables)
 
-def make_dest_table(syn, dest_table, src_tables):
-    # get base table columns
-    src_tbl = dest_table['base_table']
-    dest_cols = [make_col(dest_table, dest_col, src_tables) for dest_col in dest_table['columns']]
-    dest_cols = [col for col in dest_cols if col]  # get rid of empty -- haven't gotten json cols working yet
-    for dest_col in dest_cols:
-        src_table = src_tables[src_tbl]
-        dest_col['data'] = src_table['df'][dest_col['name']] # values from this col in src_table
 
-    # get join table columns
-    base_table_name = dest_table['base_table']
-    base_df = src_tables[base_table_name]['df']
-    join_configs = dest_table.get('join_columns', [])
+def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
+    """
+    Create and upload a Synapse table by joining a base table with related tables.
 
-    join_columns = []
+    :param syn: Authenticated Synapse client used to query and store tables
+    :param dest_table: Dictionary defining the destination table configuration. Includes:
+        - 'base_table': str, name of the source table to use as the base
+        - 'dest_table_name': str, name for the resulting Synapse table
+        - 'columns': list of base column definitions
+        - 'join_columns' (optional): list of join config dicts for enriching base data
+    :param src_tables: Dictionary of available source tables. Each entry is keyed by table name
+                       and contains:
+        - 'df': pd.DataFrame of the table
+        - 'name': Synapse table name
+        - 'id': Synapse table ID
+    :return: None
+    """
 
-    for join_config in join_configs:
-        join_tbl = join_config['join_tbl']
-        join_table = src_tables[join_tbl]
-        join_config['join_table_name'] = join_table['name']
-        join_config['join_table_id'] = join_table['id']
-        join_df = src_tables[join_tbl]['df']
-        from_col = join_config['from']
-        to_col = join_config['to']
+    def build_base_columns() -> List[Dict[str, Any]]:
+        """
+        Extract base table columns and attach their data from the DataFrame.
 
-        # Process each destination column specified in the join configuration
-        for dest_col in join_config['dest_cols']:
-            col_name = dest_col['alias']
-            faceted = dest_col.get('faceted', False)
+        :return: List of column definition dictionaries with 'data' and 'col' keys
+        """
+        base_table_name = dest_table['base_table']
+        base_df = src_tables[base_table_name]['df']
+        columns = []
 
-            if dest_col.get('fields'):
-                # Handle JSON combined columns
-                column_def = create_json_column(base_df, join_df, from_col, to_col, join_config, dest_col)
-                if column_def:
-                    join_columns.append(column_def)
-            else:
-                # Handle regular columns that contain lists of values
-                column_def = create_list_column(base_df, join_df, from_col, to_col, join_config, dest_col)
-                if column_def:
-                    join_columns.append(column_def)
-            column_def['faceted'] = faceted
+        for col_config in dest_table['columns']:
+            col_def = make_col(dest_table, col_config, src_tables)
+            if col_def:
+                col_def['data'] = base_df[col_def['name']]
+                columns.append(col_def)
 
-    # Combine all columns (base + join) and create the destination table
-    all_data = {col['alias']: col['data'] for col in dest_cols + join_columns if 'data' in col}
-    all_data = pd.DataFrame(all_data)
+        return columns
 
-    # Create the table schema
-    all_dest_cols = [col for col in dest_cols + join_columns]
-    for dest_col in all_dest_cols:
-        col = dest_col['col']
-        # Remove the column id so new column gets created
-        col.pop('id', None)
+    def build_join_columns() -> List[Dict[str, Any]]:
+        """
+        Extract and populate join columns from related tables based on join configuration.
 
-        faceted = dest_col.get('faceted', False)
-        if faceted:
-            col['facetType'] = 'enumeration'
+        :return: List of column definitions from join tables
+        """
+        base_table_name = dest_table['base_table']
+        base_df = src_tables[base_table_name]['df']
+        join_columns = []
 
-        if col['columnType'] == 'STRING_LIST':
-            # Get the maximum number of items in the series of lists
-            max_items = max(len(items) for items in all_data[col['name']])
-            # Get the max string length in the all of the array of strings
-            max_item_length = max(len(item) for items in all_data[col['name']] for item in items)
-            col['maximumListLength'] = max_items + 2
-            col['maximumSize'] = max_item_length + 10
-            # The rationale for this is because if max size is set to 50 and max list length is 25, that is 50*25 bytes.
-            # even if you don't store that much data.
+        for join_config in dest_table.get('join_columns', []):
+            join_tbl = join_config['join_tbl']
+            join_table = src_tables[join_tbl]
+            join_df = join_table['df']
 
-    all_cols = [Column(**col['col']) for col in all_dest_cols]
-    schema = Schema(name=dest_table['dest_table_name'], columns=all_cols, parent=PROJECT_ID)
+            join_config['join_table_name'] = join_table['name']
+            join_config['join_table_id'] = join_table['id']
 
-    # Check if table already exists and delete all rows if it does
-    try:
-        existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
-        for table in existing_tables:
-            if table['name'] == dest_table['dest_table_name']:
-                # syn.delete(table['id']) I don't have permission to do this
-                existing_rows = syn.tableQuery(f"select * from {table['id']}")
-                print(f"Table {dest_table['dest_table_name']} already exists. Deleting {len(existing_rows)} rows.")
-                syn.delete(existing_rows)
-                break
-    except Exception as e:
-        print(f"Error checking for existing table: {str(e)}")
+            from_col = join_config['from']
+            to_col = join_config['to']
 
-    # Create the table
-    all_data = all_data.reset_index(drop=True)  # otherwise get error: Cannot update row: 16745 because it does not exist.
-    table = syn.store(Table(schema, all_data))
+            for dest_col in join_config['dest_cols']:
+                # TODO: unused?
+                alias = dest_col['alias']
+                faceted = dest_col.get('faceted', False)
+
+                if dest_col.get('fields'):
+                    col_def = create_json_column(base_df, join_df, from_col, to_col, join_config, dest_col)
+                else:
+                    col_def = create_list_column(base_df, join_df, from_col, to_col, join_config, dest_col)
+
+                if col_def:
+                    col_def['faceted'] = faceted
+                    join_columns.append(col_def)
+
+        return join_columns
+
+    def configure_column_metadata(columns: List[Dict[str, Any]], df: pd.DataFrame) -> List[Dict[str, Any]]:
+        """
+        Set metadata on each column definition, including list sizes and faceting.
+
+        :param columns: List of column definition dicts to update
+        :param df: Final combined DataFrame, used to calculate sizes and lengths
+        :return: Updated list of column definitions with metadata
+        """
+        for col_def in columns:
+            col = col_def['col']
+            col.pop('id', None)  # force new column creation
+
+            if col_def.get('faceted'):
+                col['facetType'] = 'enumeration'
+
+            if col['columnType'] == 'STRING_LIST':
+                values = df[col['name']]
+                max_items = max(len(items) for items in values)
+                max_item_length = max(len(item) for items in values for item in items)
+
+                col['maximumListLength'] = max_items + 2
+                col['maximumSize'] = max_item_length + 10
+
+        return columns
+
+    def create_or_clear_table(schema_name: str) -> None:
+        """
+        Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
+
+        :param schema_name: Name of the Synapse table to check and clear (if it already exists)
+        :return: None
+        """
+        try:
+            existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
+            for table in existing_tables:
+                if table['name'] == schema_name:
+                    query_result = syn.tableQuery(f"SELECT * FROM {table['id']}")
+                    syn.create_snapshot_version(table["id"])
+                    print(f"Table '{schema_name}' already exists. Deleting {len(query_result)} rows.")
+                    syn.delete(query_result)
+                    break
+        except Exception as e:
+            print(f"Error checking for existing table: {e}")
+
+    # Step 1: Build all columns and their data
+    base_columns = build_base_columns()
+    join_columns = build_join_columns()
+    all_columns = base_columns + join_columns
+
+    # Step 2: Construct the full data frame
+    data_dict = {col['alias']: col['data'] for col in all_columns if 'data' in col}
+    final_df = pd.DataFrame(data_dict).reset_index(drop=True)
+
+    # Step 3: Configure column metadata
+    configured_columns = configure_column_metadata(all_columns, final_df)
+
+    # Step 4: Create Synapse schema
+    schema_cols = [Column(**col_def['col']) for col_def in configured_columns]
+    schema = Schema(
+        name=dest_table['dest_table_name'],
+        columns=schema_cols,
+        parent=PROJECT_ID
+    )
+
+    # Step 5: Clear existing table rows if applicable
+    create_or_clear_table(dest_table['dest_table_name'])
+
+    # Step 6: Upload the table
+    table = syn.store(Table(schema, final_df))
     print(f"Created table: {table.schema.name} ({table.tableId})")
 
 
-def create_list_column(base_df, join_df, from_col, to_col, join_config, dest_col):
+def create_list_column(
+    base_df: pd.DataFrame,
+    join_df: pd.DataFrame,
+    from_col: str,
+    to_col: str,
+    join_config: Dict[str, Any],
+    dest_col: Dict[str, Any]
+) -> Dict[str, Any]:
     """
-    Create a column containing lists of values from the joined table.
+    Create a column containing lists of values from a join table, based on matching ID relationships.
 
-    For example, for each DST record, create a list of all related topic names.
+    For each row in the base DataFrame, this function looks up related entries in the join table
+    and extracts a list of values for a specified field (e.g., names or labels) that correspond
+    to a column of IDs in the base table.
+
+    :param base_df: The base DataFrame containing the rows to enrich (e.g., main entities)
+    :param join_df: The join table DataFrame containing additional values (e.g., names for IDs)
+    :param from_col: Column in base_df that contains one or more IDs (list or scalar) to match
+    :param to_col: Column in join_df that should match the IDs from `from_col`
+    :param join_config: Dictionary containing metadata about the join (e.g., join table name)
+    :param dest_col: Dictionary defining the output column, with:
+                     - 'name': the field in join_df to extract
+                     - 'alias': the name to assign to the new output column
+    :return: Dictionary with keys:
+             - 'src': source join table name
+             - 'name': name of the field used from the join table
+             - 'alias': output column name
+             - 'col': Synapse Column definition
+             - 'data': list of lists with extracted values per row
     """
-    field_name = dest_col['name']
-    column_name = dest_col['alias']
-
-    # Create a new column with lists of related values
-    result = []
+    field_name = dest_col['name']          # field in join_df to extract (e.g., 'name')
+    column_name = dest_col['alias']        # name for the new output column
+    result = []                            # list of lists to hold values for each base row
 
     for _, row in base_df.iterrows():
         related_ids = row[from_col]
 
-        # Handle empty or missing relationships
+        # Handle missing or empty relationships
         if not related_ids or (isinstance(related_ids, list) and len(related_ids) == 0):
             result.append([])
             continue
 
-        # Ensure related_ids is a list
+        # Ensure the IDs are in list form
         if not isinstance(related_ids, list):
             related_ids = [related_ids]
 
-        # Get all matching records from the join table
+        # Filter join_df for rows with matching IDs
         matching_rows = join_df[join_df[to_col].isin(related_ids)]
 
-        # Extract the requested field values
+        # Extract field values and store as list
         field_values = matching_rows[field_name].tolist()
         result.append(field_values)
 
-    # Create column definition and data
+    # Define column metadata and data
     column_def = {
         'src': join_config['join_table_name'],
         'name': field_name,
@@ -211,37 +291,56 @@ def create_list_column(base_df, join_df, from_col, to_col, join_config, dest_col
     return column_def
 
 
-def create_json_column(base_df, join_df, from_col, to_col, join_config, dest_col):
+def create_json_column(
+    base_df: pd.DataFrame,
+    join_df: pd.DataFrame,
+    from_col: str,
+    to_col: str,
+    join_config: Dict[str, Any],
+    dest_col: Dict[str, Any]
+) -> Dict[str, Any]:
     """
-    Create a column containing JSON representations of related records.
+    Create a column containing structured JSON objects from related records in a join table.
 
-    For example, for each DST record, create a list of JSON objects representing
-    all related topics with their names and descriptions.
+    For each row in the base table, this function gathers related entries from the join table
+    (based on matching IDs), extracts a subset of fields, and formats them as a list of
+    dictionaries (JSON-like structure). This list is stored as the row's value in the output column.
+
+    :param base_df: The base DataFrame containing the primary records (e.g., DSTs)
+    :param join_df: The join table DataFrame with additional data (e.g., topic metadata)
+    :param from_col: Column name in base_df that contains one or more IDs (list or scalar)
+    :param to_col: Column name in join_df to match against those IDs
+    :param join_config: Dictionary describing the join (includes the join table name)
+    :param dest_col: Dictionary defining the new column to be created, including:
+                     - 'alias': name for the resulting column
+                     - 'fields': list of dicts with field mappings (e.g., {'name': 'id', 'alias': 'topic_id'})
+    :return: Dictionary containing metadata and data for the new column, including:
+             - 'src': join table name
+             - 'name': join table key
+             - 'alias': output column name
+             - 'col': Synapse Column definition (type JSON)
+             - 'data': list of JSON-like structures (one per base row)
     """
-    import json
-
     column_name = dest_col['alias']
     fields = dest_col['fields']
-
-    # Create a new column with lists of JSON objects
-    result = []
+    result = []  # Will hold the output data: one JSON array per row in base_df
 
     for _, row in base_df.iterrows():
         related_ids = row[from_col]
 
-        # Handle empty or missing relationships
+        # Handle empty or missing values
         if not related_ids or (isinstance(related_ids, list) and len(related_ids) == 0):
-            result.append("[]")
+            result.append([])  # Could also be: result.append("[]") for stringified JSON
             continue
 
-        # Ensure related_ids is a list
+        # Ensure it's always a list
         if not isinstance(related_ids, list):
             related_ids = [related_ids]
 
-        # Get all matching records from the join table
+        # Match related records in the join_df
         matching_rows = join_df[join_df[to_col].isin(related_ids)]
 
-        # Create JSON objects with the requested fields
+        # Build a list of JSON-style dicts for selected fields
         json_objects = []
         for _, related_row in matching_rows.iterrows():
             obj = {}
@@ -251,13 +350,10 @@ def create_json_column(base_df, join_df, from_col, to_col, join_config, dest_col
                 obj[field_alias] = related_row[field_name]
             json_objects.append(obj)
 
-        # Convert to JSON string
-        # result.append(json.dumps(json_objects))
-        # or not
+        # Append the JSON structure (list of dicts) as this row's value
         result.append(json_objects)
 
-    # Create column definition and data
-    column_def = {
+    column_def: Dict[str, Any] = {
         'src': join_config['join_table_name'],
         'name': join_config['join_tbl'],
         'alias': column_name,
@@ -267,32 +363,89 @@ def create_json_column(base_df, join_df, from_col, to_col, join_config, dest_col
 
     return column_def
 
-def make_col(dest_table, dest_col, src_tables):
-    faceted, name, alias = dest_col['faceted'], dest_col['name'], dest_col['alias']
+def make_col(
+    dest_table: Dict[str, Any],
+    dest_col: Dict[str, Any],
+    src_tables: Dict[str, Dict[str, Any]]
+) -> Dict[str, Any]:
+    """
+    Construct a destination column definition based on the source table's column schema.
 
-    src_table = src_tables[dest_table['base_table']]
+    This function looks up the source column metadata (from the base table), copies it,
+    updates the name to the desired alias, and returns the updated column definition
+    to be included in the output schema.
+
+    :param dest_table: Configuration for the destination table, including the base table name
+    :param dest_col: Column definition with keys:
+                     - 'name': name of the source column
+                     - 'alias': desired column name in the destination table
+                     - 'faceted': whether the column should be faceted
+    :param src_tables: Dictionary of available source tables, keyed by name. Each value includes:
+                       - 'columns': dict of column metadata definitions
+    :return: Updated dest_col dict with a new 'col' key containing the modified column metadata
+    """
+    name = dest_col['name']
+    alias = dest_col['alias']
+
+    # Look up the base table and column metadata
+    base_table_name = dest_table['base_table']
+    src_table = src_tables[base_table_name]
+
+    # Copy the column schema and update the name to use the alias
     dest_col['col'] = src_table['columns'][name].copy()
-    dest_col['col']['name'] = dest_col['alias']
+    dest_col['col']['name'] = alias
 
     return dest_col
 
-def get_src_table(syn, tbl):
-    table_info = SRC_TABLES[tbl]
-    syn_table = syn.get(table_info['id'])
-    if syn_table.name != table_info['name']:
-        raise Exception(f'got wrong table for {table_info["name"]}: {syn_table.name}')
-    table_info['syn_table'] = syn_table
-    table_info['columns'] = {col['name']: col for col in syn.getTableColumns(syn_table)}
+def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
+    """
+    Retrieve and validate a source table from Synapse, populate it with metadata and a cleaned DataFrame.
 
-    data = syn.tableQuery(f"select * from {table_info['id']}")
-    df = data.asDataFrame()
-    # clean up nans
+    This function:
+    - Retrieves the Synapse table and confirms its name matches the expected one
+    - Extracts column metadata
+    - Queries the full table contents into a DataFrame
+    - Cleans NaNs from the DataFrame (replacing them with empty strings)
+    - Stores the DataFrame, table object, and column info in the returned dictionary
+
+    :param syn: Authenticated Synapse client
+    :param tbl: Key for the source table in the global SRC_TABLES dictionary
+    :return: Dictionary with keys:
+             - 'id': Synapse table ID
+             - 'name': expected name of the table
+             - 'syn_table': the retrieved Synapse table object
+             - 'columns': dict of Synapse column metadata keyed by column name
+             - 'df': cleaned DataFrame of table contents
+    :raises ValueError: if the retrieved Synapse table has a different name than expected
+    """
+    table_info = SRC_TABLES[tbl]  # global lookup
+    syn_table = syn.get(table_info['id'])
+
+    # Confirm table name matches what's expected
+    if syn_table.name != table_info['name']:
+        raise ValueError(f"Expected table '{table_info['name']}', but got '{syn_table.name}'.")
+
+    # Store the retrieved Synapse table and column metadata
+    table_info['syn_table'] = syn_table
+    table_info['columns'] = {
+        col['name']: col for col in syn.getTableColumns(syn_table)
+    }
+
+    # Query the table and clean up the resulting DataFrame
+    query_result = syn.tableQuery(f"SELECT * FROM {table_info['id']}")
+    df = query_result.asDataFrame()
+
+    # Replace NaNs with empty strings for all columns
     for col in df.columns:
         df[col] = df[col].apply(lambda x: '' if isinstance(x, float) and np.isnan(x) else x)
+
     table_info['df'] = df
     return table_info
 
-def initialize_synapse():
+def initialize_synapse() -> None:
+    """
+    Initialize the synapse client
+    """
     try:
         syn = Synapse()
         syn.login(authToken=AUTH_TOKEN)
