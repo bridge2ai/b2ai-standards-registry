@@ -1,21 +1,27 @@
-from synapseclient import Synapse, Column, Schema, Table #, Project, File, Folder, Row, RowSet, as_table_columns,
+from synapseclient import Synapse, Column, Schema, Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
 import numpy as np
 from modify_synapse_schema import get_auth_token
 AUTH_TOKEN = get_auth_token()
-# from dotenv import load_dotenv
-# import os
-# load_dotenv('env/.env')
-# AUTH_TOKEN = os.getenv('SYNAPSE_AUTH_TOKEN')
-# PROJECT_ID = os.getenv('SYNAPSE_PROJECT_ID')
 PROJECT_ID='syn63096806'
 
 SRC_TABLES = {
-    'dst': {        # convention in code, this abbreviation will be referred to as ..._tbl
-                    #   ..._table will usually refer to some kind of table object
+    """
+    Dict of existing synapse tables to be used in one or more destination tables
+    to be created in this script.
+    
+    Uses a short abbreviation as a key to the synapse ID and synapse table name
+    
+    In code, 
+    """
+    'dst': {        # convention in code: this abbreviation will be referred to as dst_tbl
+                    #   dst_table will usually refer to some kind of table object
+                    #   same with topic, org or others
         'id': 'syn63096833', 'name': 'DataStandardOrTool',
         # 'id': 'syn63096833.38', 'name': 'DataStandardOrTool', # using specific version because current is empty
+        # TODO: If the current version of a table is empty (which happens if the upload pipeline
+        #       fails), fall back to the latest or a specific version with data
     },
     'topic': {
         'id': 'syn63096835', 'name': 'DataTopic',
@@ -23,6 +29,7 @@ SRC_TABLES = {
     'org': {
         'id': 'syn63096836', 'name': 'Organization',
     },
+    # TODO: We may want to include data from these tables at some point:
     # 'uc': { 'id': 'syn63096837', 'name': 'UseCase', }
     # 'substr': { 'id': 'syn63096834', 'name': 'DataSubstrate', }
 }
@@ -50,7 +57,6 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'contribution_date',         'alias': 'contributionDate'},
             {'faceted': False, 'name': 'related_to',                'alias': 'relatedTo'},
         ],
-        # 'special_processing': dst_description_trim,
         'join_columns': [
             {'join_tbl': 'topic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
              'dest_cols': [
@@ -82,9 +88,6 @@ DEST_TABLES = {
         ],
     },
 }
-
-# def dst_description_trim(dst_table):
-#     pass
 
 def denormalize_tables():
     syn = initialize_synapse()
@@ -166,10 +169,10 @@ def make_dest_table(syn, dest_table, src_tables):
     # Check if table already exists and delete all rows if it does
     try:
         existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
-        for table in existing_tables:
-            if table['name'] == dest_table['dest_table_name']:
+        for existing_table in existing_tables:
+            if existing_table['name'] == dest_table['dest_table_name']:
                 # syn.delete(table['id']) I don't have permission to do this
-                existing_rows = syn.tableQuery(f"select * from {table['id']}")
+                existing_rows = syn.tableQuery(f"select * from {existing_table['id']}")
                 print(f"Table {dest_table['dest_table_name']} already exists. Deleting {len(existing_rows)} rows.")
                 syn.delete(existing_rows)
                 break
@@ -180,7 +183,6 @@ def make_dest_table(syn, dest_table, src_tables):
     all_data = all_data.reset_index(drop=True)  # otherwise get error: Cannot update row: 16745 because it does not exist.
     table = syn.store(Table(schema, all_data))
     print(f"Created table: {table.schema.name} ({table.tableId})")
-
 
 def create_list_column(base_df, join_df, from_col, to_col, join_config, dest_col):
     """
