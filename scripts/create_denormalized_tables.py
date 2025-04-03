@@ -10,16 +10,16 @@ PROJECT_ID='syn63096806'
 SRC_TABLES = {
     'dst': {        # convention in code, this abbreviation will be referred to as ..._tbl
                     #   ..._table will usually refer to some kind of table object
-        'id': 'syn63096833', 'name': 'DataStandardOrTool',
+        'id': 'syn63096833.43', 'name': 'DataStandardOrTool',
     },
     'topic': {
-        'id': 'syn63096835', 'name': 'DataTopic',
+        'id': 'syn63096835.20', 'name': 'DataTopic',
     },
     'org': {
-        'id': 'syn63096836', 'name': 'Organization',
+        'id': 'syn63096836.20', 'name': 'Organization',
     },
-    'uc': { 'id': 'syn63096837', 'name': 'UseCase', },
-    'substr': { 'id': 'syn63096834', 'name': 'DataSubstrate', }
+    'uc': { 'id': 'syn63096837.18', 'name': 'UseCase', },
+    'substr': { 'id': 'syn63096834.25', 'name': 'DataSubstrate', }
 }
 
 # The table
