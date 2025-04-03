@@ -1,3 +1,34 @@
+"""
+Denormalize Synapse Tables into defined destination table(s) for Standards Registry Explorer UI use.
+
+This script connects to Synapse, retrieves a set of normalized source tables,
+joins them together according to a defined schema, and creates a new denormalized
+Synapse table for use in the Explore landing page and detail views.
+
+It supports:
+- Mapping ID fields in the base table to human-readable values from related tables
+- Enriching columns with metadata, such as faceting and aliases
+- Automatically configuring string list and JSON columns
+- Replacing missing values (NaNs) with empty strings
+- Snapshotting and clearing destination tables before updates
+
+Usage:
+    Run this script directly (e.g., `python create_denormalized_tables.py`) to populate the DEST_TABLES output.
+    Authentication is handled via a personal access token fetched from `modify_synapse_schema.get_auth_token()`.
+
+Requirements:
+    - Python 3.8+
+    - Synapse client (`synapseclient`)
+    - pandas, numpy
+
+Expected Environment:
+    - AUTH_TOKEN environment variable or a helper function providing credentials
+    - The SRC_TABLES and DEST_TABLES definitions must be updated with valid Synapse table IDs
+
+Main entry point:
+    denormalize_tables()
+"""
+
 from typing import Any, Dict, List
 from synapseclient import Synapse, Column, Schema, Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
