@@ -263,7 +263,7 @@ def create_list_column(
     for _, row in base_df.iterrows():
         related_ids = row[from_col]
 
-        # Handle missing or empty relationships
+        # Handle empty or missing relationships
         if not related_ids or (isinstance(related_ids, list) and len(related_ids) == 0):
             result.append([])
             continue
@@ -279,7 +279,7 @@ def create_list_column(
         field_values = matching_rows[field_name].tolist()
         result.append(field_values)
 
-    # Define column metadata and data
+    # Create column definition and data
     column_def = {
         'src': join_config['join_table_name'],
         'name': field_name,
