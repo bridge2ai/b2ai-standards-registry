@@ -268,14 +268,14 @@ def create_list_column(
             result.append([])
             continue
 
-        # Ensure the IDs are in list form
+        # Ensure related_ids is a list
         if not isinstance(related_ids, list):
             related_ids = [related_ids]
 
         # Filter join_df for rows with matching IDs
         matching_rows = join_df[join_df[to_col].isin(related_ids)]
 
-        # Extract field values and store as list
+        # Extract the requested field values and store as list
         field_values = matching_rows[field_name].tolist()
         result.append(field_values)
 
