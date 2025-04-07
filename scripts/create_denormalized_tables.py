@@ -94,13 +94,6 @@ DEST_TABLES = {
                  {'faceted': True,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
                  {'faceted': True,  'name': 'description', 'alias': 'responsibleOrgName'},
              ]},
-            {'join_tbl': 'dst', 'join_type': 'left', 'from': 'related_to', 'to': 'id',
-             'dest_cols': [
-                 {'faceted': False, 'name': 'category', 'alias': 'relatedStandardCategory'},
-                 {'faceted': False, 'name': 'name', 'alias': 'relatedStandardAcronym'},
-                 {'faceted': False, 'name': 'description', 'alias': 'relatedStandardName'},
-                 {'faceted': False, 'name': 'purpose_detail', 'alias': 'relatedStandardDescription'},
-             ]},
         ],
     },
 }
