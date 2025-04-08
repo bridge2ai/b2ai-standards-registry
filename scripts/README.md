@@ -21,13 +21,7 @@ The scripts in this folder are designed to:
    poetry install --all-extras
    ```
 
-   **Essential:** Be sure to include the `--all-extras` option.
-
-   The `.yaml/.yml` autoformatter use `ruamel.yaml` to format the files which is installed by the command above but can be explicitly installed using:
-
-   ```bash
-   pip install ruamel.yaml
-   ```
+   **Essential:** Be sure to include the `--all-extras` option because the scripts require addtional dependencies.
 
 2. **Synapse Authentication**
 
