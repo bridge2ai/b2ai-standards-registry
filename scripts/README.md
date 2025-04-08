@@ -17,11 +17,17 @@ The scripts in this folder are designed to:
 
    In your terminal, navigate to the project root and install the requirements with:
 
-    ```bash
-    poetry install --all-extras
-    ```
+   ```bash
+   poetry install --all-extras
+   ```
 
-    **Essential:** Be sure to include the `--all-extras` option.
+   **Essential:** Be sure to include the `--all-extras` option.
+
+   The `.yaml/.yml` autoformatter use `ruamel.yaml` to format the files which is installed by the command above but can be explicitly installed using:
+
+   ```bash
+   pip install ruamel.yaml
+   ```
 
 2. **Synapse Authentication**
 
