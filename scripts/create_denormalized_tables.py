@@ -7,19 +7,17 @@ Synapse table for use in the Explore landing page and detail views.
 
 It supports:
 - Mapping ID fields in the base table to human-readable values from related tables
-- Enriching columns with metadata, such as faceting and aliases
+- Allows columns to be flagged for faceting
+- Allows column renaming -- use camelCase and Synapse will automatically convert to title case (ex; camelCase -> Camel Case)
 - Automatically configuring string list and JSON columns
-- Replacing missing values (NaNs) with empty strings
+- Replacing missing values (NaNs) with empty strings (pandas converts empty non-numeric fields to NaN)
 - Snapshotting and clearing destination tables before updates
 
 Usage:
     Run this script directly (e.g., `python create_denormalized_tables.py`) to populate the DEST_TABLES output.
-    Authentication is handled via a personal access token fetched from `modify_synapse_schema.get_auth_token()`.
-
-Requirements:
-    - Python 3.8+
-    - Synapse client (`synapseclient`)
-    - pandas, numpy
+    Authentication is handled via a personal access token fetched from utils.py.
+    It expects an auth token to be stored in ~/.synapseConfig. For instructions on setting up your auth token,
+    see scripts/README.md.
 
 Expected Environment:
     - AUTH_TOKEN environment variable or a helper function providing credentials
@@ -34,7 +32,8 @@ from synapseclient import Synapse, Column, Schema, Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
 import numpy as np
-from modify_synapse_schema import get_auth_token
+from scripts.utils import get_auth_token
+
 AUTH_TOKEN = get_auth_token()
 PROJECT_ID='syn63096806'
 
@@ -101,8 +100,17 @@ DEST_TABLES = {
 def denormalize_tables():
     syn = initialize_synapse()
     src_tables = {tbl: get_src_table(syn, tbl) for tbl in SRC_TABLES}
+
     for dest_table in DEST_TABLES.values():
+        base_tbl_name = dest_table['base_table']
+        base_df = src_tables[base_tbl_name]['df']
+
+        if base_df.empty:
+            print(f"Skipping '{dest_table['dest_table_name']}' — base table '{base_tbl_name}' has no data.")
+            continue
+
         make_dest_table(syn, dest_table, src_tables)
+
 
 
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
@@ -113,14 +121,13 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     :param dest_table: Dictionary defining the destination table configuration. Includes:
         - 'base_table': str, name of the source table to use as the base
         - 'dest_table_name': str, name for the resulting Synapse table
-        - 'columns': list of base column definitions
+        - 'columns': list of base columns to be used in the destination table
         - 'join_columns' (optional): list of join config dicts for enriching base data
     :param src_tables: Dictionary of available source tables. Each entry is keyed by table name
                        and contains:
         - 'df': pd.DataFrame of the table
         - 'name': Synapse table name
         - 'id': Synapse table ID
-    :return: None
     """
 
     def build_base_columns() -> List[Dict[str, Any]]:
@@ -163,8 +170,6 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
             to_col = join_config['to']
 
             for dest_col in join_config['dest_cols']:
-                # TODO: unused?
-                alias = dest_col['alias']
                 faceted = dest_col.get('faceted', False)
 
                 if dest_col.get('fields'):
@@ -188,7 +193,9 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         """
         for col_def in columns:
             col = col_def['col']
-            col.pop('id', None)  # force new column creation
+            # Remove the column id so new column gets created in Synapse schema - this is also so we can update the new max
+            # list length and size
+            col.pop('id', None)
 
             if col_def.get('faceted'):
                 col['facetType'] = 'enumeration'
@@ -198,6 +205,8 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
                 max_items = max(len(items) for items in values)
                 max_item_length = max(len(item) for items in values for item in items)
 
+                # The 2 and 10 here are are buffers to try to accommodate for slightly more data than we may currently have
+                # They're arbitrary right now, but we can always increase or decrease as needed if we run into issues later
                 col['maximumListLength'] = max_items + 2
                 col['maximumSize'] = max_item_length + 10
 
@@ -208,7 +217,6 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
 
         :param schema_name: Name of the Synapse table to check and clear (if it already exists)
-        :return: None
         """
         try:
             existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
@@ -250,8 +258,43 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     print(f"Created table: {table.schema.name} ({table.tableId})")
 
 
+def make_col(
+    dest_table: Dict[str, Any],
+    dest_col: Dict[str, Any],
+    src_tables: Dict[str, Dict[str, Any]]
+) -> Dict[str, Any]:
+    """
+    Construct a destination column definition based on the source table's column schema.
+
+    This function looks up the source column metadata (from the base table), copies it,
+    updates the name to the desired alias (destination column name), and returns the updated column definition
+    to be included in the output schema.
+
+    :param dest_table: Configuration for the destination table, including the base table name
+    :param dest_col: Column definition with keys:
+                     - 'name': name of the source column
+                     - 'alias': desired column name in the destination table
+                     - 'faceted': whether the column should be faceted
+    :param src_tables: Dictionary of available source tables, keyed by name. Each value includes:
+                       - 'columns': dict of column metadata definitions
+    :return: Updated dest_col dict with a new 'col' key containing the modified column metadata
+    """
+    src_col_name = dest_col['name']
+    dest_col_name = dest_col['alias']
+
+    # Get the key to use in SRC_TABLES for the base table
+    base_table_name = dest_table['base_table']
+    src_table = src_tables[base_table_name]
+
+    # Copy the column schema and update the name to use the alias
+    dest_col['col'] = src_table['columns'][src_col_name].copy()
+    dest_col['col']['name'] = dest_col_name
+
+    return dest_col
+
+
 def create_list_column(
-    base_df: pd.DataFrame,
+    base_src_tbl_df: pd.DataFrame,
     join_df: pd.DataFrame,
     from_col: str,
     to_col: str,
@@ -265,9 +308,15 @@ def create_list_column(
     and extracts a list of values for a specified field (e.g., names or labels) that correspond
     to a column of IDs in the base table.
 
-    :param base_df: The base DataFrame containing the rows to enrich (e.g., main entities)
+    Clarification: For columns like topic and relevant org, which, in the base table appear as string lists of topic or org ids,
+    this function fetches data (e.g., name, acronym) from the topic or org table for inclusion in the
+    destination table
+
+    NOTE: This function is intended for use only with columns containing StringList or other List types.
+
+    :param base_src_tbl_df: The source base table DataFrame containing the rows to enrich (e.g., main entities)
     :param join_df: The join table DataFrame containing additional values (e.g., names for IDs)
-    :param from_col: Column in base_df that contains one or more IDs (list or scalar) to match
+    :param from_col: Column in base_src_tbl_df that contains one or more IDs (list or scalar) to match
     :param to_col: Column in join_df that should match the IDs from `from_col`
     :param join_config: Dictionary containing metadata about the join (e.g., join table name)
     :param dest_col: Dictionary defining the output column, with:
@@ -284,7 +333,7 @@ def create_list_column(
     column_name = dest_col['alias']        # name for the new output column
     result = []                            # list of lists to hold values for each base row
 
-    for _, row in base_df.iterrows():
+    for _, row in base_src_tbl_df.iterrows():
         related_ids = row[from_col]
 
         # Handle empty or missing relationships
@@ -330,6 +379,16 @@ def create_json_column(
     (based on matching IDs), extracts a subset of fields, and formats them as a list of
     dictionaries (JSON-like structure). This list is stored as the row's value in the output column.
 
+    Expected configuration for destination table definition would look like the following:
+        'join_columns': [
+        {'join_tbl': 'topic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+         'dest_cols': [
+              {'faceted': False,'name': 'topics_json', 'alias': 'Topics',
+               'fields': [{ 'name': 'name', 'alias': 'Topic'},
+                          { 'name': 'description', 'alias': 'Description'}, ]},
+        ]},
+    ]
+
     :param base_df: The base DataFrame containing the primary records (e.g., DSTs)
     :param join_df: The join table DataFrame with additional data (e.g., topic metadata)
     :param from_col: Column name in base_df that contains one or more IDs (list or scalar)
@@ -354,7 +413,7 @@ def create_json_column(
 
         # Handle empty or missing values
         if not related_ids or (isinstance(related_ids, list) and len(related_ids) == 0):
-            result.append([])  # Could also be: result.append("[]") for stringified JSON
+            result.append([])
             continue
 
         # Ensure it's always a list
@@ -379,7 +438,7 @@ def create_json_column(
 
     column_def: Dict[str, Any] = {
         'src': join_config['join_table_name'],
-        'name': join_config['join_tbl'],
+        'name': dest_col['name'],
         'alias': column_name,
         'col': Column(name=column_name, columnType='JSON'),
         'data': result
@@ -387,39 +446,6 @@ def create_json_column(
 
     return column_def
 
-def make_col(
-    dest_table: Dict[str, Any],
-    dest_col: Dict[str, Any],
-    src_tables: Dict[str, Dict[str, Any]]
-) -> Dict[str, Any]:
-    """
-    Construct a destination column definition based on the source table's column schema.
-
-    This function looks up the source column metadata (from the base table), copies it,
-    updates the name to the desired alias, and returns the updated column definition
-    to be included in the output schema.
-
-    :param dest_table: Configuration for the destination table, including the base table name
-    :param dest_col: Column definition with keys:
-                     - 'name': name of the source column
-                     - 'alias': desired column name in the destination table
-                     - 'faceted': whether the column should be faceted
-    :param src_tables: Dictionary of available source tables, keyed by name. Each value includes:
-                       - 'columns': dict of column metadata definitions
-    :return: Updated dest_col dict with a new 'col' key containing the modified column metadata
-    """
-    name = dest_col['name']
-    alias = dest_col['alias']
-
-    # Look up the base table and column metadata
-    base_table_name = dest_table['base_table']
-    src_table = src_tables[base_table_name]
-
-    # Copy the column schema and update the name to use the alias
-    dest_col['col'] = src_table['columns'][name].copy()
-    dest_col['col']['name'] = alias
-
-    return dest_col
 
 def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
     """
@@ -459,7 +485,7 @@ def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
     query_result = syn.tableQuery(f"SELECT * FROM {table_info['id']}")
     df = query_result.asDataFrame()
 
-    # Replace NaNs with empty strings for all columns
+    # Replace NaNs with empty strings for all non-numeric columns (since df converts null columns to NaNs)
     for col in df.columns:
         df[col] = df[col].apply(lambda x: '' if isinstance(x, float) and np.isnan(x) else x)
 
