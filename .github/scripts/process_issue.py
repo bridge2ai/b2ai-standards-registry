@@ -407,7 +407,7 @@ def main(dry: bool, github: bool, force: bool):
         click.echo(f"Found {len(issue_to_resource)} new request issues:")
         for issue_number in sorted(issue_to_resource, reverse=True):
             link = click.style(
-                f"https://github.com/bridge2ai/b2ai-standards-registry/issues/{issue_number}",
+                f"https://github.com/Krt-11/b2ai-standards-registry/issues/{issue_number}",
                 fg="cyan",
             )
             click.echo(f" - {link}")
@@ -419,7 +419,7 @@ def main(dry: bool, github: bool, force: bool):
         click.echo(f"Found PRs covering {len(pulled_issues)} new request issues:")
         for pr_number in sorted(pulled_issues, reverse=True):
             link = click.style(
-                f"https://github.com/bridge2ai/b2ai-standards-registry/pulls/{pr_number}",
+                f"https://github.com/Krt-11/b2ai-standards-registry/pulls/{pr_number}",
                 fg="cyan",
             )
             click.echo(f" - {link}")
