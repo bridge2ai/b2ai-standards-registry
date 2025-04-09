@@ -15,27 +15,27 @@ The scripts in this folder are designed to:
 
 1. **Install Dependencies**
 
-    In your terminal, navigate to the project root and install the requirements with:
+   In your terminal, navigate to the project root and install the requirements with:
 
-    ```bash
-    poetry install --all-extras
-    ```
+   ```bash
+   poetry install --all-extras
+   ```
 
-    **Essential:** Be sure to include the `--all-extras` option.
+   **Essential:** Be sure to include the `--all-extras` option.
 
 2. **Synapse Authentication**
 
-    Ensure you have the necessary authentication set up for Synapse access. You can set up your Personal Access Token following the documentation [here](https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens).
+   Ensure you have the necessary authentication set up for Synapse access. You can set up your Personal Access Token following the documentation [here](https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens).
 
-    Once you have your access token, add it to your `~/.synapseConfig` file in your home directory. Replace `<authtoken>` with your token. Also make sure to uncomment the `[authentication]` and `authtoken` lines. (The `username` is not necessary for this script).
+   Once you have your access token, add it to your `~/.synapseConfig` file in your home directory. Replace `<authtoken>` with your token. Also make sure to uncomment the `[authentication]` and `authtoken` lines. (The `username` is not necessary for this script).
 
-    ```shell
-    [authentication]
-    #username = <username> (optionally uncommment this line. If you do, enter your username)
-    authtoken = <authtoken>
-    ```
+   ```shell
+   [authentication]
+   #username = <username> (optionally uncommment this line. If you do, enter your username)
+   authtoken = <authtoken>
+   ```
 
-    If you do not have a `~/.synapseConfig` file, create one and populate it with the template from [this page](https://help.synapse.org/docs/Client-Configuration.1985446156.html).
+   If you do not have a `~/.synapseConfig` file, create one and populate it with the template from [this page](https://help.synapse.org/docs/Client-Configuration.1985446156.html).
 
 ## Usage
 
