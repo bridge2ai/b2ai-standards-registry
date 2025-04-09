@@ -48,15 +48,22 @@ import os
 import re
 import subprocess
 import sys
+from pathlib import Path
 import time
 from subprocess import CalledProcessError, check_output
 from typing import Any, Dict, Iterable, Mapping, Optional, Sequence, Set
 from uuid import uuid4
 
+repo_root = Path(__file__).resolve().parents[2]
+sys.path.append(str(repo_root))
+
+from scripts.format_yaml import format_yaml_file
+
 import click
-import more_itertools
-import requests
-import yaml
+import more_itertools 
+import requests 
+import yaml 
+
 
 logger = logging.getLogger(__name__)
 
@@ -87,7 +94,7 @@ def get_issues_with_pr(
     issue_ids: Iterable[int], token: str
 ) -> Set[int]:
     """Get the set of issues that are already closed by a pull request."""
-    pulls = list_pulls(owner="bridge2ai", repo="b2ai-standards-registry", token=token)
+    pulls = list_pulls(owner="Krt-11", repo="b2ai-standards-registry", token=token)
     return {
         issue_id
         for pull, issue_id in itt.product(pulls, issue_ids)
@@ -136,7 +143,7 @@ def open_b2ai_standards_registry_pull_request(
 ):
     """Open a pull request to b2ai-standards-registry via :func:`open_pull_request`."""
     return open_pull_request(
-        owner="bridge2ai",
+        owner="Krt-11",
         repo="b2ai-standards-registry",
         base=MAIN_BRANCH,
         title=title,
@@ -190,7 +197,7 @@ def get_b2ai_standards_registry_form_data(
     :return: A mapping from GitHub issue issue data
     """
     return get_form_data(
-        owner="bridge2ai",
+        owner="Krt-11",
         repo="b2ai-standards-registry",
         labels=labels,
         token=token,
@@ -435,6 +442,7 @@ def main(dry: bool, github: bool, force: bool):
     for issue_number, resource in issue_to_resource.items():
         click.echo(f'🚀 Adding {resource["name"]} (#{issue_number})')
         data_path = f"{DATA_DIR}{''.join(resource['entity_type'].title().split())}.yaml"
+        format_yaml_file(data_path)
         with open(data_path, "r") as yamlfile:
             this_yaml = yaml.safe_load(yamlfile)
             collection_name = COLLECTION_NAMES[resource["entity_type"]]
