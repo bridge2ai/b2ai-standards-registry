@@ -600,11 +600,10 @@ def main(dry: bool, github: bool, force: bool) -> None:
     branch_name = str(uuid4())[:8]
 
     if github:
-        msg = f"""
-          ::set-output name=PR_BODY::{body}
-          ::set-output name=PR_TITLE::{title}
-        """
-        exit_with_msg(msg=msg, exit_status_code=ExitCode.SUCCESS)
+        with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+            click.echo(f"PR_BODY={body}", file=f)
+            click.echo(f"PR_TITLE={title}", file=f)
+        exit_with_msg(exit_status_code=ExitCode.SUCCESS)
     elif dry:
         click.echo("New branch would have been:")
         click.echo(f"title: {title}")
