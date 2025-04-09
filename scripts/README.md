@@ -56,3 +56,4 @@ python scripts/modify_synapse_schema.py
 This script requires Synapse authentication (replace `auth_token` in the script with your actual token or set it as an environment variable).
 
 **Note:** Ensure you have a Synapse account with appropriate permissions before running this script.
+testing upload
