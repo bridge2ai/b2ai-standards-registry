@@ -397,7 +397,7 @@ def main(dry: bool, github: bool, force: bool):
         )
         sys.exit(1)
 
-    token = os.getenv("GITHUB_TOKEN")
+    token = os.getenv("TOKEN")
     if not token:
         logging.error("Missing `GITHUB_TOKEN` environment variable.")
         return sys.exit(0)
