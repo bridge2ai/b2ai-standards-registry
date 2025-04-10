@@ -2,6 +2,19 @@ import os
 
 
 def get_auth_token():
+    """
+    Retrieves the Synapse authentication token from the user's ~/.synapseConfig file.
+
+    The config file is expected to contain a line in the format:
+      authtoken = <token>
+    See the README for information on how to set this up.
+
+    :return: The authentication token found in the config tile.
+    :raises:
+      FileNotFoundError: If the ~/.synapseConfig file does not exist
+      ValueError: If the 'authtoken' line is missing, malformed, or empty
+      RuntimeError: If an unexpected error occurs while reading the file.
+    """
     auth_file = os.path.expanduser("~/.synapseConfig")
 
     try:
