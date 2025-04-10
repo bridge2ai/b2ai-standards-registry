@@ -1,7 +1,7 @@
 import os
 
 
-def get_auth_token():
+def get_auth_token() -> str:
     """
     Retrieves the Synapse authentication token from the user's ~/.synapseConfig file.
 
