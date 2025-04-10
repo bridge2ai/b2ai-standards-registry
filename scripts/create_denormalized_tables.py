@@ -104,10 +104,10 @@ TRANSFORMS = {
     # camel_to_title_case
     #   removes 'B2AI_STANDARD:'
     #   inserts a space before any uppercase letter that follows a lowercase letter
-    #   lowercases everything first, then capitalizes just the first letter
+    #   converts to title case
     #
     #   Converts category, strips prefix and outputs title case
-    #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical standard'
+    #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
     'camel_to_title_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title(),
 }
 
