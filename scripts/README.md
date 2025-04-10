@@ -52,7 +52,7 @@ Each script is intended to be run individually. Here’s how to use them:
 **Run:**
 
 ```bash
-python scripts/modify_synapse_schema.py
+python -m scripts.modify_synapse_schema
 ```
 
 #### Requirements

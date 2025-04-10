@@ -14,7 +14,7 @@ It supports:
 - Snapshotting and clearing destination tables before updates
 
 Usage:
-    Run this script directly (e.g., `python create_denormalized_tables.py`) to populate the DEST_TABLES output.
+    Run this script directly (e.g., `python -m scripts.create_denormalized_tables`) to populate the DEST_TABLES output.
     Authentication is handled via a personal access token fetched from utils.py.
     It expects an auth token to be stored in ~/.synapseConfig. For instructions on setting up your auth token,
     see scripts/README.md.
@@ -86,13 +86,13 @@ DEST_TABLES = {
             ]},
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
              'dest_cols': [
-                 {'faceted': True,  'name': 'name', 'alias': 'relevantOrgAcronym'},
+                 {'faceted': False,  'name': 'name', 'alias': 'relevantOrgAcronym'},
                  {'faceted': True,  'name': 'description', 'alias': 'organizations'},
              ]},
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
-                 {'faceted': True,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
-                 {'faceted': True,  'name': 'description', 'alias': 'responsibleOrgName'},
+                 {'faceted': False,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
+                 {'faceted': False,  'name': 'description', 'alias': 'responsibleOrgName'},
              ]},
         ],
     },
