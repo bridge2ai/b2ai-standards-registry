@@ -9,6 +9,7 @@ It supports:
 - Mapping ID fields in the base table to human-readable values from related tables
 - Allows columns to be flagged for faceting
 - Allows column renaming -- use camelCase and Synapse will automatically convert to title case (ex; camelCase -> Camel Case)
+- Allows transforming data values
 - Automatically configuring string list and JSON columns
 - Replacing missing values (NaNs) with empty strings (pandas converts empty non-numeric fields to NaN)
 - Snapshotting and clearing destination tables before updates
@@ -33,6 +34,7 @@ from synapseclient import Synapse, Column, Schema, Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
 import numpy as np
+import re
 from scripts.utils import get_auth_token
 
 AUTH_TOKEN = get_auth_token()
@@ -63,7 +65,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'id',                        'alias': 'id'},
             {'faceted': False, 'name': 'name',                      'alias': 'acronym'},
             {'faceted': False, 'name': 'description',               'alias': 'name'},
-            {'faceted': False, 'name': 'category',                  'alias': 'category'},
+            {'faceted': False, 'name': 'category',                  'alias': 'category', 'transform': 'camel_to_sentence_case'},
             {'faceted': False, 'name': 'purpose_detail',            'alias': 'description'},
             {'faceted': False, 'name': 'collection',                'alias': 'collections'},
             {'faceted': False, 'name': 'concerns_data_topic',       'alias': 'concerns_data_topic'},
@@ -96,6 +98,17 @@ DEST_TABLES = {
              ]},
         ],
     },
+}
+
+TRANSFORMS = {
+    # camel_to_sentence_case
+    #   removes 'B2AI_STANDARD:'
+    #   inserts a space before any uppercase letter that follows a lowercase letter
+    #   lowercases everything first, then capitalizes just the first letter
+    #
+    #   Converts category, strips prefix and outputs sentence case
+    #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical standard'
+    'camel_to_sentence_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).lower().capitalize(),
 }
 
 def denormalize_tables():
@@ -144,7 +157,10 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         for col_config in dest_table['columns']:
             col_def = make_col(dest_table, col_config, src_tables)
             if col_def:
-                col_def['data'] = base_df[col_def['name']]
+                col_data = base_df[col_def['name']]
+                if 'transform' in col_def:
+                    col_data = col_data.apply(TRANSFORMS[col_def['transform']])
+                col_def['data'] = col_data
                 columns.append(col_def)
 
         return columns
@@ -276,6 +292,7 @@ def make_col(
                      - 'name': name of the source column
                      - 'alias': desired column name in the destination table
                      - 'faceted': whether the column should be faceted
+                     - 'transform': optional function for transforming data values
     :param src_tables: Dictionary of available source tables, keyed by name. Each value includes:
                        - 'columns': dict of column metadata definitions
     :return: Updated dest_col dict with a new 'col' key containing the modified column metadata
