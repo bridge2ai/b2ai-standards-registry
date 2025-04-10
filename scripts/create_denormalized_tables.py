@@ -20,7 +20,8 @@ Usage:
     see scripts/README.md.
 
 Expected Environment:
-    - AUTH_TOKEN environment variable or a helper function providing credentials
+    - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
+      Instructions for setting up your auth token are documented with that function
     - The SRC_TABLES and DEST_TABLES definitions must be updated with valid Synapse table IDs
 
 Main entry point:
@@ -39,25 +40,25 @@ PROJECT_ID='syn63096806'
 
 # The synapse tables that hold source data
 SRC_TABLES = {
-    'dst': {        # convention in code, this abbreviation will be referred to as ..._tbl
+    'DataStandardOrTool': {        # convention in code, this abbreviation will be referred to as ..._tbl
                     #   ..._table will usually refer to some kind of table object
         'id': 'syn63096833.43', 'name': 'DataStandardOrTool',
     },
-    'topic': {
+    'DataTopic': {
         'id': 'syn63096835.20', 'name': 'DataTopic',
     },
-    'org': {
+    'Organization': {
         'id': 'syn63096836.20', 'name': 'Organization',
     },
-    'uc': { 'id': 'syn63096837.18', 'name': 'UseCase', },
-    'substr': { 'id': 'syn63096834.25', 'name': 'DataSubstrate', }
+    'UseCase': { 'id': 'syn63096837.18', 'name': 'UseCase', },
+    'DataSubstrate': { 'id': 'syn63096834.25', 'name': 'DataSubstrate', }
 }
 
 # The table used for the explore landing page and to provide data for the home and detailed pages
 DEST_TABLES = {
     'DST_denormalized': {
         'dest_table_name': 'DST_denormalized',
-        'base_table': 'dst',
+        'base_table': 'DataStandardOrTool',
         'columns': [
             {'faceted': False, 'name': 'id',                        'alias': 'id'},
             {'faceted': False, 'name': 'name',                      'alias': 'acronym'},
@@ -79,16 +80,16 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'related_to',                'alias': 'relatedTo'},
         ],
         'join_columns': [
-            {'join_tbl': 'topic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
              'dest_cols': [
                 {'faceted': True, 'name': 'name', 'alias': 'topic'},
             ]},
-            {'join_tbl': 'org', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
+            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
              'dest_cols': [
                  {'faceted': True,  'name': 'name', 'alias': 'relevantOrgAcronym'},
                  {'faceted': True,  'name': 'description', 'alias': 'organizations'},
              ]},
-            {'join_tbl': 'org', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
+            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
                  {'faceted': True,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
                  {'faceted': True,  'name': 'description', 'alias': 'responsibleOrgName'},
@@ -173,9 +174,9 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
                 faceted = dest_col.get('faceted', False)
 
                 if dest_col.get('fields'):
-                    col_def = create_json_column(base_df, join_df, from_col, to_col, join_config, dest_col)
+                    col_def = create_json_column(base_table_name, base_df, join_df, from_col, to_col, join_config, dest_col)
                 else:
-                    col_def = create_list_column(base_df, join_df, from_col, to_col, join_config, dest_col)
+                    col_def = create_list_column(base_table_name, base_df, join_df, from_col, to_col, join_config, dest_col)
 
                 if col_def:
                     col_def['faceted'] = faceted
@@ -294,7 +295,8 @@ def make_col(
 
 
 def create_list_column(
-    base_src_tbl_df: pd.DataFrame,
+    base_table_name: str,
+    base_df: pd.DataFrame,
     join_df: pd.DataFrame,
     from_col: str,
     to_col: str,
@@ -314,9 +316,10 @@ def create_list_column(
 
     NOTE: This function is intended for use only with columns containing StringList or other List types.
 
-    :param base_src_tbl_df: The source base table DataFrame containing the rows to enrich (e.g., main entities)
+    :param base_table_name: The base table name, for error message if needed
+    :param base_df: The source base table DataFrame containing the rows to enrich (e.g., main entities)
     :param join_df: The join table DataFrame containing additional values (e.g., names for IDs)
-    :param from_col: Column in base_src_tbl_df that contains one or more IDs (list or scalar) to match
+    :param from_col: Column in base_df that contains one or more IDs (list or scalar) to match
     :param to_col: Column in join_df that should match the IDs from `from_col`
     :param join_config: Dictionary containing metadata about the join (e.g., join table name)
     :param dest_col: Dictionary defining the output column, with:
@@ -333,7 +336,7 @@ def create_list_column(
     column_name = dest_col['alias']        # name for the new output column
     result = []                            # list of lists to hold values for each base row
 
-    for _, row in base_src_tbl_df.iterrows():
+    for _, row in base_df.iterrows():
         related_ids = row[from_col]
 
         # Handle empty or missing relationships
@@ -341,9 +344,11 @@ def create_list_column(
             result.append([])
             continue
 
-        # Ensure related_ids is a list
+        # Fail unless related_ids is a list
         if not isinstance(related_ids, list):
-            related_ids = [related_ids]
+            raise ValueError(f"Expected list column from '{base_table_name}.{from_col}', but got scalar.")
+            # We could coerce it into a list (related_ids = [related_ids]), but it is not currently expected
+            #   that the user would want to create a list column from a non-list column
 
         # Filter join_df for rows with matching IDs
         matching_rows = join_df[join_df[to_col].isin(related_ids)]
@@ -365,6 +370,7 @@ def create_list_column(
 
 
 def create_json_column(
+    base_table_name: str,
     base_df: pd.DataFrame,
     join_df: pd.DataFrame,
     from_col: str,
@@ -381,7 +387,7 @@ def create_json_column(
 
     Expected configuration for destination table definition would look like the following:
         'join_columns': [
-        {'join_tbl': 'topic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+        {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
          'dest_cols': [
               {'faceted': False,'name': 'topics_json', 'alias': 'Topics',
                'fields': [{ 'name': 'name', 'alias': 'Topic'},
@@ -389,6 +395,7 @@ def create_json_column(
         ]},
     ]
 
+    :param base_table_name: The base table name, for error message if needed
     :param base_df: The base DataFrame containing the primary records (e.g., DSTs)
     :param join_df: The join table DataFrame with additional data (e.g., topic metadata)
     :param from_col: Column name in base_df that contains one or more IDs (list or scalar)
@@ -416,9 +423,11 @@ def create_json_column(
             result.append([])
             continue
 
-        # Ensure it's always a list
+        # Fail unless related_ids is a list
         if not isinstance(related_ids, list):
-            related_ids = [related_ids]
+            raise ValueError(f"Expected list column from '{base_table_name}.{from_col}', but got scalar.")
+            # We could coerce it into a list (related_ids = [related_ids]), but it is not currently expected
+            #   that the user would want to create a list column from a non-list column
 
         # Match related records in the join_df
         matching_rows = join_df[join_df[to_col].isin(related_ids)]
