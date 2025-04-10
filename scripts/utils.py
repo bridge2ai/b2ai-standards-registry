@@ -4,7 +4,7 @@ def get_auth_token():
     """
     Retrieves the Synapse authentication token from the user's ~/.synapseConfig file.
 
-    The config file must contain an authentication token. See [the README](./README.md) for information on how to set this up.
+    The config file must contain an authentication token. See the README for information on how to set this up.
 
     :return: The authentication token found in the config tile.
     :raises:

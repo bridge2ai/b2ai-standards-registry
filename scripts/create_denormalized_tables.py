@@ -21,7 +21,7 @@ Usage:
 
 Expected Environment:
     - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
-      Instructions for setting up your auth token are documented with that function
+      Instructions for setting up your auth token are documented in the README.
     - The SRC_TABLES and DEST_TABLES definitions must be updated with valid Synapse table IDs
 
 Main entry point:
