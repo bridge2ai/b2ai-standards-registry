@@ -9,7 +9,7 @@ def get_auth_token() -> str:
       authtoken = <token>
     See the README for information on how to set this up.
 
-    :return: The authentication token found in the config tile.
+    :return: The authentication token found in the config file.
     :raises:
       FileNotFoundError: If the ~/.synapseConfig file does not exist
       ValueError: If the 'authtoken' line is missing, malformed, or empty
