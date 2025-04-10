@@ -39,9 +39,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ---
-
 """
 
+from enum import Enum, IntEnum
 import itertools as itt
 import logging
 import os
@@ -50,6 +50,7 @@ import subprocess
 import sys
 import time
 from subprocess import CalledProcessError, check_output
+from types import MappingProxyType
 from typing import Any, Dict, Iterable, Mapping, Optional, Sequence, Set
 from uuid import uuid4
 
@@ -61,49 +62,114 @@ import yaml
 logger = logging.getLogger(__name__)
 
 DATA_DIR = "src/data/"
-COLLECTION_NAMES = {
-    "Data Standard or Tool":"data_standardortools_collection",
-    "Data Substrate":"data_substrates_collection",
-    "Data Topic":"data_topics_collection",
-    "Organization":"organizations",
-    "Use Case":"use_cases",
-}
-
-EXPECTED_PREFIXES = [
-    "B2AI_STANDARD",
-    "B2AI_SUBSTRATE",
-    "B2AI_TOPIC",
-    "B2AI_ORG",
-    "B2AI_USECASE",
-]
-
-ORCID_HTTP_PREFIX = "http://orcid.org/"
-ORCID_HTTPS_PREFIX = "https://orcid.org/"
-
-MAIN_BRANCH = "main"
+COLLECTION_NAMES = MappingProxyType(
+    {
+        "Data Standard or Tool": "data_standardortools_collection",
+        "Data Substrate": "data_substrates_collection",
+        "Data Topic": "data_topics_collection",
+        "Organization": "organizations",
+        "Use Case": "use_cases",
+    }
+)
+ORC_ID_PREFIXES = ("http://orcid.org/", "https://orcid.org/")
 
 
-def get_issues_with_pr(
-    issue_ids: Iterable[int], token: str
-) -> Set[int]:
-    """Get the set of issues that are already closed by a pull request."""
-    pulls = list_pulls(owner="bridge2ai", repo="b2ai-standards-registry", token=token)
-    return {
+class Prefix(str, Enum):
+    """Define constraints for expected prefixes"""
+
+    B2AI_STANDARD = "B2AI_STANDARD"
+    B2AI_SUBSTRATE = "B2AI_SUBSTRATE"
+    B2AI_TOPIC = "B2AI_TOPIC"
+    B2AI_ORG = "B2AI_ORG"
+    B2AI_USECASE = "B2AI_USECASE"
+
+
+class GitHub(str, Enum):
+    """Define constraints for GitHub values"""
+
+    BRANCH = "main"
+    OWNER = "bridge2ai"
+    REPO = "b2ai-standards-registry"
+
+
+class ExitCode(IntEnum):
+    """Exit status codes"""
+
+    SUCCESS = 0
+    ERROR = 1
+
+
+def exit_with_msg(
+    msg: Optional[str] = None,
+    fg: Optional[str] = None,
+    exit_status_code: ExitCode = ExitCode.ERROR,
+) -> None:
+    """Exit with message
+
+    :param msg: Message to log and display
+    :param fg: Foreground color of the text
+    :param exit_status_code: Exit status code
+    """
+    if msg:
+        logging.error(msg) if exit_status_code == ExitCode.ERROR else logging.info(msg)
+        click.echo(msg) if fg is None else click.secho(msg, fg=fg)
+
+    sys.exit(exit_status_code)
+
+
+def get_issues_with_pr(issue_ids: Iterable[int], token: str) -> Set[int]:
+    """Get the set of issues that are already closed by a pull request.
+
+    :param issue_ids: GitHub Issue IDs
+    :param token: GitHub authentication token
+    :return: Issue IDs that are closed by a PR
+    """
+
+    def _display_msg(pulled_issues: Dict[int, dict]) -> None:
+        """Display messages regarding issues with PR
+
+        :param pulled_issues: Issue IDs that are closed by a PR
+        """
+        if pulled_issues:
+            click.echo(f"Found PRs covering {len(pulled_issues)} new request issues:")
+            for pr_number in sorted(pulled_issues, reverse=True):
+                link = click.style(
+                    f"https://github.com/{GitHub.OWNER.value}/{GitHub.REPO.value}/pulls/{pr_number}",
+                    fg="cyan",
+                )
+                click.echo(f" - {link}")
+        else:
+            click.echo("Found no PRs covering new request issues.")
+
+    pulls = list_pulls(owner=GitHub.OWNER.value, repo=GitHub.REPO.value, token=token)
+    pulled_issues = {
         issue_id
         for pull, issue_id in itt.product(pulls, issue_ids)
         if f"Closes #{issue_id}" in (pull.get("body") or "")
     }
+    _display_msg(pulled_issues)
+    return pulled_issues
 
 
-def get_headers(token: str):
-    """Get GitHub headers."""
+def get_headers(token: str) -> Dict[str, str]:
+    """Get GitHub headers.
+
+    :param token: GitHub authentication token
+    :return: Headers with authorization
+    """
     return {"Authorization": f"token {token}"}
 
 
 def requests_get(
     path: str, token: str, params: Optional[Mapping[str, Any]] = None
-):
-    """Send a get request to the GitHub API."""
+) -> Dict[str, Any]:
+    """Send a get request to the GitHub API.
+
+    :param path: API endpoint
+    :param token: GitHub authentication token
+    :param params: Query string parameters
+    :return: JSON response from request
+    """
     path = path.lstrip("/")
     return requests.get(
         f"https://api.github.com/{path}",
@@ -113,32 +179,37 @@ def requests_get(
 
 
 def list_pulls(
-    *,
     owner: str,
     repo: str,
     token: str,
 ):
     """List pull requests.
-    :param owner: The name of the owner/organization for the repository.
-    :param repo: The name of the repository.
-    :param token: The GitHub OAuth token
-    :returns: JSON response from GitHub
+
+    :param owner: The name of the owner/organization for the repository
+    :param repo: The name of the repository
+    :param token: The GitHub Authentication token
+    :return: JSON response from GitHub
     """
     return requests_get(f"repos/{owner}/{repo}/pulls", token=token)
 
 
 def open_b2ai_standards_registry_pull_request(
-    *,
     title: str,
     head: str,
-    body: Optional[str] = None,
     token: str,
+    body: Optional[str] = None,
 ):
-    """Open a pull request to b2ai-standards-registry via :func:`open_pull_request`."""
+    """Open a pull request to b2ai-standards-registry via :func:`open_pull_request`.
+
+    :param title: Name of the PR
+    :param head: Name of the source branch
+    :param token: GitHub authentication token
+    :param body: Body of the PR
+    """
     return open_pull_request(
-        owner="bridge2ai",
-        repo="b2ai-standards-registry",
-        base=MAIN_BRANCH,
+        owner=GitHub.OWNER.value,
+        repo=GitHub.REPO.value,
+        base=GitHub.BRANCH.value,
         title=title,
         head=head,
         body=body,
@@ -147,32 +218,26 @@ def open_b2ai_standards_registry_pull_request(
 
 
 def open_pull_request(
-    *,
     owner: str,
     repo: str,
     title: str,
     head: str,
     base: str,
-    body: Optional[str] = None,
     token: str,
+    body: Optional[str] = None,
 ):
     """Open a pull request.
-    :param owner: The name of the owner/organization for the repository.
-    :param repo: The name of the repository.
-    :param title: name of the PR
-    :param head: name of the source branch
-    :param base: name of the target branch
-    :param body: body of the PR (optional)
-    :param token: The GitHub OAuth token
-    :returns: JSON response from GitHub
+
+    :param owner: The name of the owner/organization for the repository
+    :param repo: The name of the repository
+    :param title: Name of the PR
+    :param head: Name of the source branch
+    :param base: Name of the target branch
+    :param token: The GitHub Authentication token
+    :param body: Body of the PR
+    :return: JSON response from GitHub
     """
-    data = {
-        "title": title,
-        "head": head,
-        "base": base,
-    }
-    if body:
-        data["body"] = body
+    data = {"title": title, "head": head, "base": base, "body": body}
     return requests.post(
         f"https://api.github.com/repos/{owner}/{repo}/pulls",
         headers=get_headers(token=token),
@@ -184,14 +249,16 @@ def get_b2ai_standards_registry_form_data(
     labels: Iterable[str],
     token: str,
 ) -> Mapping[int, Dict[str, str]]:
-    """Get parsed form data from issues on b2ai_standards_registry matching the given labels via :func:get_form_data`.
+    """Get parsed form data from issues on b2ai_standards_registry matching the given
+    labels via :func:`get_form_data`.
+
     :param labels: Labels to match
-    :param token: The GitHub OAuth token
+    :param token: The GitHub Authentication token
     :return: A mapping from GitHub issue issue data
     """
     return get_form_data(
-        owner="bridge2ai",
-        repo="b2ai-standards-registry",
+        owner=GitHub.OWNER.value,
+        repo=GitHub.REPO.value,
         labels=labels,
         token=token,
     )
@@ -204,10 +271,11 @@ def get_form_data(
     token: str,
 ) -> Mapping[int, Dict[str, str]]:
     """Get parsed form data from issues matching the given labels.
+
     :param owner: The name of the owner/organization for the repository.
     :param repo: The name of the repository.
     :param labels: Labels to match
-    :param token: The GitHub OAuth token
+    :param token: The GitHub Authentication token
     :return: A mapping from github issue to issue data
     """
     labels = labels if isinstance(labels, str) else ",".join(labels)
@@ -230,7 +298,12 @@ def get_form_data(
 
 
 def remap(data: Dict[str, Any]) -> Dict[str, Any]:
-    """Map the keys in dictionary."""
+    """Remap dictionary keys to lowercase with underscore and convert ``related_to``
+    value to a list
+
+    :param data: Input dictionary
+    :return: Mutated ``data`` with transformed keys
+    """
     remapped = {key.lower().replace(" ", "_"): value for key, value in data.items()}
     if remapped.get("related_to"):
         remapped["related_to"] = re.split(r"\s+", remapped["related_to"])
@@ -239,8 +312,9 @@ def remap(data: Dict[str, Any]) -> Dict[str, Any]:
 
 def parse_body(body: str) -> Dict[str, Any]:
     """Parse the body string from a GitHub issue (via the API).
+
     :param body: The body string from a GitHub issue (via the API) that corresponds to a form
-    :returns: A dictionary of keys (headers) to values
+    :return: A dictionary of keys (headers) to values
     """
     rv = {}
     lines = [line.strip() for line in body.splitlines() if line.strip()]
@@ -257,19 +331,26 @@ def parse_body(body: str) -> Dict[str, Any]:
 
 
 def status_porcelain() -> Optional[str]:
-    """Return if the current directory has any uncommitted stuff."""
+    """Return if the current directory has any uncommitted stuff.
+
+    :return: The message from the command
+    """
     return _git("status", "--porcelain")
 
 
 def push(*args) -> Optional[str]:
-    """Push the Git repo."""
+    """Push changes to the Git repo.
+
+    :return: The message from the command
+    """
     return _git("push", *args)
 
 
 def branch(name: str) -> Optional[str]:
     """Create a new branch and switch to it.
+
     :param name: The name of the new branch
-    :returns: The message from the command
+    :return: The message from the command
     .. seealso:: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
     """
     return _git("checkout", "-b", name)
@@ -277,21 +358,27 @@ def branch(name: str) -> Optional[str]:
 
 def home() -> Optional[str]:
     """Return to the main branch.
-    :returns: The message from the command
+
+    :return: The message from the command
     """
-    return _git("checkout", MAIN_BRANCH)
+    return _git("checkout", GitHub.BRANCH.value)
 
 
 def commit_all(message: str) -> Optional[str]:
     """Make a commit with the following message.
+
     :param message: The message to go with the commit.
-    :returns: The message from the command
+    :return: The message from the command
     .. note:: ``-a`` means "commit all files"
     """
     return _git("commit", "-m", message, "-a")
 
 
 def _git(*args: str) -> Optional[str]:
+    """Run a git command
+
+    :return: The message from the command, if successful.
+    """
     with open(os.devnull, "w") as devnull:
         try:
             ret = check_output(  # noqa: S603,S607
@@ -306,19 +393,35 @@ def _git(*args: str) -> Optional[str]:
             return ret.strip().decode("utf-8")
 
 
-def get_new_request_issues(token: str) -> Mapping[int, dict]:
+def get_new_request_issues(token: str) -> Dict[int, dict]:
     """Get new entity request issues from the GitHub API.
 
     This is done by filtering on issues containing the "New" label.
     For issues with the label but not containing the expected data,
 
-    :param token: The GitHub OAuth token
-    :returns: A mapping of issue identifiers to a dict
-    that has been parsed out of the issue form.
+    :param token: The GitHub Authentication token
+    :return: A dictionary of issue identifiers to a dict that has been parsed out of the
+        issue form
     """
-    data = get_b2ai_standards_registry_form_data(
-        ["New"], token=token
-    )
+
+    def _display_msg(issue_to_resource: Dict[int, dict]) -> None:
+        """Display messages regarding issues to resources
+
+        :param issue_to_resource: A dictionary of issue identifiers to a dict that has been
+            parsed out of the issue form
+        """
+        if issue_to_resource:
+            click.echo(f"Found {len(issue_to_resource)} new request issues:")
+            for issue_number in sorted(issue_to_resource, reverse=True):
+                link = click.style(
+                    f"https://github.com/{GitHub.OWNER.value}/{GitHub.REPO.value}/issues/{issue_number}",
+                    fg="cyan",
+                )
+                click.echo(f" - {link}")
+        else:
+            click.echo("Found no applicable issues.")
+
+    data = get_b2ai_standards_registry_form_data(["New"], token=token)
     rv: Dict[int, dict] = {}
     for issue_id, resource_data in data.items():
         try:
@@ -345,79 +448,122 @@ def get_new_request_issues(token: str) -> Mapping[int, dict]:
             "entity_type": entity_type,
             **resource_data,
         }
+    _display_msg(rv)
     return rv
 
 
 def _pop_orcid(data: Dict[str, str]) -> str:
-    orcid = data.pop("contributor_orcid")
-    return _trim_orcid(orcid)
+    """Remove ``contributor_orcid`` from ``data``
 
+    :param data: GitHub issue data. If ``contributor_orcid`` is exists, this will
+        be removed.
+    :return: ORC ID
+    """
+    orcid = data.pop("contributor_orcid", "")
 
-def _trim_orcid(orcid: str) -> str:
-    if orcid.startswith(ORCID_HTTP_PREFIX):
-        return orcid[len(ORCID_HTTP_PREFIX) :]
-    if orcid.startswith(ORCID_HTTPS_PREFIX):
-        return orcid[len(ORCID_HTTPS_PREFIX) :]
+    for orc_id_prefix in ORC_ID_PREFIXES:
+        if orcid.startswith(orc_id_prefix):
+            return orcid[len(orc_id_prefix) :]
+
     return orcid
 
 
 def make_title(names: Sequence[str]) -> str:
-    """Make a title for the PR."""
+    """Make a title for the PR.
+
+    :param names: Names of entities that are being included in the PR
+    :return: PR title
+    """
+    conventional_commit_prefix = "feat:"
     if len(names) == 0:
         raise ValueError
     if len(names) == 1:
-        return f"Add entity {names[0]}"
+        return f"{conventional_commit_prefix} add entity {names[0]}"
     elif len(names) == 2:
-        return f"Add entities {names[0]} and {names[1]}"
+        return f"{conventional_commit_prefix} add entities {names[0]} and {names[1]}"
     else:
-        return f'Add entity {", ".join(names[:-1])}, and {names[-1]}'
+        return f"{conventional_commit_prefix} add entity {', '.join(names[:-1])}, and {names[-1]}"
+
+
+def _update_yaml(issue_to_resource: Dict[int, dict]) -> None:
+    """Update source YAML file with new entities
+
+    :param issue_to_resource: A dictionary of issue identifiers to a dict that has been
+        parsed out of the issue form
+    """
+    for issue_number, resource in issue_to_resource.items():
+        click.echo(f"🚀 Adding {resource['name']} (#{issue_number})")
+        data_path = f"{DATA_DIR}{''.join(resource['entity_type'].title().split())}.yaml"
+
+        with open(data_path, "r") as yaml_file:
+            this_yaml = yaml.safe_load(yaml_file)
+            collection_name = COLLECTION_NAMES[resource["entity_type"]]
+
+            prev_curie = this_yaml[collection_name][-1]["id"]
+            prev_id_prefix, prev_id = prev_curie.split(":")
+
+            try:
+                Prefix(prev_id_prefix)
+            except ValueError as e:
+                exit_with_msg(msg=str(e), fg="red", exit_status_code=ExitCode.ERROR)
+
+            category = resource["category"]
+            if not category.startswith(f"{prev_id_prefix}:"):
+                category = f"{prev_id_prefix}:{category}"
+
+            entity = {
+                "id": f"{prev_id_prefix}:{int(prev_id) + 1}",
+                "category": category,
+                "name": resource["name"],
+                "description": resource["description"],
+                "contributor_name": resource["contributor"]["name"],
+                "contributor_github_name": resource["contributor"]["github"],
+                "contributor_orcid": resource["contributor"]["orcid"],
+            }
+
+            for _field in ("purpose_detail", "related_to"):
+                _val = resource.get(_field)
+                if _val:
+                    entity[_field] = _val
+
+            this_yaml[collection_name].append(entity)
+
+        if this_yaml:
+            with open(data_path, "w") as yamlfile:
+                yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
 
 
 @click.command()
 @click.option("--dry", is_flag=True, help="Dry run - do not create any PRs")
 @click.option(
-    "--github", is_flag=True, help="Use this flag in a GHA setting to set run variables"
+    "--github",
+    is_flag=True,
+    help="Use this flag in a GitHub Action setting to set run variables",
 )
 @click.option(
-    "--force", is_flag=True, help="Force processing script to run even if working dir is dirty"
+    "--force",
+    is_flag=True,
+    help="Force processing script to run even if working dir is dirty",
 )
-def main(dry: bool, github: bool, force: bool):
+def main(dry: bool, github: bool, force: bool) -> None:
     """Run the automatic curator."""
     status_porcelain_result = status_porcelain()
     if status_porcelain_result and not force and not dry:
-        click.secho(
-            f"The working directory is dirty:\n\n{status_porcelain_result}", fg="red"
+        exit_with_msg(
+            msg=f"The working directory is dirty:\n\n{status_porcelain_result}",
+            fg="red",
+            exit_status_code=ExitCode.ERROR,
         )
-        sys.exit(1)
 
     token = os.getenv("GITHUB_TOKEN")
     if not token:
-        logging.error("Missing `GITHUB_TOKEN` environment variable.")
-        return sys.exit(0)
+        exit_with_msg(
+            msg="Missing `GITHUB_TOKEN` environment variable.",
+            exit_status_code=ExitCode.ERROR,
+        )
 
     issue_to_resource = get_new_request_issues(token)
-    if issue_to_resource:
-        click.echo(f"Found {len(issue_to_resource)} new request issues:")
-        for issue_number in sorted(issue_to_resource, reverse=True):
-            link = click.style(
-                f"https://github.com/bridge2ai/b2ai-standards-registry/issues/{issue_number}",
-                fg="cyan",
-            )
-            click.echo(f" - {link}")
-    else:
-        click.echo("Found no applicable issues.")
-
     pulled_issues = get_issues_with_pr(issue_to_resource, token)
-    if pulled_issues:
-        click.echo(f"Found PRs covering {len(pulled_issues)} new request issues:")
-        for pr_number in sorted(pulled_issues, reverse=True):
-            link = click.style(
-                f"https://github.com/bridge2ai/b2ai-standards-registry/pulls/{pr_number}",
-                fg="cyan",
-            )
-            click.echo(f" - {link}")
-    else:
-        click.echo("Found no PRs covering new request issues.")
 
     # filter out issues that already have an associated pull request
     issue_to_resource = {
@@ -429,55 +575,22 @@ def main(dry: bool, github: bool, force: bool):
     if issue_to_resource:
         click.echo(f"Adding {len(issue_to_resource)} issues after filter")
     else:
-        click.secho("No issues without PRs to worry about. Exiting.")
-        sys.exit(0)
+        exit_with_msg(
+            msg="No issues without PRs to worry about. Exiting.",
+            exit_status_code=ExitCode.SUCCESS,
+        )
 
-    for issue_number, resource in issue_to_resource.items():
-        click.echo(f'🚀 Adding {resource["name"]} (#{issue_number})')
-        data_path = f"{DATA_DIR}{''.join(resource['entity_type'].title().split())}.yaml"
-        with open(data_path, "r") as yamlfile:
-            this_yaml = yaml.safe_load(yamlfile)
-            collection_name = COLLECTION_NAMES[resource["entity_type"]]
-
-            prev_curie = this_yaml[collection_name][-1]["id"]
-            prev_id_prefix, prev_id = prev_curie.split(":")
-
-            if not prev_id_prefix in EXPECTED_PREFIXES:
-                raise ValueError(f"Prefix for {prev_curie} not in {EXPECTED_PREFIXES}")
-
-            category = resource["category"]
-            if not category.startswith(f"{prev_id_prefix}:"):
-                category = f"{prev_id_prefix}:{category}"
-
-            entity = {
-                "id":f"{prev_id_prefix}:{int(prev_id) + 1}",
-                "category":category,
-                "name":resource["name"],
-                "description":resource["description"],
-                "contributor_name":resource["contributor"]["name"],
-                "contributor_github_name":resource["contributor"]["github"],
-                "contributor_orcid":resource["contributor"]["orcid"]
-            }
-
-            purpose_detail = resource.get("purpose_detail")
-            if purpose_detail:
-                entity["purpose_detail"] = purpose_detail
-
-            related_to = resource.get("related_to")
-            if related_to:
-                entity["related_to"] = related_to
-
-            this_yaml[collection_name].append(entity)
-        if this_yaml:
-            with open(data_path, "w") as yamlfile:
-                yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
+    _update_yaml(issue_to_resource)
 
     try:
         click.secho("Running `make site`", fg="green")
         subprocess.run(["make", "site"], check=True)
     except subprocess.CalledProcessError as e:
-        click.secho(f"An error occurred while running `make site`: {e}", fg="red")
-        return sys.exit(0)
+        exit_with_msg(
+            msg=f"An error occurred while running `make site`: {e}",
+            fg="red",
+            exit_status_code=ExitCode.ERROR,
+        )
 
     title = make_title(
         sorted(resource["name"] for resource in issue_to_resource.values())
@@ -487,23 +600,20 @@ def main(dry: bool, github: bool, force: bool):
     branch_name = str(uuid4())[:8]
 
     if github:
-        click.echo(
-            f"""
-          ::set-output name=PR_BODY::{body}
-          ::set-output name=PR_TITLE::{title}
-        """
-        )
-        return sys.exit(0)
+        with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+            click.echo(f"PR_BODY={body}", file=f)
+            click.echo(f"PR_TITLE={title}", file=f)
+        exit_with_msg(exit_status_code=ExitCode.SUCCESS)
     elif dry:
-        print("New branch would have been:")
-        print(f"title: {title}")
-        print(f"body: {body}")
-        print(f"branch_name: {branch_name}")
-        click.secho(
-            f"Skipping making branch {branch_name}, committing, pushing, and PRing",
+        click.echo("New branch would have been:")
+        click.echo(f"title: {title}")
+        click.echo(f"body: {body}")
+        click.echo(f"branch_name: {branch_name}")
+        exit_with_msg(
+            msg=f"Skipping making branch {branch_name}, committing, pushing, and PRing",
             fg="yellow",
+            exit_status_code=ExitCode.SUCCESS,
         )
-        return sys.exit(0)
 
     click.secho("Creating and switching to branch", fg="green")
     click.echo(branch(branch_name))
@@ -512,25 +622,22 @@ def main(dry: bool, github: bool, force: bool):
     commit_msg = commit_all(message)
     click.echo(commit_msg)
     if not commit_msg:
-        return sys.exit(0)
+        exit_with_msg(exit_status_code=ExitCode.ERROR)
 
     click.secho("Pushing", fg="green")
     click.echo(push("origin", branch_name))
 
-    click.secho(f"Opening PR from {branch_name} to {MAIN_BRANCH}", fg="green")
+    click.secho(f"Opening PR from {branch_name} to {GitHub.BRANCH.value}", fg="green")
     time.sleep(2)  # avoid race condition?
     rv = open_b2ai_standards_registry_pull_request(
-        title=title,
-        head=branch_name,
-        body=body,
-        token=token
+        title=title, head=branch_name, body=body, token=token
     )
     if "url" in rv:
-        click.secho(f'PR at {rv["url"]}')
+        click.secho(f"PR at {rv['url']}")
     else:  # probably an error
         click.secho(rv, fg="red")
 
-    click.secho(f"Switching back to {MAIN_BRANCH} branch", fg="green")
+    click.secho(f"Switching back to {GitHub.BRANCH.value} branch", fg="green")
     click.echo(home())
 
 
