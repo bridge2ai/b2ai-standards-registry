@@ -65,7 +65,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'id',                        'alias': 'id'},
             {'faceted': False, 'name': 'name',                      'alias': 'acronym'},
             {'faceted': False, 'name': 'description',               'alias': 'name'},
-            {'faceted': False, 'name': 'category',                  'alias': 'category', 'transform': 'camel_to_sentence_case'},
+            {'faceted': True,  'name': 'category',                  'alias': 'category', 'transform': 'camel_to_title_case'},
             {'faceted': False, 'name': 'purpose_detail',            'alias': 'description'},
             {'faceted': False, 'name': 'collection',                'alias': 'collections'},
             {'faceted': False, 'name': 'concerns_data_topic',       'alias': 'concerns_data_topic'},
@@ -101,14 +101,14 @@ DEST_TABLES = {
 }
 
 TRANSFORMS = {
-    # camel_to_sentence_case
+    # camel_to_title_case
     #   removes 'B2AI_STANDARD:'
     #   inserts a space before any uppercase letter that follows a lowercase letter
     #   lowercases everything first, then capitalizes just the first letter
     #
-    #   Converts category, strips prefix and outputs sentence case
+    #   Converts category, strips prefix and outputs title case
     #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical standard'
-    'camel_to_sentence_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).lower().capitalize(),
+    'camel_to_title_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title(),
 }
 
 def denormalize_tables():
