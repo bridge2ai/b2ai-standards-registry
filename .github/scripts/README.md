@@ -8,7 +8,7 @@ The scripts in this directory automate various tasks related to testing, deploym
 
 ## Script List
 
-### Example Script: `update_synapse_tables.py`
+### Update Synapse Table: `update_synapse_tables.py`
 
 - **Description**: Updates Synapse tables based on recent changes. This script is triggered automatically by changes in specific files and is not intended for manual use.
 
@@ -24,3 +24,16 @@ The scripts in this directory automate various tasks related to testing, deploym
   **Note:** This script processes the tsv files and turns the rows into a list of entries to add to the database. It assumes the first line of the tsv is the header file, so that gets ignored. Please make sure to update this script if the header line is ever removed.
 
   **Important note:** This script will not work if the schema has changed. This includes added columns, deleted columns, or if columns have changed order. If the schema has changed, update and run the `scripts/modify_synapse_schema.py` script to update the table schemas in Synapse.
+
+### Process Issue: `process_issue.py`
+
+- **Description**: Creates a PR when a new issue is created with the label `New`,
+  indicating wanting to add a new entity.
+
+- **Usage**: This script is called within a GitHub Actions workflow. See [new_entity_pr.yml](../workflows/new_entity_pr.yml).
+
+- **Trigger Conditions**: This workflow runs when there’s a new issue created with the
+  `New` label.
+
+  **Important note:** This script assumes that the
+  [New Entity Issue Template](../ISSUE_TEMPLATE/newEntity.yml) was used.
