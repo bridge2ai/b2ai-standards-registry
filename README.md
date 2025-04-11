@@ -1,3 +1,5 @@
+> **_This repository is under review for potential modification in compliance with Administration directives._**
+
 # Bridge2AI Standards Registry and Use Case Catalog
 
 This is the Bridge2AI Standards Registry, a collection of data standards used in biomedical research and data science, with an emphasis on standards used to prepare data for artificial intelligence-driven applications.
