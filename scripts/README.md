@@ -47,8 +47,14 @@ Each script is intended to be run individually. Here’s how to use them:
 
 **Run:**
 
+you need to run all fucntions with a poetry run command at the start as such:
+
 ```bash
-python scripts/modify_synapse_schema.py
+poetry run {command here}
+```
+
+```bash
+poetry run python scripts/modify_synapse_schema.py
 ```
 
 ### Script: format_yaml.py
@@ -58,7 +64,7 @@ python scripts/modify_synapse_schema.py
 **Run:**
 
 ```bash
-python scripts/format_yaml.py
+poetry run python scripts/format_yaml.py
 ```
 
 #### Requirements
