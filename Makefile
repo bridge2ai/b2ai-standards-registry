@@ -93,7 +93,7 @@ gen-project: $(PYMODEL)
 
 test: test-schema test-python
 test-schema:
-	$(RUN) gen-project -d tmp $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-project -d tmp -I docs -I jsonschema -I jsonld -I prefixmap $(SOURCE_SCHEMA_PATH)
 
 test-python:
 	$(RUN) python -m unittest discover
