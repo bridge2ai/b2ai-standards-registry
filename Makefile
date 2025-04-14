@@ -87,15 +87,13 @@ gen-examples:
 	cp src/data/examples/* $(EXAMPLEDIR)
 
 # generates all project files
-
 gen-project: $(PYMODEL)
-	$(RUN) gen-project -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
-
+	$(RUN) gen-project -I python -I jsonschema -I jsonld -I owl -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 
 test: test-schema test-python
 test-schema:
 	@if [ -d $(TEST_OUTPUT_DIR) ]; then rm -rf $(TEST_OUTPUT_DIR); fi
-	$(RUN) gen-project -d $(TEST_OUTPUT_DIR) -I docs -I jsonschema -I jsonld -I prefixmap $(SOURCE_SCHEMA_PATH)
+	$(RUN) gen-project -I docs -I jsonschema -I jsonld -I owl -I python -d $(TEST_OUTPUT_DIR) $(SOURCE_SCHEMA_PATH)
 
 test-python:
 	$(RUN) python -m unittest discover
