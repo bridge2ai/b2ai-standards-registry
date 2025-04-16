@@ -16,6 +16,7 @@ DEST = project
 PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
 EXAMPLEDIR = examples
+TEST_OUTPUT_DIR = tmp
 SHEET_MODULE = personinfo_enums
 SHEET_ID = $(shell sh ./utils/get-value.sh google_sheet_id)
 SHEET_TABS = $(shell sh ./utils/get-value.sh google_sheet_tabs)
@@ -86,14 +87,13 @@ gen-examples:
 	cp src/data/examples/* $(EXAMPLEDIR)
 
 # generates all project files
-
 gen-project: $(PYMODEL)
-	$(RUN) gen-project -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
-
+	$(RUN) gen-project -I python -I jsonschema -I jsonld -I owl -d $(DEST) $(SOURCE_SCHEMA_PATH) && mv $(DEST)/*.py $(PYMODEL)
 
 test: test-schema test-python
 test-schema:
-	$(RUN) gen-project -d tmp $(SOURCE_SCHEMA_PATH)
+	@if [ -d $(TEST_OUTPUT_DIR) ]; then rm -rf $(TEST_OUTPUT_DIR); fi
+	$(RUN) gen-project -I docs -I jsonschema -I jsonld -I owl -I python -d $(TEST_OUTPUT_DIR) $(SOURCE_SCHEMA_PATH)
 
 test-python:
 	$(RUN) python -m unittest discover

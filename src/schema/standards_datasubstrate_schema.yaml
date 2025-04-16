@@ -59,10 +59,7 @@ slots:
   # TODO: need to specify related_to relation
   metadata_storage:
     is_a: node_property
-    range: string
-    any_of:
-      - range: DataSubstrate
-      - equals_string: file headers
+    range: DataSubstrate
     description: Data Substrate in which metadata is stored.
     multivalued: true
   file_extensions:
