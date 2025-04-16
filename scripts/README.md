@@ -25,17 +25,19 @@ The scripts in this folder are designed to:
 
 2. **Synapse Authentication**
 
-   Ensure you have the necessary authentication set up for Synapse access. You can set up your Personal Access Token following the documentation [here](https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens).
+   Ensure you have the necessary authentication set up for Synapse access. Personal Access Token documentation is
+   [here](https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens).
+   The direct link to create a token is [here](https://accounts.synapse.org/authenticated/personalaccesstokens).
 
-   Once you have your access token, add it to your `~/.synapseConfig` file in your home directory. Replace `<authtoken>` with your token. Also make sure to uncomment the `[authentication]` and `authtoken` lines. (The `username` is not necessary for this script).
+   Once you have your access token, create or modify `~/.synapseConfig` file in your home directory.
+   A `.synapseConfig` file template can be found [here](https://help.synapse.org/docs/Client-Configuration.1985446156.html).
+   At minimum, it should contain:
 
    ```shell
    [authentication]
-   #username = <username> (optionally uncommment this line. If you do, enter your username)
+   # username = <username> (authtoken alone is enough to log you in, but you can optionally uncommment this line and enter your username in order to confirm the authenticated username matches)
    authtoken = <authtoken>
    ```
-
-   If you do not have a `~/.synapseConfig` file, create one and populate it with the template from [this page](https://help.synapse.org/docs/Client-Configuration.1985446156.html).
 
 ## Usage
 

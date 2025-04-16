@@ -15,11 +15,8 @@ def sort_keys(data: Any) -> Any:
     """
     Recursively sorts keys in a dictionary, placing 'id' first if present.
 
-    Args:
-        data: .yml/.yaml data to sort. Can be: dict, list or scalar.
-
-    Returns:
-        The sorted data structure with 'id' placed first and other keys in alphabetical order.
+    :param data: .yml/.yaml data to sort. Can be: dict, list or scalar.
+    :return: The sorted data structure with 'id' placed first and other keys in alphabetical order.
     """
     if isinstance(data, dict):
         sorted_dict = {}
@@ -38,12 +35,9 @@ def format_yaml_file(filepath: Path, check: bool = False) -> bool:
     """
     Formats a .yml/.yaml file by sorting its keys and writing the changes back to the original file.
 
-    Args:
-        filepath: Path to the .yaml file.
-        check: If True, compares if the formatted file is different from the original.
-
-    Returns:
-        True if the file was changed or would be reformatted, False otherwise.
+    :param filepath: Path to the .yaml file.
+    :param check: If True, compares if the formatted file is different from the original.
+    :return: True if the file was changed or would be reformatted, False otherwise.
     """
     try:
         original = filepath.read_text()
@@ -72,16 +66,16 @@ def find_yaml_files(root_dir: Path = Path(".")) -> Generator[Path, None, None]:
     """
     Recursively finds all .yaml and .yml files starting from the given directory.
 
-    Args:
-        root_dir: Root directory to search from as a Path object.
-
-    Yields:
-        Path objects pointing to .yaml files.
+    :param root_dir: Root directory to search from as a Path object.
+    :yield: Path objects pointing to .yaml files.
     """
     yield from root_dir.rglob("*.yml")
     yield from root_dir.rglob("*.yaml")
 
 def main() -> None:
+    """
+    Entry point of the script. Processes YAML files to ensure they are sorted and optionally checked for formatting.
+    """
     args = sys.argv[1:]
     check_mode = "--check" in args
     files = [Path(arg) for arg in args if not arg.startswith("-")]

@@ -1,9 +1,10 @@
 """A python script for creating/updating B2AI standards explorer table schemas in synapse
 This script should be updated and rerun when the schema of the tables must be updated"""
 
-import os
 from synapseclient import Synapse, Table, Column, Schema
 from enum import Enum
+
+from scripts.utils import get_auth_token
 
 
 # Possible column names for the tables
@@ -293,27 +294,6 @@ class TableSchema(Enum):
             ColumnName.ALTERNATIVE_STANDARDS_AND_TOOLS,
         ],
     }
-
-
-def get_auth_token():
-    auth_file = os.path.expanduser("~/.synapseConfig")
-
-    try:
-        with open(auth_file, "r") as file:
-            for line in file:
-                stripped_line = line.strip()
-                if stripped_line.startswith("authtoken"):
-                    key, value = map(str.strip, stripped_line.split("=", 1))
-                    if key == "authtoken" and value:
-                        return value
-                    else:
-                        raise ValueError("The 'authtoken' line is malformed or empty.")
-    except FileNotFoundError:
-        raise FileNotFoundError(f"Authentication file not found: {auth_file}")
-    except Exception as e:
-        raise RuntimeError(f"An error occurred while reading the auth file: {e}")
-
-    raise ValueError(f"'authtoken' not found in {auth_file}")
 
 
 def main():
