@@ -15,31 +15,29 @@ The scripts in this folder are designed to:
 
 1. **Install Dependencies**
 
-    In your terminal, navigate to the project root and install the requirements with:
+   In your terminal, navigate to the project root and install the requirements with:
 
-    ```bash
-    poetry install --all-extras
-    ```
+   ```bash
+   poetry install --all-extras
+   ```
 
-    **Essential:** Be sure to include the `--all-extras` option.
-
+   **Essential:** Be sure to include the `--all-extras` option because the scripts require addtional dependencies.
 
 2. **Synapse Authentication**
 
-    Ensure you have the necessary authentication set up for Synapse access. Personal Access Token documentation is
-    [here](https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens).
-    The direct link to create a token is [here](https://accounts.synapse.org/authenticated/personalaccesstokens).
+   Ensure you have the necessary authentication set up for Synapse access. Personal Access Token documentation is
+   [here](https://help.synapse.org/docs/Managing-Your-Account.2055405596.html#ManagingYourAccount-PersonalAccessTokens).
+   The direct link to create a token is [here](https://accounts.synapse.org/authenticated/personalaccesstokens).
 
-    Once you have your access token, create or modify `~/.synapseConfig` file in your home directory.
-    A `.synapseConfig` file template can be found [here](https://help.synapse.org/docs/Client-Configuration.1985446156.html).
-    At minimum, it should contain:
+   Once you have your access token, create or modify `~/.synapseConfig` file in your home directory.
+   A `.synapseConfig` file template can be found [here](https://help.synapse.org/docs/Client-Configuration.1985446156.html).
+   At minimum, it should contain:
 
-    ```shell
-    [authentication]
-    # username = <username> (authtoken alone is enough to log you in, but you can optionally uncommment this line and enter your username in order to confirm the authenticated username matches)
-    authtoken = <authtoken>
-    ```
-
+   ```shell
+   [authentication]
+   # username = <username> (authtoken alone is enough to log you in, but you can optionally uncommment this line and enter your username in order to confirm the authenticated username matches)
+   authtoken = <authtoken>
+   ```
 
 ## Usage
 
@@ -51,8 +49,24 @@ Each script is intended to be run individually. Here’s how to use them:
 
 **Run:**
 
+you need to run all fucntions with a poetry run command at the start as such:
+
 ```bash
-python -m scripts.modify_synapse_schema
+poetry run {command here}
+```
+
+```bash
+poetry run python scripts/modify_synapse_schema.py
+```
+
+### Script: format_yaml.py
+
+**Description:** Custom formatter that formats .yaml/.yml files in the `src/data` folder arranging data with `id` key placed first and other keys arragned alphabetically.
+
+**Run:**
+
+```bash
+poetry run python scripts/format_yaml.py
 ```
 
 #### Requirements
