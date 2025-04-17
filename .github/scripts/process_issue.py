@@ -245,6 +245,7 @@ def open_pull_request(
     ).json()
 
 
+
 def get_b2ai_standards_registry_form_data(
     labels: Iterable[str],
     token: str,
@@ -533,6 +534,35 @@ def _update_yaml(issue_to_resource: Dict[int, dict]) -> None:
                 yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
 
 
+def entity_exists_in_file(entity_name: str, file_path: str) -> bool:
+    """
+    Checks if an entity with the given name exists in the specific YAML file.
+
+    Args:
+        entity_name (str): The entity name to search for.
+        file_path (str): Full path to the YAML file to check.
+
+    Returns:
+        bool: True if the entity exists, False otherwise.
+    """
+    if not os.path.exists(file_path):
+        return False
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        try:
+            content = yaml.safe_load(f)
+            if not isinstance(content, dict):
+                return False
+            for collection in content.values():
+                if isinstance(collection, list):
+                    for item in collection:
+                        if isinstance(item, dict) and item.get("name") == entity_name:
+                            return True
+        except yaml.YAMLError as e:
+            print(f"Error reading {file_path}: {e}")
+    return False
+
+
 @click.command()
 @click.option("--dry", is_flag=True, help="Dry run - do not create any PRs")
 @click.option(
@@ -571,6 +601,19 @@ def main(dry: bool, github: bool, force: bool) -> None:
         for issue_id, value in issue_to_resource.items()
         if issue_id not in pulled_issues
     }
+
+    # filter out issues that already exist in the yaml files
+    filtered = {}
+    for issue_id, value in issue_to_resource.items():
+        filename = f"{''.join(value['entity_type'].title().split())}.yaml"
+        filepath = os.path.join(DATA_DIR, filename)
+        if entity_exists_in_file(value["name"], filepath):
+            click.secho(f"Skipping issue #{issue_id}: '{value['name']}' already exists in {filename}", fg="yellow")
+        else:
+            filtered[issue_id] = value
+
+    issue_to_resource = filtered
+
 
     if issue_to_resource:
         click.echo(f"Adding {len(issue_to_resource)} issues after filter")
