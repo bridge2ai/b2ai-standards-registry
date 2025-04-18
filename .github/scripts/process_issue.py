@@ -610,7 +610,6 @@ def main(dry: bool, github: bool, force: bool) -> None:
 
     issue_to_resource = filtered
 
-
     if issue_to_resource:
         click.echo(f"Adding {len(issue_to_resource)} issues after filter")
     else:
