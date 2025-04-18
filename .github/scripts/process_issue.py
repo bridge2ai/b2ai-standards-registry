@@ -245,7 +245,6 @@ def open_pull_request(
     ).json()
 
 
-
 def get_b2ai_standards_registry_form_data(
     labels: Iterable[str],
     token: str,
