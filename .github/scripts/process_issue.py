@@ -536,14 +536,11 @@ def _update_yaml(issue_to_resource: Dict[int, dict]) -> None:
 
 def entity_exists_in_file(entity_name: str, file_path: str) -> bool:
     """
-    Checks if an entity with the given name exists in the specific YAML file.
+    Check if an entity exists in a YAML file.
 
-    Args:
-        entity_name (str): The entity name to search for.
-        file_path (str): Full path to the YAML file to check.
-
-    Returns:
-        bool: True if the entity exists, False otherwise.
+    :param entity_name: The entity name to search for
+    :param file_path: Full path to the YAML file to check
+    :return: True if the entity exists, False otherwise
     """
     if not os.path.exists(file_path):
         return False
