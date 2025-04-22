@@ -172,9 +172,29 @@ data_substrates_collection:
       - B2AI_STANDARD:97
       - B2AI_STANDARD:98
       - B2AI_STANDARD:849
+    edam_id: edam.format:3548
+    ncit_id: ncit:C63537
+    file_extensions:
+      - dicom
+      - dcm
+    limitations:
+      - Files are generally named using unique identifiers that may not be compatible
+        across all operating systems (i.e., they may be too long).
+      - Patient data is included in each image file header so all files must be processed
+        in order to anonymize them.
     subclass_of:
       - B2AI_SUBSTRATE:36
   - id: B2AI_SUBSTRATE:12
+    edam_id: edam.format:3548
+    ncit_id: ncit:C63537
+    file_extensions:
+      - dicom
+      - dcm
+    limitations:
+      - Files are generally named using unique identifiers that may not be compatible
+        across all operating systems (i.e., they may be too long).
+      - Patient data is included in each image file header so all files must be processed
+        in order to anonymize them.
     category: B2AI_SUBSTRATE:DataSubstrate
     contributor_github_name: caufieldjh
     contributor_name: Harry Caufield
@@ -641,6 +661,8 @@ data_substrates_collection:
     subclass_of:
       - B2AI_SUBSTRATE:49
   - id: B2AI_SUBSTRATE:49
+    file_extensions:
+      - wav
     category: B2AI_SUBSTRATE:DataSubstrate
     contributor_github_name: caufieldjh
     contributor_name: Harry Caufield
@@ -707,7 +729,19 @@ data_substrates_collection:
     contributor_github_name: caufieldjh
     contributor_name: Harry Caufield
     contributor_orcid: ORCID:0000-0001-5705-7831
+  - id: B2AI_SUBSTRATE:53
+    name: BED
+    subclass_of:
+      - B2AI_SUBSTRATE:10
+    related_to:
+      - B2AI_STANDARD:36
     description: BED (Browser Extensible Data) format provides a flexible way to define the data lines that are displayed in a genome annotation track.
+  - id: B2AI_SUBSTRATE:53
+    name: BED
+    subclass_of:
+      - B2AI_SUBSTRATE:10
+    related_to:
+      - B2AI_STANDARD:36
     edam_id: edam.format:3003
     file_extensions:
       - txt
