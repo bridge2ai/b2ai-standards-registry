@@ -45,6 +45,7 @@ from enum import Enum, IntEnum
 import itertools as itt
 import logging
 import os
+from pathlib import Path
 import re
 import subprocess
 import sys
@@ -58,6 +59,8 @@ import click
 import more_itertools
 import requests
 import yaml
+
+from ...scripts.format_yaml import format_yaml_file
 
 logger = logging.getLogger(__name__)
 
@@ -531,6 +534,7 @@ def _update_yaml(issue_to_resource: Dict[int, dict]) -> None:
         if this_yaml:
             with open(data_path, "w") as yamlfile:
                 yaml.safe_dump(this_yaml, yamlfile, sort_keys=False)
+            format_yaml_file(data_path)
 
 
 def entity_exists_in_file(entity_name: str, file_path: str) -> bool:
