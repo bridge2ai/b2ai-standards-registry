@@ -548,7 +548,7 @@ def entity_exists_in_file(entity_name: str, file_path: str) -> bool:
         try:
             content = yaml.safe_load(f)
             if not isinstance(content, dict):
-                click.secho(f" Unexpected content format in {file_path} (not a dict)", fg="yellow")
+                click.secho(f"Unexpected content format in {file_path} (not a dict)", fg="yellow")
                 return False
             for collection in content.values():
                 if isinstance(collection, list):
