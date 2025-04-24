@@ -41,19 +41,19 @@ AUTH_TOKEN = get_auth_token()
 PROJECT_ID='syn63096806'
 
 # The synapse tables that hold source data
-SRC_TABLES = {
+SRC_TABLES = {      # getting rid of version numbers for now
     'DataStandardOrTool': {        # convention in code, this abbreviation will be referred to as ..._tbl
                     #   ..._table will usually refer to some kind of table object
-        'id': 'syn63096833.43', 'name': 'DataStandardOrTool',
+        'id': 'syn63096833', 'name': 'DataStandardOrTool',
     },
     'DataTopic': {
-        'id': 'syn63096835.20', 'name': 'DataTopic',
+        'id': 'syn63096835', 'name': 'DataTopic',
     },
     'Organization': {
-        'id': 'syn63096836.20', 'name': 'Organization',
+        'id': 'syn63096836', 'name': 'Organization',
     },
-    'UseCase': { 'id': 'syn63096837.18', 'name': 'UseCase', },
-    'DataSubstrate': { 'id': 'syn63096834.25', 'name': 'DataSubstrate', }
+    'UseCase': { 'id': 'syn63096837', 'name': 'UseCase', },
+    'DataSubstrate': { 'id': 'syn63096834', 'name': 'DataSubstrate', }
 }
 
 # The table used for the explore landing page and to provide data for the home and detailed pages
@@ -88,8 +88,8 @@ DEST_TABLES = {
             ]},
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
              'dest_cols': [
-                 {'faceted': False,  'name': 'name', 'alias': 'relevantOrgAcronym'},
-                 {'faceted': True,  'name': 'description', 'alias': 'organizations'},
+                 {'faceted': True,  'name': 'description', 'alias': 'relevantOrgNames'},
+                 {'faceted': False, 'name': 'name', 'alias': 'relevantOrgAcronyms'},
              ]},
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
