@@ -1,28 +1,118 @@
 {
   "data_collection": [
     {
-      "id": "B2AI_DATA:3",
+      "id": "B2AI_DATA:1",
       "category": "B2AI_DATA:DataSet",
-      "name": "Artificial Intelligence in Cell Phenotypes - June 2024 Release",
-      "description": "This dataset is the June 2024 (v2) release of data for the Artificial Intelligence in Cell Phenotypes project. It includes data on cell phenotypes and their relationships to various biological processes.",
+      "name": "Cell Maps for Artificial Intelligence - March 2025 Data Release (Beta)",
+      "description": "This dataset is the March 2025 Data Release of Cell Maps for Artificial Intelligence (CM4AI; CM4AI.org), the Functional Genomics Grand Challenge in the NIH Bridge2AI program. This Beta release includes perturb-seq data in undifferentiated KOLF2.1J iPSCs; SEC-MS data in undifferentiated KOLF2.1J iPSCs and iPSC-derived NPCs, neurons, and cardiomyocytes; and IF images in MDA-MB-468 breast cancer cells in the presence and absence of chemotherapy (vorinostat and paclitaxel). CM4AI output data are packaged with provenance graphs and rich metadata as AI-ready datasets in RO-Crate format using the FAIRSCAPE framework. Data presented here will be augmented regularly through the end of the project. CM4AI is a collaboration of UCSD, UCSF, Stanford, UVA, Yale, UA Birmingham, Simon Fraser University, and the Hastings Center. This data is Copyright (c) 2025 The Regents of the University of California except where otherwise noted. Spatial proteomics raw image data is copyright (c) 2025 The Board of Trustees of the Leland Stanford Junior University. Dataset licensed for reuse under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license (https://creativecommons.org/licenses/by-nc-sa/4.0/). Attribution is required to the copyright holders and the authors. Any publications referencing this data or derived products should cite the Related Publication below, as well as directly citing this data collection (2025-03-04). (2025-03-07)",
       "has_files": [
-        "some_top_level_file.csv"
-      ],
-      "has_parts": [
-        "B2AI_TOPIC:4"
+        "CRISPR Perturbation Cell Atlas/ro-crate-metadata.json",
+        "CRISPR Perturbation RNA Sequences - Raw Sequences/ro-crate-metadata.json",
+        "Protein Localization Subcellular Images/cm4ai-v0.6-beta-if-images-paclitaxel.zip",
+        "Protein Localization Subcellular Images/cm4ai-v0.6-beta-if-images-untreated.zip",
+        "Protein Localization Subcellular Images/cm4ai-v0.6-beta-if-images-vorinostat.zip",
+        "Protein-protein Interaction SEC-MS/ro-crate-metadata.json"
       ],
       "produced_by": [
-        "B2AI_ORG:1"
+        "B2AI_ORG:116"
       ],
-      "data_url": "https://example.com/data",
-      "documentation_url": "https://example.com/docs",
-      "datasheet_url": "https://example.com/datasheet",
+      "data_url": "https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/B35XWX",
+      "documentation_url": "https://cm4ai.org/product-documentation/",
+      "datasheet_url": "https://docs.google.com/spreadsheets/d/1xhjQKkqVsAlErUQY1YahH5pzbrLOPHdVgYD79CWoEaY/edit?gid=0#gid=0",
       "is_public": true,
       "substrates": [
-        "B2AI_SUBSTRATE:1"
+        "B2AI_SUBSTRATE:56",
+        "B2AI_SUBSTRATE:59",
+        "B2AI_SUBSTRATE:64"
       ],
       "topics": [
-        "B2AI_TOPIC:4"
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:26",
+        "B2AI_TOPIC:33",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:42"
+      ]
+    },
+    {
+      "id": "B2AI_DATA:2",
+      "category": "B2AI_DATA:DataSet",
+      "name": "Flagship Dataset of Type 2 Diabetes from the AI-READI Project (Version 2.0.0)",
+      "description": "The Artificial Intelligence Ready and Equitable Atlas for Diabetes Insights (AI-READI) project seeks to create a flagship ethically-sourced dataset to enable future generations of artificial intelligence/machine learning (AI/ML) research to provide critical insights into type 2 diabetes mellitus (T2DM), including salutogenic pathways to return to health. The ability to understand and affect the course of complex, multi-organ diseases such as T2DM has been limited by a lack of well-designed, high quality, large, and inclusive multimodal datasets. The AI-READI team of investigators will aim to collect a cross-sectional dataset of 4,000 people and longitudinal data from 10% of the study cohort across the US. The study cohort will be balanced for self-reported race/ethnicity, gender, and diabetes disease stage. Data collection will be specifically designed to permit downstream pseudo-time manifold analysis, an approach used to predict disease trajectories by collecting and learning from complex, multimodal data from participants with differing disease severity (normal to insulin-dependent T2DM). The long-term objective for this project is to develop a foundational dataset in T2DM, agnostic to existing classification criteria or biases, which can be used to reconstruct a temporal atlas of T2DM development and reversal towards health (i.e., salutogenesis). Data will be optimized for downstream AI/ML research and made publicly available. This project will also create a roadmap for ethical and equitable research that focuses on the diversity of the research participants and the workforce involved at all stages of the research process (study design and data collection, curation, analysis, and sharing and collaboration).",
+      "produced_by": [
+        "B2AI_ORG:114"
+      ],
+      "data_url": "https://fairhub.io/datasets/2",
+      "documentation_url": "https://docs.aireadi.org/docs/2/about",
+      "datasheet_url": "https://docs.google.com/document/d/15JNQixrEJa7a4-Erouo_K9cBwLH4DeLukfWKGxB0S8c/edit?tab=t.0",
+      "is_public": false,
+      "substrates": [
+        "B2AI_SUBSTRATE:11",
+        "B2AI_SUBSTRATE:49",
+        "B2AI_SUBSTRATE:66",
+        "B2AI_SUBSTRATE:67",
+        "B2AI_SUBSTRATE:68",
+        "B2AI_SUBSTRATE:71",
+        "B2AI_SUBSTRATE:72",
+        "B2AI_SUBSTRATE:73",
+        "B2AI_SUBSTRATE:74",
+        "B2AI_SUBSTRATE:75",
+        "B2AI_SUBSTRATE:76",
+        "B2AI_SUBSTRATE:77",
+        "B2AI_SUBSTRATE:78"
+      ],
+      "topics": [
+        "B2AI_TOPIC:9",
+        "B2AI_TOPIC:11",
+        "B2AI_TOPIC:10",
+        "B2AI_TOPIC:38",
+        "B2AI_TOPIC:39",
+        "B2AI_TOPIC:43",
+        "B2AI_TOPIC:44"
+      ]
+    },
+    {
+      "id": "B2AI_DATA:3",
+      "category": "B2AI_DATA:DataSet",
+      "name": "Bridge2AI-Voice: An ethically-sourced, diverse voice dataset linked to health information (Version 1.0)",
+      "description": "The human voice contains complex acoustic markers which have been linked to important health conditions including dementia, mood disorders, and cancer. When viewed as a biomarker, voice is a promising characteristic to measure as it is simple to collect, cost-effective, and has broad clinical utility. Recent advances in artificial intelligence have provided techniques to extract previously unknown prognostically useful information from dense data elements such as images. The Bridge2AI-Voice project seeks to create an ethically sourced flagship dataset to enable future research in artificial intelligence and support critical insights into the use of voice as a biomarker of health. Here we present Bridge2AI-Voice, a comprehensive collection of data derived from voice recordings with corresponding clinical information. Bridge2AI-Voice v1.0, the initial release, provides 12,523 recordings for 306 participants collected across five sites in North America. Participants were selected based on known conditions which manifest within the voice waveform including voice disorders, neurological disorders, mood disorders, and respiratory disorders. The initial release contains data considered low risk, including derivations such as spectrograms but not the original voice recordings. Detailed demographic, clinical, and validated questionnaire data are also made available.",
+      "produced_by": [
+        "B2AI_ORG:117"
+      ],
+      "data_url": "https://healthdatanexus.ai/content/b2ai-voice/1.0/",
+      "documentation_url": "https://docs.b2ai-voice.org/",
+      "datasheet_url": "https://docs.google.com/document/d/1oLLClDuD02bl5nen-QtFU3FUAFQ3tm11RpuqfdS36DA/edit?tab=t.0",
+      "is_public": false,
+      "substrates": [
+        "B2AI_SUBSTRATE:57",
+        "B2AI_SUBSTRATE:80"
+      ],
+      "topics": [
+        "B2AI_TOPIC:6",
+        "B2AI_TOPIC:36",
+        "B2AI_TOPIC:45",
+        "B2AI_TOPIC:47",
+        "B2AI_TOPIC:49",
+        "B2AI_TOPIC:51"
+      ]
+    },
+    {
+      "id": "B2AI_DATA:4",
+      "category": "B2AI_DATA:DataSet",
+      "name": "Patient-Focused Collaborative Hospital Repository Uniting Standards (CHoRUS) for Equitable AI (Pre-Release)",
+      "description": "The goal of the CHoRUS Network is to develop the most diverse, high-resolution, ethically sourced, AI-ready data set to answer the grand challenge of improving recovery from acute illness. This collaboration spans 20 academic centers, of which 14 will contribute as Data Acquisition centers. Patient-focused efforts will determine the ethical and legal approaches to manage privacy and bias, while accounting for Social Determinants of Health. Unified standards will harmonize multi-modal EHR, waveform, imaging, and text data. A visualization and annotation environment will label data with targets important for prediction. A comprehensive set of approaches will develop the skills and workforce for a next generation of diverse academic and community AI scientists. Federated access will enable sampling methods to ensure a balanced and diverse cohort. Collaborating with Bridge2AI and 3 other data generation projects, the CHoRUS Network will help us cross the Bridge2AI network together.",
+      "produced_by": [
+        "B2AI_ORG:115"
+      ],
+      "data_url": "",
+      "documentation_url": "https://github.com/chorus-ai#table-of-contents",
+      "is_public": false,
+      "substrates": [
+        "B2AI_SUBSTRATE:11",
+        "B2AI_SUBSTRATE:57"
+      ],
+      "topics": [
+        "B2AI_TOPIC:7",
+        "B2AI_TOPIC:9"
       ]
     }
   ],
