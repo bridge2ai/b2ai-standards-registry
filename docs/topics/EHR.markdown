@@ -1,8 +1,12 @@
 **id:** B2AI_TOPIC:9
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:4](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Electronic health record data, including structured and unstructured text, lab values, and associated metadata.
 
 **edam id:** edam.data:3861
 
@@ -10,11 +14,7 @@
 
 **ncit id:** ncit:C142529
 
-**description:** Electronic health record data, including structured and unstructured text, lab values, and associated metadata.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:4](../DataTopic.markdown)
 

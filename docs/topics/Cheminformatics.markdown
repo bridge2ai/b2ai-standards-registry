@@ -1,8 +1,12 @@
 **id:** B2AI_TOPIC:3
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Data regarding the physical properties of chemical compounds.
 
 **edam id:** edam.data:1086
 
@@ -10,11 +14,7 @@
 
 **ncit id:** ncit:C188483
 
-**description:** Data regarding the physical properties of chemical compounds.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:5](../DataTopic.markdown)
 

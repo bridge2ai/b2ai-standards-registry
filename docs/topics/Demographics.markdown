@@ -1,18 +1,18 @@
 **id:** B2AI_TOPIC:6
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Data describing a subset of a population, including sex, age, ethnicity, geographic location, or other factors.
 
 **mesh id:** mesh:D003710
 
 **ncit id:** ncit:C16495
 
-**description:** Data describing a subset of a population, including sex, age, ethnicity, geographic location, or other factors.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:5](../DataTopic.markdown)
 

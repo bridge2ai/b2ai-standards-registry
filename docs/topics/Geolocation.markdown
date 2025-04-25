@@ -1,22 +1,22 @@
 **id:** B2AI_TOPIC:14
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+**contributor name:** Harry Caufield
 
-**related to:**
+**contributor orcid:** ORCID:0000-0001-5705-7831
 
-- [B2AI_TOPIC:18](../DataTopic.markdown)
+**description:** Measurements describing the location of an object or person on planet Earth.
 
 **edam id:** edam.data:3720
 
 **ncit id:** ncit:C25341
 
-**description:** Measurements describing the location of an object or person on planet Earth.
+**related to:**
 
-**contributor name:** Harry Caufield
+- [B2AI_TOPIC:18](../DataTopic.markdown)
 
-**contributor github name:** caufieldjh
+**subclass of:**
 
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:5](../DataTopic.markdown)
 

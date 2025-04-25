@@ -1,12 +1,12 @@
 **id:** B2AI_TOPIC:7
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+**contributor name:** Harry Caufield
 
-**related to:**
+**contributor orcid:** ORCID:0000-0001-5705-7831
 
-- [B2AI_TOPIC:25](../DataTopic.markdown)
+**description:** Data describing a disordered health state and its relationships to phenotype, genotype, other organisms, and environmental exposures.
 
 **edam id:** edam.data:3667
 
@@ -14,11 +14,11 @@
 
 **ncit id:** ncit:C2991
 
-**description:** Data describing a disordered health state and its relationships to phenotype, genotype, other organisms, and environmental exposures.
+**related to:**
 
-**contributor name:** Harry Caufield
+- [B2AI_TOPIC:25](../DataTopic.markdown)
 
-**contributor github name:** caufieldjh
+**subclass of:**
 
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:5](../DataTopic.markdown)
 
