@@ -1,18 +1,18 @@
 **id:** B2AI_TOPIC:23
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:20](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Data involving two or more comprehensive biomolecular screens, such as those of genomes, transcriptomes, proteomes, or others.
 
 **edam id:** edam.topic:3391
 
 **mesh id:** mesh:D000095028
 
-**description:** Data involving two or more comprehensive biomolecular screens, such as those of genomes, transcriptomes, proteomes, or others.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:20](../DataTopic.markdown)
 

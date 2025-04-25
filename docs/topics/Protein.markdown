@@ -1,8 +1,12 @@
 **id:** B2AI_TOPIC:26
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:28](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** One or a select set of amino acid sequences and their properties.
 
 **edam id:** edam.data:2976
 
@@ -10,11 +14,7 @@
 
 **ncit id:** ncit:C17021
 
-**description:** One or a select set of amino acid sequences and their properties.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:28](../DataTopic.markdown)
 

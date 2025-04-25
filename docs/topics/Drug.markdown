@@ -1,8 +1,12 @@
 **id:** B2AI_TOPIC:8
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:3](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Data regarding the properties of substances intended to be used or investigated for their therapeutic properties.
 
 **edam id:** edam.data:0993
 
@@ -10,11 +14,7 @@
 
 **ncit id:** ncit:C1909
 
-**description:** Data regarding the properties of substances intended to be used or investigated for their therapeutic properties.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:3](../DataTopic.markdown)
 

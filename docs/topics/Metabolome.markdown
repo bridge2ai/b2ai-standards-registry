@@ -1,22 +1,22 @@
 **id:** B2AI_TOPIC:17
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:23](../DataTopic.markdown)
+**contributor name:** Harry Caufield
 
-**related to:**
+**contributor orcid:** ORCID:0000-0001-5705-7831
 
-- [B2AI_TOPIC:3](../DataTopic.markdown)
+**description:** Measurements of the presence, structure, and potential amount of small molecule metabolites within a sample from one individual, cell, organ, sample, or site.
 
 **edam id:** edam.data:2603
 
 **mesh id:** mesh:D055442
 
-**description:** Measurements of the presence, structure, and potential amount of small molecule metabolites within a sample from one individual, cell, organ, sample, or site.
+**related to:**
 
-**contributor name:** Harry Caufield
+- [B2AI_TOPIC:3](../DataTopic.markdown)
 
-**contributor github name:** caufieldjh
+**subclass of:**
 
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:23](../DataTopic.markdown)
 

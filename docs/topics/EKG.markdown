@@ -1,18 +1,18 @@
 **id:** B2AI_TOPIC:10
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:37](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Measurements of the electrical signals of the heart over time.
 
 **mesh id:** mesh:D004562
 
 **ncit id:** ncit:C168186
 
-**description:** Measurements of the electrical signals of the heart over time.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:37](../DataTopic.markdown)
 

@@ -1,8 +1,12 @@
 **id:** B2AI_TOPIC:19
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:15](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Images obtained through microscopy (e.g., optical, fluorescence, electron).
 
 **edam id:** edam.data:3424
 
@@ -10,11 +14,7 @@
 
 **ncit id:** ncit:C16853
 
-**description:** Images obtained through microscopy (e.g., optical, fluorescence, electron).
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:15](../DataTopic.markdown)
 

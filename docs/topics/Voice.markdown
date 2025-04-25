@@ -1,18 +1,18 @@
 **id:** B2AI_TOPIC:36
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:37](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Audio data produced by human speech, not including non-linguistic utterances.
 
 **mesh id:** mesh:D014831
 
 **ncit id:** ncit:C92692
 
-**description:** Audio data produced by human speech, not including non-linguistic utterances.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:37](../DataTopic.markdown)
 

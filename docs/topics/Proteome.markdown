@@ -1,18 +1,18 @@
 **id:** B2AI_TOPIC:28
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:23](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Measurements of the presence, sequence, and potential amount of proteins within a sample from one individual, organ, sample, or site.
 
 **mesh id:** mesh:D020543
 
 **ncit id:** ncit:C18276
 
-**description:** Measurements of the presence, sequence, and potential amount of proteins within a sample from one individual, organ, sample, or site.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:23](../DataTopic.markdown)
 

@@ -1,12 +1,12 @@
 **id:** B2AI_TOPIC:11
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:1](../DataTopic.markdown)
+**contributor name:** Harry Caufield
 
-**related to:**
+**contributor orcid:** ORCID:0000-0001-5705-7831
 
-- [B2AI_TOPIC:3](../DataTopic.markdown)
+**description:** Descriptions and measurements of the relationships between people and their ecosystem(s).
 
 **edam id:** edam.topic:3855
 
@@ -14,11 +14,11 @@
 
 **ncit id:** ncit:C16551
 
-**description:** Descriptions and measurements of the relationships between people and their ecosystem(s).
+**related to:**
 
-**contributor name:** Harry Caufield
+- [B2AI_TOPIC:3](../DataTopic.markdown)
 
-**contributor github name:** caufieldjh
+**subclass of:**
 
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:1](../DataTopic.markdown)
 

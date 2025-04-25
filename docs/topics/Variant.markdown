@@ -1,18 +1,18 @@
 **id:** B2AI_TOPIC:35
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:12](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** An alteration in a gene sequence relative to another set of sequences, whether associated with a phenotype or not.
 
 **mesh id:** mesh:D014644
 
 **ncit id:** ncit:C25713
 
-**description:** An alteration in a gene sequence relative to another set of sequences, whether associated with a phenotype or not.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:12](../DataTopic.markdown)
 

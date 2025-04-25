@@ -1,8 +1,12 @@
 **id:** B2AI_TOPIC:1
 
-**subclass of:**
+**contributor github name:** caufieldjh
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+**contributor name:** Harry Caufield
+
+**contributor orcid:** ORCID:0000-0001-5705-7831
+
+**description:** Data involving any study of living organisms at any scale.
 
 **edam id:** edam.topic:3070
 
@@ -10,11 +14,7 @@
 
 **ncit id:** ncit:C16345
 
-**description:** Data involving any study of living organisms at any scale.
+**subclass of:**
 
-**contributor name:** Harry Caufield
-
-**contributor github name:** caufieldjh
-
-**contributor orcid:** ORCID:0000-0001-5705-7831
+- [B2AI_TOPIC:5](../DataTopic.markdown)
 
