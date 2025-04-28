@@ -49,6 +49,14 @@ class ColumnName(Enum):
     ROR_ID = "ror_id"
     WIKIDATA_ID = "wikidata_id"
     RESPONSIBLE_ORGANIZATION = "responsible_organization"
+    DOCUMENTATION_URL = "documentation_url"
+    DATA_URL = "data_url"
+    DATASHEET_URL = "datasheet_url"
+    HAS_FILES = "has_files"
+    IS_PUBLIC = "is_public"
+    PRODUCED_BY = "produced_by"
+    SUBSTRATES = "substrates"
+    TOPICS = "topics"
 
 
 # Possible columns in the standards data tables
@@ -184,13 +192,47 @@ COLUMN_TEMPLATES = {
     ),
     ColumnName.RESPONSIBLE_ORGANIZATION: Column(
         name=ColumnName.RESPONSIBLE_ORGANIZATION.value, columnType="STRING_LIST", maximumListLength=25
+    ),
+    ColumnName.DATA_URL: Column(name=ColumnName.DATA_URL.value, columnType="MEDIUMTEXT"),
+    ColumnName.DATASHEET_URL: Column(name=ColumnName.DATASHEET_URL.value, columnType="MEDIUMTEXT"),
+    ColumnName.DOCUMENTATION_URL: Column(name=ColumnName.DOCUMENTATION_URL.value, columnType="MEDIUMTEXT"),
+    ColumnName.HAS_FILES: Column(
+        name=ColumnName.HAS_FILES.value, columnType="STRING_LIST", maximumListLength=25
+    ),
+    ColumnName.IS_PUBLIC: Column(
+        name=ColumnName.IS_PUBLIC.value, columnType="BOOLEAN"
+    ),
+    ColumnName.PRODUCED_BY: Column(
+        name=ColumnName.PRODUCED_BY.value, columnType="STRING_LIST", maximumListLength=25
+    ),
+    ColumnName.SUBSTRATES: Column(
+        name=ColumnName.SUBSTRATES.value, columnType="STRING_LIST", maximumListLength=25
+    ),
+    ColumnName.TOPICS: Column(
+        name="topics", columnType="STRING_LIST", maximumListLength=25
     )
 }
-
 
 class TableSchema(Enum):
     """An enum for the data tables, containing their ids in the synapse project and their schemas"""
 
+    DataSet = {
+        "id": "syn66330217",
+        "columns": [
+            ColumnName.ID,
+            ColumnName.CATEGORY,
+            ColumnName.DATA_URL,
+            ColumnName.DATASHEET_URL,
+            ColumnName.DESCRIPTION,
+            ColumnName.DOCUMENTATION_URL,
+            ColumnName.HAS_FILES,
+            ColumnName.IS_PUBLIC,
+            ColumnName.NAME,
+            ColumnName.PRODUCED_BY,
+            ColumnName.SUBSTRATES,
+            ColumnName.TOPICS,
+        ],
+    }
     DataStandardOrTool = {
         "id": "syn63096833",
         "columns": [
