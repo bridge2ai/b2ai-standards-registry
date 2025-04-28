@@ -88,8 +88,8 @@ DEST_TABLES = {
             ]},
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
              'dest_cols': [
-                 {'faceted': True,  'name': 'description', 'alias': 'relevantOrgNames'},
-                 {'faceted': False, 'name': 'name', 'alias': 'relevantOrgAcronyms'},
+                 {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
+                 {'faceted': False, 'name': 'description', 'alias': 'relevantOrgDescriptions'},
              ]},
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
