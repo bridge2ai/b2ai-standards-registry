@@ -13,6 +13,7 @@ PATHS_TO_IDS = {
     "project/data/DataTopic.json": "syn63096835",
     "project/data/Organization.json": "syn63096836",
     "project/data/UseCase.json": "syn63096837",
+    "project/data/DataSet.json": "syn66330217",
 }
 
 
