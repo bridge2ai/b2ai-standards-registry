@@ -17065,3 +17065,22 @@ data_standardortools_collection:
   requires_registration: false
   url: https://cytoscape.org/cx/
   used_in_bridge2ai: true
+- id: B2AI_STANDARD:899
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - has_ai_application
+  - fileformat
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  description: Anndata h5ad format
+  has_relevant_organization:
+  - B2AI_ORG:116
+  is_open: true
+  name: h5ad
+  purpose_detail: >-
+    h5ad is a format for storing and working with annotated data matrices in memory and
+    on disk. It is produced by the Anndata Python package.
+  requires_registration: false
+  url: https://anndata.readthedocs.io/en/stable/
+  used_in_bridge2ai: true
+  formal_specification: https://github.com/scverse/anndata/blob/main/src/anndata/_io/h5ad.py
