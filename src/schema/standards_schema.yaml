@@ -71,6 +71,7 @@ classes:
       - contributor_github_name
       - contributor_orcid
       - contribution_date
+      - used_in_bridge2ai
     class_uri: schema:Thing
 
   AnatomicalEntity:  # Based on Biolink Model v.3.2.6
@@ -203,6 +204,17 @@ slots:
       - MESH:isa
     narrow_mappings:
       - rdfs:subPropertyOf
+
+  used_in_bridge2ai:
+    is_a: node_property
+    description: >-
+      True if the entity is used, developed, or
+      otherwise related to work in the Bridge2AI
+      consortium. If false, the entity is not
+      explicitly related to Bridge2AI. If not
+      specified, it is not known if the entity is
+      related to Bridge2AI.
+    range: boolean
 
 enums:
   DataGeneratingProject:
