@@ -43,7 +43,6 @@ classes:
       - url
       - publication
       - formal_specification
-      - not_relevant_to_dgps
       - responsible_organization
 
   DataStandard:
@@ -207,12 +206,6 @@ slots:
     inlined: true
     inlined_as_list: true
     multivalued: true
-
-  not_relevant_to_dgps:
-    description: >-
-      Is the standard or tool currently relevant to DGPs?
-    is_a: node_property
-    range: boolean
 
   responsible_organization:
     description: >-
