@@ -52,8 +52,11 @@ SRC_TABLES = {      # getting rid of version numbers for now
     'Organization': {
         'id': 'syn63096836', 'name': 'Organization',
     },
-    'UseCase': { 'id': 'syn63096837', 'name': 'UseCase', },
-    'DataSubstrate': { 'id': 'syn63096834', 'name': 'DataSubstrate', }
+    #   Not currently using these, but leave here for the future
+    # 'UseCase': { 'id': 'syn63096837', 'name': 'UseCase', },
+    # 'DataSubstrate': { 'id': 'syn63096834', 'name': 'DataSubstrate', },
+    # 'DataSet': {'id': 'syn66330217', 'name': 'DataSet', },
+    # 'Challenges': {'id': 'syn65913973', 'name': 'Challenges', },
 }
 
 # The table used for the explore landing page and to provide data for the home and detailed pages

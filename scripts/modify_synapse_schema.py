@@ -197,7 +197,7 @@ COLUMN_TEMPLATES = {
     ColumnName.DATASHEET_URL: Column(name=ColumnName.DATASHEET_URL.value, columnType="MEDIUMTEXT"),
     ColumnName.DOCUMENTATION_URL: Column(name=ColumnName.DOCUMENTATION_URL.value, columnType="MEDIUMTEXT"),
     ColumnName.HAS_FILES: Column(
-        name=ColumnName.HAS_FILES.value, columnType="STRING_LIST", maximumListLength=25
+        name=ColumnName.HAS_FILES.value, columnType="STRING_LIST", maximumListLength=25, maximumSize=100
     ),
     ColumnName.IS_PUBLIC: Column(
         name=ColumnName.IS_PUBLIC.value, columnType="BOOLEAN"
