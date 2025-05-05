@@ -52,11 +52,11 @@ SRC_TABLES = {      # getting rid of version numbers for now
     'Organization': {
         'id': 'syn63096836', 'name': 'Organization',
     },
-    #   Not currently using these, but leave here for the future
+    'DataSubstrate': { 'id': 'syn63096834', 'name': 'DataSubstrate', },
+    'DataSet': {'id': 'syn66330217', 'name': 'DataSet', },
+    'Challenges': {'id': 'syn65913973', 'name': 'Challenges', },
+    # Not currently using these, but leave here for the future
     # 'UseCase': { 'id': 'syn63096837', 'name': 'UseCase', },
-    # 'DataSubstrate': { 'id': 'syn63096834', 'name': 'DataSubstrate', },
-    # 'DataSet': {'id': 'syn66330217', 'name': 'DataSet', },
-    # 'Challenges': {'id': 'syn65913973', 'name': 'Challenges', },
 }
 
 # The table used for the explore landing page and to provide data for the home and detailed pages
@@ -101,6 +101,73 @@ DEST_TABLES = {
              ]},
         ],
     },
+    # 'DataSetPlus': {
+    #     'dest_table_name': 'DataSetPlus',
+    #     'base_table': 'Challenges',
+    #     'columns': [
+    #         {'faceted': False, 'name': 'headerImage', 'alias': 'imgId'},
+    #         """
+    #         dataset.name AS ds_name,  -- title
+    #         dataset.description AS ds_description,
+    #         # dataset.id,
+    #         # dataset.category,
+    #         dataset.data_url,
+    #         dataset.datasheet_url,
+    #         dataset.documentation_url,
+    #         dataset.has_files,
+    #         dataset.is_public,
+    #         # dataset.produced_by,
+    #         # dataset.substrates,
+    #         data
+    #         dataset.topics,
+    #         org.id,
+    #         org.category,
+    #         org.name,
+    #         org.description,
+    #         org.contributor_name,
+    #         org.contributor_github_name,
+    #         org.contributor_orcid,
+    #         org.ror_id,
+    #         org.wikidata_id,
+    #         org.url,
+    #         org.subclass_of,
+    #         challenges.headerImage,""",
+    #         {'faceted': False, 'name': 'id', 'alias': 'id'},
+    #         {'faceted': False, 'name': 'name', 'alias': 'acronym'},
+    #         {'faceted': False, 'name': 'description', 'alias': 'name'},
+    #         {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'camel_to_title_case'},
+    #         {'faceted': False, 'name': 'purpose_detail', 'alias': 'description'},
+    #         {'faceted': False, 'name': 'collection', 'alias': 'collections'},
+    #         {'faceted': False, 'name': 'concerns_data_topic', 'alias': 'concerns_data_topic'},
+    #         {'faceted': False, 'name': 'has_relevant_organization', 'alias': 'has_relevant_organization'},
+    #         {'faceted': False, 'name': 'responsible_organization', 'alias': 'responsible_organization'},
+    #         {'faceted': True, 'name': 'is_open', 'alias': 'isOpen'},
+    #         {'faceted': True, 'name': 'requires_registration', 'alias': 'registration'},
+    #         {'faceted': False, 'name': 'url', 'alias': 'URL'},
+    #         {'faceted': False, 'name': 'formal_specification', 'alias': 'formalSpec'},
+    #         {'faceted': False, 'name': 'publication', 'alias': 'publication'},
+    #         {'faceted': False, 'name': 'has_training_resource', 'alias': 'trainingResources'},
+    #         {'faceted': False, 'name': 'subclass_of', 'alias': 'subclassOf'},
+    #         {'faceted': False, 'name': 'contribution_date', 'alias': 'contributionDate'},
+    #         {'faceted': False, 'name': 'related_to', 'alias': 'relatedTo'},
+    #     ],
+    #     'join_columns': [
+    #         {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+    #          'dest_cols': [
+    #              {'faceted': True, 'name': 'name', 'alias': 'topic'},
+    #          ]},
+    #         {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
+    #          'dest_cols': [
+    #              {'faceted': True, 'name': 'name', 'alias': 'relevantOrgNames'},
+    #              {'faceted': False, 'name': 'description', 'alias': 'relevantOrgDescriptions'},
+    #          ]},
+    #         {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
+    #          'dest_cols': [
+    #              {'faceted': False, 'name': 'name', 'alias': 'responsibleOrgAcronym'},
+    #              {'faceted': False, 'name': 'description', 'alias': 'responsibleOrgName'},
+    #          ]},
+    #     ],
+    # },
 }
 
 TRANSFORMS = {
@@ -116,11 +183,12 @@ TRANSFORMS = {
 
 def denormalize_tables():
     syn = initialize_synapse()
-    src_tables = {tbl: get_src_table(syn, tbl) for tbl in SRC_TABLES}
+    all_src_tables = {tbl: get_src_table(syn, tbl) for tbl in SRC_TABLES}
 
     for dest_table in DEST_TABLES.values():
         base_tbl_name = dest_table['base_table']
-        base_df = src_tables[base_tbl_name]['df']
+        base_df = all_src_tables[base_tbl_name]['df']
+        src_tables = [j['join_tbl'] for j in dest_table['join_columns']]
 
         if base_df.empty:
             print(f"Skipping '{dest_table['dest_table_name']}' — base table '{base_tbl_name}' has no data.")
@@ -232,24 +300,6 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
 
         return columns
 
-    def create_or_clear_table(schema_name: str) -> None:
-        """
-        Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
-
-        :param schema_name: Name of the Synapse table to check and clear (if it already exists)
-        """
-        try:
-            existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
-            for table in existing_tables:
-                if table['name'] == schema_name:
-                    query_result = syn.tableQuery(f"SELECT * FROM {table['id']}")
-                    syn.create_snapshot_version(table["id"])
-                    print(f"Table '{schema_name}' already exists. Deleting {len(query_result)} rows.")
-                    syn.delete(query_result)
-                    break
-        except Exception as e:
-            print(f"Error checking for existing table: {e}")
-
     # Step 1: Build all columns and their data
     base_columns = build_base_columns()
     join_columns = build_join_columns()
@@ -271,7 +321,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     )
 
     # Step 5: Clear existing table rows if applicable
-    create_or_clear_table(dest_table['dest_table_name'])
+    create_or_clear_table(syn, dest_table['dest_table_name'])
 
     # Step 6: Upload the table
     table = syn.store(Table(schema, final_df))
@@ -478,7 +528,11 @@ def create_json_column(
 
 def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
     """
-    Retrieve and validate a source table from Synapse, populate it with metadata and a cleaned DataFrame.
+    Retrieve and validate a source table from Synapse, capture its column metadata and a cleaned DataFrame.
+    If the table is empty:
+        - If a version number has been specified, raise an exception and quit execution.
+        - Otherwise, find the last non-empty version and use that
+            - Ideally,
 
     This function:
     - Retrieves the Synapse table and confirms its name matches the expected one
@@ -521,6 +575,24 @@ def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
     table_info['df'] = df
     return table_info
 
+def create_or_clear_table(syn, table_name: str) -> None:
+    """
+    Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
+
+    :param table_name: Name of the Synapse table to check and clear (if it already exists)
+    """
+    try:
+        existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
+        for table in existing_tables:
+            if table['name'] == table_name:
+                query_result = syn.tableQuery(f"SELECT * FROM {table['id']}")
+                syn.create_snapshot_version(table["id"])
+                print(f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
+                syn.delete(query_result)
+                break
+    except Exception as e:
+        print(f"Error checking for existing table: {e}")
+
 def initialize_synapse() -> None:
     """
     Initialize the synapse client
@@ -531,6 +603,7 @@ def initialize_synapse() -> None:
         return syn
     except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
         raise Exception(f"Failed to authenticate with Synapse: {str(e)}")
+
 
 if __name__ == "__main__":
     denormalize_tables()
