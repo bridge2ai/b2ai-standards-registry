@@ -103,6 +103,8 @@ data_standardortools_collection:
     or genes.
   requires_registration: false
   url: https://www.ncbi.nlm.nih.gov/assembly/agp/AGP_Specification/
+  responsible_organization:
+  - B2AI_ORG:120
 - id: B2AI_STANDARD:5
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -146,6 +148,10 @@ data_standardortools_collection:
   purpose_detail: Guidelines intended to improve the reporting of animal experiments.
   requires_registration: false
   url: https://arriveguidelines.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  responsible_organization:
+  - B2AI_ORG:121
 - id: B2AI_STANDARD:7
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -193,6 +199,8 @@ data_standardortools_collection:
   related_to:
   - B2AI_STANDARD:98
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:71
 - id: B2AI_STANDARD:9
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -211,6 +219,11 @@ data_standardortools_collection:
     and maintained - Human Trust, Technical Trust, and Regulatory Trust.
   requires_registration: false
   url: https://shop.cta.tech/collections/standards/products/the-use-of-artificial-intelligence-in-healthcare-trustworthiness-cta-2090
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  responsible_organization:
+  - B2AI_ORG:4
+  - B2AI_ORG:122
 - id: B2AI_STANDARD:10
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -227,6 +240,8 @@ data_standardortools_collection:
   purpose_detail: A binary version of raw DNA sequence reads from Applied Biosystems
     sequencing analysis software. Also known as ABIF.
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:123
 - id: B2AI_STANDARD:11
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -244,6 +259,8 @@ data_standardortools_collection:
   purpose_detail: A binary version of raw DNA sequence reads from Applied Biosystems
     sequencing analysis software.
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:123
 - id: B2AI_STANDARD:12
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -450,12 +467,19 @@ data_standardortools_collection:
   - B2AI_ORG:116
   is_open: true
   name: BAM/CRAM
-  purpose_detail: sequencing alignment
+  purpose_detail: The CRAM format is a compressed version of the Binary Alignment/Map (BAM) format.
+    The CRAM format is designed to be more efficient than BAM, especially for large datasets.
+    The CRAM format is based on the BAM format, but it uses a different compression
+    algorithm and has a different file structure. The CRAM format is also designed
+    to be more flexible than BAM, allowing for the inclusion of additional information
+    about the data.
   related_to:
   - B2AI_STANDARD:22
   requires_registration: false
   url: https://samtools.github.io/hts-specs/
   used_in_bridge2ai: true
+  responsible_organization:
+  - B2AI_ORG:34
 - id: B2AI_STANDARD:22
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -476,6 +500,8 @@ data_standardortools_collection:
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Binary_Alignment_Map
   used_in_bridge2ai: true
+  responsible_organization:
+  - B2AI_ORG:34
 - id: B2AI_STANDARD:23
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -571,6 +597,8 @@ data_standardortools_collection:
     in a computable form.
   requires_registration: false
   url: https://bel.bio/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:28
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -595,6 +623,8 @@ data_standardortools_collection:
     associated regulatory artifacts.
   requires_registration: false
   url: https://bridgmodel.nci.nih.gov/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:29
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -982,19 +1012,19 @@ data_standardortools_collection:
   - B2AI_ORG:15
   is_open: true
   name: CDISC Dataset
-  purpose_detail: CDISC Dataset-XML, which was released for comment under the name
-    “StudyDataSet-XML” but was renamed to avoid confusion with the CDISC SDS team,
-    is a new standard used to exchange study datasets in an XML format. The purpose
-    of Dataset-XML is to support the interchange of tabular data for clinical research
-    applications using ODM-based XML technologies. The Dataset-XML model is based
-    on the CDISC Operational Data Model (ODM) standard and should follow the metadata
-    structure defined in the CDISC Define-XML standard. Dataset-XML can represent
-    any tabular dataset including SDTM, ADaM, SEND, or non-standard legacy datasets.
-    Some noteworthy items relating to Dataset-XML v1.0 include alternative to SAS
-    Version 5 Transport (XPT) format for datasets ODM-based model for representation
-    of SEND, SDTM, ADaM or legacy datasets Capable of supporting CDISC regulatory
-    data submissions Based on Define-XML v2 or v1 metadata, easy to reference Dataset-XML
-    supports all language encodings supported by XML.
+  purpose_detail: "CDISC Dataset-XML, which was released for comment under the name\
+    \ \u201CStudyDataSet-XML\u201D but was renamed to avoid confusion with the CDISC\
+    \ SDS team, is a new standard used to exchange study datasets in an XML format.\
+    \ The purpose of Dataset-XML is to support the interchange of tabular data for\
+    \ clinical research applications using ODM-based XML technologies. The Dataset-XML\
+    \ model is based on the CDISC Operational Data Model (ODM) standard and should\
+    \ follow the metadata structure defined in the CDISC Define-XML standard. Dataset-XML\
+    \ can represent any tabular dataset including SDTM, ADaM, SEND, or non-standard\
+    \ legacy datasets. Some noteworthy items relating to Dataset-XML v1.0 include\
+    \ alternative to SAS Version 5 Transport (XPT) format for datasets ODM-based model\
+    \ for representation of SEND, SDTM, ADaM or legacy datasets Capable of supporting\
+    \ CDISC regulatory data submissions Based on Define-XML v2 or v1 metadata, easy\
+    \ to reference Dataset-XML supports all language encodings supported by XML."
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:15
@@ -1037,7 +1067,13 @@ data_standardortools_collection:
   - B2AI_ORG:15
   is_open: true
   name: CDISC ODM
-  purpose_detail: standard for exchanging biomedical data
+  purpose_detail: >-
+    The CSDIC ODM is a vendor-neutral, platform-independent
+    format for exchanging and archiving clinical and translational
+    research data, along with their associated metadata,
+    administrative data, reference data, and audit information.
+    ODM facilitates the regulatory-compliant acquisition, archival
+    and exchange of metadata and data.
   related_to:
   - B2AI_STANDARD:689
   requires_registration: false
@@ -1104,17 +1140,17 @@ data_standardortools_collection:
   - B2AI_ORG:15
   is_open: true
   name: CDISC SDM
-  purpose_detail: The CDISC Study Design Model in XML (SDM-XML) version 1.0 allows
-    organizations to provide rigorous, machine-readable, interchangeable descriptions
-    of the designs of their clinical studies, including treatment plans, eligibility
-    and times and events. As an extension to the existing CDISC Operational Data Model
-    (ODM) specification, SDM-XML affords implementers the ease of leveraging existing
-    ODM concepts and re-using existing ODM definitions. SDM-XML defines three key
-    sub-modules – Structure, Workflow, and Timing – permitting various levels of detail
-    in any representation of a clinical study’s design, while allowing a high degree
-    of authoring flexibility. The specification document is available for download
-    as a PDF file. A ZIP file containing the XML Schemas, several examples, and an
-    SDM-XML element and attribute reference also is available.
+  purpose_detail: "The CDISC Study Design Model in XML (SDM-XML) version 1.0 allows\
+    \ organizations to provide rigorous, machine-readable, interchangeable descriptions\
+    \ of the designs of their clinical studies, including treatment plans, eligibility\
+    \ and times and events. As an extension to the existing CDISC Operational Data\
+    \ Model (ODM) specification, SDM-XML affords implementers the ease of leveraging\
+    \ existing ODM concepts and re-using existing ODM definitions. SDM-XML defines\
+    \ three key sub-modules \u2013 Structure, Workflow, and Timing \u2013 permitting\
+    \ various levels of detail in any representation of a clinical study\u2019s design,\
+    \ while allowing a high degree of authoring flexibility. The specification document\
+    \ is available for download as a PDF file. A ZIP file containing the XML Schemas,\
+    \ several examples, and an SDM-XML element and attribute reference also is available."
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:15
@@ -1134,6 +1170,8 @@ data_standardortools_collection:
   purpose_detail: Chado is a modular schema covering many aspects of biology, not
     just sequence data. Chado-XML has exactly the same scope as the Chado schema.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:53
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1241,6 +1279,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:16
   url: https://clsi.org/standards/products/automation-and-informatics/documents/auto16/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:58
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1274,8 +1314,8 @@ data_standardortools_collection:
   description: CLUSTAL-W Dendrogram Guide File Format
   is_open: true
   name: DND
-  purpose_detail: Format for the tree (or “dendrogram”) used to guide the a multiple
-    sequence alignment process.
+  purpose_detail: "Format for the tree (or \u201Cdendrogram\u201D) used to guide the\
+    \ a multiple sequence alignment process."
   requires_registration: false
   url: https://bioinfo.nhri.edu.tw/gcg/doc/11.0/clustalw+.html
 - id: B2AI_STANDARD:60
@@ -1405,6 +1445,8 @@ data_standardortools_collection:
     a good global summary item for financial toxicity.
   requires_registration: false
   url: https://www.facit.org/measures/FACIT-COST
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:66
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -1439,6 +1481,8 @@ data_standardortools_collection:
   purpose_detail: A reporting guideline for qualitative research interviews and focus
     groups comprising 32 criteria, the list of which is available from http://www.cnfs.net/modules/module2/story_content/external_files/13_COREQ_checklist_000017.pdf
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:68
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1457,6 +1501,8 @@ data_standardortools_collection:
     primary audiences for the CHEERS statement are researchers reporting economic
     evaluations and the editors and peer reviewers assessing them for publication.
   requires_registration: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:69
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1491,6 +1537,8 @@ data_standardortools_collection:
     and health information systems.
   requires_registration: false
   url: https://www.pchalliance.org/continua-design-guidelines
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:71
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -2242,6 +2290,8 @@ data_standardortools_collection:
   purpose_detail: Describes how to use SMTP, S/MIME, and X.509 certificates to securely
     transport health information over the Internet.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:100
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -2273,6 +2323,8 @@ data_standardortools_collection:
     sciences.
   requires_registration: false
   url: https://eml.ecoinformatics.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:102
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -2393,14 +2445,14 @@ data_standardortools_collection:
   description: EuroQol Five Dimension Three Level descriptive system
   is_open: true
   name: EQ-5D-3L
-  purpose_detail: The EQ-5D-3L descriptive system comprises the following five dimensions
-    - mobility, self-care, usual activities, pain/discomfort and anxiety/depression.
-    Each dimension has 3 levels - no problems, some problems, and extreme problems.
-    The patient is asked to indicate his/her health state by ticking the box next
-    to the most appropriate statement in each of the five dimensions. This decision
-    results into a 1-digit number that expresses the level selected for that dimension.
-    The digits for the five dimensions can be combined into a 5-digit number that
-    describes the patient’s health state.
+  purpose_detail: "The EQ-5D-3L descriptive system comprises the following five dimensions\
+    \ - mobility, self-care, usual activities, pain/discomfort and anxiety/depression.\
+    \ Each dimension has 3 levels - no problems, some problems, and extreme problems.\
+    \ The patient is asked to indicate his/her health state by ticking the box next\
+    \ to the most appropriate statement in each of the five dimensions. This decision\
+    \ results into a 1-digit number that expresses the level selected for that dimension.\
+    \ The digits for the five dimensions can be combined into a 5-digit number that\
+    \ describes the patient\u2019s health state."
   requires_registration: true
   url: https://euroqol.org/eq-5d-instruments/eq-5d-3l-about/
 - id: B2AI_STANDARD:108
@@ -2454,6 +2506,8 @@ data_standardortools_collection:
   - B2AI_ORG:40
   url: https://www.hl7.org/fhir/overview.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:110
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2503,21 +2557,24 @@ data_standardortools_collection:
   - B2AI_ORG:39
   is_open: true
   name: Common Rule
-  purpose_detail: The Federal Policy for the Protection of Human Subjects or the “Common
-    Rule” was published in 1991 and codified in separate regulations by 15 Federal
-    departments and agencies, as listed below. The HHS regulations, 45 CFR part 46,
-    include four subparts - subpart A, also known as the Federal Policy or the “Common
-    Rule”; subpart B, additional protections for pregnant women, human fetuses, and
-    neonates; subpart C, additional protections for prisoners; and subpart D, additional
-    protections for children. Each agency includes in its chapter of the Code of Federal
-    Regulations [CFR] section numbers and language that are identical to those of
-    the HHS codification at 45 CFR part 46, subpart A. For all participating departments
-    and agencies the Common Rule outlines the basic provisions for IRBs, informed
-    consent, and Assurances of Compliance. Human subject research conducted or supported
-    by each federal department/agency is governed by the regulations of that department/agency.
+  purpose_detail: "The Federal Policy for the Protection of Human Subjects or the\
+    \ \u201CCommon Rule\u201D was published in 1991 and codified in separate regulations\
+    \ by 15 Federal departments and agencies, as listed below. The HHS regulations,\
+    \ 45 CFR part 46, include four subparts - subpart A, also known as the Federal\
+    \ Policy or the \u201CCommon Rule\u201D; subpart B, additional protections for\
+    \ pregnant women, human fetuses, and neonates; subpart C, additional protections\
+    \ for prisoners; and subpart D, additional protections for children. Each agency\
+    \ includes in its chapter of the Code of Federal Regulations [CFR] section numbers\
+    \ and language that are identical to those of the HHS codification at 45 CFR part\
+    \ 46, subpart A. For all participating departments and agencies the Common Rule\
+    \ outlines the basic provisions for IRBs, informed consent, and Assurances of\
+    \ Compliance. Human subject research conducted or supported by each federal department/agency\
+    \ is governed by the regulations of that department/agency."
   requires_registration: false
   url: https://www.hhs.gov/ohrp/regulations-and-policy/regulations/common-rule/index.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:113
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -2536,15 +2593,16 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   is_open: true
   name: CDMH
-  purpose_detail: The Common Data Models Harmonization (CDMH) FHIR Implementation
-    Guide (IG) will focus on mapping and translating observational data extracted
-    for Patient Centered Outcome Research (PCOR) and other purposes into FHIR format.
-    Data is extracted from the different networks each of which may use a different
-    data model for their data representation. The project focuses on the Common Data
-    Models (CDMs) from the following four networks:Patient Centered Outcome Research
-    Network (PCORNet), Informatics for Integrating Biology and Bedside (i2b2) Accrual
-    to Clinical Trials (ACT), also known as i2b2/ACT., Observational Medical Outcomes
-    Partnership (OMOP), and Food and Drug Administration’s Sentinel
+  purpose_detail: "The Common Data Models Harmonization (CDMH) FHIR Implementation\
+    \ Guide (IG) will focus on mapping and translating observational data extracted\
+    \ for Patient Centered Outcome Research (PCOR) and other purposes into FHIR format.\
+    \ Data is extracted from the different networks each of which may use a different\
+    \ data model for their data representation. The project focuses on the Common\
+    \ Data Models (CDMs) from the following four networks:Patient Centered Outcome\
+    \ Research Network (PCORNet), Informatics for Integrating Biology and Bedside\
+    \ (i2b2) Accrual to Clinical Trials (ACT), also known as i2b2/ACT., Observational\
+    \ Medical Outcomes Partnership (OMOP), and Food and Drug Administration\u2019\
+    s Sentinel"
   related_to:
   - B2AI_STANDARD:109
   requires_registration: false
@@ -2608,6 +2666,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:40
   url: https://www.hl7.org/fhir/provenance.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:116
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -2631,6 +2691,8 @@ data_standardortools_collection:
   - B2AI_ORG:40
   url: http://hl7.org/fhir/codesystem.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:117
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -2678,6 +2740,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:40
   url: http://hl7.org/fhir/namingsystem.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:119
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -2700,6 +2764,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:40
   url: http://hl7.org/fhir/terminologycapabilities.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:120
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -2722,6 +2788,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:40
   url: http://hl7.org/fhir/valueset.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:121
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3290,12 +3358,13 @@ data_standardortools_collection:
   - B2AI_ORG:39
   is_open: true
   name: HIPAA
-  purpose_detail: The Health Insurance Portability and Accountability Act of 1996
-    (HIPAA) is a federal law that required the creation of national standards to protect
-    sensitive patient health information from being disclosed without the patient’s
-    consent or knowledge. The US Department of Health and Human Services (HHS) issued
-    the HIPAA Privacy Rule to implement the requirements of HIPAA. The HIPAA Security
-    Rule protects a subset of information covered by the Privacy Rule.
+  purpose_detail: "The Health Insurance Portability and Accountability Act of 1996\
+    \ (HIPAA) is a federal law that required the creation of national standards to\
+    \ protect sensitive patient health information from being disclosed without the\
+    \ patient\u2019s consent or knowledge. The US Department of Health and Human Services\
+    \ (HHS) issued the HIPAA Privacy Rule to implement the requirements of HIPAA.\
+    \ The HIPAA Security Rule protects a subset of information covered by the Privacy\
+    \ Rule."
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:39
@@ -3370,6 +3439,8 @@ data_standardortools_collection:
     reporting.
   requires_registration: false
   url: https://bioinformatics.bethematchclinical.org/hla-resources/hml/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:151
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -3398,6 +3469,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:40
   url: http://www.hl7.org/implement/standards/product_brief.cfm?product_id=372
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:152
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -3672,6 +3745,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:46
   url: https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_Rad_Suppl_CDS-OAT.pdf
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:164
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -3689,6 +3764,8 @@ data_standardortools_collection:
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:46
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:165
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -3699,13 +3776,15 @@ data_standardortools_collection:
   - B2AI_ORG:46
   is_open: true
   name: IHE XCPD
-  purpose_detail: Standardized means to locate communities that hold patient relevant
-    health data and the translation of patient identifiers across communities holding
-    the same patient’s data.
+  purpose_detail: "Standardized means to locate communities that hold patient relevant\
+    \ health data and the translation of patient identifiers across communities holding\
+    \ the same patient\u2019s data."
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:46
   url: https://profiles.ihe.net/ITI/TF/Volume1/ch-27.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:166
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -3723,6 +3802,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:46
   url: https://profiles.ihe.net/ITI/index.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:167
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -3740,6 +3821,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:46
   url: https://www.ihe.net/resources/technical_frameworks/#PaLM
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:168
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -3755,6 +3838,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:46
   url: https://wiki.ihe.net/index.php?title=PCD_Profiles
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:169
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -3765,14 +3850,16 @@ data_standardortools_collection:
   - B2AI_ORG:46
   is_open: true
   name: IHE PDQ
-  purpose_detail: Standardized ways for multiple distributed applications to query
-    a patient information server for a list of patients, based on user-defined search
-    criteria, and retrieve a patient’s demographic (and, optionally, visit or visit-related)
-    information directly into the application.
+  purpose_detail: "Standardized ways for multiple distributed applications to query\
+    \ a patient information server for a list of patients, based on user-defined search\
+    \ criteria, and retrieve a patient\u2019s demographic (and, optionally, visit\
+    \ or visit-related) information directly into the application."
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:46
   url: https://profiles.ihe.net/ITI/TF/Volume1/ch-8.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:170
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -3809,6 +3896,8 @@ data_standardortools_collection:
     of LOINC codes for vendor IVD test results.
   requires_registration: false
   url: https://ivdconnectivity.org/livd/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:172
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4005,6 +4094,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:50
   url: https://www.itu.int/en/ITU-T/studygroups/2013-2016/16/Pages/rm/ehealth.aspx
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:182
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4052,6 +4143,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:782
   requires_registration: false
   url: https://khmer.readthedocs.io/en/v2.0/dev/binary-file-formats.html#countgraph
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:184
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4065,12 +4158,12 @@ data_standardortools_collection:
   is_open: true
   name: KPS
   publication: doi:10.1200/JCO.1984.2.3.187
-  purpose_detail: A standard way of measuring the ability of cancer patients to perform
-    ordinary tasks. The Karnofsky Performance Status scores range from 0 to 100. A
-    higher score means the patient is better able to carry out daily activities. Karnofsky
-    Performance Status may be used to determine a patient's prognosis, to measure
-    changes in a patient’s ability to function, or to decide if a patient could be
-    included in a clinical trial. Also called KPS.
+  purpose_detail: "A standard way of measuring the ability of cancer patients to perform\
+    \ ordinary tasks. The Karnofsky Performance Status scores range from 0 to 100.\
+    \ A higher score means the patient is better able to carry out daily activities.\
+    \ Karnofsky Performance Status may be used to determine a patient's prognosis,\
+    \ to measure changes in a patient\u2019s ability to function, or to decide if\
+    \ a patient could be included in a clinical trial. Also called KPS."
   requires_registration: false
   url: http://www.npcrc.org/files/news/karnofsky_performance_scale.pdf
 - id: B2AI_STANDARD:185
@@ -4482,6 +4575,8 @@ data_standardortools_collection:
   purpose_detail: This is a reporting guideline for self-monitoring and quantified-self
     experiments and their use for research purposes.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:205
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4498,6 +4593,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:19
   url: http://co.mbine.org/standards/miriam
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:206
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4583,6 +4680,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:38
   url: https://genomicsstandardsconsortium.github.io/mixs/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:210
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4602,6 +4701,8 @@ data_standardortools_collection:
     http://cropnet.pl/phenotypes
   requires_registration: false
   url: https://www.miappe.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:211
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4659,6 +4760,8 @@ data_standardortools_collection:
     aim is to facilitate the reuse of bio-resources and associated data by harmonizing
     biobanking and biomedical research.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:214
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4717,6 +4820,8 @@ data_standardortools_collection:
     platform (open source code available at https://github.com/mlhim/SemanticMedWeb)
   requires_registration: false
   url: https://mlhim-specifications.readthedocs.io/en/master/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:217
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4897,6 +5002,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:71
   url: https://evs.nci.nih.gov/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:225
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -4911,6 +5018,8 @@ data_standardortools_collection:
     services (EMS) operations and patient care data.
   requires_registration: false
   url: https://nemsis.org/technical-resources/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:226
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -5005,6 +5114,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:63
   url: https://standards.ncpdp.org/Access-to-Standards.aspx
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:230
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5041,6 +5152,8 @@ data_standardortools_collection:
     data.
   requires_registration: false
   url: https://www.nwb.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:232
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5107,6 +5220,8 @@ data_standardortools_collection:
     that will allow for greater simulator interoperability and model exchange.
   requires_registration: false
   url: https://neuroml.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:235
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5243,18 +5358,18 @@ data_standardortools_collection:
   - B2AI_ORG:21
   is_open: true
   name: nmrML
-  purpose_detail: nmrML is an open mark-up language for NMR data. It is currently
-    under heavy development and is not yet ready for public use. The development of
-    this standard is coordinated by Workpackage 2 of the COSMOS - COordination Of
-    Standards In MetabOlomicS Project. COSMOS is a global effort to enable free and
-    open sharing of metabolomics data. Coordinated by Dr Christoph Steinbeck of the
-    EMBL-European Bioinformatics Institute, COSMOS brings together European data providers
-    to set and promote community standards that will make it easier to disseminate
-    metabolomics data through life science e-infrastructures. This Coordination Action
-    has been financed with €2 million by the European Commission's Seventh Framework
-    Programme. The nmrML data standard will be approved by the Metabolomics Standards
-    Initiative and was derived from an earlier nmrML that was developed by the Metabolomics
-    Innovation Centre (TMIC).
+  purpose_detail: "nmrML is an open mark-up language for NMR data. It is currently\
+    \ under heavy development and is not yet ready for public use. The development\
+    \ of this standard is coordinated by Workpackage 2 of the COSMOS - COordination\
+    \ Of Standards In MetabOlomicS Project. COSMOS is a global effort to enable free\
+    \ and open sharing of metabolomics data. Coordinated by Dr Christoph Steinbeck\
+    \ of the EMBL-European Bioinformatics Institute, COSMOS brings together European\
+    \ data providers to set and promote community standards that will make it easier\
+    \ to disseminate metabolomics data through life science e-infrastructures. This\
+    \ Coordination Action has been financed with \u20AC2 million by the European Commission's\
+    \ Seventh Framework Programme. The nmrML data standard will be approved by the\
+    \ Metabolomics Standards Initiative and was derived from an earlier nmrML that\
+    \ was developed by the Metabolomics Innovation Centre (TMIC)."
   requires_registration: false
   url: https://nmrml.org/
 - id: B2AI_STANDARD:242
@@ -5537,6 +5652,8 @@ data_standardortools_collection:
     process and feedback to the authors.
   requires_registration: false
   url: https://www.ucl.ac.uk/antimicrobial-resistance/reporting-guidelines/orion-statement-consort-equivalent-infection-control-intervention-studies
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:254
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -5630,6 +5747,8 @@ data_standardortools_collection:
     Version 2.1, 2014)
   requires_registration: false
   url: https://knowledgerepository.syndromicsurveillance.org/hl7-version-251-phin-messaging-guide-syndromic-surveillance-emergency-department-urgent-care-and
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:258
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5730,6 +5849,8 @@ data_standardortools_collection:
     review.
   requires_registration: false
   url: https://www.prisma-statement.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:263
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5816,19 +5937,19 @@ data_standardortools_collection:
   - B2AI_ORG:41
   is_open: true
   name: PSI-MI XML
-  purpose_detail: The PSI-MI XML 2.5 is a community standard for molecular interactions
-    which has been jointly developed by major data providers (BIND, CellZome, DIP,
-    GSK, HPRD, Hybrigenics, IntAct, MINT, MIPS, Serono, U. Bielefeld, U. Bordeaux,
-    U. Cambridge, and others).This format is stable and used for several years now
-    - published in October 2007 (Broadening the Horizon Ð Level 2.5 of the HUPO-PSI
-    Format for Molecular Interactions; Samuel Kerrien et al. BioMed Central. 2007.),
-    it has been adapted for many different usages. It can be used for storing any
-    kind of molecular interaction data - complexes and binary interactions not only
-    protein-protein interactions, can describe nucleic acids interactions and others
-    hierarchical complexes modelling by using interactionRef in participants instead
-    of an interactor Data representation in PSI-MI 2.5 XML relies heavily on the use
-    of controlled vocabularies. They can be accessed easily via the Ontology Lookup
-    Service, PSI-MI, PSI-MOD.
+  purpose_detail: "The PSI-MI XML 2.5 is a community standard for molecular interactions\
+    \ which has been jointly developed by major data providers (BIND, CellZome, DIP,\
+    \ GSK, HPRD, Hybrigenics, IntAct, MINT, MIPS, Serono, U. Bielefeld, U. Bordeaux,\
+    \ U. Cambridge, and others).This format is stable and used for several years now\
+    \ - published in October 2007 (Broadening the Horizon \xD0 Level 2.5 of the HUPO-PSI\
+    \ Format for Molecular Interactions; Samuel Kerrien et al. BioMed Central. 2007.),\
+    \ it has been adapted for many different usages. It can be used for storing any\
+    \ kind of molecular interaction data - complexes and binary interactions not only\
+    \ protein-protein interactions, can describe nucleic acids interactions and others\
+    \ hierarchical complexes modelling by using interactionRef in participants instead\
+    \ of an interactor Data representation in PSI-MI 2.5 XML relies heavily on the\
+    \ use of controlled vocabularies. They can be accessed easily via the Ontology\
+    \ Lookup Service, PSI-MI, PSI-MOD."
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:41
@@ -5919,6 +6040,8 @@ data_standardortools_collection:
     the current definitive version of the REFLECT Statement.
   requires_registration: false
   url: https://meridian.cvm.iastate.edu/reflect/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:270
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5955,6 +6078,8 @@ data_standardortools_collection:
     understand the context in which the conclusions apply.
   requires_registration: false
   url: https://www.equator-network.org/reporting-guidelines/reporting-recommendations-for-tumour-marker-prognostic-studies-remark/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:271
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -6007,6 +6132,10 @@ data_standardortools_collection:
     format consisting of a header section, which is optional, and an alignment section.
   requires_registration: false
   url: http://samtools.sourceforge.net/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  responsible_organization:
+  - B2AI_ORG:34
 - id: B2AI_STANDARD:274
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6171,6 +6300,8 @@ data_standardortools_collection:
     of the study and the flow of patients.
   requires_registration: false
   url: https://www.equator-network.org/reporting-guidelines/stard/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:282
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6216,6 +6347,8 @@ data_standardortools_collection:
     reporting, regardless of choices made during design, conduct, or analysis.
   requires_registration: false
   url: https://www.equator-network.org/reporting-guidelines/strobe-strega/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:284
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6251,6 +6384,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:91
   url: https://www.strobe-statement.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:285
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6444,6 +6579,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:93
   url: http://www.tdwg.org/standards/147
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:294
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6486,6 +6623,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:12
   url: https://www.cdc.gov/trendstatement/index.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:296
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -6503,6 +6642,8 @@ data_standardortools_collection:
     enterprises. TIM+ will determine the availability or presence of trusted endpoints
     and support text-based communication and file transfers.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:297
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6564,6 +6705,8 @@ data_standardortools_collection:
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Variant_Call_Format
   used_in_bridge2ai: true
+  responsible_organization:
+  - B2AI_ORG:34
 - id: B2AI_STANDARD:300
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6580,6 +6723,10 @@ data_standardortools_collection:
     Predictor tool.
   requires_registration: false
   url: https://useast.ensembl.org/info/docs/tools/vep/vep_formats.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  responsible_organization:
+  - B2AI_ORG:124
 - id: B2AI_STANDARD:301
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6600,6 +6747,8 @@ data_standardortools_collection:
   - B2AI_ORG:34
   url: https://vrs.ga4gh.org/en/latest/index.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:302
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6653,6 +6802,8 @@ data_standardortools_collection:
     for shepherding those changes through the process.
   requires_registration: false
   url: https://www.tdwg.org/standards/vms/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:304
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6697,6 +6848,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:99
   url: https://www.w3.org/TR/hcls-dataset/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:306
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6906,8 +7059,9 @@ data_standardortools_collection:
   formal_specification: https://github.com/capnproto/capnproto
   is_open: true
   name: Cap'n'Proto
-  purpose_detail: Cap’n Proto is an insanely fast data interchange format and capability-based
-    RPC system. Think JSON, except binary. Or think Protocol Buffers, except faster.
+  purpose_detail: "Cap\u2019n Proto is an insanely fast data interchange format and\
+    \ capability-based RPC system. Think JSON, except binary. Or think Protocol Buffers,\
+    \ except faster."
   requires_registration: false
   url: https://capnproto.org/
 - id: B2AI_STANDARD:318
@@ -6961,6 +7115,8 @@ data_standardortools_collection:
   purpose_detail: specification for describing data analysis workflows and tools
   requires_registration: false
   url: https://www.commonwl.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:321
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -7022,12 +7178,12 @@ data_standardortools_collection:
   formal_specification: https://schema.datacite.org/meta/kernel-4.3/metadata.xsd
   is_open: true
   name: DataCite
-  purpose_detail: The DataCite Metadata Schema is a list of core metadata properties
-    chosen for the accurate and consistent identification of a resource for citation
-    and retrieval purposes, along with recommended use instructions. The resource
-    that is being identified can be of any kind, but it is typically a dataset. We
-    use the term ‘dataset’ in its broadest sense. We mean it to include not only numerical
-    data, but any other research data outputs.
+  purpose_detail: "The DataCite Metadata Schema is a list of core metadata properties\
+    \ chosen for the accurate and consistent identification of a resource for citation\
+    \ and retrieval purposes, along with recommended use instructions. The resource\
+    \ that is being identified can be of any kind, but it is typically a dataset.\
+    \ We use the term \u2018dataset\u2019 in its broadest sense. We mean it to include\
+    \ not only numerical data, but any other research data outputs."
   requires_registration: false
   url: https://schema.datacite.org/
 - id: B2AI_STANDARD:325
@@ -7359,12 +7515,12 @@ data_standardortools_collection:
   - B2AI_ORG:49
   is_open: true
   name: ISO 3166
-  purpose_detail: The purpose of ISO 3166 is to define internationally recognized
-    codes of letters and/or numbers that we can use when we refer to countries and
-    their subdivisions. However, it does not define the names of countries – this
-    information comes from United Nations sources (Terminology Bulletin Country Names
-    and the Country and Region Codes for Statistical Use maintained by the United
-    Nations Statistics Divisions).
+  purpose_detail: "The purpose of ISO 3166 is to define internationally recognized\
+    \ codes of letters and/or numbers that we can use when we refer to countries and\
+    \ their subdivisions. However, it does not define the names of countries \u2013\
+    \ this information comes from United Nations sources (Terminology Bulletin Country\
+    \ Names and the Country and Region Codes for Statistical Use maintained by the\
+    \ United Nations Statistics Divisions)."
   requires_registration: false
   url: https://www.iso.org/iso-3166-country-codes.html
 - id: B2AI_STANDARD:343
@@ -7381,6 +7537,8 @@ data_standardortools_collection:
     understandable to both people and machines.
   requires_registration: false
   url: https://www.iso.org/iso-8601-date-and-time-format.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:344
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -7824,10 +7982,10 @@ data_standardortools_collection:
   formal_specification: https://github.com/python/cpython/blob/3.8/Lib/pickle.py
   is_open: true
   name: pickle
-  purpose_detail: Serialization format for a Python object structure. “Pickling” is
-    the process whereby a Python object hierarchy is converted into a byte stream,
-    and “unpickling” is the inverse operation, whereby a byte stream (from a binary
-    file or bytes-like object) is converted back into an object hierarchy.
+  purpose_detail: "Serialization format for a Python object structure. \u201CPickling\u201D\
+    \ is the process whereby a Python object hierarchy is converted into a byte stream,\
+    \ and \u201Cunpickling\u201D is the inverse operation, whereby a byte stream (from\
+    \ a binary file or bytes-like object) is converted back into an object hierarchy."
   requires_registration: false
   url: https://docs.python.org/3.8/library/pickle.html
 - id: B2AI_STANDARD:368
@@ -8396,7 +8554,7 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Hugging Face 🤗 Models
+  description: "Hugging Face \U0001F917 Models"
   formal_specification: https://github.com/huggingface/huggingface_hub
   is_open: true
   name: HF Models
@@ -8510,6 +8668,8 @@ data_standardortools_collection:
   publication: doi:10.1093/nar/gkz935
   purpose_detail: Antibiotic resistance genes and mutations
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:406
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8524,6 +8684,8 @@ data_standardortools_collection:
   purpose_detail: Terms and relations for interoperation between epidemic models and
     public health application software.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:407
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8571,6 +8733,8 @@ data_standardortools_collection:
   purpose_detail: Biodiversity data, including data on museum collections and environmental/metagenomic
     samples.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:410
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8603,6 +8767,8 @@ data_standardortools_collection:
   purpose_detail: Spatial concepts, anatomical axes, gradients, regions, planes, sides,
     and surfaces.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:412
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8619,6 +8785,8 @@ data_standardortools_collection:
     tissues, cell lines, cell types and cell cultures.
   requires_registration: false
   url: http://www.brenda-enzymes.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:413
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8633,6 +8801,8 @@ data_standardortools_collection:
   publication: doi:10.1186/1471-2105-12-32
   purpose_detail: A structured controlled vocabulary of Caenorhabditis elegans phenotypes.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:414
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8664,6 +8834,8 @@ data_standardortools_collection:
     reasoning.
   requires_registration: false
   url: https://github.com/CLO-Ontology/CLO
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:416
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8679,6 +8851,8 @@ data_standardortools_collection:
   purpose_detail: Cell Types
   requires_registration: false
   url: https://cell-ontology.github.io/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:417
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8797,6 +8971,8 @@ data_standardortools_collection:
   purpose_detail: Code set for active and inactive vaccines available in the US.
   requires_registration: false
   url: https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:424
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8811,6 +8987,8 @@ data_standardortools_collection:
   purpose_detail: An upper level ontology to facilitate interoperability between existing
     anatomy ontologies for different species.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:425
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -8844,6 +9022,8 @@ data_standardortools_collection:
   purpose_detail: A formalization of concepts and relations relevant to evolutionary
     comparative analysis.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:427
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8860,6 +9040,8 @@ data_standardortools_collection:
     diet.
   requires_registration: false
   url: https://cdno.info/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:428
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8874,6 +9056,8 @@ data_standardortools_collection:
   publication: doi:10.1093/database/bav043
   purpose_detail: Capture confidence information about annotations.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:429
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8905,6 +9089,8 @@ data_standardortools_collection:
   name: COB
   purpose_detail: Terms from a wide range of OBO projects to improve interoperability.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:431
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8971,6 +9157,8 @@ data_standardortools_collection:
     area of medical devices, experimental scaffolds and biomaterials.
   requires_registration: false
   url: https://bioportal.bioontology.org/ontologies/DEB
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:435
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -8982,14 +9170,14 @@ data_standardortools_collection:
   formal_specification: https://github.com/oeg-upm/devops-infra
   is_open: true
   name: devops-infra
-  purpose_detail: This ontology network aims at representing the main sets of entities
-    and relationships used in the context of DevOps infrastructure. It is the result
-    of a collaboration between Huawei Research Ireland and the Ontology Engineering
-    Group at Universidad Politécnica de Madrid. It originally started from an analysis
-    of the Configuration Management Databases used by Huawei Research Ireland for
-    the management of a large part of its DevOps infrastructure, and has evolved into
-    an ontology that may be used as a starting point for the standardisation of the
-    representation of CMDB-related data across vendors.
+  purpose_detail: "This ontology network aims at representing the main sets of entities\
+    \ and relationships used in the context of DevOps infrastructure. It is the result\
+    \ of a collaboration between Huawei Research Ireland and the Ontology Engineering\
+    \ Group at Universidad Polit\xE9cnica de Madrid. It originally started from an\
+    \ analysis of the Configuration Management Databases used by Huawei Research Ireland\
+    \ for the management of a large part of its DevOps infrastructure, and has evolved\
+    \ into an ontology that may be used as a starting point for the standardisation\
+    \ of the representation of CMDB-related data across vendors."
   requires_registration: false
   url: https://oeg-upm.github.io/devops-infra/index.html
 - id: B2AI_STANDARD:436
@@ -9006,6 +9194,8 @@ data_standardortools_collection:
   purpose_detail: Ontology for drivers and triggers of human diseases, built to classify
     ExO ontology exposure stressors. An application ontology.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:437
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9036,14 +9226,14 @@ data_standardortools_collection:
   is_open: true
   name: DTO
   publication: doi:10.1186/s13326-017-0161-x
-  purpose_detail: Drug Target Ontology (DTO) is being developed at the University
-    of Miami in the research group of Stephan Schürer. DTO was developed as part of
-    the Illuminating the Druggable Genome (IDG) project (https://commonfund.nih.gov/idg/overview),
-    is supported by grant (IDG Knowledge Management Center, (U54CA189205). DTO is
-    a novel semantic framework to formalize knowledge about drug targets and is developed
-    as a reference for drug targets with the longer-term goal to create a community
-    standard that will facilitate the integration of diverse drug discovery information
-    from numerous heterogeneous resources.
+  purpose_detail: "Drug Target Ontology (DTO) is being developed at the University\
+    \ of Miami in the research group of Stephan Sch\xFCrer. DTO was developed as part\
+    \ of the Illuminating the Druggable Genome (IDG) project (https://commonfund.nih.gov/idg/overview),\
+    \ is supported by grant (IDG Knowledge Management Center, (U54CA189205). DTO is\
+    \ a novel semantic framework to formalize knowledge about drug targets and is\
+    \ developed as a reference for drug targets with the longer-term goal to create\
+    \ a community standard that will facilitate the integration of diverse drug discovery\
+    \ information from numerous heterogeneous resources."
   requires_registration: false
   url: https://bioportal.bioontology.org/ontologies/DTO
 - id: B2AI_STANDARD:439
@@ -9092,6 +9282,8 @@ data_standardortools_collection:
   purpose_detail: Affective phenomena such as emotions, moods, appraisals and subjective
     feelings.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:442
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9160,6 +9352,8 @@ data_standardortools_collection:
   purpose_detail: An ontology for experimental and other evidence statements.
   requires_registration: false
   url: https://www.evidenceontology.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:446
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9176,6 +9370,8 @@ data_standardortools_collection:
     are made both in the clinic and in studies involving humans or model org...
   requires_registration: false
   url: https://rgd.mcw.edu/rgdweb/ontology/view.html?acc_id=XCO:0000000
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:447
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9236,10 +9432,13 @@ data_standardortools_collection:
   is_open: true
   name: FOODON
   publication: doi:10.1038/s41538-018-0032-6
-  purpose_detail: A broadly scoped ontology representing entities which bear a “food
-    role”. It encompasses materials in natural ecosystems and agriculture tha...
+  purpose_detail: "A broadly scoped ontology representing entities which bear a \u201C\
+    food role\u201D. It encompasses materials in natural ecosystems and agriculture\
+    \ tha..."
   requires_registration: false
   url: https://foodon.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:451
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9254,6 +9453,8 @@ data_standardortools_collection:
   publication: doi:10.1093/bioinformatics/btab626
   purpose_detail: Represent food intake data and associate it with metabolomic data
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:452
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9322,6 +9523,8 @@ data_standardortools_collection:
     pathogens.
   requires_registration: false
   url: http://genepio.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:456
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9353,6 +9556,8 @@ data_standardortools_collection:
   name: GENO
   purpose_detail: Genotypes
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:458
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9386,6 +9591,8 @@ data_standardortools_collection:
     and diagnostic devices.
   requires_registration: true
   url: https://www.gmdnagency.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:460
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9402,6 +9609,8 @@ data_standardortools_collection:
     degrees of characterization, including compositions (no linkage).
   requires_registration: false
   url: https://gnome.glyomics.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:461
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9418,6 +9627,8 @@ data_standardortools_collection:
   purpose_detail: Surveillance system level data.
   requires_registration: false
   url: https://w3id.org/hso
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:462
   category: B2AI_STANDARD:OntologyOrVocabulary
   contributor_github_name: caufieldjh
@@ -9431,6 +9642,8 @@ data_standardortools_collection:
   purpose_detail: An index to the HL7-supported Code Systems.
   requires_registration: false
   url: https://www.hl7.org/documentcenter/public/standards/vocabulary/vocabulary_tables/infrastructure/vocabulary/vocabulary.html#voc-systems
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:463
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9446,6 +9659,8 @@ data_standardortools_collection:
   purpose_detail: Concepts related to homology, as well as other concepts used to
     describe similarity and non-homology.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:464
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -9481,6 +9696,8 @@ data_standardortools_collection:
   purpose_detail: A systematic description of the ancestry concepts used in the NHGRI-EBI
     Catalog
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:466
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9495,6 +9712,8 @@ data_standardortools_collection:
   purpose_detail: Life cycle stages for Human.
   requires_registration: false
   url: https://github.com/obophenotype/developmental-stage-ontologies/wiki/HsapDv
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:467
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9623,6 +9842,8 @@ data_standardortools_collection:
     integrative and conjugative elements (ICEs).
   requires_registration: false
   url: http://db-mml.sjtu.edu.cn/ICEberg/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:475
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9656,6 +9877,8 @@ data_standardortools_collection:
   publication: doi:10.1186/2041-1480-6-2
   purpose_detail: An ontology of interactions and interaction networks.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:477
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -9684,6 +9907,8 @@ data_standardortools_collection:
   purpose_detail: Algorithms for simulating biology, their parameters, and their outputs.
   requires_registration: false
   url: http://co.mbine.org/standards/kisao
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:479
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9714,6 +9939,8 @@ data_standardortools_collection:
     US.
   requires_registration: false
   url: https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=mvx
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:481
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -9748,6 +9975,8 @@ data_standardortools_collection:
     and phenotype measurements.
   requires_registration: false
   url: https://rgd.mcw.edu/rgdweb/ontology/view.html?acc_id=MMO:0000000
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:483
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9762,6 +9991,8 @@ data_standardortools_collection:
   purpose_detail: Life cycle stages for Medaka
   requires_registration: false
   url: https://github.com/obophenotype/developmental-stage-ontologies/wiki/OlatDv
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:484
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9828,6 +10059,8 @@ data_standardortools_collection:
   name: MF
   purpose_detail: All aspects of mental functioning.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:488
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -9856,6 +10089,8 @@ data_standardortools_collection:
   name: MRO
   purpose_detail: Major Histocompatibility Complex (MHC) restriction in experiments.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:490
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9872,6 +10107,8 @@ data_standardortools_collection:
     data.
   requires_registration: false
   url: https://www.evoio.org/wiki/MIAPA
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:491
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9885,6 +10122,8 @@ data_standardortools_collection:
   name: MPIO
   purpose_detail: Minimum information regarding potential drug-drug interaction information.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:492
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9936,6 +10175,8 @@ data_standardortools_collection:
   purpose_detail: Processes at the molecular level
   requires_registration: false
   url: https://www.ebi.ac.uk/ols/ontologies/mop
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:495
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9969,6 +10210,8 @@ data_standardortools_collection:
   purpose_detail: Mouse anatomy covering embryonic development and postnatal stages.
   requires_registration: false
   url: http://www.informatics.jax.org/expression.shtml
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:497
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -9984,6 +10227,8 @@ data_standardortools_collection:
     pathology phenotypes.
   requires_registration: false
   url: http://www.pathbase.net/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:498
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10032,6 +10277,8 @@ data_standardortools_collection:
   purpose_detail: An ontology representation of the NCBI organismal taxonomy.
   requires_registration: false
   url: http://www.ncbi.nlm.nih.gov/taxonomy
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:501
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10048,6 +10295,8 @@ data_standardortools_collection:
   purpose_detail: A reference terminology that includes broad coverage of the cancer
     domain, including cancer related diseases.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:502
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10061,6 +10310,8 @@ data_standardortools_collection:
   name: NBO
   purpose_detail: Human and animal behaviours and behavioural phenotypes
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:503
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -10090,6 +10341,8 @@ data_standardortools_collection:
   purpose_detail: A nomenclatural ontology for biological names (not concepts). It
     encodes the goverened rules of nomenclature.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:505
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10118,6 +10371,8 @@ data_standardortools_collection:
   purpose_detail: Terms for nutrition assessment, diagnosis, intervention, and monitoring/evaluation.
   requires_registration: true
   url: https://www.ncpro.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:507
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10147,6 +10402,8 @@ data_standardortools_collection:
   purpose_detail: A structured controlled vocabulary to provide a representation of
     the data from electronic health records involved in the care of pregnancy.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:509
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10161,6 +10418,8 @@ data_standardortools_collection:
   purpose_detail: Vocabulary for the description of the most widely-used computational
     approach for studying digital evolution.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:510
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10174,6 +10433,8 @@ data_standardortools_collection:
   name: OBIB
   purpose_detail: Annotation and modeling of biobank repository and biobanking administration.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:511
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10189,6 +10450,8 @@ data_standardortools_collection:
   purpose_detail: Description of life-science and clinical investigations.
   requires_registration: false
   url: http://obi-ontology.org
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:512
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10220,6 +10483,8 @@ data_standardortools_collection:
   purpose_detail: Data exchange standards and common data elements in the microRNA
     (miR) domain.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:514
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10234,6 +10499,8 @@ data_standardortools_collection:
   publication: doi:10.3390/nu11061300
   purpose_detail: Research output of nutritional epidemiologic studies.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:515
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10248,6 +10515,8 @@ data_standardortools_collection:
   publication: doi:10.1186/s12263-018-0601-y
   purpose_detail: Description of concepts in the nutritional studies domain.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:516
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10277,6 +10546,8 @@ data_standardortools_collection:
   name: OBCS
   purpose_detail: Biological and clinical statistics.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:518
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10292,6 +10563,8 @@ data_standardortools_collection:
     of life.
   requires_registration: false
   url: https://wiki.geneontology.org/index.php/Extensions/x-attribute
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:519
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10306,6 +10579,8 @@ data_standardortools_collection:
   purpose_detail: An application ontology to represent genetic susceptibility to a
     specific disease, adverse event, or a pathological process.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:520
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10320,6 +10595,8 @@ data_standardortools_collection:
   publication: doi:10.1093/nar/gky999
   purpose_detail: Host-pathogen interactions and virulence factors.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:521
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10335,6 +10612,8 @@ data_standardortools_collection:
     (e.g., human and mouse), and the interactions between the hosts and microbiomes
     at different conditions.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:522
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10351,6 +10630,8 @@ data_standardortools_collection:
     to health care, such as demographic information and the roles of various...
   requires_registration: false
   url: https://github.com/ufbmi/OMRSE/wiki/OMRSE-Overview
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:523
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10367,6 +10648,8 @@ data_standardortools_collection:
   name: OOSTT
   purpose_detail: Organizational components of trauma centers and trauma systems.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:524
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10381,6 +10664,8 @@ data_standardortools_collection:
   purpose_detail: Entities and relations associated with precision medicine and related
     investigations at different conditions.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:525
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10462,6 +10747,8 @@ data_standardortools_collection:
   publication: doi:10.1093/nar/gkab1037
   purpose_detail: Species-neutral phenotypes observed in pathogen-host interactions.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:530
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10559,6 +10846,8 @@ data_standardortools_collection:
   name: PCO
   purpose_detail: Groups of interacting organisms such as populations and communities.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:536
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10673,6 +10962,8 @@ data_standardortools_collection:
   purpose_detail: Ontology of rat strains.
   requires_registration: false
   url: http://rgd.mcw.edu/rgdweb/search/strains.html
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:543
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10721,6 +11012,8 @@ data_standardortools_collection:
   name: SEPIO
   purpose_detail: Provenance of scientific claims and the evidence that supports them.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:546
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -10755,6 +11048,8 @@ data_standardortools_collection:
     the exchange of annotation data and for the description of sequence objects.
   requires_registration: false
   url: http://www.sequenceontology.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:548
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10769,6 +11064,8 @@ data_standardortools_collection:
   purpose_detail: Sickle Cell Disease terminology.
   requires_registration: false
   url: https://scdontology.h3abionet.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:549
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10784,6 +11081,8 @@ data_standardortools_collection:
   purpose_detail: Software tools, their types, tasks, versions, provenance and associated
     data.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:550
   category: B2AI_STANDARD:OntologyOrVocabulary
   contributor_github_name: caufieldjh
@@ -10802,6 +11101,8 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:3
   url: https://commerce.ama-assn.org/catalog/media/Consumer-and-Clinician-Descriptors-in-CPT-Data-Files.pdf
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:551
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10836,6 +11137,8 @@ data_standardortools_collection:
     function, sensations or appearance reported by a patient.
   requires_registration: false
   url: http://symptomontologywiki.igs.umaryland.edu/mediawiki/index.php/Main_Page
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:553
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10869,6 +11172,8 @@ data_standardortools_collection:
   purpose_detail: SNOMED, not SNOMED-CT
   requires_registration: false
   url: https://bioportal.bioontology.org/ontologies/SNMI
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:555
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -11002,6 +11307,8 @@ data_standardortools_collection:
   purpose_detail: Terms involving toxicity courses and processes.
   requires_registration: false
   url: https://toxpilot.nibiohn.go.jp/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:563
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -11017,6 +11324,8 @@ data_standardortools_collection:
   purpose_detail: Anatomy
   requires_registration: false
   url: https://obophenotype.github.io/uberon/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:564
   category: B2AI_STANDARD:OntologyOrVocabulary
   contributor_github_name: caufieldjh
@@ -11032,6 +11341,8 @@ data_standardortools_collection:
   requires_registration: true
   url: https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/index.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:565
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -11114,6 +11425,8 @@ data_standardortools_collection:
   publication: doi:10.1186/2041-1480-3-17
   purpose_detail: Vaccine and vaccination ontology.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:570
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -11129,6 +11442,8 @@ data_standardortools_collection:
   name: VBO
   purpose_detail: Vertebrate breed names.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:571
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -11142,6 +11457,8 @@ data_standardortools_collection:
   name: VTO
   purpose_detail: Extinct and extant vertebrate taxa.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:572
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -11172,6 +11489,8 @@ data_standardortools_collection:
   purpose_detail: Support ontology for the Eukaryotic Pathogen, Host & Vector Genomics
     Resource (VEuPathDB; https://veupathdb.org).
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:574
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -11251,7 +11570,7 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:50
   is_open: true
-  name: ITU–T E.123
+  name: "ITU\u2013T E.123"
   purpose_detail: Standard notation for printing telephone numbers, E-mail addresses
     and Web addresses.
   requires_registration: false
@@ -11268,7 +11587,7 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:50
   is_open: true
-  name: ITU–T E.164
+  name: "ITU\u2013T E.164"
   purpose_detail: Number structure and functionality for the five categories of numbers
     used for international public telecommunication - geographic areas, global services,
     Networks, groups of countries (GoC) and resources for trials.
@@ -11607,12 +11926,12 @@ data_standardortools_collection:
   is_open: true
   name: dbCRID
   publication: doi:10.1093/nar/gkq1038
-  purpose_detail: Database of human chromosomal rearrangement (CR) events and their
-    associated diseases. For each reported CR event, dbCRID documents the type of
-    the event, the disease or symptoms associated, and—when possible—detailed information
-    about the CR event including precise breakpoint positions, junction sequences,
-    genes and gene regions disrupted and experimental techniques applied to discover/analyze
-    the CR event.
+  purpose_detail: "Database of human chromosomal rearrangement (CR) events and their\
+    \ associated diseases. For each reported CR event, dbCRID documents the type of\
+    \ the event, the disease or symptoms associated, and\u2014when possible\u2014\
+    detailed information about the CR event including precise breakpoint positions,\
+    \ junction sequences, genes and gene regions disrupted and experimental techniques\
+    \ applied to discover/analyze the CR event."
   requires_registration: false
   url: https://web.archive.org/web/20180902234150/http://dbcrid.biolead.org/
 - id: B2AI_STANDARD:600
@@ -11669,17 +11988,17 @@ data_standardortools_collection:
   is_open: true
   name: DeepDRiD
   publication: doi:10.1016/j.patter.2022.100512
-  purpose_detail: In DeepDR (Deep Diabetic Retinopathy), the fundus images composed
-    of two parts. One part is from the participants in the Shanghai Diabetic Complication
-    Screening Project (SDCSP), Nicheng Diabetes Screening Project (NDSP), and Nationwide
-    Screening for Complications of Diabetes (NSCD) between 2014 and 2017 for regular
-    fundus images. The other part was captured by a retinal specialist at an Eye Clinic
-    located in Department of Ophthalmology, Shanghai Jiao Tong University affiliated
-    Sixth People’s Hospital, China between 2014 to 2017 for regular fundus images
-    and between Jan 2019 to present for ultra-widefield retinal images. From the thousands
-    of examinations available, we have extracted 2000 regular fundus images from 500
-    patients and 256 ultra-widefield images from another 128 patients to form our
-    dataset.
+  purpose_detail: "In DeepDR (Deep Diabetic Retinopathy), the fundus images composed\
+    \ of two parts. One part is from the participants in the Shanghai Diabetic Complication\
+    \ Screening Project (SDCSP), Nicheng Diabetes Screening Project (NDSP), and Nationwide\
+    \ Screening for Complications of Diabetes (NSCD) between 2014 and 2017 for regular\
+    \ fundus images. The other part was captured by a retinal specialist at an Eye\
+    \ Clinic located in Department of Ophthalmology, Shanghai Jiao Tong University\
+    \ affiliated Sixth People\u2019s Hospital, China between 2014 to 2017 for regular\
+    \ fundus images and between Jan 2019 to present for ultra-widefield retinal images.\
+    \ From the thousands of examinations available, we have extracted 2000 regular\
+    \ fundus images from 500 patients and 256 ultra-widefield images from another\
+    \ 128 patients to form our dataset."
   requires_registration: false
   url: https://isbi.deepdr.org/data.html
 - id: B2AI_STANDARD:603
@@ -12021,6 +12340,8 @@ data_standardortools_collection:
     largest collection of longitudinal hospital care data in the United States.
   requires_registration: true
   url: https://www.hcup-us.ahrq.gov/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:623
   category: B2AI_STANDARD:ReferenceDataOrDataset
   collection:
@@ -12351,6 +12672,8 @@ data_standardortools_collection:
     2D input slice as training data.
   requires_registration: false
   url: https://microlib.io/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:642
   category: B2AI_STANDARD:ReferenceDataOrDataset
   collection:
@@ -12462,17 +12785,18 @@ data_standardortools_collection:
   is_open: true
   name: MuSIC data
   publication: doi:10.1038/s41586-021-04115-9
-  purpose_detail: Two central approaches for mapping cellular structure – protein
-    fluorescent imaging and protein biophysical association – each generate extensive
-    datasets but of distinct qualities and resolutions that are typically treated
-    separately. The MuSIC map is designed to address this challenge, by integrating
-    immunofluorescent images in the Human Protein Atlas with ongoing affinity purification
-    experiments from the BioPlex resource. The result is a unified hierarchical map
-    of eukaryotic cell architecture. In the MuSIC hierarchy, nodes represent systems
-    and arrows indicate containment of the lower system by the upper. Node color indicates
-    known (gold) or putative novel (purple) systems. The size of each circle is based
-    on the number of proteins in the system. The relative height of each system in
-    the layout is determined based on the predicted diameter of the system in MuSIC.
+  purpose_detail: "Two central approaches for mapping cellular structure \u2013 protein\
+    \ fluorescent imaging and protein biophysical association \u2013 each generate\
+    \ extensive datasets but of distinct qualities and resolutions that are typically\
+    \ treated separately. The MuSIC map is designed to address this challenge, by\
+    \ integrating immunofluorescent images in the Human Protein Atlas with ongoing\
+    \ affinity purification experiments from the BioPlex resource. The result is a\
+    \ unified hierarchical map of eukaryotic cell architecture. In the MuSIC hierarchy,\
+    \ nodes represent systems and arrows indicate containment of the lower system\
+    \ by the upper. Node color indicates known (gold) or putative novel (purple) systems.\
+    \ The size of each circle is based on the number of proteins in the system. The\
+    \ relative height of each system in the layout is determined based on the predicted\
+    \ diameter of the system in MuSIC."
   requires_registration: false
   url: http://doi.org/10.18119/N9188W
 - id: B2AI_STANDARD:648
@@ -12510,6 +12834,8 @@ data_standardortools_collection:
     Health Statistics (NCHS).
   requires_registration: false
   url: https://www.cdc.gov/nchs/nhanes/index.htm
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:650
   category: B2AI_STANDARD:ReferenceDataOrDataset
   concerns_data_topic:
@@ -12668,7 +12994,8 @@ data_standardortools_collection:
   is_open: true
   name: PD database
   publication: doi:10.1109/JBHI.2013.2245674
-  purpose_detail: Recordings from 20 Parkinson’s Disease patients and 20 healthy subjects.
+  purpose_detail: "Recordings from 20 Parkinson\u2019s Disease patients and 20 healthy\
+    \ subjects."
   requires_registration: false
   url: https://archive.ics.uci.edu/ml/datasets/Parkinson+Speech+Dataset+with++Multiple+Types+of+Sound+Recordings
 - id: B2AI_STANDARD:659
@@ -13326,14 +13653,15 @@ data_standardortools_collection:
   is_open: true
   name: Murugan2021
   publication: doi:10.1016/j.jbi.2021.103795
-  purpose_detail: The Electronic Medical Records and Genomics (eMERGE) Network’s Phase
-    III program initially used a commercially developed XML message format for standardized
-    and structured representation of genetic results for electronic health record
-    (EHR) integration. In a desire to move towards a standard representation, the
-    network created a new standardized format based upon Health Level Seven Fast Healthcare
-    Interoperability Resources (HL7® FHIR®), to represent clinical genomics results.
-    These new standards improve the utility of HL7® FHIR® as an international healthcare
-    interoperability standard for management of genetic data from patients.
+  purpose_detail: "The Electronic Medical Records and Genomics (eMERGE) Network\u2019\
+    s Phase III program initially used a commercially developed XML message format\
+    \ for standardized and structured representation of genetic results for electronic\
+    \ health record (EHR) integration. In a desire to move towards a standard representation,\
+    \ the network created a new standardized format based upon Health Level Seven\
+    \ Fast Healthcare Interoperability Resources (HL7\xAE FHIR\xAE), to represent\
+    \ clinical genomics results. These new standards improve the utility of HL7\xAE\
+    \ FHIR\xAE as an international healthcare interoperability standard for management\
+    \ of genetic data from patients."
   related_to:
   - B2AI_STANDARD:109
   requires_registration: false
@@ -13372,16 +13700,16 @@ data_standardortools_collection:
   is_open: true
   name: Bradwell2022
   publication: doi:10.1093/jamia/ocac054
-  purpose_detail: The National COVID Cohort Collaborative (N3C) table of laboratory
-    measurement data—over 3.1 billion patient records and over 19 000 unique measurement
-    concepts in the Observational Medical Outcomes Partnership (OMOP) common-data-model
-    format from 55 data partners. We grouped ontologically similar OMOP concepts together
-    for 52 variables relevant to COVID-19 research, and developed a unit-harmonization
-    pipeline comprised of (1) selecting a canonical unit for each measurement variable,
-    (2) arriving at a formula for conversion, (3) obtaining clinical review of each
-    formula, (4) applying the formula to convert data values in each unit into the
-    target canonical unit, and (5) removing any harmonized value that fell outside
-    of accepted value ranges for the variable.
+  purpose_detail: "The National COVID Cohort Collaborative (N3C) table of laboratory\
+    \ measurement data\u2014over 3.1 billion patient records and over 19 000 unique\
+    \ measurement concepts in the Observational Medical Outcomes Partnership (OMOP)\
+    \ common-data-model format from 55 data partners. We grouped ontologically similar\
+    \ OMOP concepts together for 52 variables relevant to COVID-19 research, and developed\
+    \ a unit-harmonization pipeline comprised of (1) selecting a canonical unit for\
+    \ each measurement variable, (2) arriving at a formula for conversion, (3) obtaining\
+    \ clinical review of each formula, (4) applying the formula to convert data values\
+    \ in each unit into the target canonical unit, and (5) removing any harmonized\
+    \ value that fell outside of accepted value ranges for the variable."
   related_to:
   - B2AI_STANDARD:243
   requires_registration: false
@@ -13406,7 +13734,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:847
   - B2AI_STANDARD:850
   is_open: true
-  name: Bönisch2022
+  name: "B\xF6nisch2022"
   publication: doi:10.1038/s41597-022-01792-7
   purpose_detail: To overcome the hurdle of disparate data sources and repositories
     with heterogeneous data formats a metadata crosswalk was initiated, based on existing
@@ -13509,6 +13837,8 @@ data_standardortools_collection:
     in a recurrent-based architecture, where patient trajectories are processed in
     sub-sequences using a sliding window mechanism.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:701
   category: B2AI_STANDARD:ReferenceImplementation
   collection:
@@ -13554,6 +13884,8 @@ data_standardortools_collection:
     takes the form of a simple and intuitive application. Used CNN can be deployed
     as a STOW-RS prediction endpoint for direct implementation into DICOM viewers.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:703
   category: B2AI_STANDARD:ReferenceImplementation
   concerns_data_topic:
@@ -13681,6 +14013,8 @@ data_standardortools_collection:
     the automated management and implementation of the standards.
   requires_registration: true
   url: https://www.cdisc.org/faq/share/what-cdisc-share
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:710
   category: B2AI_STANDARD:Registry
   concerns_data_topic:
@@ -13786,6 +14120,8 @@ data_standardortools_collection:
     shared across registries within the facility.
   requires_registration: true
   url: https://nrdr.acr.org/Portal/Nrdr/Main/page.aspx
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:716
   category: B2AI_STANDARD:Registry
   collection:
@@ -13861,6 +14197,8 @@ data_standardortools_collection:
     of the models.
   requires_registration: true
   url: https://www.rsna.org/practice-tools/RSNA-ACR-3D-printing-registry
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:720
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -14251,10 +14589,10 @@ data_standardortools_collection:
   formal_specification: https://github.com/celery/celery
   is_open: true
   name: Celery
-  purpose_detail: Celery is a simple, flexible, and reliable distributed system to
-    process vast amounts of messages, while providing operations with the tools required
-    to maintain such a system. It’s a task queue with focus on real-time processing,
-    while also supporting task scheduling.
+  purpose_detail: "Celery is a simple, flexible, and reliable distributed system to\
+    \ process vast amounts of messages, while providing operations with the tools\
+    \ required to maintain such a system. It\u2019s a task queue with focus on real-time\
+    \ processing, while also supporting task scheduling."
   requires_registration: false
   url: https://docs.celeryq.dev/en/latest/
 - id: B2AI_STANDARD:741
@@ -14814,6 +15152,8 @@ data_standardortools_collection:
   purpose_detail: A unified Holistic AI in Medicine (HAIM) framework to facilitate
     the generation and testing of AI systems that leverage multimodal inputs.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:773
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -14983,6 +15323,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:183
   requires_registration: false
   url: https://khmer.readthedocs.io/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:783
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -15619,10 +15961,10 @@ data_standardortools_collection:
   - B2AI_ORG:31
   is_open: false
   name: RDCA-DAP
-  purpose_detail: The Rare Disease Cures Accelerator-Data and Analytics Platform (RDCA-DAP®)
-    is an FDA-funded initiative that provides a centralized and standardized infrastructure
-    to support and accelerate rare disease characterization, with the goal of accelerating
-    therapy development across rare diseases.
+  purpose_detail: "The Rare Disease Cures Accelerator-Data and Analytics Platform\
+    \ (RDCA-DAP\xAE) is an FDA-funded initiative that provides a centralized and standardized\
+    \ infrastructure to support and accelerate rare disease characterization, with\
+    \ the goal of accelerating therapy development across rare diseases."
   requires_registration: true
   url: https://c-path.org/programs/rdca-dap/
 - id: B2AI_STANDARD:819
@@ -15657,13 +15999,13 @@ data_standardortools_collection:
   is_open: true
   name: Relexi
   publication: doi:10.1016/j.simpa.2022.100422
-  purpose_detail: Relexi is an open source reinforcement learning (RL) framework written
-    in Python and based on TensorFlow’s RL library TF-Agents. Relexi allows to employ
-    RL for environments that require computationally intensive simulations like applications
-    in computational fluid dynamics. For this, Relexi couples legacy simulation codes
-    with the RL library TF-Agents at scale on modern high-performance computing (HPC)
-    hardware using the SmartSim library. Relexi thus provides an easy way to explore
-    the potential of RL for HPC applications.
+  purpose_detail: "Relexi is an open source reinforcement learning (RL) framework\
+    \ written in Python and based on TensorFlow\u2019s RL library TF-Agents. Relexi\
+    \ allows to employ RL for environments that require computationally intensive\
+    \ simulations like applications in computational fluid dynamics. For this, Relexi\
+    \ couples legacy simulation codes with the RL library TF-Agents at scale on modern\
+    \ high-performance computing (HPC) hardware using the SmartSim library. Relexi\
+    \ thus provides an easy way to explore the potential of RL for HPC applications."
   requires_registration: false
 - id: B2AI_STANDARD:821
   category: B2AI_STANDARD:SoftwareOrTool
@@ -15945,11 +16287,12 @@ data_standardortools_collection:
   - B2AI_ORG:94
   is_open: false
   name: U-BRITE
-  purpose_detail: U-BRITE (UAB Biomedical Research Information Technology Enhancement)
-    assembles new and existing HIPAA-compliant, high-performance informatics tools
-    to provide researchers with a means to better manage and analyze clinical and
-    genomic data sets and implements a “translational research commons” to facilitate
-    and enable interdisciplinary team science across geographical locations.
+  purpose_detail: "U-BRITE (UAB Biomedical Research Information Technology Enhancement)\
+    \ assembles new and existing HIPAA-compliant, high-performance informatics tools\
+    \ to provide researchers with a means to better manage and analyze clinical and\
+    \ genomic data sets and implements a \u201Ctranslational research commons\u201D\
+    \ to facilitate and enable interdisciplinary team science across geographical\
+    \ locations."
   requires_registration: true
   url: https://ubrite.org/
 - id: B2AI_STANDARD:837
@@ -16075,10 +16418,10 @@ data_standardortools_collection:
   - B2AI_ORG:76
   is_open: true
   name: OHDSI Tutorials
-  purpose_detail: This workshop is for data holders who want to apply OHDSI’s data
-    standards to their own observational datasets and researchers who want to be aware
-    of OHDSI’s data standards, so they can leverage data in OMOP CDM format for their
-    own research purposes.
+  purpose_detail: "This workshop is for data holders who want to apply OHDSI\u2019\
+    s data standards to their own observational datasets and researchers who want\
+    \ to be aware of OHDSI\u2019s data standards, so they can leverage data in OMOP\
+    \ CDM format for their own research purposes."
   requires_registration: false
   url: https://www.ohdsi.org/2019-tutorials-omop-common-data-model-and-standardized-vocabularies/
 - id: B2AI_STANDARD:845
@@ -16095,6 +16438,8 @@ data_standardortools_collection:
     through YouTube.
   requires_registration: false
   url: https://www.cdc.gov/nchs/data/nvss/modernization/Introductory-Training-FHIR.pdf
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:846
   category: B2AI_STANDARD:TrainingProgram
   contributor_github_name: caufieldjh
@@ -16113,6 +16458,8 @@ data_standardortools_collection:
     to the more complex.
   requires_registration: false
   url: https://fhir-drills.github.io/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:847
   category: B2AI_STANDARD:TrainingProgram
   contributor_github_name: caufieldjh
@@ -16131,6 +16478,8 @@ data_standardortools_collection:
     no live lectures to attend.
   requires_registration: true
   url: https://www.hl7.org/training/fhir-fundamentals.cfm
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:848
   category: B2AI_STANDARD:TrainingProgram
   contributor_github_name: caufieldjh
@@ -16145,6 +16494,8 @@ data_standardortools_collection:
     that we've collected to help you learn about LOINC and get connected to the community.
   requires_registration: false
   url: https://loinc.org/learn/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:849
   category: B2AI_STANDARD:TrainingProgram
   concerns_data_topic:
@@ -16179,6 +16530,8 @@ data_standardortools_collection:
     Slack room.
   requires_registration: true
   url: https://www.udemy.com/course/introduction-to-fhir/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:851
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16207,6 +16560,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:109
   url: https://build.fhir.org/ig/HL7/US-Core/index.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:852
   category: B2AI_STANDARD:BiomedicalStandard
   contributor_github_name: caufieldjh
@@ -16233,6 +16588,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:851
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:853
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16263,6 +16620,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:852
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:854
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16293,6 +16652,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:852
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:855
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -16308,6 +16669,8 @@ data_standardortools_collection:
     research
   requires_registration: true
   url: https://www.dedoose.com/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:856
   category: B2AI_STANDARD:SoftwareOrTool
   contribution_date: '2023-03-13'
@@ -16322,6 +16685,8 @@ data_standardortools_collection:
     researchers in managing research metadata according to the FAIR principles.
   requires_registration: false
   url: https://fairbydesign.nl/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:857
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16341,6 +16706,8 @@ data_standardortools_collection:
     will be at conducting truly patient-led research.
   requires_registration: false
   url: https://patientresearchcovid19.com/storage/2023/02/Patient-Led-Research-Scorecards.pdf
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:858
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -16400,7 +16767,7 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: DuckDB
-  formal_specification: https://github.com/neo4j/neo4j
+  formal_specification: https://github.com/duckdb/duckdb
   is_open: true
   name: DuckDB
   purpose_detail: A database platform designed for working with tabular data.
@@ -16654,6 +17021,8 @@ data_standardortools_collection:
   purpose_detail: A general standard for clinical metadata.
   requires_registration: false
   url: https://www.niaid.nih.gov/research/clinical-metadata-standard
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:877
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16671,6 +17040,8 @@ data_standardortools_collection:
   purpose_detail: A schema designed to allow rapid replication of the technical design
     process of a clinical AI study.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:878
   category: B2AI_STANDARD:DataStandardOrTool
   contribution_date: '2023-09-25'
@@ -16684,6 +17055,8 @@ data_standardortools_collection:
   purpose_detail: A standard for describing and clarifying the content of CSV tables.
   requires_registration: false
   url: https://csvw.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:879
   category: B2AI_STANDARD:DataStandardOrTool
   contribution_date: '2023-09-25'
@@ -16698,6 +17071,8 @@ data_standardortools_collection:
   purpose_detail: A set of hierarchical file layout conventions for storage and transfer
     of arbitrary digital content.
   requires_registration: false
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:880
   category: B2AI_STANDARD:DataStandardOrTool
   collection:
@@ -16710,9 +17085,13 @@ data_standardortools_collection:
   formal_specification: https://github.com/unitycatalog/unitycatalog
   is_open: true
   name: Unity Catalog
-  purpose_detail: A universal catalog for data and AI
+  purpose_detail: >-
+    A universal catalog for data and AI. It includes a core set of
+    APIs for tables, unstructured data, and AI assets.
   requires_registration: false
   url: https://www.unitycatalog.io/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:881
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -16871,6 +17250,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:383
   requires_registration: false
   url: https://www.loc.gov/preservation/digital/formats/fdd/fdd000328.shtml
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:889
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -16902,6 +17283,8 @@ data_standardortools_collection:
   purpose_detail: A set of common data elements for radiology research.
   requires_registration: false
   url: https://www.radelement.org/
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:891
   category: B2AI_STANDARD:BiomedicalStandard
   contribution_date: '2025-03-13'
@@ -16915,6 +17298,8 @@ data_standardortools_collection:
   purpose_detail: A semantic model for describing genomic data in a FAIR manner.
   requires_registration: false
   url: https://github.com/fairgenomes/fairgenomes-semantic-model
+  concerns_data_topic:
+  - B2AI_TOPIC:5
 - id: B2AI_STANDARD:892
   category: B2AI_STANDARD:ReferenceImplementation
   concerns_data_topic:
@@ -17083,9 +17468,8 @@ data_standardortools_collection:
   - B2AI_ORG:116
   is_open: true
   name: h5ad
-  purpose_detail: >-
-    h5ad is a format for storing and working with annotated data matrices in memory and
-    on disk. It is produced by the Anndata Python package.
+  purpose_detail: h5ad is a format for storing and working with annotated data matrices
+    in memory and on disk. It is produced by the Anndata Python package.
   requires_registration: false
   url: https://anndata.readthedocs.io/en/stable/
   used_in_bridge2ai: true
