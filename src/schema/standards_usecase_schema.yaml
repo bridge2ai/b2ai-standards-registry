@@ -23,6 +23,7 @@ imports:
   - standards_datatopic_schema
   - standards_datasubstrate_schema
   - standards_datastandardortool_schema
+  - standards_organization_schema
 
 classes:
 
@@ -33,10 +34,10 @@ classes:
     slots:
       - use_case_category
       - known_limitations
-      - relevance_to_dgps
+      - relevant_to_gcs
       - data_topics
       - data_substrates
-      - standards_and_tools_for_dgp_use
+      - standards_and_tools_for_gc_use
       - alternative_standards_and_tools
       - enables
       - involved_in_experimental_design
@@ -71,9 +72,13 @@ slots:
       This could be a selection from one or more predefined categories
       including lack of standards, lack of relevant patient cohort,
       lack of funding, etc.
-  relevance_to_dgps:
-    range: DataGeneratingProject
-    description: Relevance of the use case to one or more DGPs.
+  relevant_to_gcs:
+    range: Organization
+    description: >-
+      Bridge2AI Grand Challenges related to this use case, generally
+      because they actively pursue this use case, or because they
+      have investigated it in some manner. GCs should be identified
+      by their Bridge2AI identifier, e.g., B2AI_ORG:117.
     multivalued: true
   data_topics:
     is_a: node_property
@@ -85,13 +90,13 @@ slots:
     range: DataSubstrate
     description: Relevance of the use case to one or more data substrates.
     multivalued: true
-  standards_and_tools_for_dgp_use:
+  standards_and_tools_for_gc_use:
     is_a: node_property
     range: DataStandardOrTool
     description: >-
       List of identifiers of standards and tools;
       those planned to be used, or already in use,
-      by one or more Bridge2AI DGPs in addressing this use case,
+      by one or more Bridge2AI GCs in addressing this use case,
       from those in the Standards Registry.
       If no value is provided here, the use case may not have
       a direct relationship to a standard or tool.
@@ -102,7 +107,7 @@ slots:
     description: >-
       List of identifiers of standards and tools;
       those not explicitly planned to be used,
-      by one or more Bridge2AI DGPs in addressing this use case
+      by one or more Bridge2AI GCs in addressing this use case
       but serving as viable alternatives,
       from those in the Standards Registry.
     multivalued: true
