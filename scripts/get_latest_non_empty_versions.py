@@ -18,14 +18,13 @@ Expected Environment:
 Main entry point:
     find_latest_non_empty_versions()
 """
-import numpy as np
 # from typing import Any, Dict, List
 from synapseclient import Table, Schema, PartialRowset, Column # build_table, Synapse, Schema
 from synapseclient.models import Table as modelTable, SchemaStorageStrategy
 # from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
 # import re
-from scripts.utils import get_auth_token, get_df_max_lengths, copy_list_omit_property
+from scripts.utils import get_auth_token, get_df_max_lengths
 from scripts.create_denormalized_tables import SRC_TABLES, PROJECT_ID, DEST_TABLES, create_or_clear_table, initialize_synapse
 from datetime import datetime
 
