@@ -30,3 +30,52 @@ def get_auth_token():
         raise RuntimeError(f"An error occurred while reading the auth file: {e}")
 
     raise ValueError(f"'authtoken' not found in {auth_file}")
+
+
+def get_df_max_lengths(original_cols, df):
+    """
+    Get the maximum length of each column in a pandas DataFrame.
+    For columns with lists of strings, finds the length of the longest string in any list.
+    """
+    max_lengths = {}
+    # synapse defaults
+    default_maximumSize = 50
+    default_maximumListLength = 100
+
+    orig_cols = {c['name']: c for c in original_cols}
+
+    for column in df.columns:
+        # for both maximumSize and maximumListLength, take the value from the original column if specified
+        #   otherwise, the synapse default; except if the data max value is bigger, then use that
+        orig_col = orig_cols[column]
+        # Check if the column potentially contains lists
+        contains_lists = False
+        maximumSize = orig_col.get('maximumSize', default_maximumSize) # override if data is bigger
+
+        # Check if this column contains lists with strings
+        for value in df[column].dropna():
+            if isinstance(value, list):
+                contains_lists = True
+                maximumListLength = orig_col.get('maximumListLength', default_maximumListLength)
+                maximumListLength = max(maximumListLength, len(value))
+                # Find longest string in this list
+                if value:  # Check if list is not empty
+                    item_lengths = [len(str(item)) for item in value]
+                    max_item_in_this_list = max(item_lengths) if item_lengths else 0
+                    maximumSize = max(maximumSize, max_item_in_this_list)
+
+        # Store results
+        if contains_lists:
+            max_lengths[column] = {
+                'maximumSize': maximumSize,
+                'maximumListLength': maximumListLength,
+            }
+        else:
+            maximumSize = max(maximumSize, df[column].astype(str).str.len().max())
+            max_lengths[column] = maximumSize
+
+    return max_lengths
+
+def copy_list_omit_property(list_of_dicts, property_to_omit):
+    return [{key: value for key, value in d.items() if key != property_to_omit}
+            for d in list_of_dicts]

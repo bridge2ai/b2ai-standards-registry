@@ -56,6 +56,7 @@ SRC_TABLES = {      # getting rid of version numbers for now
     'DataSet': {'id': 'syn66330217', 'name': 'DataSet', },
     'Challenges': {'id': 'syn65913973', 'name': 'Challenges', },
     'UseCase': { 'id': 'syn63096837', 'name': 'UseCase', },
+    # 'test': {'id': 'syn64943432', 'name': 'test', },
 }
 
 # The table used for the explore landing page and to provide data for the home and detailed pages
