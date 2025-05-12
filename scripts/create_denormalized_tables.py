@@ -70,7 +70,7 @@ def denormalize_tables():
         for table_name in src_table_names:
             table_info = latest_table_info[table_name]
             table_info = get_src_table(syn, table_info)
-            # src_tables[table_name] = all_src_tables[table_name]
+            src_tables[table_name] = table_info
 
         make_dest_table(syn, dest_table, src_tables)
 
