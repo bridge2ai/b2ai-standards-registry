@@ -11,63 +11,80 @@ Usage:
     see scripts/README.md.
 
 Expected Environment:
-    - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
-      Instructions for setting up your auth token are documented in the README.
     - The SRC_TABLES and DEST_TABLES definitions must be updated with valid Synapse table IDs
 
 Main entry point:
     find_latest_non_empty_versions()
+
+TODO:   make sure row count in _latest tables matches what CurrentTableVersions reports
 """
 # from typing import Any, Dict, List
 from synapseclient import Table, Schema, PartialRowset, Column # build_table, Synapse, Schema
 from synapseclient.models import Table as modelTable, SchemaStorageStrategy
 # from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
+from tomlkit import table
+
 # import re
-from scripts.utils import get_auth_token, get_df_max_lengths, PROJECT_ID, create_or_clear_table, initialize_synapse
-from scripts.create_denormalized_tables import SRC_TABLES, DEST_TABLES
+from scripts.utils import get_df_max_lengths, PROJECT_ID, create_or_clear_table, initialize_synapse
+from scripts.generate_tables_config import SRC_AND_DEST_TABLE_NAMES
 from datetime import datetime
 
-AUTH_TOKEN = get_auth_token()
 CurrentTableVersionsId = 'syn66330007'
+
+def get_CurrentTableVersions(syn):
+    currentTableVersions = syn.tableQuery(f"SELECT * FROM {CurrentTableVersionsId}")
+    current_versions_df = currentTableVersions.asDataFrame()
+
+    # need to add rowId to current_versions_df dataframe to allow update (of no_change_as_of) later
+    rowset = currentTableVersions.asRowSet()
+    # make sure rowIds in the right order
+    if [row['values'][0] for row in rowset.rows] != list(current_versions_df['table_name']):
+        raise Exception("current_versions_df and rowset not in the same order")
+    current_versions_df['rowId'] = [row['rowId'] for row in rowset.rows]
+
+    # format dataframe as needed (or for easier reading)
+    current_versions_df = current_versions_df.fillna({'row_cnt': 0})  # row_cnt is an int
+    current_versions_df = current_versions_df.fillna('')              # everything else is a string
+    current_versions_df = current_versions_df.astype(dtype={'row_cnt': 'int64'})    # shouldn't this be an int?
+
+    # no_change_as_of will either be the datetime the row was added (as_of), or the last datetime
+    # it was checked and hadn't changed. current_versions_df should only include one row per table_name,
+    # the one with the most recent no_change_as_of. The other rows are kept just as a record.
+    current_versions_df = current_versions_df.sort_values('no_change_as_of').drop_duplicates('table_name', keep='last')
+
+    return currentTableVersions, current_versions_df
+
+def get_latest_table_names_and_ids(syn):
+    currentTableVersions, current_versions_df = get_CurrentTableVersions(syn)
+    info = {}
+    for index, row in current_versions_df.iterrows():
+        original_table_name = row['table_name']
+        table_name = original_table_name + '_latest'
+        table_id = row['copy_table_id']
+        info[original_table_name] = {'name': table_name, 'id': table_id, 'original_table_name': original_table_name}
+    return info
 
 def find_latest_non_empty_versions():
     """
     First, review and update CurrentTableVersions so that latest_non_empty_version is correct.
+        If latest_non_empty_version hasn't changed, don't make new record, but add no_change_as_of
+        as verification that that record is still accurate.
+
     If any table appearing in SRC_TABLES or DEST_TABLES is not yet in CurrentTableVersions, add it.
     If the latest non-empty version is the current version (e.g., 4), latest_non_empty_version must be blank
         because you can't select from <table_id>.4, you have to select from <table_id>.
     """
     syn = initialize_synapse()
 
-    # if latest_non_empty_version hasn't changed, don't make new record. but maybe add column for last_checked in addition to as_of
+    currentTableVersions, current_versions_df = get_CurrentTableVersions(syn)
 
-    currentTableVersions = syn.tableQuery(f"SELECT * FROM {CurrentTableVersionsId}")
-    current_versions = currentTableVersions.asDataFrame()
-
-    # need to add rowId to current_versions dataframe to allow update (of no_change_as_of) later
-    rowset = currentTableVersions.asRowSet()
-    # make sure rowIds in the right order
-    if [row['values'][0] for row in rowset.rows] != list(current_versions['table_name']):
-        raise Exception("current_versions and rowset not in the same order")
-    current_versions['rowId'] = [row['rowId'] for row in rowset.rows]
-
-    # format dataframe as needed (or for easier reading)
-    current_versions = current_versions.fillna({'row_cnt': 0})  # row_cnt is an int
-    current_versions = current_versions.fillna('')              # everything else is a string
-    current_versions = current_versions.astype(dtype={'row_cnt': 'int64'})
-
-    # no_change_as_of will either be the datetime the row was added (as_of), or the last datetime
-    # it was checked and hadn't changed. current_versions should only include one row per table_name,
-    # the one with the most recent no_change_as_of. The other rows are kept just as a record.
-    current_versions = current_versions.sort_values('no_change_as_of').drop_duplicates('table_name', keep='last')
-
-    current_version_table_names = list(current_versions['table_name'])  # grab this before indexing on table_name
-    current_versions.set_index('table_name', inplace=True) # to look up by table_name below
+    current_version_table_names = list(current_versions_df['table_name'])  # grab this before indexing on table_name
+    current_versions_df.set_index('table_name', inplace=True) # to look up by table_name below
 
     # tracked_table_names is any table accessed in create_denormalized_tables.py
-    tracked_table_names = [tbl['name'] for tbl in SRC_TABLES.values()] + list(DEST_TABLES.keys())
-    # tracked_table_names = ['test'] # use this to process specific tables
+    tracked_table_names = SRC_AND_DEST_TABLE_NAMES
+    # tracked_table_names = ['DataStandardOrTool'] # use this to process specific tables
 
     all_synapse_tables = {tbl['name']: tbl for tbl in syn.getChildren(PROJECT_ID, includeTypes=['table'])}
     # synapse_tables is the metadata for the tracked tables, which contains the current versionNumber
@@ -85,11 +102,11 @@ def find_latest_non_empty_versions():
         synapse_table = synapse_tables[table_name]
         actual_current_version: int = synapse_table['versionNumber']
         version_number: int = actual_current_version
+        table_id = synapse_table['id']
         while True:
-            table_id = synapse_table['id'] \
-                if version_number == actual_current_version \
+            table_id_with_version = table_id if version_number == actual_current_version \
                 else f"{synapse_table['id']}.{version_number}"
-            row_cnt = get_row_cnt(table_id)
+            row_cnt = get_row_cnt(table_id_with_version)
             if row_cnt == 0: # decrement version_number we're on since this version is empty
                 version_number = version_number - 1
                 if version_number < 1:
@@ -98,7 +115,7 @@ def find_latest_non_empty_versions():
                 break
 
         latest_non_empty_version: int = version_number
-        return synapse_table, latest_non_empty_version, table_id, row_cnt
+        return synapse_table, latest_non_empty_version, table_id, table_id_with_version, row_cnt
 
     no_latest_version_change = {}   # just update no_change_as_of
     latest_versions = {}            # add new record
@@ -106,11 +123,11 @@ def find_latest_non_empty_versions():
     tables_not_in_CurrentTableVersions = set(tracked_table_names) - set(current_version_table_names)
 
     for table_name in tables_not_in_CurrentTableVersions:
-        synapse_table, latest_non_empty_version, table_id, row_cnt = get_latest_non_empty_version(table_name)
+        synapse_table, latest_non_empty_version, table_id, table_id_with_version, row_cnt = get_latest_non_empty_version(table_name)
 
         # If there's no record in CurrentTableVersions, we probably haven't made a latest copy
         #   so go ahead and make it. Should just overwrite if it does already exist.
-        copy_table_id = copy_table_to_latest(syn, latest_table_copies, table_name, table_id)
+        copy_table_id = copy_table_to_latest(syn, latest_table_copies, table_name, table_id, table_id_with_version)
 
         latest_versions[table_name] = {
             'table_name': table_name,
@@ -128,9 +145,9 @@ def find_latest_non_empty_versions():
         if table_name in tables_not_in_CurrentTableVersions: # already added to latest_versions
             continue
 
-        synapse_table, latest_non_empty_version, table_id, row_cnt = get_latest_non_empty_version(table_name)
+        synapse_table, latest_non_empty_version, table_id, table_id_with_version, row_cnt = get_latest_non_empty_version(table_name)
 
-        current_versions_row = current_versions.loc[table_name]
+        current_versions_row = current_versions_df.loc[table_name]
 
         if current_versions_row['latest_non_empty_version'] == latest_non_empty_version: # just update no_change_as_of
             no_latest_version_change[current_versions_row['rowId']] = {
@@ -142,7 +159,7 @@ def find_latest_non_empty_versions():
             print(f"Latest non-empty version of {table_name} ({latest_non_empty_version}) is newer than force_version ({force_version}). Should update?")
 
         # make copy
-        copy_table_id = copy_table_to_latest(syn, latest_table_copies, table_name, table_id)
+        copy_table_id = copy_table_to_latest(syn, latest_table_copies, table_name, table_id, table_id_with_version)
 
         latest_versions[table_name] = {
             'table_name': table_name,
@@ -224,11 +241,12 @@ def save_table_specify_schema(syn, copy_table_name, df, table_cols):
     except Exception as e:
         return save_table_infer_from_data(syn, copy_table_name, df, table_cols)
 
-def copy_table_to_latest(syn, latest_table_copies, table_name, table_id_to_copy):
+def copy_table_to_latest(syn, latest_table_copies, table_name, table_id, table_id_to_copy):
     """
     Copies table to <table_name>_latest and returns the id of the copied table.
     """
-    syn.create_snapshot_version(table_id_to_copy)
+    syn.create_snapshot_version(table_id)   # can only make snapshot of current version. I'm not sure how to tell
+                                            #   when we need a snapshot
     copy_table_name = f"{table_name}_latest"
     table_query = syn.tableQuery(f"SELECT * FROM {table_id_to_copy}")
     df = table_query.asDataFrame()

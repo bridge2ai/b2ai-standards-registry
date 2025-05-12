@@ -34,70 +34,11 @@ from synapseclient import Synapse, Column, Schema, Table
 import pandas as pd
 import numpy as np
 import re
+
+from scripts.generate_tables_config import DEST_TABLES, SRC_TABLE_NAMES
 from scripts.utils import PROJECT_ID, create_or_clear_table, initialize_synapse
+from scripts.get_latest_non_empty_versions import get_CurrentTableVersions, get_latest_table_names_and_ids
 
-# The synapse tables that hold source data
-SRC_TABLES = {      # getting rid of version numbers for now
-    'DataStandardOrTool': {        # convention in code, this abbreviation will be referred to as ..._tbl
-                    #   ..._table will usually refer to some kind of table object
-        'id': 'syn63096833', 'name': 'DataStandardOrTool',
-    },
-    'DataTopic': {
-        'id': 'syn63096835', 'name': 'DataTopic',
-    },
-    'Organization': {
-        'id': 'syn63096836', 'name': 'Organization',
-    },
-    'DataSubstrate': { 'id': 'syn63096834', 'name': 'DataSubstrate', },
-    'DataSet': {'id': 'syn66330217', 'name': 'DataSet', },
-    'Challenges': {'id': 'syn65913973', 'name': 'Challenges', },
-    'UseCase': { 'id': 'syn63096837', 'name': 'UseCase', },
-    # 'test': {'id': 'syn64943432', 'name': 'test', },
-}
-
-# The table used for the explore landing page and to provide data for the home and detailed pages
-DEST_TABLES = {
-    'DST_denormalized': {
-        'dest_table_name': 'DST_denormalized',
-        'base_table': 'DataStandardOrTool',
-        'columns': [
-            {'faceted': False, 'name': 'id',                        'alias': 'id'},
-            {'faceted': False, 'name': 'name',                      'alias': 'acronym'},
-            {'faceted': False, 'name': 'description',               'alias': 'name'},
-            {'faceted': True,  'name': 'category',                  'alias': 'category', 'transform': 'camel_to_title_case'},
-            {'faceted': False, 'name': 'purpose_detail',            'alias': 'description'},
-            {'faceted': False, 'name': 'collection',                'alias': 'collections'},
-            {'faceted': False, 'name': 'concerns_data_topic',       'alias': 'concerns_data_topic'},
-            {'faceted': False, 'name': 'has_relevant_organization', 'alias': 'has_relevant_organization'},
-            {'faceted': False, 'name': 'responsible_organization',  'alias': 'responsible_organization'},
-            {'faceted': True,  'name': 'is_open',                   'alias': 'isOpen'},
-            {'faceted': True,  'name': 'requires_registration',     'alias': 'registration'},
-            {'faceted': False, 'name': 'url',                       'alias': 'URL'},
-            {'faceted': False, 'name': 'formal_specification',      'alias': 'formalSpec'},
-            {'faceted': False, 'name': 'publication',               'alias': 'publication'},
-            {'faceted': False, 'name': 'has_training_resource',     'alias': 'trainingResources'},
-            {'faceted': False, 'name': 'subclass_of',               'alias': 'subclassOf'},
-            {'faceted': False, 'name': 'contribution_date',         'alias': 'contributionDate'},
-            {'faceted': False, 'name': 'related_to',                'alias': 'relatedTo'},
-        ],
-        'join_columns': [
-            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
-             'dest_cols': [
-                {'faceted': True, 'name': 'name', 'alias': 'topic'},
-            ]},
-            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
-             'dest_cols': [
-                 {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
-                 {'faceted': False, 'name': 'description', 'alias': 'relevantOrgDescriptions'},
-             ]},
-            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
-             'dest_cols': [
-                 {'faceted': False,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
-                 {'faceted': False,  'name': 'description', 'alias': 'responsibleOrgName'},
-             ]},
-        ],
-    },
-}
 
 TRANSFORMS = {
     # camel_to_title_case
@@ -112,16 +53,24 @@ TRANSFORMS = {
 
 def denormalize_tables():
     syn = initialize_synapse()
-    all_src_tables = {tbl: get_src_table(syn, tbl) for tbl in SRC_TABLES}
+    latest_table_info = get_latest_table_names_and_ids(syn)
+    # all_src_tables = get_src_tables(syn, SRC_TABLE_NAMES)
+    src_tables = {}
 
     for dest_table in DEST_TABLES.values():
         base_tbl_name = dest_table['base_table']
-        base_df = all_src_tables[base_tbl_name]['df']
-        src_tables = [j['join_tbl'] for j in dest_table['join_columns']]
-
+        base_table_info = get_src_table(syn, latest_table_info[base_tbl_name])
+        base_df = base_table_info['df']
         if base_df.empty:
             print(f"Skipping '{dest_table['dest_table_name']}' — base table '{base_tbl_name}' has no data.")
             continue
+
+        # SRC_TABLE_NAMES is all source tables, src_table_names is just the ones for this dest table
+        src_table_names = set([base_tbl_name] + [j['join_tbl'] for j in dest_table['join_columns']])
+        for table_name in src_table_names:
+            table_info = latest_table_info[table_name]
+            table_info = get_src_table(syn, table_info)
+            # src_tables[table_name] = all_src_tables[table_name]
 
         make_dest_table(syn, dest_table, src_tables)
 
@@ -454,8 +403,7 @@ def create_json_column(
 
     return column_def
 
-
-def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
+def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
     """
     Retrieve and validate a source table from Synapse, capture its column metadata and a cleaned DataFrame.
     If the table is empty:
@@ -471,7 +419,9 @@ def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
     - Stores the DataFrame, table object, and column info in the returned dictionary
 
     :param syn: Authenticated Synapse client
-    :param tbl: Key for the source table in the global SRC_TABLES dictionary
+    :param table_info: Dictionary with keys:
+             - 'id': Synapse table ID
+             - 'name': expected name of the table
     :return: Dictionary with keys:
              - 'id': Synapse table ID
              - 'name': expected name of the table
@@ -480,7 +430,6 @@ def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
              - 'df': cleaned DataFrame of table contents
     :raises ValueError: if the retrieved Synapse table has a different name than expected
     """
-    table_info = SRC_TABLES[tbl]  # global lookup
     syn_table = syn.get(table_info['id'])
 
     # Confirm table name matches what's expected
@@ -503,7 +452,6 @@ def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
 
     table_info['df'] = df
     return table_info
-
 
 if __name__ == "__main__":
     denormalize_tables()

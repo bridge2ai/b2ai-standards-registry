@@ -1,8 +1,12 @@
 import os
-
 from synapseclient import Synapse
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
-
+"""
+Expected Environment:
+    - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
+      Instructions for setting up your auth token are documented in the README.
+"""
+PROJECT_ID='syn63096806'
 
 def get_auth_token():
     """
@@ -35,6 +39,18 @@ def get_auth_token():
 
     raise ValueError(f"'authtoken' not found in {auth_file}")
 
+AUTH_TOKEN = get_auth_token()
+
+def initialize_synapse() -> None:
+    """
+    Initialize the synapse client
+    """
+    try:
+        syn = Synapse()
+        syn.login(authToken=AUTH_TOKEN)
+        return syn
+    except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
+        raise Exception(f"Failed to authenticate with Synapse: {str(e)}")
 
 def get_df_max_lengths(original_cols, df):
     """
@@ -84,11 +100,6 @@ def copy_list_omit_property(list_of_dicts, property_to_omit):
     return [{key: value for key, value in d.items() if key != property_to_omit}
             for d in list_of_dicts]
 
-
-AUTH_TOKEN = get_auth_token()
-PROJECT_ID='syn63096806'
-
-
 def create_or_clear_table(syn: Synapse, table_name: str) -> None:
     """
     Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
@@ -108,14 +119,3 @@ def create_or_clear_table(syn: Synapse, table_name: str) -> None:
     except Exception as e:
         print(f"Error checking for existing table: {e}")
 
-
-def initialize_synapse() -> None:
-    """
-    Initialize the synapse client
-    """
-    try:
-        syn = Synapse()
-        syn.login(authToken=AUTH_TOKEN)
-        return syn
-    except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
-        raise Exception(f"Failed to authenticate with Synapse: {str(e)}")
