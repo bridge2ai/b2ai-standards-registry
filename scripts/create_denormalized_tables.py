@@ -575,10 +575,11 @@ def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
     table_info['df'] = df
     return table_info
 
-def create_or_clear_table(syn, table_name: str) -> None:
+def create_or_clear_table(syn: Synapse, table_name: str) -> None:
     """
     Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
 
+    :param syn: Authenticated Synapse client
     :param table_name: Name of the Synapse table to check and clear (if it already exists)
     """
     try:
