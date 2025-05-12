@@ -67,7 +67,7 @@ def find_latest_non_empty_versions():
 
     # tracked_table_names is any table accessed in create_denormalized_tables.py
     tracked_table_names = [tbl['name'] for tbl in SRC_TABLES.values()] + list(DEST_TABLES.keys())
-    # tracked_table_names = ['test'] # COMMENT OUT AFTER TESTING
+    # tracked_table_names = ['test'] # use this to process specific tables
 
     all_synapse_tables = {tbl['name']: tbl for tbl in syn.getChildren(PROJECT_ID, includeTypes=['table'])}
     # synapse_tables is the metadata for the tracked tables, which contains the current versionNumber
@@ -235,7 +235,6 @@ def copy_table_to_latest(syn, latest_table_copies, table_name, table_id_to_copy)
     table_cols = get_col_defs(table_query.headers, df)
 
     if copy_table_name in latest_table_copies:
-        # table_cols_to_compare = copy_list_omit_property(table_cols, 'concreteType')
         latest_copy = syn.tableQuery(f"SELECT * FROM {latest_table_copies[copy_table_name]['id']}")
         latest_copy_cols = [Column(**col) for col in latest_copy.headers if 'id' in col]  # want to skip ROW_ID and ROW_VERSION
         if [[c['name'], c['columnType']] for c in table_cols] != \
