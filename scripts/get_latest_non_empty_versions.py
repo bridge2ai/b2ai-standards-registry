@@ -24,8 +24,8 @@ from synapseclient.models import Table as modelTable, SchemaStorageStrategy
 # from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
 # import re
-from scripts.utils import get_auth_token, get_df_max_lengths
-from scripts.create_denormalized_tables import SRC_TABLES, PROJECT_ID, DEST_TABLES, create_or_clear_table, initialize_synapse
+from scripts.utils import get_auth_token, get_df_max_lengths, PROJECT_ID, create_or_clear_table, initialize_synapse
+from scripts.create_denormalized_tables import SRC_TABLES, DEST_TABLES
 from datetime import datetime
 
 AUTH_TOKEN = get_auth_token()

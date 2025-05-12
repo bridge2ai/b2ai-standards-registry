@@ -1,5 +1,9 @@
 import os
 
+from synapseclient import Synapse
+from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
+
+
 def get_auth_token():
     """
     Retrieves the Synapse authentication token from the user's ~/.synapseConfig file.
@@ -79,3 +83,39 @@ def get_df_max_lengths(original_cols, df):
 def copy_list_omit_property(list_of_dicts, property_to_omit):
     return [{key: value for key, value in d.items() if key != property_to_omit}
             for d in list_of_dicts]
+
+
+AUTH_TOKEN = get_auth_token()
+PROJECT_ID='syn63096806'
+
+
+def create_or_clear_table(syn: Synapse, table_name: str) -> None:
+    """
+    Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
+
+    :param syn: Authenticated Synapse client
+    :param table_name: Name of the Synapse table to check and clear (if it already exists)
+    """
+    try:
+        existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
+        for table in existing_tables:
+            if table['name'] == table_name:
+                query_result = syn.tableQuery(f"SELECT * FROM {table['id']}")
+                syn.create_snapshot_version(table["id"])
+                print(f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
+                syn.delete(query_result)
+                break
+    except Exception as e:
+        print(f"Error checking for existing table: {e}")
+
+
+def initialize_synapse() -> None:
+    """
+    Initialize the synapse client
+    """
+    try:
+        syn = Synapse()
+        syn.login(authToken=AUTH_TOKEN)
+        return syn
+    except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
+        raise Exception(f"Failed to authenticate with Synapse: {str(e)}")

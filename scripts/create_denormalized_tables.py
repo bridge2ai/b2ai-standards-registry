@@ -31,14 +31,10 @@ Main entry point:
 
 from typing import Any, Dict, List
 from synapseclient import Synapse, Column, Schema, Table
-from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import pandas as pd
 import numpy as np
 import re
-from scripts.utils import get_auth_token
-
-AUTH_TOKEN = get_auth_token()
-PROJECT_ID='syn63096806'
+from scripts.utils import PROJECT_ID, create_or_clear_table, initialize_synapse
 
 # The synapse tables that hold source data
 SRC_TABLES = {      # getting rid of version numbers for now
@@ -507,36 +503,6 @@ def get_src_table(syn: Synapse, tbl: str) -> Dict[str, Any]:
 
     table_info['df'] = df
     return table_info
-
-def create_or_clear_table(syn: Synapse, table_name: str) -> None:
-    """
-    Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
-
-    :param syn: Authenticated Synapse client
-    :param table_name: Name of the Synapse table to check and clear (if it already exists)
-    """
-    try:
-        existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
-        for table in existing_tables:
-            if table['name'] == table_name:
-                query_result = syn.tableQuery(f"SELECT * FROM {table['id']}")
-                syn.create_snapshot_version(table["id"])
-                print(f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
-                syn.delete(query_result)
-                break
-    except Exception as e:
-        print(f"Error checking for existing table: {e}")
-
-def initialize_synapse() -> None:
-    """
-    Initialize the synapse client
-    """
-    try:
-        syn = Synapse()
-        syn.login(authToken=AUTH_TOKEN)
-        return syn
-    except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
-        raise Exception(f"Failed to authenticate with Synapse: {str(e)}")
 
 
 if __name__ == "__main__":
