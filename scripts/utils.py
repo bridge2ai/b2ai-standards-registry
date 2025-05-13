@@ -74,5 +74,3 @@ def create_or_clear_table(syn: Synapse, table_name: str) -> None:
                 break
     except Exception as e:
         print(f"Error checking for existing table: {e}")
-
-
