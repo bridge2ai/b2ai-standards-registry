@@ -1,9 +1,9 @@
-import csv
 import json
 import sys
-from synapseclient import Synapse, Table
-import os
+from synapseclient import Synapse, Table, Schema, Column
+from pandas.api.types import infer_dtype
 import pandas as pd
+from scripts.utils import initialize_synapse, create_or_clear_table, PROJECT_ID
 
 
 # the paths detected as changes from the "Get changed files" job mapped to their corresponding synapse table ids
@@ -17,17 +17,6 @@ PATHS_TO_IDS = {
 }
 
 
-def delete_table_rows(syn: Synapse, table_id: str) -> None:
-    """Delete all the rows for a table, given its id
-    :param syn: synapse client
-    :param table_id: table id to delete rows for
-    """
-    print(f"Deleting rows from table {table_id}")
-    results = syn.tableQuery(f"select * from {table_id}")
-    syn.delete(results)
-    print("Finished deleting rows")
-
-
 def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
     """Populate the table with updated data
     :param syn: synapse client
@@ -38,36 +27,86 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
         data = json.load(file)
     # each json file begins with a key that maps to the list of records, so we're accessing that list here
     data = next(iter(data.values()), [])
-    if isinstance(data, list):
-        df = pd.DataFrame(data=data)
-        print(f"Populating table for file: {update_file}")
-        table = syn.store(Table(table_id, df))
-        print("Finished populating table")
-    else:
+
+    if not isinstance(data, list):
         print("Could not get list of data from json file")
+        return
+
+    df = pd.DataFrame(data=data)
+
+    cols = get_col_defs(df)
+    coldefs = [Column(**col) for col in cols.values()]
+
+    table_name = update_file.split('/')[-1].split('.')[0]
+
+    # moved this from main() so we don't delete rows till the last minute
+    print(f"Creating snapshot and clearing table {update_file}")
+    create_or_clear_table(syn, table_name)
+
+    schema = Schema(name=table_name, columns=coldefs, parent=PROJECT_ID)
+    table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
+    table.tableId = table_id
+
+    print(f"Populating table for file: {update_file}")
+    table = syn.store(table)
+    print("Finished populating table")
 
 
-def main():
+# synapse defaults
+default_maximumSize = 50    # ignoring this because some tables will be too big if defaulting to it
+                            #   instead, make maximumSize just big enough to fit the longest column value
+default_maximumListLength = 100
+
+def get_col_defs(new_data_df):
+    is_list_cols = (new_data_df.map(type).astype(str) == "<class 'list'>").any()
+    list_cols = set(is_list_cols[is_list_cols == True].index)
+    scalar_types = {c: infer_dtype(new_data_df[c], skipna=True).upper() for c in new_data_df.columns} # infer_dtype gives 'mixed' for list types
+    # assuming all list columns are string lists, at least for now
+    get_col_type = lambda col_name: 'STRING_LIST' if col_name in list_cols else scalar_types[col_name]
+
+    new_cols = {col_name: {'name': col_name, 'columnType': get_col_type(col_name)} for col_name in new_data_df.columns}
+
+
+    for col_name in new_cols:
+        new_col = new_cols[col_name]
+        actual_max_size = 0
+
+        if new_col['columnType'].endswith('_LIST'):
+            actual_max_list_len = 0
+            for value in new_data_df[col_name].dropna():
+                actual_max_list_len = max(actual_max_list_len, len(value))
+                # Find longest string in this list
+                if value:  # Check if list is not empty
+                    item_lengths = [len(str(item)) for item in value]
+                    max_item_in_this_list = max(item_lengths) if item_lengths else 0
+                    actual_max_size = max(actual_max_size, max_item_in_this_list)
+            if actual_max_list_len > default_maximumListLength:
+                new_col['maximumListLength'] = int(actual_max_list_len)
+        else:
+            actual_max_size = new_data_df[col_name].astype(str).str.len().max()
+            if new_col['columnType'] == 'STRING':
+                if actual_max_size > 2000:
+                    new_col['columnType'] = 'LARGETEXT'
+                elif actual_max_size > 1000:
+                    new_col['columnType'] = 'MEDIUMTEXT'
+        new_col['maximumSize'] = int(actual_max_size)
+    return new_cols
+
+
+def main(changed_files):
     try:
-        changed_files = sys.argv[1:]
+        if not changed_files:
+            changed_files = sys.argv[1:]
 
         if not changed_files:
             print("No relevant files passed to the script.")
             return
 
-        print("Creating synapse client...")
-        syn = Synapse()
-        auth_token = os.getenv("SYNAPSE_AUTH_TOKEN")
-        if not auth_token:
-            raise ValueError("SYNAPSE_AUTH_TOKEN environment variable is not set")
         print("Signing in...")
-        syn.login(authToken=auth_token)
+        syn = initialize_synapse()
 
         for changed_file in changed_files:
             table_id = PATHS_TO_IDS.get(changed_file)
-            print(f"Creating snapshot for table {changed_file}")
-            syn.create_snapshot_version(table_id)
-            delete_table_rows(syn, table_id)
             populate_table(syn, changed_file, table_id)
 
     except Exception as e:
@@ -77,3 +116,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    # this is for convenience to upload everything
+    # main(list(PATHS_TO_IDS.keys()))

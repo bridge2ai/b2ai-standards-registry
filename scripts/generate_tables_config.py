@@ -1,13 +1,26 @@
 SRC_TABLE_NAMES = [
+    'Challenges',
+    'DataSet',
     'DataStandardOrTool',
+    'DataSubstrate',
     'DataTopic',
     'Organization',
-    'DataSubstrate',
-    'DataSet',
-    'Challenges',
     'UseCase',
     # 'test',
 ]
+TABLE_IDS = {
+    'Challenges': { 'name': 'Challenges', 'id': 'syn65913973' },
+    'CurrentTableVersions': { 'name': 'CurrentTableVersions', 'id': 'syn66330007' },
+    'DST_denormalized': { 'name': 'DST_denormalized', 'id': 'syn65676531' },
+    'DataSet': { 'name': 'DataSet', 'id': 'syn66330217' },
+    'DataStandardOrTool': { 'name': 'DataStandardOrTool', 'id': 'syn63096833' },
+    'DataSubstrate': { 'name': 'DataSubstrate', 'id': 'syn63096834' },
+    'DataTopic': { 'name': 'DataTopic', 'id': 'syn63096835' },
+    'Organization': { 'name': 'Organization', 'id': 'syn63096836' },
+    'UseCase': { 'name': 'UseCase', 'id': 'syn63096837' },
+    # 'test': { 'name': 'test', 'id': 'syn64943432' }
+}
+
 DEST_TABLES = {
     # The table used for the explore landing page and to provide data for the home and detailed pages
     'DST_denormalized': {
