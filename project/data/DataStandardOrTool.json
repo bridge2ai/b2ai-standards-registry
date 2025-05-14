@@ -29,6 +29,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "policy"
       ],
@@ -90,7 +91,10 @@
       "purpose_detail": "AGP format describes the assembly of a larger sequence object from smaller objects. The large object can be a contig, a scaffold (supercontig), or a chromosome. Each line (row) of the AGP file describes a different piece of the object, and has the column entries defined below. Extended comments follow. It does not serve for either a description of how sequence reads were assembled, or a description of the alignments between components used to construct a larger object. Not all of the information in proprietary assembly files can be represented in the AGP format. It is also not for recording the spans of features like repeats or genes.",
       "is_open": true,
       "requires_registration": false,
-      "url": "https://www.ncbi.nlm.nih.gov/assembly/agp/AGP_Specification/"
+      "url": "https://www.ncbi.nlm.nih.gov/assembly/agp/AGP_Specification/",
+      "responsible_organization": [
+        "B2AI_ORG:120"
+      ]
     },
     {
       "id": "B2AI_STANDARD:5",
@@ -128,11 +132,17 @@
       "collection": [
         "guidelines"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Guidelines intended to improve the reporting of animal experiments.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://arriveguidelines.org/",
-      "publication": "doi:10.1371/journal.pbio.3000411"
+      "publication": "doi:10.1371/journal.pbio.3000411",
+      "responsible_organization": [
+        "B2AI_ORG:121"
+      ]
     },
     {
       "id": "B2AI_STANDARD:7",
@@ -183,7 +193,10 @@
       "purpose_detail": "The Annotation and Image Markup project provides a standardized schema for capturing the results of medical imaging exams, primarily radiology, using controlled terminologies/ontologies. AIM captures results in terms of the region within an image in which areas of interest are located, the semantic descriptions of those regions, inferences about them, calculations on them, and quantitative features derived by computer programs run on them. AIM is interoperable with DICOM-SR and HL7-CDA, other standards for image metadata, but it provides unique advantages by providing an explicit semantic model of imaging results.",
       "is_open": true,
       "requires_registration": false,
-      "formal_specification": "https://github.com/NCIP/annotation-and-image-markup"
+      "formal_specification": "https://github.com/NCIP/annotation-and-image-markup",
+      "responsible_organization": [
+        "B2AI_ORG:71"
+      ]
     },
     {
       "id": "B2AI_STANDARD:9",
@@ -197,13 +210,20 @@
         "guidelines",
         "has_ai_application"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:4"
       ],
       "purpose_detail": "AI in healthcare; three major expressions of how trust is created and maintained - Human Trust, Technical Trust, and Regulatory Trust.",
       "is_open": false,
       "requires_registration": false,
-      "url": "https://shop.cta.tech/collections/standards/products/the-use-of-artificial-intelligence-in-healthcare-trustworthiness-cta-2090"
+      "url": "https://shop.cta.tech/collections/standards/products/the-use-of-artificial-intelligence-in-healthcare-trustworthiness-cta-2090",
+      "responsible_organization": [
+        "B2AI_ORG:4",
+        "B2AI_ORG:122"
+      ]
     },
     {
       "id": "B2AI_STANDARD:10",
@@ -222,7 +242,10 @@
       ],
       "purpose_detail": "A binary version of raw DNA sequence reads from Applied Biosystems sequencing analysis software. Also known as ABIF.",
       "is_open": false,
-      "requires_registration": false
+      "requires_registration": false,
+      "responsible_organization": [
+        "B2AI_ORG:123"
+      ]
     },
     {
       "id": "B2AI_STANDARD:11",
@@ -242,7 +265,10 @@
       "purpose_detail": "A binary version of raw DNA sequence reads from Applied Biosystems sequencing analysis software.",
       "is_open": false,
       "requires_registration": false,
-      "formal_specification": "https://tools.thermofisher.com/content/sfs/manuals/4346366_DNA_Sequenc_Analysis_5_1_UG.pdf"
+      "formal_specification": "https://tools.thermofisher.com/content/sfs/manuals/4346366_DNA_Sequenc_Analysis_5_1_UG.pdf",
+      "responsible_organization": [
+        "B2AI_ORG:123"
+      ]
     },
     {
       "id": "B2AI_STANDARD:12",
@@ -476,6 +502,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "fileformat",
         "has_ai_application"
@@ -488,10 +515,13 @@
         "B2AI_ORG:117",
         "B2AI_ORG:116"
       ],
-      "purpose_detail": "sequencing alignment",
+      "purpose_detail": "The CRAM format is a compressed version of the Binary Alignment/Map (BAM) format. The CRAM format is designed to be more efficient than BAM, especially for large datasets. The CRAM format is based on the BAM format, but it uses a different compression algorithm and has a different file structure. The CRAM format is also designed to be more flexible than BAM, allowing for the inclusion of additional information about the data.",
       "is_open": true,
       "requires_registration": false,
-      "url": "https://samtools.github.io/hts-specs/"
+      "url": "https://samtools.github.io/hts-specs/",
+      "responsible_organization": [
+        "B2AI_ORG:34"
+      ]
     },
     {
       "id": "B2AI_STANDARD:22",
@@ -504,6 +534,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "fileformat"
       ],
@@ -515,7 +546,10 @@
       "is_open": true,
       "requires_registration": false,
       "url": "https://en.wikipedia.org/wiki/Binary_Alignment_Map",
-      "formal_specification": "https://samtools.github.io/hts-specs/SAMv1.pdf"
+      "formal_specification": "https://samtools.github.io/hts-specs/SAMv1.pdf",
+      "responsible_organization": [
+        "B2AI_ORG:34"
+      ]
     },
     {
       "id": "B2AI_STANDARD:23",
@@ -588,6 +622,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "datamodel",
         "has_ai_application"
@@ -615,6 +650,9 @@
       "collection": [
         "markuplanguage"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A language for representing scientific findings in the life sciences in a computable form.",
       "is_open": true,
       "requires_registration": false,
@@ -629,6 +667,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:15",
         "B2AI_ORG:31",
@@ -1093,7 +1134,7 @@
       "has_relevant_organization": [
         "B2AI_ORG:15"
       ],
-      "purpose_detail": "standard for exchanging biomedical data",
+      "purpose_detail": "The CSDIC ODM is a vendor-neutral, platform-independent format for exchanging and archiving clinical and translational research data, along with their associated metadata, administrative data, reference data, and audit information. ODM facilitates the regulatory-compliant acquisition, archival and exchange of metadata and data.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.cdisc.org/standards/data-exchange/odm",
@@ -1177,6 +1218,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "fileformat"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Chado is a modular schema covering many aspects of biology, not just sequence data. Chado-XML has exactly the same scope as the Chado schema.",
       "is_open": true,
@@ -1275,6 +1319,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:16"
       ],
@@ -1397,6 +1444,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "datamodel",
         "has_ai_application"
@@ -1447,6 +1495,9 @@
       "collection": [
         "diagnosticinstrument"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:30"
       ],
@@ -1490,6 +1541,9 @@
       "collection": [
         "guidelines"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A reporting guideline for qualitative research interviews and focus groups comprising 32 criteria, the list of which is available from http://www.cnfs.net/modules/module2/story_content/external_files/13_COREQ_checklist_000017.pdf",
       "is_open": true,
       "requires_registration": false,
@@ -1506,6 +1560,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "guidelines"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "The Consolidated Health Economic Evaluation Reporting Standards (CHEERS) statement is an attempt to consolidate and update previous health economic evaluation guidelines efforts into one current, useful reporting guidance. The primary audiences for the CHEERS statement are researchers reporting economic evaluations and the editors and peer reviewers assessing them for publication.",
       "is_open": true,
@@ -1543,6 +1600,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "guidelines"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A suite of open industry standards and specifications that provide several means to end-to-end interoperability between personal medical devices and health information systems.",
       "is_open": true,
@@ -1621,6 +1681,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "codesystem"
       ],
@@ -1731,6 +1792,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "audiovisual",
         "fileformat",
@@ -1765,6 +1827,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:15"
       ],
@@ -1794,6 +1857,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -1826,6 +1890,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -1858,6 +1923,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -1887,6 +1953,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -1919,6 +1986,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -1951,6 +2019,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -1983,6 +2052,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2015,6 +2085,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2047,6 +2118,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2080,6 +2152,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2112,6 +2185,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2144,6 +2218,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2176,6 +2251,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2208,6 +2284,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2240,6 +2317,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2272,6 +2350,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2304,6 +2383,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2336,6 +2416,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -2368,6 +2449,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:26"
       ],
@@ -2404,6 +2488,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "markuplanguage"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A metadata standard developed for the earth, environmental and ecological sciences.",
       "is_open": true,
@@ -2573,8 +2660,12 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:40",
@@ -2603,6 +2694,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "fileformat"
       ],
@@ -2622,6 +2714,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "fileformat",
         "has_ai_application"
@@ -2646,8 +2739,12 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "policy"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:39"
@@ -2734,6 +2831,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -2760,6 +2860,10 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -2814,6 +2918,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -2839,6 +2946,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -2864,6 +2974,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -3447,6 +3560,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "policy"
       ],
@@ -3473,6 +3587,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "codesystem"
       ],
@@ -3523,6 +3638,9 @@
       "collection": [
         "markuplanguage"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Histoimmunogenetics Markup Language (HML) is intended as a potentially general-purpose XML format for exchanging genetic typing data. This format supports NGS based genotyping methods, raw sequence reads, registered methodologies, reference data, complete reporting of allele and genotype ambiguity and MIRING compliant reporting.",
       "is_open": true,
       "requires_registration": false,
@@ -3537,6 +3655,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -3849,6 +3970,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:46"
       ],
@@ -3868,6 +3992,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:46"
       ],
@@ -3887,6 +4014,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:46"
       ],
@@ -3906,6 +4036,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:46"
       ],
@@ -3926,6 +4059,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:46"
       ],
@@ -3946,6 +4082,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:46"
       ],
@@ -3965,6 +4104,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:46"
       ],
@@ -4006,6 +4148,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:53"
       ],
@@ -4069,6 +4214,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "codesystem"
       ],
@@ -4119,6 +4265,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "codesystem"
       ],
@@ -4223,6 +4370,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:50"
       ],
@@ -4273,6 +4423,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "fileformat"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A format used by the khmer tool to represent k-mer counts and their occurences.",
       "is_open": true,
@@ -4352,6 +4505,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "codesystem",
         "has_ai_application"
@@ -4678,6 +4832,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:37"
       ],
@@ -4722,6 +4877,9 @@
       "collection": [
         "minimuminformationschema"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "This is a reporting guideline for self-monitoring and quantified-self experiments and their use for research purposes.",
       "is_open": false,
       "requires_registration": false,
@@ -4737,6 +4895,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "minimuminformationschema"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A set of guidelines for the consistent annotation and curation of computational models in biology.",
       "is_open": true,
@@ -4821,6 +4982,9 @@
       "collection": [
         "minimuminformationschema"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:38"
       ],
@@ -4844,6 +5008,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "minimuminformationschema"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A reporting guideline for plant phenotyping experiments. Comprises a checklist, i.e., a list of attributes that may be necessary to fully describe an experiment so that it is understandable and replicable. Should be consulted by people recording and depositing the data. Covers description of the following aspects of plant phenotyping experiment - study, environment, experimental design, sample management, biosource, treatment and phenotype. To read more, please visit http://cropnet.pl/phenotypes",
       "is_open": true,
@@ -4899,6 +5066,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "minimuminformationschema"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "MIABIS represents the minimum information required to initiate collaborations between biobanks and to enable the exchange of biological samples and data. The aim is to facilitate the reuse of bio-resources and associated data by harmonizing biobanking and biomedical research.",
       "is_open": true,
@@ -4957,6 +5127,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "multimodal"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "The Multilevel Healthcare Information Modeling (MLHIM) specifications enables the exchange of syntactically and semantically interoperable data extracts between distributed, independently developed, biomedical databases and clinical applications, promoting syntactic and semantic integration of Translational Research data. The Semantic MedWeb is an implementation of a MLHIM-based database development platform (open source code available at https://github.com/mlhim/SemanticMedWeb)",
       "is_open": true,
@@ -5137,6 +5310,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:71"
       ],
@@ -5156,6 +5332,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:66"
       ],
@@ -5241,6 +5420,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:63"
       ],
@@ -5286,6 +5468,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A data standard for neurophysiology, providing neuroscientists with a common standard to share, archive, use, and build analysis tools for neurophysiology data.",
       "is_open": true,
       "requires_registration": false,
@@ -5346,6 +5531,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "markuplanguage"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "NeuroML is a model description language developed in XML (extensible Markup Language) that was created to facilitate data archiving, data and model exchange, database creation, and model publication in the neurosciences. One of the goals of the NeuroML project is to develop standards for model specification that will allow for greater simulator interoperability and model exchange.",
       "is_open": true,
@@ -5537,6 +5725,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "datamodel",
         "has_ai_application"
@@ -5621,6 +5810,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -5801,6 +5991,9 @@
       "collection": [
         "guidelines"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "The quality of research in hospital epidemiology (infection control) must be improved to be robust enough to influence policy and practice. In order to raise the standards of research and publication, a CONSORT equivalent for these largely quasi-experimental studies has been prepared by the authors of two relevant systematic reviews undertaken for the HTA and the Cochrane Collaboration. The statement was revised following widespread consultation with learned societies, editors of journals and researchers. It consists of a 22 item checklist, and a summary table. The emphasis is on transparency to improve the quality of reporting and on the use of appropriate statistical techniques.The statement has been endorsed and welcomed by a number of professional special interest groups and societies including the Association of Medical Microbiologists (AMM), Bristish Society for Antimicrobial Chemotherapy (BSAC) and the Infection Control Nurses' Association (ICNA) Research and Development Group. Like CONSORT, ORION considers itself a work in progress, which requires ongoing dialogue for successful promotion and dissemination. The statement is therefore offered for further public discussion and journals are encouraged to trial it as part of their reviewing and editing process and feedback to the authors.",
       "is_open": true,
       "requires_registration": false,
@@ -5887,6 +6080,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -5991,6 +6187,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "guidelines"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "An evidence-based minimum set of items for reporting in systematic reviews and meta-analyses.The aim of the PRISMA Statement is to help authors improve the reporting of systematic reviews and meta-analyses. We have focused on randomized trials, but PRISMA can also be used as a basis for reporting systematic reviews of other types of research, particularly evaluations of interventions. PRISMA may also be useful for critical appraisal of published systematic reviews, although it is not a quality assessment instrument to gauge the quality of a systematic review.",
       "is_open": true,
@@ -6145,6 +6344,9 @@
       "collection": [
         "guidelines"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "REFLECT stands for Reporting guidElines For randomized controLled trials for livEstoCk and food safeTy. It is an evidence-based minimum set of items for trials reporting production, health, and food-safety outcomes.The aim of the REFLECT Statement is to help authors improve the reporting livestock trials with production, health, and food-safety outcomes. We have focused on both types of randomized trials, field trials and challenge studies in livestock, and the interventions may be therapeutic or preventive. The REFLECT Statement consists of a 22-item checklist (MS Word version ; PDF word version). It is an evolving document that is subject to change periodically as new evidence emerges. This website contains the current definitive version of the REFLECT Statement.",
       "is_open": true,
       "requires_registration": false,
@@ -6161,6 +6363,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "guidelines"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Despite years of research and hundreds of reports on tumor markers in oncology, the number of markers that have emerged as clinically useful is pitifully small. Often initially reported studies of a marker show great promise, but subsequent studies on the same or related markers yield inconsistent conclusions or stand in direct contradiction to the promising results. It is imperative that we attempt to understand the reasons why multiple studies of the same marker lead to differing conclusions. A variety of methodological problems have been cited to explain these discrepancies. Unfortunately, many tumor marker studies have not been reported in a rigorous fashion, and published articles often lack sufficient information to allow adequate assessment of the quality of the study or the generalizability of study results. The development of guidelines for the reporting of tumor marker studies was a major recommendation of the National Cancer Institute-European Organisation for Research and Treatment of Cancer (NCI-EORTC) First International Meeting on Cancer Diagnostics in 2000. As for the successful CONSORT initiative for randomized trials and for the STARD statement for diagnostic studies, we suggest guidelines to provide relevant information about the study design, preplanned hypotheses, patient and specimen characteristics, assay methods, and statistical analysis methods. In addition, the guidelines provide helpful suggestions on how to present data and important elements to include in discussions. The goal of these guidelines is to encourage transparent and complete reporting so that the relevant information will be available to others to help them to judge the usefulness of the data and understand the context in which the conclusions apply.",
       "is_open": true,
@@ -6224,11 +6429,17 @@
       "collection": [
         "fileformat"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "The Sequence Alignment/Map (SAM) format is a TAB-delimited text format consisting of a header section, which is optional, and an alignment section.",
       "is_open": true,
       "requires_registration": false,
       "url": "http://samtools.sourceforge.net/",
-      "publication": "doi:10.1093/bioinformatics/btp352"
+      "publication": "doi:10.1093/bioinformatics/btp352",
+      "responsible_organization": [
+        "B2AI_ORG:34"
+      ]
     },
     {
       "id": "B2AI_STANDARD:274",
@@ -6392,6 +6603,9 @@
       "collection": [
         "guidelines"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "The objective of the STARD initiative is to improve the accuracy and completeness of reporting of studies of diagnostic accuracy, to allow readers to assess the potential for bias in the study (internal validity) and to evaluate its generalisability (external validity).The STARD statement consist of a checklist of 25 items and recommends the use of a flow diagram which describe the design of the study and the flow of patients.",
       "is_open": true,
       "requires_registration": false,
@@ -6429,6 +6643,9 @@
       "collection": [
         "guidelines"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Making sense of rapidly evolving evidence on genetic associations is crucial to making genuine advances in human genomics and the eventual integration of this information in the practice of medicine and public health. Assessment of the strengths and weaknesses of this evidence, and hence the ability to synthesize it, has been limited by inadequate reporting of results. The STrengthening the REporting of Genetic Association studies (STREGA) initiative builds on the Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) Statement and provides additions to 12 of the 22 items on the STROBE checklist. The additions concern population stratification, genotyping errors, modelling haplotype variation, Hardy-Weinberg equilibrium, replication, selection of participants, rationale for choice of genes and variants, treatment effects in studying quantitative traits, statistical methods, relatedness, reporting of descriptive and outcome data, and the volume of data issues that are important to consider in genetic association studies. The STREGA recommendations do not prescribe or dictate how a genetic association study should be designed but seek to enhance the transparency of its reporting, regardless of choices made during design, conduct, or analysis.",
       "is_open": true,
       "requires_registration": false,
@@ -6445,6 +6662,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "guidelines"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:91"
@@ -6633,6 +6853,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:93"
       ],
@@ -6674,6 +6897,9 @@
       "collection": [
         "guidelines"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:12"
       ],
@@ -6695,6 +6921,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:26"
       ],
@@ -6755,6 +6984,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "fileformat",
         "has_ai_application"
@@ -6770,7 +7000,10 @@
       "is_open": true,
       "requires_registration": false,
       "url": "https://en.wikipedia.org/wiki/Variant_Call_Format",
-      "formal_specification": "https://github.com/samtools/hts-specs"
+      "formal_specification": "https://github.com/samtools/hts-specs",
+      "responsible_organization": [
+        "B2AI_ORG:34"
+      ]
     },
     {
       "id": "B2AI_STANDARD:300",
@@ -6783,13 +7016,19 @@
       "collection": [
         "fileformat"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:29"
       ],
       "purpose_detail": "A text format devised by Ensembl for the eponymous Variant Effect Predictor tool.",
       "is_open": true,
       "requires_registration": false,
-      "url": "https://useast.ensembl.org/info/docs/tools/vep/vep_formats.html"
+      "url": "https://useast.ensembl.org/info/docs/tools/vep/vep_formats.html",
+      "responsible_organization": [
+        "B2AI_ORG:124"
+      ]
     },
     {
       "id": "B2AI_STANDARD:301",
@@ -6799,8 +7038,12 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:34",
@@ -6843,6 +7086,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:93"
       ],
@@ -6878,6 +7124,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:99"
       ],
@@ -7182,6 +7431,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "workflowlanguage"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "specification for describing data analysis workflows and tools",
       "is_open": true,
@@ -7547,6 +7799,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "fileformat"
       ],
@@ -7639,6 +7892,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:49"
       ],
@@ -7655,6 +7911,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "audiovisual",
         "fileformat",
@@ -7721,6 +7978,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "markuplanguage",
         "has_ai_application"
@@ -7986,6 +8244,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "fileformat"
       ],
@@ -8247,6 +8506,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -8475,6 +8735,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "audiovisual",
         "fileformat"
@@ -8903,6 +9164,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Antibiotic resistance genes and mutations",
       "is_open": true,
       "requires_registration": false,
@@ -8919,6 +9183,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Terms and relations for interoperation between epidemic models and public health application software.",
       "is_open": true,
@@ -8977,6 +9244,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Biodiversity data, including data on museum collections and environmental/metagenomic samples.",
       "is_open": true,
       "requires_registration": false,
@@ -9013,6 +9283,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Spatial concepts, anatomical axes, gradients, regions, planes, sides, and surfaces.",
       "is_open": true,
       "requires_registration": false,
@@ -9029,6 +9302,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A structured controlled vocabulary for the source of an enzyme comprising tissues, cell lines, cell types and cell cultures.",
       "is_open": true,
@@ -9047,6 +9323,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A structured controlled vocabulary of Caenorhabditis elegans phenotypes.",
       "is_open": true,
@@ -9084,6 +9363,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Standardize and integrate cell line information and to support computer-assisted reasoning.",
       "is_open": true,
       "requires_registration": false,
@@ -9101,6 +9383,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Cell Types",
       "is_open": true,
@@ -9246,6 +9531,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:13"
       ],
@@ -9264,6 +9552,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "An upper level ontology to facilitate interoperability between existing anatomy ontologies for different species.",
       "is_open": true,
@@ -9299,6 +9590,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A formalization of concepts and relations relevant to evolutionary comparative analysis.",
       "is_open": true,
       "requires_registration": false,
@@ -9315,6 +9609,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Nutritional attributes of material entities that contribute to human diet.",
       "is_open": true,
@@ -9333,6 +9630,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Capture confidence information about annotations.",
       "is_open": true,
@@ -9369,6 +9669,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:75"
@@ -9450,6 +9753,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "An ontology developed to facilitate information curation in the area of medical devices, experimental scaffolds and biomaterials.",
       "is_open": true,
       "requires_registration": false,
@@ -9484,6 +9790,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Ontology for drivers and triggers of human diseases, built to classify ExO ontology exposure stressors. An application ontology.",
       "is_open": true,
@@ -9580,6 +9889,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Affective phenomena such as emotions, moods, appraisals and subjective feelings.",
       "is_open": true,
       "requires_registration": false,
@@ -9632,6 +9944,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -9658,6 +9971,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "An ontology for experimental and other evidence statements.",
       "is_open": true,
       "requires_registration": false,
@@ -9675,6 +9991,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Conditions under which physiological and morphological measurements are made both in the clinic and in studies involving humans or model org...",
       "is_open": true,
@@ -9753,6 +10072,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A broadly scoped ontology representing entities which bear a “food role”. It encompasses materials in natural ecosystems and agriculture tha...",
       "is_open": true,
       "requires_registration": false,
@@ -9770,6 +10092,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Represent food intake data and associate it with metabolomic data",
       "is_open": true,
@@ -9852,6 +10177,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Vocabulary necessary to identify, document and research foodborne pathogens.",
       "is_open": true,
       "requires_registration": false,
@@ -9888,6 +10216,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:58"
@@ -9927,6 +10258,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:35"
       ],
@@ -9946,6 +10280,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "GlyTouCan provides stable accessions for glycans described at varyious degrees of characterization, including compositions (no linkage).",
       "is_open": true,
       "requires_registration": false,
@@ -9964,6 +10301,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:92"
       ],
@@ -9981,6 +10321,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -9999,6 +10342,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Concepts related to homology, as well as other concepts used to describe similarity and non-homology.",
       "is_open": true,
@@ -10037,6 +10383,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A systematic description of the ancestry concepts used in the NHGRI-EBI Catalog",
       "is_open": true,
       "requires_registration": false,
@@ -10053,6 +10402,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Life cycle stages for Human.",
       "is_open": true,
@@ -10209,6 +10561,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "An integrated biological ontology for the description of bacterial integrative and conjugative elements (ICEs).",
       "is_open": true,
       "requires_registration": false,
@@ -10250,6 +10605,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "An ontology of interactions and interaction networks.",
       "is_open": true,
       "requires_registration": false,
@@ -10283,6 +10641,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Algorithms for simulating biology, their parameters, and their outputs.",
       "is_open": true,
@@ -10318,6 +10679,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:13"
       ],
@@ -10358,6 +10722,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A representation of the variety of methods used to make clinical and phenotype measurements.",
       "is_open": true,
       "requires_registration": false,
@@ -10375,6 +10742,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Life cycle stages for Medaka",
       "is_open": true,
@@ -10456,6 +10826,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "All aspects of mental functioning.",
       "is_open": true,
       "requires_registration": false,
@@ -10489,6 +10862,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Major Histocompatibility Complex (MHC) restriction in experiments.",
       "is_open": true,
       "requires_registration": false,
@@ -10504,6 +10880,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "An application ontology to formalize annotation of phylogenetic data.",
       "is_open": true,
@@ -10522,6 +10901,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Minimum information regarding potential drug-drug interaction information.",
       "is_open": true,
@@ -10579,6 +10961,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:29"
       ],
@@ -10623,6 +11008,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Mouse anatomy covering embryonic development and postnatal stages.",
       "is_open": true,
       "requires_registration": false,
@@ -10639,6 +11027,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A structured controlled vocabulary of mutant and transgenic mouse pathology phenotypes.",
       "is_open": true,
@@ -10695,6 +11086,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:74"
       ],
@@ -10715,6 +11109,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:74"
       ],
@@ -10733,6 +11130,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Human and animal behaviours and behavioural phenotypes",
       "is_open": true,
@@ -10766,6 +11166,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A nomenclatural ontology for biological names (not concepts). It encodes the goverened rules of nomenclature.",
       "is_open": true,
@@ -10802,6 +11205,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Terms for nutrition assessment, diagnosis, intervention, and monitoring/evaluation.",
       "is_open": false,
       "requires_registration": true,
@@ -10837,6 +11243,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A structured controlled vocabulary to provide a representation of the data from electronic health records involved in the care of pregnancy.",
       "is_open": true,
       "requires_registration": false,
@@ -10852,6 +11261,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Vocabulary for the description of the most widely-used computational approach for studying digital evolution.",
       "is_open": true,
@@ -10869,6 +11281,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Annotation and modeling of biobank repository and biobanking administration.",
       "is_open": true,
       "requires_registration": false,
@@ -10884,6 +11299,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Description of life-science and clinical investigations.",
       "is_open": true,
@@ -10923,6 +11341,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Data exchange standards and common data elements in the microRNA (miR) domain.",
       "is_open": true,
       "requires_registration": false,
@@ -10938,6 +11359,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Research output of nutritional epidemiologic studies.",
       "is_open": true,
@@ -10955,6 +11379,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Description of concepts in the nutritional studies domain.",
       "is_open": true,
@@ -10993,6 +11420,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Biological and clinical statistics.",
       "is_open": true,
       "requires_registration": false,
@@ -11008,6 +11438,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A collection of biological attributes (traits) covering all kingdoms of life.",
       "is_open": true,
@@ -11026,6 +11459,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "An application ontology to represent genetic susceptibility to a specific disease, adverse event, or a pathological process.",
       "is_open": true,
       "requires_registration": false,
@@ -11041,6 +11477,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Host-pathogen interactions and virulence factors.",
       "is_open": true,
@@ -11059,6 +11498,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Entities and relations related to microbiomes, microbiome host organisms (e.g., human and mouse), and the interactions between the hosts and microbiomes at different conditions.",
       "is_open": true,
       "requires_registration": false,
@@ -11074,6 +11516,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "This ontology covers the domain of social entities that are related to health care, such as demographic information and the roles of various...",
       "is_open": true,
@@ -11093,6 +11538,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:96"
       ],
@@ -11111,6 +11559,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Entities and relations associated with precision medicine and related investigations at different conditions.",
       "is_open": true,
@@ -11206,6 +11657,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Species-neutral phenotypes observed in pathogen-host interactions.",
       "is_open": true,
@@ -11325,6 +11779,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Groups of interacting organisms such as populations and communities.",
       "is_open": true,
@@ -11462,6 +11919,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Ontology of rat strains.",
       "is_open": true,
       "requires_registration": false,
@@ -11522,6 +11982,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:58"
       ],
@@ -11561,6 +12024,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A structured controlled vocabulary for sequence annotation, for the exchange of annotation data and for the description of sequence objects.",
       "is_open": true,
       "requires_registration": false,
@@ -11579,6 +12045,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Sickle Cell Disease terminology.",
       "is_open": true,
       "requires_registration": false,
@@ -11596,6 +12065,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Software tools, their types, tasks, versions, provenance and associated data.",
       "is_open": true,
       "requires_registration": false,
@@ -11610,6 +12082,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:3"
       ],
@@ -11655,6 +12130,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Disease symptoms, with symptoms encompasing perceived changes in function, sensations or appearance reported by a patient.",
       "is_open": true,
       "requires_registration": false,
@@ -11695,6 +12173,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:74"
       ],
@@ -11860,6 +12341,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Terms involving toxicity courses and processes.",
       "is_open": true,
       "requires_registration": false,
@@ -11877,6 +12361,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Anatomy",
       "is_open": true,
       "requires_registration": false,
@@ -11892,6 +12379,10 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:74",
         "B2AI_ORG:115"
@@ -11989,6 +12480,9 @@
       "collection": [
         "obofoundry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "Vaccine and vaccination ontology.",
       "is_open": true,
       "requires_registration": false,
@@ -12005,6 +12499,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:58"
@@ -12024,6 +12521,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Extinct and extant vertebrate taxa.",
       "is_open": true,
@@ -12059,6 +12559,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "obofoundry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "Support ontology for the Eukaryotic Pathogen, Host & Vector Genomics Resource (VEuPathDB; https://veupathdb.org).",
       "is_open": true,
@@ -13031,6 +13534,9 @@
       "collection": [
         "clinicaldata"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:2"
       ],
@@ -13406,6 +13912,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A collection of 3D microstructural datasets assembed using a single 2D input slice as training data.",
       "is_open": true,
       "requires_registration": false,
@@ -13443,6 +13952,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "clinicaldata",
         "has_ai_application"
@@ -13577,6 +14087,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "clinicaldata"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:14"
@@ -14666,6 +15179,9 @@
       "collection": [
         "multimodal"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "We propose a solution to model patient trajectories that combines different types of information (e.g. clinical text, standard codes) and considers the temporal aspect of clinical data. This solution leverages two different architectures - one supporting flexible sets of input features, to convert patient admissions into dense representations; and a second exploring extracted admission representations in a recurrent-based architecture, where patient trajectories are processed in sub-sequences using a sliding window mechanism.",
       "is_open": true,
       "requires_registration": false,
@@ -14701,6 +15217,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "has_ai_application"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:25"
@@ -14845,6 +15364,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:15"
       ],
@@ -14969,6 +15491,9 @@
       "collection": [
         "dataregistry"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "The primary purpose of NRDR is to aid facilities with their quality improvement programs and efforts to improve patient care by comparing facility data to that of their region and the nation. A practice or facility may choose to participate in any or all registries as appropriate for their practice. When a facility joins more than one registry, the warehouse allows information to be shared across registries within the facility.",
       "is_open": false,
       "requires_registration": true,
@@ -15045,6 +15570,9 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
         "dataregistry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:85"
@@ -15130,6 +15658,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "cloudservice"
       ],
@@ -15269,6 +15798,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
       ],
@@ -15315,6 +15845,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -15923,6 +16454,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -15994,6 +16526,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "cloudservice",
         "has_ai_application"
@@ -16102,6 +16635,9 @@
       "collection": [
         "multimodal",
         "has_ai_application"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "A unified Holistic AI in Medicine (HAIM) framework to facilitate the generation and testing of AI systems that leverage multimodal inputs.",
       "is_open": true,
@@ -16225,6 +16761,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "notebookplatform"
       ],
@@ -16282,6 +16819,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A freely available software library for working efficiently with fixed length DNA words, or k-mers. khmer provides implementations of a probabilistic k-mer counting data structure, a compressible De Bruijn graph representation, De Bruijn graph partitioning, and digital normalization.",
       "is_open": true,
       "requires_registration": false,
@@ -16644,6 +17184,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "multimodal",
         "has_ai_application"
@@ -17060,6 +17601,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -17084,6 +17626,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
       ],
@@ -17307,6 +17850,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
       ],
@@ -17536,6 +18080,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -17552,6 +18099,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -17568,6 +18118,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -17585,6 +18138,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:53"
       ],
@@ -17621,6 +18177,9 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40"
       ],
@@ -17640,8 +18199,12 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:40",
@@ -17673,6 +18236,10 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:40",
         "B2AI_ORG:103"
@@ -17702,8 +18269,12 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:40",
@@ -17735,8 +18306,12 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:40",
@@ -17769,6 +18344,9 @@
       "collection": [
         "multimodal"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A cross-platform app for analyzing qualitative and mixed methods research",
       "is_open": false,
       "requires_registration": true,
@@ -17783,6 +18361,9 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2023-03-13",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A lightweight application written in Java, that aims to support researchers in managing research metadata according to the FAIR principles.",
       "is_open": true,
       "requires_registration": false,
@@ -17800,6 +18381,9 @@
       "contribution_date": "2023-03-14",
       "collection": [
         "guidelines"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
       ],
       "purpose_detail": "The Council of Medical Specialty Societies (CMSS) and Patient-Led Research Collaborative (PLRC) have developed a sustainable collaborative model of CER based on information from and the expertise of patient communities, researchers, funders, and clinical research organizations. This model takes the form of scorecards which serve to evaluate how effective a patient group and research partner collaboration will be at conducting truly patient-led research.",
       "is_open": true,
@@ -17881,7 +18465,7 @@
       "is_open": true,
       "requires_registration": false,
       "url": "https://duckdb.org/",
-      "formal_specification": "https://github.com/neo4j/neo4j"
+      "formal_specification": "https://github.com/duckdb/duckdb"
     },
     {
       "id": "B2AI_STANDARD:862",
@@ -18022,6 +18606,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2023-06-20",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application"
       ],
@@ -18158,6 +18743,9 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "0000-0001-5705-7831",
       "contribution_date": "2023-09-25",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "has_relevant_organization": [
         "B2AI_ORG:118"
       ],
@@ -18179,6 +18767,9 @@
         "minimuminformationschema",
         "has_ai_application"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A schema designed to allow rapid replication of the technical design process of a clinical AI study.",
       "is_open": true,
       "requires_registration": false,
@@ -18194,6 +18785,9 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "0000-0001-5705-7831",
       "contribution_date": "2023-09-25",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A standard for describing and clarifying the content of CSV tables.",
       "is_open": true,
       "requires_registration": false,
@@ -18209,6 +18803,9 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "0000-0001-5705-7831",
       "contribution_date": "2023-09-25",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A set of hierarchical file layout conventions for storage and transfer of arbitrary digital content.",
       "is_open": true,
       "requires_registration": false,
@@ -18227,7 +18824,10 @@
       "collection": [
         "has_ai_application"
       ],
-      "purpose_detail": "A universal catalog for data and AI",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
+      "purpose_detail": "A universal catalog for data and AI. It includes a core set of APIs for tables, unstructured data, and AI assets.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.unitycatalog.io/",
@@ -18325,6 +18925,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-02-16",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:37"
       ],
@@ -18349,6 +18950,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-02-16",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:36"
       ],
@@ -18373,6 +18975,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-03-05",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:36"
       ],
@@ -18401,6 +19004,9 @@
         "audiovisual",
         "fileformat"
       ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "BigTIFF is an image format. It is a variant of the TIFF format that uses 64-bit offsets thereby supporting files up to 18,000 petabytes in size, vastly transcending TIFF's normal 4 GB limit. Since the format also supports all of the normal features and header tags of TIFF_6 and the extended metadata offered by GeoTIFF, it provides good service in the GIS domain, medical imaging, and other applications that employ large scanners or cameras.",
       "is_open": true,
       "requires_registration": false,
@@ -18418,6 +19024,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-03-13",
+      "used_in_bridge2ai": true,
       "concerns_data_topic": [
         "B2AI_TOPIC:37"
       ],
@@ -18438,6 +19045,9 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-03-13",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A set of common data elements for radiology research.",
       "is_open": true,
       "requires_registration": false,
@@ -18452,6 +19062,9 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-03-13",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
       "purpose_detail": "A semantic model for describing genomic data in a FAIR manner.",
       "is_open": true,
       "requires_registration": false,
@@ -18497,6 +19110,7 @@
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "PRIDE",
       "description": "PRoteomics IDEntifications Database",
+      "used_in_bridge2ai": true,
       "collection": [
         "dataregistry",
         "has_ai_application"
@@ -18519,6 +19133,7 @@
       "category": "B2AI_STANDARD:DataStandard",
       "name": "ASCII File Format Guidelines for Earth Science Data",
       "description": "American Standard Code for Information Interchange ASCII File Format Guidelines for Earth Science Data",
+      "used_in_bridge2ai": true,
       "collection": [
         "fileformat",
         "has_ai_application"
@@ -18540,6 +19155,7 @@
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "GIS Toolchain",
       "description": "Geographic Informations Systems Toolchain",
+      "used_in_bridge2ai": true,
       "collection": [
         "datamodel",
         "has_ai_application"
@@ -18565,6 +19181,7 @@
         "B2AI_STANDARD:98",
         "B2AI_STANDARD:243"
       ],
+      "used_in_bridge2ai": true,
       "collection": [
         "datamodel",
         "has_ai_application"
@@ -18586,6 +19203,7 @@
       "category": "B2AI_STANDARD:DataStandard",
       "name": "CX",
       "description": "Cytoscape Exchange",
+      "used_in_bridge2ai": true,
       "collection": [
         "has_ai_application",
         "fileformat"
@@ -18600,6 +19218,28 @@
       "is_open": true,
       "requires_registration": false,
       "url": "https://cytoscape.org/cx/"
+    },
+    {
+      "id": "B2AI_STANDARD:899",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "h5ad",
+      "description": "Anndata h5ad format",
+      "used_in_bridge2ai": true,
+      "collection": [
+        "has_ai_application",
+        "fileformat"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:116"
+      ],
+      "purpose_detail": "h5ad is a format for storing and working with annotated data matrices in memory and on disk. It is produced by the Anndata Python package.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://anndata.readthedocs.io/en/stable/",
+      "formal_specification": "https://github.com/scverse/anndata/blob/main/src/anndata/_io/h5ad.py"
     }
   ],
   "@type": "DataStandardOrToolContainer"
