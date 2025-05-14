@@ -47,15 +47,13 @@ def get_auth_token():
 
     raise ValueError(f"'authtoken' not found in {auth_file}")
 
-AUTH_TOKEN = get_auth_token()
-
 def initialize_synapse() -> None:
     """
     Initialize the synapse client
     """
     try:
         syn = Synapse()
-        syn.login(authToken=AUTH_TOKEN)
+        syn.login(authToken=get_auth_token())
         return syn
     except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
         raise Exception(f"Failed to authenticate with Synapse: {str(e)}")
