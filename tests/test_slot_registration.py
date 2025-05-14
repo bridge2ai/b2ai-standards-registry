@@ -4,10 +4,13 @@ import unittest
 from unittest.mock import patch
 import yaml
 # import scripts.modify_synapse_schema as modify_synapse_schema
+# Commenting out all references to modify_synapse_schema because
+#   it's no longer in the repo. But these tests may be helpful
+#   in deciding whether alternative tests should be written.
 
 class TestSlotRegistration(unittest.TestCase):
     DATA_DIRECTORY = "src/data"
-    MODIFY_SYNAPSE_SCHEMA_FILE = "scripts/modify_synapse_schema.py"
+    # MODIFY_SYNAPSE_SCHEMA_FILE = "scripts/modify_synapse_schema.py"
 
 
     def _get_slots_by_table(self):
@@ -105,28 +108,28 @@ class TestSlotRegistrationTests(unittest.TestCase):
         self.assertEqual(len(result.failures), 1)
 
 
-    @patch("scripts.modify_synapse_schema.ColumnName", new=MockColumnName)
-    def test_slot_not_in_column_templates_or_table_schema(self):
-        """INVALID - Slot not defined in 'COLUMN_TEMPLATES' or 'TableSchema'"""
-        result = self._run_target_test()
-        self.assertEqual(len(result.failures), 1)
+    # @patch("scripts.modify_synapse_schema.ColumnName", new=MockColumnName)
+    # def test_slot_not_in_column_templates_or_table_schema(self):
+    #     """INVALID - Slot not defined in 'COLUMN_TEMPLATES' or 'TableSchema'"""
+    #     result = self._run_target_test()
+    #     self.assertEqual(len(result.failures), 1)
 
 
-    @patch("scripts.modify_synapse_schema.ColumnName", new=MockColumnName)
-    @patch("scripts.modify_synapse_schema.COLUMN_TEMPLATES", new=MOCK_COLUMN_TEMPLATES)
-    def test_slot_not_in_table_schema(self):
-        """INVALID - Slot not defined in 'TableSchema'"""
-        result = self._run_target_test()
-        self.assertEqual(len(result.failures), 1)
+    # @patch("scripts.modify_synapse_schema.ColumnName", new=MockColumnName)
+    # @patch("scripts.modify_synapse_schema.COLUMN_TEMPLATES", new=MOCK_COLUMN_TEMPLATES)
+    # def test_slot_not_in_table_schema(self):
+    #     """INVALID - Slot not defined in 'TableSchema'"""
+    #     result = self._run_target_test()
+    #     self.assertEqual(len(result.failures), 1)
 
 
-    @patch("scripts.modify_synapse_schema.ColumnName", new=MockColumnName)
-    @patch("scripts.modify_synapse_schema.COLUMN_TEMPLATES", new=MOCK_COLUMN_TEMPLATES)
-    @patch("scripts.modify_synapse_schema.TableSchema", new=MockTableSchema)
-    def test_slot_is_registered(self):
-        """VALID - Slot defined everywhere"""
-        result = self._run_target_test()
-        self.assertTrue(result.wasSuccessful())
+    # @patch("scripts.modify_synapse_schema.ColumnName", new=MockColumnName)
+    # @patch("scripts.modify_synapse_schema.COLUMN_TEMPLATES", new=MOCK_COLUMN_TEMPLATES)
+    # @patch("scripts.modify_synapse_schema.TableSchema", new=MockTableSchema)
+    # def test_slot_is_registered(self):
+    #     """VALID - Slot defined everywhere"""
+    #     result = self._run_target_test()
+    #     self.assertTrue(result.wasSuccessful())
 
 
 if __name__ == "__main__":
