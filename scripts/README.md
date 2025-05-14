@@ -44,6 +44,7 @@ The scripts in this folder are designed to:
 Each script is intended to be run individually. Here’s how to use them:
 
 ### Example Script: modify_synapse_schema.py
+#### No longer using modify_synapse_schema. Should change example to update_synapse_tables maybe
 
 **Description:** Sets up and manages table schemas in Synapse, defining the column structure for each table.
 

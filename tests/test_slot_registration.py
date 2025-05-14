@@ -3,7 +3,7 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 import yaml
-import scripts.modify_synapse_schema as modify_synapse_schema
+# import scripts.modify_synapse_schema as modify_synapse_schema
 
 class TestSlotRegistration(unittest.TestCase):
     DATA_DIRECTORY = "src/data"
@@ -18,7 +18,7 @@ class TestSlotRegistration(unittest.TestCase):
         """
         slots_by_table = {}
         for file_path in Path(TestSlotRegistration.DATA_DIRECTORY).iterdir():
-            if((not file_path.is_file()) or file_path.stem == "DataSet"):    # 'DataSet' is incomplete
+            if (not file_path.is_file()) or file_path.stem == "DataSet":    # 'DataSet' is incomplete
                 continue
 
             with file_path.open() as file:
@@ -37,32 +37,34 @@ class TestSlotRegistration(unittest.TestCase):
         return slots_by_table
 
 
-    @unittest.skip("This is failing now. We no longer need modify_synapse_schema.py")
-    def test_slot_registration(self):
-        """
-        Verify that every slot in each table has been added to all column definitions in 'modify_snyapse_schema.py'.
-        This includes the enums `ColumnName` and `TableSchema`, plus the dictionary `COLUMN_TEMPLATES`
-        """
-        ColumnName_values = [entry.value for entry in modify_synapse_schema.ColumnName]
-        COLUMN_TEMPLATE_keys = list(modify_synapse_schema.COLUMN_TEMPLATES.keys())
-
-        for table, slots in self._get_slots_by_table().items():
-            for slot in slots:
-                # All slots should be registered in these places
-                self.assertTrue(
-                    slot in ColumnName_values,
-                    f"slot '{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'ColumnName'"
-                )
-                self.assertTrue(
-                    modify_synapse_schema.ColumnName(slot) in COLUMN_TEMPLATE_keys,
-                    f"slot '{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'COLUMN_TEMPLATES'"
-                )
-
-                # Table-specific slot registration
-                self.assertTrue(
-                    modify_synapse_schema.ColumnName(slot) in modify_synapse_schema.TableSchema[table].value["columns"],
-                    f"slot '{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'TableSchema[{table}]'"
-                )
+    # commented out because it uses modify_synapse_schema which is deleted. we probably don't
+    #   need this test at all anymore
+    # @unittest.skip("This is failing now. We no longer need modify_synapse_schema.py")
+    # def test_slot_registration(self):
+    #     """
+    #     Verify that every slot in each table has been added to all column definitions in 'modify_snyapse_schema.py'.
+    #     This includes the enums `ColumnName` and `TableSchema`, plus the dictionary `COLUMN_TEMPLATES`
+    #     """
+    #     ColumnName_values = [entry.value for entry in modify_synapse_schema.ColumnName]
+    #     COLUMN_TEMPLATE_keys = list(modify_synapse_schema.COLUMN_TEMPLATES.keys())
+    #
+    #     for table, slots in self._get_slots_by_table().items():
+    #         for slot in slots:
+    #             # All slots should be registered in these places
+    #             self.assertTrue(
+    #                 slot in ColumnName_values,
+    #                 f"slot '{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'ColumnName'"
+    #             )
+    #             self.assertTrue(
+    #                 modify_synapse_schema.ColumnName(slot) in COLUMN_TEMPLATE_keys,
+    #                 f"slot '{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'COLUMN_TEMPLATES'"
+    #             )
+    #
+    #             # Table-specific slot registration
+    #             self.assertTrue(
+    #                 modify_synapse_schema.ColumnName(slot) in modify_synapse_schema.TableSchema[table].value["columns"],
+    #                 f"slot '{slot}' not in '{TestSlotRegistration.MODIFY_SYNAPSE_SCHEMA_FILE}' > 'TableSchema[{table}]'"
+    #             )
 
 
 
