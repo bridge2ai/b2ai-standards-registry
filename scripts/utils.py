@@ -12,6 +12,9 @@ def get_auth_token():
     """
     Retrieves the Synapse authentication token from the user's ~/.synapseConfig file.
 
+    Some tests have started failing during GitHub actions. Going to try looking for token
+    in evironment variables as well.
+
     The config file must contain an authentication token. See the README for information on how to set this up.
 
     :return: The authentication token found in the config tile.
@@ -20,6 +23,11 @@ def get_auth_token():
         ValueError: If the 'authtoken' line is missing, malformed, or empty
         RuntimeError: If an unexpected error occurs while reading the file.
     """
+
+    token = os.getenv('SYNAPSE_AUTH_TOKEN') or os.getenv('AUTH_TOKEN') or os.getenv('auth_token')
+    if token:
+        return token
+
     auth_file = os.path.expanduser("~/.synapseConfig")
 
     try:
