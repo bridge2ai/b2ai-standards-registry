@@ -43,6 +43,7 @@ classes:
       - involved_in_metadata_management
       - involved_in_quality_control
       - xref
+      - test_field
     slot_usage:
       use_case_category:
         required: true
@@ -141,6 +142,12 @@ slots:
     inlined: true
     inlined_as_list: true
     multivalued: true
+  test_field:
+    is_a: node_property
+    range: string
+    description: >-
+      A test field for testing purposes.
+      This is a placeholder and should be removed in production.
 
 enums:
   UseCaseCategory:
