@@ -152,4 +152,3 @@ def cli():
 
 if __name__ == '__main__':
     cli()
-    # this is for convenience to upload everything
