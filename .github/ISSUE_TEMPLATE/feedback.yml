@@ -1,0 +1,54 @@
+name: Explorer Feedback
+description: Provide feedback on the Standards Explorer, report bugs, or suggest improvements.
+title: Explorer Feedback - [Brief Description]
+labels: [ Feedback ]
+body:
+  - type: markdown
+    attributes:
+      value: This is the form for providing feedback on the Bridge2AI Standards Explorer.
+  - type: dropdown
+    id: feedback_type
+    attributes:
+      label: Type of feedback
+      description: What kind of feedback are you providing?
+      multiple: false
+      options:
+        - Issue or bug in Portal functionality
+        - Suggest a new filter
+        - Provide a new use case for inclusion
+        - Suggested edits to a standard
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Add details about the issue or change you'd like to see
+      placeholder: Provide specific details about your feedback, including steps to reproduce if reporting a bug
+    validations:
+      required: true
+  - type: textarea
+    id: relevant_pages
+    attributes:
+      label: Relevant Pages
+      description: What pages are relevant to this feedback? Please provide URLs.
+      placeholder: e.g., https://b2ai.standards.synapse.org/Explore/
+    validations:
+      required: true
+  - type: input
+    id: contributor_name
+    attributes:
+      label: Contributor Name
+      description: What is your name? This will be used for attribution.
+      placeholder: e.g., Jane Smith
+    validations:
+      required: true
+  - type: input
+    id: contributor_github
+    attributes:
+      label: Contributor GitHub
+      description: What is your GitHub name, without the @ symbol? (So we can contact you for more details if needed)
+      placeholder: e.g., jsmith
+    validations:
+      required: false

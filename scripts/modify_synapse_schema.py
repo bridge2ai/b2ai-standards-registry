@@ -57,6 +57,7 @@ class ColumnName(Enum):
     PRODUCED_BY = "produced_by"
     SUBSTRATES = "substrates"
     TOPICS = "topics"
+    USED_IN_BRIDGE2AI = "used_in_bridge2ai"
 
 
 # Possible columns in the standards data tables
@@ -210,8 +211,12 @@ COLUMN_TEMPLATES = {
     ),
     ColumnName.TOPICS: Column(
         name="topics", columnType="STRING_LIST", maximumListLength=25
+    ),
+    ColumnName.USED_IN_BRIDGE2AI: Column(
+        name=ColumnName.USED_IN_BRIDGE2AI.value, columnType="BOOLEAN"
     )
 }
+
 
 class TableSchema(Enum):
     """An enum for the data tables, containing their ids in the synapse project and their schemas"""
@@ -257,6 +262,7 @@ class TableSchema(Enum):
             ColumnName.CONTRIBUTION_DATE,
             ColumnName.RELATED_TO,
             ColumnName.RESPONSIBLE_ORGANIZATION,
+            ColumnName.USED_IN_BRIDGE2AI,
         ],
     }
     DataSubstrate = {
@@ -355,7 +361,8 @@ def main():
         column_keys = table_schema.value["columns"]
         columns = [COLUMN_TEMPLATES[key] for key in column_keys]
 
-        schema = Schema(name=table_schema.name, columns=columns, parent=project)
+        schema = Schema(name=table_schema.name,
+                        columns=columns, parent=project)
         table = Table(schema, values=[])
         syn.store(table)
 
