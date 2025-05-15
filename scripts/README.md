@@ -61,6 +61,30 @@ For instance, to upload the Organization and DataTopic tables, run
 poetry run python -m scripts.analyze_and_update_synapse_tables -t Organization DataTopic
 ```
 
+**When updates are made to data or schemas on this repository, `analyze_and_update_synapse_tables`
+should be run automatically for the updated tables.**
+
+Bugs appearing in this script during development (and hopefully fixed now) sometimes result in records being
+uploaded to the destination Synapse table without deleting existing rows, resulting in data sometimes being
+doubled or tripled. We should be on the lookout. This can lead (for instance) to the header card appearing
+twice on the standards details page. [Issue 315](https://github.com/bridge2ai/b2ai-standards-registry/issues/315)
+may help with this if it continues to be a problem.
+
+### Updating Front End
+*Written 2025-05-15. Will need updating soon*
+
+Most of the current front-end functionality is driven by the [DST_denormalized](https://www.synapse.org/Synapse:syn65676531/tables/)
+table, which itself depends on [DataStandardOrTool](https://www.synapse.org/Synapse:syn63096833/tables/),
+[Organization](https://www.synapse.org/Synapse:syn63096836/tables/), and [DataTopic](https://www.synapse.org/Synapse:syn63096835/tables/).
+When source tables change, DST_denormalized (and soon another table or two) will need to be updated. (That
+update uses data from the Synapse tables, though if I were writing the update script today, I would probably
+base it on data straight from this repo.) When source tables have been updated appropiately (it's woth checking
+on Synapse), `create_denormalized_tables` must be run:
+
+```bash
+poetry run python -m scripts.create_denormalized_tables
+```
+
 ### Script: format_yaml.py
 
 **Description:** Custom formatter that formats .yaml/.yml files in the `src/data` folder arranging data with `id` key placed first and other keys arragned alphabetically.
