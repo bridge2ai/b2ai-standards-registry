@@ -61,6 +61,11 @@ For instance, to upload the Organization and DataTopic tables, run
 poetry run python -m scripts.analyze_and_update_synapse_tables -t Organization DataTopic
 ```
 
+To see command-line options for this script:
+```bash
+poetry run python -m scripts.analyze_and_update_synapse_tables -h
+```
+
 **When updates are made to data or schemas on this repository, `analyze_and_update_synapse_tables`
 should be run automatically for the updated tables.**
 
@@ -83,6 +88,11 @@ on Synapse), `create_denormalized_tables` must be run:
 
 ```bash
 poetry run python -m scripts.create_denormalized_tables
+```
+Default is to generate all destination tables (so far, DST_denormalized and GCDataSet), but can specify
+which to generate by listing them on the command line like
+```bash
+poetry run python -m scripts.create_denormalized_tables GCDataSet
 ```
 
 ### Script: format_yaml.py
