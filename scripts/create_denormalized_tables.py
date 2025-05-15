@@ -35,10 +35,8 @@ import pandas as pd
 import numpy as np
 import re
 
-from scripts.generate_tables_config import DEST_TABLES, SRC_TABLE_NAMES
+from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import PROJECT_ID, create_or_clear_table, initialize_synapse
-from scripts.get_latest_non_empty_versions import get_CurrentTableVersions, get_latest_table_names_and_ids
-
 
 TRANSFORMS = {
     # camel_to_title_case
@@ -53,13 +51,11 @@ TRANSFORMS = {
 
 def denormalize_tables():
     syn = initialize_synapse()
-    latest_table_info = get_latest_table_names_and_ids(syn)
-    # all_src_tables = get_src_tables(syn, SRC_TABLE_NAMES)
     src_tables = {}
 
     for dest_table in DEST_TABLES.values():
         base_tbl_name = dest_table['base_table']
-        base_table_info = get_src_table(syn, latest_table_info[base_tbl_name])
+        base_table_info = get_src_table(syn, TABLE_IDS[base_tbl_name])
         base_df = base_table_info['df']
         if base_df.empty:
             print(f"Skipping '{dest_table['dest_table_name']}' — base table '{base_tbl_name}' has no data.")
@@ -68,7 +64,7 @@ def denormalize_tables():
         # SRC_TABLE_NAMES is all source tables, src_table_names is just the ones for this dest table
         src_table_names = set([base_tbl_name] + [j['join_tbl'] for j in dest_table['join_columns']])
         for table_name in src_table_names:
-            table_info = latest_table_info[table_name]
+            table_info = TABLE_IDS[table_name]
             table_info = get_src_table(syn, table_info)
             src_tables[table_name] = table_info
 

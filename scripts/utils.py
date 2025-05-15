@@ -12,6 +12,9 @@ def get_auth_token():
     """
     Retrieves the Synapse authentication token from the user's ~/.synapseConfig file.
 
+    Some tests have started failing during GitHub actions. Going to try looking for token
+    in evironment variables as well.
+
     The config file must contain an authentication token. See the README for information on how to set this up.
 
     :return: The authentication token found in the config tile.
@@ -20,6 +23,11 @@ def get_auth_token():
         ValueError: If the 'authtoken' line is missing, malformed, or empty
         RuntimeError: If an unexpected error occurs while reading the file.
     """
+
+    token = os.getenv('SYNAPSE_AUTH_TOKEN') or os.getenv('AUTH_TOKEN') or os.getenv('auth_token')
+    if token:
+        return token
+
     auth_file = os.path.expanduser("~/.synapseConfig")
 
     try:
@@ -39,62 +47,16 @@ def get_auth_token():
 
     raise ValueError(f"'authtoken' not found in {auth_file}")
 
-AUTH_TOKEN = get_auth_token()
-
 def initialize_synapse() -> None:
     """
     Initialize the synapse client
     """
     try:
         syn = Synapse()
-        syn.login(authToken=AUTH_TOKEN)
+        syn.login(authToken=get_auth_token())
         return syn
     except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
         raise Exception(f"Failed to authenticate with Synapse: {str(e)}")
-
-def get_df_max_lengths(original_cols, df):
-    """
-    Get the maximum length of each column in a pandas DataFrame.
-    For columns with lists of strings, finds the length of the longest string in any list.
-    """
-    max_lengths = {}
-    # synapse defaults
-    default_maximumSize = 50
-    default_maximumListLength = 100
-
-    orig_cols = {c['name']: c for c in original_cols}
-
-    for column in df.columns:
-        # for both maximumSize and maximumListLength, take the value from the original column if specified
-        #   otherwise, the synapse default; except if the data max value is bigger, then use that
-        orig_col = orig_cols[column]
-        # Check if the column potentially contains lists
-        contains_lists = False
-        maximumSize = orig_col.get('maximumSize', default_maximumSize) # override if data is bigger
-
-        # Check if this column contains lists with strings
-        for value in df[column].dropna():
-            if isinstance(value, list):
-                contains_lists = True
-                maximumListLength = orig_col.get('maximumListLength', default_maximumListLength)
-                maximumListLength = max(maximumListLength, len(value))
-                # Find longest string in this list
-                if value:  # Check if list is not empty
-                    item_lengths = [len(str(item)) for item in value]
-                    max_item_in_this_list = max(item_lengths) if item_lengths else 0
-                    maximumSize = max(maximumSize, max_item_in_this_list)
-
-        # Store results
-        if contains_lists:
-            max_lengths[column] = {
-                'maximumSize': maximumSize,
-                'maximumListLength': maximumListLength,
-            }
-        else:
-            maximumSize = max(maximumSize, df[column].astype(str).str.len().max())
-            max_lengths[column] = maximumSize
-
-    return max_lengths
 
 def copy_list_omit_property(list_of_dicts, property_to_omit):
     return [{key: value for key, value in d.items() if key != property_to_omit}
@@ -118,4 +80,3 @@ def create_or_clear_table(syn: Synapse, table_name: str) -> None:
                 break
     except Exception as e:
         print(f"Error checking for existing table: {e}")
-
