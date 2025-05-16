@@ -1,3 +1,9 @@
+# This configuration file is used to define the setup for the Synapse tables
+# and their relationships. It includes the source table names, destination table configurations,
+# and the Synapse table IDs, as well as how the tables will be rendered
+# in the Explorer (e.g., whether columns are faceted or not and how their 
+# titles will be displayed).
+
 SRC_TABLE_NAMES = [
     'Challenges',
     'DataSet',
