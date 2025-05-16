@@ -13,6 +13,7 @@ It supports:
 - Automatically configuring string list and JSON columns
 - Replacing missing values (NaNs) with empty strings (pandas converts empty non-numeric fields to NaN)
 - Snapshotting and clearing destination tables before updates
+- Transforming values between source and destination tables
 
 Usage:
     Run this script directly (e.g., `python -m scripts.create_denormalized_tables`) to populate the DEST_TABLES output.
@@ -38,6 +39,9 @@ import re
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import PROJECT_ID, create_or_clear_table, initialize_synapse
 
+def collections_to_has_ai_app(col):
+    return 'Yes' if 'has_ai_application' in col else 'No'
+
 TRANSFORMS = {
     # camel_to_title_case
     #   removes 'B2AI_STANDARD:'
@@ -47,6 +51,8 @@ TRANSFORMS = {
     #   Converts category, strips prefix and outputs title case
     #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
     'camel_to_title_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title(),
+    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+    'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
 }
 
 def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
@@ -76,7 +82,6 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
         make_dest_table(syn, dest_table, src_tables)
 
 
-
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
     """
     Create and upload a Synapse table by joining a base table with related tables.
@@ -85,7 +90,12 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     :param dest_table: Dictionary defining the destination table configuration. Includes:
         - 'base_table': str, name of the source table to use as the base
         - 'dest_table_name': str, name for the resulting Synapse table
-        - 'columns': list of base columns to be used in the destination table
+        - 'columns': list of base columns to be used in the destination table. Includes:
+            - 'faceted': boolean whether destination column should be faceted
+            - 'name': source column name
+            - 'alias': destination column name
+            - 'transform': key for function in TRANSFORMS dict above
+            ' 'columnType': destination column type; defaults to source column type, but transform could change it
         - 'join_columns' (optional): list of join config dicts for enriching base data
     :param src_tables: Dictionary of available source tables. Each entry is keyed by table name
                        and contains:
@@ -240,6 +250,9 @@ def make_col(
     # Copy the column schema and update the name to use the alias
     dest_col['col'] = src_table['columns'][src_col_name].copy()
     dest_col['col']['name'] = dest_col_name
+
+    if 'columnType' in dest_col:
+        dest_col['col']['columnType'] = dest_col['columnType']
 
     return dest_col
 

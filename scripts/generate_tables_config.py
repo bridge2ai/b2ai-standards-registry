@@ -21,6 +21,7 @@ TABLE_IDS = {
     # 'test': { 'name': 'test', 'id': 'syn64943432' }
 }
 
+# see top of create_denormalized_tables:make_dest_table() for how to define destination tables
 DEST_TABLES = {
     # The table used for the explore landing page and to provide data for the home and detailed pages
     'DST_denormalized': {
@@ -33,11 +34,12 @@ DEST_TABLES = {
             {'faceted': True,  'name': 'category',                  'alias': 'category', 'transform': 'camel_to_title_case'},
             {'faceted': False, 'name': 'purpose_detail',            'alias': 'description'},
             {'faceted': False, 'name': 'collection',                'alias': 'collections'},
+            {'faceted': True,  'name': 'collection',                'alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
             {'faceted': False, 'name': 'concerns_data_topic',       'alias': 'concerns_data_topic'},
             {'faceted': False, 'name': 'has_relevant_organization', 'alias': 'has_relevant_organization'},
             {'faceted': False, 'name': 'responsible_organization',  'alias': 'responsible_organization'},
-            {'faceted': True,  'name': 'is_open',                   'alias': 'isOpen'},
-            {'faceted': True,  'name': 'requires_registration',     'alias': 'registration'},
+            {'faceted': True,  'name': 'is_open',                   'alias': 'isOpen', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
+            {'faceted': True,  'name': 'requires_registration',     'alias': 'registration', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
             {'faceted': False, 'name': 'url',                       'alias': 'URL'},
             {'faceted': False, 'name': 'formal_specification',      'alias': 'formalSpec'},
             {'faceted': False, 'name': 'publication',               'alias': 'publication'},
@@ -45,6 +47,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'subclass_of',               'alias': 'subclassOf'},
             {'faceted': False, 'name': 'contribution_date',         'alias': 'contributionDate'},
             {'faceted': False, 'name': 'related_to',                'alias': 'relatedTo'},
+            {'faceted': True,  'name': 'used_in_bridge2ai',         'alias': 'usedInBridge2AI', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
         ],
         'join_columns': [
             {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
