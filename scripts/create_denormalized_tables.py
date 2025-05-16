@@ -39,9 +39,6 @@ import re
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import PROJECT_ID, create_or_clear_table, initialize_synapse
 
-def collections_to_has_ai_app(col):
-    return 'Yes' if 'has_ai_application' in col else 'No'
-
 TRANSFORMS = {
     # camel_to_title_case
     #   removes 'B2AI_STANDARD:'
