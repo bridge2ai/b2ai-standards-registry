@@ -104,12 +104,6 @@ DEST_TABLES = {
                  {'faceted': False, 'name': 'name', 'alias': 'substrates'},
                  {'faceted': False, 'name': 'substrates_json', 'alias': 'substrates_json', 'whole_records': True, }
              ]},
-            {'join_tbl': 'Challenges', 'join_type': 'left', 'from': 'produced_by', 'to': 'organizationId',
-             'dest_cols': [
-                 {'faceted': False, 'name': 'headerImage', 'alias': 'image_file_handle_id'},
-                 # may have to mess with the columnType because image file handles break when they
-                 #  appear in tables other than where they were created. It needs to be an int or string or something.
-             ]},
         ],
     },
 }
