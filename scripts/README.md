@@ -43,20 +43,22 @@ The scripts in this folder are designed to:
 
 Each script is intended to be run individually. Here’s how to use them:
 
-### Example Script: modify_synapse_schema.py
+### Example Script: analyze_and_update_synapse_tables.py
 
-**Description:** Sets up and manages table schemas in Synapse, defining the column structure for each table.
+**Description:** Uploads tables from registry .json files to Synapse. Synapse table
+schemas will be based on the data uploaded.
 
 **Run:**
 
-you need to run all fucntions with a poetry run command at the start as such:
+You should run all functions with a poetry run command at the start as such:
 
 ```bash
 poetry run {command here}
 ```
 
+For instance, to upload the Organization and DataTopic tables, run
 ```bash
-poetry run python scripts/modify_synapse_schema.py
+poetry run python -m scripts.analyze_and_update_synapse_tables -t Organization DataTopic
 ```
 
 ### Script: format_yaml.py
