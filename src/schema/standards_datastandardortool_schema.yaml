@@ -215,7 +215,7 @@ slots:
     domain: DataStandardOrTool
     range: Organization
     multivalued: true
-
+  
 enums:
   StandardsCollectionTag:
     description: Tags for specific sets of standards.
@@ -297,3 +297,32 @@ enums:
           associated with DICOM;
           associated with AI;
           associated with standards used within Bridge2AI
+      # The following tags are used to indicate the maturity of a standard or tool.
+      # They are adapted from the ONC Interoperability Standards Advisory (ISA) process.
+      # See https://www.healthit.gov/isp/sites/isp/files/inline-files/2023%20Reference%20Edition_ISA_508.pdf
+      # An object of the DataStandardOrTool class may have one of the following three tags.
+      standards_process_maturity_final:
+        description: >-
+          This standard has undergone a review process by one or more SDOs
+          and has been determined to be in a mature state. Future revisions
+          may still be possible.
+      standards_process_maturity_draft:
+        description: >-
+          This standard is undergoing a review process by one or more SDOs
+          to determine its maturity.
+      standards_process_maturity_development:
+        description: >-
+          This standard is in its initial development stages and has not yet
+          entered a review process, or is early in the process and still likely
+          to be extensively revised.
+      # An object of the DataStandardOrTool class may have one of the following two tags.
+      implementation_maturity_production:
+        description: >-
+          This standard has one or more implementations appropriate for
+          production use, i.e., in use cases and environments where adherence
+          to the standard is expected to be fully consistent.
+      implementation_maturity_pilot:
+        description: >-
+          This standard has one or more implementations intended for testing
+          or evaluation purposes but may not be appropriate for production
+          applications.
