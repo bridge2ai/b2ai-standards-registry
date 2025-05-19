@@ -93,22 +93,34 @@ all-data:
 	rm -rf $(SERIAL_DATA_DIR) ;
 	mkdir -p $(SERIAL_DATA_DIR) ;
 	@echo "Making serializations with linkml-convert..."
-	@declare -A CLASSES=( ["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer" \
-		["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer" \
-		["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer" \
-		["$(DATA_DIR)Organization.yaml"]="OrganizationContainer" \
-		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" \
-		["$(DATA_DIR)DataSet.yaml"]="DataSetContainer" ) \
-	; for key in "$${!CLASSES[@]}" ; do \
-		for format in $(FORMATS) ; do \
-			printf "Converting $${key} to $${format}...\n" ; \
-			newfn=$${key##*/} ; \
-			extension=$${newfn##*.} ; \
-			newfn=$${newfn%.*}.$${format} ; \
-			newpath=$(SERIAL_DATA_DIR)$${newfn} ; \
-			$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
+	@( \
+		declare -A CLASSES 2>/dev/null || { \
+			echo ""; \
+			echo "ERROR: Your bash version ($(shell bash --version | head -1)) doesn't support associative arrays."; \
+			echo "This Makefile requires bash 4.0 or higher for associative arrays."; \
+			echo ""; \
+			echo "SOLUTION: Find or install a more recent bash and then run make like, for instance:"; \
+			echo "  /opt/homebrew/bin/bash -c 'make -f project.Makefile all'"; \
+			echo ""; \
+			exit 1; \
+		}; \
+		CLASSES["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer"; \
+		CLASSES["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer"; \
+		CLASSES["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer"; \
+		CLASSES["$(DATA_DIR)Organization.yaml"]="OrganizationContainer"; \
+		CLASSES["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer"; \
+		CLASSES["$(DATA_DIR)DataSet.yaml"]="DataSetContainer"; \
+		for key in "$${!CLASSES[@]}" ; do \
+			for format in $(FORMATS) ; do \
+				printf "Converting $${key} to $${format}...\n" ; \
+				newfn=$${key##*/} ; \
+				extension=$${newfn##*.} ; \
+				newfn=$${newfn%.*}.$${format} ; \
+				newpath=$(SERIAL_DATA_DIR)$${newfn} ; \
+				$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
+			done \
 		done \
-	done
+	)
 
 # Prepare Markdown versions of data
 # Also fix links so they go the right place(s)
