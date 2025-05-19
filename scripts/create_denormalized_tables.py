@@ -13,6 +13,7 @@ It supports:
 - Automatically configuring string list and JSON columns
 - Replacing missing values (NaNs) with empty strings (pandas converts empty non-numeric fields to NaN)
 - Snapshotting and clearing destination tables before updates
+- Transforming values between source and destination tables
 
 Usage:
     Run this script directly (e.g., `python -m scripts.create_denormalized_tables`) to populate the DEST_TABLES output.
@@ -28,8 +29,8 @@ Expected Environment:
 Main entry point:
     denormalize_tables()
 """
-
-from typing import Any, Dict, List
+import sys
+from typing import Any, Dict, List, Optional
 from synapseclient import Synapse, Column, Schema, Table
 import pandas as pd
 import numpy as np
@@ -47,13 +48,20 @@ TRANSFORMS = {
     #   Converts category, strips prefix and outputs title case
     #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
     'camel_to_title_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title(),
+    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+    'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
 }
 
-def denormalize_tables():
+def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
     syn = initialize_synapse()
     src_tables = {}
 
-    for dest_table in DEST_TABLES.values():
+    if specific_tables:
+        dest_table_defs = [DEST_TABLES[t] for t in specific_tables]
+    else:
+        dest_table_defs = DEST_TABLES.values()
+
+    for dest_table in dest_table_defs:
         base_tbl_name = dest_table['base_table']
         base_table_info = get_src_table(syn, TABLE_IDS[base_tbl_name])
         base_df = base_table_info['df']
@@ -71,7 +79,6 @@ def denormalize_tables():
         make_dest_table(syn, dest_table, src_tables)
 
 
-
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
     """
     Create and upload a Synapse table by joining a base table with related tables.
@@ -80,7 +87,12 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     :param dest_table: Dictionary defining the destination table configuration. Includes:
         - 'base_table': str, name of the source table to use as the base
         - 'dest_table_name': str, name for the resulting Synapse table
-        - 'columns': list of base columns to be used in the destination table
+        - 'columns': list of base columns to be used in the destination table. Includes:
+            - 'faceted': boolean whether destination column should be faceted
+            - 'name': source column name
+            - 'alias': destination column name
+            - 'transform': key for function in TRANSFORMS dict above
+            ' 'columnType': destination column type; defaults to source column type, but transform could change it
         - 'join_columns' (optional): list of join config dicts for enriching base data
     :param src_tables: Dictionary of available source tables. Each entry is keyed by table name
                        and contains:
@@ -134,7 +146,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
             for dest_col in join_config['dest_cols']:
                 faceted = dest_col.get('faceted', False)
 
-                if dest_col.get('fields'):
+                if dest_col.get('fields') or dest_col.get('whole_records'):
                     col_def = create_json_column(base_table_name, base_df, join_df, from_col, to_col, join_config, dest_col)
                 else:
                     col_def = create_list_column(base_table_name, base_df, join_df, from_col, to_col, join_config, dest_col)
@@ -166,11 +178,12 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
                 values = df[col['name']]
                 max_items = max(len(items) for items in values)
                 max_item_length = max(len(item) for items in values for item in items)
-
-                # The 2 and 10 here are are buffers to try to accommodate for slightly more data than we may currently have
-                # They're arbitrary right now, but we can always increase or decrease as needed if we run into issues later
-                col['maximumListLength'] = max_items + 2
-                col['maximumSize'] = max_item_length + 10
+                col['maximumListLength'] = max(max_items, 2) # 2 is minimum allowed
+                col['maximumSize'] = max_item_length
+            elif col['columnType'] == 'INTEGER_LIST':
+                values = df[col['name']]
+                max_items = max(len(items) for items in values)
+                col['maximumListLength'] = max(max_items, 2) # 2 is minimum allowed
 
         return columns
 
@@ -235,6 +248,9 @@ def make_col(
     dest_col['col'] = src_table['columns'][src_col_name].copy()
     dest_col['col']['name'] = dest_col_name
 
+    if 'columnType' in dest_col:
+        dest_col['col']['columnType'] = dest_col['columnType']
+
     return dest_col
 
 
@@ -279,7 +295,7 @@ def create_list_column(
     field_name = dest_col['name']          # field in join_df to extract (e.g., 'name')
     column_name = dest_col['alias']        # name for the new output column
     result = []                            # list of lists to hold values for each base row
-
+    datatype: type = None
     for _, row in base_df.iterrows():
         related_ids = row[from_col]
 
@@ -299,14 +315,29 @@ def create_list_column(
 
         # Extract the requested field values and store as list
         field_values = matching_rows[field_name].tolist()
+        for val in field_values:
+            if datatype is None:
+                datatype = type(val)
+            elif not isinstance(val, datatype):
+                raise Exception(f"Got mixed datatypes in {field_name}: {datatype} and {type(val)}")
+            else:
+                datatype = type(val)
+
         result.append(field_values)
+
+    if datatype == str:
+        columnType = 'STRING_LIST'
+    elif datatype == int:
+        columnType = 'INTEGER_LIST'
+    else:
+        raise Exception(f"Got {datatype} in {field_name}; can't handle that type yet")
 
     # Create column definition and data
     column_def = {
         'src': join_config['join_table_name'],
         'name': field_name,
         'alias': column_name,
-        'col': Column(name=column_name, columnType='STRING_LIST'),
+        'col': Column(name=column_name, columnType=columnType),
         'data': result
     }
 
@@ -331,13 +362,20 @@ def create_json_column(
 
     Expected configuration for destination table definition would look like the following:
         'join_columns': [
-        {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
-         'dest_cols': [
-              {'faceted': False,'name': 'topics_json', 'alias': 'Topics',
-               'fields': [{ 'name': 'name', 'alias': 'Topic'},
-                          { 'name': 'description', 'alias': 'Description'}, ]},
-        ]},
-    ]
+            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+             'dest_cols': [
+                  {'faceted': False, 'name': 'topics_json', 'alias': 'Topics',
+                   'fields': [{ 'name': 'name', 'alias': 'Topic'},
+                              { 'name': 'description', 'alias': 'Description'}, ]},
+            ]},
+        ]
+    OR
+        'join_columns': [
+            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+             'dest_cols': [
+                  {'faceted': False, 'name': 'topics_json', 'alias': 'topics_json', 'whole_record': True,}
+             ]},
+        ]
 
     :param base_table_name: The base table name, for error message if needed
     :param base_df: The base DataFrame containing the primary records (e.g., DSTs)
@@ -348,7 +386,11 @@ def create_json_column(
     :param dest_col: Dictionary defining the new column to be created, including:
                      - 'alias': name for the resulting column
                      - 'fields': list of dicts with field mappings (e.g., {'name': 'id', 'alias': 'topic_id'})
-    :return: Dictionary containing metadata and data for the new column, including:
+                     - 'whole_records': if true, will put whole matching records into a list of json objects
+                     - So far join columns have all come from list fields. There may be a need
+                       to generate a column with a single json record from a non-list column,
+                       but we'll implement that when the need arises.
+   :return: Dictionary containing metadata and data for the new column, including:
              - 'src': join table name
              - 'name': join table key
              - 'alias': output column name
@@ -356,7 +398,8 @@ def create_json_column(
              - 'data': list of JSON-like structures (one per base row)
     """
     column_name = dest_col['alias']
-    fields = dest_col['fields']
+    fields = dest_col.get('fields')
+    whole_records: bool = dest_col['whole_records']
     result = []  # Will hold the output data: one JSON array per row in base_df
 
     for _, row in base_df.iterrows():
@@ -380,10 +423,13 @@ def create_json_column(
         json_objects = []
         for _, related_row in matching_rows.iterrows():
             obj = {}
-            for field in fields:
-                field_name = field['name']
-                field_alias = field.get('alias', field_name)
-                obj[field_alias] = related_row[field_name]
+            if whole_records:
+                obj = related_row.to_dict()
+            else:
+                for field in fields:
+                    field_name = field['name']
+                    field_alias = field.get('alias', field_name)
+                    obj[field_alias] = related_row[field_name]
             json_objects.append(obj)
 
         # Append the JSON structure (list of dicts) as this row's value
@@ -450,4 +496,4 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
     return table_info
 
 if __name__ == "__main__":
-    denormalize_tables()
+    denormalize_tables(sys.argv[1:])

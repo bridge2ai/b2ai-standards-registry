@@ -27,6 +27,7 @@ TABLE_IDS = {
     # 'test': { 'name': 'test', 'id': 'syn64943432' }
 }
 
+# see top of create_denormalized_tables:make_dest_table() for how to define destination tables
 DEST_TABLES = {
     # The table used for the explore landing page and to provide data for the home and detailed pages
     'DST_denormalized': {
@@ -38,12 +39,13 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'description',               'alias': 'name'},
             {'faceted': True,  'name': 'category',                  'alias': 'category', 'transform': 'camel_to_title_case'},
             {'faceted': False, 'name': 'purpose_detail',            'alias': 'description'},
-            {'faceted': False, 'name': 'collection',                'alias': 'collections'},
+            {'faceted': True,  'name': 'collection',                'alias': 'collections'},
+            {'faceted': True,  'name': 'collection',                'alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
             {'faceted': False, 'name': 'concerns_data_topic',       'alias': 'concerns_data_topic'},
             {'faceted': False, 'name': 'has_relevant_organization', 'alias': 'has_relevant_organization'},
             {'faceted': False, 'name': 'responsible_organization',  'alias': 'responsible_organization'},
-            {'faceted': True,  'name': 'is_open',                   'alias': 'isOpen'},
-            {'faceted': True,  'name': 'requires_registration',     'alias': 'registration'},
+            {'faceted': True,  'name': 'is_open',                   'alias': 'isOpen', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
+            {'faceted': True,  'name': 'requires_registration',     'alias': 'registration', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
             {'faceted': False, 'name': 'url',                       'alias': 'URL'},
             {'faceted': False, 'name': 'formal_specification',      'alias': 'formalSpec'},
             {'faceted': False, 'name': 'publication',               'alias': 'publication'},
@@ -51,6 +53,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'subclass_of',               'alias': 'subclassOf'},
             {'faceted': False, 'name': 'contribution_date',         'alias': 'contributionDate'},
             {'faceted': False, 'name': 'related_to',                'alias': 'relatedTo'},
+            {'faceted': True,  'name': 'used_in_bridge2ai',         'alias': 'usedInBridge2AI', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
         ],
         'join_columns': [
             {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
@@ -69,75 +72,49 @@ DEST_TABLES = {
              ]},
         ],
     },
-    # 'DataSetPlus': {  # commented out while fixing other issues, but don't delete
-    #     'dest_table_name': 'DataSetPlus',
-    #     'base_table': 'Challenges',
-    #     'columns': [
-    #         {'faceted': False, 'name': 'headerImage', 'alias': 'imgId'},
-    #
-    #         """
-    #         dataset.name AS ds_name,  -- title
-    #         dataset.description AS ds_description,
-    #         # dataset.id,
-    #         # dataset.category,
-    #         dataset.data_url,
-    #         dataset.datasheet_url,
-    #         dataset.documentation_url,
-    #         dataset.has_files,
-    #         dataset.is_public,
-    #         # dataset.produced_by,
-    #         # dataset.substrates,
-    #         data
-    #         dataset.topics,
-    #         org.id,
-    #         org.category,
-    #         org.name,
-    #         org.description,
-    #         org.contributor_name,
-    #         org.contributor_github_name,
-    #         org.contributor_orcid,
-    #         org.ror_id,
-    #         org.wikidata_id,
-    #         org.url,
-    #         org.subclass_of,
-    #         challenges.headerImage,""",
-    #
-    #         {'faceted': False, 'name': 'id', 'alias': 'id'},
-    #         {'faceted': False, 'name': 'name', 'alias': 'acronym'},
-    #         {'faceted': False, 'name': 'description', 'alias': 'name'},
-    #         {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'camel_to_title_case'},
-    #         {'faceted': False, 'name': 'purpose_detail', 'alias': 'description'},
-    #         {'faceted': False, 'name': 'collection', 'alias': 'collections'},
-    #         {'faceted': False, 'name': 'concerns_data_topic', 'alias': 'concerns_data_topic'},
-    #         {'faceted': False, 'name': 'has_relevant_organization', 'alias': 'has_relevant_organization'},
-    #         {'faceted': False, 'name': 'responsible_organization', 'alias': 'responsible_organization'},
-    #         {'faceted': True, 'name': 'is_open', 'alias': 'isOpen'},
-    #         {'faceted': True, 'name': 'requires_registration', 'alias': 'registration'},
-    #         {'faceted': False, 'name': 'url', 'alias': 'URL'},
-    #         {'faceted': False, 'name': 'formal_specification', 'alias': 'formalSpec'},
-    #         {'faceted': False, 'name': 'publication', 'alias': 'publication'},
-    #         {'faceted': False, 'name': 'has_training_resource', 'alias': 'trainingResources'},
-    #         {'faceted': False, 'name': 'subclass_of', 'alias': 'subclassOf'},
-    #         {'faceted': False, 'name': 'contribution_date', 'alias': 'contributionDate'},
-    #         {'faceted': False, 'name': 'related_to', 'alias': 'relatedTo'},
-    #     ],
-    #     'join_columns': [
-    #         {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
-    #          'dest_cols': [
-    #              {'faceted': True, 'name': 'name', 'alias': 'topic'},
-    #          ]},
-    #         {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
-    #          'dest_cols': [
-    #              {'faceted': True, 'name': 'name', 'alias': 'relevantOrgNames'},
-    #              {'faceted': False, 'name': 'description', 'alias': 'relevantOrgDescriptions'},
-    #          ]},
-    #         {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
-    #          'dest_cols': [
-    #              {'faceted': False, 'name': 'name', 'alias': 'responsibleOrgAcronym'},
-    #              {'faceted': False, 'name': 'description', 'alias': 'responsibleOrgName'},
-    #          ]},
-    #     ],
-    # },
+    'GCDataSet': {
+        # This is for the GrandChallengeDataSetPage, https://github.com/bridge2ai/b2ai-standards-registry/issues/244
+        #   Needs to provide data to render this design:
+        #   https://www.figma.com/design/3I2TuS7qjLBTsuUhLnv6ke/Curator---BDF-LINC?node-id=7389-64217&t=VjSnczaVpY1i76H5-0
+        # Requires data from [DataSet](https://www.synapse.org/Synapse:syn66330217/tables/),
+        #   [Organization](https://www.synapse.org/Synapse:syn63096836/tables/), and
+        #   [Challenges](https://www.synapse.org/Synapse:syn65913973/tables/).
+        # The only data needed from Challenges is the headerImage file handle id, but we want the order of the GCs
+        #   to be the same as in Challenges, so using that as the base_table.
+        # So far there is only one DataSet per grand challenge. Not sure if this will have to change at all when
+        #   there are more.
+        'dest_table_name': 'GCDataSet',
+        'base_table': 'DataSet',
+        'columns': [
+            {'faceted': False, 'name': 'id', 'alias': 'id'},
+            {'faceted': False, 'name': 'name', 'alias': 'name'},
+            {'faceted': False, 'name': 'description', 'alias': 'description'},
+            # category does not show up in Figma design, but might want it on the page
+            {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'camel_to_title_case'},
+            # {'faceted': False, 'name': 'topics', 'alias': 'topics'},
+            # {'faceted': False, 'name': 'produced_by', 'alias': 'produced_by'},
+            {'faceted': False, 'name': 'datasheet_url', 'alias': 'DatasheetURL'},
+            {'faceted': False, 'name': 'documentation_url', 'alias': 'DocumentationURL'},
+            {'faceted': False, 'name': 'is_public', 'alias': 'isPublic'},
+            # {'faceted': False, 'name': 'substrates', 'alias': 'substrates'},
+        ],
+        'join_columns': [
+            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'produced_by', 'to': 'id',
+             'dest_cols': [
+                 {'faceted': False, 'name': 'name', 'alias': 'producedBy'},
+                 {'faceted': False, 'name': 'org_json', 'alias': 'org_json', 'whole_records': True,}
+             ]},
+            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'topics', 'to': 'id',
+             'dest_cols': [
+                 {'faceted': False, 'name': 'name', 'alias': 'topics'},
+             ]},
+            {'join_tbl': 'DataSubstrate', 'join_type': 'left', 'from': 'substrates', 'to': 'id',
+             'dest_cols': [
+                 {'faceted': False, 'name': 'name', 'alias': 'substrates'},
+                 {'faceted': False, 'name': 'substrates_json', 'alias': 'substrates_json', 'whole_records': True, }
+             ]},
+        ],
+    },
 }
 
 SRC_AND_DEST_TABLE_NAMES = SRC_TABLE_NAMES + list(DEST_TABLES.keys())
