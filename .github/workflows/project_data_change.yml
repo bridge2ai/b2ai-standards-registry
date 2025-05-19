@@ -27,7 +27,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          poetry install --no-interaction --with synapse
+          poetry install --no-interaction --extras synapse
 
       - name: Install jq
         run: sudo apt-get install jq
