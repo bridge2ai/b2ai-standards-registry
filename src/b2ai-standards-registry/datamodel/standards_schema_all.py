@@ -1,5 +1,5 @@
 # Auto generated from standards_schema_all.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-11-20T12:01:06
+# Generation date: 2025-05-19T11:11:53
 # Schema: standards-schema-all
 #
 # id: https://w3id.org/bridge2ai/standards-schema-all
@@ -68,6 +68,7 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 B2AI = CurieNamespace('B2AI', 'https://w3id.org/bridge2ai/standards-schema/')
+B2AI_DATA = CurieNamespace('B2AI_DATA', 'https://w3id.org/bridge2ai/standards-dataset-schema/')
 B2AI_ORG = CurieNamespace('B2AI_ORG', 'https://w3id.org/bridge2ai/standards-organization-schema/')
 B2AI_STANDARD = CurieNamespace('B2AI_STANDARD', 'https://w3id.org/bridge2ai/standards-datastandardortool-schema/')
 B2AI_SUBSTRATE = CurieNamespace('B2AI_SUBSTRATE', 'https://w3id.org/bridge2ai/standards-datasubstrate-schema/')
@@ -77,7 +78,6 @@ MESH = CurieNamespace('MESH', 'http://id.nlm.nih.gov/mesh/')
 RO = CurieNamespace('RO', 'http://purl.obolibrary.org/obo/RO_')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 NCIT = CurieNamespace('ncit', 'http://purl.obolibrary.org/obo/NCIT_')
-RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 UBERON = CurieNamespace('uberon', 'http://purl.obolibrary.org/obo/uberon/core#')
@@ -87,6 +87,14 @@ DEFAULT_ = CurieNamespace('', 'https://w3id.org/bridge2ai/standards-schema-all/'
 
 
 # Types
+class CategoryType(Uriorcurie):
+    """ A primitive type in which the value denotes a class within the model. """
+    type_class_uri = XSD["anyURI"]
+    type_class_curie = "xsd:anyURI"
+    type_name = "category_type"
+    type_model_uri = URIRef("https://w3id.org/bridge2ai/standards-schema-all/CategoryType")
+
+
 class EdamIdentifier(Uriorcurie):
     """ Identifier from EDAM ontology """
     type_class_uri = XSD["anyURI"]
@@ -176,6 +184,10 @@ class TrainingProgramId(DataStandardOrToolId):
     pass
 
 
+class DataSetId(NamedThingId):
+    pass
+
+
 class DataSubstrateId(NamedThingId):
     pass
 
@@ -205,7 +217,7 @@ class NamedThing(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/NamedThing")
 
     id: Union[str, NamedThingId] = None
-    category: Optional[Union[str, URIorCURIE]] = None
+    category: Optional[Union[str, CategoryType]] = None
     name: Optional[str] = None
     description: Optional[str] = None
     subclass_of: Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]] = empty_list()
@@ -214,6 +226,7 @@ class NamedThing(YAMLRoot):
     contributor_github_name: Optional[str] = None
     contributor_orcid: Optional[Union[str, URIorCURIE]] = None
     contribution_date: Optional[Union[str, XSDDate]] = None
+    used_in_bridge2ai: Optional[Union[bool, Bool]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -248,6 +261,9 @@ class NamedThing(YAMLRoot):
 
         if self.contribution_date is not None and not isinstance(self.contribution_date, XSDDate):
             self.contribution_date = XSDDate(self.contribution_date)
+
+        if self.used_in_bridge2ai is not None and not isinstance(self.used_in_bridge2ai, Bool):
+            self.used_in_bridge2ai = Bool(self.used_in_bridge2ai)
 
         super().__post_init__(**kwargs)
 
@@ -324,7 +340,7 @@ class DataStandardOrTool(NamedThing):
     url: Optional[Union[str, URIorCURIE]] = None
     publication: Optional[Union[str, URIorCURIE]] = None
     formal_specification: Optional[Union[str, URIorCURIE]] = None
-    not_relevant_to_dgps: Optional[Union[bool, Bool]] = None
+    responsible_organization: Optional[Union[Union[str, OrganizationId], List[Union[str, OrganizationId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -366,8 +382,9 @@ class DataStandardOrTool(NamedThing):
         if self.formal_specification is not None and not isinstance(self.formal_specification, URIorCURIE):
             self.formal_specification = URIorCURIE(self.formal_specification)
 
-        if self.not_relevant_to_dgps is not None and not isinstance(self.not_relevant_to_dgps, Bool):
-            self.not_relevant_to_dgps = Bool(self.not_relevant_to_dgps)
+        if not isinstance(self.responsible_organization, list):
+            self.responsible_organization = [self.responsible_organization] if self.responsible_organization is not None else []
+        self.responsible_organization = [v if isinstance(v, OrganizationId) else OrganizationId(v) for v in self.responsible_organization]
 
         super().__post_init__(**kwargs)
         self.category = str(self.class_class_curie)
@@ -614,6 +631,91 @@ class DataStandardOrToolContainer(YAMLRoot):
 
 
 @dataclass(repr=False)
+class DataSet(NamedThing):
+    """
+    Represents a data set produced by a group in the Bridge2AI consortium.
+    """
+    _inherited_slots: ClassVar[List[str]] = ["subclass_of", "related_to", "has_files", "has_parts", "produced_by", "substrates", "topics"]
+
+    class_class_uri: ClassVar[URIRef] = B2AI_DATA["DataSet"]
+    class_class_curie: ClassVar[str] = "B2AI_DATA:DataSet"
+    class_name: ClassVar[str] = "DataSet"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataSet")
+
+    id: Union[str, DataSetId] = None
+    has_files: Optional[Union[str, List[str]]] = empty_list()
+    has_parts: Optional[Union[Union[str, DataSetId], List[Union[str, DataSetId]]]] = empty_list()
+    produced_by: Optional[Union[Union[str, OrganizationId], List[Union[str, OrganizationId]]]] = empty_list()
+    data_url: Optional[Union[str, URIorCURIE]] = None
+    documentation_url: Optional[Union[str, URIorCURIE]] = None
+    datasheet_url: Optional[Union[str, URIorCURIE]] = None
+    is_public: Optional[Union[bool, Bool]] = None
+    substrates: Optional[Union[Union[str, DataSubstrateId], List[Union[str, DataSubstrateId]]]] = empty_list()
+    topics: Optional[Union[Union[str, DataTopicId], List[Union[str, DataTopicId]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, DataSetId):
+            self.id = DataSetId(self.id)
+
+        if not isinstance(self.has_files, list):
+            self.has_files = [self.has_files] if self.has_files is not None else []
+        self.has_files = [v if isinstance(v, str) else str(v) for v in self.has_files]
+
+        if not isinstance(self.has_parts, list):
+            self.has_parts = [self.has_parts] if self.has_parts is not None else []
+        self.has_parts = [v if isinstance(v, DataSetId) else DataSetId(v) for v in self.has_parts]
+
+        if not isinstance(self.produced_by, list):
+            self.produced_by = [self.produced_by] if self.produced_by is not None else []
+        self.produced_by = [v if isinstance(v, OrganizationId) else OrganizationId(v) for v in self.produced_by]
+
+        if self.data_url is not None and not isinstance(self.data_url, URIorCURIE):
+            self.data_url = URIorCURIE(self.data_url)
+
+        if self.documentation_url is not None and not isinstance(self.documentation_url, URIorCURIE):
+            self.documentation_url = URIorCURIE(self.documentation_url)
+
+        if self.datasheet_url is not None and not isinstance(self.datasheet_url, URIorCURIE):
+            self.datasheet_url = URIorCURIE(self.datasheet_url)
+
+        if self.is_public is not None and not isinstance(self.is_public, Bool):
+            self.is_public = Bool(self.is_public)
+
+        if not isinstance(self.substrates, list):
+            self.substrates = [self.substrates] if self.substrates is not None else []
+        self.substrates = [v if isinstance(v, DataSubstrateId) else DataSubstrateId(v) for v in self.substrates]
+
+        if not isinstance(self.topics, list):
+            self.topics = [self.topics] if self.topics is not None else []
+        self.topics = [v if isinstance(v, DataTopicId) else DataTopicId(v) for v in self.topics]
+
+        super().__post_init__(**kwargs)
+        self.category = str(self.class_class_curie)
+
+
+@dataclass(repr=False)
+class DataSetContainer(YAMLRoot):
+    """
+    A container for DataSets.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = B2AI_DATA["DataSetContainer"]
+    class_class_curie: ClassVar[str] = "B2AI_DATA:DataSetContainer"
+    class_name: ClassVar[str] = "DataSetContainer"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/DataSetContainer")
+
+    data_collection: Optional[Union[Dict[Union[str, DataSetId], Union[dict, DataSet]], List[Union[dict, DataSet]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_list(slot_name="data_collection", slot_type=DataSet, key_name="id", keyed=True)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class DataSubstrate(NamedThing):
     """
     Represents a data substrate for Bridge2AI data. This may be a high-level data structure or a specific
@@ -822,12 +924,12 @@ class UseCase(NamedThing):
     class_model_uri: ClassVar[URIRef] = URIRef("https://w3id.org/bridge2ai/standards-schema-all/UseCase")
 
     id: Union[str, UseCaseId] = None
-    use_case_category: Union[str, "UseCaseCategory"] = None
+    use_case_category: Union[Union[str, "UseCaseCategory"], List[Union[str, "UseCaseCategory"]]] = None
     known_limitations: Optional[str] = None
-    relevance_to_dgps: Optional[Union[Union[str, "DataGeneratingProject"], List[Union[str, "DataGeneratingProject"]]]] = empty_list()
+    relevant_to_gcs: Optional[Union[Union[str, OrganizationId], List[Union[str, OrganizationId]]]] = empty_list()
     data_topics: Optional[Union[Union[str, DataTopicId], List[Union[str, DataTopicId]]]] = empty_list()
     data_substrates: Optional[Union[Union[str, DataSubstrateId], List[Union[str, DataSubstrateId]]]] = empty_list()
-    standards_and_tools_for_dgp_use: Optional[Union[Union[str, DataStandardOrToolId], List[Union[str, DataStandardOrToolId]]]] = empty_list()
+    standards_and_tools_for_gc_use: Optional[Union[Union[str, DataStandardOrToolId], List[Union[str, DataStandardOrToolId]]]] = empty_list()
     alternative_standards_and_tools: Optional[Union[Union[str, DataStandardOrToolId], List[Union[str, DataStandardOrToolId]]]] = empty_list()
     enables: Optional[Union[Union[str, UseCaseId], List[Union[str, UseCaseId]]]] = empty_list()
     involved_in_experimental_design: Optional[Union[bool, Bool]] = None
@@ -843,15 +945,16 @@ class UseCase(NamedThing):
 
         if self._is_empty(self.use_case_category):
             self.MissingRequiredField("use_case_category")
-        if not isinstance(self.use_case_category, UseCaseCategory):
-            self.use_case_category = UseCaseCategory(self.use_case_category)
+        if not isinstance(self.use_case_category, list):
+            self.use_case_category = [self.use_case_category] if self.use_case_category is not None else []
+        self.use_case_category = [v if isinstance(v, UseCaseCategory) else UseCaseCategory(v) for v in self.use_case_category]
 
         if self.known_limitations is not None and not isinstance(self.known_limitations, str):
             self.known_limitations = str(self.known_limitations)
 
-        if not isinstance(self.relevance_to_dgps, list):
-            self.relevance_to_dgps = [self.relevance_to_dgps] if self.relevance_to_dgps is not None else []
-        self.relevance_to_dgps = [v if isinstance(v, DataGeneratingProject) else DataGeneratingProject(v) for v in self.relevance_to_dgps]
+        if not isinstance(self.relevant_to_gcs, list):
+            self.relevant_to_gcs = [self.relevant_to_gcs] if self.relevant_to_gcs is not None else []
+        self.relevant_to_gcs = [v if isinstance(v, OrganizationId) else OrganizationId(v) for v in self.relevant_to_gcs]
 
         if not isinstance(self.data_topics, list):
             self.data_topics = [self.data_topics] if self.data_topics is not None else []
@@ -861,9 +964,9 @@ class UseCase(NamedThing):
             self.data_substrates = [self.data_substrates] if self.data_substrates is not None else []
         self.data_substrates = [v if isinstance(v, DataSubstrateId) else DataSubstrateId(v) for v in self.data_substrates]
 
-        if not isinstance(self.standards_and_tools_for_dgp_use, list):
-            self.standards_and_tools_for_dgp_use = [self.standards_and_tools_for_dgp_use] if self.standards_and_tools_for_dgp_use is not None else []
-        self.standards_and_tools_for_dgp_use = [v if isinstance(v, DataStandardOrToolId) else DataStandardOrToolId(v) for v in self.standards_and_tools_for_dgp_use]
+        if not isinstance(self.standards_and_tools_for_gc_use, list):
+            self.standards_and_tools_for_gc_use = [self.standards_and_tools_for_gc_use] if self.standards_and_tools_for_gc_use is not None else []
+        self.standards_and_tools_for_gc_use = [v if isinstance(v, DataStandardOrToolId) else DataStandardOrToolId(v) for v in self.standards_and_tools_for_gc_use]
 
         if not isinstance(self.alternative_standards_and_tools, list):
             self.alternative_standards_and_tools = [self.alternative_standards_and_tools] if self.alternative_standards_and_tools is not None else []
@@ -911,32 +1014,6 @@ class UseCaseContainer(YAMLRoot):
 
 
 # Enumerations
-class DataGeneratingProject(EnumDefinitionImpl):
-    """
-    One of the Bridge2AI Data Generating Projects.
-    """
-    aireadi = PermissibleValue(
-        text="aireadi",
-        description="""AI-READI: Uncovering the details of how human health is restored after disease, using type 2 diabetes as a model.""",
-        meaning=None)
-    chorus = PermissibleValue(
-        text="chorus",
-        description="""CHoRUS: Collaborative Hospital Repository Uniting Standards. Using imaging, clinical, and other data collected in an ICU setting for diagnosis and risk prediction.""",
-        meaning=None)
-    cm4ai = PermissibleValue(
-        text="cm4ai",
-        description="""CM4AI: Cell Maps for AI. Mapping spatiotemporal architecture of human cells to interpret cell structure/function in health and disease.""",
-        meaning=None)
-    voice = PermissibleValue(
-        text="voice",
-        description="""Voice as a Biomarker of Health: Building an ethically sourced, bioaccoustic database to understand disease like never before.""",
-        meaning=None)
-
-    _defn = EnumDefinition(
-        name="DataGeneratingProject",
-        description="One of the Bridge2AI Data Generating Projects.",
-    )
-
 class StandardsCollectionTag(EnumDefinitionImpl):
     """
     Tags for specific sets of standards.
@@ -1046,6 +1123,21 @@ class StandardsCollectionTag(EnumDefinitionImpl):
     has_ai_application = PermissibleValue(
         text="has_ai_application",
         description="""Has a direct AI application, defined as standards/tools that are: associated with ML or neural networks; schemas, or have schemas; data models; associated with DICOM; associated with AI; associated with standards used within Bridge2AI""")
+    standards_process_maturity_final = PermissibleValue(
+        text="standards_process_maturity_final",
+        description="""This standard has undergone a review process by one or more SDOs and has been determined to be in a mature state. Future revisions may still be possible.""")
+    standards_process_maturity_draft = PermissibleValue(
+        text="standards_process_maturity_draft",
+        description="This standard is undergoing a review process by one or more SDOs to determine its maturity.")
+    standards_process_maturity_development = PermissibleValue(
+        text="standards_process_maturity_development",
+        description="""This standard is in its initial development stages and has not yet entered a review process, or is early in the process and still likely to be extensively revised.""")
+    implementation_maturity_production = PermissibleValue(
+        text="implementation_maturity_production",
+        description="""This standard has one or more implementations appropriate for production use, i.e., in use cases and environments where adherence to the standard is expected to be fully consistent.""")
+    implementation_maturity_pilot = PermissibleValue(
+        text="implementation_maturity_pilot",
+        description="""This standard has one or more implementations intended for testing or evaluation purposes but may not be appropriate for production applications.""")
 
     _defn = EnumDefinition(
         name="StandardsCollectionTag",
@@ -1054,30 +1146,32 @@ class StandardsCollectionTag(EnumDefinitionImpl):
 
 class UseCaseCategory(EnumDefinitionImpl):
     """
-    Category of use case.
+    Category of use case. These define the high-level purpose of a task or activity as part of a broader research
+    effort or other data-related project. They are not mutually exclusive and one use case may involve multiple
+    categories.
     """
     acquisition = PermissibleValue(
         text="acquisition",
-        description="Acquisition")
+        description="""Acquisition. The use case involves the collection of data from one or more sources, including data generation, data capture, and data entry.""")
     integration = PermissibleValue(
         text="integration",
-        description="Integration")
+        description="""Integration. The use case involves the combination of data from multiple sources, including data harmonization, data linkage, and data aggregation.""")
     standardization = PermissibleValue(
         text="standardization",
-        description="Standardization")
+        description="""Standardization. The use case involves the application of standards to data, including data normalization, data validation, and quality control.""")
     modeling = PermissibleValue(
         text="modeling",
-        description="Modeling")
+        description="""Modeling. The use case involves the development of models, including predictive models, statistical models, and machine learning models.""")
     application = PermissibleValue(
         text="application",
-        description="Application")
+        description="""Application. The use case involves the use of data for a specific scientific or otherwise productive purpose, including data analysis, data visualization, and data interpretation. This also includes clinical decision support, patient care, and other applications of data in a biomedical context.""")
     assessment = PermissibleValue(
         text="assessment",
-        description="Assessment")
+        description="""Assessment. The use case involves the evaluation of data quality, data provenance, and data utility, including the assessment of standards, data tools, and data resources. Note this differs from the standardization category, which involves the application of standards to data.""")
 
     _defn = EnumDefinition(
         name="UseCaseCategory",
-        description="Category of use case.",
+        description="""Category of use case. These define the high-level purpose of a task or activity as part of a broader research effort or other data-related project. They are not mutually exclusive and one use case may involve multiple categories.""",
     )
 
 # Slots
@@ -1090,8 +1184,11 @@ slots.node_property = Slot(uri=B2AI.node_property, name="node_property", curie=B
 slots.id = Slot(uri=SCHEMA.identifier, name="id", curie=SCHEMA.curie('identifier'),
                    model_uri=DEFAULT_.id, domain=None, range=URIRef)
 
-slots.category = Slot(uri=RDF.type, name="category", curie=RDF.curie('type'),
-                   model_uri=DEFAULT_.category, domain=None, range=Optional[Union[str, URIorCURIE]])
+slots.type = Slot(uri=B2AI.type, name="type", curie=B2AI.curie('type'),
+                   model_uri=DEFAULT_.type, domain=NamedThing, range=Optional[str])
+
+slots.category = Slot(uri=B2AI.category, name="category", curie=B2AI.curie('category'),
+                   model_uri=DEFAULT_.category, domain=NamedThing, range=Optional[Union[str, CategoryType]])
 
 slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
                    model_uri=DEFAULT_.name, domain=None, range=Optional[str])
@@ -1132,6 +1229,9 @@ slots.related_to = Slot(uri=B2AI.related_to, name="related_to", curie=B2AI.curie
 slots.subclass_of = Slot(uri=B2AI.subclass_of, name="subclass_of", curie=B2AI.curie('subclass_of'),
                    model_uri=DEFAULT_.subclass_of, domain=NamedThing, range=Optional[Union[Union[str, NamedThingId], List[Union[str, NamedThingId]]]])
 
+slots.used_in_bridge2ai = Slot(uri=B2AI.used_in_bridge2ai, name="used_in_bridge2ai", curie=B2AI.curie('used_in_bridge2ai'),
+                   model_uri=DEFAULT_.used_in_bridge2ai, domain=NamedThing, range=Optional[Union[bool, Bool]])
+
 slots.collection = Slot(uri=B2AI_STANDARD.collection, name="collection", curie=B2AI_STANDARD.curie('collection'),
                    model_uri=DEFAULT_.collection, domain=NamedThing, range=Optional[Union[Union[str, "StandardsCollectionTag"], List[Union[str, "StandardsCollectionTag"]]]])
 
@@ -1165,8 +1265,38 @@ slots.has_training_resource = Slot(uri=B2AI_STANDARD.has_training_resource, name
 slots.data_standardortools_collection = Slot(uri=B2AI_STANDARD.data_standardortools_collection, name="data_standardortools_collection", curie=B2AI_STANDARD.curie('data_standardortools_collection'),
                    model_uri=DEFAULT_.data_standardortools_collection, domain=None, range=Optional[Union[Dict[Union[str, DataStandardOrToolId], Union[dict, DataStandardOrTool]], List[Union[dict, DataStandardOrTool]]]])
 
-slots.not_relevant_to_dgps = Slot(uri=B2AI_STANDARD.not_relevant_to_dgps, name="not_relevant_to_dgps", curie=B2AI_STANDARD.curie('not_relevant_to_dgps'),
-                   model_uri=DEFAULT_.not_relevant_to_dgps, domain=NamedThing, range=Optional[Union[bool, Bool]])
+slots.responsible_organization = Slot(uri=B2AI_STANDARD.responsible_organization, name="responsible_organization", curie=B2AI_STANDARD.curie('responsible_organization'),
+                   model_uri=DEFAULT_.responsible_organization, domain=DataStandardOrTool, range=Optional[Union[Union[str, OrganizationId], List[Union[str, OrganizationId]]]])
+
+slots.data_collection = Slot(uri=B2AI_DATA.data_collection, name="data_collection", curie=B2AI_DATA.curie('data_collection'),
+                   model_uri=DEFAULT_.data_collection, domain=None, range=Optional[Union[Dict[Union[str, DataSetId], Union[dict, DataSet]], List[Union[dict, DataSet]]]])
+
+slots.data_url = Slot(uri=B2AI_DATA.data_url, name="data_url", curie=B2AI_DATA.curie('data_url'),
+                   model_uri=DEFAULT_.data_url, domain=DataSet, range=Optional[Union[str, URIorCURIE]])
+
+slots.documentation_url = Slot(uri=B2AI_DATA.documentation_url, name="documentation_url", curie=B2AI_DATA.curie('documentation_url'),
+                   model_uri=DEFAULT_.documentation_url, domain=DataSet, range=Optional[Union[str, URIorCURIE]])
+
+slots.datasheet_url = Slot(uri=B2AI_DATA.datasheet_url, name="datasheet_url", curie=B2AI_DATA.curie('datasheet_url'),
+                   model_uri=DEFAULT_.datasheet_url, domain=DataSet, range=Optional[Union[str, URIorCURIE]])
+
+slots.has_files = Slot(uri=B2AI_DATA.has_files, name="has_files", curie=B2AI_DATA.curie('has_files'),
+                   model_uri=DEFAULT_.has_files, domain=DataSet, range=Optional[Union[str, List[str]]])
+
+slots.has_parts = Slot(uri=B2AI_DATA.has_parts, name="has_parts", curie=B2AI_DATA.curie('has_parts'),
+                   model_uri=DEFAULT_.has_parts, domain=DataSet, range=Optional[Union[Union[str, DataSetId], List[Union[str, DataSetId]]]])
+
+slots.is_public = Slot(uri=B2AI_DATA.is_public, name="is_public", curie=B2AI_DATA.curie('is_public'),
+                   model_uri=DEFAULT_.is_public, domain=DataSet, range=Optional[Union[bool, Bool]])
+
+slots.produced_by = Slot(uri=B2AI_DATA.produced_by, name="produced_by", curie=B2AI_DATA.curie('produced_by'),
+                   model_uri=DEFAULT_.produced_by, domain=DataSet, range=Optional[Union[Union[str, OrganizationId], List[Union[str, OrganizationId]]]])
+
+slots.substrates = Slot(uri=B2AI_DATA.substrates, name="substrates", curie=B2AI_DATA.curie('substrates'),
+                   model_uri=DEFAULT_.substrates, domain=DataSet, range=Optional[Union[Union[str, DataSubstrateId], List[Union[str, DataSubstrateId]]]])
+
+slots.topics = Slot(uri=B2AI_DATA.topics, name="topics", curie=B2AI_DATA.curie('topics'),
+                   model_uri=DEFAULT_.topics, domain=DataSet, range=Optional[Union[Union[str, DataTopicId], List[Union[str, DataTopicId]]]])
 
 slots.metadata_storage = Slot(uri=B2AI_SUBSTRATE.metadata_storage, name="metadata_storage", curie=B2AI_SUBSTRATE.curie('metadata_storage'),
                    model_uri=DEFAULT_.metadata_storage, domain=NamedThing, range=Optional[Union[str, List[str]]])
@@ -1196,13 +1326,13 @@ slots.organizations = Slot(uri=B2AI_ORG.organizations, name="organizations", cur
                    model_uri=DEFAULT_.organizations, domain=None, range=Optional[Union[Dict[Union[str, OrganizationId], Union[dict, Organization]], List[Union[dict, Organization]]]])
 
 slots.use_case_category = Slot(uri=B2AI_USECASE.use_case_category, name="use_case_category", curie=B2AI_USECASE.curie('use_case_category'),
-                   model_uri=DEFAULT_.use_case_category, domain=NamedThing, range=Optional[Union[str, "UseCaseCategory"]])
+                   model_uri=DEFAULT_.use_case_category, domain=NamedThing, range=Optional[Union[Union[str, "UseCaseCategory"], List[Union[str, "UseCaseCategory"]]]])
 
 slots.known_limitations = Slot(uri=B2AI_USECASE.known_limitations, name="known_limitations", curie=B2AI_USECASE.curie('known_limitations'),
                    model_uri=DEFAULT_.known_limitations, domain=NamedThing, range=Optional[str])
 
-slots.relevance_to_dgps = Slot(uri=B2AI_USECASE.relevance_to_dgps, name="relevance_to_dgps", curie=B2AI_USECASE.curie('relevance_to_dgps'),
-                   model_uri=DEFAULT_.relevance_to_dgps, domain=None, range=Optional[Union[Union[str, "DataGeneratingProject"], List[Union[str, "DataGeneratingProject"]]]])
+slots.relevant_to_gcs = Slot(uri=B2AI_USECASE.relevant_to_gcs, name="relevant_to_gcs", curie=B2AI_USECASE.curie('relevant_to_gcs'),
+                   model_uri=DEFAULT_.relevant_to_gcs, domain=None, range=Optional[Union[Union[str, OrganizationId], List[Union[str, OrganizationId]]]])
 
 slots.data_topics = Slot(uri=B2AI_USECASE.data_topics, name="data_topics", curie=B2AI_USECASE.curie('data_topics'),
                    model_uri=DEFAULT_.data_topics, domain=NamedThing, range=Optional[Union[Union[str, DataTopicId], List[Union[str, DataTopicId]]]])
@@ -1210,8 +1340,8 @@ slots.data_topics = Slot(uri=B2AI_USECASE.data_topics, name="data_topics", curie
 slots.data_substrates = Slot(uri=B2AI_USECASE.data_substrates, name="data_substrates", curie=B2AI_USECASE.curie('data_substrates'),
                    model_uri=DEFAULT_.data_substrates, domain=NamedThing, range=Optional[Union[Union[str, DataSubstrateId], List[Union[str, DataSubstrateId]]]])
 
-slots.standards_and_tools_for_dgp_use = Slot(uri=B2AI_USECASE.standards_and_tools_for_dgp_use, name="standards_and_tools_for_dgp_use", curie=B2AI_USECASE.curie('standards_and_tools_for_dgp_use'),
-                   model_uri=DEFAULT_.standards_and_tools_for_dgp_use, domain=NamedThing, range=Optional[Union[Union[str, DataStandardOrToolId], List[Union[str, DataStandardOrToolId]]]])
+slots.standards_and_tools_for_gc_use = Slot(uri=B2AI_USECASE.standards_and_tools_for_gc_use, name="standards_and_tools_for_gc_use", curie=B2AI_USECASE.curie('standards_and_tools_for_gc_use'),
+                   model_uri=DEFAULT_.standards_and_tools_for_gc_use, domain=NamedThing, range=Optional[Union[Union[str, DataStandardOrToolId], List[Union[str, DataStandardOrToolId]]]])
 
 slots.alternative_standards_and_tools = Slot(uri=B2AI_USECASE.alternative_standards_and_tools, name="alternative_standards_and_tools", curie=B2AI_USECASE.curie('alternative_standards_and_tools'),
                    model_uri=DEFAULT_.alternative_standards_and_tools, domain=NamedThing, range=Optional[Union[Union[str, DataStandardOrToolId], List[Union[str, DataStandardOrToolId]]]])
@@ -1232,4 +1362,4 @@ slots.use_cases = Slot(uri=B2AI_USECASE.use_cases, name="use_cases", curie=B2AI_
                    model_uri=DEFAULT_.use_cases, domain=None, range=Optional[Union[Dict[Union[str, UseCaseId], Union[dict, UseCase]], List[Union[dict, UseCase]]]])
 
 slots.UseCase_use_case_category = Slot(uri=B2AI_USECASE.use_case_category, name="UseCase_use_case_category", curie=B2AI_USECASE.curie('use_case_category'),
-                   model_uri=DEFAULT_.UseCase_use_case_category, domain=UseCase, range=Union[str, "UseCaseCategory"])
+                   model_uri=DEFAULT_.UseCase_use_case_category, domain=UseCase, range=Union[Union[str, "UseCaseCategory"], List[Union[str, "UseCaseCategory"]]])
