@@ -19376,6 +19376,30 @@
       "requires_registration": false,
       "url": "https://anndata.readthedocs.io/en/stable/",
       "formal_specification": "https://github.com/scverse/anndata/blob/main/src/anndata/_io/h5ad.py"
+    },
+    {
+      "id": "B2AI_STANDARD:900",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "Dataset-JSON",
+      "description": "Clinical Data Interchange Standards Consortium (CDISC) Dataset-JavaScript Object Notation",
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "collection": [
+        "datamodel",
+        "fileformat"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:9"
+      ],
+      "purpose_detail": "CDISC Dataset-JSON is a JSON-based schema specifically designed for exchanging tabular datasets in clinical studies. It is based on CDISC Dataset-JSON version 1.0 with enhancements, including smaller file sizes, additional metadata, and simpler processing. The format supports file and Application Programming Interface based data exchange, is widely supported across technologies, and can link to Define-XML for additional metadata. Dataset-JSON has the potential to replace Statistical Analysis System (SAS) version 5 XPORT Transport Format (XPT) for submission of electronic study data to regulatory agencies.",
+      "is_open": true,
+      "requires_registration": true,
+      "url": "https://www.cdisc.org/standards/data-exchange/dataset-json",
+      "formal_specification": "https://www.cdisc.org/standards/data-exchange/dataset-json/dataset-json-v1-1",
+      "responsible_organization": [
+        "B2AI_ORG:15"
+      ]
     }
   ],
   "@type": "DataStandardOrToolContainer"
