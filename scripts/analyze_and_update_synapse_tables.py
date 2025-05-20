@@ -1,3 +1,44 @@
+'''
+This script analyzes and updates Synapse tables based on JSON data files.
+It infers appropriate Synapse table schemas from the data, creates or clears
+tables as needed, and uploads the data to Synapse. The script can be run from
+the command line to update all tables, specific files, or by table names.
+
+Main functionalities:
+- Maps data file paths to Synapse table IDs.
+- Infers column types and sizes from the data using pandas and Synapse
+  schema definitions.
+- Supports both scalar and list columns, adjusting Synapse schema parameters
+  accordingly.
+- Provides a command-line interface for flexible operation, including options
+  to update all tables or specific ones.
+- Handles authentication and error reporting for Synapse operations.
+
+Key functions:
+- `file_path_to_table_name(path)`: Extracts the table name from a file path.
+- `populate_table(syn, update_file, table_id)`: Loads data from a JSON file,
+  infers schema, and uploads it to the specified Synapse table.
+- `get_col_defs(new_data_df)`: Analyzes a DataFrame to determine Synapse column
+  definitions, including type and size constraints.
+- `analyze_and_update(files, all=False, table_names=False)`: Orchestrates the
+  update process for one or more tables.
+- `cli()`: Command-line interface for user interaction.
+
+Usage:
+    python analyze_and_update_synapse_tables.py [options] [files]
+
+Options:
+    -a, --all           Upload all tables.
+    -t, --table-names   Provide table names instead of file paths.
+    files               List of files or table names to upload.
+
+Example:
+    python analyze_and_update_synapse_tables.py --all
+    python analyze_and_update_synapse_tables.py project/data/DataSet.json
+    python analyze_and_update_synapse_tables.py -t DataSet DataTopic
+
+'''
+
 import json
 import sys
 from argparse import ArgumentParser
