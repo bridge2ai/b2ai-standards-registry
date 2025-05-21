@@ -1,3 +1,44 @@
+'''
+This script analyzes and updates Synapse tables based on JSON data files.
+It infers appropriate Synapse table schemas from the data, creates or clears
+tables as needed, and uploads the data to Synapse. The script can be run from
+the command line to update all tables, specific files, or by table names.
+
+Main functionalities:
+- Maps data file paths to Synapse table IDs.
+- Infers column types and sizes from the data using pandas and Synapse
+  schema definitions.
+- Supports both scalar and list columns, adjusting Synapse schema parameters
+  accordingly.
+- Provides a command-line interface for flexible operation, including options
+  to update all tables or specific ones.
+- Handles authentication and error reporting for Synapse operations.
+
+Key functions:
+- `file_path_to_table_name(path)`: Extracts the table name from a file path.
+- `populate_table(syn, update_file, table_id)`: Loads data from a JSON file,
+  infers schema, and uploads it to the specified Synapse table.
+- `get_col_defs(new_data_df)`: Analyzes a DataFrame to determine Synapse column
+  definitions, including type and size constraints.
+- `analyze_and_update(files, all=False, table_names=False)`: Orchestrates the
+  update process for one or more tables.
+- `cli()`: Command-line interface for user interaction.
+
+Usage:
+    python analyze_and_update_synapse_tables.py [options] [files]
+
+Options:
+    -a, --all           Upload all tables.
+    -t, --table-names   Provide table names instead of file paths.
+    files               List of files or table names to upload.
+
+Example:
+    python analyze_and_update_synapse_tables.py --all
+    python analyze_and_update_synapse_tables.py project/data/DataSet.json
+    python analyze_and_update_synapse_tables.py -t DataSet DataTopic
+
+'''
+
 import json
 import sys
 from argparse import ArgumentParser
@@ -17,10 +58,14 @@ PATHS_TO_IDS = {
     "project/data/DataSet.json": "syn66330217",
 }
 
+
 def file_path_to_table_name(path: str) -> str:
     return path.split('/')[-1].split('.')[0]
 
-TABLE_IDS = {file_path_to_table_name(p): PATHS_TO_IDS[p] for p in PATHS_TO_IDS.keys()}
+
+TABLE_IDS = {file_path_to_table_name(
+    p): PATHS_TO_IDS[p] for p in PATHS_TO_IDS.keys()}
+
 
 def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
     """Populate the table with updated data
@@ -49,7 +94,8 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
     create_or_clear_table(syn, table_name)
 
     schema = Schema(name=table_name, columns=coldefs, parent=PROJECT_ID)
-    table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
+    table = Table(name=table_name, parent_id=PROJECT_ID,
+                  schema=schema, values=df)
     table.tableId = table_id
 
     print(f"Populating table for file: {update_file}")
@@ -58,19 +104,24 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
 
 
 # synapse defaults
-default_maximumSize = 50    # ignoring this because some tables will be too big if defaulting to it
-                            #   instead, make maximumSize just big enough to fit the longest column value
+# ignoring this because some tables will be too big if defaulting to it
+default_maximumSize = 50
+#   instead, make maximumSize just big enough to fit the longest column value
 default_maximumListLength = 100
 
+
 def get_col_defs(new_data_df):
-    is_list_cols = (new_data_df.map(type).astype(str) == "<class 'list'>").any()
+    is_list_cols = (new_data_df.map(type).astype(str)
+                    == "<class 'list'>").any()
     list_cols = set(is_list_cols[is_list_cols == True].index)
-    scalar_types = {c: infer_dtype(new_data_df[c], skipna=True).upper() for c in new_data_df.columns} # infer_dtype gives 'mixed' for list types
+    scalar_types = {c: infer_dtype(new_data_df[c], skipna=True).upper(
+    ) for c in new_data_df.columns}  # infer_dtype gives 'mixed' for list types
     # assuming all list columns are string lists, at least for now
-    get_col_type = lambda col_name: 'STRING_LIST' if col_name in list_cols else scalar_types[col_name]
+    def get_col_type(
+        col_name): return 'STRING_LIST' if col_name in list_cols else scalar_types[col_name]
 
-    new_cols = {col_name: {'name': col_name, 'columnType': get_col_type(col_name)} for col_name in new_data_df.columns}
-
+    new_cols = {col_name: {'name': col_name, 'columnType': get_col_type(
+        col_name)} for col_name in new_data_df.columns}
 
     for col_name in new_cols:
         new_col = new_cols[col_name]
@@ -83,8 +134,10 @@ def get_col_defs(new_data_df):
                 # Find longest string in this list
                 if value:  # Check if list is not empty
                     item_lengths = [len(str(item)) for item in value]
-                    max_item_in_this_list = max(item_lengths) if item_lengths else 0
-                    actual_max_size = max(actual_max_size, max_item_in_this_list)
+                    max_item_in_this_list = max(
+                        item_lengths) if item_lengths else 0
+                    actual_max_size = max(
+                        actual_max_size, max_item_in_this_list)
             if actual_max_list_len > default_maximumListLength:
                 new_col['maximumListLength'] = int(actual_max_list_len)
         else:
@@ -128,21 +181,24 @@ def analyze_and_update(files, all=False, table_names=False):
 def cli():
     """Command line interface"""
     parser = ArgumentParser(
-        description='Uploads registry tables to Synapse, analyzing data to create appropriate schema. '
-                    f'Possible tables are {', '.join(TABLE_IDS.keys())}.'
+        description="Uploads registry tables to Synapse, analyzing data to create appropriate schema. "
+                    f"Possible tables are {', '.join(TABLE_IDS.keys())}."
     )
 
-    parser.add_argument('-a', '--all', action='store_true', help='Upload all tables')
+    parser.add_argument('-a', '--all', action='store_true',
+                        help='Upload all tables')
 
     parser.add_argument('-t', '--table-names', action='store_true', default=False,
                         help='Just provide table names. They will be converted to /project/data/<table-name>.json')
 
-    parser.add_argument('files', nargs='*', help='Files to upload. Should include path from root. Usually /project/data/')
+    parser.add_argument(
+        'files', nargs='*', help='Files to upload. Should include path from root. Usually /project/data/')
 
     args = parser.parse_args()
 
     if not args.all and not args.files:
-        parser.error("Either --all flag must be provided or at least one file must be specified")
+        parser.error(
+            "Either --all flag must be provided or at least one file must be specified")
 
     if args.all and args.files:
         parser.error("No files expected if using -a/--all flag")
