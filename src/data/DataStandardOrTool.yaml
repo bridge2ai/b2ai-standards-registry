@@ -17633,3 +17633,29 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:15
   formal_specification: https://www.cdisc.org/standards/data-exchange/dataset-json/dataset-json-v1-1
+- id: B2AI_STANDARD:901
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - fileformat
+  concerns_data_topic:
+  - B2AI_TOPIC:37
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: European Data Format Plus
+  is_open: true
+  name: EDF+
+  publication: doi:10.1016/S1388-2457(03)00123-8
+  purpose_detail: An extension of the European Data Format (EDF) that maintains EDF
+    compatibility while adding capability to store annotations, events, and stimuli alongside
+    the signal data. It also allows for storing interrupted (non-contiguous) recordings
+    in a single file. EDF+ can save most EEG, PSG, ECG, EMG, and Evoked Potential data
+    that cannot be saved into common hospital information systems. The Persyst universal EEG
+    reader supports this format.
+  related_to:
+  - B2AI_STANDARD:105
+  requires_registration: false
+  url: https://www.edfplus.info/specs/edfplus.html
+  used_in_bridge2ai: true
+  has_relevant_organization:
+  - B2AI_ORG:115
