@@ -37,7 +37,7 @@ import numpy as np
 import re
 
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
-from scripts.utils import PROJECT_ID, create_or_clear_table, initialize_synapse
+from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
 
 TRANSFORMS = {
     # camel_to_title_case
@@ -200,21 +200,12 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
 
     # Step 3: Configure column metadata
     configured_columns = configure_column_metadata(all_columns, final_df)
-
-    # Step 4: Create Synapse schema
     schema_cols = [Column(**col_def['col']) for col_def in configured_columns]
-    schema = Schema(
-        name=dest_table['dest_table_name'],
-        columns=schema_cols,
-        parent=PROJECT_ID
-    )
 
-    # Step 5: Clear existing table rows if applicable
-    create_or_clear_table(syn, dest_table['dest_table_name'])
-
-    # Step 6: Upload the table
-    table = syn.store(Table(schema, final_df))
-    print(f"Created table: {table.schema.name} ({table.tableId})")
+    # Step 4: Clear, populate, snapshot dest table
+    table_name = dest_table['dest_table_name']
+    table_id = TABLE_IDS[table_name]['id'] if table_name in TABLE_IDS else None
+    clear_populate_snapshot_table(syn, table_name, schema_cols, final_df, table_id)
 
 
 def make_col(

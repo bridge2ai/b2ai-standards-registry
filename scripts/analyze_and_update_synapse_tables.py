@@ -4,7 +4,7 @@ from argparse import ArgumentParser
 from synapseclient import Synapse, Table, Schema, Column
 from pandas.api.types import infer_dtype
 import pandas as pd
-from scripts.utils import initialize_synapse, create_or_clear_table, PROJECT_ID
+from scripts.utils import initialize_synapse, clear_populate_snapshot_table, PROJECT_ID
 
 
 # the paths detected as changes from the "Get changed files" job mapped to their corresponding synapse table ids
@@ -45,14 +45,17 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
     table_name = file_path_to_table_name(update_file)
 
     # moved this from main() so we don't delete rows till the last minute
-    print(f"Creating snapshot and clearing table {update_file}")
-    create_or_clear_table(syn, table_name)
+    # replacing this with snapshotting new version
+    # print(f"Creating snapshot and clearing table {update_file}")
+    # create_or_clear_table(syn, table_name)
+
+    clear_populate_snapshot_table(syn, table_name, coldefs, df, table_id)
 
     schema = Schema(name=table_name, columns=coldefs, parent=PROJECT_ID)
     table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
     table.tableId = table_id
 
-    print(f"Populating table for file: {update_file}")
+    print(f"Clearing, populating, and snapshotting table for file: {update_file}")
     table = syn.store(table)
     print("Finished populating table")
 
