@@ -48,8 +48,10 @@ TRANSFORMS = {
     #   Converts category, strips prefix and outputs title case
     #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
     'camel_to_title_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title(),
-    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+
     'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
+    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+    'collections_to_is_mature': lambda col: 'Yes' if 'standards_process_maturity_final' in col or 'implementation_maturity_production' in col else 'No',
 }
 
 def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
@@ -246,10 +248,14 @@ def make_col(
 
     # Copy the column schema and update the name to use the alias
     dest_col['col'] = src_table['columns'][src_col_name].copy()
-    dest_col['col']['name'] = dest_col_name
+    col = dest_col['col']
+    col['name'] = dest_col_name
 
     if 'columnType' in dest_col:
-        dest_col['col']['columnType'] = dest_col['columnType']
+        ctype = dest_col['columnType']
+        col['columnType'] = ctype
+        if not ctype.endswith('LIST') and 'maximumListLength' in col:
+            del col['maximumListLength']
 
     return dest_col
 
