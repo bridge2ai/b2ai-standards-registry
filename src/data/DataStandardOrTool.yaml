@@ -7548,22 +7548,20 @@ data_standardortools_collection:
   - fileformat
   concerns_data_topic:
   - B2AI_TOPIC:5
+  - B2AI_TOPIC:48
+  contribution_date: '2025-05-29'
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: HDMF format
+  description: Hierarchical Data Modeling Framework for Modern Science Data Standards
   formal_specification: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8500680/
   is_open: true
   name: HDMF
   publication: doi:10.1109/bigdata47090.2019.9005648
-  purpose_detail: HDF5 is a data model, library, and file format for storing and managing
-    data. It supports an unlimited variety of datatypes, and is designed for flexible
-    and efficient I/O and for high volume and complex data. HDF5 is portable and is
-    extensible, allowing applications to evolve in their use of HDF5. The HDF5 Technology
-    suite includes tools and applications for managing, manipulating, viewing, and
-    analyzing data in the HDF5 format.
+  purpose_detail: "HDMF is a hierarchical data modeling framework for modern science data standards. It separates data standardization into three main components: (1) data modeling and specification, (2) data I/O and storage, and (3) data interaction and data APIs. HDMF provides object mapping infrastructure to insulate and integrate these components, supporting flexible development of data standards and extensions, optimized storage backends, and data APIs. It offers advanced data I/O functionality for iterative data write, lazy data load, parallel I/O, and modular data storage. HDMF is particularly used to design NWB 2.0, a data standard for neurophysiology data."
   related_to:
   - B2AI_STANDARD:339
+  - B2AI_STANDARD:379
   requires_registration: false
   url: https://hdmf-common-schema.readthedocs.io/en/latest/format.html
 - id: B2AI_STANDARD:341
