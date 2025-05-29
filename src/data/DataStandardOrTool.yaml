@@ -17681,3 +17681,26 @@ data_standardortools_collection:
   used_in_bridge2ai: true
   has_relevant_organization:
   - B2AI_ORG:116
+- id: B2AI_STANDARD:903
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - datamodel
+  - has_ai_application
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:4
+  contribution_date: '2025-05-29'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Clinical Dataset Structure
+  formal_specification: https://github.com/AI-READI/cds-specification
+  is_open: true
+  name: CDS
+  publication: doi:10.5281/zenodo.10867040
+  purpose_detail: The Clinical Dataset Structure (CDS) is a standardized way to organize and describe clinical research datasets to make them readily interoperable and easily reusable by humans and machines. It addresses the challenge of integrating multiple data modalities from clinical studies by providing a simple, intuitive file and directory structure. CDS organizes data by datatype at the root level, with each datatype directory structured according to applicable standards or a recommended hierarchy of modality/device/participant directories. The standard includes specifications for metadata files that document the dataset content, structure, and participant information, optimizing datasets for AI-readiness and secondary analysis.
+  requires_registration: false
+  url: https://cds-specification.readthedocs.io/
+  used_in_bridge2ai: true
+  has_relevant_organization:
+  - B2AI_ORG:114
