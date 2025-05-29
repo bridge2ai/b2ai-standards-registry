@@ -353,7 +353,7 @@ use_cases:
       - B2AI_TOPIC:28
       - B2AI_TOPIC:27
       - B2AI_TOPIC:34
-    description: "As per Qin et al. (2021) Nature (https://doi.org/10.1038/s41586-021-04115-9), imaging data and biophysical association data may be combined to develop measurements of protein distance within subcellular systems. This use case builds on that strategy by adding a third component: measurement of transcript changes under perturbation conditions for each protein. For the CM4AI DGP, this process involves evidence graphs. The result here is not a full subcellular map, but rather the integrated data necessary to assemble such a map."
+    description: "As per Qin et al. (2021) Nature (https://doi.org/10.1038/s41586-021-04115-9), imaging data and biophysical association data may be combined to develop measurements of protein distance within subcellular systems. This use case builds on that strategy by adding a third component: measurement of transcript changes under perturbation conditions for each protein. For the CM4AI GC, this process involves evidence graphs. The result here is not a full subcellular map, but rather the integrated data necessary to assemble such a map."
     enables:
       - B2AI_USECASE:24
     involved_in_experimental_design: true
@@ -573,7 +573,7 @@ use_cases:
       - B2AI_TOPIC:18
       - B2AI_TOPIC:24
       - B2AI_TOPIC:29
-    description: As presented by the AI-READI DGP, developing pseudotime patient models of health and salutogenesis hinges on the idea that health is a time-sensitive process, with various events contributing to a progression towards clinical outcomes in a chronological fashion. The exact amount of time between events may not be as important as their order and may therefore be abstracted.
+    description: As presented by the AI-READI GC, developing pseudotime patient models of health and salutogenesis hinges on the idea that health is a time-sensitive process, with various events contributing to a progression towards clinical outcomes in a chronological fashion. The exact amount of time between events may not be as important as their order and may therefore be abstracted.
     involved_in_experimental_design: true
     involved_in_metadata_management: true
     involved_in_quality_control: false
@@ -591,7 +591,7 @@ use_cases:
       - B2AI_TOPIC:4
       - B2AI_TOPIC:31
       - B2AI_TOPIC:36
-    description: As presented by the Voice DGP, a set of patient voice recordings may be analyzed in an automated manner through the machine learning approach of federated learning. In federated learning, a central model is first trained on a dataset distributed among many devices or clients. Individual clients train their own copies of the model on their own data, then send updated model parameters to the central server. The server then averages newly updated parameters from all clients to produce a new global model. It returns the new model to the clients and the process repeats.
+    description: As presented by the Voice GC, a set of patient voice recordings may be analyzed in an automated manner through the machine learning approach of federated learning. In federated learning, a central model is first trained on a dataset distributed among many devices or clients. Individual clients train their own copies of the model on their own data, then send updated model parameters to the central server. The server then averages newly updated parameters from all clients to produce a new global model. It returns the new model to the clients and the process repeats.
     involved_in_experimental_design: true
     involved_in_metadata_management: true
     involved_in_quality_control: true
@@ -615,7 +615,7 @@ use_cases:
       - B2AI_TOPIC:18
       - B2AI_TOPIC:24
       - B2AI_TOPIC:29
-    description: As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on cognitive function. This case does not depend upon availability of pseudotime models, unlike B2AI_USECASE:29.
+    description: As presented by the AI-READI GC, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on cognitive function. This case does not depend upon availability of pseudotime models, unlike B2AI_USECASE:29.
     involved_in_experimental_design: true
     involved_in_metadata_management: true
     involved_in_quality_control: true
@@ -636,7 +636,7 @@ use_cases:
       - B2AI_TOPIC:18
       - B2AI_TOPIC:24
       - B2AI_TOPIC:29
-    description: As presented by the AI-READI DGP, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on insulin dependence. Its goal is to produce a model capable of yielding predictions about a given patient’s progression towards a health or disease state. This case depends upon availability of pseudotime models, unlike B2AI_USECASE:28.
+    description: As presented by the AI-READI GC, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on insulin dependence. Its goal is to produce a model capable of yielding predictions about a given patient’s progression towards a health or disease state. This case depends upon availability of pseudotime models, unlike B2AI_USECASE:28.
     involved_in_experimental_design: true
     involved_in_metadata_management: true
     involved_in_quality_control: true
