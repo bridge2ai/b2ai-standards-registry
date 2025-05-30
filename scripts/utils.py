@@ -49,9 +49,10 @@ def get_auth_token():
 
     raise ValueError(f"'authtoken' not found in {auth_file}")
 
-def initialize_synapse() -> None:
+def initialize_synapse() -> Synapse:
     """
-    Initialize the synapse client
+    Initialize the Synapse client
+    :return: A logged-in Synapse client object
     """
     try:
         syn = Synapse()
@@ -66,10 +67,16 @@ def copy_list_omit_property(list_of_dicts, property_to_omit):
 
 def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: List[Column], df: pd.DataFrame, table_id: Optional[str] = None) -> None:
     """
-    Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
+    - Update or create Synapse table and create snapshot.
+    - Delete all rows if table already exists in Synapse.
+    - Upload new data.
+    - Take a snapshot version for history.
 
     :param syn: Authenticated Synapse client
-    :param table_name: Name of the Synapse table to check and clear (if it already exists)
+    :param table_name: Name of the Synapse table to upload
+    :param columnDefs: List of Column definitions to upload
+    :param df: Dataframe to upload
+    :param table_id: Optionally, Table ID, function will confirm or figure it out if not provided
     """
     print(f"Clearing, populating, and snapshotting {table_name} table")
 

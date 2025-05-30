@@ -1,5 +1,6 @@
 import json
 import sys
+from typing import Any, Dict, List, Optional
 from argparse import ArgumentParser
 from synapseclient import Synapse, Table, Schema, Column
 from pandas.api.types import infer_dtype
@@ -18,12 +19,19 @@ PATHS_TO_IDS = {
 }
 
 def file_path_to_table_name(path: str) -> str:
+    """
+    Extracts and returns the table name from a file path.
+
+    :param path: The file path.
+    """
     return path.split('/')[-1].split('.')[0]
 
 TABLE_IDS = {file_path_to_table_name(p): PATHS_TO_IDS[p] for p in PATHS_TO_IDS.keys()}
 
 def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
-    """Populate the table with updated data
+    """
+    Populate the table with updated data
+
     :param syn: synapse client
     :param update_file: path for json file containing data to populate the table
     :param table_id: synapse id for table to populate
@@ -39,25 +47,11 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
 
     df = pd.DataFrame(data=data)
 
-    cols = get_col_defs(df)
-    coldefs = [Column(**col) for col in cols.values()]
+    coldefs = get_col_defs(df)
 
     table_name = file_path_to_table_name(update_file)
 
-    # moved this from main() so we don't delete rows till the last minute
-    # replacing this with snapshotting new version
-    # print(f"Creating snapshot and clearing table {update_file}")
-    # create_or_clear_table(syn, table_name)
-
     clear_populate_snapshot_table(syn, table_name, coldefs, df, table_id)
-
-    schema = Schema(name=table_name, columns=coldefs, parent=PROJECT_ID)
-    table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
-    table.tableId = table_id
-
-    print(f"Clearing, populating, and snapshotting table for file: {update_file}")
-    table = syn.store(table)
-    print("Finished populating table")
 
 
 # synapse defaults
@@ -65,7 +59,15 @@ default_maximumSize = 50    # ignoring this because some tables will be too big 
                             #   instead, make maximumSize just big enough to fit the longest column value
 default_maximumListLength = 100
 
-def get_col_defs(new_data_df):
+def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
+    """
+    Returns Column definitions for Synapse schema based on data in df
+    TODO: If ever refactoring, this could be combined into a shared function with
+          ./create_denormalized_tables.py:configure_column_metadata
+
+    :param new_data_df: DataFrame with new data
+    :return: Column definitions
+    """
     is_list_cols = (new_data_df.map(type).astype(str) == "<class 'list'>").any()
     list_cols = set(is_list_cols[is_list_cols == True].index)
     scalar_types = {c: infer_dtype(new_data_df[c], skipna=True).upper() for c in new_data_df.columns} # infer_dtype gives 'mixed' for list types
@@ -98,10 +100,20 @@ def get_col_defs(new_data_df):
                 elif actual_max_size > 1000:
                     new_col['columnType'] = 'MEDIUMTEXT'
         new_col['maximumSize'] = int(actual_max_size)
-    return new_cols
+
+    return [Column(**col) for col in new_cols.values()]
 
 
-def analyze_and_update(files, all=False, table_names=False):
+def analyze_and_update(files: List[str], all: bool = False, table_names: List[str] = False):
+    """
+    - Upload json files to Synapse
+    - Requires one parameter (files, all, or table_names) to be provided
+    - Paths will be checked against PATHS_TO_IDS
+
+    :param files: List of file paths (relative or absolute)
+    :param all: Boolean, whether to upload all files in PATHS_TO_IDS
+    :param table_names: List of table names to upload
+    """
     try:
         if all:
             files = list(PATHS_TO_IDS.keys())

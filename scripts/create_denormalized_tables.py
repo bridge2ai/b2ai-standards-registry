@@ -55,6 +55,11 @@ TRANSFORMS = {
 }
 
 def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
+    """
+    Create and upload tables from definitions in ./generate_tables_config.py
+
+    :param specific_tables: Optional list of tables to create; defaults to creating all
+    """
     syn = initialize_synapse()
     src_tables = {}
 
@@ -84,6 +89,10 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
     """
     Create and upload a Synapse table by joining a base table with related tables.
+
+    TODO: If this ever needs to be refactored, it would be better to get source column information from
+          registry json files (see ./analyze_and_update_synapse_tables.py) rather than from downloading
+          and extracting schema info from Synapse versions of those tables.
 
     :param syn: Authenticated Synapse client used to query and store tables
     :param dest_table: Dictionary defining the destination table configuration. Includes:
@@ -159,9 +168,11 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
 
         return join_columns
 
-    def configure_column_metadata(columns: List[Dict[str, Any]], df: pd.DataFrame) -> List[Dict[str, Any]]:
+    def configure_column_metadata(columns: List[Dict[str, Any]], df: pd.DataFrame) -> List[Column]:
         """
         Set metadata on each column definition, including list sizes and faceting.
+        TODO: If ever refactoring, this could be combined into a shared function with
+              ./analyze_and_update_synapse_tables.py:get_col_defs
 
         :param columns: List of column definition dicts to update
         :param df: Final combined DataFrame, used to calculate sizes and lengths
@@ -187,7 +198,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
                 max_items = max(len(items) for items in values)
                 col['maximumListLength'] = max(max_items, 2) # 2 is minimum allowed
 
-        return columns
+        return [Column(**col_def['col']) for col_def in columns]
 
     # Step 1: Build all columns and their data
     base_columns = build_base_columns()
@@ -199,8 +210,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     final_df = pd.DataFrame(data_dict).reset_index(drop=True)
 
     # Step 3: Configure column metadata
-    configured_columns = configure_column_metadata(all_columns, final_df)
-    schema_cols = [Column(**col_def['col']) for col_def in configured_columns]
+    schema_cols = configure_column_metadata(all_columns, final_df)
 
     # Step 4: Clear, populate, snapshot dest table
     table_name = dest_table['dest_table_name']
