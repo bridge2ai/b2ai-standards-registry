@@ -7904,20 +7904,23 @@
       "id": "B2AI_STANDARD:340",
       "category": "B2AI_STANDARD:DataStandard",
       "name": "HDMF",
-      "description": "HDMF format",
+      "description": "Hierarchical Data Modeling Framework for Modern Science Data Standards",
       "related_to": [
-        "B2AI_STANDARD:339"
+        "B2AI_STANDARD:339",
+        "B2AI_STANDARD:379"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2025-05-29",
       "collection": [
         "fileformat"
       ],
       "concerns_data_topic": [
-        "B2AI_TOPIC:5"
+        "B2AI_TOPIC:5",
+        "B2AI_TOPIC:48"
       ],
-      "purpose_detail": "HDF5 is a data model, library, and file format for storing and managing data. It supports an unlimited variety of datatypes, and is designed for flexible and efficient I/O and for high volume and complex data. HDF5 is portable and is extensible, allowing applications to evolve in their use of HDF5. The HDF5 Technology suite includes tools and applications for managing, manipulating, viewing, and analyzing data in the HDF5 format.",
+      "purpose_detail": "HDMF is a hierarchical data modeling framework for modern science data standards. It separates data standardization into three main components: (1) data modeling and specification, (2) data I/O and storage, and (3) data interaction and data APIs. HDMF provides object mapping infrastructure to insulate and integrate these components, supporting flexible development of data standards and extensions, optimized storage backends, and data APIs. It offers advanced data I/O functionality for iterative data write, lazy data load, parallel I/O, and modular data storage. HDMF is particularly used to design NWB 2.0, a data standard for neurophysiology data.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://hdmf-common-schema.readthedocs.io/en/latest/format.html",
@@ -12077,6 +12080,9 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "SEPIO",
       "description": "Scientific Evidence and Provenance Information Ontology",
+      "related_to": [
+        "B2AI_STANDARD:256"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -12089,10 +12095,15 @@
       "has_relevant_organization": [
         "B2AI_ORG:58"
       ],
-      "purpose_detail": "Provenance of scientific claims and the evidence that supports them.",
+      "purpose_detail": "The Scientific Evidence and Provenance Information Ontology (SEPIO) provides a structured framework for representing scientific evidence and provenance information supporting knowledge claims. It supports rich, computable representations of the evidence and provenance behind scientific assertions, particularly for genetic variants and their clinical interpretations.",
       "is_open": true,
       "requires_registration": false,
-      "formal_specification": "https://github.com/monarch-initiative/SEPIO-ontology"
+      "url": "https://github.com/monarch-initiative/SEPIO-ontology",
+      "publication": "doi:10.5281/zenodo.5214269",
+      "formal_specification": "https://sepio-framework.github.io/sepio-linkml/",
+      "responsible_organization": [
+        "B2AI_ORG:58"
+      ]
     },
     {
       "id": "B2AI_STANDARD:546",
@@ -19427,6 +19438,116 @@
       "requires_registration": false,
       "url": "https://www.edfplus.info/specs/edfplus.html",
       "publication": "doi:10.1016/S1388-2457(03)00123-8"
+    },
+    {
+      "id": "B2AI_STANDARD:902",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "ARK PIDs",
+      "description": "Archival Resource Key Persistent Identifiers",
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
+      "collection": [
+        "has_ai_application",
+        "datamodel",
+        "standards_process_maturity_draft",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:116"
+      ],
+      "purpose_detail": "Archival Resource Key (ARK) identifiers are persistent URLs designed to support long-term access to information objects. ARKs can identify digital objects (documents, databases, images, software), physical objects (books, artifacts), living beings, and intangible objects (concepts, services). ARKs are characterized by their internal \"ark:\" label, their NAAN (Name Assigning Authority Number) identifying the naming organization, and features like metadata access through inflections (adding ? to the URL). They are free to create and use, with no fees to assign or use ARKs, and can be hosted on any web server or through the global N2T.net resolver.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://arks.org/about/",
+      "formal_specification": "https://datatracker.ietf.org/doc/draft-kunze-ark/"
+    },
+    {
+      "id": "B2AI_STANDARD:903",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "CDS",
+      "description": "Clinical Dataset Structure",
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2025-05-29",
+      "used_in_bridge2ai": true,
+      "collection": [
+        "datamodel",
+        "has_ai_application"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:7",
+        "B2AI_TOPIC:4"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:114"
+      ],
+      "purpose_detail": "The Clinical Dataset Structure (CDS) is a standardized way to organize and describe clinical research datasets to make them readily interoperable and easily reusable by humans and machines. It addresses the challenge of integrating multiple data modalities from clinical studies by providing a simple, intuitive file and directory structure. CDS organizes data by datatype at the root level, with each datatype directory structured according to applicable standards or a recommended hierarchy of modality/device/participant directories. The standard includes specifications for metadata files that document the dataset content, structure, and participant information, optimizing datasets for AI-readiness and secondary analysis.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://cds-specification.readthedocs.io/",
+      "publication": "doi:10.5281/zenodo.10867040",
+      "formal_specification": "https://github.com/AI-READI/cds-specification"
+    },
+    {
+      "id": "B2AI_STANDARD:904",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Schema.org",
+      "description": "A collaborative, community-developed schema for structured data on the Internet",
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2025-05-29",
+      "used_in_bridge2ai": true,
+      "collection": [
+        "datamodel",
+        "has_ai_application",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:116"
+      ],
+      "purpose_detail": "Schema.org is a collaborative, community activity founded by Google, Microsoft, Yahoo, and Yandex with a mission to create, maintain, and promote schemas for structured data on the Internet. It provides a common vocabulary that webmasters can use to mark up their pages in ways that can be understood by major search engines and other applications. The Schema.org vocabulary consists of a set of types (e.g., Person, Event, Organization), properties (e.g., name, location, startDate), and relationships that can be used with many different encoding formats including RDFa, Microdata, and JSON-LD. As of 2024, over 45 million web domains use Schema.org markup with over 450 billion Schema.org objects. The vocabulary is continuously evolving through an open community process managed by the W3C Schema.org Community Group.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://schema.org/",
+      "formal_specification": "https://github.com/schemaorg/schemaorg"
+    },
+    {
+      "id": "B2AI_STANDARD:905",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "Thermo Fisher RAW",
+      "description": "Thermo Fisher RAW mass spectrometry data format",
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2025-05-29",
+      "used_in_bridge2ai": true,
+      "collection": [
+        "fileformat"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:28"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:116"
+      ],
+      "purpose_detail": "The Thermo Fisher RAW format is a proprietary file format designed for storing mass spectrometry data generated by Thermo Fisher Scientific instruments. It contains detailed information about mass spectra, chromatograms, instrument parameters, and metadata from experimental runs. The format supports multiple mass spectrometry techniques and is accessed through Thermo's software tools like MSFileReader or more recent RawFileReader. While it's proprietary, various conversion tools allow transformation to open formats like mzML or mzXML for broader compatibility with third-party analysis software. The format is widely used in proteomics, metabolomics, and other mass spectrometry-based research applications where preserving the complete experimental context is essential for data interpretation and analysis.",
+      "is_open": false,
+      "requires_registration": true,
+      "url": "https://www.thermofisher.com/us/en/home/industrial/mass-spectrometry.html",
+      "responsible_organization": [
+        "B2AI_ORG:123"
+      ]
     }
   ],
   "@type": "DataStandardOrToolContainer"
