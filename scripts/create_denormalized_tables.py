@@ -37,7 +37,7 @@ import numpy as np
 import re
 
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
-from scripts.utils import PROJECT_ID, create_or_clear_table, initialize_synapse
+from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
 
 TRANSFORMS = {
     # camel_to_title_case
@@ -48,8 +48,10 @@ TRANSFORMS = {
     #   Converts category, strips prefix and outputs title case
     #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
     'camel_to_title_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title(),
-    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+
     'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
+    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+    'collections_to_is_mature': lambda col: 'Yes' if 'standards_process_maturity_final' in col or 'implementation_maturity_production' in col else 'No',
 }
 
 def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
@@ -198,21 +200,12 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
 
     # Step 3: Configure column metadata
     configured_columns = configure_column_metadata(all_columns, final_df)
-
-    # Step 4: Create Synapse schema
     schema_cols = [Column(**col_def['col']) for col_def in configured_columns]
-    schema = Schema(
-        name=dest_table['dest_table_name'],
-        columns=schema_cols,
-        parent=PROJECT_ID
-    )
 
-    # Step 5: Clear existing table rows if applicable
-    create_or_clear_table(syn, dest_table['dest_table_name'])
-
-    # Step 6: Upload the table
-    table = syn.store(Table(schema, final_df))
-    print(f"Created table: {table.schema.name} ({table.tableId})")
+    # Step 4: Clear, populate, snapshot dest table
+    table_name = dest_table['dest_table_name']
+    table_id = TABLE_IDS[table_name]['id'] if table_name in TABLE_IDS else None
+    clear_populate_snapshot_table(syn, table_name, schema_cols, final_df, table_id)
 
 
 def make_col(
@@ -246,10 +239,14 @@ def make_col(
 
     # Copy the column schema and update the name to use the alias
     dest_col['col'] = src_table['columns'][src_col_name].copy()
-    dest_col['col']['name'] = dest_col_name
+    col = dest_col['col']
+    col['name'] = dest_col_name
 
     if 'columnType' in dest_col:
-        dest_col['col']['columnType'] = dest_col['columnType']
+        ctype = dest_col['columnType']
+        col['columnType'] = ctype
+        if not ctype.endswith('LIST') and 'maximumListLength' in col:
+            del col['maximumListLength']
 
     return dest_col
 

@@ -1,5 +1,7 @@
 import os
-from synapseclient import Synapse
+from typing import Any, Dict, List, Optional
+import pandas as pd
+from synapseclient import Synapse, Table, Schema, Column
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 """
 Expected Environment:
@@ -62,21 +64,35 @@ def copy_list_omit_property(list_of_dicts, property_to_omit):
     return [{key: value for key, value in d.items() if key != property_to_omit}
             for d in list_of_dicts]
 
-def create_or_clear_table(syn: Synapse, table_name: str) -> None:
+def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: List[Column], df: pd.DataFrame, table_id: Optional[str] = None) -> None:
     """
     Delete all rows from a table if it already exists in Synapse. Takes a snapshot version for history.
 
     :param syn: Authenticated Synapse client
     :param table_name: Name of the Synapse table to check and clear (if it already exists)
     """
+    print(f"Clearing, populating, and snapshotting {table_name} table")
+
     try:
         existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
         for table in existing_tables:
             if table['name'] == table_name:
-                query_result = syn.tableQuery(f"SELECT * FROM {table['id']}")
-                syn.create_snapshot_version(table["id"])
+                if table_id:
+                    if table['id'] != table_id:
+                        raise Exception(f"got table_id mismatch for {table_name}: {table['id']} != {table_id}")
+                else:
+                    table_id = table['id']
+                query_result = syn.tableQuery(f"SELECT * FROM {table_id}")
                 print(f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
                 syn.delete(query_result)
                 break
     except Exception as e:
-        print(f"Error checking for existing table: {e}")
+        print(f"Error checking for and clearing existing table {table_name}: {e}")
+
+    schema = Schema(name=table_name, columns=columnDefs, parent=PROJECT_ID)
+    table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
+    table.tableId = table_id
+    table = syn.store(table)
+    table_id = table_id or table['id']
+    syn.create_snapshot_version(table_id)
+    print(f"Created table: {table.schema.name} ({table.tableId})")

@@ -41,6 +41,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'purpose_detail',            'alias': 'description'},
             {'faceted': True,  'name': 'collection',                'alias': 'collections'},
             {'faceted': True,  'name': 'collection',                'alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
+            {'faceted': True,  'name': 'collection',                'alias': 'isMature', 'transform': 'collections_to_is_mature', 'columnType': 'STRING'},
             {'faceted': False, 'name': 'concerns_data_topic',       'alias': 'concerns_data_topic'},
             {'faceted': False, 'name': 'has_relevant_organization', 'alias': 'has_relevant_organization'},
             {'faceted': False, 'name': 'responsible_organization',  'alias': 'responsible_organization'},
@@ -63,7 +64,6 @@ DEST_TABLES = {
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
              'dest_cols': [
                  {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
-                 {'faceted': False, 'name': 'description', 'alias': 'relevantOrgDescriptions'},
              ]},
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
