@@ -44,6 +44,7 @@ classes:
       - publication
       - formal_specification
       - responsible_organization
+      - has_relevant_data_substrate
 
   DataStandard:
     is_a: DataStandardOrTool
@@ -214,6 +215,18 @@ slots:
     is_a: node_property
     domain: DataStandardOrTool
     range: Organization
+    multivalued: true
+
+  has_relevant_data_substrate:
+    is_a: related_to
+    description: >-
+      Subject standard has some relationship
+      to the object data substrate(s), including
+      whether it is intended to be used with
+      the data substrate, or whether it is
+      implemented through the data substrate.
+    domain: DataStandardOrTool
+    range: DataSubstrate
     multivalued: true
 
 enums:
