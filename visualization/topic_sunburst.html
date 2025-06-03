@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Co-occurrence Sunburst Plot</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .plot-container {
+            padding: 30px;
+            background: white;
+        }
+
+        #sunburstPlot {
+            width: 100%;
+            height: 700px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .info-panel {
+            background: #f8f9fa;
+            padding: 25px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+
+        .info-card h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 1.2em;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .header p {
+                font-size: 1em;
+            }
+
+            #sunburstPlot {
+                height: 500px;
+            }
+
+            .plot-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Topic Co-occurrence Analysis</h1>
+            <p>Interactive sunburst visualization showing topic frequencies and relationships</p>
+        </div>
+
+        <div class="plot-container">
+            <div id="sunburstPlot"></div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #ff6b6b;"></div>
+                    <span>Inner Ring: Most Frequent Topics</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #4ecdc4;"></div>
+                    <span>Outer Ring: Co-occurring Topics</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2 style="margin: 0 0 20px 0; color: #2c3e50;">Analysis Overview</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Data Structure</h3>
+                    <p>Analyzed 899 topic combinations from research papers, identifying 35 unique topics and their co-occurrence patterns.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Inner Ring</h3>
+                    <p>Shows the 8 most frequently occurring topics, with "Data" being the most common (363 occurrences).</p>
+                </div>
+                <div class="info-card">
+                    <h3>Outer Ring</h3>
+                    <p>Displays topics that frequently co-occur with inner ring topics, revealing research theme relationships.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Interaction</h3>
+                    <p>Click on segments to zoom in, hover for details, and use the toolbar to pan, zoom, and download the visualization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load the CSV data and create the sunburst plot
+        async function loadDataAndCreatePlot() {
+            try {
+                // Read and parse the CSV file
+                const csvContent = await window.fs.readFile('topics.csv', { encoding: 'utf8' });
+
+                // Simple CSV parsing for this structure
+                const lines = csvContent.split('\n').slice(1); // Skip header
+                const topicArrays = [];
+
+                lines.forEach(line => {
+                    if (line.trim()) {
+                        try {
+                            // Extract the JSON array from the CSV line
+                            const match = line.match(/"\[(.*?)\]"/);
+                            if (match) {
+                                const jsonStr = '[' + match[1] + ']';
+                                const topics = JSON.parse(jsonStr);
+                                if (topics.length > 0) {
+                                    topicArrays.push(topics);
+                                }
+                            }
+                        } catch (e) {
+                            // Skip malformed lines
+                        }
+                    }
+                });
+
+                // Count topic frequencies
+                const topicCounts = {};
+                topicArrays.forEach(topics => {
+                    topics.forEach(topic => {
+                        topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+                    });
+                });
+
+                // Sort topics by frequency
+                const sortedTopics = Object.entries(topicCounts)
+                    .sort(([,a], [,b]) => b - a)
+                    .map(([topic, count]) => ({ topic, count }));
+
+                // Build co-occurrence matrix
+                const coOccurrence = {};
+                topicArrays.forEach(topics => {
+                    for (let i = 0; i < topics.length; i++) {
+                        const topic1 = topics[i];
+                        if (!coOccurrence[topic1]) {
+                            coOccurrence[topic1] = {};
+                        }
+
+                        for (let j = 0; j < topics.length; j++) {
+                            if (i !== j) {
+                                const topic2 = topics[j];
+                                coOccurrence[topic1][topic2] = (coOccurrence[topic1][topic2] || 0) + 1;
+                            }
+                        }
+                    }
+                });
+
+                // Get top topics for first ring
+                const firstRingTopics = sortedTopics.slice(0, 8).map(t => t.topic);
+
+                // Build sunburst data structure
+                const ids = ['Topics'];
+                const labels = ['Topics<br>(Total: 899)'];
+                const parents = [''];
+                const values = [899];
+
+                // Add first ring (most frequent topics)
+                firstRingTopics.forEach(topic => {
+                    const count = topicCounts[topic];
+                    ids.push(topic);
+                    labels.push(`${topic}<br>(${count})`);
+                    parents.push('Topics');
+                    values.push(count);
+                });
+
+                // Add second ring (co-occurring topics)
+                firstRingTopics.forEach(parentTopic => {
+                    if (coOccurrence[parentTopic]) {
+                        const coOccurringTopics = Object.entries(coOccurrence[parentTopic])
+                            .filter(([topic, count]) => !firstRingTopics.includes(topic))
+                            .sort(([,a], [,b]) => b - a)
+                            .slice(0, 3);
+
+                        coOccurringTopics.forEach(([topic, count]) => {
+                            const childId = `${parentTopic}-${topic}`;
+                            ids.push(childId);
+                            labels.push(`${topic}<br>(${count} co-occ)`);
+                            parents.push(parentTopic);
+                            values.push(count);
+                        });
+                    }
+                });
+
+                // Create the sunburst plot
+                const data = [{
+                    type: "sunburst",
+                    ids: ids,
+                    labels: labels,
+                    parents: parents,
+                    values: values,
+                    branchvalues: "total",
+                    hovertemplate: '<b>%{label}</b><br>Value: %{value}<br>Percentage: %{percentParent}<extra></extra>',
+                    maxdepth: 3,
+                    insidetextorientation: 'radial',
+                    textfont: {
+                        size: 12,
+                        color: 'white'
+                    },
+                    outsidetextfont: {
+                        size: 10,
+                        color: 'black'
+                    }
+                }];
+
+                const layout = {
+                    title: {
+                        text: '',
+                        font: { size: 20, color: '#2c3e50' }
+                    },
+                    font: {
+                        family: 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif',
+                        size: 12
+                    },
+                    paper_bgcolor: 'white',
+                    plot_bgcolor: 'white',
+                    margin: { t: 50, l: 50, r: 50, b: 50 },
+                    colorway: [
+                        '#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57',
+                        '#ff9ff3', '#54a0ff', '#5f27cd', '#00d2d3', '#ff9f43',
+                        '#a55eea', '#26de81', '#fd79a8', '#6c5ce7', '#fdcb6e',
+                        '#e17055', '#81ecec', '#fab1a0', '#00b894', '#e84393'
+                    ]
+                };
+
+                const config = {
+                    responsive: true,
+                    displayModeBar: true,
+                    modeBarButtonsToRemove: ['pan2d', 'lasso2d', 'select2d'],
+                    displaylogo: false,
+                    toImageButtonOptions: {
+                        format: 'png',
+                        filename: 'topic_sunburst',
+                        height: 700,
+                        width: 1000,
+                        scale: 2
+                    }
+                };
+
+                Plotly.newPlot('sunburstPlot', data, layout, config);
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('sunburstPlot').innerHTML =
+                    '<div style="text-align: center; padding: 50px; color: #e74c3c;">' +
+                    '<h3>Error Loading Data</h3>' +
+                    '<p>Unable to load the topics.csv file. Please ensure the file is properly uploaded.</p>' +
+                    '</div>';
+            }
+        }
+
+        // Initialize the plot when the page loads
+        loadDataAndCreatePlot();
+    </script>
+</body>
+</html>

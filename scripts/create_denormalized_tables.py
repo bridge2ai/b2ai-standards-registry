@@ -37,7 +37,7 @@ import numpy as np
 import re
 
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
-from scripts.utils import PROJECT_ID, create_or_clear_table, initialize_synapse
+from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
 
 TRANSFORMS = {
     # camel_to_title_case
@@ -48,11 +48,18 @@ TRANSFORMS = {
     #   Converts category, strips prefix and outputs title case
     #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
     'camel_to_title_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title(),
-    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+
     'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
+    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+    'collections_to_is_mature': lambda col: 'Yes' if 'standards_process_maturity_final' in col or 'implementation_maturity_production' in col else 'No',
 }
 
 def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
+    """
+    Create and upload tables from definitions in ./generate_tables_config.py
+
+    :param specific_tables: Optional list of tables to create; defaults to creating all
+    """
     syn = initialize_synapse()
     src_tables = {}
 
@@ -82,6 +89,10 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
     """
     Create and upload a Synapse table by joining a base table with related tables.
+
+    TODO: If this ever needs to be refactored, it would be better to get source column information from
+          registry json files (see ./analyze_and_update_synapse_tables.py) rather than from downloading
+          and extracting schema info from Synapse versions of those tables.
 
     :param syn: Authenticated Synapse client used to query and store tables
     :param dest_table: Dictionary defining the destination table configuration. Includes:
@@ -157,9 +168,11 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
 
         return join_columns
 
-    def configure_column_metadata(columns: List[Dict[str, Any]], df: pd.DataFrame) -> List[Dict[str, Any]]:
+    def configure_column_metadata(columns: List[Dict[str, Any]], df: pd.DataFrame) -> List[Column]:
         """
         Set metadata on each column definition, including list sizes and faceting.
+        TODO: If ever refactoring, this could be combined into a shared function with
+              ./analyze_and_update_synapse_tables.py:get_col_defs
 
         :param columns: List of column definition dicts to update
         :param df: Final combined DataFrame, used to calculate sizes and lengths
@@ -185,7 +198,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
                 max_items = max(len(items) for items in values)
                 col['maximumListLength'] = max(max_items, 2) # 2 is minimum allowed
 
-        return columns
+        return [Column(**col_def['col']) for col_def in columns]
 
     # Step 1: Build all columns and their data
     base_columns = build_base_columns()
@@ -197,22 +210,12 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     final_df = pd.DataFrame(data_dict).reset_index(drop=True)
 
     # Step 3: Configure column metadata
-    configured_columns = configure_column_metadata(all_columns, final_df)
+    schema_cols = configure_column_metadata(all_columns, final_df)
 
-    # Step 4: Create Synapse schema
-    schema_cols = [Column(**col_def['col']) for col_def in configured_columns]
-    schema = Schema(
-        name=dest_table['dest_table_name'],
-        columns=schema_cols,
-        parent=PROJECT_ID
-    )
-
-    # Step 5: Clear existing table rows if applicable
-    create_or_clear_table(syn, dest_table['dest_table_name'])
-
-    # Step 6: Upload the table
-    table = syn.store(Table(schema, final_df))
-    print(f"Created table: {table.schema.name} ({table.tableId})")
+    # Step 4: Clear, populate, snapshot dest table
+    table_name = dest_table['dest_table_name']
+    table_id = TABLE_IDS[table_name]['id'] if table_name in TABLE_IDS else None
+    clear_populate_snapshot_table(syn, table_name, schema_cols, final_df, table_id)
 
 
 def make_col(
@@ -246,10 +249,14 @@ def make_col(
 
     # Copy the column schema and update the name to use the alias
     dest_col['col'] = src_table['columns'][src_col_name].copy()
-    dest_col['col']['name'] = dest_col_name
+    col = dest_col['col']
+    col['name'] = dest_col_name
 
     if 'columnType' in dest_col:
-        dest_col['col']['columnType'] = dest_col['columnType']
+        ctype = dest_col['columnType']
+        col['columnType'] = ctype
+        if not ctype.endswith('LIST') and 'maximumListLength' in col:
+            del col['maximumListLength']
 
     return dest_col
 
