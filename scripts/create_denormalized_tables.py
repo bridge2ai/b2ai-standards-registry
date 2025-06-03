@@ -303,6 +303,23 @@ def create_list_column(
     column_name = dest_col['alias']        # name for the new output column
     result = []                            # list of lists to hold values for each base row
     datatype: type = None
+
+    # this was to handle standards data types when it was stored in DataSubstrate.related_to
+    #   instead of DataStandardOrTool.has_relevant_data_substrate
+    # keeping it commented out because it might help simplify the iterrows code below
+    # if join_config['join_type'] == 'join_table_has_list':
+    #     join_cols_by_base_col = (
+    #         join_df[[field_name, from_col]]
+    #         .explode(from_col)
+    #         .dropna()
+    #         .groupby(from_col)[field_name]
+    #         .apply(lambda x: sorted(list(set(x))))
+    #     )
+    #
+    #     join_cols_by_base_col.columns = ['id', 'relatedDataTypes']
+    #     j = base_df.merge(join_cols_by_base_col, left_on='id', right_on='related_to', how='left')
+    #     pass
+
     for _, row in base_df.iterrows():
         related_ids = row[from_col]
 
