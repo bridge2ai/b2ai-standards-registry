@@ -98,12 +98,7 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
 
     clear_populate_snapshot_table(syn, table_name, coldefs, df, table_id)
 
-
-# synapse defaults
-# ignoring this because some tables will be too big if defaulting to it
-default_maximumSize = 50
-#   instead, make maximumSize just big enough to fit the longest column value
-default_maximumListLength = 100
+SYNAPSE_MIN_LIST_SIZE = 2
 
 def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
     """
@@ -135,12 +130,9 @@ def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
                 # Find longest string in this list
                 if value:  # Check if list is not empty
                     item_lengths = [len(str(item)) for item in value]
-                    max_item_in_this_list = max(
-                        item_lengths) if item_lengths else 0
-                    actual_max_size = max(
-                        actual_max_size, max_item_in_this_list)
-            if actual_max_list_len > default_maximumListLength:
-                new_col['maximumListLength'] = int(actual_max_list_len)
+                    max_item_in_this_list = max(item_lengths) if item_lengths else 0
+                    actual_max_size = max(actual_max_size, max_item_in_this_list)
+            new_col['maximumListLength'] = max(int(actual_max_list_len), SYNAPSE_MIN_LIST_SIZE)
         else:
             actual_max_size = new_data_df[col_name].astype(str).str.len().max()
             if new_col['columnType'] == 'STRING':
