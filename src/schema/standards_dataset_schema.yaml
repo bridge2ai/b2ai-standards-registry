@@ -2,7 +2,9 @@ id: https://w3id.org/bridge2ai/standards-dataset-schema
 name: standards-dataset-schema
 title: standards-dataset-schema
 description: |-
-  Data schema for Bridge2AI data set metadata.
+  Data schema for data set metadata,
+  including data sets produced by Bridge2AI
+  data generators.
   This is not intended to be a comprehensive schema,
   but rather a system for indexing and organizing
   links to data sets and other representations of
@@ -31,7 +33,8 @@ classes:
   DataSet:
     is_a: NamedThing
     description: >-
-      Represents a data set produced by a group
+      Represents a data set by its metadata.
+      This may or may not be produced by a group
       in the Bridge2AI consortium.
     slots:
       - has_files
@@ -43,6 +46,7 @@ classes:
       - is_public
       - substrates
       - topics
+      - is_bridge2ai_data
 
   DataSetContainer:
     description: >-
@@ -147,3 +151,14 @@ slots:
     domain: DataSet
     range: DataTopic
     multivalued: true
+
+  is_bridge2ai_data:
+    is_a: node_property
+    description: >-
+      True if the data set is produced by a
+      Bridge2AI consortium group.
+      False if the data set is not produced by
+      a Bridge2AI consortium group.
+    domain: DataSet
+    range: boolean
+    required: false

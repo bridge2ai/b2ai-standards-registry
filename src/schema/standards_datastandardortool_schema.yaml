@@ -82,13 +82,6 @@ classes:
       store computational models. To be a repository,
       the resource must not index models alone.
 
-  ReferenceDataOrDataset:
-    is_a: DataStandardOrTool
-    description: >-
-      Represents a resource in the Bridge2AI
-      Standards Registry serving as a standardized,
-      reusable data source.
-
   SoftwareOrTool:
     is_a: DataStandardOrTool
     description: >-
@@ -216,7 +209,7 @@ slots:
     domain: DataStandardOrTool
     range: Organization
     multivalued: true
-
+  
   has_relevant_data_substrate:
     is_a: related_to
     description: >-
