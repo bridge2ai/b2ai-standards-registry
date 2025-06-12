@@ -164,1727 +164,1238 @@ data_collection:
   - B2AI_TOPIC:9
 - id: B2AI_DATA:5
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: ACRIMA dataset
-  formal_specification: https://figshare.com/articles/dataset/CNNs_for_Automatic_Glaucoma_Assessment_using_Fundus_Images_An_Extensive_Validation/7613135
-  is_open: true
+  description: ACRIMA dataset. A new clinical database, ACRIMA, has been made publicly
+    available, containing 705 labelled images. It is composed of 396 glaucomatous
+    images and 309 normal images. Additionally, python scripts used to obtain the
+    presented results are also available.
+  data_url: https://figshare.com/articles/dataset/CNNs_for_Automatic_Glaucoma_Assessment_using_Fundus_Images_An_Extensive_Validation/7613135
+  is_public: true
   name: ACRIMA
-  publication: doi:10.1186/s12938-019-0649-y
-  purpose_detail: A new clinical database, ACRIMA, has been made publicly available,
-    containing 705 labelled images. It is composed of 396 glaucomatous images and
-    309 normal images. Additionally, python scripts used to obtain the presented results
-    are also available.
-  requires_registration: false
-  url: http://www.cvblab.webs.upv.es/project/acrima_en/
+  description: ACRIMA dataset. A new clinical database, ACRIMA, has been made publicly available, containing 705 labelled images. It is composed of 396 glaucomatous images and 309 normal images. Additionally, python scripts used to obtain the presented results are also available. Publication: doi:10.1186/s12938-019-0649-y
+  documentation_url: http://www.cvblab.webs.upv.es/project/acrima_en/
 - id: B2AI_DATA:6
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Acted Emotional Speech Dynamic Database
-  is_open: true
+  description: Acted Emotional Speech Dynamic Database. Speech dataset. ~500 utterances
+    classified by emotion
+  is_public: true
   name: AESDD
-  purpose_detail: Speech dataset. ~500 utterances classified by emotion
-  requires_registration: false
-  url: http://m3c.web.auth.gr/research/aesdd-speech-emotion-recognition/
+  documentation_url: http://m3c.web.auth.gr/research/aesdd-speech-emotion-recognition/
 - id: B2AI_DATA:7
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:7
   - B2AI_TOPIC:12
   - B2AI_TOPIC:16
   - B2AI_TOPIC:21
   - B2AI_TOPIC:25
   - B2AI_TOPIC:33
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Alliance of Genome Resources Knowledge Graph
-  formal_specification: https://data.monarchinitiative.org/monarch-kg-dev/latest/rdf/alliance.nt.gz
-  has_relevant_organization:
+  description: Alliance of Genome Resources Knowledge Graph. The Alliance of Genome
+    Resources contains a subset of model organism data from member databases that
+    is harmonized to the same model. This is the graph ingest of Alliance data prepared
+    for loading into the Monarch Initiative graph resource.
+  data_url: https://data.monarchinitiative.org/monarch-kg-dev/latest/rdf/alliance.nt.gz
+  produced_by:
   - B2AI_ORG:58
-  is_open: true
+  is_public: true
   name: Alliance ingest
-  purpose_detail: The Alliance of Genome Resources contains a subset of model organism
-    data from member databases that is harmonized to the same model. This is the graph
-    ingest of Alliance data prepared for loading into the Monarch Initiative graph
-    resource.
-  requires_registration: false
-  url: https://monarch-initiative.github.io/monarch-ingest/Sources/Alliance/
+  documentation_url: https://monarch-initiative.github.io/monarch-ingest/Sources/Alliance/
 - id: B2AI_DATA:8
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:27
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: AlphaFold protein structure database
-  has_relevant_organization:
+  description: AlphaFold protein structure database. AlphaFold DB provides open access
+    to over 200 million protein structure predictions to accelerate scientific research.
+  produced_by:
   - B2AI_ORG:24
-  is_open: true
+  is_public: true
   name: AlphaFold DB
   publication: doi:10.1038/s41586-021-03819-2
-  purpose_detail: AlphaFold DB provides open access to over 200 million protein structure
-    predictions to accelerate scientific research.
-  requires_registration: false
-  url: https://alphafold.ebi.ac.uk/
+  documentation_url: https://alphafold.ebi.ac.uk/
 - id: B2AI_DATA:9
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Angiography by Optical Coherence Tomography segmentation dataset
-  is_open: false
+  description: Angiography by Optical Coherence Tomography segmentation dataset. The
+    OCTAGON dataset is a set of Angiography by Octical Coherence Tomography images
+    (OCT-A) used to the segmentation of the Foveal Avascular Zone (FAZ). The dataset
+    includes 144 healthy OCT-A images and 69 diabetic OCT-A images, divided into four
+    groups, each one with 36 and about 17 OCT-A images, respectively.
+  is_public: false
   name: OCTAGON
   publication: doi:10.1371/journal.pone.0212364
-  purpose_detail: The OCTAGON dataset is a set of Angiography by Octical Coherence
-    Tomography images (OCT-A) used to the segmentation of the Foveal Avascular Zone
-    (FAZ). The dataset includes 144 healthy OCT-A images and 69 diabetic OCT-A images,
-    divided into four groups, each one with 36 and about 17 OCT-A images, respectively.
-  requires_registration: true
-  url: http://www.varpa.es/research/ophtalmology.html
+  documentation_url: http://www.varpa.es/research/ophtalmology.html
 - id: B2AI_DATA:10
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Arteriovenous Nicking dataset
-  is_open: true
+  description: Arteriovenous Nicking dataset. 90 fundus images with annotations for
+    retinal arteriovenous (AV) nicking.
+  is_public: true
   name: AV Nicking
   publication: doi:10.1109/TBME.2013.2271035
-  purpose_detail: 90 fundus images with annotations for retinal arteriovenous (AV)
-    nicking.
-  requires_registration: false
-  url: https://people.eng.unimelb.edu.au/thivun/projects/AV_nicking_quantification/
+  documentation_url: https://people.eng.unimelb.edu.au/thivun/projects/AV_nicking_quantification/
 - id: B2AI_DATA:11
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: AudioMNIST
-  formal_specification: https://github.com/soerenab/AudioMNIST
-  is_open: true
+  description: AudioMNIST. 30000 audio samples of spoken digits
+  data_url: https://github.com/soerenab/AudioMNIST
+  is_public: true
   name: AudioMNIST
   publication: doi:10.48550/arXiv.1807.03418
-  purpose_detail: 30000 audio samples of spoken digits
-  requires_registration: false
 - id: B2AI_DATA:12
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:34
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Bgee
-  is_open: true
-  name: Bgee
-  publication: doi:10.1093/nar/gkaa793
-  purpose_detail: Bgee is a database for retrieval and comparison of gene expression
+  description: Bgee. Bgee is a database for retrieval and comparison of gene expression
     patterns across multiple animal species, produced from multiple data types (bulk
     RNA-Seq, single-cell RNA-Seq, Affymetrix, in situ hybridization, and EST data)
     and from multiple data sets (including GTEx data).
-  requires_registration: false
-  url: https://bgee.org/
+  is_public: true
+  name: Bgee
+  publication: doi:10.1093/nar/gkaa793
+  documentation_url: https://bgee.org/
 - id: B2AI_DATA:13
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:16
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Biomedical Relation Extraction Dataset
-  is_open: true
+  description: Biomedical Relation Extraction Dataset. Biomedical text relation annotations
+    and labels for novel findings
+  is_public: true
   name: BioRED
   publication: doi:10.1093/bib/bbac282
-  purpose_detail: Biomedical text relation annotations and labels for novel findings
-  requires_registration: false
-  url: https://ftp.ncbi.nlm.nih.gov/pub/lu/BioRED/
+  documentation_url: https://ftp.ncbi.nlm.nih.gov/pub/lu/BioRED/
 - id: B2AI_DATA:14
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: BioMediTech retinal pigmented epithelium dataset
-  is_open: true
+  description: BioMediTech retinal pigmented epithelium dataset. 195 phase-contrast
+    microscopy images that were divided into 16 subwindows and each subwindow labeled
+    into 4 classes by two trained operators.
+  is_public: true
   name: BioMediTech RPE
   publication: doi:10.1371/journal.pone.0149399
-  purpose_detail: 195 phase-contrast microscopy images that were divided into 16 subwindows
-    and each subwindow labeled into 4 classes by two trained operators.
-  requires_registration: false
-  url: https://figshare.com/s/d6fb591f1beb4f8efa6f
+  documentation_url: https://figshare.com/s/d6fb591f1beb4f8efa6f
 - id: B2AI_DATA:15
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:16
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: BioScope corpus
-  is_open: true
+  description: BioScope corpus. Biomedical texts annotated for negation, speculation
+    and linguistic scope
+  is_public: true
   name: BioScope
-  purpose_detail: Biomedical texts annotated for negation, speculation and linguistic
-    scope
-  requires_registration: false
-  url: https://rgai.inf.u-szeged.hu/node/105
+  documentation_url: https://rgai.inf.u-szeged.hu/node/105
 - id: B2AI_DATA:16
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: CASIA Iris Image Database
-  is_open: true
+  description: CASIA Iris Image Database. More than 54,000 external iris images
+  is_public: true
   name: CASIA Iris
-  purpose_detail: More than 54,000 external iris images
-  requires_registration: true
-  url: http://biometrics.idealtest.org/findTotalDbByMode.do?mode=Iris#/datasetDetail/4
+  documentation_url: http://biometrics.idealtest.org/findTotalDbByMode.do?mode=Iris#/datasetDetail/4
 - id: B2AI_DATA:17
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: CASIA Iris Subject Ageing dataset
-  is_open: true
+  description: CASIA Iris Subject Ageing dataset. More than 26,000 external iris images
+  is_public: true
   name: CASIA Iris Subject Ageing
-  purpose_detail: More than 26,000 external iris images
-  requires_registration: true
-  url: http://biometrics.idealtest.org/findTotalDbByMode.do?mode=Iris#/datasetDetail/14
+  documentation_url: http://biometrics.idealtest.org/findTotalDbByMode.do?mode=Iris#/datasetDetail/14
 - id: B2AI_DATA:18
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:26
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: CATH
-  has_relevant_organization:
+  description: CATH. A free, publicly available online resource that provides information
+    on the evolutionary relationships of protein structural domains.
+  produced_by:
   - B2AI_ORG:95
-  is_open: true
+  is_public: true
   name: CATH
   publication: doi:10.1093/nar/gkaa1079
-  purpose_detail: A free, publicly available online resource that provides information
-    on the evolutionary relationships of protein structural domains.
-  requires_registration: false
-  url: http://www.cathdb.info/
+  documentation_url: http://www.cathdb.info/
 - id: B2AI_DATA:19
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:16
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Colorado Richly Annotated Full-Text Corpus
-  formal_specification: https://github.com/UCDenver-ccp/CRAFT
-  is_open: true
+  description: Colorado Richly Annotated Full-Text Corpus. Biomedical texts annotated
+    for concepts and linguistic features
+  data_url: https://github.com/UCDenver-ccp/CRAFT
+  is_public: true
   name: CRAFT
   publication: doi:10.1007/978-94-024-0881-2_53
-  purpose_detail: Biomedical texts annotated for concepts and linguistic features
-  requires_registration: false
-  url: https://github.com/UCDenver-ccp/CRAFT
+  documentation_url: https://github.com/UCDenver-ccp/CRAFT
 - id: B2AI_DATA:20
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Computational Hearing in Multisource Environments Dataset
-  is_open: true
+  description: Computational Hearing in Multisource Environments Dataset. Recordings
+    of 4 speakers in ~9000 recordings over 4 noisy locations.
+  is_public: true
   name: CHiME
-  purpose_detail: Recordings of 4 speakers in ~9000 recordings over 4 noisy locations.
-  requires_registration: false
-  url: https://archive.org/details/chime-home
+  documentation_url: https://archive.org/details/chime-home
 - id: B2AI_DATA:21
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Coswara dataset
-  formal_specification: https://github.com/iiscleap/Coswara-Data
-  is_open: true
+  description: Coswara dataset. Respiratory sounds and speech of healthy and COVID-19
+    positive individuals.
+  data_url: https://github.com/iiscleap/Coswara-Data
+  is_public: true
   name: Coswara
-  purpose_detail: Respiratory sounds and speech of healthy and COVID-19 positive individuals.
-  requires_registration: false
 - id: B2AI_DATA:22
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:16
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: COVID-19 Open Research Dataset
-  formal_specification: https://github.com/allenai/cord19
-  is_open: true
+  description: COVID-19 Open Research Dataset. Biomedical texts with focus on SARS-CoV-2
+  data_url: https://github.com/allenai/cord19
+  is_public: true
   name: CORD-19
-  purpose_detail: Biomedical texts with focus on SARS-CoV-2
-  requires_registration: false
-  url: https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/historical_releases.html
+  documentation_url: https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/historical_releases.html
 - id: B2AI_DATA:23
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Crowd-sourced Emotional Multimodal Actors Dataset
-  formal_specification: https://github.com/CheyneyComputerScience/CREMA-D
-  is_open: true
+  description: Crowd-sourced Emotional Multimodal Actors Dataset. Speech dataset.
+    7,442 recordings from 91 actors.
+  data_url: https://github.com/CheyneyComputerScience/CREMA-D
+  is_public: true
   name: CREMA-D
   publication: doi:10.1109/TAFFC.2014.2336244
-  purpose_detail: Speech dataset. 7,442 recordings from 91 actors.
-  requires_registration: false
 - id: B2AI_DATA:24
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:35
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Database of Chromosomal Rearrangements In Diseases
-  is_open: true
+  description: Database of Chromosomal Rearrangements In Diseases. Database of human
+    chromosomal rearrangement (CR) events and their associated diseases. For each
+    reported CR event, dbCRID documents the type of the event, the disease or symptoms
+    associated, and—when possible—detailed information about the CR event including
+    precise breakpoint positions, junction sequences, genes and gene regions disrupted
+    and experimental techniques applied to discover/analyze the CR event.
+  is_public: true
   name: dbCRID
   publication: doi:10.1093/nar/gkq1038
-  purpose_detail: Database of human chromosomal rearrangement (CR) events and their
-    associated diseases. For each reported CR event, dbCRID documents the type of
-    the event, the disease or symptoms associated, and—when possible—detailed information
-    about the CR event including precise breakpoint positions, junction sequences,
-    genes and gene regions disrupted and experimental techniques applied to discover/analyze
-    the CR event.
-  requires_registration: false
-  url: https://web.archive.org/web/20180902234150/http://dbcrid.biolead.org/
+  documentation_url: https://web.archive.org/web/20180902234150/http://dbcrid.biolead.org/
 - id: B2AI_DATA:25
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:13
   - B2AI_TOPIC:25
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
   description: DatabasE of genomiC varIation and Phenotype in Humans using Ensembl
-    Resources
-  has_relevant_organization:
+    Resources. DECIPHER is used by the clinical community to share and compare phenotypic
+    and genotypic data. The DECIPHER database contains data from 44,062 patients who
+    have given consent for broad data-sharing; DECIPHER also supports more limited
+    sharing via consortia.
+  produced_by:
   - B2AI_ORG:29
-  is_open: true
+  is_public: true
   name: DECIPHER
   publication: doi:10/1016/j.ajhg.2009.03.010
-  purpose_detail: DECIPHER is used by the clinical community to share and compare
-    phenotypic and genotypic data. The DECIPHER database contains data from 44,062
-    patients who have given consent for broad data-sharing; DECIPHER also supports
-    more limited sharing via consortia.
-  requires_registration: true
-  url: https://www.deciphergenomics.org/
+  documentation_url: https://www.deciphergenomics.org/
 - id: B2AI_DATA:26
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:12
   - B2AI_TOPIC:13
   - B2AI_TOPIC:25
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Database of Genotypes and Phenotypes
-  has_relevant_organization:
+  description: Database of Genotypes and Phenotypes. The database of Genotypes and
+    Phenotypes (dbGaP) was developed to archive and distribute the data and results
+    from studies that have investigated the interaction of genotype and phenotype
+    in Humans.
+  produced_by:
   - B2AI_ORG:74
-  is_open: false
+  is_public: false
   name: dbGaP
-  purpose_detail: The database of Genotypes and Phenotypes (dbGaP) was developed to
-    archive and distribute the data and results from studies that have investigated
-    the interaction of genotype and phenotype in Humans.
-  requires_registration: true
-  url: https://www.ncbi.nlm.nih.gov/gap/
+  documentation_url: https://www.ncbi.nlm.nih.gov/gap/
 - id: B2AI_DATA:27
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Deep Diabetic Retinopathy dataset
-  formal_specification: https://github.com/deepdrdoc/DeepDRiD
-  is_open: true
+  description: Deep Diabetic Retinopathy dataset. In DeepDR (Deep Diabetic Retinopathy),
+    the fundus images composed of two parts. One part is from the participants in
+    the Shanghai Diabetic Complication Screening Project (SDCSP), Nicheng Diabetes
+    Screening Project (NDSP), and Nationwide Screening for Complications of Diabetes
+    (NSCD) between 2014 and 2017 for regular fundus images. The other part was captured
+    by a retinal specialist at an Eye Clinic located in Department of Ophthalmology,
+    Shanghai Jiao Tong University affiliated Sixth People’s Hospital, China between
+    2014 to 2017 for regular fundus images and between Jan 2019 to present for ultra-widefield
+    retinal images. From the thousands of examinations available, we have extracted
+    2000 regular fundus images from 500 patients and 256 ultra-widefield images from
+    another 128 patients to form our dataset.
+  data_url: https://github.com/deepdrdoc/DeepDRiD
+  is_public: true
   name: DeepDRiD
   publication: doi:10.1016/j.patter.2022.100512
-  purpose_detail: In DeepDR (Deep Diabetic Retinopathy), the fundus images composed
-    of two parts. One part is from the participants in the Shanghai Diabetic Complication
-    Screening Project (SDCSP), Nicheng Diabetes Screening Project (NDSP), and Nationwide
-    Screening for Complications of Diabetes (NSCD) between 2014 and 2017 for regular
-    fundus images. The other part was captured by a retinal specialist at an Eye Clinic
-    located in Department of Ophthalmology, Shanghai Jiao Tong University affiliated
-    Sixth People’s Hospital, China between 2014 to 2017 for regular fundus images
-    and between Jan 2019 to present for ultra-widefield retinal images. From the thousands
-    of examinations available, we have extracted 2000 regular fundus images from 500
-    patients and 256 ultra-widefield images from another 128 patients to form our
-    dataset.
-  requires_registration: false
-  url: https://isbi.deepdr.org/data.html
+  documentation_url: https://isbi.deepdr.org/data.html
 - id: B2AI_DATA:28
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Deeply Nonverbal Vocalization Dataset
-  formal_specification: https://github.com/deeplyinc/Nonverbal-Vocalization-Dataset
-  is_open: false
+  description: Deeply Nonverbal Vocalization Dataset. Human nonverbal vocal sound
+    dataset
+  data_url: https://github.com/deeplyinc/Nonverbal-Vocalization-Dataset
+  is_public: false
   name: Deeply
-  purpose_detail: Human nonverbal vocal sound dataset
-  requires_registration: true
-  url: https://en.babba.ai/nonverbal
+  documentation_url: https://en.babba.ai/nonverbal
 - id: B2AI_DATA:29
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Device and Produced Speech Dataset
-  is_open: true
+  description: Device and Produced Speech Dataset. 20 speakers reading 5 excerpts
+    each from public domain books.
+  is_public: true
   name: DAPS
-  purpose_detail: 20 speakers reading 5 excerpts each from public domain books.
-  requires_registration: false
-  url: https://zenodo.org/record/4660670
+  documentation_url: https://zenodo.org/record/4660670
 - id: B2AI_DATA:30
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Diabetic retinopathy image database
-  is_open: false
+  description: Diabetic retinopathy image database. The Diabetic Retinopathy Image
+    Dataset (DRiDB) has been established to help scientists from around the world
+    to test and develop new image processing methods for early diabetic retinopathy
+    detection in retinal fundus images.
+  is_public: false
   name: DRiDB
   publication: doi:10.1109/ISPA.2013.6703830
-  purpose_detail: The Diabetic Retinopathy Image Dataset (DRiDB) has been established
-    to help scientists from around the world to test and develop new image processing
-    methods for early diabetic retinopathy detection in retinal fundus images.
-  requires_registration: true
-  url: https://ipg.fer.hr/ipg/resources/image_database
+  documentation_url: https://ipg.fer.hr/ipg/resources/image_database
 - id: B2AI_DATA:31
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Digital Retinal Images for Optic Nerve Segmentation DataBase
-  is_open: true
+  description: Digital Retinal Images for Optic Nerve Segmentation DataBase. The database
+    consists of 110 colour digital retinal images. Initially, it were obtained 124
+    eye fundus images selected randomly from an eye fundus image base belonging to
+    the Ophthalmology Service at Miguel Servet Hospital, Saragossa (Spain). From this
+    initial image base, all those eye images (14 in total) that had some type of cataract
+    (severe and moderate) were eliminated and, finally, was obtained the image base
+    with 110 images.
+  is_public: true
   name: DRIONS-DB
   publication: doi:10.1016/j.artmed.2008.04.005
-  purpose_detail: The database consists of 110 colour digital retinal images. Initially,
-    it were obtained 124 eye fundus images selected randomly from an eye fundus image
-    base belonging to the Ophthalmology Service at Miguel Servet Hospital, Saragossa
-    (Spain). From this initial image base, all those eye images (14 in total) that
-    had some type of cataract (severe and moderate) were eliminated and, finally,
-    was obtained the image base with 110 images.
-  requires_registration: false
-  url: http://www.ia.uned.es/~ejcarmona/DRIONS-DB.html
+  documentation_url: http://www.ia.uned.es/~ejcarmona/DRIONS-DB.html
 - id: B2AI_DATA:32
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Digital Retinal Images for Vessel Extraction dataset
-  is_open: true
+  description: Digital Retinal Images for Vessel Extraction dataset. 40 fundus images;
+    annotations for diabetic retinopathy
+  is_public: true
   name: DRIVE
   publication: doi:10.1109/TMI.2004.825627
-  purpose_detail: 40 fundus images; annotations for diabetic retinopathy
-  requires_registration: true
-  url: https://drive.grand-challenge.org/
+  documentation_url: https://drive.grand-challenge.org/
 - id: B2AI_DATA:33
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Drishti-GS dataset
-  is_open: true
+  description: Drishti-GS dataset. A dataset of retinal images which include both
+    normal and glaucomatous eyes and manual segmentations from multiple human experts.
+  is_public: true
   name: Drishti-GS
   publication: doi:10.1109/ISBI.2014.6867807
-  purpose_detail: A dataset of retinal images which include both normal and glaucomatous
-    eyes and manual segmentations from multiple human experts.
-  requires_registration: true
-  url: http://cvit.iiit.ac.in/projects/mip/drishti-gs/mip-dataset2/Home.php
+  documentation_url: http://cvit.iiit.ac.in/projects/mip/drishti-gs/mip-dataset2/Home.php
 - id: B2AI_DATA:34
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:9
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: eICU Collaborative Research Database
-  has_relevant_organization:
+  description: eICU Collaborative Research Database. Deidentified, multimodal patient
+    data from ICU stays
+  produced_by:
   - B2AI_ORG:57
-  is_open: true
+  is_public: true
   name: eICU-CRD
-  purpose_detail: Deidentified, multimodal patient data from ICU stays
-  requires_registration: true
-  url: https://eicu-crd.mit.edu/
+  documentation_url: https://eicu-crd.mit.edu/
 - id: B2AI_DATA:35
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: EmoSynth
-  is_open: true
+  description: EmoSynth. 144 audio files labelled by 40 listeners.
+  is_public: true
   name: EmoSynth
   publication: doi:10.1145/3243274.3243277
-  purpose_detail: 144 audio files labelled by 40 listeners.
-  requires_registration: false
-  url: https://zenodo.org/record/3727593
+  documentation_url: https://zenodo.org/record/3727593
 - id: B2AI_DATA:36
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:27
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: ESM Metagenomic Atlas
-  has_relevant_organization:
+  description: ESM Metagenomic Atlas. An open atlas of 617 million metagenomic protein
+    structures.
+  produced_by:
   - B2AI_ORG:55
-  is_open: true
+  is_public: true
   name: ESM Atlas
   publication: doi:10.1101/2022.07.20.500902
-  purpose_detail: An open atlas of 617 million metagenomic protein structures.
-  requires_registration: false
-  url: https://esmatlas.com/
+  documentation_url: https://esmatlas.com/
 - id: B2AI_DATA:37
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:26
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Evolutionary Classification of Protein Domains
-  is_open: true
+  description: Evolutionary Classification of Protein Domains. A hierarchical classification
+    of protein domains according to their evolutionary relationships. Only proteins
+    with experimentally determined spatial structures from the PDB database are currently
+    classified in ECOD.
+  is_public: true
   name: ECOD
   publication: doi:10.1371/journal.pcbi.1003926
-  purpose_detail: A hierarchical classification of protein domains according to their
-    evolutionary relationships. Only proteins with experimentally determined spatial
-    structures from the PDB database are currently classified in ECOD.
-  requires_registration: false
-  url: http://prodata.swmed.edu/ecod/
+  documentation_url: http://prodata.swmed.edu/ecod/
 - id: B2AI_DATA:38
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:34
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: FANTOM
-  is_open: true
+  description: FANTOM. Ongoing transcriptome analysis project.
+  is_public: true
   name: FANTOM
   publication: doi:10.1101/gr.254219.119
-  purpose_detail: Ongoing transcriptome analysis project.
-  requires_registration: false
-  url: https://fantom.gsc.riken.jp/
+  documentation_url: https://fantom.gsc.riken.jp/
 - id: B2AI_DATA:39
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Farsiu et al. Optical Coherence Tomography dataset
-  is_open: true
+  description: Farsiu et al. Optical Coherence Tomography dataset. Individual optical
+    coherence tomography images and marking 38400 BScans from 269 age-related macular
+    degeneration patients and 115 normal subjects, their ages, and their corresponding
+    segmentation boundaries on a 5mm diameter centered at the fovea.
+  is_public: true
   name: Duke OCT
   publication: doi:10.1016/j.ophtha.2013.07.013
-  purpose_detail: Individual optical coherence tomography images and marking 38400
-    BScans from 269 age-related macular degeneration patients and 115 normal subjects,
-    their ages, and their corresponding segmentation boundaries on a 5mm diameter
-    centered at the fovea.
-  requires_registration: false
-  url: http://people.duke.edu/~sf59/RPEDC_Ophth_2013_dataset.htm
+  documentation_url: http://people.duke.edu/~sf59/RPEDC_Ophth_2013_dataset.htm
 - id: B2AI_DATA:40
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Free Spoken Digit Dataset
-  formal_specification: https://github.com/Jakobovski/free-spoken-digit-dataset
-  is_open: true
+  description: Free Spoken Digit Dataset. 4 speakers, 2,000 recordings, 50 of each
+    digit per speaker.
+  data_url: https://github.com/Jakobovski/free-spoken-digit-dataset
+  is_public: true
   name: FSDD
-  purpose_detail: 4 speakers, 2,000 recordings, 50 of each digit per speaker.
-  requires_registration: false
 - id: B2AI_DATA:41
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: G1020 dataset
-  is_open: false
+  description: G1020 dataset. 1020 high resolution colour fundus images and provides
+    ground truth annotations for glaucoma diagnosis, optic disc and optic cup segmentation,
+    vertical cup-to-disc ratio, size of neuroretinal rim in inferior, superior, nasal
+    and temporal quadrants, and bounding box location for optic disc.
+  is_public: false
   name: G1020
   publication: doi:10.1109/IJCNN48605.2020.9207664
-  purpose_detail: 1020 high resolution colour fundus images and provides ground truth
-    annotations for glaucoma diagnosis, optic disc and optic cup segmentation, vertical
-    cup-to-disc ratio, size of neuroretinal rim in inferior, superior, nasal and temporal
-    quadrants, and bounding box location for optic disc.
-  requires_registration: false
-  url: https://www.dfki.uni-kl.de/g1020
+  documentation_url: https://www.dfki.uni-kl.de/g1020
 - id: B2AI_DATA:42
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:13
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: GENCODE24 (GRCh38) reference genome
-  is_open: true
+  description: GENCODE24 (GRCh38) reference genome. The goal of the GENCODE project
+    is to identify and classify all gene features in the human and mouse genomes with
+    high accuracy based on biological evidence, and to release these annotations for
+    the benefit of biomedical research and genome interpretation.
+  is_public: true
   name: GRCh38
-  purpose_detail: The goal of the GENCODE project is to identify and classify all
-    gene features in the human and mouse genomes with high accuracy based on biological
-    evidence, and to release these annotations for the benefit of biomedical research
-    and genome interpretation.
-  requires_registration: false
-  url: https://www.gencodegenes.org/human/release_24.html
+  documentation_url: https://www.gencodegenes.org/human/release_24.html
 - id: B2AI_DATA:43
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: GEneva Multimodal Emotion Portrayals corpus
-  is_open: true
+  description: GEneva Multimodal Emotion Portrayals corpus. 10 actors portraying 10
+    states and 12 emotions
+  is_public: true
   name: GEMEP
-  purpose_detail: 10 actors portraying 10 states and 12 emotions
-  requires_registration: true
-  url: https://www.unige.ch/cisa/gemep
+  documentation_url: https://www.unige.ch/cisa/gemep
 - id: B2AI_DATA:44
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:13
   - B2AI_TOPIC:25
   - B2AI_TOPIC:35
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Genomic Information Commons
-  is_open: false
+  description: Genomic Information Commons. A continuously updating, queryable, federated
+    genomic data commons.
+  is_public: false
   name: GIC
-  purpose_detail: A continuously updating, queryable, federated genomic data commons.
-  requires_registration: true
-  url: https://www.genomicinformationcommons.org/
+  documentation_url: https://www.genomicinformationcommons.org/
 - id: B2AI_DATA:45
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:34
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Genotype Tissue Expression project
-  is_open: true
+  description: Genotype Tissue Expression project. The Genotype-Tissue Expression
+    (GTEx) project is an ongoing effort to build a comprehensive public resource to
+    study tissue-specific gene expression and regulation. Samples were collected from
+    54 non-diseased tissue sites across nearly 1000 individuals, primarily for molecular
+    assays including WGS, WES, and RNA-Seq.
+  is_public: true
   name: GTex
   publication: doi:10.1038/ng.2653.
-  purpose_detail: The Genotype-Tissue Expression (GTEx) project is an ongoing effort
-    to build a comprehensive public resource to study tissue-specific gene expression
-    and regulation. Samples were collected from 54 non-diseased tissue sites across
-    nearly 1000 individuals, primarily for molecular assays including WGS, WES, and
-    RNA-Seq.
-  requires_registration: false
-  url: https://gtexportal.org/home/
+  documentation_url: https://gtexportal.org/home/
 - id: B2AI_DATA:46
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Google AudioSet
-  has_relevant_organization:
+  description: Google AudioSet. dataset of manually-annotated audio events
+  produced_by:
   - B2AI_ORG:37
-  is_open: true
+  is_public: true
   name: AudioSet
   publication: doi:10.1109/ICASSP.2017.7952261
-  purpose_detail: dataset of manually-annotated audio events
-  requires_registration: false
-  url: https://research.google.com/audioset/
+  documentation_url: https://research.google.com/audioset/
 - id: B2AI_DATA:47
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:5
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Healthcare Cost and Utilization Project
-  has_relevant_organization:
+  description: Healthcare Cost and Utilization Project. The Healthcare Cost and Utilization
+    Project (HCUP) includes the largest collection of longitudinal hospital care data
+    in the United States.
+  produced_by:
   - B2AI_ORG:2
-  is_open: false
+  is_public: false
   name: HCUP
-  purpose_detail: The Healthcare Cost and Utilization Project (HCUP) includes the
-    largest collection of longitudinal hospital care data in the United States.
-  requires_registration: true
-  url: https://www.hcup-us.ahrq.gov/
+  documentation_url: https://www.hcup-us.ahrq.gov/
 - id: B2AI_DATA:48
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: High resolution fundus image database
-  is_open: true
+  description: High resolution fundus image database. The public database contains
+    at the moment 15 images of healthy patients, 15 images of patients with diabetic
+    retinopathy and 15 images of glaucomatous patients. Binary gold standard vessel
+    segmentation images are available for each image. Also the masks determining field
+    of view (FOV) are provided for particular datasets.
+  is_public: true
   name: HRF
   publication: doi:10.1155/2013/154860
-  purpose_detail: The public database contains at the moment 15 images of healthy
-    patients, 15 images of patients with diabetic retinopathy and 15 images of glaucomatous
-    patients. Binary gold standard vessel segmentation images are available for each
-    image. Also the masks determining field of view (FOV) are provided for particular
-    datasets.
-  requires_registration: false
-  url: https://www5.cs.fau.de/research/data/fundus-images/
+  documentation_url: https://www5.cs.fau.de/research/data/fundus-images/
 - id: B2AI_DATA:49
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:7
   - B2AI_TOPIC:25
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: HPOA - Disease Annotations
-  formal_specification: http://purl.obolibrary.org/obo/hp/hpoa/phenotype.hpoa
-  has_relevant_organization:
+  description: HPOA - Disease Annotations. Annotations on Human Phenotype Ontology
+    terms for Orphanet diseases.
+  data_url: http://purl.obolibrary.org/obo/hp/hpoa/phenotype.hpoa
+  produced_by:
   - B2AI_ORG:58
-  is_open: true
+  is_public: true
   name: HPOA phenotype
-  purpose_detail: Annotations on Human Phenotype Ontology terms for Orphanet diseases.
-  requires_registration: false
-  url: https://hpo-annotation-qc.readthedocs.io/en/latest/annotationFormat.html#phenotype-hpoa-format
+  documentation_url: https://hpo-annotation-qc.readthedocs.io/en/latest/annotationFormat.html#phenotype-hpoa-format
 - id: B2AI_DATA:50
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:12
   - B2AI_TOPIC:25
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: HPOA - Gene to Phenotype Associations
-  formal_specification: http://purl.obolibrary.org/obo/hp/hpoa/genes_to_phenotype.txt
-  has_relevant_organization:
+  description: HPOA - Gene to Phenotype Associations. Annotations on Human Phenotype
+    Ontology terms for genes.
+  data_url: http://purl.obolibrary.org/obo/hp/hpoa/genes_to_phenotype.txt
+  produced_by:
   - B2AI_ORG:58
-  is_open: true
+  is_public: true
   name: HPOA genes to phenotype
-  purpose_detail: Annotations on Human Phenotype Ontology terms for genes.
-  requires_registration: false
-  url: https://hpo.jax.org/app/data/annotations
+  documentation_url: https://hpo.jax.org/app/data/annotations
 - id: B2AI_DATA:51
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:12
   - B2AI_TOPIC:25
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: HPOA - Phenotype to Gene Associations
-  formal_specification: http://purl.obolibrary.org/obo/hp/hpoa/phenotype_to_genes.txt
-  has_relevant_organization:
+  description: HPOA - Phenotype to Gene Associations. Annotations on Human Phenotype
+    Ontology terms for genes.
+  data_url: http://purl.obolibrary.org/obo/hp/hpoa/phenotype_to_genes.txt
+  produced_by:
   - B2AI_ORG:58
-  is_open: true
+  is_public: true
   name: HPOA phenotype to genes
-  purpose_detail: Annotations on Human Phenotype Ontology terms for genes.
-  requires_registration: false
-  url: https://hpo.jax.org/app/data/annotations
+  documentation_url: https://hpo.jax.org/app/data/annotations
 - id: B2AI_DATA:52
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:2
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Human Cell Atlas
-  formal_specification: https://github.com/HumanCellAtlas/
-  is_open: true
+  description: Human Cell Atlas. The Human Cell Atlas (HCA) is an international group
+    of researchers using a combination of these new technologies to create cellular
+    reference maps with the position, function and characteristics of every cell type
+    in the human body.
+  data_url: https://github.com/HumanCellAtlas/
+  is_public: true
   name: HCA
   publication: doi:10.7554/eLife.27041
-  purpose_detail: The Human Cell Atlas (HCA) is an international group of researchers
-    using a combination of these new technologies to create cellular reference maps
-    with the position, function and characteristics of every cell type in the human
-    body.
-  requires_registration: false
-  url: https://www.humancellatlas.org/portals/
+  documentation_url: https://www.humancellatlas.org/portals/
 - id: B2AI_DATA:53
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:17
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Human Metabolome Database
-  is_open: true
+  description: Human Metabolome Database. A freely available electronic database containing
+    detailed information about small molecule metabolites found in the human body.
+    It is intended to be used for applications in metabolomics, clinical chemistry,
+    biomarker discovery and general education. The database is designed to contain
+    or link three kinds of data - 1) chemical data, 2) clinical data, and 3) molecular
+    biology/biochemistry data.
+  is_public: true
   name: HMDB
   publication: doi:10.1093/nar/gkab1062
-  purpose_detail: A freely available electronic database containing detailed information
-    about small molecule metabolites found in the human body. It is intended to be
-    used for applications in metabolomics, clinical chemistry, biomarker discovery
-    and general education. The database is designed to contain or link three kinds
-    of data - 1) chemical data, 2) clinical data, and 3) molecular biology/biochemistry
-    data.
-  requires_registration: false
-  url: https://hmdb.ca/
+  documentation_url: https://hmdb.ca/
 - id: B2AI_DATA:54
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:26
   - B2AI_TOPIC:28
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Human Protein Atlas
-  is_open: true
+  description: Human Protein Atlas. The Human Protein Atlas is a Swedish-based program
+    initiated in 2003 with the aim to map all the human proteins in cells, tissues,
+    and organs using an integration of various omics technologies, including antibody-based
+    imaging, mass spectrometry-based proteomics, transcriptomics, and systems biology.
+    All the data in the knowledge resource is open access to allow scientists both
+    in academia and industry to freely access the data for exploration of the human
+    proteome.
+  is_public: true
   name: HPA
   publication: doi:10.1126/science.1260419
-  purpose_detail: The Human Protein Atlas is a Swedish-based program initiated in
-    2003 with the aim to map all the human proteins in cells, tissues, and organs
-    using an integration of various omics technologies, including antibody-based imaging,
-    mass spectrometry-based proteomics, transcriptomics, and systems biology. All
-    the data in the knowledge resource is open access to allow scientists both in
-    academia and industry to freely access the data for exploration of the human proteome.
-  requires_registration: false
-  url: https://www.proteinatlas.org/
+  documentation_url: https://www.proteinatlas.org/
 - id: B2AI_DATA:55
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Indian Diabetic Retinopathy Image Dataset
-  formal_specification: https://ieee-dataport.org/open-access/indian-diabetic-retinopathy-image-dataset-idrid
-  is_open: true
+  description: Indian Diabetic Retinopathy Image Dataset. Dataset constituting typical
+    diabetic retinopathy lesions and also normal retinal structures annotated at a
+    pixel level.
+  data_url: https://ieee-dataport.org/open-access/indian-diabetic-retinopathy-image-dataset-idrid
+  is_public: true
   name: IDRiD
   publication: doi:10.3390/data3030025
-  purpose_detail: Dataset constituting typical diabetic retinopathy lesions and also
-    normal retinal structures annotated at a pixel level.
-  requires_registration: true
-  url: https://idrid.grand-challenge.org/
+  documentation_url: https://idrid.grand-challenge.org/
 - id: B2AI_DATA:56
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Interactive emotional dyadic motion capture database
-  is_open: true
+  description: Interactive emotional dyadic motion capture database. 12 hours of audiovisual
+    data by 10 actors; 5 emotions.
+  is_public: true
   name: IEMOCAP
-  purpose_detail: 12 hours of audiovisual data by 10 actors; 5 emotions.
-  requires_registration: true
-  url: https://sail.usc.edu/iemocap/iemocap_release.htm
+  documentation_url: https://sail.usc.edu/iemocap/iemocap_release.htm
 - id: B2AI_DATA:57
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:26
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: InterPro
-  has_relevant_organization:
+  description: InterPro. InterPro provides functional analysis of proteins by classifying
+    them into families and predicting domains and important sites.
+  produced_by:
   - B2AI_ORG:29
-  is_open: true
+  is_public: true
   name: InterPro
   publication: doi:10.1093/nar/gkaa977
-  purpose_detail: InterPro provides functional analysis of proteins by classifying
-    them into families and predicting domains and important sites.
-  requires_registration: false
-  url: https://www.ebi.ac.uk/interpro/
+  documentation_url: https://www.ebi.ac.uk/interpro/
 - id: B2AI_DATA:58
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Libri-CSS dataset
-  formal_specification: https://github.com/chenzhuo1011/libri_css
-  is_open: true
+  description: Libri-CSS dataset. Derived from LibriSpeech by concatenating the corpus
+    utterances to simulate a conversation and capturing the audio replays with far-field
+    microphones.
+  data_url: https://github.com/chenzhuo1011/libri_css
+  is_public: true
   name: Libri-CSS
-  purpose_detail: Derived from LibriSpeech by concatenating the corpus utterances
-    to simulate a conversation and capturing the audio replays with far-field microphones.
-  requires_registration: false
 - id: B2AI_DATA:59
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: LibriMix dataset
-  formal_specification: https://github.com/JorisCos/LibriMix
-  is_open: true
+  description: LibriMix dataset. Derived from LibriSpeech. Generated, noisy mixes
+    of speech.
+  data_url: https://github.com/JorisCos/LibriMix
+  is_public: true
   name: LibriMix
-  purpose_detail: Derived from LibriSpeech. Generated, noisy mixes of speech.
-  requires_registration: false
 - id: B2AI_DATA:60
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Librispeech
-  is_open: true
+  description: Librispeech. A corpus of ~1000 hours of English speech derived from
+    read audiobooks from the LibriVox project.
+  is_public: true
   name: Librispeech
   publication: doi:10.1109/ICASSP.2015.7178964
-  purpose_detail: A corpus of ~1000 hours of English speech derived from read audiobooks
-    from the LibriVox project.
-  requires_registration: false
-  url: https://www.openslr.org/12
+  documentation_url: https://www.openslr.org/12
 - id: B2AI_DATA:61
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: LJ Speech
-  is_open: true
+  description: LJ Speech. A public domain speech dataset consisting of 13,100 short
+    audio clips of a single speaker reading passages from 7 non-fiction books, with
+    transcriptions.
+  is_public: true
   name: LJ Speech
-  purpose_detail: A public domain speech dataset consisting of 13,100 short audio
-    clips of a single speaker reading passages from 7 non-fiction books, with transcriptions.
-  requires_registration: false
-  url: https://keithito.com/LJ-Speech-Dataset/
+  documentation_url: https://keithito.com/LJ-Speech-Dataset/
 - id: B2AI_DATA:62
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Longitudinal Glaucomatous Visual Field data
-  is_open: true
+  description: Longitudinal Glaucomatous Visual Field data. Longitudinal visual field
+    data of 139 glaucoma patients.
+  is_public: true
   name: LGVF
   publication: doi:10.1167/iovs.13-12492
-  purpose_detail: Longitudinal visual field data of 139 glaucoma patients.
-  requires_registration: true
-  url: http://www.rodrep.com/data-sets.html
+  documentation_url: http://www.rodrep.com/data-sets.html
 - id: B2AI_DATA:63
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:15
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Medical Imaging and Data Resource Center
-  is_open: true
+  description: Medical Imaging and Data Resource Center. A linked-data commons that
+    coordinates access to data and harmonizes data management activities at three
+    critical stages - (1) intake, including curation, de-identification, abstraction,
+    and quality assessment (2) annotation and labelling of images and other data using
+    semi-automated approaches and (3) distributed access and query methods.
+  is_public: true
   name: MIDRC
-  purpose_detail: A linked-data commons that coordinates access to data and harmonizes
-    data management activities at three critical stages - (1) intake, including curation,
-    de-identification, abstraction, and quality assessment (2) annotation and labelling
-    of images and other data using semi-automated approaches and (3) distributed access
-    and query methods.
-  requires_registration: true
-  url: https://www.midrc.org/
+  documentation_url: https://www.midrc.org/
 - id: B2AI_DATA:64
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:9
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Medical Information Mart for Intensive Care
-  has_relevant_organization:
+  description: Medical Information Mart for Intensive Care. Deidentified, multimodal
+    patient data
+  produced_by:
   - B2AI_ORG:57
-  is_open: true
+  is_public: true
   name: MIMIC
-  purpose_detail: Deidentified, multimodal patient data
-  requires_registration: true
-  url: https://mimic.mit.edu/
+  documentation_url: https://mimic.mit.edu/
 - id: B2AI_DATA:65
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
   description: Methods to Evaluate Segmentation and Indexing Techniques in the field
-    of Retinal Ophthalmology dataset
-  is_open: true
+    of Retinal Ophthalmology dataset. The 1200 eye fundus color numerical images of
+    the posterior pole of the Messidor database were acquired by 3 ophthalmologic
+    departments.
+  is_public: true
   name: Messidor
   publication: doi:10.5566/ias.1155
-  purpose_detail: The 1200 eye fundus color numerical images of the posterior pole
-    of the Messidor database were acquired by 3 ophthalmologic departments.
-  requires_registration: true
-  url: https://www.adcis.net/en/third-party/messidor/
+  documentation_url: https://www.adcis.net/en/third-party/messidor/
 - id: B2AI_DATA:66
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:5
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: MicroLib
-  formal_specification: https://github.com/tldr-group/microlib
-  is_open: true
+  description: MicroLib. A collection of 3D microstructural datasets assembed using
+    a single 2D input slice as training data.
+  data_url: https://github.com/tldr-group/microlib
+  is_public: true
   name: MicroLib
   publication: doi:10.1038/s41597-022-01744-1
-  purpose_detail: A collection of 3D microstructural datasets assembed using a single
-    2D input slice as training data.
-  requires_registration: false
-  url: https://microlib.io/
+  documentation_url: https://microlib.io/
 - id: B2AI_DATA:67
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Microsoft Scalable Noisy Speech Dataset
-  formal_specification: https://github.com/microsoft/MS-SNSD
-  has_relevant_organization:
+  description: Microsoft Scalable Noisy Speech Dataset. A noisy speech dataset that
+    can scale to arbitrary sizes depending on the number of speakers, noise types,
+    and Speech to Noise Ratio.
+  data_url: https://github.com/microsoft/MS-SNSD
+  produced_by:
   - B2AI_ORG:56
-  is_open: true
+  is_public: true
   name: MS-SNSD
-  purpose_detail: A noisy speech dataset that can scale to arbitrary sizes depending
-    on the number of speakers, noise types, and Speech to Noise Ratio.
-  requires_registration: false
 - id: B2AI_DATA:68
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:37
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: MIMIC Waveform Database for Biomedical Signal Processing
-  has_relevant_organization:
+  description: MIMIC Waveform Database for Biomedical Signal Processing. A large collection
+    of physiological signals and measurements from patients in intensive care units,
+    including electrocardiograms, photoplethysmograms, respiration, invasive and non-invasive
+    blood pressure, and more. These measurements and signals are obtained directly
+    from the bedside monitor, and provide a detailed view into the physiology of critically
+    ill patients.
+  produced_by:
   - B2AI_ORG:57
   - B2AI_ORG:115
   - B2AI_ORG:114
   - B2AI_ORG:117
-  is_open: true
+  is_public: true
   name: WFDB
   publication: doi:10.13026/a2mw-f949
-  purpose_detail: A large collection of physiological signals and measurements from
-    patients in intensive care units, including electrocardiograms, photoplethysmograms,
-    respiration, invasive and non-invasive blood pressure, and more. These measurements
-    and signals are obtained directly from the bedside monitor, and provide a detailed
-    view into the physiology of critically ill patients.
-  requires_registration: false
-  url: https://physionet.org/content/mimic4wdb/0.1.0/
+  documentation_url: https://physionet.org/content/mimic4wdb/0.1.0/
   used_in_bridge2ai: true
 - id: B2AI_DATA:69
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Mozilla Common Voice data
-  formal_specification: https://github.com/common-voice/common-voice
-  has_relevant_organization:
+  description: Mozilla Common Voice data. Spoken text from public domain sources.
+  data_url: https://github.com/common-voice/common-voice
+  produced_by:
   - B2AI_ORG:59
-  is_open: true
+  is_public: true
   name: Common Voice
   publication: doi:10.48550/arXiv.1912.06670
-  purpose_detail: Spoken text from public domain sources.
-  requires_registration: true
-  url: https://voice.mozilla.org/
+  documentation_url: https://voice.mozilla.org/
 - id: B2AI_DATA:70
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: MSP Podcast Corpus
-  is_open: true
+  description: MSP Podcast Corpus. 100 hours by over 100 speakers.
+  is_public: true
   name: MSP-Podcast
   publication: doi:10.1109/TAFFC.2017.2736999
-  purpose_detail: 100 hours by over 100 speakers.
-  requires_registration: true
-  url: https://ecs.utdallas.edu/research/researchlabs/msp-lab/MSP-Podcast.html
+  documentation_url: https://ecs.utdallas.edu/research/researchlabs/msp-lab/MSP-Podcast.html
 - id: B2AI_DATA:71
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: MSP-IMPROV
-  is_open: true
+  description: MSP-IMPROV. 20 sentences by 12 actors; 4 emotions, with video
+  is_public: true
   name: MSP-IMPROV
   publication: doi:10.1109/TAFFC.2016.2515617
-  purpose_detail: 20 sentences by 12 actors; 4 emotions, with video
-  requires_registration: true
-  url: https://ecs.utdallas.edu/research/researchlabs/msp-lab/MSP-Improv.html
+  documentation_url: https://ecs.utdallas.edu/research/researchlabs/msp-lab/MSP-Improv.html
 - id: B2AI_DATA:72
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:26
   - B2AI_TOPIC:28
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Multi-Scale Integrated Cell data
-  formal_specification: https://github.com/idekerlab/MuSIC
-  is_open: true
+  description: Multi-Scale Integrated Cell data. Two central approaches for mapping
+    cellular structure – protein fluorescent imaging and protein biophysical association
+    – each generate extensive datasets but of distinct qualities and resolutions that
+    are typically treated separately. The MuSIC map is designed to address this challenge,
+    by integrating immunofluorescent images in the Human Protein Atlas with ongoing
+    affinity purification experiments from the BioPlex resource. The result is a unified
+    hierarchical map of eukaryotic cell architecture. In the MuSIC hierarchy, nodes
+    represent systems and arrows indicate containment of the lower system by the upper.
+    Node color indicates known (gold) or putative novel (purple) systems. The size
+    of each circle is based on the number of proteins in the system. The relative
+    height of each system in the layout is determined based on the predicted diameter
+    of the system in MuSIC.
+  data_url: https://github.com/idekerlab/MuSIC
+  is_public: true
   name: MuSIC data
   publication: doi:10.1038/s41586-021-04115-9
-  purpose_detail: Two central approaches for mapping cellular structure – protein
-    fluorescent imaging and protein biophysical association – each generate extensive
-    datasets but of distinct qualities and resolutions that are typically treated
-    separately. The MuSIC map is designed to address this challenge, by integrating
-    immunofluorescent images in the Human Protein Atlas with ongoing affinity purification
-    experiments from the BioPlex resource. The result is a unified hierarchical map
-    of eukaryotic cell architecture. In the MuSIC hierarchy, nodes represent systems
-    and arrows indicate containment of the lower system by the upper. Node color indicates
-    known (gold) or putative novel (purple) systems. The size of each circle is based
-    on the number of proteins in the system. The relative height of each system in
-    the layout is determined based on the predicted diameter of the system in MuSIC.
-  requires_registration: false
-  url: http://doi.org/10.18119/N9188W
+  documentation_url: http://doi.org/10.18119/N9188W
 - id: B2AI_DATA:73
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Multimodal EmotionLines Dataset
-  formal_specification: https://github.com/SenticNet/MELD
-  is_open: true
+  description: Multimodal EmotionLines Dataset. Derived from EmotionLines. Includes
+    more than 1400 dialogues and 13000 utterances from the Friends TV series.
+  data_url: https://github.com/SenticNet/MELD
+  is_public: true
   name: MELD
-  purpose_detail: Derived from EmotionLines. Includes more than 1400 dialogues and
-    13000 utterances from the Friends TV series.
-  requires_registration: false
 - id: B2AI_DATA:74
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:5
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: National Health and Nutrition Examination Survey
-  has_relevant_organization:
+  description: National Health and Nutrition Examination Survey. The National Health
+    and Nutrition Examination Survey (NHANES) is a program of studies designed to
+    assess the health and nutritional status of adults and children in the United
+    States. The survey is unique in that it combines interviews and physical examinations.
+    NHANES is a major program of the National Center for Health Statistics (NCHS).
+  produced_by:
   - B2AI_ORG:14
-  is_open: true
+  is_public: true
   name: NHANES
-  purpose_detail: The National Health and Nutrition Examination Survey (NHANES) is
-    a program of studies designed to assess the health and nutritional status of adults
-    and children in the United States. The survey is unique in that it combines interviews
-    and physical examinations. NHANES is a major program of the National Center for
-    Health Statistics (NCHS).
-  requires_registration: false
-  url: https://www.cdc.gov/nchs/nhanes/index.htm
+  documentation_url: https://www.cdc.gov/nchs/nhanes/index.htm
 - id: B2AI_DATA:75
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:4
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: National Patient-Centered Clinical Research Network data
-  has_relevant_organization:
+  description: National Patient-Centered Clinical Research Network data. Clinical
+    data from 9 primary partners.
+  produced_by:
   - B2AI_ORG:81
-  is_open: false
+  is_public: false
   name: PCORNet Data
-  purpose_detail: Clinical data from 9 primary partners.
-  requires_registration: true
-  url: https://pcornet.org/data/
+  documentation_url: https://pcornet.org/data/
 - id: B2AI_DATA:76
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: NISQA Speech Quality Corpus
-  formal_specification: https://github.com/gabrielmittag/NISQA/wiki/NISQA-Corpus
-  is_open: true
+  description: NISQA Speech Quality Corpus. 14k speech samples with simulated background
+    noise and live degradation conditions.
+  data_url: https://github.com/gabrielmittag/NISQA/wiki/NISQA-Corpus
+  is_public: true
   name: NISQA-Corpus
   publication: doi:10.21437/Interspeech.2021-299
-  purpose_detail: 14k speech samples with simulated background noise and live degradation
-    conditions.
-  requires_registration: false
 - id: B2AI_DATA:77
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:16
   - B2AI_TOPIC:3
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: NLM-Chem BioCreative VII Chemical Identification corpus
-  has_relevant_organization:
+  description: NLM-Chem BioCreative VII Chemical Identification corpus. 204 full-text
+    PubMed Central (PMC) articles, fully annotated for chemical entities by 12 NLM
+    indexers for both span (i.e. named entity recognition) and normalization (i.e.
+    entity linking) using MeSH.
+  produced_by:
   - B2AI_ORG:74
-  is_open: true
+  is_public: true
   name: NLM-Chem-BC7
   publication: doi:10.1093/database/baac102
-  purpose_detail: 204 full-text PubMed Central (PMC) articles, fully annotated for
-    chemical entities by 12 NLM indexers for both span (i.e. named entity recognition)
-    and normalization (i.e. entity linking) using MeSH.
-  requires_registration: false
-  url: https://ftp.ncbi.nlm.nih.gov/pub/lu/NLM-Chem-BC7-corpus/
+  documentation_url: https://ftp.ncbi.nlm.nih.gov/pub/lu/NLM-Chem-BC7-corpus/
 - id: B2AI_DATA:78
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Noisy Dataset
-  is_open: true
+  description: Noisy Dataset. Clean and noisy parallel speech database. Also known
+    as VBD, Voice Bank + DEMAND. Speech samples from VCTK dataset.
+  is_public: true
   name: Noisy
   publication: doi:10.7488/ds/2117
-  purpose_detail: Clean and noisy parallel speech database. Also known as VBD, Voice
-    Bank + DEMAND. Speech samples from VCTK dataset.
-  requires_registration: false
-  url: https://datashare.is.ed.ac.uk/handle/10283/2791
+  documentation_url: https://datashare.is.ed.ac.uk/handle/10283/2791
 - id: B2AI_DATA:79
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:7
   - B2AI_TOPIC:25
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Open annotation for rare diseases dataset
-  formal_specification: https://github.com/stormliucong/oard-react
-  has_relevant_organization:
+  description: Open annotation for rare diseases dataset. A real-world-data-derived
+    resource with annotation for rare-disease-related phenotypes. This resource is
+    derived from the EHRs of two academic health institutions containing more than
+    10 million individuals spanning wide age ranges and different disease subgroups.
+    By leveraging ontology mapping and advanced natural-language-processing (NLP)
+    methods, OARD automatically and efficiently extracts concepts for both rare diseases
+    and their phenotypic traits from billing codes and lab tests as well as over 100
+    million clinical narratives.
+  data_url: https://github.com/stormliucong/oard-react
+  produced_by:
   - B2AI_ORG:18
-  is_open: true
+  is_public: true
   name: OARD
   publication: doi:10.1016/j.ajhg.2022.08.002
-  purpose_detail: A real-world-data-derived resource with annotation for rare-disease-related
-    phenotypes. This resource is derived from the EHRs of two academic health institutions
-    containing more than 10 million individuals spanning wide age ranges and different
-    disease subgroups. By leveraging ontology mapping and advanced natural-language-processing
-    (NLP) methods, OARD automatically and efficiently extracts concepts for both rare
-    diseases and their phenotypic traits from billing codes and lab tests as well
-    as over 100 million clinical narratives.
-  requires_registration: false
-  url: https://rare.cohd.io/
+  documentation_url: https://rare.cohd.io/
 - id: B2AI_DATA:80
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Optical Coherence Tomography Image Retinal Database
-  is_open: true
+  description: Optical Coherence Tomography Image Retinal Database. An open source
+    Optical Coherence Tomography Image Database containing different retinal OCT images
+    with different pathological conditions.
+  is_public: true
   name: OCTID
   publication: doi:10.48550/arXiv.1812.07056
-  purpose_detail: An open source Optical Coherence Tomography Image Database containing
-    different retinal OCT images with different pathological conditions.
-  requires_registration: false
-  url: https://borealisdata.ca/dataverse/OCTID
+  documentation_url: https://borealisdata.ca/dataverse/OCTID
 - id: B2AI_DATA:81
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: ORIGA-light dataset
-  is_open: false
+  description: ORIGA-light dataset. 650 retinal images annotated by trained professionals
+    from Singapore Eye Research Institute. A wide collection of image signs, critical
+    for glaucoma diagnosis, are annotated.
+  is_public: false
   name: ORIGA-light
   publication: doi:10.1109/IEMBS.2010.5626137
-  purpose_detail: 650 retinal images annotated by trained professionals from Singapore
-    Eye Research Institute. A wide collection of image signs, critical for glaucoma
-    diagnosis, are annotated.
-  requires_registration: false
 - id: B2AI_DATA:82
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: PAPILA dataset
-  formal_specification: https://figshare.com/articles/dataset/PAPILA/14798004/2
-  is_open: true
+  description: PAPILA dataset. Dataset with fundus images and clinical data of both
+    eyes of the same patient for glaucoma assessment
+  data_url: https://figshare.com/articles/dataset/PAPILA/14798004/2
+  is_public: true
   name: PAPILA
   publication: doi:10.1038/s41597-022-01388-1
-  purpose_detail: Dataset with fundus images and clinical data of both eyes of the
-    same patient for glaucoma assessment
-  requires_registration: false
 - id: B2AI_DATA:83
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Parkinson's speech dataset
-  is_open: true
+  description: Parkinson's speech dataset. Recordings from 20 Parkinson’s Disease
+    patients and 20 healthy subjects.
+  is_public: true
   name: PD database
   publication: doi:10.1109/JBHI.2013.2245674
-  purpose_detail: Recordings from 20 Parkinson’s Disease patients and 20 healthy subjects.
-  requires_registration: false
-  url: https://archive.ics.uci.edu/ml/datasets/Parkinson+Speech+Dataset+with++Multiple+Types+of+Sound+Recordings
+  documentation_url: https://archive.ics.uci.edu/ml/datasets/Parkinson+Speech+Dataset+with++Multiple+Types+of+Sound+Recordings
 - id: B2AI_DATA:84
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:16
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: PubMed Central Open Access Subset
-  has_relevant_organization:
+  description: PubMed Central Open Access Subset. Biomedical texts
+  produced_by:
   - B2AI_ORG:74
-  is_open: true
+  is_public: true
   name: PMC OA
-  purpose_detail: Biomedical texts
-  requires_registration: false
-  url: https://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/
+  documentation_url: https://www.ncbi.nlm.nih.gov/pmc/tools/openftlist/
 - id: B2AI_DATA:85
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Retinal Fundus Glaucoma Challenge Dataset
-  is_open: true
+  description: Retinal Fundus Glaucoma Challenge Dataset. 1200 fundus images with
+    ground truth segmentations of the optic disc and optic cup, and clinical glaucoma
+    labels.
+  is_public: true
   name: REFUGE
   publication: doi:10.1016/j.media.2019.101570
-  purpose_detail: 1200 fundus images with ground truth segmentations of the optic
-    disc and optic cup, and clinical glaucoma labels.
-  requires_registration: true
-  url: https://refuge.grand-challenge.org/
+  documentation_url: https://refuge.grand-challenge.org/
 - id: B2AI_DATA:86
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Retinal fundus Images for Glaucoma Analysis dataset
-  is_open: true
+  description: Retinal fundus Images for Glaucoma Analysis dataset. 750 retinal fundus
+    images.
+  is_public: true
   name: RIGA
   publication: doi:10.1117/12.2293584
-  purpose_detail: 750 retinal fundus images.
-  requires_registration: true
-  url: https://deepblue.lib.umich.edu/data/concern/data_sets/3b591905z
+  documentation_url: https://deepblue.lib.umich.edu/data/concern/data_sets/3b591905z
 - id: B2AI_DATA:87
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Retinal IMage database for Optic Nerve Evaluation
-  formal_specification: https://github.com/miag-ull/rim-one-dl
-  is_open: true
+  description: Retinal IMage database for Optic Nerve Evaluation. 313 retinographies
+    from normal subjects and 172 retinographies from patients with glaucoma. All of
+    these images have been assessed by two experts and include a manual segmentation
+    of the disc and cup.
+  data_url: https://github.com/miag-ull/rim-one-dl
+  is_public: true
   name: RIM-ONE DL
   publication: doi:10.5566/ias.2346
-  purpose_detail: 313 retinographies from normal subjects and 172 retinographies from
-    patients with glaucoma. All of these images have been assessed by two experts
-    and include a manual segmentation of the disc and cup.
-  requires_registration: false
 - id: B2AI_DATA:88
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Retinopathy Online Challenge data
-  is_open: true
+  description: Retinopathy Online Challenge data. Currently, we have released a first
+    data set, aimed at CAD of microaneurysms and dot hemorrhages. These abnormalities
+    are amongst the first signs of the presence of diabetic retinopathy.
+  is_public: true
   name: ROC
   publication: doi:10.1109/TMI.2009.2033909
-  purpose_detail: Currently, we have released a first data set, aimed at CAD of microaneurysms
-    and dot hemorrhages. These abnormalities are amongst the first signs of the presence
-    of diabetic retinopathy.
-  requires_registration: true
-  url: http://webeye.ophth.uiowa.edu/ROC/
+  documentation_url: http://webeye.ophth.uiowa.edu/ROC/
 - id: B2AI_DATA:89
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:34
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: RNAseqDB
-  formal_specification: https://github.com/mskcc/RNAseqDB
-  is_open: true
+  description: RNAseqDB. We developed a pipeline that processes and unifies RNA-seq
+    data from different studies. Using the pipeline, we have processed data from the
+    GTEx and TCGA and have successfully corrected for study-specific biases, allowing
+    comparative analysis across studies.
+  data_url: https://github.com/mskcc/RNAseqDB
+  is_public: true
   name: RNAseqDB
   publication: doi:10.1038/sdata.2018.61
-  purpose_detail: We developed a pipeline that processes and unifies RNA-seq data
-    from different studies. Using the pipeline, we have processed data from the GTEx
-    and TCGA and have successfully corrected for study-specific biases, allowing comparative
-    analysis across studies.
-  requires_registration: false
-  url: https://github.com/mskcc/RNAseqDB
+  documentation_url: https://github.com/mskcc/RNAseqDB
 - id: B2AI_DATA:90
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: SEMAINE dataset
-  is_open: true
+  description: SEMAINE dataset. 95 dyadic conversations from 21 subjects. Each subject
+    converses with another playing one of four characters with emotions; 5 FeelTrace
+    annotations - activation, valence, dominance, power, intensity.
+  is_public: true
   name: SEMAINE
-  purpose_detail: 95 dyadic conversations from 21 subjects. Each subject converses
-    with another playing one of four characters with emotions; 5 FeelTrace annotations
-    - activation, valence, dominance, power, intensity.
-  requires_registration: true
-  url: https://semaine-db.eu/
+  documentation_url: https://semaine-db.eu/
 - id: B2AI_DATA:91
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:16
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Semantic MEDLINE Database
-  formal_specification: https://github.com/lhncbc/SemRep/tree/master
-  has_relevant_organization:
+  description: Semantic MEDLINE Database. A repository of semantic predications (subject-predicate-object
+    triples) extracted from the entire set of PubMed citations.
+  data_url: https://github.com/lhncbc/SemRep/tree/master
+  produced_by:
   - B2AI_ORG:74
-  is_open: true
+  is_public: true
   name: SemMedDB
   publication: doi:10.1093/bioinformatics/bts591
-  purpose_detail: A repository of semantic predications (subject-predicate-object
-    triples) extracted from the entire set of PubMed citations.
-  requires_registration: true
-  url: https://lhncbc.nlm.nih.gov/ii/tools/SemRep_SemMedDB_SKR.html
+  documentation_url: https://lhncbc.nlm.nih.gov/ii/tools/SemRep_SemMedDB_SKR.html
 - id: B2AI_DATA:92
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Speechcollab GigaSpeech
-  formal_specification: https://github.com/SpeechColab/GigaSpeech
-  is_open: true
+  description: Speechcollab GigaSpeech. 10,000 hours of transcribed audio
+  data_url: https://github.com/SpeechColab/GigaSpeech
+  is_public: true
   name: GigaSpeech
   publication: doi:10.48550/arXiv.2106.06909
-  purpose_detail: 10,000 hours of transcribed audio
-  requires_registration: true
 - id: B2AI_DATA:93
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Spoken Commands dataset
-  formal_specification: https://github.com/JohannesBuchner/spoken-command-recognition
-  is_open: true
+  description: Spoken Commands dataset. A database of free audio samples of single-word
+    commands, English pronunciations.
+  data_url: https://github.com/JohannesBuchner/spoken-command-recognition
+  is_public: true
   name: Sound Commander
-  purpose_detail: A database of free audio samples of single-word commands, English
-    pronunciations.
-  requires_registration: false
 - id: B2AI_DATA:94
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:16
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Spoken Wikipedia Corpora
-  is_open: true
+  description: Spoken Wikipedia Corpora. Text-aligned spoken Wikipedia articles.
+  is_public: true
   name: SWC
   publication: doi:10.1007/s10579-017-9410-y
-  purpose_detail: Text-aligned spoken Wikipedia articles.
-  requires_registration: false
-  url: https://nats.gitlab.io/swc/
+  documentation_url: https://nats.gitlab.io/swc/
 - id: B2AI_DATA:95
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Standard Diabetic Retinopathy Database Calibration level 1 dataset
-  is_open: true
+  description: Standard Diabetic Retinopathy Database Calibration level 1 dataset.
+    89 fundus images with segmentation and annotated for different diabetic retinopathies
+  is_public: true
   name: DiaRetDb1
   publication: doi:10.5244/C.21.15
-  purpose_detail: 89 fundus images with segmentation and annotated for different diabetic
-    retinopathies
-  requires_registration: false
-  url: https://www.it.lut.fi/project/imageret/diaretdb1/
+  documentation_url: https://www.it.lut.fi/project/imageret/diaretdb1/
 - id: B2AI_DATA:96
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:26
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Structural Classification of Proteins
-  is_open: true
+  description: Structural Classification of Proteins. The SCOP database, created by
+    manual inspection and abetted by a battery of automated methods, aims to provide
+    a detailed and comprehensive description of the structural and evolutionary relationships
+    between all proteins whose structure is known.
+  is_public: true
   name: SCOP
   publication: doi:10.1093/nar/gkz1064
-  purpose_detail: The SCOP database, created by manual inspection and abetted by a
-    battery of automated methods, aims to provide a detailed and comprehensive description
-    of the structural and evolutionary relationships between all proteins whose structure
-    is known.
-  requires_registration: false
-  url: http://scop.mrc-lmb.cam.ac.uk/
+  documentation_url: http://scop.mrc-lmb.cam.ac.uk/
 - id: B2AI_DATA:97
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: STructured Analysis of the REtina dataset
-  is_open: true
+  description: STructured Analysis of the REtina dataset. ~400 raw images
+  is_public: true
   name: STARE
   publication: doi:10.1109/TMI.2003.815900
-  purpose_detail: ~400 raw images
-  requires_registration: false
-  url: http://cecas.clemson.edu/~ahoover/stare/
+  documentation_url: http://cecas.clemson.edu/~ahoover/stare/
 - id: B2AI_DATA:98
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:24
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Subbasal nerve plexus Mosaic
-  is_open: true
+  description: Subbasal nerve plexus Mosaic. Subbasal nerve plexus Mosaic images acquired
+    in vivo using laser-scanning confocal microscopy of the cornea in healthy subjects
+    and type 2 diabetes mellitus subjects of the same age. Mosaics represent wide-field
+    images of the plexus incorporating 3D nerve path data projected onto a 2D plane.
+  is_public: true
   name: SBP Mosiac
   publication: doi:10.1038/s41598-018-32410-5
-  purpose_detail: Subbasal nerve plexus Mosaic images acquired in vivo using laser-scanning
-    confocal microscopy of the cornea in healthy subjects and type 2 diabetes mellitus
-    subjects of the same age. Mosaics represent wide-field images of the plexus incorporating
-    3D nerve path data projected onto a 2D plane.
-  requires_registration: false
-  url: https://figshare.com/collections/SBP_Mosaic_Dataset/3950197
+  documentation_url: https://figshare.com/collections/SBP_Mosaic_Dataset/3950197
 - id: B2AI_DATA:99
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:13
   - B2AI_TOPIC:26
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: SUPERFAMILY database
-  is_open: true
+  description: SUPERFAMILY database. A database of structural and functional annotation
+    for all proteins and genomes. The SUPERFAMILY annotation is based on a collection
+    of hidden Markov models, which represent structural protein domains at the SCOP
+    superfamily level. A superfamily groups together domains which have an evolutionary
+    relationship. The annotation is produced by scanning protein sequences from over
+    3,200 completely sequenced genomes against the hidden Markov models.
+  is_public: true
   name: SUPERFAMILY
   publication: doi:10.1093/nar/gky1130
-  purpose_detail: A database of structural and functional annotation for all proteins
-    and genomes. The SUPERFAMILY annotation is based on a collection of hidden Markov
-    models, which represent structural protein domains at the SCOP superfamily level.
-    A superfamily groups together domains which have an evolutionary relationship.
-    The annotation is produced by scanning protein sequences from over 3,200 completely
-    sequenced genomes against the hidden Markov models.
-  requires_registration: false
-  url: https://supfam.org/
+  documentation_url: https://supfam.org/
 - id: B2AI_DATA:100
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Surrey Audio-Visual Expressed Emotion Dataset
-  is_open: true
+  description: Surrey Audio-Visual Expressed Emotion Dataset. 4 male actors in 7 different
+    emotions, 480 British English utterances in total, including video of speaker
+    faces.
+  is_public: true
   name: SAVEE
-  purpose_detail: 4 male actors in 7 different emotions, 480 British English utterances
-    in total, including video of speaker faces.
-  requires_registration: true
-  url: http://kahlan.eps.surrey.ac.uk/savee/
+  documentation_url: http://kahlan.eps.surrey.ac.uk/savee/
 - id: B2AI_DATA:101
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Tatoeba dataset
-  is_open: true
+  description: Tatoeba dataset. A database of sentences, translations, and spoken
+    audio for use in language learning. This download contains spoken English recorded
+    by their community.
+  is_public: true
   name: Tatoeba
-  purpose_detail: A database of sentences, translations, and spoken audio for use
-    in language learning. This download contains spoken English recorded by their
-    community.
-  requires_registration: false
-  url: https://tatoeba.org/eng/downloads
+  documentation_url: https://tatoeba.org/eng/downloads
 - id: B2AI_DATA:102
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Ted-LIUM corpus
-  is_open: true
+  description: Ted-LIUM corpus. Audio talks and their transcriptions available on
+    the TED website.
+  is_public: true
   name: Ted-LIUM
-  purpose_detail: Audio talks and their transcriptions available on the TED website.
-  requires_registration: false
-  url: https://www.openslr.org/51/
+  documentation_url: https://www.openslr.org/51/
 - id: B2AI_DATA:103
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:5
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: The Cancer Genome Atlas
-  is_open: true
+  description: The Cancer Genome Atlas. The Cancer Genome Atlas (TCGA), a landmark
+    cancer genomics program, molecularly characterized over 20,000 primary cancer
+    and matched normal samples spanning 33 cancer types.
+  is_public: true
   name: TCGA
   publication: doi:10.1038/ng.2764
-  purpose_detail: The Cancer Genome Atlas (TCGA), a landmark cancer genomics program,
-    molecularly characterized over 20,000 primary cancer and matched normal samples
-    spanning 33 cancer types.
-  requires_registration: true
-  url: https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
+  documentation_url: https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga
 - id: B2AI_DATA:104
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: The Ryerson Audio-Visual Database of Emotional Speech and Song
-  is_open: true
+  description: The Ryerson Audio-Visual Database of Emotional Speech and Song. Speech
+    dataset. 7356 files; 24 professional actors vocalizing lexically-matched statements
+    and songs in a neutral North American accent.
+  is_public: true
   name: RAVDESS
   publication: doi:10.1371/journal.pone.0196391
-  purpose_detail: Speech dataset. 7356 files; 24 professional actors vocalizing lexically-matched
-    statements and songs in a neutral North American accent.
-  requires_registration: false
-  url: https://zenodo.org/record/1188976#.XrC7a5NKjOR
+  documentation_url: https://zenodo.org/record/1188976#.XrC7a5NKjOR
 - id: B2AI_DATA:105
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: TIMIT Acoustic-Phonetic Continuous Speech Corpus
-  is_open: false
+  description: TIMIT Acoustic-Phonetic Continuous Speech Corpus. Recordings of 630
+    speakers of eight major dialects of American English, each reading ten phonetically
+    rich sentences. It includes time-aligned orthographic, phonetic and word transcriptions
+    as well as a speech waveform file for each utterance.
+  is_public: false
   name: TIMIT
-  purpose_detail: Recordings of 630 speakers of eight major dialects of American English,
-    each reading ten phonetically rich sentences. It includes time-aligned orthographic,
-    phonetic and word transcriptions as well as a speech waveform file for each utterance.
-  requires_registration: true
-  url: https://catalog.ldc.upenn.edu/LDC93S1
+  documentation_url: https://catalog.ldc.upenn.edu/LDC93S1
 - id: B2AI_DATA:106
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Toronto emotional speech set
-  formal_specification: https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP2/E8H2MF
-  is_open: true
+  description: Toronto emotional speech set. Speech dataset. 2800 recordings by 2
+    actresses.
+  data_url: https://borealisdata.ca/dataset.xhtml?persistentId=doi:10.5683/SP2/E8H2MF
+  is_public: true
   name: TESS
-  purpose_detail: Speech dataset. 2800 recordings by 2 actresses.
-  requires_registration: false
-  url: https://tspace.library.utoronto.ca/handle/1807/24487
+  documentation_url: https://tspace.library.utoronto.ca/handle/1807/24487
 - id: B2AI_DATA:107
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Variably Intense Vocalizations of Affect and Emotion Corpus
-  is_open: true
+  description: Variably Intense Vocalizations of Affect and Emotion Corpus. Human
+    non-speech emotion vocalizations.
+  is_public: true
   name: VIVAE
-  purpose_detail: Human non-speech emotion vocalizations.
-  requires_registration: false
-  url: https://zenodo.org/record/4066235
+  documentation_url: https://zenodo.org/record/4066235
 - id: B2AI_DATA:108
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Voices Obscured in Complex Environmental Settings Dataset
-  is_open: true
+  description: Voices Obscured in Complex Environmental Settings Dataset. A speech
+    dataset targeting acoustically challenging and reverberant environments with robust
+    labels and truth data for transcription, denoising, and speaker identification.
+  is_public: true
   name: VOiCES
-  purpose_detail: A speech dataset targeting acoustically challenging and reverberant
-    environments with robust labels and truth data for transcription, denoising, and
-    speaker identification.
-  requires_registration: false
-  url: https://iqtlabs.github.io/voices/
+  documentation_url: https://iqtlabs.github.io/voices/
 - id: B2AI_DATA:109
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:36
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: VoxPopuli
-  formal_specification: https://github.com/facebookresearch/voxpopuli
-  is_open: true
+  description: VoxPopuli. 100K hours of unlabelled speech data for 23 languages, 1.8K
+    hours of transcribed speech data for 16 languages, and 17.3K hours of speech-to-speech
+    interpretation data for 16x15 directions.
+  data_url: https://github.com/facebookresearch/voxpopuli
+  is_public: true
   name: VoxPopuli
   publication: doi:10.18653/v1/2021.acl-long.80
-  purpose_detail: 100K hours of unlabelled speech data for 23 languages, 1.8K hours
-    of transcribed speech data for 16 languages, and 17.3K hours of speech-to-speech
-    interpretation data for 16x15 directions.
-  requires_registration: false
 - id: B2AI_DATA:110
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:8
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: WHODrug medicinal information dictionary
-  formal_specification: https://who-umc.org/whodrug/whodrug-global/applications/download-area/
-  is_open: true
+  description: WHODrug medicinal information dictionary. WHODrug contains individual
+    trade names, active ingredients and additional information such as marketing authorisation
+    holder, country of sale, pharmaceutical form and strength. All related medications
+    are linked using a structured WHODrug alphanumeric code, connecting trade names
+    and variation of the ingredient with the active moiety of the ingredient.
+  data_url: https://who-umc.org/whodrug/whodrug-global/applications/download-area/
+  is_public: true
   name: WHODrug
   publication: doi:10.1007/s43441-020-00130-6
-  purpose_detail: WHODrug contains individual trade names, active ingredients and
-    additional information such as marketing authorisation holder, country of sale,
-    pharmaceutical form and strength. All related medications are linked using a structured
-    WHODrug alphanumeric code, connecting trade names and variation of the ingredient
-    with the active moiety of the ingredient.
-  requires_registration: true
-  url: https://who-umc.org/whodrug/whodrug-global/
+  documentation_url: https://who-umc.org/whodrug/whodrug-global/
 - id: B2AI_DATA:111
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:21
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: WikiPathways database
-  is_open: true
+  description: WikiPathways database. WikiPathways is a database of biological pathways
+    maintained by and for the scientific community.
+  is_public: true
   name: WikiPathways
   publication: doi:10.1093/nar/gkaa1024
-  purpose_detail: WikiPathways is a database of biological pathways maintained by
-    and for the scientific community.
-  requires_registration: false
-  url: https://www.wikipathways.org/index.php/WikiPathways
+  documentation_url: https://www.wikipathways.org/index.php/WikiPathways
 - id: B2AI_DATA:112
   category: B2AI_DATA:DataSet
-  concerns_data_topic:
+  topics:
   - B2AI_TOPIC:22
   contribution_date: '2023-04-10'
-  contributor_github_name: caufieldjh
-  contributor_name: Harry Caufield
-  contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Distributed Archives for Neurophysiology Data Integration
-  is_open: true
+  description: Distributed Archives for Neurophysiology Data Integration. An archive
+    for cellular neurophysiology data including electrophysiology, optophysiology,
+    and behavioral time-series, and images from immunostaining experiments.
+  is_public: true
   name: DANDI
-  purpose_detail: An archive for cellular neurophysiology data including electrophysiology,
-    optophysiology, and behavioral time-series, and images from immunostaining experiments.
-  requires_registration: false
-  url: https://www.dandiarchive.org/
+  documentation_url: https://www.dandiarchive.org/
