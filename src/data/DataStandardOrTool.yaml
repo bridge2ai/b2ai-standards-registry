@@ -14399,7 +14399,7 @@ data_standardortools_collection:
   name: Relexi
   publication: doi:10.1016/j.simpa.2022.100422
   purpose_detail: Relexi is an open source reinforcement learning (RL) framework written
-    in Python and based on TensorFlow’s RL library TF-Agents. Relexi allows to employ
+    in Python and based on TensorFlow's RL library TF-Agents. Relexi allows to employ
     RL for environments that require computationally intensive simulations like applications
     in computational fluid dynamics. For this, Relexi couples legacy simulation codes
     with the RL library TF-Agents at scale on modern high-performance computing (HPC)
@@ -14490,9 +14490,13 @@ data_standardortools_collection:
   formal_specification: https://github.com/snorkel-team/snorkel
   is_open: false
   name: Snorkel
-  purpose_detail: Platform for automated data labeling.
+  purpose_detail: >-
+    Snorkel is a platform for automated data labeling. It has since been
+    extended into a full machine learning platform (see https://snorkel.ai/).
   requires_registration: true
   url: https://www.snorkel.org/
+  collection:
+  - deprecated
 - id: B2AI_STANDARD:826
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -14580,8 +14584,9 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: TES
-  purpose_detail: standardized schema and API for describing and executing batch execution
-    tasks
+  purpose_detail: The Task Execution Service (TES) API is a proposed standard for describing
+    and executing tasks in a platform-agnostic way. Includes a TES API validator and
+    a Task Execution API specification.
   requires_registration: false
   url: https://ga4gh.github.io/task-execution-schemas/docs/
 - id: B2AI_STANDARD:831
@@ -14602,7 +14607,10 @@ data_standardortools_collection:
   - B2AI_ORG:37
   is_open: true
   name: TF
-  purpose_detail: A popular machine learning platform.
+  purpose_detail: TensorFlow is an end-to-end open source platform for machine learning.
+    It has an ecosystem of tools, libraries and community resources
+    that lets researchers and developers easily build
+    and deploy ML powered applications.
   related_to:
   - B2AI_STANDARD:354
   requires_registration: false
@@ -14679,7 +14687,9 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: TRS
-  purpose_detail: common API for describing tools in registries
+  purpose_detail: A proposed standard for sharing and discovering tools and workflows
+    in a platform-agnostic way. Includes a Tool Registry Search validator and
+    a Tool Discovery API specification.
   requires_registration: false
   url: https://ga4gh.github.io/tool-registry-service-schemas/
 - id: B2AI_STANDARD:836
@@ -14827,9 +14837,9 @@ data_standardortools_collection:
   - B2AI_ORG:76
   is_open: true
   name: OHDSI Tutorials
-  purpose_detail: This workshop is for data holders who want to apply OHDSI’s data
+  purpose_detail: This workshop is for data holders who want to apply OHDSI's data
     standards to their own observational datasets and researchers who want to be aware
-    of OHDSI’s data standards, so they can leverage data in OMOP CDM format for their
+    of OHDSI's data standards, so they can leverage data in OMOP CDM format for their
     own research purposes.
   requires_registration: false
   url: https://www.ohdsi.org/2019-tutorials-omop-common-data-model-and-standardized-vocabularies/
