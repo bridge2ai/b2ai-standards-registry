@@ -15794,7 +15794,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
       ],
-      "purpose_detail": "Relexi is an open source reinforcement learning (RL) framework written in Python and based on TensorFlow’s RL library TF-Agents. Relexi allows to employ RL for environments that require computationally intensive simulations like applications in computational fluid dynamics. For this, Relexi couples legacy simulation codes with the RL library TF-Agents at scale on modern high-performance computing (HPC) hardware using the SmartSim library. Relexi thus provides an easy way to explore the potential of RL for HPC applications.",
+      "purpose_detail": "Relexi is an open source reinforcement learning (RL) framework written in Python and based on TensorFlow's RL library TF-Agents. Relexi allows to employ RL for environments that require computationally intensive simulations like applications in computational fluid dynamics. For this, Relexi couples legacy simulation codes with the RL library TF-Agents at scale on modern high-performance computing (HPC) hardware using the SmartSim library. Relexi thus provides an easy way to explore the potential of RL for HPC applications.",
       "is_open": true,
       "requires_registration": false,
       "publication": "doi:10.1016/j.simpa.2022.100422",
@@ -15893,10 +15893,13 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "collection": [
+        "deprecated"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
       ],
-      "purpose_detail": "Platform for automated data labeling.",
+      "purpose_detail": "Snorkel is a platform for automated data labeling. It has since been extended into a full machine learning platform (see https://snorkel.ai/).",
       "is_open": false,
       "requires_registration": true,
       "url": "https://www.snorkel.org/",
@@ -15997,7 +16000,7 @@
       "has_relevant_organization": [
         "B2AI_ORG:34"
       ],
-      "purpose_detail": "standardized schema and API for describing and executing batch execution tasks",
+      "purpose_detail": "The Task Execution Service (TES) API is a proposed standard for describing and executing tasks in a platform-agnostic way. Includes a TES API validator and a Task Execution API specification.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://ga4gh.github.io/task-execution-schemas/docs/"
@@ -16023,7 +16026,7 @@
       "has_relevant_organization": [
         "B2AI_ORG:37"
       ],
-      "purpose_detail": "A popular machine learning platform.",
+      "purpose_detail": "TensorFlow is an end-to-end open source platform for machine learning. It has an ecosystem of tools, libraries and community resources that lets researchers and developers easily build and deploy ML powered applications.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.tensorflow.org/",
@@ -16118,7 +16121,7 @@
       "has_relevant_organization": [
         "B2AI_ORG:34"
       ],
-      "purpose_detail": "common API for describing tools in registries",
+      "purpose_detail": "A proposed standard for sharing and discovering tools and workflows in a platform-agnostic way. Includes a Tool Registry Search validator and a Tool Discovery API specification.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://ga4gh.github.io/tool-registry-service-schemas/"
@@ -16288,7 +16291,7 @@
       "has_relevant_organization": [
         "B2AI_ORG:76"
       ],
-      "purpose_detail": "This workshop is for data holders who want to apply OHDSI’s data standards to their own observational datasets and researchers who want to be aware of OHDSI’s data standards, so they can leverage data in OMOP CDM format for their own research purposes.",
+      "purpose_detail": "This workshop is for data holders who want to apply OHDSI's data standards to their own observational datasets and researchers who want to be aware of OHDSI's data standards, so they can leverage data in OMOP CDM format for their own research purposes.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.ohdsi.org/2019-tutorials-omop-common-data-model-and-standardized-vocabularies/",
@@ -17656,6 +17659,26 @@
       "responsible_organization": [
         "B2AI_ORG:123"
       ]
+    },
+    {
+      "id": "B2AI_STANDARD:906",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "OHDSI 2024 Global Symposium ETL Tutorial",
+      "description": "Tutorial: Developing and Evaluating Your Extract, Transform, Load (ETL) Process to the OMOP CDM",
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:4",
+        "B2AI_TOPIC:52"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:76"
+      ],
+      "purpose_detail": "In this video tutorial, students will learn about the tools and practices developed by the OHDSI community to support the journey to establish and maintain an ETL to standardize your data to OMOP CDM and enable standardized evidence generation across a data network.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://www.youtube.com/watch?v=H69dC7f-edQ"
     }
   ],
   "@type": "DataStandardOrToolContainer"
