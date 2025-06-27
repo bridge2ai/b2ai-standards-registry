@@ -39,7 +39,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'description',                 'alias': 'name'},
             {'faceted': True,  'name': 'category',                    'alias': 'category', 'transform': 'camel_to_title_case'},
             {'faceted': False, 'name': 'purpose_detail',              'alias': 'description'},
-            {'faceted': True,  'name': 'collection',                  'alias': 'collections'},
+            {'faceted': True,  'name': 'collection',                  'alias': 'collections', 'transform': 'title_case'},
             {'faceted': True,  'name': 'collection',                  'alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
             {'faceted': True,  'name': 'collection',                  'alias': 'isMature', 'transform': 'collections_to_is_mature', 'columnType': 'STRING'},
             {'faceted': False, 'name': 'concerns_data_topic',         'alias': 'concerns_data_topic'},
