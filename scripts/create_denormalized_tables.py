@@ -40,35 +40,78 @@ from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
 
 
-def category_to_title_case(s: str) -> str:
+def category_to_title_case(text: str) -> str:
     """
-    Categories look like 'B2AI_STANDARD:BiomedicalStandard' or 'B2AI_DATA:DataSet'.
-    This removes the part before the colon, inserts a space before any uppercase letter
-    that follows a lowercase letter, and converts to title case.
-    'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
+    Categories look like 'B2AI_STANDARD:BiomedicalStandard' or 'B2AI_STANDARD:DataStandardOrTool'.
+    This removes the part before the colon and converts to title case.
+    'B2AI_STANDARD:DataStandardOrTool' becomes 'Data Standard or Tool'
     """
-    return re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_[A-Z]+:', '', s)).title()
+    text = re.sub(r'^B2AI_[A-Z]+:', '', text)
+    lowercase_words = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'if',
+                       'in', 'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'yet'}
+
+    # Split on capital letters, but keep consecutive capitals together
+    words = re.findall(r'[A-Z]+(?=[A-Z][a-z]|\b)|[A-Z][a-z]*|\d+', text)
+
+    result_words = []
+    for i, word in enumerate(words):
+        word_lower = word.lower()
+        if i == 0 or word_lower not in lowercase_words:
+            result_words.append(word.capitalize())
+        else:
+            result_words.append(word_lower)
+
+    return ' '.join(result_words)
 
 def snake_to_title_case(s: str) -> str:
-    return s.replace('_', ' ').title()
+    special_capitalization = {
+        'has_ai_application':   'Has AI Application',
+        'obofoundry':           'OBO Foundry',
+    }
+    if s in special_capitalization:
+        return special_capitalization[s]
+
+    stop_list = ['a', 'an', 'and', 'as', 'at', 'but', 'by', 'for ', 'in', 'nor', 'of', 'on', 'or', 'the', 'up']
+    words = [w.capitalize() if w not in stop_list else w for w in s.split('_')]
+    words[0] = words[0].capitalize()
+    words[-1] = words[-1].capitalize()
+    return ' '.join(words)
 
 def string_list_to_title_case(col: List[str] | str) -> List[str] | str:
     """
     Transform a string or string list to title case.
     This is used for the 'collection' column in the DST_denormalized table.
     """
-    lookup = {
-        'clinicaldata':         'Clinical Data',
-        'datamodel':            'Data Model',
-        'drugdata':             'Drug Data',
-        'fileformat':           'File Format',
-        'has_ai_application':   'Has AI application',
-        'markuplanguage':       'Markup Language',
-        'obofoundry':           'Obo Foundry',
-        'referencegenome':      'Reference Genome',
-        'speechdata':           'Speech Data',
+    manual_mappings = {
+        'scrnaseqanalysis': 'scrna_seq_analysis',
+        'machinelearningframework': 'machine_learning_framework',
+        'datavisualization': 'data_visualization',
+        'notebookplatform': 'notebook_platform',
+        'audiovisual': 'audio_visual',
+        'ontologyregistry': 'ontology_registry',
+        'proteindata': 'protein_data',
+        'codesystem': 'code_system',
+        'cloudplatform': 'cloud_platform',
+        'cloudservice': 'cloud_service',
+        'speechdata': 'speech_data',
+        'modelcards': 'model_cards',
+        'eyedata': 'eye_data',
+        'standardsregistry': 'standards_registry',
+        'diagnosticinstrument': 'diagnostic_instrument',
+        'markuplanguage': 'markup_language',
+        'datamodel': 'data_model',
+        'workflowlanguage': 'workflow_language',
+        'referencegenome': 'reference_genome',
+        'minimuminformationschema': 'minimum_information_schema',
+        'clinicaldata': 'clinical_data',
+        'drugdata': 'drug_data',
+        'softwareregistry': 'software_registry',
+        'dataregistry': 'data_registry',
+        'graphdataplatform': 'graph_data_platform',
+        'fileformat': 'file_format',
     }
-    convert = lambda s: lookup.get(s, snake_to_title_case(s))
+
+    convert = lambda s: snake_to_title_case(manual_mappings.get(s, s))
 
     return [convert(s) for s in col] if isinstance(col, list) else convert(col)
 
