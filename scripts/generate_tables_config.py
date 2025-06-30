@@ -37,7 +37,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'id',                          'alias': 'id'},
             {'faceted': False, 'name': 'name',                        'alias': 'acronym'},
             {'faceted': False, 'name': 'description',                 'alias': 'name'},
-            {'faceted': True,  'name': 'category',                    'alias': 'category', 'transform': 'camel_to_title_case'},
+            {'faceted': True,  'name': 'category',                    'alias': 'category', 'transform': 'category_to_title_case'},
             {'faceted': False, 'name': 'purpose_detail',              'alias': 'description'},
             {'faceted': True,  'name': 'collection',                  'alias': 'collections', 'transform': 'title_case'},
             {'faceted': True,  'name': 'collection',                  'alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
@@ -95,7 +95,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'name', 'alias': 'name'},
             {'faceted': False, 'name': 'description', 'alias': 'description'},
             # category does not show up in Figma design, but might want it on the page
-            {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'camel_to_title_case'},
+            {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'category_to_title_case'},
             # {'faceted': False, 'name': 'topics', 'alias': 'topics'},
             # {'faceted': False, 'name': 'produced_by', 'alias': 'produced_by'},
             {'faceted': False, 'name': 'datasheet_url', 'alias': 'DatasheetURL'},

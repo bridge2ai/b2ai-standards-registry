@@ -36,28 +36,44 @@ import pandas as pd
 import numpy as np
 import re
 
-from generate_tables_config import DEST_TABLES, TABLE_IDS
-from utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
+from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
+from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
 
-camel_to_title_case = lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title()
 
-def string_list_to_title_case(col: List[str]) -> List[str]:
+def category_to_title_case(s: str) -> str:
     """
-    Transform a string list to title case.
+    Categories look like 'B2AI_STANDARD:BiomedicalStandard' or 'B2AI_DATA:DataSet'.
+    This removes the part before the colon, inserts a space before any uppercase letter
+    that follows a lowercase letter, and converts to title case.
+    'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
+    """
+    return re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_[A-Z]+:', '', s)).title()
+
+def snake_to_title_case(s: str) -> str:
+    return s.replace('_', ' ').title()
+
+def string_list_to_title_case(col: List[str] | str) -> List[str] | str:
+    """
+    Transform a string or string list to title case.
     This is used for the 'collection' column in the DST_denormalized table.
     """
+    lookup = {
+        'clinicaldata':         'Clinical Data',
+        'datamodel':            'Data Model',
+        'drugdata':             'Drug Data',
+        'fileformat':           'File Format',
+        'has_ai_application':   'Has AI application',
+        'markuplanguage':       'Markup Language',
+        'obofoundry':           'Obo Foundry',
+        'referencegenome':      'Reference Genome',
+        'speechdata':           'Speech Data',
+    }
+    convert = lambda s: lookup.get(s, snake_to_title_case(s))
 
-    return [camel_to_title_case(s) for s in col] if isinstance(col, list) else col
+    return [convert(s) for s in col] if isinstance(col, list) else convert(col)
 
 TRANSFORMS = {
-    # camel_to_title_case
-    #   removes 'B2AI_STANDARD:'
-    #   inserts a space before any uppercase letter that follows a lowercase letter
-    #   converts to title case
-    #
-    #   Converts category, strips prefix and outputs title case
-    #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
-    'camel_to_title_case': camel_to_title_case,
+    'category_to_title_case': category_to_title_case,
     'title_case': string_list_to_title_case,
     'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
     'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
