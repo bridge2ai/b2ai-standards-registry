@@ -494,6 +494,7 @@ def process_yaml_file(file_path, output_dir, org_id, separate_css):
     # Generate HTML
     html_content = renderer.render_to_html(data, base_name)
 
+    # Extract CSS, conditionally remove CSS from HTML content
     css_path, html = extract_css(output_dir, output_path, html_content, separate_css)
 
     # Write output
