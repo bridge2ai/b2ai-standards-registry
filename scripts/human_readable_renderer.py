@@ -474,7 +474,7 @@ class HumanReadableRenderer:
             timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         )
 
-def process_yaml_file(file_path, output_dir, org_id):
+def process_yaml_file(file_path, output_dir, org_id, separate_css):
     """Process a YAML file and generate human-readable HTML"""
 
     renderer = HumanReadableRenderer()
@@ -494,17 +494,17 @@ def process_yaml_file(file_path, output_dir, org_id):
     # Generate HTML
     html_content = renderer.render_to_html(data, base_name)
 
+    css_path, html = extract_css(output_dir, output_path, html_content, separate_css)
+
     # Write output
     with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(html_content)
-
-    css = extract_css(output_dir, output_path, html_content)
+        f.write(html)
 
     print(f"Generated human-readable HTML: {output_path}")
-    print(f"Generated CSS: {css}")
+    print(f"Generated CSS: {css_path}")
     return True
 
-def extract_css(output_dir, output_path, html_content):
+def extract_css(output_dir, output_path, html_content, separate_css):
     """Extract CSS styling from D4D HTML"""
 
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -513,19 +513,23 @@ def extract_css(output_dir, output_path, html_content):
 
     for css_tag in soup.find_all("style", recursive=True):
         extracted_css.append(css_tag.string)
+        if separate_css:
+            css_tag.extract()
+            html_content = soup.prettify(formatter="html")
 
     css_path = os.path.join(output_dir, f"{Path(output_path).stem}.css")
 
     with open(css_path, 'w', encoding='utf-8') as c:
         c.write("\n".join(extracted_css))
 
-    return css_path
+    return css_path, html_content
 
 def main():
     """Process all YAML files and generate human-readable HTML versions"""
 
     input_dir = "project/data/sheets"
     output_dir = "project/data/sheets/html_output"
+    separate_css = True
 
     # Ensure output directory exists
     os.makedirs(output_dir, exist_ok=True)
@@ -542,7 +546,7 @@ def main():
     for txt_file, org_id in text_org_map.items():
         txt_path = os.path.join(input_dir, txt_file)
         if os.path.exists(txt_path):
-            if process_yaml_file(txt_path, output_dir, org_id):
+            if process_yaml_file(txt_path, output_dir, org_id, separate_css):
                 processed_count += 1
         else:
             print(f"File not found: {txt_path}")
