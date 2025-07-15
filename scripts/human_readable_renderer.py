@@ -9,6 +9,7 @@ import yaml
 from datetime import datetime
 from jinja2 import Template, Environment
 from pathlib import Path
+from bs4 import BeautifulSoup
 
 class HumanReadableRenderer:
     """Renders D4D data in a human-readable HTML format"""
@@ -497,8 +498,28 @@ def process_yaml_file(file_path, output_dir, org_id):
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(html_content)
 
+    css = extract_css(output_dir, output_path, html_content)
+
     print(f"Generated human-readable HTML: {output_path}")
+    print(f"Generated CSS: {css}")
     return True
+
+def extract_css(output_dir, output_path, html_content):
+    """Extract CSS styling from D4D HTML"""
+
+    soup = BeautifulSoup(html_content, 'html.parser')
+
+    extracted_css = []
+
+    for css_tag in soup.find_all("style", recursive=True):
+        extracted_css.append(css_tag.string)
+
+    css_path = os.path.join(output_dir, f"{Path(output_path).stem}.css")
+
+    with open(css_path, 'w', encoding='utf-8') as c:
+        c.write("\n".join(extracted_css))
+
+    return css_path
 
 def main():
     """Process all YAML files and generate human-readable HTML versions"""
