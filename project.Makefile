@@ -30,6 +30,7 @@ RUN = poetry run
 RUN_VALIDATE = $(RUN) linkml-validate -s $(ROOT_SCHEMA)
 RUN_CONVERT = $(RUN) linkml-convert -s $(ROOT_SCHEMA)
 RUN_RENDER = $(RUN) linkml-render -s $(ROOT_SCHEMA)
+RUN_HTML = $(RUN) python scripts/human_readable_renderer.py
 
 SERIAL_DATA_DIR = project/data/
 
@@ -121,6 +122,8 @@ all-data:
 			done \
 		done \
 	)
+	@echo "Serializing D4D YAML to HTML with human_readable_renderer.py..."
+	$(RUN_HTML)
 
 # Prepare Markdown versions of data
 # Also fix links so they go the right place(s)
