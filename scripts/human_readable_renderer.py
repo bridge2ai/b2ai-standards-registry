@@ -537,9 +537,9 @@ def main():
 
     # Process text files
     text_org_map = {
-        "D4D_-_AI-READI_FAIRHub_v3.txt": "B2AI_ORG_114",
-        "D4D_-_CM4AI_Dataverse_v3.txt": "B2AI_ORG_116",
-        "D4D_-_VOICE_PhysioNet_v3.txt": "B2AI_ORG_117"
+        "D4D_-_AI-READI_FAIRHub_v3.yaml": "B2AI_ORG_114",
+        "D4D_-_CM4AI_Dataverse_v3.yaml": "B2AI_ORG_116",
+        "D4D_-_VOICE_PhysioNet_v3.yaml": "B2AI_ORG_117"
     }
 
     processed_count = 0
