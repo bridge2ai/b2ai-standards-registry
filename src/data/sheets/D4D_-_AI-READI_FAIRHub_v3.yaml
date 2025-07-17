@@ -1,0 +1,138 @@
+DatasetCollection:
+  resources:
+    - id: "doi:10.60775/fairhub.2"
+      acquisition_methods:
+        - description: "Data was collected from multiple modalities, including 12-lead ECG, Holter monitor, smartwatch, REDCap for clinical data, a custom environmental sensor, fluorescence lifetime imaging ophthalmoscopy (FLIO), optical coherence tomography (OCT), optical coherence tomography angiography (OCTA), retinal photography, wearable fitness trackers, and continuous glucose monitoring (CGM) devices."
+          was_directly_observed: ""
+          was_inferred_derived: ""
+          was_reported_by_subjects: ""
+          was_validated_verified: ""
+      addressing_gaps: []
+      anomalies: []
+      bytes: 2210033333333
+      cleaning_strategies:
+        - description: "The data in this dataset contain no protected health information (PHI). Information related to the sex and race/ethnicity of the participants as well as medication used has also been removed."
+      collection_mechanisms: []
+      collection_timeframes:
+        - description: "The data was collected between July 19, 2023 and July 31, 2024."
+      compression: ""
+      confidential_elements: []
+      conforms_to:
+        - "Clinical Dataset Structure (CDS) v0.1.1"
+        - "WaveForm DataBase (WFDB)"
+        - "Observational Medical Outcomes Partnership (OMOP) Common Data Model (CDM)"
+        - "Earth Science Data Systems (ESDS)"
+        - "Digital Imaging and Communications in Medicine (DICOM)"
+        - "Open mHealth"
+      conforms_to_class: ""
+      conforms_to_schema: ""
+      content_warnings: []
+      created_by: []
+      created_on: ""
+      creators:
+        - affiliation:
+            id: "AI-READI Consortium"
+            name: "AI-READI Consortium"
+          principal_investigator: ""
+      data_collectors: []
+      data_protection_impacts: []
+      description: "This dataset contains data from 1067 participants that was collected between July 19, 2023 and July 31, 2024. Data from multiple modalities are included. The data in this dataset contain no protected health information (PHI). Information related to the sex and race/ethnicity of the participants as well as medication used has also been removed."
+      dialect: ""
+      discouraged_uses:
+        - description: "Users must agree to use the data only for type 2 diabetes related research. Other uses are implicitly discouraged."
+      distribution_dates: []
+      distribution_formats:
+        - description: "The dataset is organized into multiple directories by datatype, with file formats including WaveForm DataBase (WFDB), CSV (conforming to OMOP CDM), Earth Science Data Systems (ESDS), Digital Imaging and Communications in Medicine (DICOM), and Open mHealth."
+      doi: "10.60775/fairhub.2"
+      download_url: ""
+      encoding: ""
+      errata: []
+      ethical_reviews: []
+      existing_uses:
+        - description: "As of the document date, the dataset has 12,603 views, has been cited by 3 resources, and has had 539 approved access requests."
+      extension_mechanism: ""
+      external_resources: []
+      format: ""
+      funders:
+        - grant:
+            id: "1OT2OD032644"
+            grant_number: "1OT2OD032644"
+            name: ""
+          grantor:
+            id: "NIH"
+            name: "National Institutes of Health"
+      future_use_impacts: []
+      hash: ""
+      instances:
+        - counts: 1067
+          data_substrate: ""
+          data_topic: ""
+          instance_type: "participants"
+          label: ""
+          label_description: ""
+          missing_information: []
+          sampling_strategies: []
+      ip_restrictions: ""
+      is_deidentified:
+        description:
+          - "The data in this dataset contain no protected health information (PHI). Information related to the sex and race/ethnicity of the participants as well as medication used has also been removed."
+        identifiable_elements_present: false
+      is_tabular: ""
+      issued: "2024-11-08"
+      keywords:
+        - "Diabetes mellitus"
+        - "Machine Learning"
+        - "Artificial Intelligence"
+        - "Electrocardiography"
+        - "Continuous Glucose Monitoring"
+        - "Retinal imaging"
+        - "Eye exam"
+      labeling_strategies: []
+      language: ""
+      last_updated_on: ""
+      license: "https://doi.org/10.5281/zenodo.10642459"
+      license_and_use_terms:
+        - description: "This work is licensed under a custom license. Accessing the dataset requires logging in through a verified ID system, agreeing to use the data only for type 2 diabetes related research, and agreeing to the license terms which set restrictions and obligations for data usage."
+      maintainers: []
+      md5: ""
+      media_type: ""
+      modified_by: []
+      other_tasks: []
+      page: ""
+      path: ""
+      preprocessing_strategies:
+        - description: "Processing of the data was automated + custom."
+      publisher: ""
+      purposes:
+        - response: "The Artificial Intelligence Ready and Exploratory Atlas for Diabetes Insights (AI-READI) project seeks to create a flagship ethically-sourced dataset to enable future generations of artificial intelligence/machine learning (AI/ML) research to provide critical insights into type 2 diabetes mellitus (T2DM), including salutogenic pathways to return to health."
+      raw_sources: []
+      regulatory_restrictions: ""
+      retention_limit: ""
+      sampling_strategies: []
+      sensitive_elements:
+        - description:
+            - "The dataset contains health data related to Type 2 Diabetes. It originally contained race/ethnicity and sex data which has been removed from the dataset but is available in aggregate form."
+          sensitive_elements_present: true
+      sha256: ""
+      status: ""
+      subpopulations:
+        - distribution:
+            - "Train Split: Hispanic (144), Asian (167), Black (211), White (225). Male (302), Female (445). No DM (292), Lifestyle (162), Oral (235), Insulin (58)."
+            - "Val Split: Hispanic (40), Asian (40), Black (40), White (40). Male (80), Female (80). No DM (47), Lifestyle (33), Oral (40), Insulin (40)."
+            - "Test Split: Hispanic (40), Asian (40), Black (40), White (40). Male (80), Female (80). No DM (41), Lifestyle (39), Oral (36), Insulin (42)."
+            - "Total: Hispanic (224), Asian (247), Black (291), White (305). Male (462), Female (605). No DM (380), Lifestyle (234), Oral (311), Insulin (140)."
+          identification:
+            - "Race/ethnicity"
+            - "Sex"
+            - "Diabetes status"
+          subpopulation_elements_present: true
+      subsets: []
+      tasks: []
+      title: "Flagship Dataset of Type 2 Diabetes from the AI-READI Project"
+      updates:
+        - description: "The dataset is versioned. Changes between versions are provided in a CHANGELOG file. The current version is 2.0.0, and a previous version 1.0.0 exists."
+      use_repository: []
+      version: "2.0.0"
+      version_access:
+        - description: "Older versions of the dataset are accessible and have their own DOIs. Version 1.0.0 is available at doi:10.60775/fairhub.1."
+      was_derived_from: ""
