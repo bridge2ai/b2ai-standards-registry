@@ -528,8 +528,8 @@ def extract_css(output_dir, output_path, html_content, separate_css):
 def main():
     """Process all YAML files and generate human-readable HTML versions"""
 
-    input_dir = "project/data/sheets"
-    output_dir = "project/data/sheets/html_output"
+    input_dir = "src/data/sheets"
+    output_dir = "project/data/sheets"
     separate_css = True
 
     # Ensure output directory exists
