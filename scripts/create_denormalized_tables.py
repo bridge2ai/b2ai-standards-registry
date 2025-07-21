@@ -574,7 +574,7 @@ def create_json_column(
 
     Expected configuration for destination table definition would look like the following:
         'join_columns': [
-            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+            {'join_tbl': 'DataTopic', 'from': 'concerns_data_topic', 'to': 'id',
              'dest_cols': [
                   {'faceted': False, 'name': 'topics_json', 'alias': 'Topics',
                    'fields': [{ 'name': 'name', 'alias': 'Topic'},
@@ -583,7 +583,7 @@ def create_json_column(
         ]
     OR
         'join_columns': [
-            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+            {'join_tbl': 'DataTopic', 'from': 'concerns_data_topic', 'to': 'id',
              'dest_cols': [
                   {'faceted': False, 'name': 'topics_json', 'alias': 'topics_json', 'whole_record': True,}
              ]},
