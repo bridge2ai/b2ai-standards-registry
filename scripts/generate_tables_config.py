@@ -37,11 +37,11 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'id',                          'alias': 'id'},
             {'faceted': False, 'name': 'name',                        'alias': 'acronym'},
             {'faceted': False, 'name': 'description',                 'alias': 'name'},
-            {'faceted': True,  'name': 'category',                    'alias': 'category', 'transform': 'camel_to_title_case'},
+            {'faceted': True,  'name': 'category',                    'alias': 'category', 'transform': 'category_to_title_case'},
             {'faceted': False, 'name': 'purpose_detail',              'alias': 'description'},
-            {'faceted': True,  'name': 'collection',                  'alias': 'collections'},
+            {'faceted': True,  'name': 'collection',                  'alias': 'collections', 'transform': 'collections_to_title_case'},
             {'faceted': True,  'name': 'collection',                  'alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
-            {'faceted': True,  'name': 'collection',                  'alias': 'isMature', 'transform': 'collections_to_is_mature', 'columnType': 'STRING'},
+            {'faceted': True,  'name': 'collection',                  'alias': 'mature', 'transform': 'collections_to_is_mature', 'columnType': 'STRING'},
             {'faceted': False, 'name': 'concerns_data_topic',         'alias': 'concerns_data_topic'},
             {'faceted': False, 'name': 'has_relevant_data_substrate', 'alias': 'has_relevant_data_substrate'},
             {'faceted': False, 'name': 'has_relevant_organization',   'alias': 'has_relevant_organization'},
@@ -58,6 +58,12 @@ DEST_TABLES = {
             {'faceted': True,  'name': 'used_in_bridge2ai',           'alias': 'usedInBridge2AI', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
         ],
         'join_columns': [
+            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
+             'dest_cols': [
+                 {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
+                 {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'relevantOrgLinks', 'transform': 'create_org_link', },
+                 {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'responsibleOrgLinks', 'transform': 'create_org_link', },
+             ]},
             {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
              'dest_cols': [
                  {'faceted': True, 'name': 'name', 'alias': 'topic'},
@@ -66,10 +72,6 @@ DEST_TABLES = {
              'dest_cols': [
                 {'faceted': True, 'name': 'name', 'alias': 'dataTypes'},
             ]},
-            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
-             'dest_cols': [
-                 {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
-             ]},
             {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
                  {'faceted': False,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
@@ -95,7 +97,7 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'name', 'alias': 'name'},
             {'faceted': False, 'name': 'description', 'alias': 'description'},
             # category does not show up in Figma design, but might want it on the page
-            {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'camel_to_title_case'},
+            {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'category_to_title_case'},
             # {'faceted': False, 'name': 'topics', 'alias': 'topics'},
             # {'faceted': False, 'name': 'produced_by', 'alias': 'produced_by'},
             {'faceted': False, 'name': 'datasheet_url', 'alias': 'DatasheetURL'},

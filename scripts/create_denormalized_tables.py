@@ -39,20 +39,122 @@ import re
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
 
-TRANSFORMS = {
-    # camel_to_title_case
-    #   removes 'B2AI_STANDARD:'
-    #   inserts a space before any uppercase letter that follows a lowercase letter
-    #   converts to title case
-    #
-    #   Converts category, strips prefix and outputs title case
-    #       'B2AI_STANDARD:BiomedicalStandard' becomes 'Biomedical Standard'
-    'camel_to_title_case': lambda s: re.sub(r'([a-z])([A-Z])', r'\1 \2', re.sub(r'^B2AI_STANDARD:','', s)).title(),
-
-    'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
-    'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
-    'collections_to_is_mature': lambda col: 'Yes' if 'standards_process_maturity_final' in col or 'implementation_maturity_production' in col else 'No',
+special_capitalization = {
+    'has_ai_application': 'Has AI Application',
+    'obofoundry': 'OBO Foundry',
 }
+manual_title_case_mappings = {
+    'scrnaseqanalysis': 'scrna_seq_analysis',
+    'machinelearningframework': 'machine_learning_framework',
+    'datavisualization': 'data_visualization',
+    'notebookplatform': 'notebook_platform',
+    'audiovisual': 'audio_visual',
+    'ontologyregistry': 'ontology_registry',
+    'proteindata': 'protein_data',
+    'codesystem': 'code_system',
+    'cloudplatform': 'cloud_platform',
+    'cloudservice': 'cloud_service',
+    'speechdata': 'speech_data',
+    'modelcards': 'model_cards',
+    'eyedata': 'eye_data',
+    'standardsregistry': 'standards_registry',
+    'diagnosticinstrument': 'diagnostic_instrument',
+    'markuplanguage': 'markup_language',
+    'datamodel': 'data_model',
+    'workflowlanguage': 'workflow_language',
+    'referencegenome': 'reference_genome',
+    'minimuminformationschema': 'minimum_information_schema',
+    'clinicaldata': 'clinical_data',
+    'drugdata': 'drug_data',
+    'softwareregistry': 'software_registry',
+    'dataregistry': 'data_registry',
+    'graphdataplatform': 'graph_data_platform',
+    'fileformat': 'file_format',
+}
+lowercase_words = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'yet'}
+
+def category_to_title_case(text: str) -> str:
+    """
+    Categories look like 'B2AI_STANDARD:BiomedicalStandard' or 'B2AI_STANDARD:DataStandardOrTool'.
+    This removes the part before the colon and converts to title case.
+    'B2AI_STANDARD:DataStandardOrTool' becomes 'Data Standard or Tool'
+    """
+    text = re.sub(r'^B2AI_[A-Z]+:', '', text)
+
+    # Split on capital letters, but keep consecutive capitals together
+    words = re.findall(r'[A-Z]+(?=[A-Z][a-z]|\b)|[A-Z][a-z]*|\d+', text)
+
+    result_words = []
+    for i, word in enumerate(words):
+        word_lower = word.lower()
+        if i == 0 or word_lower not in lowercase_words:
+            result_words.append(word.capitalize())
+        else:
+            result_words.append(word_lower)
+
+    return ' '.join(result_words)
+
+def collections_to_title_case(s: str) -> str:
+    if s in special_capitalization:
+        return special_capitalization[s]
+    s = manual_title_case_mappings.get(s, s)
+    return snake_to_title_case(s)
+
+def snake_to_title_case(s: str) -> str:
+    words = [w.capitalize() if w not in lowercase_words else w for w in s.split('_')]
+    words[0] = words[0].capitalize()
+    words[-1] = words[-1].capitalize()
+    return ' '.join(words)
+
+
+def get_transform_function(transform_spec):
+    """
+    Get a transform function from either a string identifier or a callable.
+
+    :param transform_spec: Either a string identifier for predefined transforms
+                          or a callable function
+    :return: Transform function
+    """
+    if callable(transform_spec):
+        return transform_spec
+
+    # Predefined transform functions
+    predefined_transforms = {
+        'category_to_title_case': category_to_title_case,
+        'collections_to_title_case': collections_to_title_case,
+        'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
+        'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
+        'collections_to_is_mature': lambda col: 'Is Mature' if 'standards_process_maturity_final' in col or 'implementation_maturity_production' in col else 'Is Not Mature',
+
+        'create_org_link': lambda id_val, name_val: f"[{name_val}](/Explore/Organization/OrganizationDetailsPage?id={id_val})",
+        'create_topic_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataTopic/DataTopicDetailsPage?id={id_val})",
+        'create_substrate_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataSubstrate/DataSubstrateDetailsPage?id={id_val})",
+    }
+
+    if transform_spec in predefined_transforms:
+        return predefined_transforms[transform_spec]
+
+    raise ValueError(f"Unknown transform: {transform_spec}")
+
+TRANSFORMS = {
+    # transforming org_links here unlike acronym in synapse apps/portals/b2ai.standards/src/config/resources.ts
+    #   because creating a list of links (unlike a single link) in a synapse query wouldn't work
+    'create_org_link': lambda id_val, name_val: f"[{name_val}](/Explore/Organization/OrganizationDetailsPage?id={id_val})"
+}
+
+def col_transform(col: pd.Series, transform_name: str, df: pd.DataFrame) -> pd.Series:
+    """
+    All transforms now passing through this function for further special handling
+    """
+    plain_transform = get_transform_function(transform_name) # purposely set to raise error if transform_name is wrong
+    if transform_name == 'collections_to_title_case':
+        transform = lambda lst: [plain_transform(s) for s in lst]
+    else:
+        transform = plain_transform
+    # if transform_name == 'org_links':
+    #     transform = lambda f"concat('[', {}, '](/Explore/Organization/OrganizationDetailsPage?id=', id, ')')"
+    col_data = col.apply(transform)
+    return col_data
 
 def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
     """
@@ -127,7 +229,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
             if col_def:
                 col_data = base_df[col_def['name']]
                 if 'transform' in col_def:
-                    col_data = col_data.apply(TRANSFORMS[col_def['transform']])
+                    col_data = col_transform(col_data, col_def['transform'], base_df)
                 col_def['data'] = col_data
                 columns.append(col_def)
 
@@ -299,26 +401,17 @@ def create_list_column(
              - 'col': Synapse Column definition
              - 'data': list of lists with extracted values per row
     """
+
+    # If this is a multi-field transform or has a transform, use the enhanced version
+    if 'source_cols' in dest_col or 'transform' in dest_col:
+        return create_list_column_with_transform(
+            base_table_name, base_df, join_df, from_col, to_col, join_config, dest_col
+        )
+
     field_name = dest_col['name']          # field in join_df to extract (e.g., 'name')
     column_name = dest_col['alias']        # name for the new output column
     result = []                            # list of lists to hold values for each base row
     datatype: type = None
-
-    # this was to handle standards data types when it was stored in DataSubstrate.related_to
-    #   instead of DataStandardOrTool.has_relevant_data_substrate
-    # keeping it commented out because it might help simplify the iterrows code below
-    # if join_config['join_type'] == 'join_table_has_list':
-    #     join_cols_by_base_col = (
-    #         join_df[[field_name, from_col]]
-    #         .explode(from_col)
-    #         .dropna()
-    #         .groupby(from_col)[field_name]
-    #         .apply(lambda x: sorted(list(set(x))))
-    #     )
-    #
-    #     join_cols_by_base_col.columns = ['id', 'relatedDataTypes']
-    #     j = base_df.merge(join_cols_by_base_col, left_on='id', right_on='related_to', how='left')
-    #     pass
 
     for _, row in base_df.iterrows():
         related_ids = row[from_col]
@@ -367,6 +460,101 @@ def create_list_column(
 
     return column_def
 
+
+def create_list_column_with_transform(
+        base_table_name: str,
+        base_df: pd.DataFrame,
+        join_df: pd.DataFrame,
+        from_col: str,
+        to_col: str,
+        join_config: Dict[str, Any],
+        dest_col: Dict[str, Any]
+) -> Dict[str, Any]:
+    """
+    Enhanced version that handles both single-field and multi-field transforms.
+
+    :param dest_col: Dictionary defining the output column, with:
+                     - 'name': single field name (for backward compatibility)
+                     - 'source_cols': list of field names for multi-column transforms
+                     - 'alias': output column name
+                     - 'transform': optional transform function or string identifier
+    """
+    column_name = dest_col['alias']
+    result = []
+    datatype: type = None
+
+    # Determine source columns - support both old single-field and new multi-field approach
+    if 'source_cols' in dest_col:
+        source_fields = dest_col['source_cols']
+        is_multi_field = True
+    else:
+        source_fields = [dest_col['name']]
+        is_multi_field = False
+
+    # Get transform function if specified
+    transform_func = None
+    if 'transform' in dest_col:
+        transform_func = get_transform_function(dest_col['transform'])
+
+    for _, row in base_df.iterrows():
+        related_ids = row[from_col]
+
+        # Handle empty or missing relationships
+        if not related_ids or (isinstance(related_ids, list) and len(related_ids) == 0):
+            result.append([])
+            continue
+
+        # Ensure related_ids is a list
+        if not isinstance(related_ids, list):
+            raise ValueError(f"Expected list column from '{base_table_name}.{from_col}', but got scalar.")
+
+        # Filter join_df for rows with matching IDs
+        matching_rows = join_df[join_df[to_col].isin(related_ids)]
+
+        # Extract and transform values
+        if is_multi_field and transform_func:
+            # Multi-field transform: pass multiple column values to transform function
+            field_values = []
+            for _, match_row in matching_rows.iterrows():
+                # Extract values for all source columns
+                source_values = [match_row[field] for field in source_fields]
+                # Apply transform
+                transformed_value = transform_func(*source_values)
+                field_values.append(transformed_value)
+        elif transform_func:
+            # Single-field transform
+            field_values = matching_rows[source_fields[0]].apply(transform_func).tolist()
+        else:
+            # No transform, just extract the field
+            field_values = matching_rows[source_fields[0]].tolist()
+
+        # Type checking
+        for val in field_values:
+            if datatype is None:
+                datatype = type(val)
+            elif not isinstance(val, datatype):
+                raise Exception(f"Got mixed datatypes in {column_name}: {datatype} and {type(val)}")
+
+        result.append(field_values)
+
+    # Determine column type
+    if datatype == str:
+        columnType = 'STRING_LIST'
+    elif datatype == int:
+        columnType = 'INTEGER_LIST'
+    else:
+        raise Exception(f"Got {datatype} in {column_name}; can't handle that type yet")
+
+    # Create column definition
+    column_def = {
+        'src': join_config['join_table_name'],
+        'name': source_fields[0] if len(source_fields) == 1 else f"transform({','.join(source_fields)})",
+        'alias': column_name,
+        'col': Column(name=column_name, columnType=columnType),
+        'data': result
+    }
+
+    return column_def
 
 def create_json_column(
     base_table_name: str,
