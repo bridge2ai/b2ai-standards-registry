@@ -58,21 +58,21 @@ DEST_TABLES = {
             {'faceted': True,  'name': 'used_in_bridge2ai',           'alias': 'usedInBridge2AI', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
         ],
         'join_columns': [
-            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'has_relevant_organization', 'to': 'id',
+            {'join_tbl': 'Organization', 'from': 'has_relevant_organization', 'to': 'id',
              'dest_cols': [
                  {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
                  {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'relevantOrgLinks', 'transform': 'create_org_link', },
                  {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'responsibleOrgLinks', 'transform': 'create_org_link', },
              ]},
-            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'concerns_data_topic', 'to': 'id',
+            {'join_tbl': 'DataTopic', 'from': 'concerns_data_topic', 'to': 'id',
              'dest_cols': [
                  {'faceted': True, 'name': 'name', 'alias': 'topic'},
              ]},
-            {'join_tbl': 'DataSubstrate', 'join_type': 'left', 'from': 'has_relevant_data_substrate', 'to': 'id',
+            {'join_tbl': 'DataSubstrate', 'from': 'has_relevant_data_substrate', 'to': 'id',
              'dest_cols': [
                 {'faceted': True, 'name': 'name', 'alias': 'dataTypes'},
             ]},
-            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'responsible_organization', 'to': 'id',
+            {'join_tbl': 'Organization', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
                  {'faceted': False,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
                  {'faceted': False,  'name': 'description', 'alias': 'responsibleOrgName'},
@@ -106,16 +106,16 @@ DEST_TABLES = {
             # {'faceted': False, 'name': 'substrates', 'alias': 'substrates'},
         ],
         'join_columns': [
-            {'join_tbl': 'Organization', 'join_type': 'left', 'from': 'produced_by', 'to': 'id',
+            {'join_tbl': 'Organization', 'from': 'produced_by', 'to': 'id',
              'dest_cols': [
                  {'faceted': False, 'name': 'name', 'alias': 'producedBy'},
                  {'faceted': False, 'name': 'org_json', 'alias': 'org_json', 'whole_records': True,}
              ]},
-            {'join_tbl': 'DataTopic', 'join_type': 'left', 'from': 'topics', 'to': 'id',
+            {'join_tbl': 'DataTopic', 'from': 'topics', 'to': 'id',
              'dest_cols': [
                  {'faceted': False, 'name': 'name', 'alias': 'topics'},
              ]},
-            {'join_tbl': 'DataSubstrate', 'join_type': 'left', 'from': 'substrates', 'to': 'id',
+            {'join_tbl': 'DataSubstrate', 'from': 'substrates', 'to': 'id',
              'dest_cols': [
                  {'faceted': False, 'name': 'name', 'alias': 'substrates'},
                  {'faceted': False, 'name': 'substrates_json', 'alias': 'substrates_json', 'whole_records': True, }
