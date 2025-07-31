@@ -74,7 +74,6 @@ DEST_TABLES = {
              ]},
             {'join_tbl': 'Organization', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
-                 # {'faceted': False,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
                  {'faceted': False,  'name': 'description', 'alias': 'responsibleOrgName'},
                  {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'responsibleOrgLinks',
                   'transform': 'create_org_link', },
