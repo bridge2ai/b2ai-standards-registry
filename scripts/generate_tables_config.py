@@ -110,7 +110,6 @@ DEST_TABLES = {
             {'join_tbl': 'Organization', 'from': 'produced_by', 'to': 'id',
              'dest_cols': [
                  {'faceted': True, 'name': 'name', 'alias': 'producedBy'},
-                 # {'faceted': False, 'name': 'org_json', 'alias': 'org_json', 'whole_records': True,}
              ]},
             {'join_tbl': 'DataTopic', 'from': 'topics', 'to': 'id',
              'dest_cols': [
