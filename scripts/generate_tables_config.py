@@ -19,6 +19,7 @@ TABLE_IDS = {
     'CurrentTableVersions': { 'name': 'CurrentTableVersions', 'id': 'syn66330007' },
     'DST_denormalized': { 'name': 'DST_denormalized', 'id': 'syn65676531' },
     'DataSet': { 'name': 'DataSet', 'id': 'syn66330217' },
+    'DataSet_denormalized': { 'name': 'DataSet_denormalized', 'id': 'syn68258237' },
     'DataStandardOrTool': { 'name': 'DataStandardOrTool', 'id': 'syn63096833' },
     'DataSubstrate': { 'name': 'DataSubstrate', 'id': 'syn63096834' },
     'DataTopic': { 'name': 'DataTopic', 'id': 'syn63096835' },
@@ -58,12 +59,6 @@ DEST_TABLES = {
             {'faceted': True,  'name': 'used_in_bridge2ai',           'alias': 'usedInBridge2AI', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
         ],
         'join_columns': [
-            {'join_tbl': 'Organization', 'from': 'has_relevant_organization', 'to': 'id',
-             'dest_cols': [
-                 {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
-                 {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'relevantOrgLinks', 'transform': 'create_org_link', },
-                 {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'responsibleOrgLinks', 'transform': 'create_org_link', },
-             ]},
             {'join_tbl': 'DataTopic', 'from': 'concerns_data_topic', 'to': 'id',
              'dest_cols': [
                  {'faceted': True, 'name': 'name', 'alias': 'topic'},
@@ -72,14 +67,20 @@ DEST_TABLES = {
              'dest_cols': [
                 {'faceted': True, 'name': 'name', 'alias': 'dataTypes'},
             ]},
+            {'join_tbl': 'Organization', 'from': 'has_relevant_organization', 'to': 'id',
+             'dest_cols': [
+                 {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
+                 {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'relevantOrgLinks', 'transform': 'create_org_link', },
+             ]},
             {'join_tbl': 'Organization', 'from': 'responsible_organization', 'to': 'id',
              'dest_cols': [
-                 {'faceted': False,  'name': 'name', 'alias': 'responsibleOrgAcronym'},
                  {'faceted': False,  'name': 'description', 'alias': 'responsibleOrgName'},
+                 {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'responsibleOrgLinks',
+                  'transform': 'create_org_link', },
              ]},
         ],
     },
-    'GCDataSet': {
+    'DataSet_denormalized': {
         # This is for the GrandChallengeDataSetPage, https://github.com/bridge2ai/b2ai-standards-registry/issues/244
         #   Needs to provide data to render this design:
         #   https://www.figma.com/design/3I2TuS7qjLBTsuUhLnv6ke/Curator---BDF-LINC?node-id=7389-64217&t=VjSnczaVpY1i76H5-0
@@ -90,7 +91,7 @@ DEST_TABLES = {
         #   to be the same as in Challenges, so using that as the base_table.
         # So far there is only one DataSet per grand challenge. Not sure if this will have to change at all when
         #   there are more.
-        'dest_table_name': 'GCDataSet',
+        'dest_table_name': 'DataSet_denormalized',
         'base_table': 'DataSet',
         'columns': [
             {'faceted': False, 'name': 'id', 'alias': 'id'},
@@ -98,22 +99,21 @@ DEST_TABLES = {
             {'faceted': False, 'name': 'description', 'alias': 'description'},
             # category does not show up in Figma design, but might want it on the page
             {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'category_to_title_case'},
-            # {'faceted': False, 'name': 'topics', 'alias': 'topics'},
-            # {'faceted': False, 'name': 'produced_by', 'alias': 'produced_by'},
+            {'faceted': False, 'name': 'topics', 'alias': 'topicIds'},
+            {'faceted': False, 'name': 'produced_by', 'alias': 'producedByOrgId'},
             {'faceted': False, 'name': 'datasheet_url', 'alias': 'DatasheetURL'},
             {'faceted': False, 'name': 'documentation_url', 'alias': 'DocumentationURL'},
             {'faceted': False, 'name': 'is_public', 'alias': 'isPublic'},
-            # {'faceted': False, 'name': 'substrates', 'alias': 'substrates'},
+            {'faceted': False, 'name': 'substrates', 'alias': 'substrateIds'},
         ],
         'join_columns': [
             {'join_tbl': 'Organization', 'from': 'produced_by', 'to': 'id',
              'dest_cols': [
-                 {'faceted': False, 'name': 'name', 'alias': 'producedBy'},
-                 {'faceted': False, 'name': 'org_json', 'alias': 'org_json', 'whole_records': True,}
+                 {'faceted': True, 'name': 'name', 'alias': 'producedBy'},
              ]},
             {'join_tbl': 'DataTopic', 'from': 'topics', 'to': 'id',
              'dest_cols': [
-                 {'faceted': False, 'name': 'name', 'alias': 'topics'},
+                 {'faceted': True, 'name': 'name', 'alias': 'topics'},
              ]},
             {'join_tbl': 'DataSubstrate', 'from': 'substrates', 'to': 'id',
              'dest_cols': [
