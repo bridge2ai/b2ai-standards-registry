@@ -47,6 +47,7 @@ classes:
       - substrates
       - topics
       - is_bridge2ai_data
+      - availability_description
 
   DataSetContainer:
     description: >-
@@ -162,3 +163,16 @@ slots:
     domain: DataSet
     range: boolean
     required: false
+
+  availability_description:
+    is_a: node_property
+    description: >-
+      A description of the availability of the data set,
+      including any restrictions on access or use.
+    domain: DataSet
+    range: string
+    required: false
+    examples:
+    - value: >-
+        "Datasets require additional permissions.
+        Please visit https://example.com for more information."
