@@ -2,6 +2,7 @@
 
 The Bridge2AI Standards Explorer categorizes data standards and tools into several categories. Each category represents a specific type of standard or tool with its own unique characteristics and purposes.
 
+The Explorer also contains metadata on other concepts and objects, including data sets, topics, substrates, organizations, and use cases. See the menu on the left for more information about these entries.
 
 ## Data Standard or Tool Classes
 
@@ -9,9 +10,13 @@ The Bridge2AI Standards Explorer categorizes data standards and tools into sever
 The base class for all standards and tools in the Explorer. In practice, no resource will have this category, but will be assigned one of the categories below.
 
 **Each standard or tool may:**
+
 * Be associated with data topics
+
 * Have relevant organizations
+
 * Have training resources
+
 * Include details like openness status, registration requirements, URLs, and publications
 
 ### Data Standard
@@ -28,9 +33,6 @@ A set of concepts and categories, potentially defined or accompanied by their hi
 
 ### Model Repository
 A resource serving to curate and store computational models. Unlike registries that may only index models, a model repository must provide storage functionality, such that users can retrieve the models for their own use.
-
-### Reference Data Or Dataset
-A standardized, reusable data source. These resources provide benchmark or canonical data that can be used across multiple research projects.
 
 ### Software Or Tool
 A piece of software or computational tool. These resources provide implementations of algorithms, analysis methods, or other computational capabilities. They may not have been developed explicitly for biomedical or biological research.
@@ -67,4 +69,3 @@ Standards and tools can be tagged with specific collection tags to further categ
 ## Relationships Between Standards and Topics
 
 Standards and tools in the registry can be related to specific data topics and organizations. These relationships help users identify relevant standards for their specific data domains and connect with responsible organizations. See the page on [topics](topics.md) for more details.
-

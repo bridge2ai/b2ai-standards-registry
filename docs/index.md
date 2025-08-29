@@ -9,9 +9,13 @@ The Explorer is built and maintained by the [Bridge2AI Standards Working Group](
 The Explorer serves as an integrated knowledge base about data standards and the process of preparing data to be AI ready.
 
 Rather than simply listing standards, however, the Explorer displays relevance of each standard to:
+
 * The groups using it within the Bridge2AI Consortium
+
 * Its relevant topics and data structures
+
 * The organization(s) responsible for its creation and continued development
+
 and other features pertinent to using the standard in practice.
 
 Biomedical researchers may use the Explorer to rapidly determine relevance of a set of standards to their own needs while also seeing examples of how those standards have already been used in Bridge2AI projects.
@@ -45,14 +49,21 @@ Standards in the Explorer are curated by Bridge2AI standards members. All standa
 ### Why does the Explorer list other resources, like data sets and tools?
 
 Data sets, including both those produced by Bridge2AI Grand Challenges and those categorized as Reference Data or Dataset in the Explorer, serve numerous roles in the production of AI ready data. They:
+
 * Provide examples of how data has been and is currently released
+
 * Serve as validation sets for new methods
+
 * Offer opportunities for comparing new data with previous observations
 
 In addition to the criteria used for curating standards (see above), reference data, software, and other resources are included in the Explorer if they meet one of the following criteria:
+
 * They are accompanied by standardized metadata and serve as a real-world example of that standard (e.g., [B2AI_STANDARD:690](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:690) is a Datasheet for a text data set; the corresponding standard is [B2AI_STANDARD:326](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:326), or Datasheets)
-* They are very similar to data produced by Bridge2AI Grand Challenges and serve as examples of how data may have been standardized in the past. 
+
+* They are very similar to data produced by Bridge2AI Grand Challenges and serve as examples of how data may have been standardized in the past.
+
 * They are the origin of a standard (e.g., [B2AI_STANDARD:202](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:202) refers to the WFDB Format, while [B2AI_STANDARD:643](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:643) refers to the WFDB database).
+
 * They are in broad use within biomedical research, to the point of acting as a standard or a source of standardization.
 
 ### Is the Explorer intended to be fully comprehensive?
