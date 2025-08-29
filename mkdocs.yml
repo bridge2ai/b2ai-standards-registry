@@ -23,19 +23,90 @@ theme:
     - toc.integrate
 plugins:
   - search
+  - mermaid2
 nav:
   - Home: index.md
   - Categories: categories.md
   - Curation: curation.md
-  - Standards:
-      - All Standards: DataStandardOrTool.markdown
-  - Use Cases:
-      - All Use Cases: UseCase.markdown
+  - Use Cases: UseCase.markdown
   - Substrates:
-      - All Substrates: DataSubstrate.markdown
+      - Substrates Overview: substrates.markdown
+      - Array: substrates/array.markdown
+      - Associative Array: substrates/associative-array.markdown
+      - BIDS: substrates/bids.markdown
+      - BigQuery: substrates/bigquery.markdown
+      - Column Store: substrates/column-store.markdown
+      - Comma-separated values: substrates/comma-separated-values.markdown
+      - Compressed Data: substrates/compressed-data.markdown
+      - Data: substrates/data.markdown
+      - Data Frame: substrates/data-frame.markdown
+      - Database: substrates/database.markdown
+      - Delimited Text: substrates/delimited-text.markdown
+      - DICOM: substrates/dicom.markdown
+      - Directed acyclic graph: substrates/directed-acyclic-graph.markdown
+      - Document Database: substrates/document-database.markdown
+      - Graph: substrates/graph.markdown
+      - Graph Database: substrates/graph-database.markdown
+      - HDF5: substrates/hdf5.markdown
+      - Heap: substrates/heap.markdown
+      - Hierarchical Array: substrates/hierarchical-array.markdown
+      - Image: substrates/image.markdown
+      - Immunofluorescence Image: substrates/immunofluorescence-image.markdown
+      - JSON: substrates/json.markdown
+      - KGX TSV: substrates/kgx-tsv.markdown
+      - Mass Spectrometry Data: substrates/mass-spectrometry-data.markdown
+      - MongoDB: substrates/mongodb.markdown
+      - MySQL: substrates/mysql.markdown
+      - N-Dimensional Array: substrates/n-dimensional-array.markdown
+      - Neo4j: substrates/neo4j.markdown
+      - Neural Network Model: substrates/neural-network-model.markdown
+      - NNEF: substrates/nnef.markdown
+      - ONNX: substrates/onnx.markdown
+      - Optical coherence tomography angiography data: substrates/optical-coherence-tomography-angiography-data.markdown
+      - Optical coherence tomography data: substrates/optical-coherence-tomography-data.markdown
+      - Oxygen saturation: substrates/oxygen-saturation.markdown
+      - Pandas DataFrame: substrates/pandas-dataframe.markdown
+      - Parquet: substrates/parquet.markdown
+      - Participant response data: substrates/participant-response-data.markdown
+      - Perturb-seq Data: substrates/perturb-seq-data.markdown
+      - Physical activity data: substrates/physical-activity-data.markdown
+      - Physiological data: substrates/physiological-data.markdown
+      - Pinecone: substrates/pinecone.markdown
+      - PostgreSQL: substrates/postgresql.markdown
+      - Property graph: substrates/property-graph.markdown
+      - PyTorch Tensor: substrates/pytorch-tensor.markdown
+      - Questionnaire response data: substrates/questionnaire-response-data.markdown
+      - R data.frame: substrates/r-data-frame.markdown
+      - R tibble: substrates/r-tibble.markdown
+      - Raster Image: substrates/raster-image.markdown
+      - Relational Database: substrates/relational-database.markdown
+      - Respiratory rate: substrates/respiratory-rate.markdown
+      - Retinal Image: substrates/retinal-image.markdown
+      - RNA Sequence Data: substrates/rna-sequence-data.markdown
+      - Sequence: substrates/sequence.markdown
+      - Set: substrates/set.markdown
+      - Single-cell RNA Sequence Data: substrates/single-cell-rna-sequence-data.markdown
+      - Size Exclusion Chromatography-Mass Spectrometry Data: substrates/size-exclusion-chromatography-mass-spectrometry-data.markdown
+      - Sleep tracking data: substrates/sleep-tracking-data.markdown
+      - Spectral Data: substrates/spectral-data.markdown
+      - Stress tracking data: substrates/stress-tracking-data.markdown
+      - String: substrates/string.markdown
+      - SummarizedExperiment: substrates/summarizedexperiment.markdown
+      - Tab-separated values: substrates/tab-separated-values.markdown
+      - Tensor: substrates/tensor.markdown
+      - Text: substrates/text.markdown
+      - Time-series data: substrates/time-series-data.markdown
+      - Tree: substrates/tree.markdown
+      - Trie: substrates/trie.markdown
+      - Vector Database: substrates/vector-database.markdown
+      - Vector Image: substrates/vector-image.markdown
+      - Vector: substrates/vector.markdown
+      - Waveform Audio File Format: substrates/waveform-audio-file-format.markdown
+      - Waveform Data: substrates/waveform-data.markdown
+      - xarray: substrates/xarray.markdown
+      - Zarr: substrates/zarr.markdown
   - Topics:
       - Topics Overview: topics.md
-      - All Topics: DataTopic.markdown
       - Biology: topics/Biology.markdown
       - Cell: topics/Cell.markdown
       - Cheminformatics: topics/Cheminformatics.markdown
@@ -76,12 +147,20 @@ nav:
       - Glucose Monitoring: topics/GlucoseMonitoring.markdown
       - Activity Monitoring: topics/ActivityMonitoring.markdown
       - Governance: topics/Governance.markdown
-  - Organizations:
-      - All Organizations: Organization.markdown
+  - Organizations: Organization.markdown
 site_url: https://bridge2ai.github.io/b2ai-standards-registry
 repo_url: https://github.com/bridge2ai/b2ai-standards-registry
 markdown_extensions:
   - tables
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
