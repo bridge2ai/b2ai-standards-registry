@@ -68,7 +68,7 @@ src/all_ids.tsv:
 # since we are making docs for data,
 # not the schema.
 # Mkdocs reads the tsv versions.
-site: all-data doc-data-markdown src/all_ids.tsv
+site: all-data src/all_ids.tsv
 	$(RUN) mkdocs build ;
 
 # Use schemas to validate the data.
