@@ -80,17 +80,28 @@ DEST_TABLES = {
              ]},
         ],
     },
+    'Organization_denormalized': {
+        'dest_table_name': 'Organization_denormalized',
+        'base_table': 'Organization',
+        'columns': [
+            {'faceted': False, 'name': 'id', 'alias': 'id'},
+            {'faceted': False, 'name': 'name', 'alias': 'name'},
+            {'faceted': False, 'name': 'description', 'alias': 'description'},
+            {'faceted': False, 'name': 'ror_id', 'alias': 'rorId'},
+            {'faceted': False, 'name': 'wikidata_id', 'alias': 'wikidataId'},
+            {'faceted': False, 'name': 'url', 'alias': 'URL'},
+            {'faceted': True,  'name': 'subclass_of', 'alias': 'subclassOf'},
+        ],
+        'join_columns': [
+            {'join_tbl': 'DataSet_denormalized', 'from': 'id', 'to': 'producedByOrgId',
+             'dest_cols': [ {'faceted': False, 'name': 'id', 'alias': 'datasets', }
+             # 'dest_cols': [
+             #     {'faceted': False, 'name': 'datasets', 'alias': 'datasets', 'whole_records': True, }
+             #     {'faceted': False, 'name': 'dataset_json', 'alias': 'dataset_json', 'whole_records': True, }
+             ]},
+        ],
+    },
     'DataSet_denormalized': {
-        # This is for the GrandChallengeDataSetPage, https://github.com/bridge2ai/b2ai-standards-registry/issues/244
-        #   Needs to provide data to render this design:
-        #   https://www.figma.com/design/3I2TuS7qjLBTsuUhLnv6ke/Curator---BDF-LINC?node-id=7389-64217&t=VjSnczaVpY1i76H5-0
-        # Requires data from [DataSet](https://www.synapse.org/Synapse:syn66330217/tables/),
-        #   [Organization](https://www.synapse.org/Synapse:syn63096836/tables/), and
-        #   [Challenges](https://www.synapse.org/Synapse:syn65913973/tables/).
-        # The only data needed from Challenges is the headerImage file handle id, but we want the order of the GCs
-        #   to be the same as in Challenges, so using that as the base_table.
-        # So far there is only one DataSet per grand challenge. Not sure if this will have to change at all when
-        #   there are more.
         'dest_table_name': 'DataSet_denormalized',
         'base_table': 'DataSet',
         'columns': [

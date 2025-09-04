@@ -94,7 +94,11 @@ def category_to_title_case(text: str) -> str:
 
     return ' '.join(result_words)
 
-def collections_to_title_case(s: str) -> str:
+def collections_to_title_case(lst: list[str]) -> str:
+    return [collection_to_title_case(s) for s in lst]
+
+
+def collection_to_title_case(s: str) -> str:
     if s in special_capitalization:
         return special_capitalization[s]
     s = manual_title_case_mappings.get(s, s)
@@ -136,23 +140,11 @@ def get_transform_function(transform_spec):
 
     raise ValueError(f"Unknown transform: {transform_spec}")
 
-TRANSFORMS = {
-    # transforming org_links here unlike acronym in synapse apps/portals/b2ai.standards/src/config/resources.ts
-    #   because creating a list of links (unlike a single link) in a synapse query wouldn't work
-    'create_org_link': lambda id_val, name_val: f"[{name_val}](/Explore/Organization/OrganizationDetailsPage?id={id_val})"
-}
-
 def col_transform(col: pd.Series, transform_name: str, df: pd.DataFrame) -> pd.Series:
     """
     All transforms now passing through this function for further special handling
     """
-    plain_transform = get_transform_function(transform_name) # purposely set to raise error if transform_name is wrong
-    if transform_name == 'collections_to_title_case':
-        transform = lambda lst: [plain_transform(s) for s in lst]
-    else:
-        transform = plain_transform
-    # if transform_name == 'org_links':
-    #     transform = lambda f"concat('[', {}, '](/Explore/Organization/OrganizationDetailsPage?id=', id, ')')"
+    transform = get_transform_function(transform_name) # purposely set to raise error if transform_name is wrong
     col_data = col.apply(transform)
     return col_data
 
