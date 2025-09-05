@@ -8,7 +8,8 @@ standards_datatopic_schema.yaml \
 standards_organization_schema.yaml \
 standards_schema.yaml \
 standards_schema_all.yaml \
-standards_usecase_schema.yaml
+standards_usecase_schema.yaml \
+standards_manifest_schema.yaml
 
 ROOT_SCHEMA = src/schema/standards_schema_all.yaml
 
