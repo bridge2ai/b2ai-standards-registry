@@ -21,7 +21,8 @@ DATA_FILES := DataStandardOrTool.yaml \
 DataSubstrate.yaml \
 DataTopic.yaml \
 Organization.yaml \
-UseCase.yaml
+UseCase.yaml \
+Manifest.yaml
 
 DATA_DIR = src/data/
 
