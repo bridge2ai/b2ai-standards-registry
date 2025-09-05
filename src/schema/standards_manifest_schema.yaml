@@ -1,0 +1,160 @@
+id: https://w3id.org/bridge2ai/standards-manifest-schema
+name: standards-manifest-schema
+title: standards-manifest-schema
+description: |-
+  Schema for manifests, which are collections of
+  metadata about organizations (e.g., Bridge2AI grand
+  challenge data generators) and their datasets,
+  data standards or tools, data substrates, data topics,
+  and use cases.
+license: MIT
+prefixes:
+  B2AI_MANIFEST: https://w3id.org/bridge2ai/standards-manifest-schema/
+  B2AI_DATA: https://w3id.org/bridge2ai/standards-dataset-schema/
+  B2AI_ORG: https://w3id.org/bridge2ai/standards-organization-schema/
+  B2AI_SUBSTRATE: https://w3id.org/bridge2ai/standards-datasubstrate-schema/
+  B2AI_TOPIC: https://w3id.org/bridge2ai/standards-datatopic-schema/
+  linkml: https://w3id.org/linkml/
+  biolink: https://w3id.org/biolink/vocab/
+  schema: http://schema.org/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  CLO: http://purl.obolibrary.org/obo/CLO_
+default_prefix: B2AI_MANIFEST
+default_range: string
+
+imports:
+  - linkml:types
+  - standards_schema
+  - standards_organization_schema
+  - standards_datatopic_schema
+  - standards_datasubstrate_schema
+  - standards_datastandardortool_schema
+
+classes:
+
+  Manifest:
+    is_a: NamedThing
+    description: >-
+      Represents a manifest.
+      There should be a 1 to 1 mapping between
+      a manifest and an organization,
+      but each manifest has its own ID.
+    slots:
+      - organization
+      - datasets
+      - data_parts
+      - notes
+
+  ManifestContainer:
+    description: >-
+      A container for Manifests.
+    slots:
+      - manifest_collection
+
+  DataPart:
+    description: >-
+      Represents a part of all datasets in a manifest.
+      This may be a file, table, or other component.
+      It does not have to be associated with a single dataset,
+      but represents a general type of data produced
+      by the organization.
+    slots:
+      - data_part_name
+      - data_part_description
+      - standards_and_tools
+      - uses_data_substrates
+      - concerns_data_topics
+      - anatomy
+      - notes
+
+slots:
+
+  manifest_collection:
+    description: Collection of associated Manifest objects.
+    range: Manifest
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
+
+  organization:
+    is_a: related_to
+    description: >-
+      The manifest corresponds to
+      this organization.
+      Must be a single Organization object,
+      referenced with its B2AI_ORG ID.
+    domain: Manifest
+    range: Organization
+    multivalued: false
+
+  datasets:
+    is_a: related_to
+    description: >-
+      The manifest includes these datasets.
+      Must be a list of Dataset objects,
+      referenced with their B2AI_DATA IDs.
+    domain: Manifest
+    range: DataSet
+    multivalued: true
+
+  data_parts:
+    description: Collection of associated DataPart objects.
+    range: DataPart
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
+
+  data_part_name:
+    range: string
+    description: Name of the data part.
+
+  data_part_description:
+    range: string
+    description: Description of the data part.
+
+  standards_and_tools:
+    is_a: related_to
+    description: >-
+      The data part includes these standards and tools.
+      Must be a list of StandardOrTool objects,
+      referenced with their B2AI_STANDARD IDs.
+    domain: DataPart
+    range: DataStandardOrTool
+    multivalued: true
+
+  uses_data_substrates:
+    is_a: related_to
+    description: >-
+      The data part includes these data substrates.
+      Must be a list of DataSubstrate objects,
+      referenced with their B2AI_SUBSTRATE IDs.
+    domain: DataPart
+    range: DataSubstrate
+    multivalued: true
+
+  concerns_data_topics:
+    is_a: related_to
+    description: >-
+      The data part includes these data topics.
+      Must be a list of DataTopic objects,
+      referenced with their B2AI_TOPIC IDs.
+    domain: DataPart
+    range: DataTopic
+    multivalued: true
+  
+  notes:
+    is_a: node_property
+    range: string
+    description: >-
+      Any additional notes about the manifest
+      or the data part.
+
+  anatomy:
+    is_a: node_property
+    range: AnatomicalEntity
+    description: >-
+      Relevant anatomical locations,
+      including gross anatomical parts,
+      cell types, and subcellular locations.
+    multivalued: true
