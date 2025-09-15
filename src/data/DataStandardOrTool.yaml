@@ -1306,9 +1306,20 @@ data_standardortools_collection:
   formal_specification: https://github.com/clingen-data-model/clingen-interpretation
   is_open: true
   name: ClinGen Interpretation
-  purpose_detail: Provides a structure and format for exchanging information about
-    the clinical effect of genetic variants, which retains the contextual and supporting
-    information related to the interpretation of the variant.
+  purpose_detail: >-
+    The ClinGen Interpretation Model is a comprehensive data model and
+    exchange format designed to capture, structure, and communicate the clinical interpretation
+    of genetic variants. It supports the representation of evidence, reasoning, provenance,
+    and contextual information underlying variant pathogenicity assessments, aligning
+    with ACMG/AMP guidelines and community standards. The model enables detailed documentation
+    of what evidence was used, how it was applied, who performed each interpretive
+    act, and how interpretations build upon prior knowledge. It is flexible enough
+    to represent both simple assertions and fully evidence-based interpretations,
+    and is implemented using industry-standard JSON-LD for interoperability. The
+    ClinGen Interpretation Model is closely aligned with the Monarch Initiative's
+    SEPIO ontology, supporting integration with other biomedical data models and
+    facilitating automated reasoning, reproducibility, and data sharing in clinical
+    genomics.
   requires_registration: false
   url: https://dataexchange.clinicalgenome.org/interpretation/
 - id: B2AI_STANDARD:57
@@ -3335,10 +3346,20 @@ data_standardortools_collection:
   description: Genome Annotation File
   is_open: true
   name: GAF
-  purpose_detail: The Gene Ontology Consortium stores annotation data, the representation
-    of gene product attributes using GO terms, in standardized tab-delimited text
-    files. Each line in the file represents a single association between a gene product
-    and a GO term, with an evidence code and the reference to support the link.
+  purpose_detail: >-
+    The Gene Ontology Annotation File (GAF) format is a standardized,
+    tab-delimited text file specification developed by the Gene Ontology Consortium
+    for representing gene product annotations using GO terms. GAF 2.1 defines 17
+    fields per line, capturing essential information such as database identifiers,
+    gene symbols, GO terms, evidence codes, references, taxonomic information, and
+    annotation extensions. Each line encodes a single association between a gene
+    product and a GO term, supported by evidence and references, enabling precise
+    tracking of functional, process, and cellular component annotations. The format
+    supports both required and optional fields, allowing for rich annotation detail
+    and interoperability across databases. GAF is widely used for large-scale functional
+    genomics, comparative biology, and integrative bioinformatics, providing a foundation
+    for computational analysis, data sharing, and automated reasoning about gene
+    function across species.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:36
@@ -5969,10 +5990,17 @@ data_standardortools_collection:
   is_open: true
   name: phyloXML
   publication: doi:10.1186/1471-2105-10-356
-  purpose_detail: phyloXML (example) is an XML language designed to describe phylogenetic
-    trees (or networks) and associated data. PhyloXML provides elements for commonly
-    used features, such as taxonomic information, gene names and identifiers, branch
-    lengths, support values, and gene duplication and speciation events.
+  purpose_detail: >-
+    phyloXML is a specialized XML-based language for representing phylogenetic
+    trees and networks, along with rich associated metadata. It provides standardized
+    elements for encoding taxonomic information, gene names, sequence identifiers,
+    branch lengths, support values, gene duplication and speciation events, and other
+    evolutionary attributes. The extensible structure of phyloXML enables interoperability
+    between evolutionary biology and comparative genomics tools, supporting both
+    simple and complex tree annotations. Its schema allows for domain-specific extensions
+    and integration with other bioinformatics resources, making it a widely adopted
+    standard for sharing, visualizing, and analyzing phylogenetic data in research
+    and database applications.
   requires_registration: false
   url: http://www.phyloxml.org/
 - id: B2AI_STANDARD:259
@@ -6369,10 +6397,16 @@ data_standardortools_collection:
   is_open: true
   name: SRA-XML
   publication: doi:10.1093/nar/gkq1019
-  purpose_detail: Used by The Sequence Read Archive (SRA) and the European Nucleotide
-    Archive (ENA) to store raw sequencing data from the next generation of sequencing
-    platforms including Roche 454 GS System, Illumina Genome Analyzer, Applied Biosystems
-    SOLiD System, Helicos Heliscope, Complete Genomics, and Pacific Biosciences SMRT.
+  purpose_detail: >-
+    SRA-XML is an XML-based metadata format used by the Sequence Read
+    Archive (SRA) and the European Nucleotide Archive (ENA) to describe and exchange
+    metadata for raw sequencing data submissions from next-generation sequencing
+    platforms. The format captures detailed information about sequencing experiments,
+    sample attributes, library preparation, instrument models, and data files, enabling
+    standardized data submission, validation, and integration across international
+    repositories. SRA-XML supports the reproducibility and discoverability of sequencing
+    datasets by providing a structured, machine-readable representation of experimental
+    context and provenance, facilitating large-scale genomics research and data sharing.
   requires_registration: false
   url: https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/
 - id: B2AI_STANDARD:275
@@ -11958,8 +11992,14 @@ data_standardortools_collection:
   is_open: true
   name: XPO
   publication: doi:10.1186/s12859-022-04636-8
-  purpose_detail: Anatomical, cellular, and gene function phenotypes occurring throughout
-    the development of Xenopus laevis.
+  purpose_detail: >-
+    The Xenopus Phenotype Ontology (XPO) is a formal ontology for representing
+    anatomical, cellular, and gene function phenotypes observed throughout the development
+    of the African frogs Xenopus laevis and Xenopus tropicalis. XPO enables standardized
+    annotation of phenotypes in Xenopus research, supporting integration with genotype,
+    phenotype, and disease data across species. The ontology is used by Xenbase and
+    other resources to facilitate cross-species comparisons, data sharing, and computational
+    analysis of developmental and functional phenotypes in model organism research.
   requires_registration: false
 - id: B2AI_STANDARD:575
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -12444,12 +12484,16 @@ data_standardortools_collection:
   is_open: true
   name: Kvak2022
   publication: doi:10.48550/arXiv.2203.10596
-  purpose_detail: One of the critical tools for early detection and subsequent evaluation
-    of the incidence of lung diseases is chest radiography. This study presents a
-    real-world implementation of a convolutional neural network (CNN) based Carebot
-    Covid app to detect COVID-19 from chest X-ray (CXR) images. Our proposed model
-    takes the form of a simple and intuitive application. Used CNN can be deployed
-    as a STOW-RS prediction endpoint for direct implementation into DICOM viewers.
+  purpose_detail: >-
+    This study presents the design and implementation of a convolutional
+    neural network (CNN)-based assistive diagnosis system for COVID-19 case detection
+    from chest X-ray images. The Kvak2022 model leverages deep learning architectures
+    (DenseNet and ResNet) to achieve high precision and recall in identifying SARS-CoV-2
+    infection from radiographic data. The system is designed for real-world deployment
+    as a prediction endpoint compatible with DICOM viewers, supporting rapid, automated
+    screening in clinical settings. The approach demonstrates the potential of AI-driven
+    tools to augment radiological diagnosis and improve early detection of lung diseases
+    such as COVID-19.
   requires_registration: false
 - id: B2AI_STANDARD:703
   category: B2AI_STANDARD:ReferenceImplementation
@@ -12544,8 +12588,16 @@ data_standardortools_collection:
   is_open: true
   name: Bioregistry
   publication: doi:10.1101/2022.07.08.499378
-  purpose_detail: A registry of prefixes and identifier formats used in biomedical
-    data sets, knowledge bases, and ontologies.
+  purpose_detail: >-
+    The Bioregistry is an open-source, community-curated registry and
+    meta-registry that catalogs prefixes, identifier formats, and metadata for biomedical
+    ontologies, databases, and controlled vocabularies. It integrates and harmonizes
+    information from multiple registries (e.g., OBO Foundry, Identifiers.org, OLS),
+    providing a unified resource for resolving compact URIs (CURIEs) and supporting
+    semantic interoperability. The Bioregistry also functions as a resolver, mapping
+    CURIEs to web resources, and is governed by transparent contribution and review
+    processes. It is widely used for data integration, annotation, and knowledge
+    graph construction in the life sciences.
   requires_registration: false
   url: https://bioregistry.io/
 - id: B2AI_STANDARD:708
@@ -13957,10 +14009,16 @@ data_standardortools_collection:
   is_open: true
   name: khmer
   publication: doi:10.12688/f1000research.6924.1
-  purpose_detail: A freely available software library for working efficiently with
-    fixed length DNA words, or k-mers. khmer provides implementations of a probabilistic
-    k-mer counting data structure, a compressible De Bruijn graph representation,
-    De Bruijn graph partitioning, and digital normalization.
+  purpose_detail: >-
+    khmer is a free, open-source software library and suite of command-line
+    tools for efficient analysis of high-throughput DNA sequencing data, including
+    genomes, transcriptomes, metagenomes, and single-cell datasets. It implements
+    advanced algorithms for probabilistic k-mer counting, digital normalization,
+    compressible De Bruijn graph representation, and graph partitioning, enabling
+    scalable de novo assembly, error correction, and data reduction. khmer is designed
+    for use in UNIX environments and is supported by extensive documentation, community
+    protocols, and integration with popular bioinformatics workflows. It is widely
+    used for preprocessing and quality control in large-scale sequencing projects.
   related_to:
   - B2AI_STANDARD:183
   requires_registration: false
