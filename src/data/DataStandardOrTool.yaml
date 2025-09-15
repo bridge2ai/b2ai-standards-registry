@@ -190,14 +190,22 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: AIM
-  purpose_detail: The Annotation and Image Markup project provides a standardized
-    schema for capturing the results of medical imaging exams, primarily radiology,
-    using controlled terminologies/ontologies. AIM captures results in terms of the
-    region within an image in which areas of interest are located, the semantic descriptions
-    of those regions, inferences about them, calculations on them, and quantitative
-    features derived by computer programs run on them. AIM is interoperable with DICOM-SR
-    and HL7-CDA, other standards for image metadata, but it provides unique advantages
-    by providing an explicit semantic model of imaging results.
+  purpose_detail: >-
+    The Annotation and Image Markup (AIM) project is the first initiative
+    to propose and create a standard means of adding information and knowledge to
+    medical images in a clinical environment, enabling automatic searching of image
+    content. AIM provides a comprehensive solution to imaging challenges including
+    the lack of agreed-upon syntax for annotation and markup, standardized semantics
+    for annotations, and common formats for annotations and markup. The AIM Model
+    captures descriptive information for images with user-generated graphical symbols
+    into a single common information source. The project includes multiple components:
+    the AIM Template Service (a web service for uploading and downloading AIM templates),
+    the AIM Template Builder (a Java application for creating templates with well-defined
+    questions and answer choices), and reference implementations like AIM on ClearCanvas
+    Workstation. AIM captures results in terms of image regions of interest, semantic
+    descriptions, inferences, calculations, and quantitative features derived by computer
+    programs. It is interoperable with DICOM-SR and HL7-CDA standards while providing
+    unique advantages through an explicit semantic model of imaging results.
   related_to:
   - B2AI_STANDARD:98
   requires_registration: false
@@ -553,14 +561,22 @@ data_standardortools_collection:
   is_open: true
   name: BioCompute
   publication: doi:10.5731/pdajpst.2016.006734
-  purpose_detail: Because of the many different ways to organize data, a major goal
-    of the BioCompute project is to build and maintain a formal standard through recognized,
-    accredited standards setting organizations like the Institute for Electrical and
-    Electronics Engineers (IEEE) and the International Standards Organization (ISO).
-    A formal, consensus-based standard builds predictability and even more stability
-    into the way in which bioinformatic methods are communicated. The standard, officially
-    known as 2791-2020, has two parts, the standards document and the schema, which
-    is maintained in an open source repository.
+  purpose_detail: >-
+    BioCompute Objects (BCOs) are a formal standard for representing
+    bioinformatics computational workflows and analyses, designed to facilitate communication
+    and reproducibility in high-throughput sequencing research. Developed through
+    a collaborative effort and formally recognized as IEEE Standard 2791-2020, BCOs
+    structure critical workflow information into standardized domains including provenance,
+    usability, extension, description, execution, parametric, input/output, and error
+    domains. BCOs are represented in JSON format adhering to JSON schema draft-07,
+    making them both human and machine readable. The standard addresses the challenge
+    of documenting complex bioinformatics methods by providing predictable structure
+    and stability for workflow communication. Upon assignment of a digital etag,
+    three domains become immutable to ensure integrity: the Parametric Domain, Execution
+    Domain, and I/O Domain. BCOs support regulatory compliance including FDA Title
+    21 CFR Part 11 considerations for electronic records and digital signatures, with
+    hash values and encryption keys generated from execution and parametric domains
+    for validation purposes.
   requires_registration: false
   url: https://docs.biocomputeobject.org/user_guide/
 - id: B2AI_STANDARD:26
@@ -666,8 +682,23 @@ data_standardortools_collection:
   - B2AI_ORG:28
   is_open: true
   name: Bioschemas
-  purpose_detail: Bioschemas aims to improve the Findability on the Web of life sciences
-    resources such as datasets, software, and training materials.
+  purpose_detail: >-
+    Bioschemas is a community-driven initiative that extends Schema.org
+    to improve the findability and discoverability of life sciences resources on
+    the web through structured markup. The project makes two main contributions
+    to the life sciences community - proposing new types and properties to Schema.org
+    specifically for life science resources, and defining usage profiles over existing
+    Schema.org types that specify essential, recommended, and optional properties
+    for consistent markup. Bioschemas profiles significantly simplify the markup
+    process by reducing complex Schema.org types to manageable subsets while ensuring
+    compatibility with search engines like Google Dataset Search. The initiative
+    has achieved major recognition with six Bioschemas types (BioChemEntity, ChemicalSubstance,
+    Gene, MolecularEntity, Protein, Taxon) officially included in Schema.org version
+    13.0. Endorsed by the European Research Council and serving as a flagship policy
+    of ELIXIR, Bioschemas supports FAIR data principles by enabling automated discovery,
+    collation, and analysis of distributed life sciences resources including datasets,
+    software applications, training materials, and biological entities across the
+    web ecosystem.
   requires_registration: false
   url: https://bioschemas.org/
 - id: B2AI_STANDARD:31
@@ -802,12 +833,22 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:53
   is_open: true
   name: BED
-  purpose_detail: BED (Browser Extensible Data) format provides a flexible way to
-    define the data lines that are displayed in an annotation track. BED lines have
-    three required fields and nine additional optional fields. The number of fields
-    per line must be consistent throughout any single set of data in an annotation
-    track. The order of the optional fields is binding. Lower-numbered fields must
-    always be populated if higher-numbered fields are used.
+  purpose_detail: >-
+    The Browser Extensible Data (BED) format is a flexible, tab-delimited
+    text format designed for defining annotation tracks in genome browsers, particularly
+    the UCSC Genome Browser. BED format provides a standardized way to represent
+    genomic features with positional information, supporting both simple coordinate-based
+    annotations and complex multi-exon structures. The format consists of 12 possible
+    fields, with the first three (chromosome, start position, end position) being
+    mandatory and nine additional optional fields providing detailed feature information
+    including name, score, strand orientation, thick start/end coordinates for coding
+    regions, RGB color values for visualization, and block structures for representing
+    discontinuous features like exons and introns. BED files use zero-based, half-open
+    coordinate system where the start position is inclusive and the end position
+    is exclusive, enabling precise genomic interval representation. The format supports
+    various annotation types from simple genomic intervals to complex gene models,
+    making it essential for genomic data visualization, comparative genomics, and
+    functional annotation workflows in bioinformatics research.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:119
@@ -1265,9 +1306,20 @@ data_standardortools_collection:
   formal_specification: https://github.com/clingen-data-model/clingen-interpretation
   is_open: true
   name: ClinGen Interpretation
-  purpose_detail: Provides a structure and format for exchanging information about
-    the clinical effect of genetic variants, which retains the contextual and supporting
-    information related to the interpretation of the variant.
+  purpose_detail: >-
+    The ClinGen Interpretation Model is a comprehensive data model and
+    exchange format designed to capture, structure, and communicate the clinical interpretation
+    of genetic variants. It supports the representation of evidence, reasoning, provenance,
+    and contextual information underlying variant pathogenicity assessments, aligning
+    with ACMG/AMP guidelines and community standards. The model enables detailed documentation
+    of what evidence was used, how it was applied, who performed each interpretive
+    act, and how interpretations build upon prior knowledge. It is flexible enough
+    to represent both simple assertions and fully evidence-based interpretations,
+    and is implemented using industry-standard JSON-LD for interoperability. The
+    ClinGen Interpretation Model is closely aligned with the Monarch Initiative's
+    SEPIO ontology, supporting integration with other biomedical data models and
+    facilitating automated reasoning, reproducibility, and data sharing in clinical
+    genomics.
   requires_registration: false
   url: https://dataexchange.clinicalgenome.org/interpretation/
 - id: B2AI_STANDARD:57
@@ -1486,8 +1538,22 @@ data_standardortools_collection:
   is_open: true
   name: COREQ
   publication: doi:10.1093/intqhc/mzm042
-  purpose_detail: A reporting guideline for qualitative research interviews and focus
-    groups comprising 32 criteria, the list of which is available from http://www.cnfs.net/modules/module2/story_content/external_files/13_COREQ_checklist_000017.pdf
+  purpose_detail: >-
+    COREQ (Consolidated Criteria for Reporting Qualitative Research)
+    is a comprehensive 32-item reporting checklist specifically designed to improve
+    the transparency, rigor, and completeness of qualitative research reports, particularly
+    those involving interviews and focus groups. This evidence-based guideline addresses
+    three major domains essential for qualitative research reporting: research team
+    and reflexivity (covering the researcher's credentials, occupation, experience,
+    gender, and relationship with participants), study design (including theoretical
+    framework, participant selection, setting, and data collection methods), and
+    analysis and findings (encompassing data analysis approaches, verification procedures,
+    and presentation of findings). COREQ serves as a critical quality assessment
+    tool for researchers, editors, reviewers, and readers, helping ensure that qualitative
+    studies provide sufficient detail for proper evaluation and potential replication.
+    The checklist promotes methodological transparency and supports the credibility
+    and trustworthiness of qualitative health research by standardizing reporting
+    expectations across the research community.
   requires_registration: false
 - id: B2AI_STANDARD:68
   category: B2AI_STANDARD:BiomedicalStandard
@@ -1900,9 +1966,22 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: DCMR
-  purpose_detail: This Part of the DICOM Standard specifies the DICOM Content Mapping
-    Resource (DCMR), which defines the Templates and Context Groups used elsewhere
-    in the Standard.
+  purpose_detail: >-
+    DICOM Part 16 Content Mapping Resource (DCMR) is a comprehensive
+    component of the DICOM standard that provides the foundational vocabulary and
+    semantic structures used throughout medical imaging systems worldwide. DCMR defines
+    the Templates and Context Groups that standardize the representation of clinical
+    concepts, measurements, and observations within DICOM objects, ensuring consistent
+    interpretation of medical imaging data across different systems, vendors, and
+    healthcare institutions. The Content Mapping Resource includes structured templates
+    for various types of medical imaging reports, measurements, and annotations, covering
+    specialties such as radiology, cardiology, ophthalmology, and oncology. These
+    templates define the specific data elements, their relationships, and the controlled
+    terminologies that should be used when creating structured reports and enhanced
+    imaging objects. DCMR plays a crucial role in enabling interoperability, supporting
+    artificial intelligence applications in medical imaging, and facilitating the
+    exchange of semantically rich imaging information in clinical practice and research
+    environments.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -3267,10 +3346,20 @@ data_standardortools_collection:
   description: Genome Annotation File
   is_open: true
   name: GAF
-  purpose_detail: The Gene Ontology Consortium stores annotation data, the representation
-    of gene product attributes using GO terms, in standardized tab-delimited text
-    files. Each line in the file represents a single association between a gene product
-    and a GO term, with an evidence code and the reference to support the link.
+  purpose_detail: >-
+    The Gene Ontology Annotation File (GAF) format is a standardized,
+    tab-delimited text file specification developed by the Gene Ontology Consortium
+    for representing gene product annotations using GO terms. GAF 2.1 defines 17
+    fields per line, capturing essential information such as database identifiers,
+    gene symbols, GO terms, evidence codes, references, taxonomic information, and
+    annotation extensions. Each line encodes a single association between a gene
+    product and a GO term, supported by evidence and references, enabling precise
+    tracking of functional, process, and cellular component annotations. The format
+    supports both required and optional fields, allowing for rich annotation detail
+    and interoperability across databases. GAF is widely used for large-scale functional
+    genomics, comparative biology, and integrative bioinformatics, providing a foundation
+    for computational analysis, data sharing, and automated reasoning about gene
+    function across species.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:36
@@ -3370,17 +3459,23 @@ data_standardortools_collection:
   is_open: true
   name: GlycoCT
   publication: doi:10.1016/j.carres.2008.03.011
-  purpose_detail: GlycoCT format is devised to describe the carbohydrate sequences,
-    with a controlled vocabulary to name monosaccharides, adopting IUPAC rules to
-    generate a consistent, machine-readable nomenclature, based on a connection table
-    approach, instead of a linear encoding scheme. The format uses a block concept
-    to describe frequently occurring special features of carbohydrate sequences like
-    repeating units. It exists in two variants, a condensed form and a more verbose
-    XML syntax. Sorting rules assure the uniqueness of the condensed form, thus making
-    it suitable as a direct primary key for database applications, which rely on unique
-    identifiers. GlycoCT encompasses the capabilities of the heterogeneous landscape
-    of digital encoding schemata in glycomics and is thus a step forward on the way
-    to a unified and broadly accepted sequence format in glycobioinformatics.
+  purpose_detail: >-
+    GlycoCT (Glyco Connection Table) format is an advanced, comprehensive
+    encoding scheme specifically designed to describe complex carbohydrate sequences
+    with unprecedented precision and consistency in glycobioinformatics. This format
+    employs a controlled vocabulary based on IUPAC nomenclature rules to systematically
+    name monosaccharides and utilizes a connection table approach rather than linear
+    encoding, enabling accurate representation of branched and complex glycan structures.
+    GlycoCT incorporates a sophisticated block concept to efficiently handle frequently
+    occurring structural features such as repeating units, which are common in biological
+    carbohydrates. The format exists in two complementary variants: a condensed form
+    optimized for database applications with strict sorting rules ensuring uniqueness
+    for use as primary keys, and a more verbose XML syntax that provides enhanced
+    readability and machine processing capabilities. GlycoCT represents a significant
+    advancement toward achieving a unified and broadly accepted sequence format in
+    glycobioinformatics, encompassing the capabilities of the heterogeneous landscape
+    of existing digital encoding schemata while providing the foundation for developing
+    ontological relationships between glycan structural terms.
   requires_registration: false
 - id: B2AI_STANDARD:144
   category: B2AI_STANDARD:BiomedicalStandard
@@ -5095,8 +5190,21 @@ data_standardortools_collection:
   is_open: true
   name: mzXML
   publication: doi:10.1038/nbt1031
-  purpose_detail: mzXML an open, generic XML (extensible markup language) representation
-    of MS data. This format is now deprecated and it has been superseded by mzML.
+  purpose_detail: >-
+    mzXML was a pioneering open, generic XML (extensible markup language)
+    representation specifically developed for mass spectrometry (MS) data exchange
+    and storage in proteomics research. As one of the first standardized formats for
+    MS data, mzXML provided a vendor-neutral way to represent complex mass spectrometry
+    information including mass-to-charge ratios, intensity values, scan parameters,
+    and instrument metadata in a structured, machine-readable format. The format
+    supported both profile and centroid data representation modes and could accommodate
+    various types of MS experiments including MS/MS fragmentation spectra. Despite
+    its historical significance in establishing data standardization practices in
+    proteomics, mzXML is now deprecated and has been superseded by the more comprehensive
+    mzML format, which offers enhanced features, better compression, controlled vocabularies,
+    and broader community support. While legacy systems may still encounter mzXML
+    files, current best practices recommend migration to mzML for new data processing
+    workflows and long-term data preservation in mass spectrometry applications.
   requires_registration: false
 - id: B2AI_STANDARD:224
   category: B2AI_STANDARD:BiomedicalStandard
@@ -5882,10 +5990,17 @@ data_standardortools_collection:
   is_open: true
   name: phyloXML
   publication: doi:10.1186/1471-2105-10-356
-  purpose_detail: phyloXML (example) is an XML language designed to describe phylogenetic
-    trees (or networks) and associated data. PhyloXML provides elements for commonly
-    used features, such as taxonomic information, gene names and identifiers, branch
-    lengths, support values, and gene duplication and speciation events.
+  purpose_detail: >-
+    phyloXML is a specialized XML-based language for representing phylogenetic
+    trees and networks, along with rich associated metadata. It provides standardized
+    elements for encoding taxonomic information, gene names, sequence identifiers,
+    branch lengths, support values, gene duplication and speciation events, and other
+    evolutionary attributes. The extensible structure of phyloXML enables interoperability
+    between evolutionary biology and comparative genomics tools, supporting both
+    simple and complex tree annotations. Its schema allows for domain-specific extensions
+    and integration with other bioinformatics resources, making it a widely adopted
+    standard for sharing, visualizing, and analyzing phylogenetic data in research
+    and database applications.
   requires_registration: false
   url: http://www.phyloxml.org/
 - id: B2AI_STANDARD:259
@@ -6149,16 +6264,25 @@ data_standardortools_collection:
   is_open: true
   name: REFLECT
   publication: doi:10.4315/0362-028x-73.3.579
-  purpose_detail: REFLECT stands for Reporting guidElines For randomized controLled
-    trials for livEstoCk and food safeTy. It is an evidence-based minimum set of items
-    for trials reporting production, health, and food-safety outcomes.The aim of the
-    REFLECT Statement is to help authors improve the reporting livestock trials with
-    production, health, and food-safety outcomes. We have focused on both types of
-    randomized trials, field trials and challenge studies in livestock, and the interventions
-    may be therapeutic or preventive. The REFLECT Statement consists of a 22-item
-    checklist (MS Word version ; PDF word version). It is an evolving document that
-    is subject to change periodically as new evidence emerges. This website contains
-    the current definitive version of the REFLECT Statement.
+  purpose_detail: >-
+    REFLECT (Reporting guidElines For randomized controLled trials
+    for livEstoCk and food safeTy) is a specialized, evidence-based minimum set of
+    22 reporting items specifically designed to improve the transparency, reproducibility,
+    and quality of randomized controlled trials in livestock production, animal health,
+    and food safety research. This comprehensive reporting guideline addresses the
+    unique challenges and complexities inherent in agricultural and veterinary research,
+    including both field trials conducted in real-world farm settings and controlled
+    challenge studies in laboratory environments. REFLECT covers essential aspects
+    of trial design, implementation, and reporting including study population characteristics,
+    randomization procedures, intervention details, outcome measurements, statistical
+    analyses, and results presentation. The guideline is specifically tailored for
+    trials evaluating therapeutic or preventive interventions that impact production
+    outcomes, animal health parameters, and food safety measures. Available in both
+    MS Word and PDF formats, REFLECT serves as a dynamic, evolving document that
+    is periodically updated as new evidence emerges, helping researchers, editors,
+    reviewers, and regulatory agencies ensure that livestock and food safety trials
+    are reported with sufficient detail for proper scientific evaluation and evidence-based
+    decision making.
   requires_registration: false
   url: https://meridian.cvm.iastate.edu/reflect/
 - id: B2AI_STANDARD:270
@@ -6273,10 +6397,16 @@ data_standardortools_collection:
   is_open: true
   name: SRA-XML
   publication: doi:10.1093/nar/gkq1019
-  purpose_detail: Used by The Sequence Read Archive (SRA) and the European Nucleotide
-    Archive (ENA) to store raw sequencing data from the next generation of sequencing
-    platforms including Roche 454 GS System, Illumina Genome Analyzer, Applied Biosystems
-    SOLiD System, Helicos Heliscope, Complete Genomics, and Pacific Biosciences SMRT.
+  purpose_detail: >-
+    SRA-XML is an XML-based metadata format used by the Sequence Read
+    Archive (SRA) and the European Nucleotide Archive (ENA) to describe and exchange
+    metadata for raw sequencing data submissions from next-generation sequencing
+    platforms. The format captures detailed information about sequencing experiments,
+    sample attributes, library preparation, instrument models, and data files, enabling
+    standardized data submission, validation, and integration across international
+    repositories. SRA-XML supports the reproducibility and discoverability of sequencing
+    datasets by providing a structured, machine-readable representation of experimental
+    context and provenance, facilitating large-scale genomics research and data sharing.
   requires_registration: false
   url: https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/
 - id: B2AI_STANDARD:275
@@ -6591,13 +6721,25 @@ data_standardortools_collection:
   is_open: true
   name: SBML
   publication: doi:10.1515/jib-2017-0081
-  purpose_detail: The Systems Biology Markup Language (SBML) is a machine-readable
-    exchange format for computational models of biological processes. Its strength
-    is in representating phenomena at the scale of biochemical reactions, but it is
-    not limited to that. By supporting SBML as an input and output format, different
-    software tools can operate on the same representation of a model, removing chances
-    for errors in translation and assuring a common starting point for analyses and
-    simulations.
+  purpose_detail: >-
+    The Systems Biology Markup Language (SBML) is a comprehensive
+    XML-based exchange format specifically designed for representing computational
+    models of biological processes in a machine-readable, standardized form. Developed
+    and maintained by the international SBML community, SBML enables interoperability
+    between diverse systems biology software tools by providing a common model representation
+    language that eliminates translation errors and ensures consistent model interpretation
+    across different platforms. While SBML excels at representing biochemical reaction
+    networks, metabolic pathways, gene regulatory networks, and signal transduction
+    cascades, its flexible architecture supports modeling of various biological phenomena
+    from molecular to cellular scales. The format includes sophisticated features
+    for describing reaction kinetics, species concentrations, compartmentalization,
+    parameter sensitivity, and dynamic behaviors through mathematical expressions
+    and differential equations. SBML's modular design supports extensions for specialized
+    modeling requirements including spatial modeling, flux balance analysis, and
+    multi-scale simulations. Supported by over 270 software tools, SBML serves as
+    the de facto standard for systems biology model exchange, enabling reproducible
+    research, model sharing, database integration, and collaborative development
+    in computational systems biology.
   related_to:
   - B2AI_STANDARD:829
   requires_registration: false
@@ -8219,9 +8361,24 @@ data_standardortools_collection:
   - B2AI_ORG:99
   is_open: true
   name: RDFS
-  purpose_detail: RDF Schema (RDFS) is the RDF vocabulary description language. RDFS
-    defines classes and properties that may be used to describe classes, properties
-    and other resources.
+  purpose_detail: >-
+    RDF Schema (RDFS) is the foundational vocabulary description language
+    that extends the basic RDF vocabulary to provide essential data modeling capabilities
+    for the Semantic Web and linked data applications. As a W3C Recommendation and
+    semantic extension of RDF, RDFS enables the description of groups of related resources
+    and relationships between them by defining classes, properties, and their hierarchical
+    structures. Unlike traditional object-oriented programming models that define
+    classes in terms of their instance properties, RDFS takes a property-centric
+    approach where properties are described in terms of the classes they apply to
+    through domain and range mechanisms. This design philosophy promotes the extensibility
+    principle of the Web, allowing anyone to define additional properties for existing
+    resources without requiring modification of original class definitions. RDFS provides
+    core vocabulary elements including rdfs:Class, rdfs:Resource, rdfs:Property, rdfs:subClassOf,
+    rdfs:subPropertyOf, rdfs:domain, rdfs:range, rdfs:label, and rdfs:comment, which
+    form the basis for more sophisticated ontology languages like OWL. The schema
+    supports the development of machine-readable vocabularies that can be processed
+    automatically, enabling applications to discover and reason about resource relationships,
+    making it an essential component of the Semantic Web infrastructure.
   requires_registration: false
   url: https://www.w3.org/TR/rdf-schema/
 - id: B2AI_STANDARD:371
@@ -8236,10 +8393,23 @@ data_standardortools_collection:
   - B2AI_ORG:6
   is_open: true
   name: RIF-CS
-  purpose_detail: The Registry Interchange Format - Collections and Services (RIF-CS)
-    Schema was developed as a data interchange format for supporting the electronic
-    exchange of collection and service descriptions. It organises information about
-    collections and services into the format required by the ANDS Collections Registry.
+  purpose_detail: >-
+    The Registry Interchange Format - Collections and Services (RIF-CS)
+    is an XML-based metadata schema developed by the Australian National Data Service
+    (ANDS) for describing and exchanging information about research collections,
+    services, parties (people and organizations), and activities. RIF-CS serves
+    as the foundational data interchange format for Research Data Australia and enables
+    institutions to contribute metadata about their research assets to national and
+    international discovery services. The schema organizes metadata into four core
+    entity types with rich relationship modeling capabilities - collections (datasets,
+    databases, repositories), services (software tools, web services, facilities),
+    parties (researchers, institutions, funders), and activities (projects, programs,
+    events). Each entity supports comprehensive descriptive metadata including identifiers,
+    names, descriptions, locations, dates, subjects, and crucially, relationships
+    to other entities that create a connected graph of research infrastructure. RIF-CS
+    enables automated harvesting and aggregation of research metadata across institutions,
+    supporting research discovery, collaboration, and compliance with research data
+    management policies.
   requires_registration: false
   url: https://services.ands.org.au/documentation/rifcs/1.2.0/guidelines/rif-cs.html
 - id: B2AI_STANDARD:372
@@ -8918,7 +9088,23 @@ data_standardortools_collection:
   formal_specification: https://github.com/berkeleybop/artificial-intelligence-ontology
   is_open: true
   name: AIO
-  purpose_detail: General terms for AI
+  purpose_detail: >-
+    The Artificial Intelligence Ontology (AIO) is a comprehensive formal
+    ontology that provides standardized terminology and semantic relationships for
+    describing artificial intelligence systems, methods, and concepts. Developed
+    to address the need for consistent AI terminology across research and applications,
+    AIO models classes and relationships describing deep learning networks, their
+    component layers and activation functions, machine learning algorithms, data
+    processing techniques, and potential algorithmic biases. The ontology contains
+    443 classes organized in a hierarchical structure with a maximum depth of 5 levels,
+    covering fundamental AI concepts from basic computational methods to complex
+    neural architectures. AIO serves as a critical resource for AI researchers, practitioners,
+    and systems developers who need standardized vocabularies for annotating AI
+    models, describing experimental procedures, ensuring reproducibility, and enabling
+    semantic interoperability between AI systems and databases. The ontology facilitates
+    automated reasoning about AI systems, supports metadata annotation for AI workflows,
+    and contributes to the broader goal of making artificial intelligence research
+    more findable, accessible, interoperable, and reusable.
   requires_registration: false
   url: https://bioportal.bioontology.org/ontologies/AIO
 - id: B2AI_STANDARD:408
@@ -9189,7 +9375,25 @@ data_standardortools_collection:
   - B2AI_ORG:13
   is_open: true
   name: CVX
-  purpose_detail: Code set for active and inactive vaccines available in the US.
+  purpose_detail: >-
+    The Clinical Vaccines Administered (CVX) code set is a comprehensive
+    standardized vocabulary developed and maintained by the CDC's National Center
+    for Immunization and Respiratory Diseases (NCIRD) that provides unique numeric
+    identifiers for all vaccines available in the United States healthcare system.
+    This essential code set includes both active vaccines currently available for
+    patient administration and inactive vaccines that may appear in historical immunization
+    records, enabling complete tracking of vaccination history across a patient's
+    lifetime. CVX codes are specifically designed for use in HL7 Version 2.3.1 and
+    2.5.1 immunization messages and electronic health record systems, facilitating
+    standardized communication between healthcare providers, immunization information
+    systems (IIS), and public health agencies. Each CVX code entry includes detailed
+    information about vaccine status (active, inactive, pending, non-US, or never
+    active), last update timestamp, and clinical notes providing context about usage
+    and availability. When paired with MVX (manufacturer) codes, CVX codes can precisely
+    identify specific trade-named vaccine products, supporting accurate inventory
+    management, adverse event reporting, vaccine safety monitoring, and public health
+    surveillance activities essential for maintaining population immunity and preventing
+    vaccine-preventable diseases.
   requires_registration: false
   url: https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
 - id: B2AI_STANDARD:424
@@ -9947,8 +10151,24 @@ data_standardortools_collection:
   formal_specification: https://github.com/DiseaseOntology/HumanDiseaseOntology
   is_open: true
   name: DOID
-  purpose_detail: An ontology for describing the classification of human diseases
-    organized by etiology.
+  purpose_detail: >-
+    The Human Disease Ontology (DOID) is a comprehensive, standardized
+    ontology that provides a hierarchical classification system for human diseases
+    organized primarily by etiology (underlying cause). Developed as part of the
+    Open Biomedical Ontologies (OBO) Foundry, DOID serves as a cornerstone reference
+    for disease terminology in biomedical research, clinical informatics, and healthcare
+    applications. The ontology integrates multiple disease classification systems
+    including ICD, SNOMED CT, UMLS, and MeSH, providing extensive cross-references
+    that enable interoperability between different medical coding systems. DOID
+    structures diseases into logical hierarchies based on disease mechanisms, affected
+    anatomical systems, and causal agents, enabling both broad categorical searches
+    and precise disease identification. Each disease concept includes standardized
+    names, definitions, synonyms, and relationships to parent and child terms, creating
+    a rich semantic network that supports computational analysis of disease data.
+    The ontology is extensively used in genomics databases, electronic health records,
+    biomedical literature annotation, drug discovery pipelines, and epidemiological
+    studies where consistent disease terminology is essential for data integration
+    and comparative analysis.
   requires_registration: false
   url: http://www.disease-ontology.org
 - id: B2AI_STANDARD:468
@@ -10309,7 +10529,23 @@ data_standardortools_collection:
   formal_specification: https://github.com/IEDB/MRO
   is_open: true
   name: MRO
-  purpose_detail: Major Histocompatibility Complex (MHC) restriction in experiments.
+  purpose_detail: >-
+    The Major Histocompatibility Complex (MHC) Restriction Ontology
+    (MRO) is a specialized ontology developed by the Immune Epitope Database (IEDB)
+    to provide standardized terminology for describing MHC restriction phenomena
+    in immunological experiments and data. MHC restriction refers to the biological
+    process by which T-cell recognition of antigens is limited to peptides presented
+    by specific MHC molecules that are compatible with the T-cell's own MHC background.
+    MRO systematically organizes the complex relationships between MHC alleles, T-cell
+    responses, and antigen presentation contexts that are crucial for understanding
+    adaptive immune responses, vaccine development, and transplantation immunology.
+    The ontology enables precise annotation of immunological experiments by providing
+    controlled vocabulary terms for MHC class I and class II molecules, their allelic
+    variants, restriction patterns, and associated experimental conditions. This
+    standardization is essential for comparative immunology studies, epitope mapping
+    projects, and the development of personalized immunotherapies where accurate
+    description of MHC-restricted immune responses is critical for data interpretation
+    and clinical translation.
   requires_registration: false
 - id: B2AI_STANDARD:490
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -11117,7 +11353,24 @@ data_standardortools_collection:
   formal_specification: https://github.com/PROconsortium/PRoteinOntology/
   is_open: true
   name: PR
-  purpose_detail: An ontological representation of protein-related entities
+  purpose_detail: >-
+    The Protein Ontology (PR) is a comprehensive formal ontology that
+    provides standardized terminology and semantic relationships for describing protein-related
+    entities across the complete spectrum of protein science. Developed by the PRotein
+    Ontology consortium, PR serves as a unifying framework that integrates protein
+    sequence, structure, and functional information into a coherent knowledge representation
+    system. The ontology encompasses multiple levels of protein organization including
+    protein families and complexes, individual protein molecules, protein domains
+    and regions, post-translational modifications, and protein isoforms generated
+    through alternative splicing or processing. PR maintains extensive cross-references
+    to major protein databases including UniProt, NCBI, and Ensembl, enabling seamless
+    integration with existing protein annotation resources. The ontology supports
+    advanced protein function annotation by providing precise vocabulary for describing
+    enzymatic activities, binding sites, regulatory mechanisms, and cellular localization
+    patterns. PR is essential for proteomics data standardization, comparative protein
+    analysis, functional genomics research, and systems biology applications where
+    consistent protein terminology facilitates data integration, automated reasoning,
+    and knowledge discovery across diverse experimental platforms.
   requires_registration: false
 - id: B2AI_STANDARD:539
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -11739,8 +11992,14 @@ data_standardortools_collection:
   is_open: true
   name: XPO
   publication: doi:10.1186/s12859-022-04636-8
-  purpose_detail: Anatomical, cellular, and gene function phenotypes occurring throughout
-    the development of Xenopus laevis.
+  purpose_detail: >-
+    The Xenopus Phenotype Ontology (XPO) is a formal ontology for representing
+    anatomical, cellular, and gene function phenotypes observed throughout the development
+    of the African frogs Xenopus laevis and Xenopus tropicalis. XPO enables standardized
+    annotation of phenotypes in Xenopus research, supporting integration with genotype,
+    phenotype, and disease data across species. The ontology is used by Xenbase and
+    other resources to facilitate cross-species comparisons, data sharing, and computational
+    analysis of developmental and functional phenotypes in model organism research.
   requires_registration: false
 - id: B2AI_STANDARD:575
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -12225,12 +12484,16 @@ data_standardortools_collection:
   is_open: true
   name: Kvak2022
   publication: doi:10.48550/arXiv.2203.10596
-  purpose_detail: One of the critical tools for early detection and subsequent evaluation
-    of the incidence of lung diseases is chest radiography. This study presents a
-    real-world implementation of a convolutional neural network (CNN) based Carebot
-    Covid app to detect COVID-19 from chest X-ray (CXR) images. Our proposed model
-    takes the form of a simple and intuitive application. Used CNN can be deployed
-    as a STOW-RS prediction endpoint for direct implementation into DICOM viewers.
+  purpose_detail: >-
+    This study presents the design and implementation of a convolutional
+    neural network (CNN)-based assistive diagnosis system for COVID-19 case detection
+    from chest X-ray images. The Kvak2022 model leverages deep learning architectures
+    (DenseNet and ResNet) to achieve high precision and recall in identifying SARS-CoV-2
+    infection from radiographic data. The system is designed for real-world deployment
+    as a prediction endpoint compatible with DICOM viewers, supporting rapid, automated
+    screening in clinical settings. The approach demonstrates the potential of AI-driven
+    tools to augment radiological diagnosis and improve early detection of lung diseases
+    such as COVID-19.
   requires_registration: false
 - id: B2AI_STANDARD:703
   category: B2AI_STANDARD:ReferenceImplementation
@@ -12325,8 +12588,16 @@ data_standardortools_collection:
   is_open: true
   name: Bioregistry
   publication: doi:10.1101/2022.07.08.499378
-  purpose_detail: A registry of prefixes and identifier formats used in biomedical
-    data sets, knowledge bases, and ontologies.
+  purpose_detail: >-
+    The Bioregistry is an open-source, community-curated registry and
+    meta-registry that catalogs prefixes, identifier formats, and metadata for biomedical
+    ontologies, databases, and controlled vocabularies. It integrates and harmonizes
+    information from multiple registries (e.g., OBO Foundry, Identifiers.org, OLS),
+    providing a unified resource for resolving compact URIs (CURIEs) and supporting
+    semantic interoperability. The Bioregistry also functions as a resolver, mapping
+    CURIEs to web resources, and is governed by transparent contribution and review
+    processes. It is widely used for data integration, annotation, and knowledge
+    graph construction in the life sciences.
   requires_registration: false
   url: https://bioregistry.io/
 - id: B2AI_STANDARD:708
@@ -12393,8 +12664,26 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: Dockstore
-  purpose_detail: A free and open source platform for sharing reusable and scalable
-    analytical tools and workflows.
+  purpose_detail: >-
+    Dockstore is a comprehensive, open-source platform developed by
+    the Ontario Institute for Cancer Research (OICR) and other collaborators that
+    serves as a central registry for sharing, discovering, and executing containerized
+    bioinformatics tools and computational workflows. Built on modern container
+    technologies including Docker and Singularity, Dockstore enables researchers
+    to package their analytical pipelines with all dependencies and configurations,
+    ensuring reproducibility across different computing environments. The platform
+    supports multiple workflow languages including Common Workflow Language (CWL),
+    Workflow Description Language (WDL), and Nextflow, providing flexibility for
+    diverse computational approaches in genomics, proteomics, and systems biology.
+    Dockstore integrates with popular code repositories like GitHub, GitLab, and
+    Bitbucket, enabling version-controlled development and automated testing of computational
+    tools. The platform facilitates scientific collaboration by allowing researchers
+    to discover validated, ready-to-use analytical workflows, reducing duplication
+    of effort and accelerating research discovery. With built-in execution engines
+    and cloud integration capabilities, Dockstore supports scalable workflow execution
+    on local clusters, cloud platforms, and high-performance computing systems,
+    making advanced bioinformatics accessible to researchers regardless of their
+    computational expertise.
   requires_registration: false
   url: https://dockstore.org/
 - id: B2AI_STANDARD:712
@@ -13175,9 +13464,24 @@ data_standardortools_collection:
   formal_specification: https://github.com/simonw/datasette
   is_open: true
   name: Datasette
-  purpose_detail: A tool for exploring and publishing data. It helps people take data
-    of any shape, analyze and explore it, and publish it as an interactive website
-    and accompanying API.
+  purpose_detail: >-
+    Datasette is a comprehensive open-source tool ecosystem designed
+    for exploring, analyzing, and publishing data through an intuitive web interface
+    and accompanying JSON API. Created by Simon Willison, Datasette transforms data
+    of any shape into interactive websites that enable users to perform exploratory
+    data analysis, create visualizations, and share findings with colleagues without
+    requiring extensive technical expertise. The platform excels in three primary
+    use cases: exploratory data analysis (automatically detecting patterns in CSV,
+    JSON, and database data), instant data publishing (using the `datasette publish`
+    command to deploy data to cloud hosting providers like Google Cloud Run, Heroku,
+    or Vercel), and rapid prototyping (spinning up JSON APIs in minutes for proof-of-concept
+    development). Datasette is part of a broader ecosystem of 44 related tools and
+    154 plugins that enhance productivity when working with structured data. The tool
+    supports multiple data import formats, provides built-in security features for
+    data access control, and offers extensive customization options through its plugin
+    architecture. Datasette serves data journalists, museum curators, archivists,
+    local governments, scientists, researchers, and anyone seeking to make their data
+    more accessible and discoverable through web-based interfaces.
   requires_registration: false
   url: https://datasette.io/
 - id: B2AI_STANDARD:755
@@ -13244,7 +13548,24 @@ data_standardortools_collection:
   description: DigitalOcean
   is_open: false
   name: DigitalOcean
-  purpose_detail: Cloud computing platform.
+  purpose_detail: >-
+    DigitalOcean is a comprehensive cloud infrastructure platform that
+    provides scalable computing resources designed to simplify cloud deployment
+    for developers, startups, and enterprises. The platform offers a complete suite
+    of cloud services including Droplets (virtual machines), Kubernetes clusters,
+    App Platform for application deployment, managed databases, object storage (Spaces),
+    load balancers, and specialized AI/ML infrastructure including GPU-powered Droplets
+    with NVIDIA H100, H200, and AMD MI325X accelerators. DigitalOcean distinguishes
+    itself through developer-friendly interfaces, predictable pricing without bandwidth
+    overage charges, and extensive community-contributed tutorials and documentation.
+    The platform serves over 600,000 customers ranging from individual developers
+    to large enterprises, offering both self-service infrastructure management and
+    managed services with premium support options. DigitalOcean's global data center
+    network provides 99.99% uptime SLAs and supports diverse use cases including
+    web hosting, application development, AI inference workloads, container orchestration,
+    and data processing pipelines, making it particularly attractive for cost-conscious
+    organizations seeking reliable cloud infrastructure without the complexity of
+    larger cloud providers.
   requires_registration: true
   url: https://www.digitalocean.com/
 - id: B2AI_STANDARD:759
@@ -13688,10 +14009,16 @@ data_standardortools_collection:
   is_open: true
   name: khmer
   publication: doi:10.12688/f1000research.6924.1
-  purpose_detail: A freely available software library for working efficiently with
-    fixed length DNA words, or k-mers. khmer provides implementations of a probabilistic
-    k-mer counting data structure, a compressible De Bruijn graph representation,
-    De Bruijn graph partitioning, and digital normalization.
+  purpose_detail: >-
+    khmer is a free, open-source software library and suite of command-line
+    tools for efficient analysis of high-throughput DNA sequencing data, including
+    genomes, transcriptomes, metagenomes, and single-cell datasets. It implements
+    advanced algorithms for probabilistic k-mer counting, digital normalization,
+    compressible De Bruijn graph representation, and graph partitioning, enabling
+    scalable de novo assembly, error correction, and data reduction. khmer is designed
+    for use in UNIX environments and is supported by extensive documentation, community
+    protocols, and integration with popular bioinformatics workflows. It is widely
+    used for preprocessing and quality control in large-scale sequencing projects.
   related_to:
   - B2AI_STANDARD:183
   requires_registration: false
