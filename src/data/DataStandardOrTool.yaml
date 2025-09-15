@@ -682,8 +682,23 @@ data_standardortools_collection:
   - B2AI_ORG:28
   is_open: true
   name: Bioschemas
-  purpose_detail: Bioschemas aims to improve the Findability on the Web of life sciences
-    resources such as datasets, software, and training materials.
+  purpose_detail: >-
+    Bioschemas is a community-driven initiative that extends Schema.org
+    to improve the findability and discoverability of life sciences resources on
+    the web through structured markup. The project makes two main contributions
+    to the life sciences community - proposing new types and properties to Schema.org
+    specifically for life science resources, and defining usage profiles over existing
+    Schema.org types that specify essential, recommended, and optional properties
+    for consistent markup. Bioschemas profiles significantly simplify the markup
+    process by reducing complex Schema.org types to manageable subsets while ensuring
+    compatibility with search engines like Google Dataset Search. The initiative
+    has achieved major recognition with six Bioschemas types (BioChemEntity, ChemicalSubstance,
+    Gene, MolecularEntity, Protein, Taxon) officially included in Schema.org version
+    13.0. Endorsed by the European Research Council and serving as a flagship policy
+    of ELIXIR, Bioschemas supports FAIR data principles by enabling automated discovery,
+    collation, and analysis of distributed life sciences resources including datasets,
+    software applications, training materials, and biological entities across the
+    web ecosystem.
   requires_registration: false
   url: https://bioschemas.org/
 - id: B2AI_STANDARD:31
@@ -818,12 +833,22 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:53
   is_open: true
   name: BED
-  purpose_detail: BED (Browser Extensible Data) format provides a flexible way to
-    define the data lines that are displayed in an annotation track. BED lines have
-    three required fields and nine additional optional fields. The number of fields
-    per line must be consistent throughout any single set of data in an annotation
-    track. The order of the optional fields is binding. Lower-numbered fields must
-    always be populated if higher-numbered fields are used.
+  purpose_detail: >-
+    The Browser Extensible Data (BED) format is a flexible, tab-delimited
+    text format designed for defining annotation tracks in genome browsers, particularly
+    the UCSC Genome Browser. BED format provides a standardized way to represent
+    genomic features with positional information, supporting both simple coordinate-based
+    annotations and complex multi-exon structures. The format consists of 12 possible
+    fields, with the first three (chromosome, start position, end position) being
+    mandatory and nine additional optional fields providing detailed feature information
+    including name, score, strand orientation, thick start/end coordinates for coding
+    regions, RGB color values for visualization, and block structures for representing
+    discontinuous features like exons and introns. BED files use zero-based, half-open
+    coordinate system where the start position is inclusive and the end position
+    is exclusive, enabling precise genomic interval representation. The format supports
+    various annotation types from simple genomic intervals to complex gene models,
+    making it essential for genomic data visualization, comparative genomics, and
+    functional annotation workflows in bioinformatics research.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:119
@@ -6662,13 +6687,25 @@ data_standardortools_collection:
   is_open: true
   name: SBML
   publication: doi:10.1515/jib-2017-0081
-  purpose_detail: The Systems Biology Markup Language (SBML) is a machine-readable
-    exchange format for computational models of biological processes. Its strength
-    is in representating phenomena at the scale of biochemical reactions, but it is
-    not limited to that. By supporting SBML as an input and output format, different
-    software tools can operate on the same representation of a model, removing chances
-    for errors in translation and assuring a common starting point for analyses and
-    simulations.
+  purpose_detail: >-
+    The Systems Biology Markup Language (SBML) is a comprehensive
+    XML-based exchange format specifically designed for representing computational
+    models of biological processes in a machine-readable, standardized form. Developed
+    and maintained by the international SBML community, SBML enables interoperability
+    between diverse systems biology software tools by providing a common model representation
+    language that eliminates translation errors and ensures consistent model interpretation
+    across different platforms. While SBML excels at representing biochemical reaction
+    networks, metabolic pathways, gene regulatory networks, and signal transduction
+    cascades, its flexible architecture supports modeling of various biological phenomena
+    from molecular to cellular scales. The format includes sophisticated features
+    for describing reaction kinetics, species concentrations, compartmentalization,
+    parameter sensitivity, and dynamic behaviors through mathematical expressions
+    and differential equations. SBML's modular design supports extensions for specialized
+    modeling requirements including spatial modeling, flux balance analysis, and
+    multi-scale simulations. Supported by over 270 software tools, SBML serves as
+    the de facto standard for systems biology model exchange, enabling reproducible
+    research, model sharing, database integration, and collaborative development
+    in computational systems biology.
   related_to:
   - B2AI_STANDARD:829
   requires_registration: false
@@ -8322,10 +8359,23 @@ data_standardortools_collection:
   - B2AI_ORG:6
   is_open: true
   name: RIF-CS
-  purpose_detail: The Registry Interchange Format - Collections and Services (RIF-CS)
-    Schema was developed as a data interchange format for supporting the electronic
-    exchange of collection and service descriptions. It organises information about
-    collections and services into the format required by the ANDS Collections Registry.
+  purpose_detail: >-
+    The Registry Interchange Format - Collections and Services (RIF-CS)
+    is an XML-based metadata schema developed by the Australian National Data Service
+    (ANDS) for describing and exchanging information about research collections,
+    services, parties (people and organizations), and activities. RIF-CS serves
+    as the foundational data interchange format for Research Data Australia and enables
+    institutions to contribute metadata about their research assets to national and
+    international discovery services. The schema organizes metadata into four core
+    entity types with rich relationship modeling capabilities - collections (datasets,
+    databases, repositories), services (software tools, web services, facilities),
+    parties (researchers, institutions, funders), and activities (projects, programs,
+    events). Each entity supports comprehensive descriptive metadata including identifiers,
+    names, descriptions, locations, dates, subjects, and crucially, relationships
+    to other entities that create a connected graph of research infrastructure. RIF-CS
+    enables automated harvesting and aggregation of research metadata across institutions,
+    supporting research discovery, collaboration, and compliance with research data
+    management policies.
   requires_registration: false
   url: https://services.ands.org.au/documentation/rifcs/1.2.0/guidelines/rif-cs.html
 - id: B2AI_STANDARD:372
@@ -9004,7 +9054,23 @@ data_standardortools_collection:
   formal_specification: https://github.com/berkeleybop/artificial-intelligence-ontology
   is_open: true
   name: AIO
-  purpose_detail: General terms for AI
+  purpose_detail: >-
+    The Artificial Intelligence Ontology (AIO) is a comprehensive formal
+    ontology that provides standardized terminology and semantic relationships for
+    describing artificial intelligence systems, methods, and concepts. Developed
+    to address the need for consistent AI terminology across research and applications,
+    AIO models classes and relationships describing deep learning networks, their
+    component layers and activation functions, machine learning algorithms, data
+    processing techniques, and potential algorithmic biases. The ontology contains
+    443 classes organized in a hierarchical structure with a maximum depth of 5 levels,
+    covering fundamental AI concepts from basic computational methods to complex
+    neural architectures. AIO serves as a critical resource for AI researchers, practitioners,
+    and systems developers who need standardized vocabularies for annotating AI
+    models, describing experimental procedures, ensuring reproducibility, and enabling
+    semantic interoperability between AI systems and databases. The ontology facilitates
+    automated reasoning about AI systems, supports metadata annotation for AI workflows,
+    and contributes to the broader goal of making artificial intelligence research
+    more findable, accessible, interoperable, and reusable.
   requires_registration: false
   url: https://bioportal.bioontology.org/ontologies/AIO
 - id: B2AI_STANDARD:408
@@ -10051,8 +10117,24 @@ data_standardortools_collection:
   formal_specification: https://github.com/DiseaseOntology/HumanDiseaseOntology
   is_open: true
   name: DOID
-  purpose_detail: An ontology for describing the classification of human diseases
-    organized by etiology.
+  purpose_detail: >-
+    The Human Disease Ontology (DOID) is a comprehensive, standardized
+    ontology that provides a hierarchical classification system for human diseases
+    organized primarily by etiology (underlying cause). Developed as part of the
+    Open Biomedical Ontologies (OBO) Foundry, DOID serves as a cornerstone reference
+    for disease terminology in biomedical research, clinical informatics, and healthcare
+    applications. The ontology integrates multiple disease classification systems
+    including ICD, SNOMED CT, UMLS, and MeSH, providing extensive cross-references
+    that enable interoperability between different medical coding systems. DOID
+    structures diseases into logical hierarchies based on disease mechanisms, affected
+    anatomical systems, and causal agents, enabling both broad categorical searches
+    and precise disease identification. Each disease concept includes standardized
+    names, definitions, synonyms, and relationships to parent and child terms, creating
+    a rich semantic network that supports computational analysis of disease data.
+    The ontology is extensively used in genomics databases, electronic health records,
+    biomedical literature annotation, drug discovery pipelines, and epidemiological
+    studies where consistent disease terminology is essential for data integration
+    and comparative analysis.
   requires_registration: false
   url: http://www.disease-ontology.org
 - id: B2AI_STANDARD:468
@@ -10413,7 +10495,23 @@ data_standardortools_collection:
   formal_specification: https://github.com/IEDB/MRO
   is_open: true
   name: MRO
-  purpose_detail: Major Histocompatibility Complex (MHC) restriction in experiments.
+  purpose_detail: >-
+    The Major Histocompatibility Complex (MHC) Restriction Ontology
+    (MRO) is a specialized ontology developed by the Immune Epitope Database (IEDB)
+    to provide standardized terminology for describing MHC restriction phenomena
+    in immunological experiments and data. MHC restriction refers to the biological
+    process by which T-cell recognition of antigens is limited to peptides presented
+    by specific MHC molecules that are compatible with the T-cell's own MHC background.
+    MRO systematically organizes the complex relationships between MHC alleles, T-cell
+    responses, and antigen presentation contexts that are crucial for understanding
+    adaptive immune responses, vaccine development, and transplantation immunology.
+    The ontology enables precise annotation of immunological experiments by providing
+    controlled vocabulary terms for MHC class I and class II molecules, their allelic
+    variants, restriction patterns, and associated experimental conditions. This
+    standardization is essential for comparative immunology studies, epitope mapping
+    projects, and the development of personalized immunotherapies where accurate
+    description of MHC-restricted immune responses is critical for data interpretation
+    and clinical translation.
   requires_registration: false
 - id: B2AI_STANDARD:490
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -11221,7 +11319,24 @@ data_standardortools_collection:
   formal_specification: https://github.com/PROconsortium/PRoteinOntology/
   is_open: true
   name: PR
-  purpose_detail: An ontological representation of protein-related entities
+  purpose_detail: >-
+    The Protein Ontology (PR) is a comprehensive formal ontology that
+    provides standardized terminology and semantic relationships for describing protein-related
+    entities across the complete spectrum of protein science. Developed by the PRotein
+    Ontology consortium, PR serves as a unifying framework that integrates protein
+    sequence, structure, and functional information into a coherent knowledge representation
+    system. The ontology encompasses multiple levels of protein organization including
+    protein families and complexes, individual protein molecules, protein domains
+    and regions, post-translational modifications, and protein isoforms generated
+    through alternative splicing or processing. PR maintains extensive cross-references
+    to major protein databases including UniProt, NCBI, and Ensembl, enabling seamless
+    integration with existing protein annotation resources. The ontology supports
+    advanced protein function annotation by providing precise vocabulary for describing
+    enzymatic activities, binding sites, regulatory mechanisms, and cellular localization
+    patterns. PR is essential for proteomics data standardization, comparative protein
+    analysis, functional genomics research, and systems biology applications where
+    consistent protein terminology facilitates data integration, automated reasoning,
+    and knowledge discovery across diverse experimental platforms.
   requires_registration: false
 - id: B2AI_STANDARD:539
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -12497,8 +12612,26 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: Dockstore
-  purpose_detail: A free and open source platform for sharing reusable and scalable
-    analytical tools and workflows.
+  purpose_detail: >-
+    Dockstore is a comprehensive, open-source platform developed by
+    the Ontario Institute for Cancer Research (OICR) and other collaborators that
+    serves as a central registry for sharing, discovering, and executing containerized
+    bioinformatics tools and computational workflows. Built on modern container
+    technologies including Docker and Singularity, Dockstore enables researchers
+    to package their analytical pipelines with all dependencies and configurations,
+    ensuring reproducibility across different computing environments. The platform
+    supports multiple workflow languages including Common Workflow Language (CWL),
+    Workflow Description Language (WDL), and Nextflow, providing flexibility for
+    diverse computational approaches in genomics, proteomics, and systems biology.
+    Dockstore integrates with popular code repositories like GitHub, GitLab, and
+    Bitbucket, enabling version-controlled development and automated testing of computational
+    tools. The platform facilitates scientific collaboration by allowing researchers
+    to discover validated, ready-to-use analytical workflows, reducing duplication
+    of effort and accelerating research discovery. With built-in execution engines
+    and cloud integration capabilities, Dockstore supports scalable workflow execution
+    on local clusters, cloud platforms, and high-performance computing systems,
+    making advanced bioinformatics accessible to researchers regardless of their
+    computational expertise.
   requires_registration: false
   url: https://dockstore.org/
 - id: B2AI_STANDARD:712
@@ -13363,7 +13496,24 @@ data_standardortools_collection:
   description: DigitalOcean
   is_open: false
   name: DigitalOcean
-  purpose_detail: Cloud computing platform.
+  purpose_detail: >-
+    DigitalOcean is a comprehensive cloud infrastructure platform that
+    provides scalable computing resources designed to simplify cloud deployment
+    for developers, startups, and enterprises. The platform offers a complete suite
+    of cloud services including Droplets (virtual machines), Kubernetes clusters,
+    App Platform for application deployment, managed databases, object storage (Spaces),
+    load balancers, and specialized AI/ML infrastructure including GPU-powered Droplets
+    with NVIDIA H100, H200, and AMD MI325X accelerators. DigitalOcean distinguishes
+    itself through developer-friendly interfaces, predictable pricing without bandwidth
+    overage charges, and extensive community-contributed tutorials and documentation.
+    The platform serves over 600,000 customers ranging from individual developers
+    to large enterprises, offering both self-service infrastructure management and
+    managed services with premium support options. DigitalOcean's global data center
+    network provides 99.99% uptime SLAs and supports diverse use cases including
+    web hosting, application development, AI inference workloads, container orchestration,
+    and data processing pipelines, making it particularly attractive for cost-conscious
+    organizations seeking reliable cloud infrastructure without the complexity of
+    larger cloud providers.
   requires_registration: true
   url: https://www.digitalocean.com/
 - id: B2AI_STANDARD:759
