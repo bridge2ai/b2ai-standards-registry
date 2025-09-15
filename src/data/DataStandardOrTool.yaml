@@ -190,14 +190,22 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: AIM
-  purpose_detail: The Annotation and Image Markup project provides a standardized
-    schema for capturing the results of medical imaging exams, primarily radiology,
-    using controlled terminologies/ontologies. AIM captures results in terms of the
-    region within an image in which areas of interest are located, the semantic descriptions
-    of those regions, inferences about them, calculations on them, and quantitative
-    features derived by computer programs run on them. AIM is interoperable with DICOM-SR
-    and HL7-CDA, other standards for image metadata, but it provides unique advantages
-    by providing an explicit semantic model of imaging results.
+  purpose_detail: >-
+    The Annotation and Image Markup (AIM) project is the first initiative
+    to propose and create a standard means of adding information and knowledge to
+    medical images in a clinical environment, enabling automatic searching of image
+    content. AIM provides a comprehensive solution to imaging challenges including
+    the lack of agreed-upon syntax for annotation and markup, standardized semantics
+    for annotations, and common formats for annotations and markup. The AIM Model
+    captures descriptive information for images with user-generated graphical symbols
+    into a single common information source. The project includes multiple components:
+    the AIM Template Service (a web service for uploading and downloading AIM templates),
+    the AIM Template Builder (a Java application for creating templates with well-defined
+    questions and answer choices), and reference implementations like AIM on ClearCanvas
+    Workstation. AIM captures results in terms of image regions of interest, semantic
+    descriptions, inferences, calculations, and quantitative features derived by computer
+    programs. It is interoperable with DICOM-SR and HL7-CDA standards while providing
+    unique advantages through an explicit semantic model of imaging results.
   related_to:
   - B2AI_STANDARD:98
   requires_registration: false
@@ -553,14 +561,22 @@ data_standardortools_collection:
   is_open: true
   name: BioCompute
   publication: doi:10.5731/pdajpst.2016.006734
-  purpose_detail: Because of the many different ways to organize data, a major goal
-    of the BioCompute project is to build and maintain a formal standard through recognized,
-    accredited standards setting organizations like the Institute for Electrical and
-    Electronics Engineers (IEEE) and the International Standards Organization (ISO).
-    A formal, consensus-based standard builds predictability and even more stability
-    into the way in which bioinformatic methods are communicated. The standard, officially
-    known as 2791-2020, has two parts, the standards document and the schema, which
-    is maintained in an open source repository.
+  purpose_detail: >-
+    BioCompute Objects (BCOs) are a formal standard for representing
+    bioinformatics computational workflows and analyses, designed to facilitate communication
+    and reproducibility in high-throughput sequencing research. Developed through
+    a collaborative effort and formally recognized as IEEE Standard 2791-2020, BCOs
+    structure critical workflow information into standardized domains including provenance,
+    usability, extension, description, execution, parametric, input/output, and error
+    domains. BCOs are represented in JSON format adhering to JSON schema draft-07,
+    making them both human and machine readable. The standard addresses the challenge
+    of documenting complex bioinformatics methods by providing predictable structure
+    and stability for workflow communication. Upon assignment of a digital etag,
+    three domains become immutable to ensure integrity: the Parametric Domain, Execution
+    Domain, and I/O Domain. BCOs support regulatory compliance including FDA Title
+    21 CFR Part 11 considerations for electronic records and digital signatures, with
+    hash values and encryption keys generated from execution and parametric domains
+    for validation purposes.
   requires_registration: false
   url: https://docs.biocomputeobject.org/user_guide/
 - id: B2AI_STANDARD:26
@@ -1486,8 +1502,22 @@ data_standardortools_collection:
   is_open: true
   name: COREQ
   publication: doi:10.1093/intqhc/mzm042
-  purpose_detail: A reporting guideline for qualitative research interviews and focus
-    groups comprising 32 criteria, the list of which is available from http://www.cnfs.net/modules/module2/story_content/external_files/13_COREQ_checklist_000017.pdf
+  purpose_detail: >-
+    COREQ (Consolidated Criteria for Reporting Qualitative Research)
+    is a comprehensive 32-item reporting checklist specifically designed to improve
+    the transparency, rigor, and completeness of qualitative research reports, particularly
+    those involving interviews and focus groups. This evidence-based guideline addresses
+    three major domains essential for qualitative research reporting: research team
+    and reflexivity (covering the researcher's credentials, occupation, experience,
+    gender, and relationship with participants), study design (including theoretical
+    framework, participant selection, setting, and data collection methods), and
+    analysis and findings (encompassing data analysis approaches, verification procedures,
+    and presentation of findings). COREQ serves as a critical quality assessment
+    tool for researchers, editors, reviewers, and readers, helping ensure that qualitative
+    studies provide sufficient detail for proper evaluation and potential replication.
+    The checklist promotes methodological transparency and supports the credibility
+    and trustworthiness of qualitative health research by standardizing reporting
+    expectations across the research community.
   requires_registration: false
 - id: B2AI_STANDARD:68
   category: B2AI_STANDARD:BiomedicalStandard
@@ -1900,9 +1930,22 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: DCMR
-  purpose_detail: This Part of the DICOM Standard specifies the DICOM Content Mapping
-    Resource (DCMR), which defines the Templates and Context Groups used elsewhere
-    in the Standard.
+  purpose_detail: >-
+    DICOM Part 16 Content Mapping Resource (DCMR) is a comprehensive
+    component of the DICOM standard that provides the foundational vocabulary and
+    semantic structures used throughout medical imaging systems worldwide. DCMR defines
+    the Templates and Context Groups that standardize the representation of clinical
+    concepts, measurements, and observations within DICOM objects, ensuring consistent
+    interpretation of medical imaging data across different systems, vendors, and
+    healthcare institutions. The Content Mapping Resource includes structured templates
+    for various types of medical imaging reports, measurements, and annotations, covering
+    specialties such as radiology, cardiology, ophthalmology, and oncology. These
+    templates define the specific data elements, their relationships, and the controlled
+    terminologies that should be used when creating structured reports and enhanced
+    imaging objects. DCMR plays a crucial role in enabling interoperability, supporting
+    artificial intelligence applications in medical imaging, and facilitating the
+    exchange of semantically rich imaging information in clinical practice and research
+    environments.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -3370,17 +3413,23 @@ data_standardortools_collection:
   is_open: true
   name: GlycoCT
   publication: doi:10.1016/j.carres.2008.03.011
-  purpose_detail: GlycoCT format is devised to describe the carbohydrate sequences,
-    with a controlled vocabulary to name monosaccharides, adopting IUPAC rules to
-    generate a consistent, machine-readable nomenclature, based on a connection table
-    approach, instead of a linear encoding scheme. The format uses a block concept
-    to describe frequently occurring special features of carbohydrate sequences like
-    repeating units. It exists in two variants, a condensed form and a more verbose
-    XML syntax. Sorting rules assure the uniqueness of the condensed form, thus making
-    it suitable as a direct primary key for database applications, which rely on unique
-    identifiers. GlycoCT encompasses the capabilities of the heterogeneous landscape
-    of digital encoding schemata in glycomics and is thus a step forward on the way
-    to a unified and broadly accepted sequence format in glycobioinformatics.
+  purpose_detail: >-
+    GlycoCT (Glyco Connection Table) format is an advanced, comprehensive
+    encoding scheme specifically designed to describe complex carbohydrate sequences
+    with unprecedented precision and consistency in glycobioinformatics. This format
+    employs a controlled vocabulary based on IUPAC nomenclature rules to systematically
+    name monosaccharides and utilizes a connection table approach rather than linear
+    encoding, enabling accurate representation of branched and complex glycan structures.
+    GlycoCT incorporates a sophisticated block concept to efficiently handle frequently
+    occurring structural features such as repeating units, which are common in biological
+    carbohydrates. The format exists in two complementary variants: a condensed form
+    optimized for database applications with strict sorting rules ensuring uniqueness
+    for use as primary keys, and a more verbose XML syntax that provides enhanced
+    readability and machine processing capabilities. GlycoCT represents a significant
+    advancement toward achieving a unified and broadly accepted sequence format in
+    glycobioinformatics, encompassing the capabilities of the heterogeneous landscape
+    of existing digital encoding schemata while providing the foundation for developing
+    ontological relationships between glycan structural terms.
   requires_registration: false
 - id: B2AI_STANDARD:144
   category: B2AI_STANDARD:BiomedicalStandard
@@ -5095,8 +5144,21 @@ data_standardortools_collection:
   is_open: true
   name: mzXML
   publication: doi:10.1038/nbt1031
-  purpose_detail: mzXML an open, generic XML (extensible markup language) representation
-    of MS data. This format is now deprecated and it has been superseded by mzML.
+  purpose_detail: >-
+    mzXML was a pioneering open, generic XML (extensible markup language)
+    representation specifically developed for mass spectrometry (MS) data exchange
+    and storage in proteomics research. As one of the first standardized formats for
+    MS data, mzXML provided a vendor-neutral way to represent complex mass spectrometry
+    information including mass-to-charge ratios, intensity values, scan parameters,
+    and instrument metadata in a structured, machine-readable format. The format
+    supported both profile and centroid data representation modes and could accommodate
+    various types of MS experiments including MS/MS fragmentation spectra. Despite
+    its historical significance in establishing data standardization practices in
+    proteomics, mzXML is now deprecated and has been superseded by the more comprehensive
+    mzML format, which offers enhanced features, better compression, controlled vocabularies,
+    and broader community support. While legacy systems may still encounter mzXML
+    files, current best practices recommend migration to mzML for new data processing
+    workflows and long-term data preservation in mass spectrometry applications.
   requires_registration: false
 - id: B2AI_STANDARD:224
   category: B2AI_STANDARD:BiomedicalStandard
@@ -6149,16 +6211,25 @@ data_standardortools_collection:
   is_open: true
   name: REFLECT
   publication: doi:10.4315/0362-028x-73.3.579
-  purpose_detail: REFLECT stands for Reporting guidElines For randomized controLled
-    trials for livEstoCk and food safeTy. It is an evidence-based minimum set of items
-    for trials reporting production, health, and food-safety outcomes.The aim of the
-    REFLECT Statement is to help authors improve the reporting livestock trials with
-    production, health, and food-safety outcomes. We have focused on both types of
-    randomized trials, field trials and challenge studies in livestock, and the interventions
-    may be therapeutic or preventive. The REFLECT Statement consists of a 22-item
-    checklist (MS Word version ; PDF word version). It is an evolving document that
-    is subject to change periodically as new evidence emerges. This website contains
-    the current definitive version of the REFLECT Statement.
+  purpose_detail: >-
+    REFLECT (Reporting guidElines For randomized controLled trials
+    for livEstoCk and food safeTy) is a specialized, evidence-based minimum set of
+    22 reporting items specifically designed to improve the transparency, reproducibility,
+    and quality of randomized controlled trials in livestock production, animal health,
+    and food safety research. This comprehensive reporting guideline addresses the
+    unique challenges and complexities inherent in agricultural and veterinary research,
+    including both field trials conducted in real-world farm settings and controlled
+    challenge studies in laboratory environments. REFLECT covers essential aspects
+    of trial design, implementation, and reporting including study population characteristics,
+    randomization procedures, intervention details, outcome measurements, statistical
+    analyses, and results presentation. The guideline is specifically tailored for
+    trials evaluating therapeutic or preventive interventions that impact production
+    outcomes, animal health parameters, and food safety measures. Available in both
+    MS Word and PDF formats, REFLECT serves as a dynamic, evolving document that
+    is periodically updated as new evidence emerges, helping researchers, editors,
+    reviewers, and regulatory agencies ensure that livestock and food safety trials
+    are reported with sufficient detail for proper scientific evaluation and evidence-based
+    decision making.
   requires_registration: false
   url: https://meridian.cvm.iastate.edu/reflect/
 - id: B2AI_STANDARD:270
@@ -8219,9 +8290,24 @@ data_standardortools_collection:
   - B2AI_ORG:99
   is_open: true
   name: RDFS
-  purpose_detail: RDF Schema (RDFS) is the RDF vocabulary description language. RDFS
-    defines classes and properties that may be used to describe classes, properties
-    and other resources.
+  purpose_detail: >-
+    RDF Schema (RDFS) is the foundational vocabulary description language
+    that extends the basic RDF vocabulary to provide essential data modeling capabilities
+    for the Semantic Web and linked data applications. As a W3C Recommendation and
+    semantic extension of RDF, RDFS enables the description of groups of related resources
+    and relationships between them by defining classes, properties, and their hierarchical
+    structures. Unlike traditional object-oriented programming models that define
+    classes in terms of their instance properties, RDFS takes a property-centric
+    approach where properties are described in terms of the classes they apply to
+    through domain and range mechanisms. This design philosophy promotes the extensibility
+    principle of the Web, allowing anyone to define additional properties for existing
+    resources without requiring modification of original class definitions. RDFS provides
+    core vocabulary elements including rdfs:Class, rdfs:Resource, rdfs:Property, rdfs:subClassOf,
+    rdfs:subPropertyOf, rdfs:domain, rdfs:range, rdfs:label, and rdfs:comment, which
+    form the basis for more sophisticated ontology languages like OWL. The schema
+    supports the development of machine-readable vocabularies that can be processed
+    automatically, enabling applications to discover and reason about resource relationships,
+    making it an essential component of the Semantic Web infrastructure.
   requires_registration: false
   url: https://www.w3.org/TR/rdf-schema/
 - id: B2AI_STANDARD:371
@@ -9189,7 +9275,25 @@ data_standardortools_collection:
   - B2AI_ORG:13
   is_open: true
   name: CVX
-  purpose_detail: Code set for active and inactive vaccines available in the US.
+  purpose_detail: >-
+    The Clinical Vaccines Administered (CVX) code set is a comprehensive
+    standardized vocabulary developed and maintained by the CDC's National Center
+    for Immunization and Respiratory Diseases (NCIRD) that provides unique numeric
+    identifiers for all vaccines available in the United States healthcare system.
+    This essential code set includes both active vaccines currently available for
+    patient administration and inactive vaccines that may appear in historical immunization
+    records, enabling complete tracking of vaccination history across a patient's
+    lifetime. CVX codes are specifically designed for use in HL7 Version 2.3.1 and
+    2.5.1 immunization messages and electronic health record systems, facilitating
+    standardized communication between healthcare providers, immunization information
+    systems (IIS), and public health agencies. Each CVX code entry includes detailed
+    information about vaccine status (active, inactive, pending, non-US, or never
+    active), last update timestamp, and clinical notes providing context about usage
+    and availability. When paired with MVX (manufacturer) codes, CVX codes can precisely
+    identify specific trade-named vaccine products, supporting accurate inventory
+    management, adverse event reporting, vaccine safety monitoring, and public health
+    surveillance activities essential for maintaining population immunity and preventing
+    vaccine-preventable diseases.
   requires_registration: false
   url: https://www2a.cdc.gov/vaccines/iis/iisstandards/vaccines.asp?rpt=cvx
 - id: B2AI_STANDARD:424
@@ -13175,9 +13279,24 @@ data_standardortools_collection:
   formal_specification: https://github.com/simonw/datasette
   is_open: true
   name: Datasette
-  purpose_detail: A tool for exploring and publishing data. It helps people take data
-    of any shape, analyze and explore it, and publish it as an interactive website
-    and accompanying API.
+  purpose_detail: >-
+    Datasette is a comprehensive open-source tool ecosystem designed
+    for exploring, analyzing, and publishing data through an intuitive web interface
+    and accompanying JSON API. Created by Simon Willison, Datasette transforms data
+    of any shape into interactive websites that enable users to perform exploratory
+    data analysis, create visualizations, and share findings with colleagues without
+    requiring extensive technical expertise. The platform excels in three primary
+    use cases: exploratory data analysis (automatically detecting patterns in CSV,
+    JSON, and database data), instant data publishing (using the `datasette publish`
+    command to deploy data to cloud hosting providers like Google Cloud Run, Heroku,
+    or Vercel), and rapid prototyping (spinning up JSON APIs in minutes for proof-of-concept
+    development). Datasette is part of a broader ecosystem of 44 related tools and
+    154 plugins that enhance productivity when working with structured data. The tool
+    supports multiple data import formats, provides built-in security features for
+    data access control, and offers extensive customization options through its plugin
+    architecture. Datasette serves data journalists, museum curators, archivists,
+    local governments, scientists, researchers, and anyone seeking to make their data
+    more accessible and discoverable through web-based interfaces.
   requires_registration: false
   url: https://datasette.io/
 - id: B2AI_STANDARD:755
