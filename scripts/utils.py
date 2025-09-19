@@ -100,6 +100,8 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
     table.tableId = table_id
     table = syn.store(table)
-    table_id = table_id or table['id']
+    table_id = table_id or table.get('id', table.get('tableId'))
+    if not table_id:
+        raise f"Couldn't find table_id for {table_name}"
     syn.create_snapshot_version(table_id)
     print(f"Created table: {table.schema.name} ({table.tableId})")

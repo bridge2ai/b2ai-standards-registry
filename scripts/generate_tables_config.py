@@ -15,8 +15,8 @@ SRC_TABLE_NAMES = [
     # 'test',
 ]
 TABLE_IDS = {
-    'Challenges': { 'name': 'Challenges', 'id': 'syn65913973' },
-    'CurrentTableVersions': { 'name': 'CurrentTableVersions', 'id': 'syn66330007' },
+    # 'CurrentTableVersions': { 'name': 'CurrentTableVersions', 'id': 'syn66330007' },
+    'D4D_content': { 'name': 'D4D_content', 'id': 'syn68885644' },
     'DST_denormalized': { 'name': 'DST_denormalized', 'id': 'syn65676531' },
     'DataSet': { 'name': 'DataSet', 'id': 'syn66330217' },
     'DataSet_denormalized': { 'name': 'DataSet_denormalized', 'id': 'syn68258237' },
@@ -24,6 +24,7 @@ TABLE_IDS = {
     'DataSubstrate': { 'name': 'DataSubstrate', 'id': 'syn63096834' },
     'DataTopic': { 'name': 'DataTopic', 'id': 'syn63096835' },
     'Organization': { 'name': 'Organization', 'id': 'syn63096836' },
+    'Organization_denormalized': { 'name': 'Organization_denormalized', 'id': 'syn69693360' },
     'UseCase': { 'name': 'UseCase', 'id': 'syn63096837' },
     # 'test': { 'name': 'test', 'id': 'syn64943432' }
 }
@@ -35,47 +36,47 @@ DEST_TABLES = {
         'dest_table_name': 'DST_denormalized',
         'base_table': 'DataStandardOrTool',
         'columns': [
-            {'faceted': False, 'name': 'id',                          'alias': 'id'},
-            {'faceted': False, 'name': 'name',                        'alias': 'acronym'},
-            {'faceted': False, 'name': 'description',                 'alias': 'name'},
+            {'name': 'id',                          'alias': 'id'},
+            {'name': 'name',                        'alias': 'acronym'},
+            {'name': 'description',                 'alias': 'name'},
             {'faceted': True,  'name': 'category',                    'alias': 'category', 'transform': 'category_to_title_case'},
-            {'faceted': False, 'name': 'purpose_detail',              'alias': 'description'},
+            {'name': 'purpose_detail',              'alias': 'description'},
             {'faceted': True,  'name': 'collection',                  'alias': 'collections', 'transform': 'collections_to_title_case'},
             {'faceted': True,  'name': 'collection',                  'alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
             {'faceted': True,  'name': 'collection',                  'alias': 'mature', 'transform': 'collections_to_is_mature', 'columnType': 'STRING'},
-            {'faceted': False, 'name': 'concerns_data_topic',         'alias': 'concerns_data_topic'},
-            {'faceted': False, 'name': 'has_relevant_data_substrate', 'alias': 'has_relevant_data_substrate'},
-            {'faceted': False, 'name': 'has_relevant_organization',   'alias': 'has_relevant_organization'},
-            {'faceted': False, 'name': 'responsible_organization',    'alias': 'responsible_organization'},
+            {'name': 'concerns_data_topic',         'alias': 'concerns_data_topic'},
+            {'name': 'has_relevant_data_substrate', 'alias': 'has_relevant_data_substrate'},
+            {'name': 'has_relevant_organization',   'alias': 'has_relevant_organization'},
+            {'name': 'responsible_organization',    'alias': 'responsible_organization'},
             {'faceted': True,  'name': 'is_open',                     'alias': 'isOpen', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
             {'faceted': True,  'name': 'requires_registration',       'alias': 'registration', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
-            {'faceted': False, 'name': 'url',                         'alias': 'URL'},
-            {'faceted': False, 'name': 'formal_specification',        'alias': 'formalSpec'},
-            {'faceted': False, 'name': 'publication',                 'alias': 'publication'},
-            {'faceted': False, 'name': 'has_training_resource',       'alias': 'trainingResources'},
-            {'faceted': False, 'name': 'subclass_of',                 'alias': 'subclassOf'},
-            {'faceted': False, 'name': 'contribution_date',           'alias': 'contributionDate'},
-            {'faceted': False, 'name': 'related_to',                  'alias': 'relatedTo'},
+            {'name': 'url',                         'alias': 'URL'},
+            {'name': 'formal_specification',        'alias': 'formalSpec'},
+            {'name': 'publication',                 'alias': 'publication'},
+            {'name': 'has_training_resource',       'alias': 'trainingResources'},
+            {'name': 'subclass_of',                 'alias': 'subclassOf'},
+            {'name': 'contribution_date',           'alias': 'contributionDate'},
+            {'name': 'related_to',                  'alias': 'relatedTo'},
             {'faceted': True,  'name': 'used_in_bridge2ai',           'alias': 'usedInBridge2AI', 'transform': 'bool_to_yes_no', 'columnType': 'STRING'},
         ],
         'join_columns': [
-            {'join_tbl': 'DataTopic', 'from': 'concerns_data_topic', 'to': 'id',
+            {'join_tbl': 'DataTopic', 'base_tbl_col': 'concerns_data_topic', 'join_tbl_col': 'id',
              'dest_cols': [
                  {'faceted': True, 'name': 'name', 'alias': 'topic'},
              ]},
-            {'join_tbl': 'DataSubstrate', 'from': 'has_relevant_data_substrate', 'to': 'id',
+            {'join_tbl': 'DataSubstrate', 'base_tbl_col': 'has_relevant_data_substrate', 'join_tbl_col': 'id',
              'dest_cols': [
                 {'faceted': True, 'name': 'name', 'alias': 'dataTypes'},
             ]},
-            {'join_tbl': 'Organization', 'from': 'has_relevant_organization', 'to': 'id',
+            {'join_tbl': 'Organization', 'base_tbl_col': 'has_relevant_organization', 'join_tbl_col': 'id',
              'dest_cols': [
                  {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
-                 {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'relevantOrgLinks', 'transform': 'create_org_link', },
+                 {'source_cols': ['id', 'name'], 'alias': 'relevantOrgLinks', 'transform': 'create_org_link', },
              ]},
-            {'join_tbl': 'Organization', 'from': 'responsible_organization', 'to': 'id',
+            {'join_tbl': 'Organization', 'base_tbl_col': 'responsible_organization', 'join_tbl_col': 'id',
              'dest_cols': [
-                 {'faceted': False,  'name': 'description', 'alias': 'responsibleOrgName'},
-                 {'faceted': False, 'source_cols': ['id', 'name'], 'alias': 'responsibleOrgLinks',
+                 { 'name': 'description', 'alias': 'responsibleOrgName'},
+                 {'source_cols': ['id', 'name'], 'alias': 'responsibleOrgLinks',
                   'transform': 'create_org_link', },
              ]},
         ],
@@ -84,52 +85,104 @@ DEST_TABLES = {
         'dest_table_name': 'Organization_denormalized',
         'base_table': 'Organization',
         'columns': [
-            {'faceted': False, 'name': 'id', 'alias': 'id'},
-            {'faceted': False, 'name': 'name', 'alias': 'name'},
-            {'faceted': False, 'name': 'description', 'alias': 'description'},
-            {'faceted': False, 'name': 'ror_id', 'alias': 'rorId'},
-            {'faceted': False, 'name': 'wikidata_id', 'alias': 'wikidataId'},
-            {'faceted': False, 'name': 'url', 'alias': 'URL'},
-            {'faceted': True,  'name': 'subclass_of', 'alias': 'subclassOf'},
+            {'name': 'id', 'alias': 'id'},
+            {'name': 'name', 'alias': 'name'},
+            {'name': 'description', 'alias': 'description'},
+            {'name': 'ror_id', 'alias': 'ror_id'},
+            {'name': 'wikidata_id', 'alias': 'wikidata_id'},
+            {'name': 'url', 'alias': 'url'},
+            {'name': 'subclass_of', 'alias': 'subclass_of'},
         ],
         'join_columns': [
-            {'join_tbl': 'DataSet_denormalized', 'from': 'id', 'to': 'producedByOrgId',
-             'dest_cols': [ {'faceted': False, 'name': 'id', 'alias': 'datasets', }
-             # 'dest_cols': [
-             #     {'faceted': False, 'name': 'datasets', 'alias': 'datasets', 'whole_records': True, }
-             #     {'faceted': False, 'name': 'dataset_json', 'alias': 'dataset_json', 'whole_records': True, }
-             ]},
+            {
+                'join_tbl': 'Organization',
+                'base_tbl_col': 'subclass_of',
+                'join_tbl_col': 'id',
+                'reverse_lookup': False,
+                'dest_cols': [
+                    {'alias': 'main_organization_json', 'whole_records': True},
+                ]
+            },
+            {
+                'join_tbl': 'Organization',
+                'base_tbl_col': 'id',
+                'join_tbl_col': 'subclass_of',
+                'reverse_lookup': True,
+                'dest_cols': [
+                    {'alias': 'associated_organization_json', 'whole_records': True},
+                ]
+            },
+            {
+                'join_tbl': 'DataStandardOrTool',
+                'base_tbl_col': 'id',
+                'join_tbl_col': 'has_relevant_organization',
+                'reverse_lookup': True,
+                'dest_cols': [
+                    {'name': 'id', 'alias': 'relevant_standards'},
+                    {'alias': 'relevant_standards_json', 'whole_records': True},
+                ]
+            },
+            {
+                'join_tbl': 'DataStandardOrTool',
+                'base_tbl_col': 'id',
+                'join_tbl_col': 'responsible_organization',
+                'reverse_lookup': True,
+                'dest_cols': [
+                    {'name': 'id', 'alias': 'governed_standards'},
+                    {'alias': 'governed_standards_json', 'whole_records': True},
+                ]
+            },
+            {
+                'join_tbl': 'DataSet',
+                'base_tbl_col': 'id',
+                'join_tbl_col': 'produced_by',
+                'reverse_lookup': True,
+                'dest_cols': [
+                    {'name': 'id', 'alias': 'datasets'},
+                    {'name': 'name', 'alias': 'dataset_names'},
+                    {'alias': 'dataset_json', 'whole_records': True},
+                ]
+            },
+            {
+                'join_tbl': 'D4D_content',
+                'base_tbl_col': 'id',
+                'join_tbl_col': 'content_id',
+                'reverse_lookup': True,
+                'dest_cols': [
+                    {'alias': 'd4d', 'whole_records': True},
+                ]
+            },
         ],
     },
     'DataSet_denormalized': {
         'dest_table_name': 'DataSet_denormalized',
         'base_table': 'DataSet',
         'columns': [
-            {'faceted': False, 'name': 'id', 'alias': 'id'},
-            {'faceted': False, 'name': 'name', 'alias': 'name'},
-            {'faceted': False, 'name': 'description', 'alias': 'description'},
+            {'name': 'id', 'alias': 'id'},
+            {'name': 'name', 'alias': 'name'},
+            {'name': 'description', 'alias': 'description'},
             # category does not show up in Figma design, but might want it on the page
             {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'category_to_title_case'},
-            {'faceted': False, 'name': 'topics', 'alias': 'topicIds'},
-            {'faceted': False, 'name': 'produced_by', 'alias': 'producedByOrgId'},
-            {'faceted': False, 'name': 'datasheet_url', 'alias': 'DatasheetURL'},
-            {'faceted': False, 'name': 'documentation_url', 'alias': 'DocumentationURL'},
-            {'faceted': False, 'name': 'is_public', 'alias': 'isPublic'},
-            {'faceted': False, 'name': 'substrates', 'alias': 'substrateIds'},
+            {'name': 'topics', 'alias': 'topicIds'},
+            {'name': 'produced_by', 'alias': 'producedByOrgId'},
+            {'name': 'datasheet_url', 'alias': 'DatasheetURL'},
+            {'name': 'documentation_url', 'alias': 'DocumentationURL'},
+            {'name': 'is_public', 'alias': 'isPublic'},
+            {'name': 'substrates', 'alias': 'substrateIds'},
         ],
         'join_columns': [
-            {'join_tbl': 'Organization', 'from': 'produced_by', 'to': 'id',
+            {'join_tbl': 'Organization', 'base_tbl_col': 'produced_by', 'join_tbl_col': 'id',
              'dest_cols': [
                  {'faceted': True, 'name': 'name', 'alias': 'producedBy'},
              ]},
-            {'join_tbl': 'DataTopic', 'from': 'topics', 'to': 'id',
+            {'join_tbl': 'DataTopic', 'base_tbl_col': 'topics', 'join_tbl_col': 'id',
              'dest_cols': [
                  {'faceted': True, 'name': 'name', 'alias': 'topics'},
              ]},
-            {'join_tbl': 'DataSubstrate', 'from': 'substrates', 'to': 'id',
+            {'join_tbl': 'DataSubstrate', 'base_tbl_col': 'substrates', 'join_tbl_col': 'id',
              'dest_cols': [
-                 {'faceted': False, 'name': 'name', 'alias': 'substrates'},
-                 {'faceted': False, 'name': 'substrates_json', 'alias': 'substrates_json', 'whole_records': True, }
+                 {'name': 'name', 'alias': 'substrates'},
+                 {'name': 'substrates_json', 'alias': 'substrates_json', 'whole_records': True, }
              ]},
         ],
     },
