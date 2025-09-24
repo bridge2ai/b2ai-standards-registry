@@ -3,6 +3,8 @@ from typing import Any, Dict, List, Optional
 import pandas as pd
 from synapseclient import Synapse, Table, Schema, Column
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
+import csv
+import sys
 """
 Expected Environment:
     - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
@@ -79,6 +81,8 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     :param table_id: Optionally, Table ID, function will confirm or figure it out if not provided
     """
     print(f"Clearing, populating, and snapshotting {table_name} table")
+
+    csv.field_size_limit(sys.maxsize)
 
     try:
         existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
