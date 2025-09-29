@@ -12,11 +12,6 @@
 
 **mesh id:** mesh:D055442
 
-**related to:**
-
-- [B2AI_TOPIC:3](../DataTopic.markdown)
-
 **subclass of:**
 
-- [B2AI_TOPIC:23](../DataTopic.markdown)
-
+- [B2AI_TOPIC:23](../topics/Omics.markdown) (Omics)

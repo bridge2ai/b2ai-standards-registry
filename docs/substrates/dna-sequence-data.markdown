@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:60 (Sequence)
+- [B2AI_SUBSTRATE:60](../substrates/sequence.markdown) (Sequence)

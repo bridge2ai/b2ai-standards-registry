@@ -16,5 +16,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:34](../DataTopic.markdown)
-
+- [B2AI_TOPIC:34](../topics/Transcriptome.markdown) (Transcriptome)

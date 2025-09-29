@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:58 (Mass Spectrometry Data)
+- [B2AI_SUBSTRATE:58](../substrates/mass-spectrometry-data.markdown) (Mass Spectrometry Data)

@@ -12,4 +12,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:13 (Document Database)
+- [B2AI_SUBSTRATE:13](../substrates/document-database.markdown) (Document Database)

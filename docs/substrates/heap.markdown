@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- Tree (Tree)
+- Tree

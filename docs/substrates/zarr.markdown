@@ -10,4 +10,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:24 (N-Dimensional Array)
+- [B2AI_SUBSTRATE:24](../substrates/n-dimensional-array.markdown) (N-Dimensional Array)

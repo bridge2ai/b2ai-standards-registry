@@ -16,4 +16,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:18 (Hierarchical Array)
+- [B2AI_SUBSTRATE:18](../substrates/hierarchical-array.markdown) (Hierarchical Array)

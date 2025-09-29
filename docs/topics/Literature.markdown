@@ -14,5 +14,8 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:32](../DataTopic.markdown)
+- [B2AI_TOPIC:32](../topics/Text.markdown) (Text)
 
+**parent of:**
+
+- [B2AI_TOPIC:52](../topics/Training.markdown) (Training)

@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:44 (Tree)
+- [B2AI_SUBSTRATE:44](../substrates/tree.markdown) (Tree)

@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:73 (Physical activity data)
+- [B2AI_SUBSTRATE:73](../substrates/physical-activity-data.markdown) (Physical activity data)

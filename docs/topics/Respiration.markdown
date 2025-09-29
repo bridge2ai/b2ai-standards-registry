@@ -10,5 +10,8 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:1](../DataTopic.markdown)
+- [B2AI_TOPIC:1](../topics/Biology.markdown) (Biology)
 
+**parent of:**
+
+- [B2AI_TOPIC:47](../topics/RespiratoryDisorders.markdown) (Respiratory Disorders)

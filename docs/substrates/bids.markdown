@@ -6,6 +6,6 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:19 (Image)
+- [B2AI_SUBSTRATE:19](../substrates/image.markdown) (Image)
 
-- B2AI_SUBSTRATE:49 (Waveform Data)
+- [B2AI_SUBSTRATE:49](../substrates/waveform-data.markdown) (Waveform Data)
