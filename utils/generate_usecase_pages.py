@@ -9,7 +9,6 @@ Steps:
 """
 from __future__ import annotations
 import re
-import unicodedata
 from pathlib import Path
 from typing import Dict, List, Set
 import yaml
@@ -38,7 +37,7 @@ def build_index(usecases: List[Dict]):
     by_id = {s['id']: s for s in usecases if 'id' in s}
     enabled_by: Dict[str, List[str]] = {sid: [] for sid in by_id}
     roots: Set[str] = set(by_id.keys())
-    
+
     for s in usecases:
         sid = s.get('id')
         if not isinstance(sid, str):
@@ -50,7 +49,7 @@ def build_index(usecases: List[Dict]):
             if isinstance(enabled, str) and enabled in by_id:
                 enabled_by[enabled].append(sid)
                 roots.discard(enabled)
-    
+
     return by_id, enabled_by, roots
 
 
@@ -61,14 +60,16 @@ def write_pages(by_id: Dict[str, Dict], all_data: Dict[str, Dict]):
         slug = slugify(name)
         path = OUTPUT_DIR / f"{slug}.markdown"
         lines = []
-        
+
         # Basic info
         lines.append(f"**ID:** {sid}\n")
         if 'name' in s:
-            lines.append(f"**Name:** {convert_ids_to_links(s['name'], all_data)}\n")
+            lines.append(
+                f"**Name:** {convert_ids_to_links(s['name'], all_data)}\n")
         if 'description' in s:
-            lines.append(f"**Description:** {convert_ids_to_links(s['description'], all_data)}\n")
-        
+            lines.append(
+                f"**Description:** {convert_ids_to_links(s['description'], all_data)}\n")
+
         # Category and involvement flags
         if 'use_case_category' in s:
             categories = s['use_case_category']
@@ -76,7 +77,7 @@ def write_pages(by_id: Dict[str, Dict], all_data: Dict[str, Dict]):
                 lines.append(f"**Category:** {', '.join(categories)}\n")
             else:
                 lines.append(f"**Category:** {categories}\n")
-        
+
         involvement_flags = []
         if s.get('involved_in_experimental_design'):
             involvement_flags.append('Experimental Design')
@@ -86,21 +87,23 @@ def write_pages(by_id: Dict[str, Dict], all_data: Dict[str, Dict]):
             involvement_flags.append('Quality Control')
         if involvement_flags:
             lines.append(f"**Involved in:** {', '.join(involvement_flags)}\n")
-        
+
         # Data topics
         if 'data_topics' in s:
             lines.append("**Data Topics:**\n")
             for topic in s['data_topics']:
-                lines.append(f"- {convert_ids_to_links(str(topic), all_data)}\n")
-        
+                lines.append(
+                    f"- {convert_ids_to_links(str(topic), all_data)}\n")
+
         # Relationships
         if 'enables' in s:
             lines.append("**Enables:**\n")
             for enabled in s['enables']:
                 enabled_name = by_id.get(enabled, {}).get('name', enabled)
                 enabled_link = convert_ids_to_links(enabled, all_data)
-                lines.append(f"- {enabled_link} ({convert_ids_to_links(enabled_name, all_data)})\n")
-        
+                lines.append(
+                    f"- {enabled_link} ({convert_ids_to_links(enabled_name, all_data)})\n")
+
         # Find what enables this use case
         enablers = []
         for other_sid, other_s in by_id.items():
@@ -110,38 +113,42 @@ def write_pages(by_id: Dict[str, Dict], all_data: Dict[str, Dict]):
             lines.append("**Enabled by:**\n")
             for enabler_id, enabler_name in enablers:
                 enabler_link = convert_ids_to_links(enabler_id, all_data)
-                lines.append(f"- {enabler_link} ({convert_ids_to_links(enabler_name, all_data)})\n")
-        
+                lines.append(
+                    f"- {enabler_link} ({convert_ids_to_links(enabler_name, all_data)})\n")
+
         # Relevant GCs
         if 'relevant_to_gcs' in s:
             lines.append("**Relevant to GCs:**\n")
             for gc in s['relevant_to_gcs']:
                 lines.append(f"- {convert_ids_to_links(str(gc), all_data)}\n")
-        
+
         # Standards and tools
         if 'standards_and_tools_for_gc_use' in s:
             lines.append("**Standards and Tools:**\n")
             for standard in s['standards_and_tools_for_gc_use']:
-                lines.append(f"- {convert_ids_to_links(str(standard), all_data)}\n")
-        
+                lines.append(
+                    f"- {convert_ids_to_links(str(standard), all_data)}\n")
+
         if 'alternative_standards_and_tools' in s:
             lines.append("**Alternative Standards and Tools:**\n")
             for standard in s['alternative_standards_and_tools']:
-                lines.append(f"- {convert_ids_to_links(str(standard), all_data)}\n")
-        
+                lines.append(
+                    f"- {convert_ids_to_links(str(standard), all_data)}\n")
+
         # External references
         if 'xref' in s:
             lines.append("**External References:**\n")
             for xref in s['xref']:
-                lines.append(f"- {convert_ids_to_links(str(xref), all_data)}\n")
-        
+                lines.append(
+                    f"- {convert_ids_to_links(str(xref), all_data)}\n")
+
         # Contributor info
         if 'contributor_name' in s:
             lines.append(f"**Contributor:** {s['contributor_name']}")
             if 'contributor_orcid' in s:
                 lines.append(f" ({s['contributor_orcid']})")
             lines.append("\n")
-        
+
         with open(path, 'w') as f:
             f.write('\n'.join(lines))
 
@@ -156,16 +163,16 @@ def build_mermaid_diagrams(by_id: Dict[str, Dict], enabled_by: Dict[str, List[st
         if cat not in categories:
             categories[cat] = []
         categories[cat].append(sid)
-    
+
     # Define nodes with category-based styling
     category_colors = {
         'acquisition': 'fill:#e1f5fe',
-        'integration': 'fill:#f3e5f5', 
+        'integration': 'fill:#f3e5f5',
         'standardization': 'fill:#e8f5e8',
         'modeling': 'fill:#fff3e0',
         'other': 'fill:#f5f5f5'
     }
-    
+
     # Identify connected and unconnected nodes
     connected_nodes = set()
     for sid, s in by_id.items():
@@ -175,21 +182,23 @@ def build_mermaid_diagrams(by_id: Dict[str, Dict], enabled_by: Dict[str, List[st
             for enabled in enables:
                 if enabled in by_id:
                     connected_nodes.add(enabled)
-    
-    unconnected_nodes = [sid for sid in by_id.keys() if sid not in connected_nodes]
-    
+
+    unconnected_nodes = [
+        sid for sid in by_id.keys() if sid not in connected_nodes]
+
     # Build main workflow diagram
     main_lines = ["```mermaid", "flowchart LR"]
-    
+
     # Create connected nodes
     for sid, s in by_id.items():
         if sid in connected_nodes:
             label = s.get('name', sid)
             if len(label) > 50:
                 label = label[:47] + "..."
-            label = label.replace('"', '\\"').replace('[', '&#91;').replace(']', '&#93;')
+            label = label.replace('"', '\\"').replace(
+                '[', '&#91;').replace(']', '&#93;')
             main_lines.append(f"    {sid.replace(':', '_')}[\"{label}\"]")
-    
+
     # Add workflow relationships
     main_lines.append("")
     main_lines.append("    %% Workflow relationships")
@@ -197,16 +206,18 @@ def build_mermaid_diagrams(by_id: Dict[str, Dict], enabled_by: Dict[str, List[st
         enables = s.get('enables', [])
         for enabled in enables:
             if enabled in by_id:
-                main_lines.append(f"    {sid.replace(':', '_')} --> {enabled.replace(':', '_')}")
-    
+                main_lines.append(
+                    f"    {sid.replace(':', '_')} --> {enabled.replace(':', '_')}")
+
     # Add styling for main diagram
     main_lines.append("")
     for cat, color in category_colors.items():
         if cat in categories:
             for sid in categories[cat]:
                 if sid in connected_nodes:
-                    main_lines.append(f"    style {sid.replace(':', '_')} {color}")
-    
+                    main_lines.append(
+                        f"    style {sid.replace(':', '_')} {color}")
+
     # Add click events for main diagram
     main_lines.append("")
     for sid, s in by_id.items():
@@ -214,14 +225,15 @@ def build_mermaid_diagrams(by_id: Dict[str, Dict], enabled_by: Dict[str, List[st
             label = s.get('name', sid)
             slug = slugify(label)
             safe_label = label.replace('"', '\\"')
-            main_lines.append(f"    click {sid.replace(':', '_')} \"../usecases/{slug}/\" \"{safe_label}\"")
-    
+            main_lines.append(
+                f"    click {sid.replace(':', '_')} \"../usecases/{slug}/\" \"{safe_label}\"")
+
     main_lines.append("```")
     main_diagram = '\n'.join(main_lines)
-    
+
     # Build standalone diagram
     standalone_lines = ["```mermaid", "flowchart LR"]
-    
+
     if unconnected_nodes:
         # Group unconnected nodes by category
         unconnected_by_category = {}
@@ -233,21 +245,24 @@ def build_mermaid_diagrams(by_id: Dict[str, Dict], enabled_by: Dict[str, List[st
             if cat not in unconnected_by_category:
                 unconnected_by_category[cat] = []
             unconnected_by_category[cat].append(sid)
-        
+
         # Create subgraphs for each category
         for cat, cat_nodes in unconnected_by_category.items():
             if len(cat_nodes) > 1:
                 cat_title = cat.replace('_', ' ').title()
-                standalone_lines.append(f"    subgraph {cat}_standalone [\"{cat_title}\"]")
+                standalone_lines.append(
+                    f"    subgraph {cat}_standalone [\"{cat_title}\"]")
                 standalone_lines.append("        direction LR")
-                
+
                 for sid in cat_nodes:
                     s = by_id[sid]
                     label = s.get('name', sid)
                     if len(label) > 50:
                         label = label[:47] + "..."
-                    label = label.replace('"', '\\"').replace('[', '&#91;').replace(']', '&#93;')
-                    standalone_lines.append(f"        {sid.replace(':', '_')}[\"{label}\"]")
+                    label = label.replace('"', '\\"').replace(
+                        '[', '&#91;').replace(']', '&#93;')
+                    standalone_lines.append(
+                        f"        {sid.replace(':', '_')}[\"{label}\"]")
                 standalone_lines.append("    end")
             else:
                 for sid in cat_nodes:
@@ -255,17 +270,20 @@ def build_mermaid_diagrams(by_id: Dict[str, Dict], enabled_by: Dict[str, List[st
                     label = s.get('name', sid)
                     if len(label) > 50:
                         label = label[:47] + "..."
-                    label = label.replace('"', '\\"').replace('[', '&#91;').replace(']', '&#93;')
-                    standalone_lines.append(f"    {sid.replace(':', '_')}[\"{label}\"]")
-        
+                    label = label.replace('"', '\\"').replace(
+                        '[', '&#91;').replace(']', '&#93;')
+                    standalone_lines.append(
+                        f"    {sid.replace(':', '_')}[\"{label}\"]")
+
         # Add styling for standalone diagram
         standalone_lines.append("")
         for cat, color in category_colors.items():
             if cat in categories:
                 for sid in categories[cat]:
                     if sid in unconnected_nodes:
-                        standalone_lines.append(f"    style {sid.replace(':', '_')} {color}")
-        
+                        standalone_lines.append(
+                            f"    style {sid.replace(':', '_')} {color}")
+
         # Add click events for standalone diagram
         standalone_lines.append("")
         for sid in unconnected_nodes:
@@ -273,11 +291,12 @@ def build_mermaid_diagrams(by_id: Dict[str, Dict], enabled_by: Dict[str, List[st
             label = s.get('name', sid)
             slug = slugify(label)
             safe_label = label.replace('"', '\\"')
-            standalone_lines.append(f"    click {sid.replace(':', '_')} \"../usecases/{slug}/\" \"{safe_label}\"")
-    
+            standalone_lines.append(
+                f"    click {sid.replace(':', '_')} \"../usecases/{slug}/\" \"{safe_label}\"")
+
     standalone_lines.append("```")
     standalone_diagram = '\n'.join(standalone_lines)
-    
+
     return main_diagram, standalone_diagram
 
 
@@ -287,24 +306,27 @@ def inject_overview(main_diagram: str, standalone_diagram: str):
     main_marker_end = "<!-- USECASE_MAIN_DIAGRAM_END -->"
     standalone_marker_start = "<!-- USECASE_STANDALONE_DIAGRAM_START -->"
     standalone_marker_end = "<!-- USECASE_STANDALONE_DIAGRAM_END -->"
-    
+
     if OVERVIEW_PATH.exists():
         with open(OVERVIEW_PATH, 'r') as f:
             content = f.read()
     else:
         content = ''
-    
+
     main_block = f"{main_marker_start}\n{main_diagram}\n{main_marker_end}"
     standalone_block = f"{standalone_marker_start}\n{standalone_diagram}\n{standalone_marker_end}"
-    
+
     # Handle existing content with markers
     if main_marker_start in content and main_marker_end in content:
-        content = re.sub(f"{main_marker_start}.*?{main_marker_end}", main_block, content, flags=re.DOTALL)
+        content = re.sub(f"{main_marker_start}.*?{main_marker_end}",
+                         main_block, content, flags=re.DOTALL)
         if standalone_marker_start in content and standalone_marker_end in content:
-            content = re.sub(f"{standalone_marker_start}.*?{standalone_marker_end}", standalone_block, content, flags=re.DOTALL)
+            content = re.sub(f"{standalone_marker_start}.*?{standalone_marker_end}",
+                             standalone_block, content, flags=re.DOTALL)
         else:
             # Add standalone diagram after main diagram
-            content = content.replace(main_marker_end, f"{main_marker_end}\n\n## Standalone Use Cases\n\nThe following use cases operate independently without direct dependencies on other use cases:\n\n{standalone_block}")
+            content = content.replace(
+                main_marker_end, f"{main_marker_end}\n\n## Standalone Use Cases\n\nThe following use cases operate independently without direct dependencies on other use cases:\n\n{standalone_block}")
     else:
         # Create new content with both diagrams
         new_content = f"""# Use Cases in the Bridge2AI Standards Explorer
@@ -344,7 +366,7 @@ The colors in the diagrams below represent different categories of use cases:
 
 """
         content = new_content
-    
+
     with open(OVERVIEW_PATH, 'w') as f:
         f.write(content)
 
@@ -352,14 +374,16 @@ The colors in the diagrams below represent different categories of use cases:
 def main():
     # Load all data for ID linking
     all_data = load_all_b2ai_data()
-    
+
     # Load and process use cases
     usecases = load_data()
     by_id, enabled_by, roots = build_index(usecases)
     write_pages(by_id, all_data)
-    main_diagram, standalone_diagram = build_mermaid_diagrams(by_id, enabled_by, roots)
+    main_diagram, standalone_diagram = build_mermaid_diagrams(
+        by_id, enabled_by, roots)
     inject_overview(main_diagram, standalone_diagram)
-    print(f"Generated {len(by_id)} use case pages with ID linking and updated overview with two diagrams.")
+    print(
+        f"Generated {len(by_id)} use case pages with ID linking and updated overview with two diagrams.")
 
 
 if __name__ == '__main__':

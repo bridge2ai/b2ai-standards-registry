@@ -9,7 +9,6 @@ Steps:
 """
 from __future__ import annotations
 import re
-import unicodedata
 from pathlib import Path
 from typing import Dict, List, Set
 import yaml
@@ -57,37 +56,38 @@ def write_pages(by_id: Dict[str, Dict], all_data: Dict[str, Dict]):
         path = OUTPUT_DIR / f"{slug}.markdown"
         lines = []
         lines.append(f"**id:** {tid}\n")
-        
+
         # Basic contributor info
         for key in ['contributor_github_name', 'contributor_name', 'contributor_orcid']:
             if key in t:
                 label = key.replace('_', ' ')
                 lines.append(f"**{label}:** {t[key]}\n")
-        
+
         # Description with ID linking
         if 'description' in t:
-            description = convert_ids_to_links(str(t['description']), all_data, "..")
+            description = convert_ids_to_links(
+                str(t['description']), all_data, "..")
             lines.append(f"**description:** {description}\n")
-        
+
         # External IDs
         for key in ['edam_id', 'mesh_id', 'ncit_id']:
             if key in t:
                 label = key.replace('_', ' ')
                 lines.append(f"**{label}:** {t[key]}\n")
-        
+
         # Subclass relationships
         if 'subclass_of' in t:
             lines.append("**subclass of:**\n")
             topic_links = convert_topic_links(t['subclass_of'], all_data, "..")
             for link in topic_links:
                 lines.append(f"- {link}\n")
-        
+
         # Find what this topic is a parent of
         child_topic_ids = []
         for other_tid, other_t in by_id.items():
             if 'subclass_of' in other_t and tid in other_t['subclass_of']:
                 child_topic_ids.append(other_tid)
-        
+
         if child_topic_ids:
             lines.append("**parent of:**\n")
             # Sort by name for consistent output
@@ -95,7 +95,7 @@ def write_pages(by_id: Dict[str, Dict], all_data: Dict[str, Dict]):
             child_links = convert_topic_links(child_topic_ids, all_data, "..")
             for link in child_links:
                 lines.append(f"- {link}\n")
-        
+
         with open(path, 'w') as f:
             f.write('\n'.join(lines))
 
@@ -108,25 +108,27 @@ def build_mermaid(by_id: Dict[str, Dict], children: Dict[str, List[str]], roots:
         if t.get('name', '').lower() == 'data':
             data_topic = tid
             break
-    
+
     if data_topic:
-        ordered_roots = [data_topic] + [r for r in sorted(roots) if r != data_topic]
+        ordered_roots = [data_topic] + \
+            [r for r in sorted(roots) if r != data_topic]
     else:
         ordered_roots = sorted(roots)
-    
+
     lines = ["```mermaid", "flowchart LR"]
-    
+
     # Define nodes
     for tid, t in by_id.items():
         label = t.get('name', tid)
         slug = label.replace(' ', '')
-        lines.append(f"    {tid.replace(':','_')}[{label}]")
-    
+        lines.append(f"    {tid.replace(':', '_')}[{label}]")
+
     # Edges
     for parent, kids in children.items():
         for kid in kids:
-            lines.append(f"    {parent.replace(':','_')} --> {kid.replace(':','_')}")
-    
+            lines.append(
+                f"    {parent.replace(':', '_')} --> {kid.replace(':', '_')}")
+
     # Clicks
     lines.append("")
     for tid, t in by_id.items():
@@ -134,8 +136,9 @@ def build_mermaid(by_id: Dict[str, Dict], children: Dict[str, List[str]], roots:
         slug = label.replace(' ', '')
         # Use double quotes per Mermaid spec; escape any internal double quotes in label.
         safe_label = label.replace('"', '\\"')
-        lines.append(f'    click {tid.replace(":", "_")} "topics/{slug}/" "{safe_label}"')
-    
+        lines.append(
+            f'    click {tid.replace(":", "_")} "topics/{slug}/" "{safe_label}"')
+
     lines.append("```")
     return '\n'.join(lines)
 
@@ -146,14 +149,15 @@ def inject_overview(diagram: str):
             content = f.read()
     else:
         content = ''
-    
+
     block = f"{MARKER_START}\n{diagram}\n{MARKER_END}"
     if MARKER_START in content and MARKER_END in content:
-        content = re.sub(f"{MARKER_START}.*?{MARKER_END}", block, content, flags=re.DOTALL)
+        content = re.sub(f"{MARKER_START}.*?{MARKER_END}",
+                         block, content, flags=re.DOTALL)
     else:
         # Prepend block with heading if missing
         content = f"# Data Topics\n\n{block}\n\n" + content
-    
+
     with open(OVERVIEW_PATH, 'w') as f:
         f.write(content)
 
@@ -161,13 +165,14 @@ def inject_overview(diagram: str):
 def main():
     # Load all data for ID linking
     all_data = load_all_b2ai_data()
-    
+
     topics = load_data()
     by_id, children, roots = build_index(topics)
     write_pages(by_id, all_data)
     diagram = build_mermaid(by_id, children, roots)
     inject_overview(diagram)
-    print(f"Generated {len(by_id)} topic pages with ID linking and updated overview diagram.")
+    print(
+        f"Generated {len(by_id)} topic pages with ID linking and updated overview diagram.")
 
 
 if __name__ == '__main__':

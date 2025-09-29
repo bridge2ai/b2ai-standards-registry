@@ -18,7 +18,8 @@ for filename in os.listdir(directory):
     if filename.endswith('.yaml') or filename.endswith('.yml'):
         with open(os.path.join(directory, filename), 'r') as file:
             data = yaml.safe_load(file)
-            container_class = next(iter(data.values()))  # Get the first (and only) value which is the container class
+            # Get the first (and only) value which is the container class
+            container_class = next(iter(data.values()))
             for item in container_class:
                 combined_data.append([item.get('id'), item.get('name')])
 
