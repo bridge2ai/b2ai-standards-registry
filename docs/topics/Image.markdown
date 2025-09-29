@@ -14,5 +14,12 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+- [B2AI_TOPIC:5](../topics/Data.markdown) (Data)
 
+**parent of:**
+
+- [B2AI_TOPIC:19](../MicroscaleImaging.markdown) (Microscale Imaging)
+
+- [B2AI_TOPIC:22](../NeurologicImaging.markdown) (Neurologic Imaging)
+
+- [B2AI_TOPIC:24](../OphthalmicImaging.markdown) (Ophthalmic Imaging)

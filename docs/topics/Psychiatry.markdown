@@ -10,5 +10,8 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:4](../DataTopic.markdown)
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown) (Clinical Observations)
 
+**parent of:**
+
+- [B2AI_TOPIC:51](../PsychiatricDisorders.markdown) (Psychiatric Disorders)

@@ -10,4 +10,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:43 (Text)
+- [B2AI_SUBSTRATE:43](../substrates/text.markdown) (Text)

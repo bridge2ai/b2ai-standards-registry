@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:63 (Single-cell RNA Sequence Data)
+- [B2AI_SUBSTRATE:63](../substrates/single-cell-rna-sequence-data.markdown) (Single-cell RNA Sequence Data)

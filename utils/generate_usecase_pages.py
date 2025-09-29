@@ -14,6 +14,8 @@ from pathlib import Path
 from typing import Dict, List, Set
 import yaml
 
+from id_linking import load_all_b2ai_data, convert_ids_to_links, slugify as shared_slugify
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 YAML_PATH = REPO_ROOT / 'src' / 'data' / 'UseCase.yaml'
 OUTPUT_DIR = REPO_ROOT / 'docs' / 'usecases'
@@ -22,85 +24,8 @@ MARKER_START = '<!-- USECASE_DIAGRAM_START -->'
 MARKER_END = '<!-- USECASE_DIAGRAM_END -->'
 
 
-def slugify(value: str) -> str:
-    value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
-    value = re.sub(r'[^a-zA-Z0-9]+', '-', value).strip('-').lower()
-    return value or 'usecase'
-
-
-def load_all_data() -> Dict[str, Dict]:
-    """Load all data files and create ID-to-info mappings."""
-    data_mappings = {}
-    
-    # Data files and their keys
-    data_files = {
-        'DataStandardOrTool.yaml': 'data_standardortools_collection',
-        'DataSet.yaml': 'data_collection', 
-        'DataSubstrate.yaml': 'data_substrates_collection',
-        'DataTopic.yaml': 'data_topics_collection',
-        'UseCase.yaml': 'use_cases'
-    }
-    
-    for filename, key in data_files.items():
-        file_path = REPO_ROOT / 'src' / 'data' / filename
-        if file_path.exists():
-            with open(file_path, 'r') as f:
-                data = yaml.safe_load(f)
-                items = data.get(key, [])
-                for item in items:
-                    if 'id' in item:
-                        data_mappings[item['id']] = item
-    
-    return data_mappings
-
-
-def convert_ids_to_links(text: str, all_data: Dict[str, Dict]) -> str:
-    """Convert B2AI IDs in text to appropriate links."""
-    if not text:
-        return text
-    
-    # Pattern to match B2AI IDs
-    id_pattern = r'(B2AI_(?:STANDARD|DATA|SUBSTRATE|TOPIC|USECASE):\d+)'
-    
-    def replace_id(match):
-        id_str = match.group(1)
-        
-        if id_str.startswith('B2AI_STANDARD:'):
-            # Link to Standards Explorer
-            return f"[{id_str}](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id={id_str})"
-        
-        elif id_str.startswith('B2AI_USECASE:'):
-            # Link to use case page
-            if id_str in all_data:
-                name = all_data[id_str].get('name', id_str)
-                slug = slugify(name)
-                return f"[{id_str}](../usecases/{slug}.markdown)"
-            return id_str
-        
-        elif id_str.startswith('B2AI_SUBSTRATE:'):
-            # Link to substrate page with name in parentheses
-            if id_str in all_data:
-                name = all_data[id_str].get('name', id_str)
-                slug = slugify(name)
-                return f"[{id_str}](../substrates/{slug}.markdown) ({name})"
-            return id_str
-        
-        elif id_str.startswith('B2AI_TOPIC:'):
-            # Link to topic page with name in parentheses
-            if id_str in all_data:
-                name = all_data[id_str].get('name', id_str)
-                # Topics use the exact name with spaces removed but capitalization preserved
-                slug = name.replace(' ', '')  # Remove spaces but keep capitalization
-                return f"[{id_str}](../topics/{slug}.markdown) ({name})"
-            return id_str
-        
-        elif id_str.startswith('B2AI_DATA:'):
-            # For now, just return the ID as-is since we don't have individual dataset pages
-            return id_str
-        
-        return id_str
-    
-    return re.sub(id_pattern, replace_id, text)
+# Use shared slugify function
+slugify = shared_slugify
 
 
 def load_data() -> List[Dict]:
@@ -426,7 +351,7 @@ The colors in the diagrams below represent different categories of use cases:
 
 def main():
     # Load all data for ID linking
-    all_data = load_all_data()
+    all_data = load_all_b2ai_data()
     
     # Load and process use cases
     usecases = load_data()

@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:7 (Data)
+- [B2AI_SUBSTRATE:7](../substrates/data.markdown) (Data)

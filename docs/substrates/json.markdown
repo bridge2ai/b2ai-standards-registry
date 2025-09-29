@@ -12,6 +12,6 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:2 (Associative Array)
+- [B2AI_SUBSTRATE:2](../substrates/associative-array.markdown) (Associative Array)
 
-- B2AI_SUBSTRATE:18 (Hierarchical Array)
+- [B2AI_SUBSTRATE:18](../substrates/hierarchical-array.markdown) (Hierarchical Array)

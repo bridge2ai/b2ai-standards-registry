@@ -16,5 +16,8 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:13](../DataTopic.markdown)
+- [B2AI_TOPIC:13](../topics/Genome.markdown) (Genome)
 
+**parent of:**
+
+- [B2AI_TOPIC:35](../Variant.markdown) (Variant)

@@ -14,11 +14,6 @@
 
 **ncit id:** ncit:C16551
 
-**related to:**
-
-- [B2AI_TOPIC:3](../DataTopic.markdown)
-
 **subclass of:**
 
-- [B2AI_TOPIC:1](../DataTopic.markdown)
-
+- [B2AI_TOPIC:1](../topics/Biology.markdown) (Biology)

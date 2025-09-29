@@ -14,5 +14,10 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:20](../DataTopic.markdown)
+- [B2AI_TOPIC:20](../topics/MolecularBiology.markdown) (Molecular Biology)
 
+**parent of:**
+
+- [B2AI_TOPIC:42](../Cardiomyocyte.markdown) (Cardiomyocyte)
+
+- [B2AI_TOPIC:41](../Neuron.markdown) (Neuron)

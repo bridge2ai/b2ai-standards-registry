@@ -10,5 +10,10 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+- [B2AI_TOPIC:5](../topics/Data.markdown) (Data)
 
+**parent of:**
+
+- [B2AI_TOPIC:10](../EKG.markdown) (EKG)
+
+- [B2AI_TOPIC:36](../Voice.markdown) (Voice)

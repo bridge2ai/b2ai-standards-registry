@@ -14,3 +14,32 @@
 
 **ncit id:** ncit:C25474
 
+**parent of:**
+
+- [B2AI_TOPIC:1](../Biology.markdown) (Biology)
+
+- [B2AI_TOPIC:3](../Cheminformatics.markdown) (Cheminformatics)
+
+- [B2AI_TOPIC:4](../ClinicalObservations.markdown) (Clinical Observations)
+
+- [B2AI_TOPIC:6](../Demographics.markdown) (Demographics)
+
+- [B2AI_TOPIC:7](../Disease.markdown) (Disease)
+
+- [B2AI_TOPIC:14](../Geolocation.markdown) (Geolocation)
+
+- [B2AI_TOPIC:40](../Governance.markdown) (Governance)
+
+- [B2AI_TOPIC:15](../Image.markdown) (Image)
+
+- [B2AI_TOPIC:21](../NetworksAndPathways.markdown) (Networks And Pathways)
+
+- [B2AI_TOPIC:25](../Phenotype.markdown) (Phenotype)
+
+- [B2AI_TOPIC:31](../Survey.markdown) (Survey)
+
+- [B2AI_TOPIC:32](../Text.markdown) (Text)
+
+- [B2AI_TOPIC:37](../Waveform.markdown) (Waveform)
+
+- [B2AI_TOPIC:18](../mHealth.markdown) (mHealth)

@@ -12,4 +12,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:39 (String)
+- [B2AI_SUBSTRATE:39](../substrates/string.markdown) (String)

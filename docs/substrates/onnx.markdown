@@ -8,4 +8,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:26 (Neural Network Model)
+- [B2AI_SUBSTRATE:26](../substrates/neural-network-model.markdown) (Neural Network Model)

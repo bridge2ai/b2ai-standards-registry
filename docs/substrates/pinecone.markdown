@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:54 (Vector Database)
+- [B2AI_SUBSTRATE:54](../substrates/vector-database.markdown) (Vector Database)

@@ -10,11 +10,12 @@
 
 **ncit id:** ncit:C97005
 
-**related to:**
-
-- [B2AI_TOPIC:14](../DataTopic.markdown)
-
 **subclass of:**
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+- [B2AI_TOPIC:5](../topics/Data.markdown) (Data)
 
+**parent of:**
+
+- [B2AI_TOPIC:39](../ActivityMonitoring.markdown) (Activity Monitoring)
+
+- [B2AI_TOPIC:38](../GlucoseMonitoring.markdown) (Glucose Monitoring)

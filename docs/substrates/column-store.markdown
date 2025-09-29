@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:9 (Database)
+- [B2AI_SUBSTRATE:9](../substrates/database.markdown) (Database)

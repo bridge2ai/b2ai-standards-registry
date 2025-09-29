@@ -14,5 +14,10 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+- [B2AI_TOPIC:5](../topics/Data.markdown) (Data)
 
+**parent of:**
+
+- [B2AI_TOPIC:16](../Literature.markdown) (Literature)
+
+- [B2AI_TOPIC:30](../SocialMedia.markdown) (Social Media)

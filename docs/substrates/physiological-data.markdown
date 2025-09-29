@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:69 (Time-series data)
+- [B2AI_SUBSTRATE:69](../substrates/time-series-data.markdown) (Time-series data)

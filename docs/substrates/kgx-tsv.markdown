@@ -8,6 +8,6 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:32 (Property graph)
+- [B2AI_SUBSTRATE:32](../substrates/property-graph.markdown) (Property graph)
 
-- B2AI_SUBSTRATE:41 (Tab-separated values)
+- [B2AI_SUBSTRATE:41](../substrates/tab-separated-values.markdown) (Tab-separated values)

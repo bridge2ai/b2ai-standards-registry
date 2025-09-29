@@ -10,5 +10,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:48](../DataTopic.markdown)
-
+- [B2AI_TOPIC:48](../topics/Neurology.markdown) (Neurology)

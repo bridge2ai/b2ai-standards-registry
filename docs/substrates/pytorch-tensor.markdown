@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:42 (Tensor)
+- [B2AI_SUBSTRATE:42](../substrates/tensor.markdown) (Tensor)

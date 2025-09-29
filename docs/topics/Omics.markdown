@@ -14,5 +14,14 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:20](../DataTopic.markdown)
+- [B2AI_TOPIC:20](../topics/MolecularBiology.markdown) (Molecular Biology)
 
+**parent of:**
+
+- [B2AI_TOPIC:13](../Genome.markdown) (Genome)
+
+- [B2AI_TOPIC:17](../Metabolome.markdown) (Metabolome)
+
+- [B2AI_TOPIC:28](../Proteome.markdown) (Proteome)
+
+- [B2AI_TOPIC:34](../Transcriptome.markdown) (Transcriptome)
