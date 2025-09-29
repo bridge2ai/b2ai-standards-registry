@@ -219,14 +219,30 @@ def inject_overview(diagram: str):
 
 The Bridge2AI project defines various use cases that represent different stages and activities in biomedical data workflows. These use cases are organized into categories and show relationships through enabling dependencies.
 
-{block}
-
 ## Use Case Categories
 
-- **Acquisition**: Use cases focused on obtaining and collecting data from various sources
-- **Integration**: Use cases that combine or link data from multiple sources
-- **Standardization**: Use cases that establish consistent formats and quality standards
-- **Modeling**: Use cases that develop analytical or predictive models from data
+The colors in the diagram below represent different categories of use cases:
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <div style="width: 20px; height: 20px; background-color: #e1f5fe; border: 1px solid #ccc; border-radius: 3px;"></div>
+    <strong>Acquisition</strong>: Use cases focused on obtaining and collecting data from various sources
+  </div>
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <div style="width: 20px; height: 20px; background-color: #f3e5f5; border: 1px solid #ccc; border-radius: 3px;"></div>
+    <strong>Integration</strong>: Use cases that combine or link data from multiple sources
+  </div>
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <div style="width: 20px; height: 20px; background-color: #e8f5e8; border: 1px solid #ccc; border-radius: 3px;"></div>
+    <strong>Standardization</strong>: Use cases that establish consistent formats and quality standards
+  </div>
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <div style="width: 20px; height: 20px; background-color: #fff3e0; border: 1px solid #ccc; border-radius: 3px;"></div>
+    <strong>Modeling</strong>: Use cases that develop analytical or predictive models from data
+  </div>
+</div>
+
+{block}
 
 """
         content = new_content
