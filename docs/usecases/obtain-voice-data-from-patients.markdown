@@ -10,19 +10,19 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:31
+- [B2AI_TOPIC:31](../topics/Survey.markdown)
 
-- B2AI_TOPIC:36
+- [B2AI_TOPIC:36](../topics/Voice.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:13 (Integrate clinical record data with voice data.)
+- [B2AI_USECASE:13](../usecases/integrate-clinical-record-data-with-voice-data.markdown) (Integrate clinical record data with voice data.)
 
-- B2AI_USECASE:22 (Assemble standards for voice data.)
+- [B2AI_USECASE:22](../usecases/assemble-standards-for-voice-data.markdown) (Assemble standards for voice data.)
 
-- B2AI_USECASE:27 (Deploy a Federated Learning System for analysis of voice data.)
+- [B2AI_USECASE:27](../usecases/deploy-a-federated-learning-system-for-analysis-of-voice-data.markdown) (Deploy a Federated Learning System for analysis of voice data.)
 
-- B2AI_USECASE:31 (Develop software and cloud infrastructure for automated voice data collection through a smartphone application.)
+- [B2AI_USECASE:31](../usecases/develop-software-and-cloud-infrastructure-for-automated-voice-data-collection-through-a-smartphone-application.markdown) (Develop software and cloud infrastructure for automated voice data collection through a smartphone application.)
 
 **Relevant to GCs:**
 
@@ -30,13 +30,13 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:732
+- [B2AI_STANDARD:732](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:732)
 
-- B2AI_STANDARD:723
+- [B2AI_STANDARD:723](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:723)
 
-- B2AI_STANDARD:821
+- [B2AI_STANDARD:821](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:821)
 
-- B2AI_STANDARD:839
+- [B2AI_STANDARD:839](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:839)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

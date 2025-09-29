@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:4
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
 
 **Relevant to GCs:**
 
@@ -18,9 +18,9 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:775
+- [B2AI_STANDARD:775](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:775)
 
-- B2AI_STANDARD:243
+- [B2AI_STANDARD:243](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

@@ -28,6 +28,81 @@ def slugify(value: str) -> str:
     return value or 'usecase'
 
 
+def load_all_data() -> Dict[str, Dict]:
+    """Load all data files and create ID-to-info mappings."""
+    data_mappings = {}
+    
+    # Data files and their keys
+    data_files = {
+        'DataStandardOrTool.yaml': 'data_standardortools_collection',
+        'DataSet.yaml': 'data_collection', 
+        'DataSubstrate.yaml': 'data_substrates_collection',
+        'DataTopic.yaml': 'data_topics_collection',
+        'UseCase.yaml': 'use_cases'
+    }
+    
+    for filename, key in data_files.items():
+        file_path = REPO_ROOT / 'src' / 'data' / filename
+        if file_path.exists():
+            with open(file_path, 'r') as f:
+                data = yaml.safe_load(f)
+                items = data.get(key, [])
+                for item in items:
+                    if 'id' in item:
+                        data_mappings[item['id']] = item
+    
+    return data_mappings
+
+
+def convert_ids_to_links(text: str, all_data: Dict[str, Dict]) -> str:
+    """Convert B2AI IDs in text to appropriate links."""
+    if not text:
+        return text
+    
+    # Pattern to match B2AI IDs
+    id_pattern = r'(B2AI_(?:STANDARD|DATA|SUBSTRATE|TOPIC|USECASE):\d+)'
+    
+    def replace_id(match):
+        id_str = match.group(1)
+        
+        if id_str.startswith('B2AI_STANDARD:'):
+            # Link to Standards Explorer
+            return f"[{id_str}](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id={id_str})"
+        
+        elif id_str.startswith('B2AI_USECASE:'):
+            # Link to use case page
+            if id_str in all_data:
+                name = all_data[id_str].get('name', id_str)
+                slug = slugify(name)
+                return f"[{id_str}](../usecases/{slug}.markdown)"
+            return id_str
+        
+        elif id_str.startswith('B2AI_SUBSTRATE:'):
+            # Link to substrate page
+            if id_str in all_data:
+                name = all_data[id_str].get('name', id_str)
+                slug = slugify(name)
+                return f"[{id_str}](../substrates/{slug}.markdown)"
+            return id_str
+        
+        elif id_str.startswith('B2AI_TOPIC:'):
+            # Link to topic page
+            if id_str in all_data:
+                name = all_data[id_str].get('name', id_str)
+                # Topics use the exact name with spaces removed but capitalization preserved
+                slug = name.replace(' ', '')  # Remove spaces but keep capitalization
+                return f"[{id_str}](../topics/{slug}.markdown)"
+            return id_str
+        
+        elif id_str.startswith('B2AI_DATA:'):
+            # For now, just return the ID as-is since we don't have individual dataset pages
+            return id_str
+        
+        return id_str
+    
+    return re.sub(id_pattern, replace_id, text)
+
+
 def load_data() -> List[Dict]:
     with open(YAML_PATH, 'r') as f:
         data = yaml.safe_load(f)
@@ -54,7 +129,7 @@ def build_index(usecases: List[Dict]):
     return by_id, enabled_by, roots
 
 
-def write_pages(by_id: Dict[str, Dict]):
+def write_pages(by_id: Dict[str, Dict], all_data: Dict[str, Dict]):
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     for sid, s in by_id.items():
         name = s.get('name', sid)
@@ -65,9 +140,9 @@ def write_pages(by_id: Dict[str, Dict]):
         # Basic info
         lines.append(f"**ID:** {sid}\n")
         if 'name' in s:
-            lines.append(f"**Name:** {s['name']}\n")
+            lines.append(f"**Name:** {convert_ids_to_links(s['name'], all_data)}\n")
         if 'description' in s:
-            lines.append(f"**Description:** {s['description']}\n")
+            lines.append(f"**Description:** {convert_ids_to_links(s['description'], all_data)}\n")
         
         # Category and involvement flags
         if 'use_case_category' in s:
@@ -91,14 +166,15 @@ def write_pages(by_id: Dict[str, Dict]):
         if 'data_topics' in s:
             lines.append("**Data Topics:**\n")
             for topic in s['data_topics']:
-                lines.append(f"- {topic}\n")
+                lines.append(f"- {convert_ids_to_links(str(topic), all_data)}\n")
         
         # Relationships
         if 'enables' in s:
             lines.append("**Enables:**\n")
             for enabled in s['enables']:
                 enabled_name = by_id.get(enabled, {}).get('name', enabled)
-                lines.append(f"- {enabled} ({enabled_name})\n")
+                enabled_link = convert_ids_to_links(enabled, all_data)
+                lines.append(f"- {enabled_link} ({convert_ids_to_links(enabled_name, all_data)})\n")
         
         # Find what enables this use case
         enablers = []
@@ -108,30 +184,31 @@ def write_pages(by_id: Dict[str, Dict]):
         if enablers:
             lines.append("**Enabled by:**\n")
             for enabler_id, enabler_name in enablers:
-                lines.append(f"- {enabler_id} ({enabler_name})\n")
+                enabler_link = convert_ids_to_links(enabler_id, all_data)
+                lines.append(f"- {enabler_link} ({convert_ids_to_links(enabler_name, all_data)})\n")
         
         # Relevant GCs
         if 'relevant_to_gcs' in s:
             lines.append("**Relevant to GCs:**\n")
             for gc in s['relevant_to_gcs']:
-                lines.append(f"- {gc}\n")
+                lines.append(f"- {convert_ids_to_links(str(gc), all_data)}\n")
         
         # Standards and tools
         if 'standards_and_tools_for_gc_use' in s:
             lines.append("**Standards and Tools:**\n")
             for standard in s['standards_and_tools_for_gc_use']:
-                lines.append(f"- {standard}\n")
+                lines.append(f"- {convert_ids_to_links(str(standard), all_data)}\n")
         
         if 'alternative_standards_and_tools' in s:
             lines.append("**Alternative Standards and Tools:**\n")
             for standard in s['alternative_standards_and_tools']:
-                lines.append(f"- {standard}\n")
+                lines.append(f"- {convert_ids_to_links(str(standard), all_data)}\n")
         
         # External references
         if 'xref' in s:
             lines.append("**External References:**\n")
             for xref in s['xref']:
-                lines.append(f"- {xref}\n")
+                lines.append(f"- {convert_ids_to_links(str(xref), all_data)}\n")
         
         # Contributor info
         if 'contributor_name' in s:
@@ -348,12 +425,16 @@ The colors in the diagrams below represent different categories of use cases:
 
 
 def main():
+    # Load all data for ID linking
+    all_data = load_all_data()
+    
+    # Load and process use cases
     usecases = load_data()
     by_id, enabled_by, roots = build_index(usecases)
-    write_pages(by_id)
+    write_pages(by_id, all_data)
     main_diagram, standalone_diagram = build_mermaid_diagrams(by_id, enabled_by, roots)
     inject_overview(main_diagram, standalone_diagram)
-    print(f"Generated {len(by_id)} use case pages and updated overview with two diagrams.")
+    print(f"Generated {len(by_id)} use case pages with ID linking and updated overview with two diagrams.")
 
 
 if __name__ == '__main__':

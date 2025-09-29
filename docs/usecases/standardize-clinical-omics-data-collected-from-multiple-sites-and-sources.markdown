@@ -10,11 +10,11 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:13
+- [B2AI_TOPIC:13](../topics/Genome.markdown)
 
 **Enabled by:**
 
-- B2AI_USECASE:7 (Obtain genomics data from patients.)
+- [B2AI_USECASE:7](../usecases/obtain-genomics-data-from-patients.markdown) (Obtain genomics data from patients.)
 
 **Relevant to GCs:**
 
@@ -24,7 +24,7 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:109
+- [B2AI_STANDARD:109](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:109)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

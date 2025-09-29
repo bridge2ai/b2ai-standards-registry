@@ -10,19 +10,19 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:13
+- [B2AI_TOPIC:13](../topics/Genome.markdown)
 
-- B2AI_TOPIC:35
+- [B2AI_TOPIC:35](../topics/Variant.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:20 (Standardize clinical omics data collected from multiple sites and sources.)
+- [B2AI_USECASE:20](../usecases/standardize-clinical-omics-data-collected-from-multiple-sites-and-sources.markdown) (Standardize clinical omics data collected from multiple sites and sources.)
 
-- B2AI_USECASE:26 (Develop pseudotime patient models of health and salutogenesis.)
+- [B2AI_USECASE:26](../usecases/develop-pseudotime-patient-models-of-health-and-salutogenesis.markdown) (Develop pseudotime patient models of health and salutogenesis.)
 
-- B2AI_USECASE:28 (Develop cross-sectional AI models of relationships between diabetes severity, cognitive function, and presence of biomarkers.)
+- [B2AI_USECASE:28](../usecases/develop-cross-sectional-ai-models-of-relationships-between-diabetes-severity-cognitive-function-and-presence-of-biomarkers.markdown) (Develop cross-sectional AI models of relationships between diabetes severity, cognitive function, and presence of biomarkers.)
 
-- B2AI_USECASE:29 (Develop predictive models of insulin dependence and salutogenesis.)
+- [B2AI_USECASE:29](../usecases/develop-predictive-models-of-insulin-dependence-and-salutogenesis.markdown) (Develop predictive models of insulin dependence and salutogenesis.)
 
 **Relevant to GCs:**
 
@@ -32,17 +32,17 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:36
+- [B2AI_STANDARD:36](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:36)
 
-- B2AI_STANDARD:154
+- [B2AI_STANDARD:154](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:154)
 
-- B2AI_STANDARD:819
+- [B2AI_STANDARD:819](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:819)
 
-- B2AI_STANDARD:278
+- [B2AI_STANDARD:278](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:278)
 
-- B2AI_STANDARD:299
+- [B2AI_STANDARD:299](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:299)
 
-- B2AI_STANDARD:301
+- [B2AI_STANDARD:301](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:301)
 
 **External References:**
 

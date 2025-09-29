@@ -10,11 +10,11 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:34
+- [B2AI_TOPIC:34](../topics/Transcriptome.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:16 (Link cellular objects to functions through associations between proteins, cell structure proximity, and transcriptomics.)
+- [B2AI_USECASE:16](../usecases/link-cellular-objects-to-functions-through-associations-between-proteins-cell-structure-proximity-and-transcriptomics.markdown) (Link cellular objects to functions through associations between proteins, cell structure proximity, and transcriptomics.)
 
 **Relevant to GCs:**
 
@@ -22,7 +22,7 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:764
+- [B2AI_STANDARD:764](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:764)
 
 **External References:**
 

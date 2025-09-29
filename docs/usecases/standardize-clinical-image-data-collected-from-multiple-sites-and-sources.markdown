@@ -10,23 +10,23 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:15
+- [B2AI_TOPIC:15](../topics/Image.markdown)
 
-- B2AI_TOPIC:24
+- [B2AI_TOPIC:24](../topics/OphthalmicImaging.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:25 (Develop models of clinical image data.)
+- [B2AI_USECASE:25](../usecases/develop-models-of-clinical-image-data.markdown) (Develop models of clinical image data.)
 
-- B2AI_USECASE:30 (Test and deploy analytical models of clinical image data.)
+- [B2AI_USECASE:30](../usecases/test-and-deploy-analytical-models-of-clinical-image-data.markdown) (Test and deploy analytical models of clinical image data.)
 
 **Enabled by:**
 
-- B2AI_USECASE:1 (Obtain patient data from records of clinical visits.)
+- [B2AI_USECASE:1](../usecases/obtain-patient-data-from-records-of-clinical-visits.markdown) (Obtain patient data from records of clinical visits.)
 
-- B2AI_USECASE:2 (Obtain image data from brain magnetic resonance imaging.)
+- [B2AI_USECASE:2](../usecases/obtain-image-data-from-brain-magnetic-resonance-imaging.markdown) (Obtain image data from brain magnetic resonance imaging.)
 
-- B2AI_USECASE:4 (Obtain image data from retinal and other ophthalmic imaging.)
+- [B2AI_USECASE:4](../usecases/obtain-image-data-from-retinal-and-other-ophthalmic-imaging.markdown) (Obtain image data from retinal and other ophthalmic imaging.)
 
 **Relevant to GCs:**
 
@@ -38,11 +38,11 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:71
+- [B2AI_STANDARD:71](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:71)
 
-- B2AI_STANDARD:98
+- [B2AI_STANDARD:98](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98)
 
-- B2AI_STANDARD:788
+- [B2AI_STANDARD:788](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:788)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

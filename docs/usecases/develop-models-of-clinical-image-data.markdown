@@ -10,15 +10,15 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:15
+- [B2AI_TOPIC:15](../topics/Image.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:30 (Test and deploy analytical models of clinical image data.)
+- [B2AI_USECASE:30](../usecases/test-and-deploy-analytical-models-of-clinical-image-data.markdown) (Test and deploy analytical models of clinical image data.)
 
 **Enabled by:**
 
-- B2AI_USECASE:19 (Standardize clinical image data collected from multiple sites and sources.)
+- [B2AI_USECASE:19](../usecases/standardize-clinical-image-data-collected-from-multiple-sites-and-sources.markdown) (Standardize clinical image data collected from multiple sites and sources.)
 
 **Relevant to GCs:**
 
@@ -26,7 +26,7 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:788
+- [B2AI_STANDARD:788](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:788)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

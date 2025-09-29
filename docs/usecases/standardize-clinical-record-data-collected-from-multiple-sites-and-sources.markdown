@@ -12,35 +12,35 @@
 
 - Demographic
 
-- B2AI_TOPIC:4
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
 
-- B2AI_TOPIC:9
+- [B2AI_TOPIC:9](../topics/EHR.markdown)
 
-- B2AI_TOPIC:18
+- [B2AI_TOPIC:18](../topics/mHealth.markdown)
 
-- B2AI_TOPIC:29
+- [B2AI_TOPIC:29](../topics/SDoH.markdown)
 
-- B2AI_TOPIC:31
+- [B2AI_TOPIC:31](../topics/Survey.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:26 (Develop pseudotime patient models of health and salutogenesis.)
+- [B2AI_USECASE:26](../usecases/develop-pseudotime-patient-models-of-health-and-salutogenesis.markdown) (Develop pseudotime patient models of health and salutogenesis.)
 
-- B2AI_USECASE:28 (Develop cross-sectional AI models of relationships between diabetes severity, cognitive function, and presence of biomarkers.)
+- [B2AI_USECASE:28](../usecases/develop-cross-sectional-ai-models-of-relationships-between-diabetes-severity-cognitive-function-and-presence-of-biomarkers.markdown) (Develop cross-sectional AI models of relationships between diabetes severity, cognitive function, and presence of biomarkers.)
 
-- B2AI_USECASE:29 (Develop predictive models of insulin dependence and salutogenesis.)
+- [B2AI_USECASE:29](../usecases/develop-predictive-models-of-insulin-dependence-and-salutogenesis.markdown) (Develop predictive models of insulin dependence and salutogenesis.)
 
 **Enabled by:**
 
-- B2AI_USECASE:1 (Obtain patient data from records of clinical visits.)
+- [B2AI_USECASE:1](../usecases/obtain-patient-data-from-records-of-clinical-visits.markdown) (Obtain patient data from records of clinical visits.)
 
-- B2AI_USECASE:5 (Obtain patient data from laboratory analysis, including serological testing and urinalysis.)
+- [B2AI_USECASE:5](../usecases/obtain-patient-data-from-laboratory-analysis-including-serological-testing-and-urinalysis.markdown) (Obtain patient data from laboratory analysis, including serological testing and urinalysis.)
 
-- B2AI_USECASE:6 (Obtain patient data from wearable devices.)
+- [B2AI_USECASE:6](../usecases/obtain-patient-data-from-wearable-devices.markdown) (Obtain patient data from wearable devices.)
 
-- B2AI_USECASE:9 (Obtain social determinants of health data from patients.)
+- [B2AI_USECASE:9](../usecases/obtain-social-determinants-of-health-data-from-patients.markdown) (Obtain social determinants of health data from patients.)
 
-- B2AI_USECASE:13 (Integrate clinical record data with voice data.)
+- [B2AI_USECASE:13](../usecases/integrate-clinical-record-data-with-voice-data.markdown) (Integrate clinical record data with voice data.)
 
 **Relevant to GCs:**
 
@@ -52,17 +52,17 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:71
+- [B2AI_STANDARD:71](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:71)
 
-- B2AI_STANDARD:187
+- [B2AI_STANDARD:187](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:187)
 
-- B2AI_STANDARD:788
+- [B2AI_STANDARD:788](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:788)
 
-- B2AI_STANDARD:243
+- [B2AI_STANDARD:243](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243)
 
-- B2AI_STANDARD:271
+- [B2AI_STANDARD:271](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:271)
 
-- B2AI_STANDARD:727
+- [B2AI_STANDARD:727](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:727)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

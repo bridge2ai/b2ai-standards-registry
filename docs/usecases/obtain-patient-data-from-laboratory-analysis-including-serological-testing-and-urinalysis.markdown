@@ -10,19 +10,19 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:4
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
 
-- B2AI_TOPIC:9
+- [B2AI_TOPIC:9](../topics/EHR.markdown)
 
-- B2AI_TOPIC:18
+- [B2AI_TOPIC:18](../topics/mHealth.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:17 (Standardize clinical record data collected from multiple sites and sources.)
+- [B2AI_USECASE:17](../usecases/standardize-clinical-record-data-collected-from-multiple-sites-and-sources.markdown) (Standardize clinical record data collected from multiple sites and sources.)
 
 **Enabled by:**
 
-- B2AI_USECASE:1 (Obtain patient data from records of clinical visits.)
+- [B2AI_USECASE:1](../usecases/obtain-patient-data-from-records-of-clinical-visits.markdown) (Obtain patient data from records of clinical visits.)
 
 **Relevant to GCs:**
 
@@ -30,7 +30,7 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:243
+- [B2AI_STANDARD:243](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

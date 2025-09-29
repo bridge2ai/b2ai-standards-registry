@@ -10,19 +10,19 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:15
+- [B2AI_TOPIC:15](../topics/Image.markdown)
 
-- B2AI_TOPIC:4
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:5 (Obtain patient data from laboratory analysis, including serological testing and urinalysis.)
+- [B2AI_USECASE:5](../usecases/obtain-patient-data-from-laboratory-analysis-including-serological-testing-and-urinalysis.markdown) (Obtain patient data from laboratory analysis, including serological testing and urinalysis.)
 
-- B2AI_USECASE:13 (Integrate clinical record data with voice data.)
+- [B2AI_USECASE:13](../usecases/integrate-clinical-record-data-with-voice-data.markdown) (Integrate clinical record data with voice data.)
 
-- B2AI_USECASE:17 (Standardize clinical record data collected from multiple sites and sources.)
+- [B2AI_USECASE:17](../usecases/standardize-clinical-record-data-collected-from-multiple-sites-and-sources.markdown) (Standardize clinical record data collected from multiple sites and sources.)
 
-- B2AI_USECASE:19 (Standardize clinical image data collected from multiple sites and sources.)
+- [B2AI_USECASE:19](../usecases/standardize-clinical-image-data-collected-from-multiple-sites-and-sources.markdown) (Standardize clinical image data collected from multiple sites and sources.)
 
 **Relevant to GCs:**
 
@@ -34,9 +34,9 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:98
+- [B2AI_STANDARD:98](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98)
 
-- B2AI_STANDARD:243
+- [B2AI_STANDARD:243](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

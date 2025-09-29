@@ -10,25 +10,25 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:19
+- [B2AI_TOPIC:19](../topics/MicroscaleImaging.markdown)
 
-- B2AI_TOPIC:28
+- [B2AI_TOPIC:28](../topics/Proteome.markdown)
 
-- B2AI_TOPIC:27
+- [B2AI_TOPIC:27](../topics/ProteinStructureModel.markdown)
 
-- B2AI_TOPIC:34
+- [B2AI_TOPIC:34](../topics/Transcriptome.markdown)
 
 **Enables:**
 
-- B2AI_USECASE:24 (Develop multi-scale maps of human cell architecture.)
+- [B2AI_USECASE:24](../usecases/develop-multi-scale-maps-of-human-cell-architecture.markdown) (Develop multi-scale maps of human cell architecture.)
 
 **Enabled by:**
 
-- B2AI_USECASE:10 (Obtain molecular proximity observations from microscopy images of human cells.)
+- [B2AI_USECASE:10](../usecases/obtain-molecular-proximity-observations-from-microscopy-images-of-human-cells.markdown) (Obtain molecular proximity observations from microscopy images of human cells.)
 
-- B2AI_USECASE:11 (Obtain proteome data from human cell samples.)
+- [B2AI_USECASE:11](../usecases/obtain-proteome-data-from-human-cell-samples.markdown) (Obtain proteome data from human cell samples.)
 
-- B2AI_USECASE:12 (Obtain transcriptome data from human cell populations perturbed through CRISPR-driven mutagenesis.)
+- [B2AI_USECASE:12](../usecases/obtain-transcriptome-data-from-human-cell-populations-perturbed-through-crispr-driven-mutagenesis.markdown) (Obtain transcriptome data from human cell populations perturbed through CRISPR-driven mutagenesis.)
 
 **Relevant to GCs:**
 
@@ -36,7 +36,7 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:764
+- [B2AI_STANDARD:764](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:764)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

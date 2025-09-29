@@ -10,15 +10,15 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:4
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
 
-- B2AI_TOPIC:31
+- [B2AI_TOPIC:31](../topics/Survey.markdown)
 
-- B2AI_TOPIC:36
+- [B2AI_TOPIC:36](../topics/Voice.markdown)
 
 **Enabled by:**
 
-- B2AI_USECASE:8 (Obtain voice data from patients.)
+- [B2AI_USECASE:8](../usecases/obtain-voice-data-from-patients.markdown) (Obtain voice data from patients.)
 
 **Relevant to GCs:**
 
@@ -26,9 +26,9 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:723
+- [B2AI_STANDARD:723](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:723)
 
-- B2AI_STANDARD:839
+- [B2AI_STANDARD:839](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:839)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

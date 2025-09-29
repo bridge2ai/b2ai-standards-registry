@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:5
+- [B2AI_TOPIC:5](../topics/Data.markdown)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

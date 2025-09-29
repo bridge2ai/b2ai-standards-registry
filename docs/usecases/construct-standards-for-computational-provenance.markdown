@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:5
+- [B2AI_TOPIC:5](../topics/Data.markdown)
 
 **Relevant to GCs:**
 
@@ -18,7 +18,7 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:444
+- [B2AI_STANDARD:444](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:444)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)

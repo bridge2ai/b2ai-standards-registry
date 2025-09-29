@@ -10,13 +10,13 @@
 
 **Data Topics:**
 
-- B2AI_TOPIC:9
+- [B2AI_TOPIC:9](../topics/EHR.markdown)
 
-- B2AI_TOPIC:10
+- [B2AI_TOPIC:10](../topics/EKG.markdown)
 
 **Enabled by:**
 
-- B2AI_USECASE:3 (Obtain clinical waveform data from patients.)
+- [B2AI_USECASE:3](../usecases/obtain-clinical-waveform-data-from-patients.markdown) (Obtain clinical waveform data from patients.)
 
 **Relevant to GCs:**
 
@@ -26,9 +26,9 @@
 
 **Standards and Tools:**
 
-- B2AI_STANDARD:788
+- [B2AI_STANDARD:788](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:788)
 
-- B2AI_STANDARD:202
+- [B2AI_STANDARD:202](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:202)
 
 **Contributor:** Harry Caufield
  (ORCID:0000-0001-5705-7831)
