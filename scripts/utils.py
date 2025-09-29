@@ -10,7 +10,8 @@ Expected Environment:
     - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
       Instructions for setting up your auth token are documented in the README.
 """
-PROJECT_ID='syn63096806'
+PROJECT_ID = 'syn63096806'
+
 
 def get_auth_token():
     """
@@ -28,7 +29,8 @@ def get_auth_token():
         RuntimeError: If an unexpected error occurs while reading the file.
     """
 
-    token = os.getenv('SYNAPSE_AUTH_TOKEN') or os.getenv('AUTH_TOKEN') or os.getenv('auth_token')
+    token = os.getenv('SYNAPSE_AUTH_TOKEN') or os.getenv(
+        'AUTH_TOKEN') or os.getenv('auth_token')
     if token:
         return token
 
@@ -43,13 +45,16 @@ def get_auth_token():
                     if key == "authtoken" and value:
                         return value
                     else:
-                        raise ValueError("The 'authtoken' line is malformed or empty.")
+                        raise ValueError(
+                            "The 'authtoken' line is malformed or empty.")
     except FileNotFoundError:
         raise FileNotFoundError(f"Authentication file not found: {auth_file}")
     except Exception as e:
-        raise RuntimeError(f"An error occurred while reading the auth file: {e}")
+        raise RuntimeError(
+            f"An error occurred while reading the auth file: {e}")
 
     raise ValueError(f"'authtoken' not found in {auth_file}")
+
 
 def initialize_synapse() -> Synapse:
     """
@@ -63,9 +68,11 @@ def initialize_synapse() -> Synapse:
     except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
         raise Exception(f"Failed to authenticate with Synapse: {str(e)}")
 
+
 def copy_list_omit_property(list_of_dicts, property_to_omit):
     return [{key: value for key, value in d.items() if key != property_to_omit}
             for d in list_of_dicts]
+
 
 def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: List[Column], df: pd.DataFrame, table_id: Optional[str] = None) -> None:
     """
@@ -90,18 +97,22 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
             if table['name'] == table_name:
                 if table_id:
                     if table['id'] != table_id:
-                        raise Exception(f"got table_id mismatch for {table_name}: {table['id']} != {table_id}")
+                        raise Exception(
+                            f"got table_id mismatch for {table_name}: {table['id']} != {table_id}")
                 else:
                     table_id = table['id']
                 query_result = syn.tableQuery(f"SELECT * FROM {table_id}")
-                print(f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
+                print(
+                    f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
                 syn.delete(query_result)
                 break
     except Exception as e:
-        print(f"Error checking for and clearing existing table {table_name}: {e}")
+        print(
+            f"Error checking for and clearing existing table {table_name}: {e}")
 
     schema = Schema(name=table_name, columns=columnDefs, parent=PROJECT_ID)
-    table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
+    table = Table(name=table_name, parent_id=PROJECT_ID,
+                  schema=schema, values=df)
     table.tableId = table_id
     table = syn.store(table)
     table_id = table_id or table.get('id', table.get('tableId'))

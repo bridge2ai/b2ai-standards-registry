@@ -24,7 +24,8 @@ def analyze_column_lengths(df, check_json_length=False):
                 if check_json_length:
                     try:
                         # Convert to JSON string and measure length
-                        json_str = json.dumps(value.tolist() if isinstance(value, np.ndarray) else value)
+                        json_str = json.dumps(value.tolist() if isinstance(
+                            value, np.ndarray) else value)
                         length = len(json_str)
                     except (TypeError, ValueError):
                         # Fallback to string representation
@@ -69,7 +70,8 @@ def print_length_analysis(df, check_json_length=False):
     results = analyze_column_lengths(df, check_json_length)
 
     length_type = "JSON string length" if check_json_length else "element count/character length"
-    print(f"DataFrame Length Analysis ({len(df)} rows, {len(df.columns)} columns)")
+    print(
+        f"DataFrame Length Analysis ({len(df)} rows, {len(df.columns)} columns)")
     print(f"Measuring: {length_type}")
     print("=" * 80)
 
@@ -98,7 +100,8 @@ def find_large_json_values(df, threshold=500000):
         for idx, value in enumerate(df[col]):
             if isinstance(value, (list, tuple, np.ndarray, dict)):
                 try:
-                    json_str = json.dumps(value.tolist() if isinstance(value, np.ndarray) else value)
+                    json_str = json.dumps(value.tolist() if isinstance(
+                        value, np.ndarray) else value)
                     if len(json_str) > threshold:
                         large_values.append({
                             'row': idx,
@@ -132,9 +135,11 @@ if __name__ == "__main__":
     print("Checking for large JSON values...")
     large_values = find_large_json_values(df)
     if large_values:
-        print(f"Found {len(large_values)} values that may cause JSON size issues:")
+        print(
+            f"Found {len(large_values)} values that may cause JSON size issues:")
         for item in large_values:
-            print(f"  Row {item['row']}, Column '{item['column']}': {item['json_length']:,} characters")
+            print(
+                f"  Row {item['row']}, Column '{item['column']}': {item['json_length']:,} characters")
     else:
         print("No problematic JSON sizes found.")
 

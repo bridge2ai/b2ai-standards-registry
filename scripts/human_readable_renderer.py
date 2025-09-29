@@ -11,6 +11,7 @@ from jinja2 import Template, Environment
 from pathlib import Path
 from bs4 import BeautifulSoup
 
+
 class HumanReadableRenderer:
     """Renders D4D data in a human-readable HTML format"""
 
@@ -119,7 +120,8 @@ class HumanReadableRenderer:
                     for resource in value.get("resources", []):
                         if isinstance(resource, dict):
                             for res_key, res_value in resource.items():
-                                process_item(res_key, res_value, "Dataset Resource")
+                                process_item(res_key, res_value,
+                                             "Dataset Resource")
                 else:
                     process_item(key, value)
         elif isinstance(data, list):
@@ -163,7 +165,8 @@ class HumanReadableRenderer:
             return "<em>No items</em>"
 
         # Determine if this should be an ordered or unordered list
-        is_ordered = all(isinstance(item, dict) and len(item) > 3 for item in lst) if lst else False
+        is_ordered = all(isinstance(item, dict) and len(
+            item) > 3 for item in lst) if lst else False
 
         list_tag = "ol" if is_ordered else "ul"
         items = []
@@ -474,6 +477,7 @@ class HumanReadableRenderer:
             timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         )
 
+
 def process_yaml_file(file_path, output_dir, org_id, separate_css):
     """Process a YAML file and generate human-readable HTML"""
 
@@ -495,7 +499,8 @@ def process_yaml_file(file_path, output_dir, org_id, separate_css):
     html_content = renderer.render_to_html(data, base_name)
 
     # Extract CSS, conditionally remove CSS from HTML content
-    css_path, html = extract_css(output_dir, output_path, html_content, separate_css)
+    css_path, html = extract_css(
+        output_dir, output_path, html_content, separate_css)
 
     # Write output
     with open(output_path, 'w', encoding='utf-8') as f:
@@ -504,6 +509,7 @@ def process_yaml_file(file_path, output_dir, org_id, separate_css):
     print(f"Generated human-readable HTML: {output_path}")
     print(f"Generated CSS: {css_path}")
     return True
+
 
 def extract_css(output_dir, output_path, html_content, separate_css):
     """Extract CSS styling from D4D HTML"""
@@ -524,6 +530,7 @@ def extract_css(output_dir, output_path, html_content, separate_css):
         c.write("\n".join(extracted_css))
 
     return css_path, html_content
+
 
 def main():
     """Process all YAML files and generate human-readable HTML versions"""
@@ -554,6 +561,7 @@ def main():
 
     print(f"\nProcessed {processed_count} files.")
     print(f"Human-readable HTML files saved in: {output_dir}")
+
 
 if __name__ == "__main__":
     main()
