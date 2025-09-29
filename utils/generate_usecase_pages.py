@@ -144,9 +144,7 @@ def write_pages(by_id: Dict[str, Dict]):
             f.write('\n'.join(lines))
 
 
-def build_mermaid(by_id: Dict[str, Dict], enabled_by: Dict[str, List[str]], roots: Set[str]) -> str:
-    lines = ["```mermaid", "flowchart LR"]
-    
+def build_mermaid_diagrams(by_id: Dict[str, Dict], enabled_by: Dict[str, List[str]], roots: Set[str]) -> tuple[str, str]:
     # Group by category for better visual organization
     categories = {}
     for sid, s in by_id.items():
@@ -166,62 +164,154 @@ def build_mermaid(by_id: Dict[str, Dict], enabled_by: Dict[str, List[str]], root
         'other': 'fill:#f5f5f5'
     }
     
-    # Create nodes
+    # Identify connected and unconnected nodes
+    connected_nodes = set()
     for sid, s in by_id.items():
-        # Truncate very long names for better display
-        label = s.get('name', sid)
-        if len(label) > 45:
-            label = label[:42] + "..."
-        # Escape special characters for Mermaid
-        label = label.replace('"', '\\"').replace('[', '&#91;').replace(']', '&#93;')
-        lines.append(f"    {sid.replace(':', '_')}[\"{label}\"]")
+        enables = s.get('enables', [])
+        if enables:
+            connected_nodes.add(sid)
+            for enabled in enables:
+                if enabled in by_id:
+                    connected_nodes.add(enabled)
     
-    # Add enables relationships as edges
+    unconnected_nodes = [sid for sid in by_id.keys() if sid not in connected_nodes]
+    
+    # Build main workflow diagram
+    main_lines = ["```mermaid", "flowchart LR"]
+    
+    # Create connected nodes
+    for sid, s in by_id.items():
+        if sid in connected_nodes:
+            label = s.get('name', sid)
+            if len(label) > 50:
+                label = label[:47] + "..."
+            label = label.replace('"', '\\"').replace('[', '&#91;').replace(']', '&#93;')
+            main_lines.append(f"    {sid.replace(':', '_')}[\"{label}\"]")
+    
+    # Add workflow relationships
+    main_lines.append("")
+    main_lines.append("    %% Workflow relationships")
     for sid, s in by_id.items():
         enables = s.get('enables', [])
         for enabled in enables:
             if enabled in by_id:
-                lines.append(f"    {sid.replace(':', '_')} --> {enabled.replace(':', '_')}")
+                main_lines.append(f"    {sid.replace(':', '_')} --> {enabled.replace(':', '_')}")
     
-    # Add category styling
-    lines.append("")
+    # Add styling for main diagram
+    main_lines.append("")
     for cat, color in category_colors.items():
         if cat in categories:
             for sid in categories[cat]:
-                lines.append(f"    style {sid.replace(':', '_')} {color}")
+                if sid in connected_nodes:
+                    main_lines.append(f"    style {sid.replace(':', '_')} {color}")
     
-    # Add click events for navigation
-    lines.append("")
+    # Add click events for main diagram
+    main_lines.append("")
     for sid, s in by_id.items():
-        label = s.get('name', sid)
-        slug = slugify(label)
-        safe_label = label.replace('"', '\\"')
-        lines.append(f"    click {sid.replace(':', '_')} \"../usecases/{slug}/\" \"{safe_label}\"")
+        if sid in connected_nodes:
+            label = s.get('name', sid)
+            slug = slugify(label)
+            safe_label = label.replace('"', '\\"')
+            main_lines.append(f"    click {sid.replace(':', '_')} \"../usecases/{slug}/\" \"{safe_label}\"")
     
-    lines.append("```")
-    return '\n'.join(lines)
+    main_lines.append("```")
+    main_diagram = '\n'.join(main_lines)
+    
+    # Build standalone diagram
+    standalone_lines = ["```mermaid", "flowchart LR"]
+    
+    if unconnected_nodes:
+        # Group unconnected nodes by category
+        unconnected_by_category = {}
+        for sid in unconnected_nodes:
+            s = by_id[sid]
+            cat = s.get('use_case_category', ['other'])
+            if isinstance(cat, list):
+                cat = cat[0] if cat else 'other'
+            if cat not in unconnected_by_category:
+                unconnected_by_category[cat] = []
+            unconnected_by_category[cat].append(sid)
+        
+        # Create subgraphs for each category
+        for cat, cat_nodes in unconnected_by_category.items():
+            if len(cat_nodes) > 1:
+                cat_title = cat.replace('_', ' ').title()
+                standalone_lines.append(f"    subgraph {cat}_standalone [\"{cat_title}\"]")
+                standalone_lines.append("        direction LR")
+                
+                for sid in cat_nodes:
+                    s = by_id[sid]
+                    label = s.get('name', sid)
+                    if len(label) > 50:
+                        label = label[:47] + "..."
+                    label = label.replace('"', '\\"').replace('[', '&#91;').replace(']', '&#93;')
+                    standalone_lines.append(f"        {sid.replace(':', '_')}[\"{label}\"]")
+                standalone_lines.append("    end")
+            else:
+                for sid in cat_nodes:
+                    s = by_id[sid]
+                    label = s.get('name', sid)
+                    if len(label) > 50:
+                        label = label[:47] + "..."
+                    label = label.replace('"', '\\"').replace('[', '&#91;').replace(']', '&#93;')
+                    standalone_lines.append(f"    {sid.replace(':', '_')}[\"{label}\"]")
+        
+        # Add styling for standalone diagram
+        standalone_lines.append("")
+        for cat, color in category_colors.items():
+            if cat in categories:
+                for sid in categories[cat]:
+                    if sid in unconnected_nodes:
+                        standalone_lines.append(f"    style {sid.replace(':', '_')} {color}")
+        
+        # Add click events for standalone diagram
+        standalone_lines.append("")
+        for sid in unconnected_nodes:
+            s = by_id[sid]
+            label = s.get('name', sid)
+            slug = slugify(label)
+            safe_label = label.replace('"', '\\"')
+            standalone_lines.append(f"    click {sid.replace(':', '_')} \"../usecases/{slug}/\" \"{safe_label}\"")
+    
+    standalone_lines.append("```")
+    standalone_diagram = '\n'.join(standalone_lines)
+    
+    return main_diagram, standalone_diagram
 
 
-def inject_overview(diagram: str):
+def inject_overview(main_diagram: str, standalone_diagram: str):
+    # Define markers for both diagrams
+    main_marker_start = "<!-- USECASE_MAIN_DIAGRAM_START -->"
+    main_marker_end = "<!-- USECASE_MAIN_DIAGRAM_END -->"
+    standalone_marker_start = "<!-- USECASE_STANDALONE_DIAGRAM_START -->"
+    standalone_marker_end = "<!-- USECASE_STANDALONE_DIAGRAM_END -->"
+    
     if OVERVIEW_PATH.exists():
         with open(OVERVIEW_PATH, 'r') as f:
             content = f.read()
     else:
         content = ''
     
-    block = f"{MARKER_START}\n{diagram}\n{MARKER_END}"
+    main_block = f"{main_marker_start}\n{main_diagram}\n{main_marker_end}"
+    standalone_block = f"{standalone_marker_start}\n{standalone_diagram}\n{standalone_marker_end}"
     
-    if MARKER_START in content and MARKER_END in content:
-        content = re.sub(f"{MARKER_START}.*?{MARKER_END}", block, content, flags=re.DOTALL)
+    # Handle existing content with markers
+    if main_marker_start in content and main_marker_end in content:
+        content = re.sub(f"{main_marker_start}.*?{main_marker_end}", main_block, content, flags=re.DOTALL)
+        if standalone_marker_start in content and standalone_marker_end in content:
+            content = re.sub(f"{standalone_marker_start}.*?{standalone_marker_end}", standalone_block, content, flags=re.DOTALL)
+        else:
+            # Add standalone diagram after main diagram
+            content = content.replace(main_marker_end, f"{main_marker_end}\n\n## Standalone Use Cases\n\nThe following use cases operate independently without direct dependencies on other use cases:\n\n{standalone_block}")
     else:
-        # Replace the existing content with our new diagram and description
+        # Create new content with both diagrams
         new_content = f"""# Use Cases in the Bridge2AI Standards Explorer
 
 The Bridge2AI project defines various use cases that represent different stages and activities in biomedical data workflows. These use cases are organized into categories and show relationships through enabling dependencies.
 
 ## Use Case Categories
 
-The colors in the diagram below represent different categories of use cases:
+The colors in the diagrams below represent different categories of use cases:
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
   <div style="display: flex; align-items: center; gap: 8px;">
@@ -242,7 +332,13 @@ The colors in the diagram below represent different categories of use cases:
   </div>
 </div>
 
-{block}
+## Main Use Cases
+
+{main_block}
+
+## Standalone Use Cases
+
+{standalone_block}
 
 """
         content = new_content
@@ -255,9 +351,9 @@ def main():
     usecases = load_data()
     by_id, enabled_by, roots = build_index(usecases)
     write_pages(by_id)
-    diagram = build_mermaid(by_id, enabled_by, roots)
-    inject_overview(diagram)
-    print(f"Generated {len(by_id)} use case pages and updated overview diagram.")
+    main_diagram, standalone_diagram = build_mermaid_diagrams(by_id, enabled_by, roots)
+    inject_overview(main_diagram, standalone_diagram)
+    print(f"Generated {len(by_id)} use case pages and updated overview with two diagrams.")
 
 
 if __name__ == '__main__':

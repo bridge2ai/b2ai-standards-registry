@@ -4,7 +4,7 @@ The Bridge2AI project defines various use cases that represent different stages 
 
 ## Use Case Categories
 
-The colors in the diagram below represent different categories of use cases:
+The colors in the diagrams below represent different categories of use cases:
 
 <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
   <div style="display: flex; align-items: center; gap: 8px;">
@@ -25,53 +25,43 @@ The colors in the diagram below represent different categories of use cases:
   </div>
 </div>
 
-<!-- USECASE_DIAGRAM_START -->
+## Main Use Case Workflow
+
+The following diagram shows the primary use case workflow with dependencies and relationships:
+
+<!-- USECASE_MAIN_DIAGRAM_START -->
 ```mermaid
 flowchart LR
-    B2AI_USECASE_1["Obtain patient data from records of clinic..."]
-    B2AI_USECASE_2["Obtain image data from brain magnetic reso..."]
+    B2AI_USECASE_1["Obtain patient data from records of clinical vi..."]
+    B2AI_USECASE_2["Obtain image data from brain magnetic resonance..."]
     B2AI_USECASE_3["Obtain clinical waveform data from patients."]
-    B2AI_USECASE_4["Obtain image data from retinal and other o..."]
-    B2AI_USECASE_5["Obtain patient data from laboratory analys..."]
+    B2AI_USECASE_4["Obtain image data from retinal and other ophtha..."]
+    B2AI_USECASE_5["Obtain patient data from laboratory analysis, i..."]
     B2AI_USECASE_6["Obtain patient data from wearable devices."]
     B2AI_USECASE_7["Obtain genomics data from patients."]
     B2AI_USECASE_8["Obtain voice data from patients."]
-    B2AI_USECASE_9["Obtain social determinants of health data ..."]
-    B2AI_USECASE_10["Obtain molecular proximity observations fr..."]
+    B2AI_USECASE_9["Obtain social determinants of health data from ..."]
+    B2AI_USECASE_10["Obtain molecular proximity observations from mi..."]
     B2AI_USECASE_11["Obtain proteome data from human cell samples."]
-    B2AI_USECASE_12["Obtain transcriptome data from human cell ..."]
-    B2AI_USECASE_13["Integrate clinical record data with voice ..."]
-    B2AI_USECASE_14["Transform data from OMOP to the i2b2 stand..."]
-    B2AI_USECASE_15["Produce artifacts that map identifiers bet..."]
-    B2AI_USECASE_16["Link cellular objects to functions through..."]
-    B2AI_USECASE_17["Standardize clinical record data collected..."]
-    B2AI_USECASE_18["Standardize clinical waveform data collect..."]
-    B2AI_USECASE_19["Standardize clinical image data collected ..."]
-    B2AI_USECASE_20["Standardize clinical omics data collected ..."]
-    B2AI_USECASE_21["Assemble standards for integrated maps of ..."]
+    B2AI_USECASE_12["Obtain transcriptome data from human cell popul..."]
+    B2AI_USECASE_13["Integrate clinical record data with voice data."]
+    B2AI_USECASE_16["Link cellular objects to functions through asso..."]
+    B2AI_USECASE_17["Standardize clinical record data collected from..."]
+    B2AI_USECASE_18["Standardize clinical waveform data collected fr..."]
+    B2AI_USECASE_19["Standardize clinical image data collected from ..."]
+    B2AI_USECASE_20["Standardize clinical omics data collected from ..."]
     B2AI_USECASE_22["Assemble standards for voice data."]
-    B2AI_USECASE_23["Construct standards for computational prov..."]
-    B2AI_USECASE_24["Develop multi-scale maps of human cell arc..."]
+    B2AI_USECASE_24["Develop multi-scale maps of human cell architec..."]
     B2AI_USECASE_25["Develop models of clinical image data."]
-    B2AI_USECASE_26["Develop pseudotime patient models of healt..."]
-    B2AI_USECASE_27["Deploy a Federated Learning System for ana..."]
-    B2AI_USECASE_28["Develop cross-sectional AI models of relat..."]
-    B2AI_USECASE_29["Develop predictive models of insulin depen..."]
-    B2AI_USECASE_30["Test and deploy analytical models of clini..."]
-    B2AI_USECASE_31["Develop software and cloud infrastructure ..."]
-    B2AI_USECASE_32["Build a database of human voice samples an..."]
-    B2AI_USECASE_33["Build a relational database of arbitrary d..."]
-    B2AI_USECASE_34["Query a relational database of arbitrary d..."]
-    B2AI_USECASE_35["Build a graph database of arbitrary data t..."]
-    B2AI_USECASE_36["Query a graph database of arbitrary data t..."]
-    B2AI_USECASE_37["Train a linear regression model on data in..."]
-    B2AI_USECASE_38["Train a binary classification model on dat..."]
-    B2AI_USECASE_39["Train a neural network model on tensor data."]
-    B2AI_USECASE_40["Transform FHIR data to TSV."]
-    B2AI_USECASE_41["Determine whether enough data is available..."]
-    B2AI_USECASE_42["Assess the quality of a computational mode..."]
-    B2AI_USECASE_43["Assess the potential bias in a computation..."]
-    B2AI_USECASE_44["Assess the explainability of a computation..."]
+    B2AI_USECASE_26["Develop pseudotime patient models of health and..."]
+    B2AI_USECASE_27["Deploy a Federated Learning System for analysis..."]
+    B2AI_USECASE_28["Develop cross-sectional AI models of relationsh..."]
+    B2AI_USECASE_29["Develop predictive models of insulin dependence..."]
+    B2AI_USECASE_30["Test and deploy analytical models of clinical i..."]
+    B2AI_USECASE_31["Develop software and cloud infrastructure for a..."]
+    B2AI_USECASE_32["Build a database of human voice samples and ass..."]
+
+    %% Workflow relationships
     B2AI_USECASE_1 --> B2AI_USECASE_5
     B2AI_USECASE_1 --> B2AI_USECASE_13
     B2AI_USECASE_1 --> B2AI_USECASE_17
@@ -123,23 +113,15 @@ flowchart LR
     style B2AI_USECASE_11 fill:#e1f5fe
     style B2AI_USECASE_12 fill:#e1f5fe
     style B2AI_USECASE_13 fill:#f3e5f5
-    style B2AI_USECASE_14 fill:#f3e5f5
-    style B2AI_USECASE_15 fill:#f3e5f5
     style B2AI_USECASE_16 fill:#f3e5f5
-    style B2AI_USECASE_40 fill:#f3e5f5
     style B2AI_USECASE_17 fill:#e8f5e8
     style B2AI_USECASE_18 fill:#e8f5e8
     style B2AI_USECASE_19 fill:#e8f5e8
     style B2AI_USECASE_20 fill:#e8f5e8
-    style B2AI_USECASE_21 fill:#e8f5e8
     style B2AI_USECASE_22 fill:#e8f5e8
-    style B2AI_USECASE_23 fill:#e8f5e8
     style B2AI_USECASE_24 fill:#fff3e0
     style B2AI_USECASE_25 fill:#fff3e0
     style B2AI_USECASE_26 fill:#fff3e0
-    style B2AI_USECASE_37 fill:#fff3e0
-    style B2AI_USECASE_38 fill:#fff3e0
-    style B2AI_USECASE_39 fill:#fff3e0
 
     click B2AI_USECASE_1 "../usecases/obtain-patient-data-from-records-of-clinical-visits/" "Obtain patient data from records of clinical visits."
     click B2AI_USECASE_2 "../usecases/obtain-image-data-from-brain-magnetic-resonance-imaging/" "Obtain image data from brain magnetic resonance imaging."
@@ -154,16 +136,12 @@ flowchart LR
     click B2AI_USECASE_11 "../usecases/obtain-proteome-data-from-human-cell-samples/" "Obtain proteome data from human cell samples."
     click B2AI_USECASE_12 "../usecases/obtain-transcriptome-data-from-human-cell-populations-perturbed-through-crispr-driven-mutagenesis/" "Obtain transcriptome data from human cell populations perturbed through CRISPR-driven mutagenesis."
     click B2AI_USECASE_13 "../usecases/integrate-clinical-record-data-with-voice-data/" "Integrate clinical record data with voice data."
-    click B2AI_USECASE_14 "../usecases/transform-data-from-omop-to-the-i2b2-standard/" "Transform data from OMOP to the i2b2 standard."
-    click B2AI_USECASE_15 "../usecases/produce-artifacts-that-map-identifiers-between-source-and-standardized-data-representations/" "Produce artifacts that map identifiers between source and standardized data representations."
     click B2AI_USECASE_16 "../usecases/link-cellular-objects-to-functions-through-associations-between-proteins-cell-structure-proximity-and-transcriptomics/" "Link cellular objects to functions through associations between proteins, cell structure proximity, and transcriptomics."
     click B2AI_USECASE_17 "../usecases/standardize-clinical-record-data-collected-from-multiple-sites-and-sources/" "Standardize clinical record data collected from multiple sites and sources."
     click B2AI_USECASE_18 "../usecases/standardize-clinical-waveform-data-collected-from-multiple-sites-and-sources/" "Standardize clinical waveform data collected from multiple sites and sources."
     click B2AI_USECASE_19 "../usecases/standardize-clinical-image-data-collected-from-multiple-sites-and-sources/" "Standardize clinical image data collected from multiple sites and sources."
     click B2AI_USECASE_20 "../usecases/standardize-clinical-omics-data-collected-from-multiple-sites-and-sources/" "Standardize clinical omics data collected from multiple sites and sources."
-    click B2AI_USECASE_21 "../usecases/assemble-standards-for-integrated-maps-of-human-cell-architecture/" "Assemble standards for integrated maps of human cell architecture."
     click B2AI_USECASE_22 "../usecases/assemble-standards-for-voice-data/" "Assemble standards for voice data."
-    click B2AI_USECASE_23 "../usecases/construct-standards-for-computational-provenance/" "Construct standards for computational provenance."
     click B2AI_USECASE_24 "../usecases/develop-multi-scale-maps-of-human-cell-architecture/" "Develop multi-scale maps of human cell architecture."
     click B2AI_USECASE_25 "../usecases/develop-models-of-clinical-image-data/" "Develop models of clinical image data."
     click B2AI_USECASE_26 "../usecases/develop-pseudotime-patient-models-of-health-and-salutogenesis/" "Develop pseudotime patient models of health and salutogenesis."
@@ -173,6 +151,61 @@ flowchart LR
     click B2AI_USECASE_30 "../usecases/test-and-deploy-analytical-models-of-clinical-image-data/" "Test and deploy analytical models of clinical image data."
     click B2AI_USECASE_31 "../usecases/develop-software-and-cloud-infrastructure-for-automated-voice-data-collection-through-a-smartphone-application/" "Develop software and cloud infrastructure for automated voice data collection through a smartphone application."
     click B2AI_USECASE_32 "../usecases/build-a-database-of-human-voice-samples-and-associations-with-biomarkers-of-health/" "Build a database of human voice samples and associations with biomarkers of health."
+```
+<!-- USECASE_MAIN_DIAGRAM_END -->
+
+## Standalone Use Cases
+
+The following use cases operate independently without direct dependencies on other use cases:
+
+<!-- USECASE_STANDALONE_DIAGRAM_START -->
+```mermaid
+flowchart LR
+    subgraph integration_standalone ["Integration"]
+        direction LR
+        B2AI_USECASE_14["Transform data from OMOP to the i2b2 standard."]
+        B2AI_USECASE_15["Produce artifacts that map identifiers between ..."]
+        B2AI_USECASE_40["Transform FHIR data to TSV."]
+    end
+    subgraph standardization_standalone ["Standardization"]
+        direction LR
+        B2AI_USECASE_21["Assemble standards for integrated maps of human..."]
+        B2AI_USECASE_23["Construct standards for computational provenance."]
+    end
+    subgraph application_standalone ["Application"]
+        direction LR
+        B2AI_USECASE_33["Build a relational database of arbitrary data t..."]
+        B2AI_USECASE_34["Query a relational database of arbitrary data t..."]
+        B2AI_USECASE_35["Build a graph database of arbitrary data types."]
+        B2AI_USECASE_36["Query a graph database of arbitrary data types."]
+    end
+    subgraph modeling_standalone ["Modeling"]
+        direction LR
+        B2AI_USECASE_37["Train a linear regression model on data in an R..."]
+        B2AI_USECASE_38["Train a binary classification model on data in ..."]
+        B2AI_USECASE_39["Train a neural network model on tensor data."]
+    end
+    subgraph assessment_standalone ["Assessment"]
+        direction LR
+        B2AI_USECASE_41["Determine whether enough data is available to t..."]
+        B2AI_USECASE_42["Assess the quality of a computational model in ..."]
+        B2AI_USECASE_43["Assess the potential bias in a computational mo..."]
+        B2AI_USECASE_44["Assess the explainability of a computational mo..."]
+    end
+
+    style B2AI_USECASE_14 fill:#f3e5f5
+    style B2AI_USECASE_15 fill:#f3e5f5
+    style B2AI_USECASE_40 fill:#f3e5f5
+    style B2AI_USECASE_21 fill:#e8f5e8
+    style B2AI_USECASE_23 fill:#e8f5e8
+    style B2AI_USECASE_37 fill:#fff3e0
+    style B2AI_USECASE_38 fill:#fff3e0
+    style B2AI_USECASE_39 fill:#fff3e0
+
+    click B2AI_USECASE_14 "../usecases/transform-data-from-omop-to-the-i2b2-standard/" "Transform data from OMOP to the i2b2 standard."
+    click B2AI_USECASE_15 "../usecases/produce-artifacts-that-map-identifiers-between-source-and-standardized-data-representations/" "Produce artifacts that map identifiers between source and standardized data representations."
+    click B2AI_USECASE_21 "../usecases/assemble-standards-for-integrated-maps-of-human-cell-architecture/" "Assemble standards for integrated maps of human cell architecture."
+    click B2AI_USECASE_23 "../usecases/construct-standards-for-computational-provenance/" "Construct standards for computational provenance."
     click B2AI_USECASE_33 "../usecases/build-a-relational-database-of-arbitrary-data-types/" "Build a relational database of arbitrary data types."
     click B2AI_USECASE_34 "../usecases/query-a-relational-database-of-arbitrary-data-types/" "Query a relational database of arbitrary data types."
     click B2AI_USECASE_35 "../usecases/build-a-graph-database-of-arbitrary-data-types/" "Build a graph database of arbitrary data types."
@@ -186,5 +219,5 @@ flowchart LR
     click B2AI_USECASE_43 "../usecases/assess-the-potential-bias-in-a-computational-model/" "Assess the potential bias in a computational model."
     click B2AI_USECASE_44 "../usecases/assess-the-explainability-of-a-computational-model/" "Assess the explainability of a computational model."
 ```
-<!-- USECASE_DIAGRAM_END -->
+<!-- USECASE_STANDALONE_DIAGRAM_END -->
 
