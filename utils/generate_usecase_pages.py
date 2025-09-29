@@ -196,7 +196,7 @@ def build_mermaid(by_id: Dict[str, Dict], enabled_by: Dict[str, List[str]], root
         label = s.get('name', sid)
         slug = slugify(label)
         safe_label = label.replace('"', '\\"')
-        lines.append(f"    click {sid.replace(':', '_')} \"usecases/{slug}/\" \"{safe_label}\"")
+        lines.append(f"    click {sid.replace(':', '_')} \"../usecases/{slug}/\" \"{safe_label}\"")
     
     lines.append("```")
     return '\n'.join(lines)
