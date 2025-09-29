@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:15](../topics/Image.markdown)
+- [B2AI_TOPIC:15](../topics/Image.markdown) (Image)
 
 **Enables:**
 

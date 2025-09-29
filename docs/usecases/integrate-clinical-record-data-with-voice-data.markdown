@@ -10,9 +10,9 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:9](../topics/EHR.markdown)
+- [B2AI_TOPIC:9](../topics/EHR.markdown) (EHR)
 
-- [B2AI_TOPIC:36](../topics/Voice.markdown)
+- [B2AI_TOPIC:36](../topics/Voice.markdown) (Voice)
 
 **Enables:**
 

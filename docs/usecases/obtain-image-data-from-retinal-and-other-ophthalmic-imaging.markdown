@@ -10,9 +10,9 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown) (Clinical Observations)
 
-- [B2AI_TOPIC:24](../topics/OphthalmicImaging.markdown)
+- [B2AI_TOPIC:24](../topics/OphthalmicImaging.markdown) (Ophthalmic Imaging)
 
 **Enables:**
 

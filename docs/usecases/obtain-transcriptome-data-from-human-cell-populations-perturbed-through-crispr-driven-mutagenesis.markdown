@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:34](../topics/Transcriptome.markdown)
+- [B2AI_TOPIC:34](../topics/Transcriptome.markdown) (Transcriptome)
 
 **Enables:**
 

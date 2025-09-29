@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:19](../topics/MicroscaleImaging.markdown)
+- [B2AI_TOPIC:19](../topics/MicroscaleImaging.markdown) (Microscale Imaging)
 
 **Enables:**
 

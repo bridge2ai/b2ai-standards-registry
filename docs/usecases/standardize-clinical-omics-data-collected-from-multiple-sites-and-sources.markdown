@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:13](../topics/Genome.markdown)
+- [B2AI_TOPIC:13](../topics/Genome.markdown) (Genome)
 
 **Enabled by:**
 

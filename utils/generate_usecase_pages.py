@@ -78,20 +78,20 @@ def convert_ids_to_links(text: str, all_data: Dict[str, Dict]) -> str:
             return id_str
         
         elif id_str.startswith('B2AI_SUBSTRATE:'):
-            # Link to substrate page
+            # Link to substrate page with name in parentheses
             if id_str in all_data:
                 name = all_data[id_str].get('name', id_str)
                 slug = slugify(name)
-                return f"[{id_str}](../substrates/{slug}.markdown)"
+                return f"[{id_str}](../substrates/{slug}.markdown) ({name})"
             return id_str
         
         elif id_str.startswith('B2AI_TOPIC:'):
-            # Link to topic page
+            # Link to topic page with name in parentheses
             if id_str in all_data:
                 name = all_data[id_str].get('name', id_str)
                 # Topics use the exact name with spaces removed but capitalization preserved
                 slug = name.replace(' ', '')  # Remove spaces but keep capitalization
-                return f"[{id_str}](../topics/{slug}.markdown)"
+                return f"[{id_str}](../topics/{slug}.markdown) ({name})"
             return id_str
         
         elif id_str.startswith('B2AI_DATA:'):

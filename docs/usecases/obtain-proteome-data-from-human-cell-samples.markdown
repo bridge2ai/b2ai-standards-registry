@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:28](../topics/Proteome.markdown)
+- [B2AI_TOPIC:28](../topics/Proteome.markdown) (Proteome)
 
 **Enables:**
 

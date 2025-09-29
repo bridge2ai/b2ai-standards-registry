@@ -10,9 +10,9 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:13](../topics/Genome.markdown)
+- [B2AI_TOPIC:13](../topics/Genome.markdown) (Genome)
 
-- [B2AI_TOPIC:35](../topics/Variant.markdown)
+- [B2AI_TOPIC:35](../topics/Variant.markdown) (Variant)
 
 **Enables:**
 

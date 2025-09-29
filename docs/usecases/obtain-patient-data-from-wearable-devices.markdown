@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:18](../topics/mHealth.markdown)
+- [B2AI_TOPIC:18](../topics/mHealth.markdown) (mHealth)
 
 **Enables:**
 

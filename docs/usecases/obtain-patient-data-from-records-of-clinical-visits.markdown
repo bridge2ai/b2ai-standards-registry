@@ -10,9 +10,9 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:15](../topics/Image.markdown)
+- [B2AI_TOPIC:15](../topics/Image.markdown) (Image)
 
-- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown) (Clinical Observations)
 
 **Enables:**
 

@@ -10,7 +10,7 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:36](../topics/Voice.markdown)
+- [B2AI_TOPIC:36](../topics/Voice.markdown) (Voice)
 
 **Enables:**
 

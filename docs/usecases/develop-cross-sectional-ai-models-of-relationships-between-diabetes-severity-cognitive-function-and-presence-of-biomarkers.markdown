@@ -10,17 +10,17 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown) (Clinical Observations)
 
-- [B2AI_TOPIC:10](../topics/EKG.markdown)
+- [B2AI_TOPIC:10](../topics/EKG.markdown) (EKG)
 
-- [B2AI_TOPIC:13](../topics/Genome.markdown)
+- [B2AI_TOPIC:13](../topics/Genome.markdown) (Genome)
 
-- [B2AI_TOPIC:18](../topics/mHealth.markdown)
+- [B2AI_TOPIC:18](../topics/mHealth.markdown) (mHealth)
 
-- [B2AI_TOPIC:24](../topics/OphthalmicImaging.markdown)
+- [B2AI_TOPIC:24](../topics/OphthalmicImaging.markdown) (Ophthalmic Imaging)
 
-- [B2AI_TOPIC:29](../topics/SDoH.markdown)
+- [B2AI_TOPIC:29](../topics/SDoH.markdown) (SDoH)
 
 **Enabled by:**
 

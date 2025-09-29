@@ -10,9 +10,9 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:9](../topics/EHR.markdown)
+- [B2AI_TOPIC:9](../topics/EHR.markdown) (EHR)
 
-- [B2AI_TOPIC:10](../topics/EKG.markdown)
+- [B2AI_TOPIC:10](../topics/EKG.markdown) (EKG)
 
 **Enabled by:**
 

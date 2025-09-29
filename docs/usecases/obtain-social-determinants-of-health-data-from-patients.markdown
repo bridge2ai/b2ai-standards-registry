@@ -10,9 +10,9 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:29](../topics/SDoH.markdown)
+- [B2AI_TOPIC:29](../topics/SDoH.markdown) (SDoH)
 
-- [B2AI_TOPIC:31](../topics/Survey.markdown)
+- [B2AI_TOPIC:31](../topics/Survey.markdown) (Survey)
 
 **Enables:**
 

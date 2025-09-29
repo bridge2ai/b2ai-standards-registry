@@ -10,11 +10,11 @@
 
 **Data Topics:**
 
-- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown) (Clinical Observations)
 
-- [B2AI_TOPIC:35](../topics/Variant.markdown)
+- [B2AI_TOPIC:35](../topics/Variant.markdown) (Variant)
 
-- [B2AI_TOPIC:36](../topics/Voice.markdown)
+- [B2AI_TOPIC:36](../topics/Voice.markdown) (Voice)
 
 **Enabled by:**
 

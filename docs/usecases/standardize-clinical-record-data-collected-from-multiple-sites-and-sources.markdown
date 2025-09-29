@@ -12,15 +12,15 @@
 
 - Demographic
 
-- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown)
+- [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown) (Clinical Observations)
 
-- [B2AI_TOPIC:9](../topics/EHR.markdown)
+- [B2AI_TOPIC:9](../topics/EHR.markdown) (EHR)
 
-- [B2AI_TOPIC:18](../topics/mHealth.markdown)
+- [B2AI_TOPIC:18](../topics/mHealth.markdown) (mHealth)
 
-- [B2AI_TOPIC:29](../topics/SDoH.markdown)
+- [B2AI_TOPIC:29](../topics/SDoH.markdown) (SDoH)
 
-- [B2AI_TOPIC:31](../topics/Survey.markdown)
+- [B2AI_TOPIC:31](../topics/Survey.markdown) (Survey)
 
 **Enables:**
 
