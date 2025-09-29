@@ -16,6 +16,6 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:39](../ActivityMonitoring.markdown) (Activity Monitoring)
+- [B2AI_TOPIC:39](../topics/ActivityMonitoring.markdown) (Activity Monitoring)
 
-- [B2AI_TOPIC:38](../GlucoseMonitoring.markdown) (Glucose Monitoring)
+- [B2AI_TOPIC:38](../topics/GlucoseMonitoring.markdown) (Glucose Monitoring)

@@ -18,4 +18,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:52](../Training.markdown) (Training)
+- [B2AI_TOPIC:52](../topics/Training.markdown) (Training)

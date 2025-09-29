@@ -14,4 +14,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:51](../PsychiatricDisorders.markdown) (Psychiatric Disorders)
+- [B2AI_TOPIC:51](../topics/PsychiatricDisorders.markdown) (Psychiatric Disorders)

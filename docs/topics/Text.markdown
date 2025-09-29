@@ -18,6 +18,6 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:16](../Literature.markdown) (Literature)
+- [B2AI_TOPIC:16](../topics/Literature.markdown) (Literature)
 
-- [B2AI_TOPIC:30](../SocialMedia.markdown) (Social Media)
+- [B2AI_TOPIC:30](../topics/SocialMedia.markdown) (Social Media)

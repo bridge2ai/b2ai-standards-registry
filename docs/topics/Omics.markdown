@@ -18,10 +18,10 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:13](../Genome.markdown) (Genome)
+- [B2AI_TOPIC:13](../topics/Genome.markdown) (Genome)
 
-- [B2AI_TOPIC:17](../Metabolome.markdown) (Metabolome)
+- [B2AI_TOPIC:17](../topics/Metabolome.markdown) (Metabolome)
 
-- [B2AI_TOPIC:28](../Proteome.markdown) (Proteome)
+- [B2AI_TOPIC:28](../topics/Proteome.markdown) (Proteome)
 
-- [B2AI_TOPIC:34](../Transcriptome.markdown) (Transcriptome)
+- [B2AI_TOPIC:34](../topics/Transcriptome.markdown) (Transcriptome)

@@ -20,10 +20,10 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:43](../Diabetes.markdown) (Diabetes)
+- [B2AI_TOPIC:43](../topics/Diabetes.markdown) (Diabetes)
 
-- [B2AI_TOPIC:44](../EyeDiseases.markdown) (Eye Diseases)
+- [B2AI_TOPIC:44](../topics/EyeDiseases.markdown) (Eye Diseases)
 
-- [B2AI_TOPIC:47](../RespiratoryDisorders.markdown) (Respiratory Disorders)
+- [B2AI_TOPIC:47](../topics/RespiratoryDisorders.markdown) (Respiratory Disorders)
 
-- [B2AI_TOPIC:45](../VoiceDisorders.markdown) (Voice Disorders)
+- [B2AI_TOPIC:45](../topics/VoiceDisorders.markdown) (Voice Disorders)

@@ -18,8 +18,8 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:19](../MicroscaleImaging.markdown) (Microscale Imaging)
+- [B2AI_TOPIC:19](../topics/MicroscaleImaging.markdown) (Microscale Imaging)
 
-- [B2AI_TOPIC:22](../NeurologicImaging.markdown) (Neurologic Imaging)
+- [B2AI_TOPIC:22](../topics/NeurologicImaging.markdown) (Neurologic Imaging)
 
-- [B2AI_TOPIC:24](../OphthalmicImaging.markdown) (Ophthalmic Imaging)
+- [B2AI_TOPIC:24](../topics/OphthalmicImaging.markdown) (Ophthalmic Imaging)

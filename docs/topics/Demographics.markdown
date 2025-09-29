@@ -18,4 +18,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:29](../SDoH.markdown) (SDoH)
+- [B2AI_TOPIC:29](../topics/SDoH.markdown) (SDoH)

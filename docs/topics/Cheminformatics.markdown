@@ -20,4 +20,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:8](../Drug.markdown) (Drug)
+- [B2AI_TOPIC:8](../topics/Drug.markdown) (Drug)

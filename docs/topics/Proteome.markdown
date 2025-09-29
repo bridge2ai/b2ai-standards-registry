@@ -18,4 +18,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:26](../Protein.markdown) (Protein)
+- [B2AI_TOPIC:26](../topics/Protein.markdown) (Protein)

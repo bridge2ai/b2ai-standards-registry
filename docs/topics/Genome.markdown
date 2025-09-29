@@ -20,4 +20,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:12](../Gene.markdown) (Gene)
+- [B2AI_TOPIC:12](../topics/Gene.markdown) (Gene)

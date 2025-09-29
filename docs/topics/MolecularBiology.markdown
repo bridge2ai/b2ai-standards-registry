@@ -20,6 +20,6 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:2](../Cell.markdown) (Cell)
+- [B2AI_TOPIC:2](../topics/Cell.markdown) (Cell)
 
-- [B2AI_TOPIC:23](../Omics.markdown) (Omics)
+- [B2AI_TOPIC:23](../topics/Omics.markdown) (Omics)

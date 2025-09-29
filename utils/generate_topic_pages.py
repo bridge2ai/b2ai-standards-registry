@@ -83,16 +83,18 @@ def write_pages(by_id: Dict[str, Dict], all_data: Dict[str, Dict]):
                 lines.append(f"- {link}\n")
         
         # Find what this topic is a parent of
-        child_topics = []
+        child_topic_ids = []
         for other_tid, other_t in by_id.items():
             if 'subclass_of' in other_t and tid in other_t['subclass_of']:
-                child_topics.append((other_tid, other_t.get('name', other_tid)))
+                child_topic_ids.append(other_tid)
         
-        if child_topics:
+        if child_topic_ids:
             lines.append("**parent of:**\n")
-            for child_id, child_name in sorted(child_topics, key=lambda x: x[1]):
-                child_slug = child_name.replace(' ', '')
-                lines.append(f"- [{child_id}](../{child_slug}.markdown) ({child_name})\n")
+            # Sort by name for consistent output
+            child_topic_ids.sort(key=lambda x: by_id.get(x, {}).get('name', x))
+            child_links = convert_topic_links(child_topic_ids, all_data, "..")
+            for link in child_links:
+                lines.append(f"- {link}\n")
         
         with open(path, 'w') as f:
             f.write('\n'.join(lines))

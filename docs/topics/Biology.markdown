@@ -20,8 +20,8 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:11](../Environment.markdown) (Environment)
+- [B2AI_TOPIC:11](../topics/Environment.markdown) (Environment)
 
-- [B2AI_TOPIC:20](../MolecularBiology.markdown) (Molecular Biology)
+- [B2AI_TOPIC:20](../topics/MolecularBiology.markdown) (Molecular Biology)
 
-- [B2AI_TOPIC:46](../Respiration.markdown) (Respiration)
+- [B2AI_TOPIC:46](../topics/Respiration.markdown) (Respiration)

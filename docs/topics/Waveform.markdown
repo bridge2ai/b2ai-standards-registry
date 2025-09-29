@@ -14,6 +14,6 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:10](../EKG.markdown) (EKG)
+- [B2AI_TOPIC:10](../topics/EKG.markdown) (EKG)
 
-- [B2AI_TOPIC:36](../Voice.markdown) (Voice)
+- [B2AI_TOPIC:36](../topics/Voice.markdown) (Voice)

@@ -18,8 +18,8 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:9](../EHR.markdown) (EHR)
+- [B2AI_TOPIC:9](../topics/EHR.markdown) (EHR)
 
-- [B2AI_TOPIC:48](../Neurology.markdown) (Neurology)
+- [B2AI_TOPIC:48](../topics/Neurology.markdown) (Neurology)
 
-- [B2AI_TOPIC:50](../Psychiatry.markdown) (Psychiatry)
+- [B2AI_TOPIC:50](../topics/Psychiatry.markdown) (Psychiatry)

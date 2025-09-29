@@ -18,6 +18,6 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:42](../Cardiomyocyte.markdown) (Cardiomyocyte)
+- [B2AI_TOPIC:42](../topics/Cardiomyocyte.markdown) (Cardiomyocyte)
 
-- [B2AI_TOPIC:41](../Neuron.markdown) (Neuron)
+- [B2AI_TOPIC:41](../topics/Neuron.markdown) (Neuron)

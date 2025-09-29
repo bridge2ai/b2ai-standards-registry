@@ -20,4 +20,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:27](../ProteinStructureModel.markdown) (Protein Structure Model)
+- [B2AI_TOPIC:27](../topics/ProteinStructureModel.markdown) (Protein Structure Model)

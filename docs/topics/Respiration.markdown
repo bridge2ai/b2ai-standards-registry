@@ -14,4 +14,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:47](../RespiratoryDisorders.markdown) (Respiratory Disorders)
+- [B2AI_TOPIC:47](../topics/RespiratoryDisorders.markdown) (Respiratory Disorders)

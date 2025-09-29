@@ -20,4 +20,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:33](../Transcript.markdown) (Transcript)
+- [B2AI_TOPIC:33](../topics/Transcript.markdown) (Transcript)

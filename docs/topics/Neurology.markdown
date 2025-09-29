@@ -14,6 +14,6 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:22](../NeurologicImaging.markdown) (Neurologic Imaging)
+- [B2AI_TOPIC:22](../topics/NeurologicImaging.markdown) (Neurologic Imaging)
 
-- [B2AI_TOPIC:49](../NeurologicalDisorders.markdown) (Neurological Disorders)
+- [B2AI_TOPIC:49](../topics/NeurologicalDisorders.markdown) (Neurological Disorders)

@@ -18,4 +18,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:45](../VoiceDisorders.markdown) (Voice Disorders)
+- [B2AI_TOPIC:45](../topics/VoiceDisorders.markdown) (Voice Disorders)

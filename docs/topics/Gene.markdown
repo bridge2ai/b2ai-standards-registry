@@ -20,4 +20,4 @@
 
 **parent of:**
 
-- [B2AI_TOPIC:35](../Variant.markdown) (Variant)
+- [B2AI_TOPIC:35](../topics/Variant.markdown) (Variant)
