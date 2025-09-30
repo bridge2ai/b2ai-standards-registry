@@ -152,6 +152,10 @@ poetry run b2aisr update-synapse (a list of JSON data filepaths)
 poetry run b2aisr create-denormalized-tables --specific-tables (a list of tables to update, e.g., DST_denormalized)
 ```
 
+**Important note:** These scripts will not work if the schema has changed. This includes added columns, deleted columns, or if columns have changed order.
+
+If the schema has changed, update and run the `scripts/modify_synapse_schema.py` script to update the table schemas in Synapse.
+
 ## Accessing Registry Data
 
 Please see the [src/data](src/data) directory for data in YAML format or the [project/data](project/data) directory for other formats.
