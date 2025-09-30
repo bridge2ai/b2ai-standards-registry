@@ -12,12 +12,6 @@
 
 **ncit id:** ncit:C97003
 
-**related to:**
-
-- [B2AI_TOPIC:6](../DataTopic.markdown)
-- [B2AI_TOPIC:14](../DataTopic.markdown)
-
 **subclass of:**
 
-- [B2AI_TOPIC:32](../DataTopic.markdown)
-
+- [B2AI_TOPIC:32](../topics/Text.markdown) (Text)

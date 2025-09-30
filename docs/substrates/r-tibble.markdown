@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:8 (Data Frame)
+- [B2AI_SUBSTRATE:8](../substrates/data-frame.markdown) (Data Frame)

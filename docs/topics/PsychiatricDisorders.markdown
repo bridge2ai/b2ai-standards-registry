@@ -10,5 +10,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:50](../DataTopic.markdown)
-
+- [B2AI_TOPIC:50](../topics/Psychiatry.markdown) (Psychiatry)

@@ -12,12 +12,6 @@
 
 **ncit id:** ncit:C171586
 
-**related to:**
-
-- [B2AI_TOPIC:11](../DataTopic.markdown)
-- [B2AI_TOPIC:14](../DataTopic.markdown)
-
 **subclass of:**
 
-- [B2AI_TOPIC:6](../DataTopic.markdown)
-
+- [B2AI_TOPIC:6](../topics/Demographics.markdown) (Demographics)

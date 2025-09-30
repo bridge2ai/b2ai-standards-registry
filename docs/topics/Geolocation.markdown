@@ -12,11 +12,6 @@
 
 **ncit id:** ncit:C25341
 
-**related to:**
-
-- [B2AI_TOPIC:18](../DataTopic.markdown)
-
 **subclass of:**
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
-
+- [B2AI_TOPIC:5](../topics/Data.markdown) (Data)

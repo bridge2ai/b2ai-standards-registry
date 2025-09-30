@@ -14,5 +14,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:7](../DataTopic.markdown)
-
+- [B2AI_TOPIC:7](../topics/Disease.markdown) (Disease)

@@ -16,5 +16,8 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:28](../DataTopic.markdown)
+- [B2AI_TOPIC:28](../topics/Proteome.markdown) (Proteome)
 
+**parent of:**
+
+- [B2AI_TOPIC:27](../topics/ProteinStructureModel.markdown) (Protein Structure Model)

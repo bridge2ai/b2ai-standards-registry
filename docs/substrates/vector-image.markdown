@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:19 (Image)
+- [B2AI_SUBSTRATE:19](../substrates/image.markdown) (Image)

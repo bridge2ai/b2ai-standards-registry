@@ -16,5 +16,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:3](../DataTopic.markdown)
-
+- [B2AI_TOPIC:3](../topics/Cheminformatics.markdown) (Cheminformatics)

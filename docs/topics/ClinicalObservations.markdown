@@ -14,5 +14,12 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+- [B2AI_TOPIC:5](../topics/Data.markdown) (Data)
 
+**parent of:**
+
+- [B2AI_TOPIC:9](../topics/EHR.markdown) (EHR)
+
+- [B2AI_TOPIC:48](../topics/Neurology.markdown) (Neurology)
+
+- [B2AI_TOPIC:50](../topics/Psychiatry.markdown) (Psychiatry)

@@ -10,5 +10,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:16](../DataTopic.markdown)
-
+- [B2AI_TOPIC:16](../topics/Literature.markdown) (Literature)

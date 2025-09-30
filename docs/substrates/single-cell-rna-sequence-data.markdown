@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:62 (RNA Sequence Data)
+- [B2AI_SUBSTRATE:62](../substrates/rna-sequence-data.markdown) (RNA Sequence Data)

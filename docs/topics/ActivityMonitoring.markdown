@@ -12,5 +12,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:18](../DataTopic.markdown)
-
+- [B2AI_TOPIC:18](../topics/mHealth.markdown) (mHealth)

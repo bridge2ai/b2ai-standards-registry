@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:36 (Raster Image)
+- [B2AI_SUBSTRATE:36](../substrates/raster-image.markdown) (Raster Image)

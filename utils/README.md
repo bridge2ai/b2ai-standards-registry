@@ -2,6 +2,48 @@
 
 This directory contains utility scripts for the Bridge2AI Standards Registry project.
 
+## B2AI Documentation Generation Scripts
+
+The documentation generation scripts create individual pages for B2AI resources with intelligent cross-reference linking.
+
+### Shared ID Linking Module (`id_linking.py`)
+
+Provides shared functionality for converting B2AI IDs in text to appropriate markdown links across different resource types.
+
+#### Key Functions
+
+- `load_all_b2ai_data()`: Loads all B2AI data files and creates ID-to-info mappings
+- `convert_ids_to_links(text, all_data, relative_path_prefix)`: Converts B2AI IDs in text to markdown links
+- `convert_substrate_links(list, all_data, relative_path_prefix)`: Converts substrate ID lists to links
+- `convert_topic_links(list, all_data, relative_path_prefix)`: Converts topic ID lists to links
+- `slugify(value)`: Converts strings to URL-friendly slugs
+
+#### Supported ID Types
+
+- `B2AI_STANDARD:*` - Links to Standards Explorer external site
+- `B2AI_USECASE:*` - Links to use case pages in `../usecases/`
+- `B2AI_SUBSTRATE:*` - Links to substrate pages in `../substrates/`
+- `B2AI_TOPIC:*` - Links to topic pages in `../topics/`
+- `B2AI_DATA:*` - Currently returns ID as-is (no individual dataset pages yet)
+
+### Generation Scripts
+
+#### Use Cases: `generate_usecase_pages.py`
+- Individual markdown pages in `docs/usecases/`
+- Dual overview diagrams: main workflow and standalone use cases
+- Category-based color coding
+- Comprehensive cross-reference linking
+
+#### Substrates: `generate_substrate_pages.py`
+- Individual markdown pages in `docs/substrates/`
+- Hierarchical Mermaid diagram showing subclass relationships
+- ID linking in descriptions and limitations
+
+#### Topics: `generate_topic_pages.py`
+- Individual markdown pages in `docs/topics/`
+- Hierarchical Mermaid diagram showing topic relationships
+- Parent/child relationship display
+
 ## URL Checker Script
 
 The `check_urls.py` script is used to validate the URLs in all YAML files in the data directory. It checks for broken links and potentially invalid pages (like very short or empty pages).

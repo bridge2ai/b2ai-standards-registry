@@ -14,11 +14,16 @@
 
 **ncit id:** ncit:C2991
 
-**related to:**
-
-- [B2AI_TOPIC:25](../DataTopic.markdown)
-
 **subclass of:**
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+- [B2AI_TOPIC:5](../topics/Data.markdown) (Data)
 
+**parent of:**
+
+- [B2AI_TOPIC:43](../topics/Diabetes.markdown) (Diabetes)
+
+- [B2AI_TOPIC:44](../topics/EyeDiseases.markdown) (Eye Diseases)
+
+- [B2AI_TOPIC:47](../topics/RespiratoryDisorders.markdown) (Respiratory Disorders)
+
+- [B2AI_TOPIC:45](../topics/VoiceDisorders.markdown) (Voice Disorders)
