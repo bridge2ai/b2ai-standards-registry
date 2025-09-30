@@ -33,7 +33,7 @@ synapseclient = "^4.9.0"
 "ruamel.yaml" = {version = ">=0.18.10,<0.19.0", optional = true}
 
 [tool.poetry.scripts]
-b2ai_update_synapse = "scripts.analyze_and_update_synapse_tables:analyze_and_update"
+b2aisr = "b2ai-standards-registry.cli:main"
 
 [tool.poetry.extras]
 synapse = ["synapseclient"]
