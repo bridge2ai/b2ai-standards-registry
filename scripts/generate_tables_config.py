@@ -70,7 +70,7 @@ DEST_TABLES = {
             ]},
             {'join_tbl': 'Organization', 'base_tbl_col': 'has_relevant_organization', 'join_tbl_col': 'id',
              'dest_cols': [
-                 {'faceted': True,  'name': 'name', 'alias': 'relevantOrgNames'},
+                 {'faceted': True,  'name': 'description', 'alias': 'relevantOrgNames'},
                  {'source_cols': ['id', 'name'], 'alias': 'relevantOrgLinks', 'transform': 'create_org_link', },
              ]},
             {'join_tbl': 'Organization', 'base_tbl_col': 'responsible_organization', 'join_tbl_col': 'id',
@@ -165,6 +165,7 @@ DEST_TABLES = {
             {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'category_to_title_case'},
             {'name': 'topics', 'alias': 'topicIds'},
             {'name': 'produced_by', 'alias': 'producedByOrgId'},
+            {'name': 'data_url', 'alias': 'DataURL'},
             {'name': 'datasheet_url', 'alias': 'DatasheetURL'},
             {'name': 'documentation_url', 'alias': 'DocumentationURL'},
             {'name': 'is_public', 'alias': 'isPublic'},

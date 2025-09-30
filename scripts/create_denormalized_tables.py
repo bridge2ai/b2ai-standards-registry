@@ -35,6 +35,7 @@ from synapseclient import Synapse, Column
 import pandas as pd
 import numpy as np
 import re
+import json
 
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
@@ -452,7 +453,7 @@ def create_join_column(
             source_fields = [field['name'] for field in dest_col['fields']]
         is_multi_field = True  # JSON always treated as multi-field
     else:
-        source_fields = dest_col.get('source_cols', [dest_col['name']])
+        source_fields = dest_col.get('source_cols', [dest_col.get('name')])
         is_multi_field = len(source_fields) > 1
 
     # Get transform function (or no-op)
@@ -536,7 +537,7 @@ def create_join_column(
             if not isinstance(ids, list):
                 ids = [ids]
 
-            matching_rows = join_lookup.loc[join_lookup.index.intersection(ids)]
+            matching_rows = join_lookup.loc[join_lookup.index.intersection(ids)].reset_index()
 
             if matching_rows.empty:
                 return []
