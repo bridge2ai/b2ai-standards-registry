@@ -11,6 +11,7 @@ yaml.indent(mapping=2, sequence=4, offset=2)
 yaml.preserve_quotes = True
 yaml.width = 4096
 
+
 def sort_keys(data: Any) -> Any:
     """
     Recursively sorts keys in a dictionary, placing 'id' first if present.
@@ -30,6 +31,7 @@ def sort_keys(data: Any) -> Any:
         return [sort_keys(item) for item in data]
     else:
         return data
+
 
 def format_yaml_file(filepath: Path, check: bool = False) -> bool:
     """
@@ -62,6 +64,7 @@ def format_yaml_file(filepath: Path, check: bool = False) -> bool:
 
     return False
 
+
 def find_yaml_files(root_dir: Path = Path(".")) -> Generator[Path, None, None]:
     """
     Recursively finds all .yaml and .yml files starting from the given directory.
@@ -71,6 +74,7 @@ def find_yaml_files(root_dir: Path = Path(".")) -> Generator[Path, None, None]:
     """
     yield from root_dir.rglob("*.yml")
     yield from root_dir.rglob("*.yaml")
+
 
 def main() -> None:
     """
@@ -95,6 +99,7 @@ def main() -> None:
     if check_mode and any_changed:
         print("\nSome files would be reformatted. Run without --check to apply changes.")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
