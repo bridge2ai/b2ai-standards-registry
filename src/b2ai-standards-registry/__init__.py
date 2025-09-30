@@ -1,1 +1,1 @@
-"""Initialize module namespace"""
+"""Bridge2AI Standards Registry"""
