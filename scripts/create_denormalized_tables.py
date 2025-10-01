@@ -31,10 +31,11 @@ Main entry point:
 """
 import sys
 from typing import Any, Dict, List, Optional
-from synapseclient import Synapse, Column, Schema, Table
+from synapseclient import Synapse, Column
 import pandas as pd
 import numpy as np
 import re
+import json
 
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
@@ -94,7 +95,11 @@ def category_to_title_case(text: str) -> str:
 
     return ' '.join(result_words)
 
-def collections_to_title_case(s: str) -> str:
+def collections_to_title_case(lst: list[str]) -> str:
+    return [collection_to_title_case(s) for s in lst]
+
+
+def collection_to_title_case(s: str) -> str:
     if s in special_capitalization:
         return special_capitalization[s]
     s = manual_title_case_mappings.get(s, s)
@@ -136,23 +141,11 @@ def get_transform_function(transform_spec):
 
     raise ValueError(f"Unknown transform: {transform_spec}")
 
-TRANSFORMS = {
-    # transforming org_links here unlike acronym in synapse apps/portals/b2ai.standards/src/config/resources.ts
-    #   because creating a list of links (unlike a single link) in a synapse query wouldn't work
-    'create_org_link': lambda id_val, name_val: f"[{name_val}](/Explore/Organization/OrganizationDetailsPage?id={id_val})"
-}
-
 def col_transform(col: pd.Series, transform_name: str, df: pd.DataFrame) -> pd.Series:
     """
     All transforms now passing through this function for further special handling
     """
-    plain_transform = get_transform_function(transform_name) # purposely set to raise error if transform_name is wrong
-    if transform_name == 'collections_to_title_case':
-        transform = lambda lst: [plain_transform(s) for s in lst]
-    else:
-        transform = plain_transform
-    # if transform_name == 'org_links':
-    #     transform = lambda f"concat('[', {}, '](/Explore/Organization/OrganizationDetailsPage?id=', id, ')')"
+    transform = get_transform_function(transform_name) # purposely set to raise error if transform_name is wrong
     col_data = col.apply(transform)
     return col_data
 
@@ -245,6 +238,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         base_df = src_tables[base_table_name]['df']
         join_columns = []
 
+        # TODO: Clean up all these nearly-same var names
         for join_config in dest_table.get('join_columns', []):
             join_tbl = join_config['join_tbl']
             join_table = src_tables[join_tbl]
@@ -253,16 +247,13 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
             join_config['join_table_name'] = join_table['name']
             join_config['join_table_id'] = join_table['id']
 
-            from_col = join_config['from']
-            to_col = join_config['to']
+            base_tbl_col = join_config['base_tbl_col']
+            join_tbl_col = join_config['join_tbl_col']
 
             for dest_col in join_config['dest_cols']:
                 faceted = dest_col.get('faceted', False)
 
-                if dest_col.get('fields') or dest_col.get('whole_records'):
-                    col_def = create_json_column(base_table_name, base_df, join_df, from_col, to_col, join_config, dest_col)
-                else:
-                    col_def = create_list_column(base_table_name, base_df, join_df, from_col, to_col, join_config, dest_col)
+                col_def = create_join_column(base_table_name, base_df, join_df, base_tbl_col, join_tbl_col, join_config, dest_col)
 
                 if col_def:
                     col_def['faceted'] = faceted
@@ -363,18 +354,25 @@ def make_col(
     return dest_col
 
 
-def create_list_column(
-    base_table_name: str,
-    base_df: pd.DataFrame,
-    join_df: pd.DataFrame,
-    from_col: str,
-    to_col: str,
-    join_config: Dict[str, Any],
-    dest_col: Dict[str, Any]
+def create_join_column(
+  base_table_name: str,
+  base_df: pd.DataFrame,
+  join_df: pd.DataFrame,
+  base_tbl_col: str,
+  join_tbl_col: str,
+  join_config: Dict[str, Any],
+  dest_col: Dict[str, Any]
 ) -> Dict[str, Any]:
     """
-    Create a column containing lists of values from a join table, based on matching ID relationships.
+    Create a column containing lists of values or JSON objects from a join table.
 
+    Supports:
+    - Normal/reverse lookups (configured at join_config level)
+    - Single/multi-field extraction
+    - Optional transforms
+    - JSON object creation
+
+    TODO: update old docstring:
     For each row in the base DataFrame, this function looks up related entries in the join table
     and extracts a list of values for a specified field (e.g., names or labels) that correspond
     to a column of IDs in the base table.
@@ -383,13 +381,11 @@ def create_list_column(
     this function fetches data (e.g., name, acronym) from the topic or org table for inclusion in the
     destination table
 
-    NOTE: This function is intended for use only with columns containing StringList or other List types.
-
     :param base_table_name: The base table name, for error message if needed
     :param base_df: The source base table DataFrame containing the rows to enrich (e.g., main entities)
     :param join_df: The join table DataFrame containing additional values (e.g., names for IDs)
-    :param from_col: Column in base_df that contains one or more IDs (list or scalar) to match
-    :param to_col: Column in join_df that should match the IDs from `from_col`
+    :param base_tbl_col: Column in base_df that contains one or more IDs (list or scalar) to match
+    :param join_tbl_col: Column in join_df that should match the IDs from `from_col`
     :param join_config: Dictionary containing metadata about the join (e.g., join table name)
     :param dest_col: Dictionary defining the output column, with:
                      - 'name': the field in join_df to extract
@@ -400,174 +396,8 @@ def create_list_column(
              - 'alias': output column name
              - 'col': Synapse Column definition
              - 'data': list of lists with extracted values per row
-    """
 
-    # If this is a multi-field transform or has a transform, use the enhanced version
-    if 'source_cols' in dest_col or 'transform' in dest_col:
-        return create_list_column_with_transform(
-            base_table_name, base_df, join_df, from_col, to_col, join_config, dest_col
-        )
-
-    field_name = dest_col['name']          # field in join_df to extract (e.g., 'name')
-    column_name = dest_col['alias']        # name for the new output column
-    result = []                            # list of lists to hold values for each base row
-    datatype: type = None
-
-    for _, row in base_df.iterrows():
-        related_ids = row[from_col]
-
-        # Handle empty or missing relationships
-        if not related_ids or (isinstance(related_ids, list) and len(related_ids) == 0):
-            result.append([])
-            continue
-
-        # Fail unless related_ids is a list
-        if not isinstance(related_ids, list):
-            raise ValueError(f"Expected list column from '{base_table_name}.{from_col}', but got scalar.")
-            # We could coerce it into a list (related_ids = [related_ids]), but it is not currently expected
-            #   that the user would want to create a list column from a non-list column
-
-        # Filter join_df for rows with matching IDs
-        matching_rows = join_df[join_df[to_col].isin(related_ids)]
-
-        # Extract the requested field values and store as list
-        field_values = matching_rows[field_name].tolist()
-        for val in field_values:
-            if datatype is None:
-                datatype = type(val)
-            elif not isinstance(val, datatype):
-                raise Exception(f"Got mixed datatypes in {field_name}: {datatype} and {type(val)}")
-            else:
-                datatype = type(val)
-
-        result.append(field_values)
-
-    if datatype == str:
-        columnType = 'STRING_LIST'
-    elif datatype == int:
-        columnType = 'INTEGER_LIST'
-    else:
-        raise Exception(f"Got {datatype} in {field_name}; can't handle that type yet")
-
-    # Create column definition and data
-    column_def = {
-        'src': join_config['join_table_name'],
-        'name': field_name,
-        'alias': column_name,
-        'col': Column(name=column_name, columnType=columnType),
-        'data': result
-    }
-
-    return column_def
-
-
-def create_list_column_with_transform(
-        base_table_name: str,
-        base_df: pd.DataFrame,
-        join_df: pd.DataFrame,
-        from_col: str,
-        to_col: str,
-        join_config: Dict[str, Any],
-        dest_col: Dict[str, Any]
-) -> Dict[str, Any]:
-    """
-    Enhanced version that handles both single-field and multi-field transforms.
-
-    :param dest_col: Dictionary defining the output column, with:
-                     - 'name': single field name (for backward compatibility)
-                     - 'source_cols': list of field names for multi-column transforms
-                     - 'alias': output column name
-                     - 'transform': optional transform function or string identifier
-    """
-    column_name = dest_col['alias']
-    result = []
-    datatype: type = None
-
-    # Determine source columns - support both old single-field and new multi-field approach
-    if 'source_cols' in dest_col:
-        source_fields = dest_col['source_cols']
-        is_multi_field = True
-    else:
-        source_fields = [dest_col['name']]
-        is_multi_field = False
-
-    # Get transform function if specified
-    transform_func = None
-    if 'transform' in dest_col:
-        transform_func = get_transform_function(dest_col['transform'])
-
-    for _, row in base_df.iterrows():
-        related_ids = row[from_col]
-
-        # Handle empty or missing relationships
-        if not related_ids or (isinstance(related_ids, list) and len(related_ids) == 0):
-            result.append([])
-            continue
-
-        # Ensure related_ids is a list
-        if not isinstance(related_ids, list):
-            raise ValueError(f"Expected list column from '{base_table_name}.{from_col}', but got scalar.")
-
-        # Filter join_df for rows with matching IDs
-        matching_rows = join_df[join_df[to_col].isin(related_ids)]
-
-        # Extract and transform values
-        if is_multi_field and transform_func:
-            # Multi-field transform: pass multiple column values to transform function
-            field_values = []
-            for _, match_row in matching_rows.iterrows():
-                # Extract values for all source columns
-                source_values = [match_row[field] for field in source_fields]
-                # Apply transform
-                transformed_value = transform_func(*source_values)
-                field_values.append(transformed_value)
-        elif transform_func:
-            # Single-field transform
-            field_values = matching_rows[source_fields[0]].apply(transform_func).tolist()
-        else:
-            # No transform, just extract the field
-            field_values = matching_rows[source_fields[0]].tolist()
-
-        # Type checking
-        for val in field_values:
-            if datatype is None:
-                datatype = type(val)
-            elif not isinstance(val, datatype):
-                raise Exception(f"Got mixed datatypes in {column_name}: {datatype} and {type(val)}")
-
-        result.append(field_values)
-
-    # Determine column type
-    if datatype == str:
-        columnType = 'STRING_LIST'
-    elif datatype == int:
-        columnType = 'INTEGER_LIST'
-    else:
-        raise Exception(f"Got {datatype} in {column_name}; can't handle that type yet")
-
-    # Create column definition
-    column_def = {
-        'src': join_config['join_table_name'],
-        'name': source_fields[0] if len(source_fields) == 1 else f"transform({','.join(source_fields)})",
-        'alias': column_name,
-        'col': Column(name=column_name, columnType=columnType),
-        'data': result
-    }
-
-    return column_def
-
-def create_json_column(
-    base_table_name: str,
-    base_df: pd.DataFrame,
-    join_df: pd.DataFrame,
-    from_col: str,
-    to_col: str,
-    join_config: Dict[str, Any],
-    dest_col: Dict[str, Any]
-) -> Dict[str, Any]:
-    """
-    Create a column containing structured JSON objects from related records in a join table.
-
+    TODO: combine in the old create_json_column docstring:
     For each row in the base table, this function gathers related entries from the join table
     (based on matching IDs), extracts a subset of fields, and formats them as a list of
     dictionaries (JSON-like structure). This list is stored as the row's value in the output column.
@@ -610,52 +440,139 @@ def create_json_column(
              - 'data': list of JSON-like structures (one per base row)
     """
     column_name = dest_col['alias']
-    fields = dest_col.get('fields')
-    whole_records: bool = dest_col['whole_records']
-    result = []  # Will hold the output data: one JSON array per row in base_df
+    reverse_lookup = join_config.get('reverse_lookup', False)  # <- Moved here!
 
-    for _, row in base_df.iterrows():
-        related_ids = row[from_col]
+    # Determine if this is a JSON column
+    is_json_column = 'fields' in dest_col or dest_col.get('whole_records', False)
 
-        # Handle empty or missing values
-        if not related_ids or (isinstance(related_ids, list) and len(related_ids) == 0):
-            result.append([])
-            continue
+    # Determine source columns
+    if is_json_column:
+        if dest_col.get('whole_records'):
+            source_fields = None  # Will use all fields
+        else:
+            source_fields = [field['name'] for field in dest_col['fields']]
+        is_multi_field = True  # JSON always treated as multi-field
+    else:
+        source_fields = dest_col.get('source_cols', [dest_col.get('name')])
+        is_multi_field = len(source_fields) > 1
 
-        # Fail unless related_ids is a list
-        if not isinstance(related_ids, list):
-            raise ValueError(f"Expected list column from '{base_table_name}.{from_col}', but got scalar.")
-            # We could coerce it into a list (related_ids = [related_ids]), but it is not currently expected
-            #   that the user would want to create a list column from a non-list column
+    # Get transform function (or no-op)
+    if 'transform' in dest_col:
+        transform_func = get_transform_function(dest_col['transform'])
+    else:
+        transform_func = lambda *args: args[0] if args else None
 
-        # Match related records in the join_df
-        matching_rows = join_df[join_df[to_col].isin(related_ids)]
-
-        # Build a list of JSON-style dicts for selected fields
+    def create_json_objects(matching_rows):
+        """Helper to create JSON objects from matching rows"""
         json_objects = []
-        for _, related_row in matching_rows.iterrows():
-            obj = {}
-            if whole_records:
-                obj = related_row.to_dict()
+        for _, row in matching_rows.iterrows():
+            if dest_col.get('whole_records'):
+                obj = row.to_dict()
             else:
-                for field in fields:
+                obj = {}
+                for field in dest_col['fields']:
                     field_name = field['name']
                     field_alias = field.get('alias', field_name)
-                    obj[field_alias] = related_row[field_name]
+                    obj[field_alias] = row[field_name]
             json_objects.append(obj)
+        return json_objects
 
-        # Append the JSON structure (list of dicts) as this row's value
-        result.append(json_objects)
+    def xcreate_json_objects(matching_rows):
+        """Helper to create JSON objects from matching rows"""
+        json_objects = []
+        for _, row in matching_rows.iterrows():
+            if dest_col.get('whole_records'):
+                obj = row.to_dict()
+            else:
+                obj = {}
+                for field in dest_col['fields']:
+                    field_name = field['name']
+                    field_alias = field.get('alias', field_name)
+                    obj[field_alias] = row[field_name]
+            json_objects.append(json.dumps(obj))
+        return json_objects
 
-    column_def: Dict[str, Any] = {
+    if reverse_lookup:
+        # Reverse lookup: join table has lists pointing to base table IDs
+        def process_ids(base_id):
+            def base_id_matches(join_col_val):
+                if isinstance(join_col_val, pd.Series):
+                    join_col_val = list(join_col_val)
+                if isinstance(join_col_val, list):
+                    return base_id in join_col_val
+                return join_col_val == base_id
+            # Find join table rows where join_tbl_col list contains this base_id
+            matching_rows = join_df[join_df[join_tbl_col].apply(base_id_matches)]
+
+            if matching_rows.empty:
+                return []
+
+            if is_json_column:
+                return create_json_objects(matching_rows)
+            elif is_multi_field:
+                return [
+                    transform_func(*[row[field] for field in source_fields])
+                    for _, row in matching_rows.iterrows()
+                ]
+            else:
+                return matching_rows[source_fields[0]].apply(transform_func).tolist()
+
+        # use lambda so process_ids doesn't receives a value, not a series
+        result = base_df[base_tbl_col].apply(lambda x: process_ids(x)).tolist()
+
+    else:
+        # Normal lookup: base table has lists of IDs, join table has matching records
+        if not is_json_column:  # JSON columns can work with scalar IDs too
+            sample_val = base_df[base_tbl_col].dropna().iloc[0] if not base_df[base_tbl_col].dropna().empty else []
+            if not isinstance(sample_val, list):
+                raise ValueError(f"Expected list column from '{base_table_name}.{base_tbl_col}', but got scalar.")
+
+        join_lookup = join_df.set_index(join_tbl_col)
+
+        def process_ids(ids):
+            if not ids:
+                return []
+
+            # Handle both list and scalar IDs
+            if not isinstance(ids, list):
+                ids = [ids]
+
+            matching_rows = join_lookup.loc[join_lookup.index.intersection(ids)].reset_index()
+
+            if matching_rows.empty:
+                return []
+
+            if is_json_column:
+                return create_json_objects(matching_rows)
+            elif is_multi_field:
+                return [
+                    transform_func(*[row[field] for field in source_fields])
+                    for _, row in matching_rows.iterrows()
+                ]
+            else:
+                return matching_rows[source_fields[0]].apply(transform_func).tolist()
+
+        result = base_df[base_tbl_col].apply(lambda x: process_ids(x)).tolist()
+
+    # Determine column type
+    if is_json_column:
+        columnType = 'JSON'
+    else:
+        # Type detection for regular columns
+        sample_values = [val for sublist in result[:10] for val in sublist]
+        if sample_values:
+            datatype = type(sample_values[0])
+            columnType = 'STRING_LIST' if datatype == str else 'INTEGER_LIST'
+        else:
+            columnType = 'STRING_LIST'
+
+    return {
         'src': join_config['join_table_name'],
-        'name': dest_col['name'],
+        'name': dest_col.get('name', 'json_fields') if not is_json_column else 'json_objects',
         'alias': column_name,
-        'col': Column(name=column_name, columnType='JSON'),
+        'col': Column(name=column_name, columnType=columnType),
         'data': result
     }
-
-    return column_def
 
 def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
     """

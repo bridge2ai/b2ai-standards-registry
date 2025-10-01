@@ -98,7 +98,9 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
 
     clear_populate_snapshot_table(syn, table_name, coldefs, df, table_id)
 
+
 SYNAPSE_MIN_LIST_SIZE = 2
+
 
 def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
     """
@@ -109,9 +111,11 @@ def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
     :param new_data_df: DataFrame with new data
     :return: Column definitions
     """
-    is_list_cols = (new_data_df.map(type).astype(str) == "<class 'list'>").any()
+    is_list_cols = (new_data_df.map(type).astype(str)
+                    == "<class 'list'>").any()
     list_cols = set(is_list_cols[is_list_cols == True].index)
-    scalar_types = {c: infer_dtype(new_data_df[c], skipna=True).upper() for c in new_data_df.columns}  # infer_dtype gives 'mixed' for list types
+    scalar_types = {c: infer_dtype(new_data_df[c], skipna=True).upper(
+    ) for c in new_data_df.columns}  # infer_dtype gives 'mixed' for list types
     # assuming all list columns are string lists, at least for now
     def get_col_type(
         col_name): return 'STRING_LIST' if col_name in list_cols else scalar_types[col_name]
@@ -130,9 +134,12 @@ def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
                 # Find longest string in this list
                 if value:  # Check if list is not empty
                     item_lengths = [len(str(item)) for item in value]
-                    max_item_in_this_list = max(item_lengths) if item_lengths else 0
-                    actual_max_size = max(actual_max_size, max_item_in_this_list)
-            new_col['maximumListLength'] = max(int(actual_max_list_len), SYNAPSE_MIN_LIST_SIZE)
+                    max_item_in_this_list = max(
+                        item_lengths) if item_lengths else 0
+                    actual_max_size = max(
+                        actual_max_size, max_item_in_this_list)
+            new_col['maximumListLength'] = max(
+                int(actual_max_list_len), SYNAPSE_MIN_LIST_SIZE)
         else:
             actual_max_size = new_data_df[col_name].astype(str).str.len().max()
             if new_col['columnType'] == 'STRING':
