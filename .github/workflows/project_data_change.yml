@@ -44,8 +44,8 @@ jobs:
       - name: Run script to update synapse tables
         run: |
           if [ -n "${{ env.CHANGED_FILES }}" ]; then
-            poetry run python scripts/analyze_and_update_synapse_tables.py ${{ env.CHANGED_FILES }}
-            poetry run python scripts/create_denormalized_tables.py DST_denormalized
+            poetry run b2aisr update-synapse  ${{ env.CHANGED_FILES }}
+            poetry run b2aisr create-denormalized-tables --specific-tables DST_denormalized
           else
             echo "No relevant json files changed."
           fi

@@ -31,8 +31,10 @@ mkdocs-table-reader-plugin = ">=2.0"
 pandas = ">=2.2.3"
 synapseclient = "^4.9.0"
 "ruamel.yaml" = {version = ">=0.18.10,<0.19.0", optional = true}
-pandasql = "^0.7.3"
 pre-commit = "^4.3.0"
+
+[tool.poetry.scripts]
+b2aisr = "b2ai-standards-registry.cli:main"
 
 [tool.poetry.extras]
 synapse = ["synapseclient"]
