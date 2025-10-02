@@ -299,11 +299,18 @@ data_standardortools_collection:
   - B2AI_ORG:79
   is_open: true
   name: ADL
-  purpose_detail: ADL is designed as an abstract human-readable and computer-processible
-    syntax. ADL archetypes can be hand-edited using a normal text editor. The intended
-    audience includes standards bodies producing health informatics standards; Academic
-    groups using openEHR; The open source healthcare community; Solution vendors;
-    Medical informaticians and clinicians interested in health information.
+  purpose_detail: ADL (Archetype Definition Language) provides a formal, human-readable
+    syntax for expressing constraint-based models of clinical information structures.
+    It enables the definition of reusable archetypes that constrain generic reference
+    models (such as openEHR's) to represent specific clinical concepts like blood
+    pressure measurements or problem lists. The language consists of cADL (constraint
+    ADL) for structural definitions, dADL (data ADL) for metadata and terminology
+    bindings, and an assertion language for business rules. ADL archetypes support
+    multi-lingual terminology, specialization hierarchies, and versioning, making
+    them suitable for creating maintainable, semantically interoperable health information
+    systems. Tools exist for authoring, compiling, and validating ADL archetypes,
+    with XML exchange formats also supported. The syntax is designed to be accessible
+    to both clinical domain experts and technical implementers.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:79
@@ -1052,9 +1059,21 @@ data_standardortools_collection:
   - B2AI_ORG:15
   is_open: true
   name: CDASH
-  purpose_detail: A standard way to collect data consistently across studies and sponsors
-    so that data collection formats and structures provide clear traceability of submission
-    data into the Study Data Tabulation Model (SDTM).
+  purpose_detail: The Clinical Data Acquisition Standards Harmonization (CDASH) is
+    a CDISC foundational standard that establishes consistent data collection practices
+    across clinical studies and sponsors. CDASH provides a standardized framework
+    for designing case report forms (CRFs) and electronic data capture (eCRF) systems
+    by defining a common set of data collection fields and structures. The standard
+    specifies field names, labels, prompt questions, and controlled terminology for
+    capturing clinical observations, ensuring that data can be directly traced to
+    the Study Data Tabulation Model (SDTM) without extensive post-collection transformation.
+    By harmonizing data collection at the source, CDASH reduces data cleaning efforts,
+    improves data quality, and accelerates the transition from collection to analysis.
+    The standard covers various therapeutic areas and data domains including demographics,
+    vital signs, adverse events, concomitant medications, and laboratory results.
+    CDISC provides a library of ready-to-use, CDASH-compliant annotated eCRFs in
+    multiple formats (PDF, HTML, XML) that can be implemented as-is or customized
+    for specific study needs, facilitating regulatory submission and data review processes.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:15
@@ -1246,8 +1265,21 @@ data_standardortools_collection:
   description: Chain Format for pairwise alignment
   is_open: true
   name: chain
-  purpose_detail: The chain format describes a pairwise alignment that allow gaps
-    in both sequences simultaneously.
+  purpose_detail: The Chain format is a compact file format developed by UCSC for
+    representing pairwise genomic sequence alignments that permit gaps in both the
+    reference and query sequences simultaneously. Each chain alignment consists of
+    a header line specifying score, chromosome identifiers, sizes, strands, and coordinates
+    for both sequences, followed by alignment data lines describing ungapped blocks
+    and the gaps between them. The format uses zero-based half-open intervals for
+    coordinates and includes support for reverse-complement alignments through strand
+    indicators. Chain files are particularly useful for comparing whole genomes or
+    large genomic regions, representing syntenic relationships, structural variations,
+    and evolutionary rearrangements. They are commonly used in genome browsers and
+    liftOver tools for mapping genomic coordinates between different genome assemblies
+    or between species. The format supports "snake" or rearrangement display modes
+    that visualize complex structural variants including inversions, duplications,
+    and translocations. Chain alignments can be produced by tools like BLASTZ and
+    are widely used in comparative genomics workflows.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:119
@@ -1368,7 +1400,15 @@ data_standardortools_collection:
   description: CLUSTAL-W Alignment Format
   is_open: true
   name: MSF
-  purpose_detail: Format for a multiple alignment of protein or DNA sequences.
+  purpose_detail: The MSF (Multiple Sequence Format) is a standardized file format
+    produced by CLUSTAL-W for representing multiple sequence alignments of proteins
+    or nucleic acids. It includes sequence metadata, alignment length, checksums for
+    data integrity verification, and displays aligned sequences in blocks with position
+    numbering. The format supports gap characters and ambiguity codes, making it widely
+    compatible with bioinformatics tools for phylogenetic analysis, sequence conservation
+    studies, and comparative genomics. MSF files preserve alignment quality information
+    and are human-readable while maintaining machine-parseable structure for automated
+    processing.
   requires_registration: false
   url: https://bioinfo.nhri.edu.tw/gcg/doc/11.0/clustalw+.html
 - id: B2AI_STANDARD:59
@@ -1663,9 +1703,20 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: Crypt4GH
-  purpose_detail: A file format that can be used to store data in an encrypted and
-    authenticated state. Existing applications can, with minimal modification, read
-    and write data in the encrypted format.
+  purpose_detail: Crypt4GH is a file format specification developed by the Global
+    Alliance for Genomics and Health (GA4GH) for secure storage and transmission
+    of genomic and health-related data. The format provides end-to-end encryption
+    and authentication, allowing sensitive genomic data to be stored in public repositories
+    while maintaining confidentiality. It uses modern cryptographic standards including
+    Curve25519 for key agreement, ChaCha20 for encryption, and Poly1305 for authentication.
+    The format supports multiple recipients through per-recipient encrypted headers,
+    enabling controlled data sharing where different users can decrypt the same file
+    using their own private keys. Crypt4GH is designed for streaming access, allowing
+    applications to decrypt and process data incrementally without loading entire
+    files into memory. The format includes metadata protection and supports selective
+    decryption of file segments, making it suitable for large-scale genomic datasets.
+    Existing bioinformatics tools can be adapted with minimal modifications to read
+    and write Crypt4GH-encrypted data, facilitating adoption in genomics workflows.
   requires_registration: false
   url: https://samtools.github.io/hts-specs/crypt4gh.pdf
 - id: B2AI_STANDARD:73
@@ -3135,8 +3186,19 @@ data_standardortools_collection:
   is_open: true
   name: Regier2018
   publication: doi:10.1038/s41467-018-06159-4
-  purpose_detail: WGS data processing standards that allow different groups to produce
-    functionally equivalent (FE) results, yet still innovate on data processing pipelines.
+  purpose_detail: Regier2018 defines whole genome sequencing (WGS) data processing
+    standards that enable functional equivalence (FE) across different analysis pipelines
+    used by various research groups. These standards establish best practices for
+    alignment, variant calling, and quality control steps in genomic analysis workflows,
+    allowing different computational implementations to produce concordant results
+    while still permitting innovation in pipeline optimization. The framework addresses
+    key challenges in large-scale genomic studies by defining expected outputs, quality
+    metrics, and validation procedures that ensure harmonized variant calling across
+    projects. This standardization is particularly important for collaborative efforts
+    like the Centers for Common Disease Genomics (CCDG), where multiple centers must
+    produce comparable data that can be combined for downstream analysis. The standards
+    cover reference genome usage, read alignment parameters, variant detection algorithms,
+    and filtering criteria, providing a foundation for reproducible genomics research.
   requires_registration: false
 - id: B2AI_STANDARD:127
   category: B2AI_STANDARD:BiomedicalStandard
@@ -3451,11 +3513,19 @@ data_standardortools_collection:
   is_open: true
   name: GCDML
   publication: doi:10.1089/omi.2008.0A10
-  purpose_detail: The Genomic Contextual Data Markup Language (GCDML) is a core project
-    of the Genomic Standards Consortium (GSC) that is a reference implementation the
-    Minimum Information about a Genome Sequence (MIGS/MIMS/MIMARKS), and the extensions
-    the Minimum Information about a Metagenome Sequence (MIMS) and Minimum Information
-    about a MARKer gene Sequence (MIMARKS).
+  purpose_detail: The Genomic Contextual Data Markup Language (GCDML) is an XML Schema
+    developed by the Genomic Standards Consortium (GSC) to implement the Minimum
+    Information about a Genome Sequence (MIGS), Minimum Information about a Metagenome
+    Sequence (MIMS), and Minimum Information about a MARKer gene Sequence (MIMARKS)
+    specifications. This sample-centric, strongly-typed schema provides a comprehensive
+    set of descriptors for documenting the complete provenance of biological samples,
+    from initial collection and environmental context through sequencing and subsequent
+    analysis. GCDML enables standardized reporting of genomic and metagenomic data
+    by defining required metadata fields that capture sampling conditions, laboratory
+    processing methods, sequencing parameters, and analytical workflows. The schema
+    facilitates data exchange between research groups, repositories, and databases,
+    ensuring that essential contextual information needed to interpret sequence data
+    is preserved and communicated effectively.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:38
@@ -6574,17 +6644,22 @@ data_standardortools_collection:
   is_open: true
   name: SPREC
   publication: doi:10.1089/bio.2017.0109
-  purpose_detail: The ISBER Biospecimen Science Working Group has developed a SPREC
-    that identifies and records the main pre-analytical factors that may have impact
-    on the integrity of sampled clinical fluids and solid biospecimens and their simple
-    derivatives during collection, processing and storage. SPREC comprises 7 elements
-    for both fluid and solid samples, defining the sample and primary container type,
-    periods of cold and warm ischemia, and subsequent handling steps including speed
-    and temperature of centrifugation and final storage temperature. The ability to
-    manage and track pre-analytical variations impacting biospecimen integrity is
-    fundamental to the provision of high quality tissue samples for research, and
-    the effective and efficient interconnectivity and interoperability between national
-    and international Biobanks.
+  purpose_detail: The Standard PREanalytical Code (SPREC) is a comprehensive coding
+    system developed by the ISBER Biospecimen Science Working Group to standardize
+    documentation of pre-analytical variables that affect biospecimen quality. SPREC
+    uses a seven-element alphanumeric code to capture critical factors including
+    specimen type, primary container, time to processing (warm and cold ischemia),
+    centrifugation parameters (speed and temperature), and long-term storage conditions.
+    This systematic encoding enables biobanks and biorepositories to consistently
+    track and communicate how specimens were collected, processed, and preserved,
+    which directly impacts molecular analyte stability and experimental reproducibility.
+    By providing a standardized language for pre-analytical variation, SPREC facilitates
+    data harmonization across biobanks, enables quality comparisons between specimen
+    collections, supports regulatory compliance, and enhances the value of biological
+    samples for translational research. The code is particularly valuable for multi-center
+    studies where specimen provenance must be tracked and controlled. SPREC version
+    3.0 covers various specimen types including blood, tissue, urine, and other biological
+    fluids, with specific codes for derivatives like DNA, RNA, and proteins.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:48
@@ -7136,15 +7211,22 @@ data_standardortools_collection:
   - B2AI_ORG:93
   is_open: true
   name: VMS
-  purpose_detail: TDWG vocabularies are a collection of standardized terms and their
-    definitions. Vocabulary standards differ from other Biodiversity Information Standards
-    (TDWG) standards in that they are likely to change more often over time as they
-    evolve to meet the changing needs of the biodiversity informatics community. These
-    changes may be incremental, making it impractical to apply the full TDWG standards
-    process to every change. The TDWG Vocabulary Maintenance Specification details
-    the categories of changes that can be made to a TDWG vocabulary standard, the
-    mechanisms used to achieve those changes, and the entities that are responsible
-    for shepherding those changes through the process.
+  purpose_detail: The Vocabulary Maintenance Standard (VMS) is a TDWG (Biodiversity
+    Information Standards) specification that defines formal procedures for maintaining
+    and evolving controlled vocabularies used in biodiversity informatics. Unlike
+    traditional standards that remain relatively static, VMS recognizes that vocabulary
+    standards must adapt incrementally to meet evolving community needs without requiring
+    the full standards ratification process for every change. The specification categorizes
+    types of vocabulary modifications (additions, modifications, deprecations) and
+    establishes governance mechanisms for implementing these changes through designated
+    vocabulary maintenance groups. VMS defines roles and responsibilities for stakeholders
+    including vocabulary maintainers, Interest Groups, and the broader TDWG community,
+    specifying how change proposals are submitted, reviewed, and approved. The standard
+    ensures that vocabulary evolution remains transparent, traceable, and backward-compatible
+    where possible, while maintaining the stability needed for production systems.
+    VMS applies to major TDWG vocabularies including Darwin Core terms and is essential
+    for maintaining semantic interoperability across biodiversity data systems as
+    scientific understanding and data practices evolve.
   requires_registration: false
   url: https://www.tdwg.org/standards/vms/
 - id: B2AI_STANDARD:304
