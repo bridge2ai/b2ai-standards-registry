@@ -28,6 +28,7 @@ nav:
   - Home: index.md
   - Categories: categories.md
   - Curation: curation.md
+  - Data Manifest: manifest.md
   - Use Cases:
       - Use Cases Overview: UseCase.markdown
       - Assemble standards for integrated maps of human cell architecture: usecases/assemble-standards-for-integrated-maps-of-human-cell-architecture.markdown
@@ -199,6 +200,7 @@ markdown_extensions:
   - tables
   - admonition
   - attr_list
+  - md_in_html
   - pymdownx.details
   - pymdownx.superfences:
       # make exceptions to highlighting of code:
@@ -209,6 +211,8 @@ markdown_extensions:
 extra_javascript:
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
   - javascripts/tablesort.js
+extra_css:
+  - stylesheets/manifest.css
 extra:
   social:
     - icon: fontawesome/brands/github

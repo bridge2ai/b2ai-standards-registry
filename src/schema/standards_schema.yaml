@@ -10,6 +10,7 @@ see_also:
 prefixes:
   B2AI: https://w3id.org/bridge2ai/standards-schema/
   biolink: https://w3id.org/biolink/vocab/
+  clo: http://purl.obolibrary.org/obo/CLO_
   edam.data: http://edamontology.org/data_
   edam.format: http://edamontology.org/format_
   edam.operation: http://edamontology.org/operation_
@@ -20,7 +21,7 @@ prefixes:
   pato: http://purl.obolibrary.org/obo/PATO_
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   schema: http://schema.org/
-  uberon: http://purl.obolibrary.org/obo/uberon/core#
+  uberon: http://purl.obolibrary.org/obo/UBERON_
   wikidata: http://www.wikidata.org/wiki/
 default_prefix: B2AI
 default_range: string
@@ -85,6 +86,7 @@ classes:
       - ncit:C12219 # human anatomical entity
     id_prefixes:
       - uberon
+      - clo
 
 slots:
   node_property:

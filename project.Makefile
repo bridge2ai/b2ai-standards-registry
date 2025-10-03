@@ -8,7 +8,8 @@ standards_datatopic_schema.yaml \
 standards_organization_schema.yaml \
 standards_schema.yaml \
 standards_schema_all.yaml \
-standards_usecase_schema.yaml
+standards_usecase_schema.yaml \
+standards_manifest_schema.yaml
 
 ROOT_SCHEMA = src/schema/standards_schema_all.yaml
 
@@ -20,7 +21,8 @@ DATA_FILES := DataStandardOrTool.yaml \
 DataSubstrate.yaml \
 DataTopic.yaml \
 Organization.yaml \
-UseCase.yaml
+UseCase.yaml \
+Manifest.yaml
 
 DATA_DIR = src/data/
 
@@ -111,6 +113,7 @@ all-data:
 		CLASSES["$(DATA_DIR)Organization.yaml"]="OrganizationContainer"; \
 		CLASSES["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer"; \
 		CLASSES["$(DATA_DIR)DataSet.yaml"]="DataSetContainer"; \
+		CLASSES["$(DATA_DIR)Manifest.yaml"]="ManifestContainer"; \
 		for key in "$${!CLASSES[@]}" ; do \
 			for format in $(FORMATS) ; do \
 				printf "Converting $${key} to $${format}...\n" ; \
