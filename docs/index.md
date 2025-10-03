@@ -72,7 +72,27 @@ No. Assembling a complete collection of all standards used for all types of data
 
 ### Does the Explorer include only formal, mature standards?
 
-No. Standards development organizations such as the International Organization for Standardization (ISO) play crucial roles in the refinement of expert-designed, formal rules for representing data (e.g., the [ISO 8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html) defines a standardized format for representing date and time). Biomedical research, however, is built upon an assortment of standards varying in formality, maturity, and domain-specificity. Novel methods and approaches may require adaptation or extension of existing standards. Researchers may pursue approaches with few community-tested standards, as evidenced by our Bridge2AI Grand Challenges:
+No. Standards development organizations such as the International Organization for Standardization (ISO) play crucial roles in the refinement of expert-designed, formal rules for representing data (e.g., the [ISO 8601 standard](https://www.iso.org/iso-8601-date-and-time-format.html) defines a standardized format for representing date and time). Biomedical research, however, is built upon an assortment of standards varying in formality, maturity, and domain-specificity. Novel methods and approaches may require adaptation or extension of existing standards. 
+
+The Explorer categorizes the maturity of each standard according an evaluation of how complete its review process is and how ready it is to be used (i.e., if there is an implementation of the standard). The categories for these are:
+
+| Category | Description |
+|----------|-------------|
+| **Process Maturity** | |
+| **Final** | This standard has undergone a review process by one or more SDOs and has been determined to be in a mature state. Future revisions may still be possible. |
+| **Draft** | This standard is undergoing a review process by one or more SDOs to determine its maturity. |
+| **Development** | This standard is in its initial development stages and has not yet entered a review process, or is early in the process and still likely to be extensively revised. |
+| **Implementation Maturity** | |
+| **Production** | This standard has one or more implementations appropriate for production use, i.e., in use cases and environments where adherence to the standard is expected to be fully consistent. |
+| **Pilot** | This standard has one or more implementations intended for testing or evaluation purposes but may not be appropriate for production applications. |
+
+A standard is determined to be mature if its Process Maturity is **Final** and/or its Implementation Maturity is **Production**.
+
+Mature standards are labeled with a badge in the Maturity column in the Standards Explorer.
+
+#### Do Bridge2AI researchers only use formal, mature standards?
+
+No. Researchers are actively pursing approaches with community-tested standards, as evidenced by our Bridge2AI Grand Challenges:
 
 * The **Salutogenesis Grand Challenge** (also known as AI-READI) performed vision assessments with several diagnostic methods. For one method, autorefraction, no single standard existed to capture all metadata they wished to record, so AI-READI researchers [defined and documented an appropriate metadata format](https://docs.aireadi.org/docs/2/dataset/clinical-data/vision-assessment#autorefractor). They also found that, in the collection of Optical Coherence Tomography (OCT) images, several metadata fields defined by the DICOM standard could be safely removed as they either contained patient information or were inconsistent across imaging devices (see [dataset documentation on retinal OCT](https://docs.aireadi.org/docs/2/dataset/retinal-oct/)).
 * The **Precision Public Health Grand Challenge** (also known as Voice as a Biomarker of Health) found that existing protocols for collecting and representing human voice recordings were highly variable and non-standard. No mature standard existed for representing voice recordings along with their relevant features and health information, nor did one for sharing recordings while preserving patient privacy (see more details in [this paper by Bensoussan et al.](https://www.isca-archive.org/interspeech_2024/bensoussan24_interspeech.html)).
