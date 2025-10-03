@@ -182,4 +182,3 @@ def convert_anatomy_links(anatomy_list: list) -> list:
         else:
             converted.append(anatomy_str)
     return converted
-
