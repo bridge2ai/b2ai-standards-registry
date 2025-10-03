@@ -30,7 +30,7 @@ def load_organizations(org_path: Path) -> dict:
         return {org['id']: org for org in orgs}
 
 
-def format_list_with_links(items: list | None, all_data: dict, prefix: str = "") -> str:
+def format_list_with_links(items: list | None, all_data: dict, prefix: str = "", icon: str = "") -> str:
     """Format a list of IDs with their names and links."""
     if not items:
         return ""
@@ -43,17 +43,21 @@ def format_list_with_links(items: list | None, all_data: dict, prefix: str = "")
             item_str, all_data, relative_path_prefix=".")
         formatted.append(linked)
 
-    return f"{prefix}{', '.join(formatted)}" if formatted else ""
+    result = '<br>'.join(formatted) if len(
+        formatted) > 2 else ', '.join(formatted)
+    return f"{icon} {result}" if icon and result else result
 
 
-def format_anatomy_list(anatomy_items: list | None) -> str:
+def format_anatomy_list(anatomy_items: list | None, include_icon: bool = True) -> str:
     """Format anatomy terms (UBERON, CLO, etc.) with OBO Library links."""
     if not anatomy_items:
         return ""
 
     # Convert to OBO Library PURL links
     linked_anatomy = convert_anatomy_links(anatomy_items)
-    return ", ".join(linked_anatomy)
+    result = '<br>'.join(linked_anatomy) if len(
+        linked_anatomy) > 2 else ', '.join(linked_anatomy)
+    return f"🧬 {result}" if (include_icon and result) else result
 
 
 def generate_manifest_table(manifest_path: Path, output_path: Path):
@@ -72,6 +76,12 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
     lines.append("This page provides a comprehensive manifest of all data subsets, standards, substrates, topics, and relevant anatomy used across the Bridge2AI consortium.\n")
     lines.append(
         "Each data part is listed with its associated metadata and standards.\n")
+    lines.append("!!! tip \"Table Features\"")
+    lines.append("    - Click on any column header to sort the table")
+    lines.append(
+        "    - Links are provided to standards, substrates, topics, and anatomy ontologies")
+    lines.append(
+        "    - Icons indicate different types of metadata: 📋 Standards, 💾 Substrates, 🏷️ Topics, 🧬 Anatomy\n")
 
     # Process each manifest entry
     for manifest in manifests:
@@ -87,12 +97,18 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
                 org_names.append(org_id)
         org_str = ", ".join(org_names) if org_names else "Unknown"
 
-        # Add section header for each Grand Challenge
-        lines.append(f"\n## {manifest_id}: {org_str}\n")
+        # Add section header for each Grand Challenge (without manifest ID)
+        lines.append(f"\n## {org_str}\n")
 
+        # Wrap table in div with class for styling
+        lines.append('<div class="data-table" markdown="1">')
+        lines.append("")
+        
         # Create table header for this manifest
-        lines.append("\n| Data Part | Description | Standards & Tools | Substrates | Topics | Anatomy |")
-        lines.append("|-----------|-------------|-------------------|------------|--------|---------|")
+        lines.append(
+            "| Data Part | Description | 📋 Standards & Tools | 💾 Substrates | 🏷️ Topics | 🧬 Anatomy |")
+        lines.append(
+            "|-----------|-------------|---------------------|---------------|-----------|-----------|")
 
         # Process data parts
         data_parts = manifest.get('data_parts', [])
@@ -101,29 +117,34 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
                 name = part.get('data_part_name', 'Unnamed')
                 description = part.get('data_part_description', '')
 
-                # Format standards and tools
+                # Format standards and tools with icon
                 standards = part.get('standards_and_tools', [])
-                standards_str = format_list_with_links(standards, all_data)
+                standards_str = format_list_with_links(
+                    standards, all_data, icon="")
 
-                # Format substrates
+                # Format substrates with icon
                 substrates = part.get('uses_data_substrates', [])
-                substrates_str = format_list_with_links(substrates, all_data)
+                substrates_str = format_list_with_links(
+                    substrates, all_data, icon="")
 
-                # Format topics
+                # Format topics with icon
                 topics = part.get('concerns_data_topics', [])
-                topics_str = format_list_with_links(topics, all_data)
+                topics_str = format_list_with_links(topics, all_data, icon="")
 
-                # Format anatomy
+                # Format anatomy without icon since it's in header
                 anatomy = part.get('anatomy', [])
-                anatomy_str = format_anatomy_list(anatomy)
+                anatomy_str = format_anatomy_list(anatomy, include_icon=False)
 
                 # Escape pipe characters in text
                 name = name.replace('|', '\\|')
                 description = description.replace('|', '\\|')
 
                 lines.append(
-                    f"| {name} | {description} | {standards_str} | {substrates_str} | {topics_str} | {anatomy_str} |")
-        
+                    f"| **{name}** | {description} | {standards_str} | {substrates_str} | {topics_str} | {anatomy_str} |")
+
+        # Close the div wrapper
+        lines.append("")
+        lines.append("</div>")
         lines.append("")  # Add blank line after each table
 
     # Write to output file

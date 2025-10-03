@@ -1,0 +1,91 @@
+/* Custom styling for Bridge2AI Data Manifest tables */
+
+.data-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+}
+
+.data-table table th {
+    background-color: var(--md-primary-fg-color);
+    color: var(--md-primary-bg-color);
+    font-weight: 600;
+    padding: 12px 8px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+
+.data-table table th:hover {
+    background-color: var(--md-primary-fg-color--dark);
+}
+
+.data-table table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+    vertical-align: top;
+}
+
+.data-table table tr:hover {
+    background-color: var(--md-default-fg-color--lightest);
+}
+
+/* Make data part names bold and stand out */
+.data-table table td:first-child {
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: 150px;
+}
+
+/* Add some spacing for multi-line items */
+.data-table table td br + a {
+    margin-top: 4px;
+    display: inline-block;
+}
+
+/* Style for empty cells */
+.data-table table td:empty::after {
+    content: "—";
+    color: var(--md-default-fg-color--light);
+}
+
+/* Improve link appearance in tables */
+.data-table table a {
+    text-decoration: none;
+    border-bottom: 1px dotted var(--md-typeset-a-color);
+}
+
+.data-table table a:hover {
+    border-bottom: 1px solid var(--md-typeset-a-color);
+}
+
+/* Add visual separation between tables */
+.data-table {
+    margin-bottom: 2em;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 76.1875em) {
+    .data-table table {
+        font-size: 0.8em;
+    }
+    
+    .data-table table th,
+    .data-table table td {
+        padding: 8px 6px;
+    }
+}
+
+/* Make sortable column headers more obvious */
+.data-table table th::after {
+    content: " ⇅";
+    opacity: 0.3;
+    font-size: 0.8em;
+}
+
+.data-table table th:hover::after {
+    opacity: 0.7;
+}
