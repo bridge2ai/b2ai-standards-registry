@@ -5,17 +5,111 @@ manifest_collection:
   datasets:
   - B2AI_DATA:1
   data_parts:
-  - data_part_name: scRNAseq
-    data_part_description: single-cell RNA sequencing
+  - data_part_name: Cell maps
+    data_part_description: Cell maps of cellular systems.
+    concerns_data_topics:
+    - B2AI_TOPIC:2
+    anatomy:
+    - CLO:0000031
+  - data_part_name: Cell line metadata
+    data_part_description: Cell line metadata.
+    concerns_data_topics:
+    - B2AI_TOPIC:2
+    anatomy:
+    - CLO:0000031
+  - data_part_name: AP-MS - Level 1
+    data_part_description: AP-MS raw signal and metadata.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:58
+    concerns_data_topics:
+    - B2AI_TOPIC:2
+    - B2AI_TOPIC:28
+    anatomy:
+    - CLO:0000031
+  - data_part_name: AP-MS - Level 3
+    data_part_description: AP-MS peptide counts.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:58
+    concerns_data_topics:
+    - B2AI_TOPIC:2
+    - B2AI_TOPIC:28
+    anatomy:
+    - CLO:0000031
+  - data_part_name: Confocal IF - Level 1
+    data_part_description: Confocal IF raw signal (pixel intensity) and metadata.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:19
+    concerns_data_topics:
+    - B2AI_TOPIC:2
+    anatomy:
+    - CLO:0000031
+  - data_part_name: CROP-seq - Level 1
+    data_part_description: CROP-seq raw signal (unaligned reads) and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:111
     uses_data_substrates:
     - B2AI_SUBSTRATE:64
     concerns_data_topics:
     - B2AI_TOPIC:34
     anatomy:
     - CLO:0000031
-# - id: B2AI_MANIFEST:2
-#   organization: B2AI_ORG:114
-# - id: B2AI_MANIFEST:3
-#   organization: B2AI_ORG:117
-# - id: B2AI_MANIFEST:4
-#   organization: B2AI_ORG:115
+  - data_part_name: CROP-seq - Level 2
+    data_part_description: CROP-seq aligned reads and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:21
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:64
+    concerns_data_topics:
+    - B2AI_TOPIC:34
+    anatomy:
+    - CLO:0000031
+  - data_part_name: CROP-seq - Level 3
+    data_part_description: CROP-seq gene counts and metadata.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:64
+    - B2AI_SUBSTRATE:43
+    concerns_data_topics:
+    - B2AI_TOPIC:34
+    anatomy:
+    - CLO:0000031
+  - data_part_name: CROP-seq protocol
+    data_part_description: CROP-seq assay attributes.
+    concerns_data_topics:
+    - B2AI_TOPIC:34
+    anatomy:
+    - CLO:0000031
+  - data_part_name: CROP-seq sample metadata
+    data_part_description: CROP-seq sample attributes.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:64
+    - B2AI_SUBSTRATE:6
+    concerns_data_topics:
+    - B2AI_TOPIC:34
+    anatomy:
+    - CLO:0000031
+  - data_part_name: CROP-seq QC
+    data_part_description: CROP-seq quality control metrics.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:64
+    - B2AI_SUBSTRATE:43
+    concerns_data_topics:
+    - B2AI_TOPIC:34
+    anatomy:
+    - CLO:0000031
+  - data_part_name: Evidence
+    data_part_description: Evidence supporting predictions.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:20
+    concerns_data_topics:
+    - B2AI_TOPIC:34
+    anatomy:
+    - CLO:0000031
+- id: B2AI_MANIFEST:2
+  organization:
+  - B2AI_ORG:114
+- id: B2AI_MANIFEST:3
+  organization:
+  - B2AI_ORG:117
+- id: B2AI_MANIFEST:4
+  organization:
+  - B2AI_ORG:115
