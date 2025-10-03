@@ -6,7 +6,7 @@ showing all data parts grouped by their parent B2AI_MANIFEST ID, with linked
 identifiers for standards, substrates, topics, and anatomy terms.
 """
 from __future__ import annotations
-from id_linking import load_all_b2ai_data, convert_ids_to_links
+from id_linking import load_all_b2ai_data, convert_ids_to_links, convert_anatomy_links
 import sys
 from pathlib import Path
 import yaml
@@ -30,14 +30,6 @@ def load_organizations(org_path: Path) -> dict:
         return {org['id']: org for org in orgs}
 
 
-def load_datasets(dataset_path: Path) -> dict:
-    """Load dataset data."""
-    with open(dataset_path, 'r') as f:
-        data = yaml.safe_load(f)
-        datasets = data.get('data_collection', [])
-        return {ds['id']: ds for ds in datasets}
-
-
 def format_list_with_links(items: list | None, all_data: dict, prefix: str = "") -> str:
     """Format a list of IDs with their names and links."""
     if not items:
@@ -55,12 +47,13 @@ def format_list_with_links(items: list | None, all_data: dict, prefix: str = "")
 
 
 def format_anatomy_list(anatomy_items: list | None) -> str:
-    """Format anatomy terms (UBERON, CLO, etc.)."""
+    """Format anatomy terms (UBERON, CLO, etc.) with OBO Library links."""
     if not anatomy_items:
         return ""
 
-    # For now, just return the IDs as-is since we don't have pages for anatomy terms
-    return ", ".join(str(item) for item in anatomy_items)
+    # Convert to OBO Library PURL links
+    linked_anatomy = convert_anatomy_links(anatomy_items)
+    return ", ".join(linked_anatomy)
 
 
 def generate_manifest_table(manifest_path: Path, output_path: Path):
@@ -72,7 +65,6 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
     all_data = load_all_b2ai_data()
     organizations = load_organizations(
         repo_root / 'src' / 'data' / 'Organization.yaml')
-    datasets = load_datasets(repo_root / 'src' / 'data' / 'DataSet.yaml')
 
     # Start building the markdown content
     lines = []
@@ -95,31 +87,16 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
                 org_names.append(org_id)
         org_str = ", ".join(org_names) if org_names else "Unknown"
 
-        # Get dataset info
-        dataset_ids = manifest.get('datasets', [])
-        dataset_names = []
-        for ds_id in dataset_ids:
-            if ds_id in datasets:
-                ds_name = datasets[ds_id].get('description', ds_id)
-                # Truncate long descriptions
-                if len(ds_name) > 100:
-                    ds_name = ds_name[:97] + "..."
-                dataset_names.append(f"{ds_id}: {ds_name}")
-            else:
-                dataset_names.append(ds_id)
-
+        # Add section header for each Grand Challenge
         lines.append(f"\n## {manifest_id}: {org_str}\n")
-        if dataset_names:
-            lines.append(f"**Dataset(s):** {'; '.join(dataset_names)}\n")
 
-        # Create table for data parts
+        # Create table header for this manifest
+        lines.append("\n| Data Part | Description | Standards & Tools | Substrates | Topics | Anatomy |")
+        lines.append("|-----------|-------------|-------------------|------------|--------|---------|")
+
+        # Process data parts
         data_parts = manifest.get('data_parts', [])
         if data_parts:
-            lines.append(
-                "\n| Data Part | Description | Standards & Tools | Substrates | Topics | Anatomy |")
-            lines.append(
-                "|-----------|-------------|-------------------|------------|--------|---------|")
-
             for part in data_parts:
                 name = part.get('data_part_name', 'Unnamed')
                 description = part.get('data_part_description', '')
@@ -146,8 +123,8 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
 
                 lines.append(
                     f"| {name} | {description} | {standards_str} | {substrates_str} | {topics_str} | {anatomy_str} |")
-
-        lines.append("\n")
+        
+        lines.append("")  # Add blank line after each table
 
     # Write to output file
     with open(output_path, 'w') as f:

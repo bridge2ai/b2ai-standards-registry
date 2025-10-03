@@ -160,3 +160,26 @@ def convert_topic_links(topic_list: list, all_data: Dict[str, Dict], relative_pa
             converted.append(convert_ids_to_links(
                 topic_str, all_data, relative_path_prefix))
     return converted
+
+
+def convert_anatomy_links(anatomy_list: list) -> list:
+    """Convert a list of anatomy terms (UBERON, CLO, etc.) to OBO Library PURL links.
+
+    Args:
+        anatomy_list: List of anatomy term IDs (e.g., UBERON:0000468, CLO:0000031)
+
+    Returns:
+        List of markdown links to OBO Library
+    """
+    converted = []
+    for anatomy in anatomy_list:
+        anatomy_str = str(anatomy)
+        # Convert UBERON:0000468 to UBERON_0000468 for OBO PURL
+        if ':' in anatomy_str:
+            obo_id = anatomy_str.replace(':', '_')
+            obo_url = f"http://purl.obolibrary.org/obo/{obo_id}"
+            converted.append(f"[{anatomy_str}]({obo_url})")
+        else:
+            converted.append(anatomy_str)
+    return converted
+
