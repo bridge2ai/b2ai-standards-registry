@@ -44,6 +44,13 @@ Provides shared functionality for converting B2AI IDs in text to appropriate mar
 - Hierarchical Mermaid diagram showing topic relationships
 - Parent/child relationship display
 
+#### Manifest Table: `generate_manifest_table.py`
+- Generates comprehensive manifest table in `docs/manifest.md`
+- Groups data parts by their parent B2AI_MANIFEST ID
+- Shows organization, datasets, and all metadata for each data part
+- Includes linked identifiers for standards, substrates, topics, and anatomy terms
+- Uses `id_linking.py` for consistent cross-referencing
+
 ## URL Checker Script
 
 The `check_urls.py` script is used to validate the URLs in all YAML files in the data directory. It checks for broken links and potentially invalid pages (like very short or empty pages).
