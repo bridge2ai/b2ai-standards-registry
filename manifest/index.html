@@ -1,0 +1,4934 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bridge2ai.github.io/b2ai-standards-registry/manifest/">
+      
+      
+        <link rel="prev" href="../curation/">
+      
+      
+        <link rel="next" href="../UseCase/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Data Manifest - Bridge2AI Standards Registry</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/manifest.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bridge2ai-data-manifest" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Bridge2AI Standards Registry" class="md-header__button md-logo" aria-label="Bridge2AI Standards Registry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Bridge2AI Standards Registry
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Manifest
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Bridge2AI Standards Registry" class="md-nav__button md-logo" aria-label="Bridge2AI Standards Registry" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Bridge2AI Standards Registry
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bridge2ai/b2ai-standards-registry" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../categories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Categories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../curation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Curation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Data Manifest
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Manifest
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#functional-genomics-grand-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Functional Genomics Grand Challenge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#salutogenesis-grand-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salutogenesis Grand Challenge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#precision-public-health-grand-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Precision Public Health Grand Challenge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aiml-for-clinical-care-grand-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      AI/ML for Clinical Care Grand Challenge
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Use Cases
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Use Cases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UseCase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Use Cases Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/assemble-standards-for-integrated-maps-of-human-cell-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assemble standards for integrated maps of human cell architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/assemble-standards-for-voice-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assemble standards for voice data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/assess-the-explainability-of-a-computational-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assess the explainability of a computational model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/assess-the-potential-bias-in-a-computational-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assess the potential bias in a computational model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/assess-the-quality-of-a-computational-model-in-terms-of-its-ability-to-complete-a-specific-task/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Assess the quality of a computational model in terms of its ability to complete a specific task
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/build-a-database-of-human-voice-samples-and-associations-with-biomarkers-of-health/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build a database of human voice samples and associations with biomarkers of health
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/build-a-graph-database-of-arbitrary-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build a graph database of arbitrary data types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/build-a-relational-database-of-arbitrary-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build a relational database of arbitrary data types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/construct-standards-for-computational-provenance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Construct standards for computational provenance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/deploy-a-federated-learning-system-for-analysis-of-voice-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deploy a Federated Learning System for analysis of voice data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/determine-whether-enough-data-is-available-to-train-a-computational-model-of-interest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Determine whether enough data is available to train a computational model of interest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/develop-cross-sectional-ai-models-of-relationships-between-diabetes-severity-cognitive-function-and-presence-of-biomarkers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Develop cross-sectional AI models of relationships between diabetes severity, cognitive function, and presence of biomarkers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/develop-models-of-clinical-image-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Develop models of clinical image data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/develop-multi-scale-maps-of-human-cell-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Develop multi-scale maps of human cell architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/develop-predictive-models-of-insulin-dependence-and-salutogenesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Develop predictive models of insulin dependence and salutogenesis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/develop-pseudotime-patient-models-of-health-and-salutogenesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Develop pseudotime patient models of health and salutogenesis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/develop-software-and-cloud-infrastructure-for-automated-voice-data-collection-through-a-smartphone-application/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Develop software and cloud infrastructure for automated voice data collection through a smartphone application
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/integrate-clinical-record-data-with-voice-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integrate clinical record data with voice data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/link-cellular-objects-to-functions-through-associations-between-proteins-cell-structure-proximity-and-transcriptomics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Link cellular objects to functions through associations between proteins, cell structure, proximity, and transcriptomics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-clinical-waveform-data-from-patients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain clinical waveform data from patients
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-genomics-data-from-patients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain genomics data from patients
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-image-data-from-brain-magnetic-resonance-imaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain image data from brain magnetic resonance imaging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-image-data-from-retinal-and-other-ophthalmic-imaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain image data from retinal and other ophthalmic imaging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-molecular-proximity-observations-from-microscopy-images-of-human-cells/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain molecular proximity observations from microscopy images of human cells
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-patient-data-from-laboratory-analysis-including-serological-testing-and-urinalysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain patient data from laboratory analysis including serological testing and urinalysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-patient-data-from-records-of-clinical-visits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain patient data from records of clinical visits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-patient-data-from-wearable-devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain patient data from wearable devices
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-proteome-data-from-human-cell-samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain proteome data from human cell samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-social-determinants-of-health-data-from-patients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain social determinants of health data from patients
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-transcriptome-data-from-human-cell-populations-perturbed-through-crispr-driven-mutagenesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain transcriptome data from human cell populations perturbed through CRISPR-driven mutagenesis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/obtain-voice-data-from-patients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Obtain voice data from patients
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/produce-artifacts-that-map-identifiers-between-source-and-standardized-data-representations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Produce artifacts that map identifiers between source and standardized data representations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/query-a-graph-database-of-arbitrary-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Query a graph database of arbitrary data types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/query-a-relational-database-of-arbitrary-data-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Query a relational database of arbitrary data types
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/standardize-clinical-image-data-collected-from-multiple-sites-and-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Standardize clinical image data collected from multiple sites and sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/standardize-clinical-omics-data-collected-from-multiple-sites-and-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Standardize clinical omics data collected from multiple sites and sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/standardize-clinical-record-data-collected-from-multiple-sites-and-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Standardize clinical record data collected from multiple sites and sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/standardize-clinical-waveform-data-collected-from-multiple-sites-and-sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Standardize clinical waveform data collected from multiple sites and sources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/test-and-deploy-analytical-models-of-clinical-image-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Test and deploy analytical models of clinical image data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/train-a-binary-classification-model-on-data-in-one-or-more-bioconductor-objects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Train a binary classification model on data in one or more Bioconductor objects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/train-a-linear-regression-model-on-data-in-an-r-tibble/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Train a linear regression model on data in an R tibble
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/train-a-neural-network-model-on-tensor-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Train a neural network model on tensor data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/transform-data-from-omop-to-the-i2b2-standard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transform data from OMOP to the i2b2 standard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usecases/transform-fhir-data-to-tsv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transform FHIR data to TSV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Substrates
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Substrates
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Substrates Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Array
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/associative-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Associative Array
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/bids/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BIDS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/bigquery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BigQuery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/column-store/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Column Store
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/comma-separated-values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comma-separated values
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/compressed-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compressed Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/data-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Frame
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/delimited-text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delimited Text
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/dicom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DICOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/directed-acyclic-graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Directed acyclic graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/document-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Document Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/graph-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Graph Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/hdf5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HDF5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/heap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Heap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/hierarchical-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hierarchical Array
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/immunofluorescence-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Immunofluorescence Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/json/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JSON
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/kgx-tsv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    KGX TSV
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/mass-spectrometry-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mass Spectrometry Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/mongodb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MongoDB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/mysql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/n-dimensional-array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    N-Dimensional Array
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/neo4j/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Neo4j
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/neural-network-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Neural Network Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/nnef/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    NNEF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/onnx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ONNX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/optical-coherence-tomography-angiography-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optical coherence tomography angiography data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/optical-coherence-tomography-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optical coherence tomography data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/oxygen-saturation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Oxygen saturation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/pandas-dataframe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pandas DataFrame
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/parquet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Parquet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/participant-response-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Participant response data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/perturb-seq-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Perturb-seq Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/physical-activity-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Physical activity data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/physiological-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Physiological data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/pinecone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pinecone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/postgresql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/property-graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Property graph
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/pytorch-tensor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyTorch Tensor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/questionnaire-response-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Questionnaire response data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/r-data-frame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R data.frame
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/r-tibble/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    R tibble
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/raster-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raster Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/relational-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Relational Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/respiratory-rate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Respiratory rate
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/retinal-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Retinal Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/rna-sequence-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RNA Sequence Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/sequence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sequence
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/set/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Set
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/single-cell-rna-sequence-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Single-cell RNA Sequence Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/size-exclusion-chromatography-mass-spectrometry-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Size Exclusion Chromatography-Mass Spectrometry Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/sleep-tracking-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sleep tracking data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/spectral-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spectral Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/stress-tracking-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stress tracking data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    String
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/summarizedexperiment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SummarizedExperiment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/tab-separated-values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tab-separated values
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/tensor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tensor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Text
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/time-series-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Time-series data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/tree/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tree
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/trie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Trie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/vector-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vector Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/vector-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vector Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/vector/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vector
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/waveform-audio-file-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Waveform Audio File Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/waveform-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Waveform Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/xarray/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    xarray
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../substrates/zarr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zarr
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Topics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Topics Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Biology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Biology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Cell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Cheminformatics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cheminformatics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/ClinicalObservations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clinical Observations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Demographics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Demographics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Disease/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Disease
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Drug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Drug
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/EHR/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EHR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/EKG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EKG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Gene/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gene
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Genome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Genome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Geolocation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Geolocation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Literature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Literature
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Metabolome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Metabolome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/mHealth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    mHealth
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/MicroscaleImaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Microscale Imaging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/MolecularBiology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Molecular Biology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/NetworksAndPathways/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Networks and Pathways
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/NeurologicImaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Neurologic Imaging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Omics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Omics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/OphthalmicImaging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ophthalmic Imaging
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Phenotype/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Phenotype
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Protein/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Protein
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/ProteinStructureModel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Protein Structure Model
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Proteome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proteome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/SDoH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SDoH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/SocialMedia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Social Media
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Survey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Survey
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Text
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Transcript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transcript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Transcriptome/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transcriptome
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Variant/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Variant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Voice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Voice
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Waveform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Waveform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/GlucoseMonitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Glucose Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/ActivityMonitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Activity Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../topics/Governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Organization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Organizations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="bridge2ai-data-manifest">Bridge2AI Data Manifest</h1>
+<p>This page provides a comprehensive manifest of all data subsets, standards, substrates, topics, and relevant anatomy used across the Bridge2AI consortium.</p>
+<p>Each data part is listed with its associated metadata and standards.</p>
+<div class="admonition tip">
+<p class="admonition-title">Table Features</p>
+<ul>
+<li>Click on any column header to sort the table</li>
+<li>Links are provided to standards, substrates, topics, and anatomy ontologies</li>
+<li>Icons indicate different types of metadata: 📋 Standards, 💾 Substrates, 🏷️ Topics, 🧬 Anatomy</li>
+</ul>
+</div>
+<h2 id="functional-genomics-grand-challenge">Functional Genomics Grand Challenge</h2>
+<div class="data-table">
+<table>
+<thead>
+<tr>
+<th>Data Part</th>
+<th>Description</th>
+<th>📋 Standards &amp; Tools</th>
+<th>💾 Substrates</th>
+<th>🏷️ Topics</th>
+<th>🧬 Anatomy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cell maps</strong></td>
+<td>Cell maps of cellular systems.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td></td>
+<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>Cell line metadata</strong></td>
+<td>Cell line metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td></td>
+<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>AP-MS - Level 1</strong></td>
+<td>AP-MS raw signal and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td><a href="../substrates/mass-spectrometry-data/">B2AI_SUBSTRATE:58</a> (Mass Spectrometry Data)</td>
+<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell), <a href="../topics/Proteome/">B2AI_TOPIC:28</a> (Proteome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>AP-MS - Level 3</strong></td>
+<td>AP-MS peptide counts.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td><a href="../substrates/mass-spectrometry-data/">B2AI_SUBSTRATE:58</a> (Mass Spectrometry Data)</td>
+<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell), <a href="../topics/Proteome/">B2AI_TOPIC:28</a> (Proteome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>Confocal IF - Level 1</strong></td>
+<td>Confocal immunofluorescence cell imaging raw signal (pixel intensity) and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:344">B2AI_STANDARD:344</a>, <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td><a href="../substrates/immunofluorescence-image/">B2AI_SUBSTRATE:56</a> (Immunofluorescence Image)</td>
+<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell), <a href="../topics/MicroscaleImaging/">B2AI_TOPIC:19</a> (Microscale Imaging)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>CROP-seq - Level 1</strong></td>
+<td>CROP-seq raw signal (unaligned reads) and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:111">B2AI_STANDARD:111</a>, <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data)</td>
+<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>CROP-seq - Level 2</strong></td>
+<td>CROP-seq aligned reads and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:21">B2AI_STANDARD:21</a>, <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data)</td>
+<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>CROP-seq - Level 3</strong></td>
+<td>CROP-seq gene counts and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data), <a href="../substrates/text/">B2AI_SUBSTRATE:43</a> (Text)</td>
+<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>CROP-seq protocol</strong></td>
+<td>CROP-seq assay attributes.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td></td>
+<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>CROP-seq sample metadata</strong></td>
+<td>CROP-seq sample attributes.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data), <a href="../substrates/comma-separated-values/">B2AI_SUBSTRATE:6</a> (Comma-separated values)</td>
+<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>CROP-seq QC</strong></td>
+<td>CROP-seq quality control metrics.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a></td>
+<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data), <a href="../substrates/text/">B2AI_SUBSTRATE:43</a> (Text)</td>
+<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+<tr>
+<td><strong>Evidence</strong></td>
+<td>Evidence supporting predictions, modeled as provenance graphs.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a>, <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:444">B2AI_STANDARD:444</a></td>
+<td><a href="../substrates/json/">B2AI_SUBSTRATE:20</a> (JSON)</td>
+<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
+<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="salutogenesis-grand-challenge">Salutogenesis Grand Challenge</h2>
+<div class="data-table">
+<table>
+<thead>
+<tr>
+<th>Data Part</th>
+<th>Description</th>
+<th>📋 Standards &amp; Tools</th>
+<th>💾 Substrates</th>
+<th>🏷️ Topics</th>
+<th>🧬 Anatomy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>WGS - Level 1</strong></td>
+<td>Whole genome sequencing raw reads and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:111">B2AI_STANDARD:111</a></td>
+<td><a href="../substrates/dna-sequence-data/">B2AI_SUBSTRATE:61</a> (DNA Sequence Data)</td>
+<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OCT</strong></td>
+<td>Optical coherence tomography (Retinal layer thickness measurements) and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/optical-coherence-tomography-data/">B2AI_SUBSTRATE:67</a> (Optical coherence tomography data)</td>
+<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a></td>
+</tr>
+<tr>
+<td><strong>Near-IR ophthalmic imaging</strong></td>
+<td>Near-infrared ophthalmic imaging and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/retinal-image/">B2AI_SUBSTRATE:65</a> (Retinal Image)</td>
+<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a></td>
+</tr>
+<tr>
+<td><strong>Retinal fundus imaging</strong></td>
+<td>Retinal fundus imaging and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/retinal-image/">B2AI_SUBSTRATE:65</a> (Retinal Image)</td>
+<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a></td>
+</tr>
+<tr>
+<td><strong>OCTA</strong></td>
+<td>Optical coherence tomography angiography and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/optical-coherence-tomography-angiography-data/">B2AI_SUBSTRATE:68</a> (Optical coherence tomography angiography data)</td>
+<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a></td>
+</tr>
+<tr>
+<td><strong>FLIO</strong></td>
+<td>Fluorescence lifetime imaging ophthalmoscopy and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/fluorescence-lifetime-imaging-ophthalmoscopy-data/">B2AI_SUBSTRATE:66</a> (Fluorescence Lifetime Imaging Ophthalmoscopy data)</td>
+<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a></td>
+</tr>
+<tr>
+<td><strong>Clinical visit</strong></td>
+<td>Data produced during clinical visits, including results of vision assessments.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243">B2AI_STANDARD:243</a></td>
+<td></td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/EyeDiseases/">B2AI_TOPIC:44</a> (Eye Diseases)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Clinical labs</strong></td>
+<td>Clinical laboratory measurements.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243">B2AI_STANDARD:243</a></td>
+<td></td>
+<td><a href="../topics/EHR/">B2AI_TOPIC:9</a> (EHR)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Survey data</strong></td>
+<td>Data from patient surveys, including social determinants of health (SDoH), diet, lifestyle, family history, and MoCA cognitive scores.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243">B2AI_STANDARD:243</a>, <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:821">B2AI_STANDARD:821</a></td>
+<td><a href="../substrates/questionnaire-response-data/">B2AI_SUBSTRATE:80</a> (Questionnaire response data)</td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations)<br><a href="../topics/SDoH/">B2AI_TOPIC:29</a> (SDoH)<br><a href="../topics/Governance/">B2AI_TOPIC:40</a> (Governance)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Glucose levels</strong></td>
+<td>Patient glucose data from continuous monitoring over 10 days.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:246">B2AI_STANDARD:246</a></td>
+<td><a href="../substrates/glucose-monitoring-data/">B2AI_SUBSTRATE:78</a> (Glucose monitoring data)</td>
+<td><a href="../topics/GlucoseMonitoring/">B2AI_TOPIC:38</a> (Glucose Monitoring)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000178">UBERON:0000178</a></td>
+</tr>
+<tr>
+<td><strong>Activity levels</strong></td>
+<td>Patient activity data from continuous monitoring over 10 days.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:246">B2AI_STANDARD:246</a></td>
+<td><a href="../substrates/physical-activity-data/">B2AI_SUBSTRATE:73</a> (Physical activity data), <a href="../substrates/caloric-burn-data/">B2AI_SUBSTRATE:74</a> (Caloric burn data)</td>
+<td><a href="../topics/ActivityMonitoring/">B2AI_TOPIC:39</a> (Activity Monitoring)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Heart rate</strong></td>
+<td>Patient heart rate data from continuous monitoring over 10 days.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:246">B2AI_STANDARD:246</a></td>
+<td><a href="../substrates/heart-rate/">B2AI_SUBSTRATE:71</a> (Heart rate)</td>
+<td><a href="../topics/ActivityMonitoring/">B2AI_TOPIC:39</a> (Activity Monitoring)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000948">UBERON:0000948</a></td>
+</tr>
+<tr>
+<td><strong>SpO2 levels</strong></td>
+<td>Patient blood oxygen saturation levels from continuous monitoring over 10 days.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:246">B2AI_STANDARD:246</a></td>
+<td><a href="../substrates/oxygen-saturation/">B2AI_SUBSTRATE:72</a> (Oxygen saturation)</td>
+<td><a href="../topics/ActivityMonitoring/">B2AI_TOPIC:39</a> (Activity Monitoring), <a href="../topics/Respiration/">B2AI_TOPIC:46</a> (Respiration)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ECG</strong></td>
+<td>Patient cardiac 12-lead electrocardiogram (waveform) data and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:202">B2AI_STANDARD:202</a></td>
+<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
+<td><a href="../topics/Waveform/">B2AI_TOPIC:37</a> (Waveform)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000948">UBERON:0000948</a></td>
+</tr>
+<tr>
+<td><strong>Environmental data</strong></td>
+<td>Patient environment and air quality data. Includes temperature, humidity, oxygen, particle, and other measures of the environment.</td>
+<td></td>
+<td></td>
+<td><a href="../topics/Environment/">B2AI_TOPIC:11</a> (Environment)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="precision-public-health-grand-challenge">Precision Public Health Grand Challenge</h2>
+<div class="data-table">
+<table>
+<thead>
+<tr>
+<th>Data Part</th>
+<th>Description</th>
+<th>📋 Standards &amp; Tools</th>
+<th>💾 Substrates</th>
+<th>🏷️ Topics</th>
+<th>🧬 Anatomy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>WGS - Level 1</strong></td>
+<td>Whole genome sequencing raw reads and metadata. Preserving/sharing unaligned reads (in same file as aligned reads) via CRAM.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:21">B2AI_STANDARD:21</a></td>
+<td></td>
+<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>WGS - Level 2</strong></td>
+<td>Whole genome sequencing aligned reads and metadata. Preserving/sharing unaligned reads (in same file as aligned reads) via CRAM.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:21">B2AI_STANDARD:21</a></td>
+<td></td>
+<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>WGS - Level 3</strong></td>
+<td>Whole genome sequencing variant calls (SNV/INDEL/CNV/SV) and metadata. Preserving/sharing unaligned reads (in same file as aligned reads) via CRAM.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:299">B2AI_STANDARD:299</a></td>
+<td></td>
+<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>WGS protocol</strong></td>
+<td>Whole genome sequencing protocol and metadata.</td>
+<td></td>
+<td></td>
+<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>WGS sample metadata</strong></td>
+<td>Whole genome sequencing sample attributes.</td>
+<td></td>
+<td></td>
+<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>WGS QC</strong></td>
+<td>Whole genome sequencing quality control metrics.</td>
+<td></td>
+<td></td>
+<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>CT</strong></td>
+<td>Computed tomography (CT) scans and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
+<td><a href="../topics/NeurologicImaging/">B2AI_TOPIC:22</a> (Neurologic Imaging)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>MR</strong></td>
+<td>Magnetic resonance (MR) imaging and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
+<td><a href="../topics/NeurologicImaging/">B2AI_TOPIC:22</a> (Neurologic Imaging)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>X-ray</strong></td>
+<td>X-ray imaging and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Voice</strong></td>
+<td>Voice recordings (spectrographs) and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:202">B2AI_STANDARD:202</a></td>
+<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
+<td><a href="../topics/Voice/">B2AI_TOPIC:36</a> (Voice)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Laryngoscopy</strong></td>
+<td>Laryngoscopy videos and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a>, <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:352">B2AI_STANDARD:352</a></td>
+<td><a href="../substrates/image/">B2AI_SUBSTRATE:19</a> (Image)</td>
+<td></td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0001737">UBERON:0001737</a></td>
+</tr>
+<tr>
+<td><strong>Speech test assessment</strong></td>
+<td>Speech test assessment results.</td>
+<td></td>
+<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
+<td><a href="../topics/Voice/">B2AI_TOPIC:36</a> (Voice), <a href="../topics/VoiceDisorders/">B2AI_TOPIC:45</a> (Voice Disorders)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Spontaneous speech assessment</strong></td>
+<td>Spontaneous speech assessment results.</td>
+<td></td>
+<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
+<td><a href="../topics/Voice/">B2AI_TOPIC:36</a> (Voice), <a href="../topics/VoiceDisorders/">B2AI_TOPIC:45</a> (Voice Disorders)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Forced cough assessment</strong></td>
+<td>Forced cough assessment results.</td>
+<td></td>
+<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
+<td><a href="../topics/Voice/">B2AI_TOPIC:36</a> (Voice), <a href="../topics/VoiceDisorders/">B2AI_TOPIC:45</a> (Voice Disorders)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Informed consent</strong></td>
+<td>Informed consent form responses.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:821">B2AI_STANDARD:821</a></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Questionnaire</strong></td>
+<td>Questionnaire responses, including MoCA, GAD-7, VHI-10, PANAS, and DI.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:109">B2AI_STANDARD:109</a></td>
+<td></td>
+<td><a href="../topics/Survey/">B2AI_TOPIC:31</a> (Survey)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Demographics</strong></td>
+<td>Participant demographics information.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:109">B2AI_STANDARD:109</a></td>
+<td></td>
+<td><a href="../topics/SDoH/">B2AI_TOPIC:29</a> (SDoH), <a href="../topics/Survey/">B2AI_TOPIC:31</a> (Survey)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Treatment</strong></td>
+<td>Participant treatment history information.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243">B2AI_STANDARD:243</a></td>
+<td></td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Diagnosis</strong></td>
+<td>Participant diagnosis history information and results of functional assessment.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:174">B2AI_STANDARD:174</a></td>
+<td></td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/VoiceDisorders/">B2AI_TOPIC:45</a> (Voice Disorders)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a></td>
+</tr>
+<tr>
+<td><strong>Vital signs</strong></td>
+<td>Participant vital signs information.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:109">B2AI_STANDARD:109</a></td>
+<td></td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Social history</strong></td>
+<td>Participant social history information, including social history (e.g., smoking and alcohol use).</td>
+<td></td>
+<td></td>
+<td><a href="../topics/SDoH/">B2AI_TOPIC:29</a> (SDoH)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="aiml-for-clinical-care-grand-challenge">AI/ML for Clinical Care Grand Challenge</h2>
+<div class="data-table">
+<table>
+<thead>
+<tr>
+<th>Data Part</th>
+<th>Description</th>
+<th>📋 Standards &amp; Tools</th>
+<th>💾 Substrates</th>
+<th>🏷️ Topics</th>
+<th>🧬 Anatomy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Clinical labs</strong></td>
+<td>Clinical laboratory measurements.</td>
+<td></td>
+<td></td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/EHR/">B2AI_TOPIC:9</a> (EHR)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clinical treatments</strong></td>
+<td>Clinical treatment information, including details of medications administered.</td>
+<td></td>
+<td></td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Physiologic telemetry</strong></td>
+<td>Physiologic telemetry data.</td>
+<td></td>
+<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/EHR/">B2AI_TOPIC:9</a> (EHR)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Physiologic EEG</strong></td>
+<td>Physiologic electroencephalogram data.</td>
+<td></td>
+<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
+<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/EHR/">B2AI_TOPIC:9</a> (EHR)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000955">UBERON:0000955</a></td>
+</tr>
+<tr>
+<td><strong>ECG</strong></td>
+<td>Patient cardiac 5-lead electrocardiogram (waveform) data and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:202">B2AI_STANDARD:202</a></td>
+<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
+<td><a href="../topics/Waveform/">B2AI_TOPIC:37</a> (Waveform)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000948">UBERON:0000948</a></td>
+</tr>
+<tr>
+<td><strong>Heart rate</strong></td>
+<td>Patient heart rate data.</td>
+<td></td>
+<td><a href="../substrates/heart-rate/">B2AI_SUBSTRATE:71</a> (Heart rate)</td>
+<td><a href="../topics/ActivityMonitoring/">B2AI_TOPIC:39</a> (Activity Monitoring)</td>
+<td><a href="http://purl.obolibrary.org/obo/UBERON_0000948">UBERON:0000948</a></td>
+</tr>
+<tr>
+<td><strong>SpO2 levels</strong></td>
+<td>Patient blood oxygen saturation levels.</td>
+<td></td>
+<td><a href="../substrates/oxygen-saturation/">B2AI_SUBSTRATE:72</a> (Oxygen saturation)</td>
+<td><a href="../topics/Respiration/">B2AI_TOPIC:46</a> (Respiration)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>X-ray</strong></td>
+<td>X-ray imaging and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>CT</strong></td>
+<td>Computed tomography (CT) scans and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
+<td><a href="../topics/NeurologicImaging/">B2AI_TOPIC:22</a> (Neurologic Imaging)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>MR</strong></td>
+<td>Magnetic resonance (MR) imaging and metadata.</td>
+<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a></td>
+<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
+<td><a href="../topics/NeurologicImaging/">B2AI_TOPIC:22</a> (Neurologic Imaging)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Social determinants of health</strong></td>
+<td>Social determinants of health data based on Area Deprivation Index (ADI).</td>
+<td></td>
+<td></td>
+<td><a href="../topics/SDoH/">B2AI_TOPIC:29</a> (SDoH)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Practice metadata</strong></td>
+<td>Metadata about clinical practice.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/bridge2ai/b2ai-standards-registry" target="_blank" rel="noopener" title="Standards Registry GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>
