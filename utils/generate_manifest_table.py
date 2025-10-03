@@ -103,7 +103,7 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
         # Wrap table in div with class for styling
         lines.append('<div class="data-table" markdown="1">')
         lines.append("")
-        
+
         # Create table header for this manifest
         lines.append(
             "| Data Part | Description | 📋 Standards & Tools | 💾 Substrates | 🏷️ Topics | 🧬 Anatomy |")
