@@ -16,5 +16,12 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:5](../DataTopic.markdown)
+- [B2AI_TOPIC:5](../topics/Data.markdown) (Data)
 
+**parent of:**
+
+- [B2AI_TOPIC:11](../topics/Environment.markdown) (Environment)
+
+- [B2AI_TOPIC:20](../topics/MolecularBiology.markdown) (Molecular Biology)
+
+- [B2AI_TOPIC:46](../topics/Respiration.markdown) (Respiration)

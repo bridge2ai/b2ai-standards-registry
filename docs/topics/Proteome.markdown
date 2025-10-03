@@ -14,5 +14,8 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:23](../DataTopic.markdown)
+- [B2AI_TOPIC:23](../topics/Omics.markdown) (Omics)
 
+**parent of:**
+
+- [B2AI_TOPIC:26](../topics/Protein.markdown) (Protein)

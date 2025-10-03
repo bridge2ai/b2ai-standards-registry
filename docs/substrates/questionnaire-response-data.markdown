@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:79 (Participant response data)
+- [B2AI_SUBSTRATE:79](../substrates/participant-response-data.markdown) (Participant response data)

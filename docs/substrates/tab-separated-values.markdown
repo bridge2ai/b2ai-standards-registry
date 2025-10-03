@@ -16,4 +16,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:10 (Delimited Text)
+- [B2AI_SUBSTRATE:10](../substrates/delimited-text.markdown) (Delimited Text)

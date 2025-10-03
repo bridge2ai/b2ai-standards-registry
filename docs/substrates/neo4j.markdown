@@ -10,4 +10,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:15 (Graph Database)
+- [B2AI_SUBSTRATE:15](../substrates/graph-database.markdown) (Graph Database)

@@ -14,5 +14,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:12](../DataTopic.markdown)
-
+- [B2AI_TOPIC:12](../topics/Gene.markdown) (Gene)

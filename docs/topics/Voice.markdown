@@ -14,5 +14,8 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:37](../DataTopic.markdown)
+- [B2AI_TOPIC:37](../topics/Waveform.markdown) (Waveform)
 
+**parent of:**
+
+- [B2AI_TOPIC:45](../topics/VoiceDisorders.markdown) (Voice Disorders)

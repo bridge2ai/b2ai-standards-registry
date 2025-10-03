@@ -16,5 +16,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:15](../DataTopic.markdown)
-
+- [B2AI_TOPIC:15](../topics/Image.markdown) (Image)

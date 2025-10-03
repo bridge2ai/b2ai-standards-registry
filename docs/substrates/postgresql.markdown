@@ -8,4 +8,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:37 (Relational Database)
+- [B2AI_SUBSTRATE:37](../substrates/relational-database.markdown) (Relational Database)

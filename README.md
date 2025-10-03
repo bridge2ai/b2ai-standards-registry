@@ -4,6 +4,8 @@
 
 This is the Bridge2AI Standards Registry, a collection of data standards used in biomedical research and data science, with an emphasis on standards used to prepare data for artificial intelligence-driven applications.
 
+Metadata for standards in the Registry provides the content for the [Bridge2AI Standards Explorer](https://b2ai.standards.synapse.org/).
+
 ⚠ [Please use this form to suggest an addition.](https://github.com/bridge2ai/b2ai-standards-registry/issues/new?template=newEntity.yml)
 
 ## Purpose
@@ -130,6 +132,29 @@ make update-schemas
 This will update the source yaml files in [src/schema](./src/schema/).
 
 Afterwards, you will be able to modify the source yaml files in [src/data](./src/data/).
+
+## Updating Registry Data shown on the Standards Explorer
+
+Updates to data in this repository are not automatically added to the live Standards Explorer site.
+
+Changes to the data in the YAML files in `src/b2ai-standards-registry/data` must first be converted to JSON with `make all`.
+
+A GitHub Action will then update the data in Synapse tables used by the Explorer.
+
+To run the update process manually from a local copy of the repository, first obtain a Synapse token with the appropriate permissions.
+
+Install the project with `poetry install`.
+
+Then run these commands:
+
+```bash
+poetry run b2aisr update-synapse (a list of JSON data filepaths)
+poetry run b2aisr create-denormalized-tables --specific-tables (a list of tables to update, e.g., DST_denormalized)
+```
+
+**Important note:** These scripts will not work if the schema has changed. This includes added columns, deleted columns, or if columns have changed order.
+
+If the schema has changed, update and run the `scripts/modify_synapse_schema.py` script to update the table schemas in Synapse.
 
 ## Accessing Registry Data
 

@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:57 (Spectral Data)
+- [B2AI_SUBSTRATE:57](../substrates/spectral-data.markdown) (Spectral Data)

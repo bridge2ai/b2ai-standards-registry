@@ -8,4 +8,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:5 (Column Store)
+- [B2AI_SUBSTRATE:5](../substrates/column-store.markdown) (Column Store)

@@ -14,5 +14,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:2](../DataTopic.markdown)
-
+- [B2AI_TOPIC:2](../topics/Cell.markdown) (Cell)

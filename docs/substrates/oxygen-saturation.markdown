@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:70 (Physiological data)
+- [B2AI_SUBSTRATE:70](../substrates/physiological-data.markdown) (Physiological data)

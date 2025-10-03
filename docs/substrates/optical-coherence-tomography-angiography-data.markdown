@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:67 (Optical coherence tomography data)
+- [B2AI_SUBSTRATE:67](../substrates/optical-coherence-tomography-data.markdown) (Optical coherence tomography data)

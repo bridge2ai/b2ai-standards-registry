@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:65 (Retinal Image)
+- [B2AI_SUBSTRATE:65](../substrates/retinal-image.markdown) (Retinal Image)

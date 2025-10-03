@@ -16,5 +16,4 @@
 
 **subclass of:**
 
-- [B2AI_TOPIC:26](../DataTopic.markdown)
-
+- [B2AI_TOPIC:26](../topics/Protein.markdown) (Protein)

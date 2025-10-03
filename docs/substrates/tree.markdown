@@ -8,4 +8,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:14 (Graph)
+- [B2AI_SUBSTRATE:14](../substrates/graph.markdown) (Graph)

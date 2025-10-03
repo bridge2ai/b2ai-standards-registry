@@ -6,4 +6,4 @@
 
 **subclass of:**
 
-- B2AI_SUBSTRATE:1 (Array)
+- [B2AI_SUBSTRATE:1](../substrates/array.markdown) (Array)
