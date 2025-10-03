@@ -41,6 +41,7 @@ manifest_collection:
     - B2AI_SUBSTRATE:19
     concerns_data_topics:
     - B2AI_TOPIC:2
+    - B2AI_TOPIC:19
     anatomy:
     - CLO:0000031
   - data_part_name: CROP-seq - Level 1
@@ -107,9 +108,133 @@ manifest_collection:
 - id: B2AI_MANIFEST:2
   organization:
   - B2AI_ORG:114
+  datasets:
+  - B2AI_DATA:2
+  data_parts:
+  - data_part_name: WGS - Level 1
+    data_part_description: Whole genome sequencing raw reads and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:111
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:61
+    concerns_data_topics:
+    - B2AI_TOPIC:13
+  - data_part_name: OCT
+    data_part_description: Optical coherence tomography (Retinal layer thickness measurements) and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:98
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:67
+    concerns_data_topics:
+    - B2AI_TOPIC:24
+  - data_part_name: Near-IR ophthalmic imaging
+    data_part_description: Near-infrared ophthalmic imaging and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:98
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:65
+    concerns_data_topics:
+    - B2AI_TOPIC:24
+  - data_part_name: Retinal fundus imaging
+    data_part_description: Retinal fundus imaging and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:98
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:65
+    concerns_data_topics:
+    - B2AI_TOPIC:24
+  - data_part_name: OCTA
+    data_part_description: Optical coherence tomography angiography and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:98
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:68
+    concerns_data_topics:
+    - B2AI_TOPIC:24
+  - data_part_name: FLIO
+    data_part_description: Fluorescence lifetime imaging ophthalmoscopy and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:98
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:66
+    concerns_data_topics:
+    - B2AI_TOPIC:24
+  - data_part_name: Clinical visit
+    data_part_description: Data produced during clinical visits.
+    standards_and_tools:
+    - B2AI_STANDARD:243
+    concerns_data_topics:
+    - B2AI_TOPIC:4
+  - data_part_name: Clinical labs
+    data_part_description: Clinical laboratory measurements.
+    standards_and_tools:
+    - B2AI_STANDARD:243
+    concerns_data_topics:
+    - B2AI_TOPIC:9
+  - data_part_name: Survey data
+    data_part_description: Data from patient surveys, including social determinants of health (SDoH), diet, lifestyle, family history, and MoCA cognitive scores.
+    standards_and_tools:
+    - B2AI_STANDARD:243
+    - B2AI_STANDARD:821
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:80
+    concerns_data_topics:
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:29
+    - B2AI_TOPIC:40
+  - data_part_name: Glucose levels
+    data_part_description: Patient glucose data from continuous monitoring over 10 days.
+    standards_and_tools:
+    - B2AI_STANDARD:246
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:78
+    concerns_data_topics:
+    - B2AI_TOPIC:38
+  - data_part_name: Activity levels
+    data_part_description: Patient activity data from continuous monitoring over 10 days.
+    standards_and_tools:
+    - B2AI_STANDARD:246
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:73
+    - B2AI_SUBSTRATE:74
+    concerns_data_topics:
+    - B2AI_TOPIC:39
+  - data_part_name: Heart rate
+    data_part_description: Patient heart rate data from continuous monitoring over 10 days.
+    standards_and_tools:
+    - B2AI_STANDARD:246
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:71
+    concerns_data_topics:
+    - B2AI_TOPIC:39
+  - data_part_name: SpO2 levels
+    data_part_description: Patient blood oxygen saturation levels from continuous monitoring over 10 days.
+    standards_and_tools:
+    - B2AI_STANDARD:246
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:72
+    concerns_data_topics:
+    - B2AI_TOPIC:39
+    - B2AI_TOPIC:46
+  - data_part_name: EKG
+    data_part_description: Patient electrocardiogram (waveform) data and metadata.
+    standards_and_tools:
+    - B2AI_STANDARD:202
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:49
+    concerns_data_topics:
+    - B2AI_TOPIC:37
+  - data_part_name: Environmental data
+    data_part_description: Patient environment and air quality data. Includes temperature, humidity, oxygen, particle, and other measures of the environment.
+    concerns_data_topics:
+    - B2AI_TOPIC:11
 - id: B2AI_MANIFEST:3
   organization:
   - B2AI_ORG:117
+  datasets:
+  - B2AI_DATA:3
 - id: B2AI_MANIFEST:4
   organization:
   - B2AI_ORG:115
+  datasets:
+  - B2AI_DATA:4
