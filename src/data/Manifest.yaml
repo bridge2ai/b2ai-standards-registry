@@ -348,3 +348,41 @@ manifest_collection:
   - B2AI_ORG:115
   datasets:
   - B2AI_DATA:4
+  data_parts:
+  - data_part_name: Clinical labs
+    data_part_description: Clinical laboratory measurements.
+    concerns_data_topics:
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:9
+  - data_part_name: Clinical treatments
+    data_part_description: Clinical treatment information.
+    concerns_data_topics:
+    - B2AI_TOPIC:4
+  - data_part_name: Physiologic telemetry
+    data_part_description: Physiologic telemetry data.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:49
+    concerns_data_topics:
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:9
+  - data_part_name: Physiologic EEG
+    data_part_description: Physiologic EEG data.
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:49
+    concerns_data_topics:
+    - B2AI_TOPIC:4
+    - B2AI_TOPIC:9
+  - data_part_name: Images
+    data_part_description: Medical imaging data.
+    standards_and_tools:
+    - B2AI_STANDARD:98
+    uses_data_substrates:
+    - B2AI_SUBSTRATE:11
+    concerns_data_topics:
+    - B2AI_TOPIC:4
+  - data_part_name: Social determinants of health
+    data_part_description: Social determinants of health data.
+    concerns_data_topics:
+    - B2AI_TOPIC:29
+  - data_part_name: Practice metadata
+    data_part_description: Metadata about clinical practice.
