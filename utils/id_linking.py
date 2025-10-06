@@ -8,6 +8,8 @@ Functions:
     load_all_b2ai_data(): Load all B2AI data files and create ID-to-info mappings
     get_standard_label(standard_id): Get the label/name for a standard ID
     get_standard_labels(standard_ids): Get labels for multiple standard IDs
+    get_ontology_label(ontology_id): Get the label for an ontology term via OLS API
+    get_ontology_labels(ontology_ids): Get labels for multiple ontology terms via OLS API
     convert_ids_to_links(text): Convert B2AI IDs in text to markdown links
     convert_substrate_links(substrate_list): Convert substrate IDs to markdown links
     convert_topic_links(topic_list): Convert topic IDs to markdown links
@@ -19,7 +21,13 @@ import re
 import unicodedata
 from pathlib import Path
 from typing import Dict
+from urllib.parse import quote
 import yaml
+
+try:
+    import requests
+except ImportError:
+    requests = None
 
 
 def slugify(value: str) -> str:
@@ -101,6 +109,70 @@ def get_standard_labels(standard_ids: list[str], all_data: Dict[str, Dict] | Non
         label = get_standard_label(standard_id, all_data)
         if label is not None:
             labels[standard_id] = label
+    return labels
+
+
+def get_ontology_label(ontology_id: str, timeout: int = 5) -> str | None:
+    """Get the label for an ontology term ID using the OLS (Ontology Lookup Service) API.
+
+    Args:
+        ontology_id: The ontology term ID (e.g., 'UBERON:0000468', 'CLO:0000031')
+        timeout: Request timeout in seconds (default: 5)
+
+    Returns:
+        The label/name of the ontology term, or None if not found or on error
+
+    Example:
+        >>> get_ontology_label('UBERON:0000468')
+        'multicellular organism'
+        >>> get_ontology_label('CLO:0000031')
+        'cell line cell'
+    """
+    if not requests:
+        return None
+
+    if ':' not in ontology_id:
+        return None
+
+    # Split into ontology prefix and local ID
+    prefix, local_id = ontology_id.split(':', 1)
+    prefix_lower = prefix.lower()
+
+    # Construct the OBO PURL IRI
+    obo_iri = f"http://purl.obolibrary.org/obo/{prefix}_{local_id}"
+
+    # OLS API endpoint
+    api_url = f"https://www.ebi.ac.uk/ols4/api/ontologies/{prefix_lower}/terms/{quote(quote(obo_iri, safe=''), safe='')}"
+
+    try:
+        response = requests.get(api_url, timeout=timeout)
+        if response.status_code == 200:
+            data = response.json()
+            return data.get('label')
+        return None
+    except (requests.RequestException, ValueError, KeyError):
+        return None
+
+
+def get_ontology_labels(ontology_ids: list[str], timeout: int = 5) -> Dict[str, str]:
+    """Get labels for multiple ontology term IDs using the OLS API.
+
+    Args:
+        ontology_ids: List of ontology term IDs (e.g., ['UBERON:0000468', 'CLO:0000031'])
+        timeout: Request timeout in seconds per request (default: 5)
+
+    Returns:
+        Dictionary mapping ontology IDs to their labels. IDs not found are omitted.
+
+    Example:
+        >>> get_ontology_labels(['UBERON:0000468', 'CLO:0000031'])
+        {'UBERON:0000468': 'multicellular organism', 'CLO:0000031': 'cell line cell'}
+    """
+    labels = {}
+    for ontology_id in ontology_ids:
+        label = get_ontology_label(ontology_id, timeout)
+        if label is not None:
+            labels[ontology_id] = label
     return labels
 
 
