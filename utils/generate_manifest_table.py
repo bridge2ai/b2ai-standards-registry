@@ -75,7 +75,7 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
     lines.append("# Bridge2AI Data Manifest\n")
     lines.append("This page provides a comprehensive manifest of all data subsets, standards, substrates, topics, and relevant anatomy used across the Bridge2AI consortium.\n")
     lines.append(
-        "Each data part is listed with its associated metadata and standards.\n")
+        "Each data type is listed with its associated metadata and standards.\n")
     lines.append("!!! tip \"Table Features\"")
     lines.append("    - Click on any column header to sort the table")
     lines.append(
@@ -106,7 +106,7 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
 
         # Create table header for this manifest
         lines.append(
-            "| Data Part | Description | 📋 Standards & Tools | 💾 Substrates | 🏷️ Topics | 🧬 Anatomy |")
+            "| Data Type | Description | 📋 Standards & Tools | 💾 Substrates | 🏷️ Topics | 🧬 Anatomy |")
         lines.append(
             "|-----------|-------------|---------------------|---------------|-----------|-----------|")
 
