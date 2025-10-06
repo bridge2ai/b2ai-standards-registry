@@ -6,7 +6,13 @@ showing all data parts grouped by their parent B2AI_MANIFEST ID, with linked
 identifiers for standards, substrates, topics, and anatomy terms.
 """
 from __future__ import annotations
-from id_linking import load_all_b2ai_data, convert_ids_to_links, convert_anatomy_links
+from id_linking import (
+    load_all_b2ai_data,
+    convert_ids_to_links,
+    convert_anatomy_links,
+    get_standard_label,
+    get_ontology_label
+)
 import sys
 from pathlib import Path
 import yaml
@@ -31,17 +37,32 @@ def load_organizations(org_path: Path) -> dict:
 
 
 def format_list_with_links(items: list | None, all_data: dict, prefix: str = "", icon: str = "") -> str:
-    """Format a list of IDs with their names and links."""
+    """Format a list of IDs with their names and links.
+
+    For standards (B2AI_STANDARD:*), includes the standard label in parentheses.
+    For other IDs, uses the existing convert_ids_to_links behavior.
+    """
     if not items:
         return ""
 
     formatted = []
     for item in items:
         item_str = str(item)
-        # Convert the ID to a link
-        linked = convert_ids_to_links(
-            item_str, all_data, relative_path_prefix=".")
-        formatted.append(linked)
+
+        # Check if this is a standard ID
+        if item_str.startswith('B2AI_STANDARD:'):
+            # Get the label for the standard
+            label = get_standard_label(item_str, all_data)
+            # Create link with label in parentheses
+            linked = f"[{item_str}](https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id={item_str})"
+            if label:
+                linked += f" ({label})"
+            formatted.append(linked)
+        else:
+            # Convert the ID to a link using existing function
+            linked = convert_ids_to_links(
+                item_str, all_data, relative_path_prefix=".")
+            formatted.append(linked)
 
     result = '<br>'.join(formatted) if len(
         formatted) > 2 else ', '.join(formatted)
@@ -49,14 +70,34 @@ def format_list_with_links(items: list | None, all_data: dict, prefix: str = "",
 
 
 def format_anatomy_list(anatomy_items: list | None, include_icon: bool = True) -> str:
-    """Format anatomy terms (UBERON, CLO, etc.) with OBO Library links."""
+    """Format anatomy terms (UBERON, CLO, etc.) with OBO Library links and labels.
+
+    Looks up human-readable labels via the OLS API and includes them in parentheses.
+    """
     if not anatomy_items:
         return ""
 
-    # Convert to OBO Library PURL links
-    linked_anatomy = convert_anatomy_links(anatomy_items)
-    result = '<br>'.join(linked_anatomy) if len(
-        linked_anatomy) > 2 else ', '.join(linked_anatomy)
+    formatted = []
+    for anatomy in anatomy_items:
+        anatomy_str = str(anatomy)
+        # Convert to OBO Library PURL link
+        if ':' in anatomy_str:
+            obo_id = anatomy_str.replace(':', '_')
+            obo_url = f"http://purl.obolibrary.org/obo/{obo_id}"
+
+            # Get the label from OLS
+            label = get_ontology_label(anatomy_str)
+
+            # Create link with label in parentheses
+            linked = f"[{anatomy_str}]({obo_url})"
+            if label:
+                linked += f" ({label})"
+            formatted.append(linked)
+        else:
+            formatted.append(anatomy_str)
+
+    result = '<br>'.join(formatted) if len(
+        formatted) > 2 else ', '.join(formatted)
     return f"🧬 {result}" if (include_icon and result) else result
 
 
