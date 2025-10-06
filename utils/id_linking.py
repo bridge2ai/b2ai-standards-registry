@@ -3,6 +3,16 @@
 
 This module provides functions to convert B2AI IDs in text to appropriate markdown links
 across different resource types (substrates, topics, standards, use cases, datasets).
+
+Functions:
+    load_all_b2ai_data(): Load all B2AI data files and create ID-to-info mappings
+    get_standard_label(standard_id): Get the label/name for a standard ID
+    get_standard_labels(standard_ids): Get labels for multiple standard IDs
+    convert_ids_to_links(text): Convert B2AI IDs in text to markdown links
+    convert_substrate_links(substrate_list): Convert substrate IDs to markdown links
+    convert_topic_links(topic_list): Convert topic IDs to markdown links
+    convert_anatomy_links(anatomy_list): Convert anatomy terms to OBO Library links
+    slugify(value): Convert a string to a URL-friendly slug
 """
 from __future__ import annotations
 import re
@@ -45,6 +55,53 @@ def load_all_b2ai_data() -> Dict[str, Dict]:
                         data_mappings[item['id']] = item
 
     return data_mappings
+
+
+def get_standard_label(standard_id: str, all_data: Dict[str, Dict] | None = None) -> str | None:
+    """Get the label (name) for a standard ID.
+
+    Args:
+        standard_id: The standard ID (e.g., 'B2AI_STANDARD:137')
+        all_data: Dictionary mapping B2AI IDs to their data. If None, will load automatically.
+
+    Returns:
+        The label/name of the standard (e.g., 'GFF'), or None if not found
+
+    Example:
+        >>> get_standard_label('B2AI_STANDARD:137')
+        'GFF'
+    """
+    if all_data is None:
+        all_data = load_all_b2ai_data()
+
+    if standard_id in all_data:
+        return all_data[standard_id].get('name')
+    return None
+
+
+def get_standard_labels(standard_ids: list[str], all_data: Dict[str, Dict] | None = None) -> Dict[str, str]:
+    """Get labels (names) for multiple standard IDs.
+
+    Args:
+        standard_ids: List of standard IDs (e.g., ['B2AI_STANDARD:137', 'B2AI_STANDARD:2'])
+        all_data: Dictionary mapping B2AI IDs to their data. If None, will load automatically.
+
+    Returns:
+        Dictionary mapping standard IDs to their labels/names. IDs not found are omitted.
+
+    Example:
+        >>> get_standard_labels(['B2AI_STANDARD:137', 'B2AI_STANDARD:2'])
+        {'B2AI_STANDARD:137': 'GFF', 'B2AI_STANDARD:2': 'DMS'}
+    """
+    if all_data is None:
+        all_data = load_all_b2ai_data()
+
+    labels = {}
+    for standard_id in standard_ids:
+        label = get_standard_label(standard_id, all_data)
+        if label is not None:
+            labels[standard_id] = label
+    return labels
 
 
 def convert_ids_to_links(text: str, all_data: Dict[str, Dict] | None = None, relative_path_prefix: str = "..") -> str:
