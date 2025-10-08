@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "b2ai-standards-registry"
+name = "b2ai_standards_registry"
 version = "0.1.2"
 description = "Bridge2AI Standards Registry and Use Case Catalog, including validation functions."
 authors = [
@@ -16,7 +16,7 @@ license = "MIT"
 readme = "README.md"
 
 packages = [
-	{include = "b2ai-standards-registry", from = "src"}
+	{include = "b2ai_standards_registry", from = "src"}
 ]
 
 [tool.poetry.dependencies]
@@ -34,7 +34,7 @@ synapseclient = "^4.9.0"
 pre-commit = "^4.3.0"
 
 [tool.poetry.scripts]
-b2aisr = "b2ai-standards-registry.cli:main"
+b2aisr = "b2ai_standards_registry.cli:main"
 
 [tool.poetry.extras]
 synapse = ["synapseclient"]
