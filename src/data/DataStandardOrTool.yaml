@@ -30,8 +30,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: 2023 NIH Data Management and Sharing Policy
-  has_relevant_organization:
-  - B2AI_ORG:67
   is_open: true
   name: DMS
   purpose_detail: NIH has issued the Data Management and Sharing (DMS) policy (effective
@@ -58,8 +56,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Access to Biological Collections Data Schema
-  has_relevant_organization:
-  - B2AI_ORG:93
   is_open: true
   name: ABCD
   purpose_detail: The Access to Biological Collections Data (ABCD) Schema is an evolving
@@ -115,8 +111,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Analytical Information Markup Language
-  has_relevant_organization:
-  - B2AI_ORG:8
   is_open: true
   name: AnIML
   purpose_detail: The Analytical Information Markup Language (AnIML) is the emerging
@@ -161,8 +155,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Annotated ECG standard
   formal_specification: https://www.hl7.org/implement/standards/product_brief.cfm?product_id=70
-  has_relevant_organization:
-  - B2AI_ORG:40
   is_open: true
   name: aECG
   purpose_detail: Provides a common means of electronically storing both the ECG wave
@@ -184,14 +176,11 @@ data_standardortools_collection:
   formal_specification: https://github.com/NCIP/annotation-and-image-markup
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:71
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
   name: AIM
-  purpose_detail: >-
-    The Annotation and Image Markup (AIM) project is the first initiative
+  purpose_detail: 'The Annotation and Image Markup (AIM) project is the first initiative
     to propose and create a standard means of adding information and knowledge to
     medical images in a clinical environment, enabling automatic searching of image
     content. AIM provides a comprehensive solution to imaging challenges including
@@ -205,7 +194,7 @@ data_standardortools_collection:
     Workstation. AIM captures results in terms of image regions of interest, semantic
     descriptions, inferences, calculations, and quantitative features derived by computer
     programs. It is interoperable with DICOM-SR and HL7-CDA standards while providing
-    unique advantages through an explicit semantic model of imaging results.
+    unique advantages through an explicit semantic model of imaging results.'
   related_to:
   - B2AI_STANDARD:98
   requires_registration: false
@@ -221,12 +210,14 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: ANSI/CTA Standard - The Use of Artificial Intelligence in Health Care Trustworthiness
-  has_relevant_organization:
-  - B2AI_ORG:4
+  description: ANSI/CTA Standard - The Use of Artificial Intelligence in Health Care
+    Trustworthiness
   is_open: false
   name: ANSI/CTA-2090
-  purpose_detail: This standard outlines key principles for ensuring trustworthiness in AI applications within healthcare, focusing on human trust, technical reliability, and regulatory compliance. It provides a framework for evaluating AI systems in clinical settings, emphasizing transparency, accountability, and ethical considerations.
+  purpose_detail: This standard outlines key principles for ensuring trustworthiness
+    in AI applications within healthcare, focusing on human trust, technical reliability,
+    and regulatory compliance. It provides a framework for evaluating AI systems in
+    clinical settings, emphasizing transparency, accountability, and ethical considerations.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:4
@@ -295,8 +286,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Archetype Definition Language
   formal_specification: https://specifications.openehr.org/releases/AM/latest/ADL1.4.html
-  has_relevant_organization:
-  - B2AI_ORG:79
   is_open: true
   name: ADL
   purpose_detail: ADL (Archetype Definition Language) provides a formal, human-readable
@@ -325,8 +314,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Argonaut Data Query Implementation Guide
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -378,7 +365,24 @@ data_standardortools_collection:
   description: Axt Alignment Format
   is_open: true
   name: Axt
-  purpose_detail: The Axt (Alignment eXTended) format is a simple text-based format developed by UCSC Genome Browser for storing pairwise DNA sequence alignments between two species or sequences. Each alignment block in an Axt file consists of four lines - a summary line containing alignment number, chromosome names, alignment start and end positions for both sequences, strand information, and alignment score, followed by the aligned sequence from the first genome, the aligned sequence from the second genome, and a blank separator line. The format uses zero-based coordinates for the first sequence and supports alignments on either strand, with sequences from the negative strand reverse-complemented. Axt files are particularly useful for representing whole-genome alignments between species (such as human-mouse or human-chimp comparisons) generated by alignment tools like BLASTZ or LASTZ. The format's straightforward structure makes it easy to parse programmatically and convert to other formats. UCSC provides utilities including axtToMaf for converting to MAF (Multiple Alignment Format), axtChain for chaining together alignments, and axtBest for selecting the best alignment for each position. While Axt efficiently represents pairwise alignments, it has been largely superseded by MAF and chain/net formats for more complex multi-way alignments and hierarchical alignment representations in comparative genomics workflows.
+  purpose_detail: The Axt (Alignment eXTended) format is a simple text-based format
+    developed by UCSC Genome Browser for storing pairwise DNA sequence alignments
+    between two species or sequences. Each alignment block in an Axt file consists
+    of four lines - a summary line containing alignment number, chromosome names,
+    alignment start and end positions for both sequences, strand information, and
+    alignment score, followed by the aligned sequence from the first genome, the aligned
+    sequence from the second genome, and a blank separator line. The format uses zero-based
+    coordinates for the first sequence and supports alignments on either strand, with
+    sequences from the negative strand reverse-complemented. Axt files are particularly
+    useful for representing whole-genome alignments between species (such as human-mouse
+    or human-chimp comparisons) generated by alignment tools like BLASTZ or LASTZ.
+    The format's straightforward structure makes it easy to parse programmatically
+    and convert to other formats. UCSC provides utilities including axtToMaf for converting
+    to MAF (Multiple Alignment Format), axtChain for chaining together alignments,
+    and axtBest for selecting the best alignment for each position. While Axt efficiently
+    represents pairwise alignments, it has been largely superseded by MAF and chain/net
+    formats for more complex multi-way alignments and hierarchical alignment representations
+    in comparative genomics workflows.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:119
@@ -434,7 +438,25 @@ data_standardortools_collection:
   description: Big Browser Extensible Data Format
   is_open: true
   name: bigBed
-  purpose_detail: The bigBed format is an indexed binary format for storing genome annotation data, developed by UCSC Genome Browser as a high-performance alternative to text-based BED files for large datasets. BigBed files store annotation items representing either simple genomic features or linked collections of exons, maintaining BED semantics while enabling efficient region-specific data transfer. Files are created using the bedToBigBed utility which converts sorted BED files into compressed binary format with built-in indexing, requiring chromosome sizes files and optionally AutoSql (.as) format definitions for describing standard and custom fields. The format supports BED3 through BED12 plus additional user-defined fields, with features including itemRgb color specification, extra searchable indices via the -extraIndex parameter for track hub item searches, and trackDb settings for mouseOver labels, field filtering, and URL transformations. Only the portions of bigBed files needed for the currently displayed chromosomal region are transferred to the browser, dramatically improving performance compared to full BED file loading. The format supports web-accessible hosting via HTTP, HTTPS, or FTP with sparse file caching, and includes utilities (bigBedToBed, bigBedInfo, bigBedSummary) for extracting and querying data. BigBed files are widely used in UCSC Genome Browser custom tracks, track hubs for consortia data sharing, and integrated with genome analysis workflows requiring scalable annotation storage and rapid genomic region queries.
+  purpose_detail: The bigBed format is an indexed binary format for storing genome
+    annotation data, developed by UCSC Genome Browser as a high-performance alternative
+    to text-based BED files for large datasets. BigBed files store annotation items
+    representing either simple genomic features or linked collections of exons, maintaining
+    BED semantics while enabling efficient region-specific data transfer. Files are
+    created using the bedToBigBed utility which converts sorted BED files into compressed
+    binary format with built-in indexing, requiring chromosome sizes files and optionally
+    AutoSql (.as) format definitions for describing standard and custom fields. The
+    format supports BED3 through BED12 plus additional user-defined fields, with features
+    including itemRgb color specification, extra searchable indices via the -extraIndex
+    parameter for track hub item searches, and trackDb settings for mouseOver labels,
+    field filtering, and URL transformations. Only the portions of bigBed files needed
+    for the currently displayed chromosomal region are transferred to the browser,
+    dramatically improving performance compared to full BED file loading. The format
+    supports web-accessible hosting via HTTP, HTTPS, or FTP with sparse file caching,
+    and includes utilities (bigBedToBed, bigBedInfo, bigBedSummary) for extracting
+    and querying data. BigBed files are widely used in UCSC Genome Browser custom
+    tracks, track hubs for consortia data sharing, and integrated with genome analysis
+    workflows requiring scalable annotation storage and rapid genomic region queries.
   related_to:
   - B2AI_STANDARD:18
   - B2AI_STANDARD:20
@@ -496,7 +518,23 @@ data_standardortools_collection:
   - B2AI_ORG:116
   is_open: true
   name: BAM/CRAM
-  purpose_detail: BAM (Binary Alignment/Map) and CRAM (Compressed Reference-oriented Alignment Map) are binary formats for storing DNA sequence alignments to reference genomes, maintained by the GA4GH Large Scale Genomics work stream. BAM is the binary equivalent of the text-based SAM (Sequence Alignment/Map) format, providing efficient storage and retrieval of aligned sequencing reads with quality scores, alignment positions, CIGAR strings, and optional tags defined in the SAMtags specification. CRAM (currently version 3.x) achieves superior compression ratios by storing differences from a reference sequence rather than full sequence data, using custom compression codecs detailed in the CRAMcodecs specification. Both formats support indexing (BAI for BAM, CRAI for CRAM, and CSI as a more scalable successor) enabling rapid random access to genomic regions. The formats are widely supported by genomics toolkits including samtools, htslib, htsjdk, and GATK, with standard operations for sorting, merging, filtering, and format conversion. CRAM offers significant storage savings particularly important for large-scale projects, while maintaining full compatibility with SAM/BAM workflows. Both formats support the htsget protocol for parallel streaming access and can be wrapped with crypt4gh encryption for secure data sharing.
+  purpose_detail: BAM (Binary Alignment/Map) and CRAM (Compressed Reference-oriented
+    Alignment Map) are binary formats for storing DNA sequence alignments to reference
+    genomes, maintained by the GA4GH Large Scale Genomics work stream. BAM is the
+    binary equivalent of the text-based SAM (Sequence Alignment/Map) format, providing
+    efficient storage and retrieval of aligned sequencing reads with quality scores,
+    alignment positions, CIGAR strings, and optional tags defined in the SAMtags specification.
+    CRAM (currently version 3.x) achieves superior compression ratios by storing differences
+    from a reference sequence rather than full sequence data, using custom compression
+    codecs detailed in the CRAMcodecs specification. Both formats support indexing
+    (BAI for BAM, CRAI for CRAM, and CSI as a more scalable successor) enabling rapid
+    random access to genomic regions. The formats are widely supported by genomics
+    toolkits including samtools, htslib, htsjdk, and GATK, with standard operations
+    for sorting, merging, filtering, and format conversion. CRAM offers significant
+    storage savings particularly important for large-scale projects, while maintaining
+    full compatibility with SAM/BAM workflows. Both formats support the htsget protocol
+    for parallel streaming access and can be wrapped with crypt4gh encryption for
+    secure data sharing.
   related_to:
   - B2AI_STANDARD:22
   requires_registration: false
@@ -575,8 +613,7 @@ data_standardortools_collection:
   is_open: true
   name: BioCompute
   publication: doi:10.5731/pdajpst.2016.006734
-  purpose_detail: >-
-    BioCompute Objects (BCOs) are a formal standard for representing
+  purpose_detail: 'BioCompute Objects (BCOs) are a formal standard for representing
     bioinformatics computational workflows and analyses, designed to facilitate communication
     and reproducibility in high-throughput sequencing research. Developed through
     a collaborative effort and formally recognized as IEEE Standard 2791-2020, BCOs
@@ -585,12 +622,12 @@ data_standardortools_collection:
     domains. BCOs are represented in JSON format adhering to JSON schema draft-07,
     making them both human and machine readable. The standard addresses the challenge
     of documenting complex bioinformatics methods by providing predictable structure
-    and stability for workflow communication. Upon assignment of a digital etag,
-    three domains become immutable to ensure integrity: the Parametric Domain, Execution
+    and stability for workflow communication. Upon assignment of a digital etag, three
+    domains become immutable to ensure integrity: the Parametric Domain, Execution
     Domain, and I/O Domain. BCOs support regulatory compliance including FDA Title
     21 CFR Part 11 considerations for electronic records and digital signatures, with
     hash values and encryption keys generated from execution and parametric domains
-    for validation purposes.
+    for validation purposes.'
   requires_registration: false
   url: https://docs.biocomputeobject.org/user_guide/
 - id: B2AI_STANDARD:26
@@ -609,8 +646,8 @@ data_standardortools_collection:
   is_open: true
   name: Biolink
   publication: doi:10.1111/cts.13302
-  purpose_detail: Biolink Model is a comprehensive, high-level data model designed to
-    standardize types and relationships in biological knowledge graphs. It provides
+  purpose_detail: Biolink Model is a comprehensive, high-level data model designed
+    to standardize types and relationships in biological knowledge graphs. It provides
     a consistent framework for representing biological knowledge across various databases
     and formats, covering entities such as genes, diseases, chemical substances, organisms,
     genomics, phenotypes, and pathways. The model incorporates object-oriented classification
@@ -724,23 +761,21 @@ data_standardortools_collection:
   - B2AI_ORG:28
   is_open: true
   name: Bioschemas
-  purpose_detail: >-
-    Bioschemas is a community-driven initiative that extends Schema.org
-    to improve the findability and discoverability of life sciences resources on
-    the web through structured markup. The project makes two main contributions
-    to the life sciences community - proposing new types and properties to Schema.org
-    specifically for life science resources, and defining usage profiles over existing
-    Schema.org types that specify essential, recommended, and optional properties
-    for consistent markup. Bioschemas profiles significantly simplify the markup
-    process by reducing complex Schema.org types to manageable subsets while ensuring
-    compatibility with search engines like Google Dataset Search. The initiative
-    has achieved major recognition with six Bioschemas types (BioChemEntity, ChemicalSubstance,
-    Gene, MolecularEntity, Protein, Taxon) officially included in Schema.org version
-    13.0. Endorsed by the European Research Council and serving as a flagship policy
-    of ELIXIR, Bioschemas supports FAIR data principles by enabling automated discovery,
-    collation, and analysis of distributed life sciences resources including datasets,
-    software applications, training materials, and biological entities across the
-    web ecosystem.
+  purpose_detail: Bioschemas is a community-driven initiative that extends Schema.org
+    to improve the findability and discoverability of life sciences resources on the
+    web through structured markup. The project makes two main contributions to the
+    life sciences community - proposing new types and properties to Schema.org specifically
+    for life science resources, and defining usage profiles over existing Schema.org
+    types that specify essential, recommended, and optional properties for consistent
+    markup. Bioschemas profiles significantly simplify the markup process by reducing
+    complex Schema.org types to manageable subsets while ensuring compatibility with
+    search engines like Google Dataset Search. The initiative has achieved major recognition
+    with six Bioschemas types (BioChemEntity, ChemicalSubstance, Gene, MolecularEntity,
+    Protein, Taxon) officially included in Schema.org version 13.0. Endorsed by the
+    European Research Council and serving as a flagship policy of ELIXIR, Bioschemas
+    supports FAIR data principles by enabling automated discovery, collation, and
+    analysis of distributed life sciences resources including datasets, software applications,
+    training materials, and biological entities across the web ecosystem.
   requires_registration: false
   url: https://bioschemas.org/
 - id: B2AI_STANDARD:31
@@ -875,19 +910,18 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:53
   is_open: true
   name: BED
-  purpose_detail: >-
-    The Browser Extensible Data (BED) format is a flexible, tab-delimited
+  purpose_detail: The Browser Extensible Data (BED) format is a flexible, tab-delimited
     text format designed for defining annotation tracks in genome browsers, particularly
-    the UCSC Genome Browser. BED format provides a standardized way to represent
-    genomic features with positional information, supporting both simple coordinate-based
+    the UCSC Genome Browser. BED format provides a standardized way to represent genomic
+    features with positional information, supporting both simple coordinate-based
     annotations and complex multi-exon structures. The format consists of 12 possible
     fields, with the first three (chromosome, start position, end position) being
     mandatory and nine additional optional fields providing detailed feature information
     including name, score, strand orientation, thick start/end coordinates for coding
     regions, RGB color values for visualization, and block structures for representing
     discontinuous features like exons and introns. BED files use zero-based, half-open
-    coordinate system where the start position is inclusive and the end position
-    is exclusive, enabling precise genomic interval representation. The format supports
+    coordinate system where the start position is inclusive and the end position is
+    exclusive, enabling precise genomic interval representation. The format supports
     various annotation types from simple genomic intervals to complex gene models,
     making it essential for genomic data visualization, comparative genomics, and
     functional annotation workflows in bioinformatics research.
@@ -955,8 +989,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Case Report Tabulation Data Definition Specification
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: Define
   purpose_detail: The CDISC Case Report Tabulation Data Definition Specification (define.xml)
@@ -990,8 +1022,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Controlled Terminology for Analysis Dataset Model
   formal_specification: https://evs.nci.nih.gov/ftp1/CDISC/ADaM/
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDISC ADaM
   purpose_detail: Controlled terminology for data analysis and assessments.
@@ -1011,8 +1041,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Controlled Terminology for Data Collection for Protocol
   formal_specification: https://evs.nci.nih.gov/ftp1/CDISC/Protocol/
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDISC Protocol
   purpose_detail: Controlled terminology for biomedical protocols.
@@ -1032,8 +1060,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Controlled Terminology for Therapeutic Area Standards
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDISC TAUGs
   purpose_detail: Disease-specific metadata, examples and guidance on implementing
@@ -1056,8 +1082,6 @@ data_standardortools_collection:
     Study Data Tabulation Model (including QRS, Medical Device and Pharmacogenomics
     Data)
   formal_specification: https://evs.nci.nih.gov/ftp1/CDISC/SDTM/
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: SDTM
   purpose_detail: A standard for organizing and formatting data to streamline processes
@@ -1076,8 +1100,6 @@ data_standardortools_collection:
   description: CDISC Controlled Terminology Standards for Data Collection through
     Clinical Data Acquisition Standards Harmonization
   formal_specification: https://evs.nci.nih.gov/ftp1/CDISC/SDTM/
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDASH
   purpose_detail: The Clinical Data Acquisition Standards Harmonization (CDASH) is
@@ -1092,9 +1114,9 @@ data_standardortools_collection:
     improves data quality, and accelerates the transition from collection to analysis.
     The standard covers various therapeutic areas and data domains including demographics,
     vital signs, adverse events, concomitant medications, and laboratory results.
-    CDISC provides a library of ready-to-use, CDASH-compliant annotated eCRFs in
-    multiple formats (PDF, HTML, XML) that can be implemented as-is or customized
-    for specific study needs, facilitating regulatory submission and data review processes.
+    CDISC provides a library of ready-to-use, CDASH-compliant annotated eCRFs in multiple
+    formats (PDF, HTML, XML) that can be implemented as-is or customized for specific
+    study needs, facilitating regulatory submission and data review processes.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:15
@@ -1109,8 +1131,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Dataset-XML
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDISC Dataset
   purpose_detail: CDISC Dataset-XML, which was released for comment under the name
@@ -1141,8 +1161,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Laboratory Data Model
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDISC LAB
   purpose_detail: LAB provides a standard model for the acquisition and exchange of
@@ -1164,8 +1182,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Operational Data Model
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDISC ODM
   purpose_detail: The CSDIC ODM is a vendor-neutral, platform-independent format for
@@ -1187,8 +1203,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Protocol Representation Model
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDISC PRM
   purpose_detail: The CDISC Protocol Representation Model Version 1.0 (PRM V1.0) is
@@ -1215,8 +1229,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Standard for the Exchange of Nonclinical Data
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: SEND
   purpose_detail: The CDISC SEND is intended to guide the organization, structure,
@@ -1235,8 +1247,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Study Design Model in XML
-  has_relevant_organization:
-  - B2AI_ORG:15
   is_open: true
   name: CDISC SDM
   purpose_detail: The CDISC Study Design Model in XML (SDM-XML) version 1.0 allows
@@ -1373,8 +1383,7 @@ data_standardortools_collection:
   formal_specification: https://github.com/clingen-data-model/clingen-interpretation
   is_open: true
   name: ClinGen Interpretation
-  purpose_detail: >-
-    The ClinGen Interpretation Model is a comprehensive data model and
+  purpose_detail: The ClinGen Interpretation Model is a comprehensive data model and
     exchange format designed to capture, structure, and communicate the clinical interpretation
     of genetic variants. It supports the representation of evidence, reasoning, provenance,
     and contextual information underlying variant pathogenicity assessments, aligning
@@ -1382,11 +1391,10 @@ data_standardortools_collection:
     of what evidence was used, how it was applied, who performed each interpretive
     act, and how interpretations build upon prior knowledge. It is flexible enough
     to represent both simple assertions and fully evidence-based interpretations,
-    and is implemented using industry-standard JSON-LD for interoperability. The
-    ClinGen Interpretation Model is closely aligned with the Monarch Initiative's
-    SEPIO ontology, supporting integration with other biomedical data models and
-    facilitating automated reasoning, reproducibility, and data sharing in clinical
-    genomics.
+    and is implemented using industry-standard JSON-LD for interoperability. The ClinGen
+    Interpretation Model is closely aligned with the Monarch Initiative's SEPIO ontology,
+    supporting integration with other biomedical data models and facilitating automated
+    reasoning, reproducibility, and data sharing in clinical genomics.
   requires_registration: false
   url: https://dataexchange.clinicalgenome.org/interpretation/
 - id: B2AI_STANDARD:57
@@ -1397,8 +1405,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CLSI Next-Generation In Vitro Diagnostic Interface
-  has_relevant_organization:
-  - B2AI_ORG:16
   is_open: false
   name: CLSI AUTO16
   purpose_detail: Exchange of data about and produced by in vitro diagnostic tests.
@@ -1523,11 +1529,25 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Common Fund Data Ecosystem Crosscut Metadata Model
   formal_specification: https://osf.io/bq6k9/
-  has_relevant_organization:
-  - B2AI_ORG:68
   is_open: true
   name: CFDE C2M2
-  purpose_detail: The Common Fund Data Ecosystem (CFDE) Crosscut Metadata Model (C2M2) is a flexible, extensible data model designed to harmonize metadata across NIH Common Fund data coordinating centers (DCCs) to enable integrated search, discovery, and analysis. C2M2 provides a standardized framework for describing biomedical research assets including files, biosamples, subjects, and collections with their associated metadata using controlled vocabularies and ontologies. The model consists of core entities (file, biosample, subject, project, collection) connected through relationships that capture data provenance, experimental context, and biological associations. C2M2 submissions include data tables describing these entities along with controlled vocabulary term usage tables that link to standard ontologies for enhanced semantic interoperability. The model supports supra-schematic constraints validated by dedicated tools, and includes ontology reference files for adding display names, descriptions, and synonyms to controlled terms. C2M2 enables the CFDE Workbench portal to provide unified search and browsing across heterogeneous Common Fund datasets, facilitating cross-program data discovery and promoting FAIR (Findable, Accessible, Interoperable, Reusable) principles for biomedical research data.
+  purpose_detail: The Common Fund Data Ecosystem (CFDE) Crosscut Metadata Model (C2M2)
+    is a flexible, extensible data model designed to harmonize metadata across NIH
+    Common Fund data coordinating centers (DCCs) to enable integrated search, discovery,
+    and analysis. C2M2 provides a standardized framework for describing biomedical
+    research assets including files, biosamples, subjects, and collections with their
+    associated metadata using controlled vocabularies and ontologies. The model consists
+    of core entities (file, biosample, subject, project, collection) connected through
+    relationships that capture data provenance, experimental context, and biological
+    associations. C2M2 submissions include data tables describing these entities along
+    with controlled vocabulary term usage tables that link to standard ontologies
+    for enhanced semantic interoperability. The model supports supra-schematic constraints
+    validated by dedicated tools, and includes ontology reference files for adding
+    display names, descriptions, and synonyms to controlled terms. C2M2 enables the
+    CFDE Workbench portal to provide unified search and browsing across heterogeneous
+    Common Fund datasets, facilitating cross-program data discovery and promoting
+    FAIR (Findable, Accessible, Interoperable, Reusable) principles for biomedical
+    research data.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:68
@@ -1589,8 +1609,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Consolidated Clinical Document Architecture
   formal_specification: http://www.hl7.org/implement/standards/product_brief.cfm?product_id=492
-  has_relevant_organization:
-  - B2AI_ORG:40
   is_open: true
   name: C-CDA
   purpose_detail: A widely-used, XML-based format for electronic health records. Superceded
@@ -1613,22 +1631,21 @@ data_standardortools_collection:
   is_open: true
   name: COREQ
   publication: doi:10.1093/intqhc/mzm042
-  purpose_detail: >-
-    COREQ (Consolidated Criteria for Reporting Qualitative Research)
+  purpose_detail: 'COREQ (Consolidated Criteria for Reporting Qualitative Research)
     is a comprehensive 32-item reporting checklist specifically designed to improve
     the transparency, rigor, and completeness of qualitative research reports, particularly
     those involving interviews and focus groups. This evidence-based guideline addresses
     three major domains essential for qualitative research reporting: research team
-    and reflexivity (covering the researcher's credentials, occupation, experience,
+    and reflexivity (covering the researcher''s credentials, occupation, experience,
     gender, and relationship with participants), study design (including theoretical
-    framework, participant selection, setting, and data collection methods), and
-    analysis and findings (encompassing data analysis approaches, verification procedures,
-    and presentation of findings). COREQ serves as a critical quality assessment
-    tool for researchers, editors, reviewers, and readers, helping ensure that qualitative
+    framework, participant selection, setting, and data collection methods), and analysis
+    and findings (encompassing data analysis approaches, verification procedures,
+    and presentation of findings). COREQ serves as a critical quality assessment tool
+    for researchers, editors, reviewers, and readers, helping ensure that qualitative
     studies provide sufficient detail for proper evaluation and potential replication.
     The checklist promotes methodological transparency and supports the credibility
     and trustworthiness of qualitative health research by standardizing reporting
-    expectations across the research community.
+    expectations across the research community.'
   requires_registration: false
 - id: B2AI_STANDARD:68
   category: B2AI_STANDARD:BiomedicalStandard
@@ -1663,7 +1680,7 @@ data_standardortools_collection:
   is_open: true
   name: CONSORT
   publication: doi:10.1136/bmj.c332
-  purpose_detail: 'CONSORT (Consolidated Standards of Reporting Trials) is an evidence-based
+  purpose_detail: CONSORT (Consolidated Standards of Reporting Trials) is an evidence-based
     minimum set of recommendations for reporting randomized controlled trial (RCT)
     results, developed to address inadequate reporting that prevents proper assessment
     of trial quality and generalizability. The CONSORT 2025 Statement consists of
@@ -1683,7 +1700,7 @@ data_standardortools_collection:
     documents with detailed rationale and examples, online tools (COBWEB for report
     writing, SEPTRE for protocol management), translations in multiple languages,
     and endorsement by hundreds of medical journals worldwide as part of the EQUATOR
-    Network research reporting standards.'
+    Network research reporting standards.
   requires_registration: false
   url: https://www.consort-statement.org/
 - id: B2AI_STANDARD:70
@@ -1743,9 +1760,9 @@ data_standardortools_collection:
   is_open: true
   name: Crypt4GH
   purpose_detail: Crypt4GH is a file format specification developed by the Global
-    Alliance for Genomics and Health (GA4GH) for secure storage and transmission
-    of genomic and health-related data. The format provides end-to-end encryption
-    and authentication, allowing sensitive genomic data to be stored in public repositories
+    Alliance for Genomics and Health (GA4GH) for secure storage and transmission of
+    genomic and health-related data. The format provides end-to-end encryption and
+    authentication, allowing sensitive genomic data to be stored in public repositories
     while maintaining confidentiality. It uses modern cryptographic standards including
     Curve25519 for key agreement, ChaCha20 for encryption, and Poly1305 for authentication.
     The format supports multiple recipients through per-recipient encrypted headers,
@@ -1791,8 +1808,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Current Procedural Terminology
   formal_specification: https://www.cms.gov/Medicare/Fraud-and-Abuse/PhysicianSelfReferral
-  has_relevant_organization:
-  - B2AI_ORG:3
   is_open: false
   name: CPT
   purpose_detail: Code set used to bill outpatient & office procedures.
@@ -1809,8 +1824,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Data Documentation Initiative Lifecycle
-  has_relevant_organization:
-  - B2AI_ORG:23
   is_open: true
   name: DDI-Lifecycle
   purpose_detail: The freely available international DDI standard describes data that
@@ -1899,8 +1912,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part10.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -1931,8 +1942,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part11.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -1963,8 +1972,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part12.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -1996,8 +2003,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part14.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2031,8 +2036,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part15.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2064,14 +2067,11 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part16.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
   name: DCMR
-  purpose_detail: >-
-    DICOM Part 16 Content Mapping Resource (DCMR) is a comprehensive
+  purpose_detail: DICOM Part 16 Content Mapping Resource (DCMR) is a comprehensive
     component of the DICOM standard that provides the foundational vocabulary and
     semantic structures used throughout medical imaging systems worldwide. DCMR defines
     the Templates and Context Groups that standardize the representation of clinical
@@ -2106,8 +2106,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part17.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2136,8 +2134,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part18.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2169,8 +2165,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part19.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2206,8 +2200,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part02.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2240,7 +2232,6 @@ data_standardortools_collection:
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
   has_relevant_organization:
-  - B2AI_ORG:25
   - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:849
@@ -2272,8 +2263,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part21.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2302,8 +2291,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part22.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2334,8 +2321,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part03.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2368,8 +2353,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part04.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2399,8 +2382,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part05.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2433,8 +2414,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part06.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2467,8 +2446,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part07.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2499,8 +2476,6 @@ data_standardortools_collection:
   formal_specification: http://dicom.nema.org/medical/dicom/current/output/html/part08.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:11
-  has_relevant_organization:
-  - B2AI_ORG:25
   has_training_resource:
   - B2AI_STANDARD:849
   is_open: true
@@ -2535,7 +2510,6 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:11
   - B2AI_SUBSTRATE:19
   has_relevant_organization:
-  - B2AI_ORG:25
   - B2AI_ORG:115
   - B2AI_ORG:114
   - B2AI_ORG:117
@@ -2609,8 +2583,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Economic Botany Data Collection Standard
-  has_relevant_organization:
-  - B2AI_ORG:93
   is_open: true
   name: EBDCS
   purpose_detail: This standard provides a system whereby uses of plants (in their
@@ -2640,8 +2612,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Enzyme Commission Number
-  has_relevant_organization:
-  - B2AI_ORG:61
   is_open: true
   name: EC
   publication: doi:10.1126/science.150.3697.719
@@ -2771,7 +2741,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Fast Healthcare Interoperability Resources
   has_relevant_organization:
-  - B2AI_ORG:40
   - B2AI_ORG:114
   - B2AI_ORG:117
   has_training_resource:
@@ -2868,8 +2837,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FHIR Common Data Models Harmonization
   formal_specification: https://build.fhir.org/ig/HL7/cdmh/profiles.html
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -2905,8 +2872,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FHIR Genomics Operations
   formal_specification: https://github.com/FHIR/genomics-operations
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -2937,8 +2902,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FHIR Provenance Resource
   formal_specification: https://www.hl7.org/fhir/provenance-definitions.html
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -2946,11 +2909,10 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   is_open: true
   name: Provenance
-  purpose_detail: >-
-    "The FHIR Provenance resource provides comprehensive tracking of information
-    about activities that create, revise, delete, or sign healthcare resources, describing
-    the entities and agents involved in these processes. Based on the W3C Provenance
-    specification, it establishes a critical foundation for assessing authenticity,
+  purpose_detail: '"The FHIR Provenance resource provides comprehensive tracking of
+    information about activities that create, revise, delete, or sign healthcare resources,
+    describing the entities and agents involved in these processes. Based on the W3C
+    Provenance specification, it establishes a critical foundation for assessing authenticity,
     enabling trust, and allowing reproducibility in healthcare data systems. The resource
     supports three key components from W3C Provenance: Entity (physical, digital,
     or conceptual things with fixed aspects), Agent (persons, devices, systems, organizations,
@@ -2962,8 +2924,8 @@ data_standardortools_collection:
     supporting clinical decision-making through data origin verification, and facilitating
     data integration from multiple healthcare systems. It includes digital signature
     capabilities for integrity verification and non-repudiation, supports versioning
-    and unique identification requirements, and provides mechanisms for recording import
-    and transformation activities in healthcare interoperability scenarios."
+    and unique identification requirements, and provides mechanisms for recording
+    import and transformation activities in healthcare interoperability scenarios."'
   related_to:
   - B2AI_STANDARD:109
   requires_registration: false
@@ -2978,8 +2940,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FHIR Resource CodeSystem
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3004,8 +2964,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FHIR Resource ConceptMap
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3028,8 +2986,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FHIR Resource NamingSystem
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3052,8 +3008,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FHIR Resource TerminologyCapabilities
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3076,8 +3030,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FHIR Resource ValueSet
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3126,8 +3078,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: FORCE11 Data Citation Principles
-  has_relevant_organization:
-  - B2AI_ORG:32
   is_open: true
   name: FORCE11 DC
   purpose_detail: The Data Citation Principles cover the purpose, function and attributes
@@ -3147,8 +3097,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Functional Assessment of Cancer Therapy - General
-  has_relevant_organization:
-  - B2AI_ORG:30
   is_open: true
   name: FACT-G
   purpose_detail: The Functional Assessment of Cancer Therapy - General (FACT-G) is
@@ -3178,8 +3126,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Functional Assessment of Chronic Illness Therapy - Dyspnea
-  has_relevant_organization:
-  - B2AI_ORG:30
   is_open: true
   name: FACIT-Dyspnea
   publication: doi:10.1016/j.jval.2010.06.001
@@ -3198,8 +3144,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Functional Assessment of Non-Life Threatening Conditions
-  has_relevant_organization:
-  - B2AI_ORG:30
   is_open: true
   name: FANLTC
   purpose_detail: The Functional Assessment of Non-Life Threatening Conditions (FANLTC)
@@ -3312,11 +3256,28 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: GA4GH metadata model
   formal_specification: https://github.com/ga4gh-metadata/metadata-schemas
-  has_relevant_organization:
-  - B2AI_ORG:34
   is_open: true
   name: GA4GH
-  purpose_detail: The Global Alliance for Genomics and Health (GA4GH) metadata model provides a standardized framework for representing and sharing genomic and clinical data across institutions and international borders, developed by a coalition of public and private stakeholders including research institutions, healthcare organizations, and technology companies. The model defines schemas for core genomic data types including variants, reads, references, annotations, and associated clinical phenotypes, using protocol buffers (protobuf) and JSON for interoperable data exchange. GA4GH schemas cover reference genomes and sequences, variant calls and annotations (compatible with VCF), sequencing reads and alignments (supporting BAM/CRAM), RNA quantification, continuous-valued genomic signals, genomic features and annotations, metadata about biosamples and individuals, phenotypic information using ontologies, and provenance tracking. The framework enables federated data access through APIs including hts-get for streaming genomic data, Beacon for discovery queries across datasets, Data Repository Service (DRS) for accessing data objects, Task Execution Service (TES) for running analysis workflows, and Workflow Execution Service (WES) for managing computational pipelines. GA4GH standards facilitate large-scale collaborative research initiatives, support FAIR principles (Findable, Accessible, Interoperable, Reusable), enable secure data sharing with privacy-preserving technologies, and provide the foundation for international genomics research networks, clinical genomics implementations, and precision medicine programs.
+  purpose_detail: The Global Alliance for Genomics and Health (GA4GH) metadata model
+    provides a standardized framework for representing and sharing genomic and clinical
+    data across institutions and international borders, developed by a coalition of
+    public and private stakeholders including research institutions, healthcare organizations,
+    and technology companies. The model defines schemas for core genomic data types
+    including variants, reads, references, annotations, and associated clinical phenotypes,
+    using protocol buffers (protobuf) and JSON for interoperable data exchange. GA4GH
+    schemas cover reference genomes and sequences, variant calls and annotations (compatible
+    with VCF), sequencing reads and alignments (supporting BAM/CRAM), RNA quantification,
+    continuous-valued genomic signals, genomic features and annotations, metadata
+    about biosamples and individuals, phenotypic information using ontologies, and
+    provenance tracking. The framework enables federated data access through APIs
+    including hts-get for streaming genomic data, Beacon for discovery queries across
+    datasets, Data Repository Service (DRS) for accessing data objects, Task Execution
+    Service (TES) for running analysis workflows, and Workflow Execution Service (WES)
+    for managing computational pipelines. GA4GH standards facilitate large-scale collaborative
+    research initiatives, support FAIR principles (Findable, Accessible, Interoperable,
+    Reusable), enable secure data sharing with privacy-preserving technologies, and
+    provide the foundation for international genomics research networks, clinical
+    genomics implementations, and precision medicine programs.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:34
@@ -3378,7 +3339,24 @@ data_standardortools_collection:
   description: Gene Prediction File Format
   is_open: true
   name: GenePred
-  purpose_detail: The genePred (Gene Prediction) format is a flexible tab-delimited table format developed by UCSC Genome Browser for representing gene structure predictions and annotations, widely used for storing transcript models, gene predictions from ab initio tools, and curated gene annotations. The basic genePred format contains 10 required fields - gene name, chromosome, strand, transcription start/end positions, coding sequence (CDS) start/end positions, exon count, comma-separated exon start positions, and comma-separated exon end positions. Extended versions (genePredExt) add fields for unique identifiers, CDS start/end status (complete/incomplete), exon frame information for each coding exon, and gene symbols or descriptions. The format efficiently represents complex transcript structures including alternative splicing isoforms, UTRs (untranslated regions), introns, and partial gene models. GenePred files support various gene prediction algorithms (GeneMark, Augustus, SNAP), RefSeq annotations, Ensembl gene builds, and GENCODE comprehensive gene sets. UCSC provides utilities including genePredToBed for BED format conversion, genePredToGtf for GTF conversion, and genePredToPsl for PSL format output. The format's compact structure and explicit exon coordinates make it ideal for genome browsers, annotation pipelines, and comparative genomics analyses requiring efficient storage and rapid retrieval of gene structure information across whole genomes.
+  purpose_detail: The genePred (Gene Prediction) format is a flexible tab-delimited
+    table format developed by UCSC Genome Browser for representing gene structure
+    predictions and annotations, widely used for storing transcript models, gene predictions
+    from ab initio tools, and curated gene annotations. The basic genePred format
+    contains 10 required fields - gene name, chromosome, strand, transcription start/end
+    positions, coding sequence (CDS) start/end positions, exon count, comma-separated
+    exon start positions, and comma-separated exon end positions. Extended versions
+    (genePredExt) add fields for unique identifiers, CDS start/end status (complete/incomplete),
+    exon frame information for each coding exon, and gene symbols or descriptions.
+    The format efficiently represents complex transcript structures including alternative
+    splicing isoforms, UTRs (untranslated regions), introns, and partial gene models.
+    GenePred files support various gene prediction algorithms (GeneMark, Augustus,
+    SNAP), RefSeq annotations, Ensembl gene builds, and GENCODE comprehensive gene
+    sets. UCSC provides utilities including genePredToBed for BED format conversion,
+    genePredToGtf for GTF conversion, and genePredToPsl for PSL format output. The
+    format's compact structure and explicit exon coordinates make it ideal for genome
+    browsers, annotation pipelines, and comparative genomics analyses requiring efficient
+    storage and rapid retrieval of gene structure information across whole genomes.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:119
@@ -3475,11 +3453,11 @@ data_standardortools_collection:
     Ontology terms), start/end positions, score, strand, and attributes. The format
     supports parent-child relationships through ID and Parent attributes, enabling
     representation of complex gene structures with multiple transcripts and alternative
-    splicing. GFF3 includes directives for metadata and embedded FASTA sequences. The
-    format is widely used by genome browsers (UCSC, Ensembl, JBrowse), annotation pipelines,
-    and analysis tools for visualizing and processing genomic data. Its human-readable
-    structure and extensive tool support make it a standard choice for genome annotation
-    exchange and long-term data archiving.
+    splicing. GFF3 includes directives for metadata and embedded FASTA sequences.
+    The format is widely used by genome browsers (UCSC, Ensembl, JBrowse), annotation
+    pipelines, and analysis tools for visualizing and processing genomic data. Its
+    human-readable structure and extensive tool support make it a standard choice
+    for genome annotation exchange and long-term data archiving.
   requires_registration: false
   url: https://github.com/The-Sequence-Ontology/Specifications
 - id: B2AI_STANDARD:138
@@ -3494,20 +3472,18 @@ data_standardortools_collection:
   description: Genome Annotation File
   is_open: true
   name: GAF
-  purpose_detail: >-
-    The Gene Ontology Annotation File (GAF) format is a standardized,
+  purpose_detail: The Gene Ontology Annotation File (GAF) format is a standardized,
     tab-delimited text file specification developed by the Gene Ontology Consortium
-    for representing gene product annotations using GO terms. GAF 2.1 defines 17
-    fields per line, capturing essential information such as database identifiers,
-    gene symbols, GO terms, evidence codes, references, taxonomic information, and
-    annotation extensions. Each line encodes a single association between a gene
-    product and a GO term, supported by evidence and references, enabling precise
-    tracking of functional, process, and cellular component annotations. The format
-    supports both required and optional fields, allowing for rich annotation detail
-    and interoperability across databases. GAF is widely used for large-scale functional
-    genomics, comparative biology, and integrative bioinformatics, providing a foundation
-    for computational analysis, data sharing, and automated reasoning about gene
-    function across species.
+    for representing gene product annotations using GO terms. GAF 2.1 defines 17 fields
+    per line, capturing essential information such as database identifiers, gene symbols,
+    GO terms, evidence codes, references, taxonomic information, and annotation extensions.
+    Each line encodes a single association between a gene product and a GO term, supported
+    by evidence and references, enabling precise tracking of functional, process,
+    and cellular component annotations. The format supports both required and optional
+    fields, allowing for rich annotation detail and interoperability across databases.
+    GAF is widely used for large-scale functional genomics, comparative biology, and
+    integrative bioinformatics, providing a foundation for computational analysis,
+    data sharing, and automated reasoning about gene function across species.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:36
@@ -3521,8 +3497,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Genome Beacons
   formal_specification: https://github.com/ga4gh-beacon/beacon-v2
-  has_relevant_organization:
-  - B2AI_ORG:34
   is_open: true
   name: Beacon
   publication: doi:10.1002/humu.24369
@@ -3566,18 +3540,17 @@ data_standardortools_collection:
   name: GCDML
   publication: doi:10.1089/omi.2008.0A10
   purpose_detail: The Genomic Contextual Data Markup Language (GCDML) is an XML Schema
-    developed by the Genomic Standards Consortium (GSC) to implement the Minimum
-    Information about a Genome Sequence (MIGS), Minimum Information about a Metagenome
-    Sequence (MIMS), and Minimum Information about a MARKer gene Sequence (MIMARKS)
-    specifications. This sample-centric, strongly-typed schema provides a comprehensive
-    set of descriptors for documenting the complete provenance of biological samples,
-    from initial collection and environmental context through sequencing and subsequent
-    analysis. GCDML enables standardized reporting of genomic and metagenomic data
-    by defining required metadata fields that capture sampling conditions, laboratory
-    processing methods, sequencing parameters, and analytical workflows. The schema
-    facilitates data exchange between research groups, repositories, and databases,
-    ensuring that essential contextual information needed to interpret sequence data
-    is preserved and communicated effectively.
+    developed by the Genomic Standards Consortium (GSC) to implement the Minimum Information
+    about a Genome Sequence (MIGS), Minimum Information about a Metagenome Sequence
+    (MIMS), and Minimum Information about a MARKer gene Sequence (MIMARKS) specifications.
+    This sample-centric, strongly-typed schema provides a comprehensive set of descriptors
+    for documenting the complete provenance of biological samples, from initial collection
+    and environmental context through sequencing and subsequent analysis. GCDML enables
+    standardized reporting of genomic and metagenomic data by defining required metadata
+    fields that capture sampling conditions, laboratory processing methods, sequencing
+    parameters, and analytical workflows. The schema facilitates data exchange between
+    research groups, repositories, and databases, ensuring that essential contextual
+    information needed to interpret sequence data is preserved and communicated effectively.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:38
@@ -3589,8 +3562,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Global Genome Biodiversity Network Data Standard
-  has_relevant_organization:
-  - B2AI_ORG:93
   is_open: true
   name: GGBN
   publication: doi:10.1093/database/baw125
@@ -3615,8 +3586,7 @@ data_standardortools_collection:
   is_open: true
   name: GlycoCT
   publication: doi:10.1016/j.carres.2008.03.011
-  purpose_detail: >-
-    "GlycoCT (Glyco Connection Table) format is an advanced, comprehensive
+  purpose_detail: '"GlycoCT (Glyco Connection Table) format is an advanced, comprehensive
     encoding scheme specifically designed to describe complex carbohydrate sequences
     with unprecedented precision and consistency in glycobioinformatics. Developed
     as version 4 (KIROI) by Stephan Herget and Rene Ranzinger in 2007, this format
@@ -3633,7 +3603,7 @@ data_standardortools_collection:
     toward achieving a unified and broadly accepted sequence format in glycobioinformatics,
     encompassing the capabilities of the heterogeneous landscape of existing digital
     encoding schemata while providing the foundation for developing ontological relationships
-    between glycan structural terms and supporting automated glycan structure analysis."
+    between glycan structural terms and supporting automated glycan structure analysis."'
   requires_registration: false
 - id: B2AI_STANDARD:144
   category: B2AI_STANDARD:BiomedicalStandard
@@ -3665,8 +3635,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: GUID and Life Sciences Identifiers Applicability Statements
   formal_specification: https://github.com/tdwg/guid-as
-  has_relevant_organization:
-  - B2AI_ORG:93
   is_open: true
   name: GUID-AS
   purpose_detail: GUIDs are Globally Unique Identifiers which should be referentially
@@ -3706,8 +3674,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Health Insurance Portability and Accountability Act of 1996
   formal_specification: https://aspe.hhs.gov/reports/health-insurance-portability-accountability-act-1996
-  has_relevant_organization:
-  - B2AI_ORG:39
   is_open: true
   name: HIPAA
   purpose_detail: The Health Insurance Portability and Accountability Act of 1996
@@ -3733,8 +3699,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Healthcare Common Procedure Coding System
-  has_relevant_organization:
-  - B2AI_ORG:17
   is_open: true
   name: HCPCS
   purpose_detail: Code set for items and supplies and non-physician services not covered
@@ -3754,8 +3718,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Herbarium Information Standards and Protocols for Interchange of Data
-  has_relevant_organization:
-  - B2AI_ORG:93
   is_open: true
   name: HISPID3
   purpose_detail: The 'Herbarium Information Standards and Protocols for Interchange
@@ -3803,8 +3765,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 Arden Syntax
   formal_specification: https://www.hl7.org/login/index.cfm?next=/implement/standards/product_brief.cfm?product_id=2
-  has_relevant_organization:
-  - B2AI_ORG:40
   is_open: true
   name: Arden
   publication: doi:10.1016/j.jbi.2012.02.001
@@ -3832,8 +3792,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 Clinical Document Architecture Implementation Guide - Data Provenance
-  has_relevant_organization:
-  - B2AI_ORG:40
   is_open: true
   name: HL7 CDA Data Provenance
   purpose_detail: Guidance and templates for basic provenance information about clinical
@@ -3852,8 +3810,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 FHIR Resource DiagnosticReport
   formal_specification: http://hl7.org/fhir/diagnosticreport-definitions.html
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3880,8 +3836,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 FHIR Resource GenomicStudy
   formal_specification: https://build.fhir.org/genomicstudy-definitions.html
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3907,8 +3861,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 FHIR Resource MolecularSequence
   formal_specification: http://hl7.org/implement/standards/fhir/molecularsequence-definitions.html
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3930,8 +3882,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 FHIR Resource Observation
   formal_specification: http://hl7.org/implement/standards/fhir/observation-definitions.html
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3955,8 +3905,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 FHIR Resource Patient
   formal_specification: http://hl7.org/implement/standards/fhir/patient-definitions.html
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3979,8 +3927,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 FHIR Resource Specimen
   formal_specification: http://hl7.org/fhir/specimen-definitions.html
-  has_relevant_organization:
-  - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
   - B2AI_STANDARD:846
@@ -3988,7 +3934,28 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   is_open: true
   name: Specimen
-  purpose_detail: The FHIR Specimen resource provides a standardized structure for representing any material sample taken from a biological entity (living or dead) or from a physical object or the environment, essential for laboratory testing, biobanking, and clinical diagnostics. The resource captures comprehensive specimen metadata including type (blood, tissue, urine, etc.), subject/patient association, collection details (method, body site, quantity, date/time), identifiers (accession number, container ID), processing and handling procedures (centrifugation, fixation, storage), parent-child specimen relationships for aliquots and derivatives, storage conditions (temperature, humidity), and current status (available, unavailable, unsatisfactory, entered-in-error). The resource supports complex laboratory workflows by tracking specimen provenance through collection, transport, processing, and analysis stages, with fields for collection procedure, additive substances, container types, and special handling requirements. Specimen integrates with other FHIR resources including Patient, Practitioner, ServiceRequest, DiagnosticReport, and Observation to create complete clinical laboratory information workflows. The resource enables biobank specimen catalogs, clinical trial sample tracking, public health surveillance specimen management, and research biorepository operations. FHIR Specimen supports interoperability between laboratory information systems (LIS), electronic health records (EHR), biobank management systems, and research databases, facilitating standardized specimen data exchange across healthcare and research ecosystems while maintaining compliance with regulations for specimen handling, consent, and data privacy.
+  purpose_detail: The FHIR Specimen resource provides a standardized structure for
+    representing any material sample taken from a biological entity (living or dead)
+    or from a physical object or the environment, essential for laboratory testing,
+    biobanking, and clinical diagnostics. The resource captures comprehensive specimen
+    metadata including type (blood, tissue, urine, etc.), subject/patient association,
+    collection details (method, body site, quantity, date/time), identifiers (accession
+    number, container ID), processing and handling procedures (centrifugation, fixation,
+    storage), parent-child specimen relationships for aliquots and derivatives, storage
+    conditions (temperature, humidity), and current status (available, unavailable,
+    unsatisfactory, entered-in-error). The resource supports complex laboratory workflows
+    by tracking specimen provenance through collection, transport, processing, and
+    analysis stages, with fields for collection procedure, additive substances, container
+    types, and special handling requirements. Specimen integrates with other FHIR
+    resources including Patient, Practitioner, ServiceRequest, DiagnosticReport, and
+    Observation to create complete clinical laboratory information workflows. The
+    resource enables biobank specimen catalogs, clinical trial sample tracking, public
+    health surveillance specimen management, and research biorepository operations.
+    FHIR Specimen supports interoperability between laboratory information systems
+    (LIS), electronic health records (EHR), biobank management systems, and research
+    databases, facilitating standardized specimen data exchange across healthcare
+    and research ecosystems while maintaining compliance with regulations for specimen
+    handling, consent, and data privacy.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:40
@@ -4001,8 +3968,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HL7 Gender Harmony Project
-  has_relevant_organization:
-  - B2AI_ORG:40
   is_open: true
   name: GHP
   publication: doi:10.1093/jamia/ocab196
@@ -4028,8 +3993,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: HUPO-PSI TraML format
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: TraML
   purpose_detail: The HUPO PSI Mass Spectrometry Standards Working Group (MSS WG)
@@ -4047,8 +4010,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IEEE 360-2022 IEEE Standard for Wearable Consumer Electronic Devices
-  has_relevant_organization:
-  - B2AI_ORG:44
   is_open: false
   name: IEEE P360
   purpose_detail: An overview, terminology, and categorization for Wearable Consumer
@@ -4069,8 +4030,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Basic Patient Privacy Consents
   formal_specification: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: BPPC
   purpose_detail: A mechanism to record the patient privacy consent(s) and a method
@@ -4087,8 +4046,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Clinical Decision Support Order Appropriateness Tracking
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: IHE CDS-OAT
   purpose_detail: Profile for Clinical Decision Support and Appropriate Use Criteria
@@ -4108,8 +4065,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Clinical Research Document standard
   formal_specification: https://www.ihe.net/uploadedFiles/Documents/QRPH/IHE_QRPH_Suppl_CRD.pdf
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: CRD
   purpose_detail: The Clinical Research Document Profile (CRD) specifies a standard
@@ -4126,8 +4081,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Cross-Community Patient Discovery Profile
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: IHE XCPD
   purpose_detail: Standardized means to locate communities that hold patient relevant
@@ -4146,8 +4099,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE IT Infrastructure Technical Framework
   formal_specification: https://profiles.ihe.net/ITI/TF/index.html
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: IHE ITI
   purpose_detail: Technical profiles and definitions for IT use cases, transactions,
@@ -4165,8 +4116,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Laboratory Analytical Workflow
   formal_specification: https://www.ihe.net/uploadedFiles/Documents/PaLM/IHE_PaLM_TF_Vol1.pdf
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: LAW
   purpose_detail: Profile to support the analytical workflow between analyzers of
@@ -4183,11 +4132,26 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Patient Care Device Profiles
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: IHE PCD
-  purpose_detail: IHE Patient Care Device (PCD) Profiles are standards-based interoperability specifications developed by Integrating the Healthcare Enterprise (IHE) to address medical device communication challenges in clinical settings. The profiles follow IHE's technical framework development process including proposal, supplement development, public comment, trial implementation at Connectathon events, and finalization. Key PCD profiles include ACM (Alert Communication Management) for standardized alarm handling, DEC (Device Enterprise Communication) for device-to-enterprise integration, IDCO (Implantable Device Cardiac Observations) for cardiac device data, IPEC (Infusion Pump Event Communication) for infusion pump safety, PIV (Point of Care Infusion Verification) for medication verification, PCIM (Point of Care Identity Management) for device authentication, RDQ (Retrospective Data Query) for historical data retrieval, RTM (Rosetta Terminology Mapping) for standardized device terminology, and WCM (Waveform Communication Module) for physiological waveform data. These profiles leverage existing standards like HL7, DICOM, and IEEE 11073 to enable vendor-neutral device interoperability, supporting critical use cases such as automated vital signs documentation in electronic health records, integrated alarm management across monitoring systems, and safe medication administration workflows.
+  purpose_detail: IHE Patient Care Device (PCD) Profiles are standards-based interoperability
+    specifications developed by Integrating the Healthcare Enterprise (IHE) to address
+    medical device communication challenges in clinical settings. The profiles follow
+    IHE's technical framework development process including proposal, supplement development,
+    public comment, trial implementation at Connectathon events, and finalization.
+    Key PCD profiles include ACM (Alert Communication Management) for standardized
+    alarm handling, DEC (Device Enterprise Communication) for device-to-enterprise
+    integration, IDCO (Implantable Device Cardiac Observations) for cardiac device
+    data, IPEC (Infusion Pump Event Communication) for infusion pump safety, PIV (Point
+    of Care Infusion Verification) for medication verification, PCIM (Point of Care
+    Identity Management) for device authentication, RDQ (Retrospective Data Query)
+    for historical data retrieval, RTM (Rosetta Terminology Mapping) for standardized
+    device terminology, and WCM (Waveform Communication Module) for physiological
+    waveform data. These profiles leverage existing standards like HL7, DICOM, and
+    IEEE 11073 to enable vendor-neutral device interoperability, supporting critical
+    use cases such as automated vital signs documentation in electronic health records,
+    integrated alarm management across monitoring systems, and safe medication administration
+    workflows.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:46
@@ -4200,8 +4164,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Patient Demographics Query Integration Profile
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: IHE PDQ
   purpose_detail: Standardized ways for multiple distributed applications to query
@@ -4220,8 +4182,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Retrieve Form for Data Capture
-  has_relevant_organization:
-  - B2AI_ORG:46
   is_open: true
   name: RFD
   purpose_detail: The RFD Profile provides a generic polling mechanism to allow an
@@ -4306,8 +4266,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: International Classification of Diseases 10th Revision Clinical Modification
-  has_relevant_organization:
-  - B2AI_ORG:14
   is_open: true
   name: ICD-10-CM
   purpose_detail: Diseases and diagnostic categories
@@ -4327,8 +4285,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: International Classification of Diseases 11th Revision
-  has_relevant_organization:
-  - B2AI_ORG:100
   is_open: true
   name: ICD-11
   purpose_detail: Diseases and diagnostic categories
@@ -4346,8 +4302,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: International Classification of Diseases 9th Revision Clinical Modification
-  has_relevant_organization:
-  - B2AI_ORG:14
   is_open: true
   name: ICD-9-CM
   purpose_detail: Diseases and diagnostic categories
@@ -4442,8 +4396,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: ITU H.810, H.811, H.812, H.812.5, and H.813
-  has_relevant_organization:
-  - B2AI_ORG:50
   is_open: true
   name: ITU-T E-health
   purpose_detail: Standards for medical device communication.
@@ -4462,8 +4414,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Joint Committee on Atomic and Molecular Physical Data standard
-  has_relevant_organization:
-  - B2AI_ORG:51
   is_open: true
   name: JCAMP-DX
   purpose_detail: The JCAMP-DX was one of the earliest specifications providing a
@@ -4531,8 +4481,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: KEGG Markup Language
-  has_relevant_organization:
-  - B2AI_ORG:52
   is_open: true
   name: KGML
   purpose_detail: The KEGG Markup Language (KGML) is an exchange format of the KEGG
@@ -4575,7 +4523,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Logical Observation Identifier Names and Codes
   has_relevant_organization:
-  - B2AI_ORG:53
   - B2AI_ORG:114
   - B2AI_ORG:115
   has_training_resource:
@@ -4598,8 +4545,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Macromolecular Crystallographic Information File
-  has_relevant_organization:
-  - B2AI_ORG:82
   is_open: true
   name: mmCIF
   purpose_detail: PDBx/mmCIF became the standard PDB archive format in 2014. All PDB
@@ -4671,8 +4616,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Measuring Sex, Gender Identity, and Sexual Orientation
-  has_relevant_organization:
-  - B2AI_ORG:60
   is_open: true
   name: MSGISO
   publication: doi:10.17226/26424
@@ -4715,8 +4658,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Medicare Severity Diagnosis Related Groups codes
-  has_relevant_organization:
-  - B2AI_ORG:17
   is_open: true
   name: MS-DRG
   purpose_detail: Medical cases in the US are classified into Medicare Severity Diagnosis
@@ -4746,7 +4687,18 @@ data_standardortools_collection:
   formal_specification: https://github.com/medin-marine/Discovery-Standard-public-content
   is_open: true
   name: MEDIN
-  purpose_detail: MEDIN Discovery Metadata Standard is a UK marine profile of the UK GEMINI (GEo-spatial Metadata Interoperability iNItiative) standard that also complies with the EU INSPIRE Directive and ISO19115. It provides comprehensive guidance for creating discovery metadata that accompanies marine datasets, describing what the data contains, where it was collected, and how to access it. The standard supports both geospatial (v3.1.2) and non-spatial marine data types. MEDIN provides multiple tools including the web-based Discovery Metadata Editor for creating, validating, exporting, and publishing records to the MEDIN Data Discovery Portal, and the standalone Metadata Maestro desktop application with user-friendly interface and offline capability. The standard includes XML Schema Definition (XSD) and Schematron files for validation, enabling systematic quality control of metadata records within organizational workflows.
+  purpose_detail: MEDIN Discovery Metadata Standard is a UK marine profile of the
+    UK GEMINI (GEo-spatial Metadata Interoperability iNItiative) standard that also
+    complies with the EU INSPIRE Directive and ISO19115. It provides comprehensive
+    guidance for creating discovery metadata that accompanies marine datasets, describing
+    what the data contains, where it was collected, and how to access it. The standard
+    supports both geospatial (v3.1.2) and non-spatial marine data types. MEDIN provides
+    multiple tools including the web-based Discovery Metadata Editor for creating,
+    validating, exporting, and publishing records to the MEDIN Data Discovery Portal,
+    and the standalone Metadata Maestro desktop application with user-friendly interface
+    and offline capability. The standard includes XML Schema Definition (XSD) and
+    Schematron files for validation, enabling systematic quality control of metadata
+    records within organizational workflows.
   requires_registration: false
   url: https://www.medin.org.uk/medin-discovery-metadata-standard
 - id: B2AI_STANDARD:196
@@ -4959,18 +4911,18 @@ data_standardortools_collection:
     mandate the use of controlled vocabularies and standardized identifiers from MIRIAM
     Resources (identifiers.org) to annotate biological entities such as genes, proteins,
     metabolites, reactions, and pathways with unambiguous references to external databases
-    like UniProt, ChEBI, Gene Ontology, KEGG, and Reactome. MIRIAM specifies the
-    use of RDF (Resource Description Framework) and qualified annotations to encode
-    biological semantics and relationships between model components and biological
-    knowledge. The standard promotes model reusability by requiring clear licensing
-    information (Creative Commons, etc.), encoded parameter units using standardized
-    ontologies, and comprehensive documentation of model assumptions and limitations.
-    MIRIAM compliance is supported by tools including the MIRIAM annotation editor
-    in systems biology software, libSBML annotation functions, and BioModels Database
-    validation workflows. The guidelines have been widely adopted by model repositories
-    (BioModels, CellML Model Repository), enhancing model discoverability, integration
-    into larger modeling frameworks, and facilitating quantitative comparison of alternative
-    models representing the same biological system.
+    like UniProt, ChEBI, Gene Ontology, KEGG, and Reactome. MIRIAM specifies the use
+    of RDF (Resource Description Framework) and qualified annotations to encode biological
+    semantics and relationships between model components and biological knowledge.
+    The standard promotes model reusability by requiring clear licensing information
+    (Creative Commons, etc.), encoded parameter units using standardized ontologies,
+    and comprehensive documentation of model assumptions and limitations. MIRIAM compliance
+    is supported by tools including the MIRIAM annotation editor in systems biology
+    software, libSBML annotation functions, and BioModels Database validation workflows.
+    The guidelines have been widely adopted by model repositories (BioModels, CellML
+    Model Repository), enhancing model discoverability, integration into larger modeling
+    frameworks, and facilitating quantitative comparison of alternative models representing
+    the same biological system.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:19
@@ -5008,8 +4960,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Minimum Information About a Proteomics Experiment
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: MIAPE
   purpose_detail: Information from whole proteomics experiments; where samples came
@@ -5049,12 +4999,24 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Minimum information about any sequence
   formal_specification: https://github.com/GenomicsStandardsConsortium/mixs/
-  has_relevant_organization:
-  - B2AI_ORG:38
   is_open: true
   name: MIxS
   publication: doi:10.1038/nbt.1823
-  purpose_detail: The Minimum Information about any (x) Sequence (MIxS) is a unified standard developed by the Genomic Standards Consortium (GSC) for describing sequence data from diverse environments and organisms. MIxS provides a single point of entry for the scientific community to access and use GSC checklists, which include 11 distinct sequence types covering bacterial/archaeal genomes (MigsBa), eukaryotes (MigsEu), organelles (MigsOrg), plasmids (MigsPl), viruses (MigsVi), marker sequences (MimarksC/S), metagenomes (Mims), metagenome-assembled genomes (Mimag), single amplified genomes (Misag), and uncultivated virus genomes (Miuvig). The standard is complemented by 21 environmental extensions tailored to specific sampling contexts including agriculture, air, built environment, food production, host-associated, human-associated (with specific gut, oral, skin, and vaginal extensions), hydrocarbon resources, microbial mat/biofilm, plant-associated, sediment, soil, symbiont-associated, wastewater/sludge, and water environments. The specification is maintained as a YAML-formatted LinkML schema serving as the authoritative source for generating downstream GSC artifacts.
+  purpose_detail: The Minimum Information about any (x) Sequence (MIxS) is a unified
+    standard developed by the Genomic Standards Consortium (GSC) for describing sequence
+    data from diverse environments and organisms. MIxS provides a single point of
+    entry for the scientific community to access and use GSC checklists, which include
+    11 distinct sequence types covering bacterial/archaeal genomes (MigsBa), eukaryotes
+    (MigsEu), organelles (MigsOrg), plasmids (MigsPl), viruses (MigsVi), marker sequences
+    (MimarksC/S), metagenomes (Mims), metagenome-assembled genomes (Mimag), single
+    amplified genomes (Misag), and uncultivated virus genomes (Miuvig). The standard
+    is complemented by 21 environmental extensions tailored to specific sampling contexts
+    including agriculture, air, built environment, food production, host-associated,
+    human-associated (with specific gut, oral, skin, and vaginal extensions), hydrocarbon
+    resources, microbial mat/biofilm, plant-associated, sediment, soil, symbiont-associated,
+    wastewater/sludge, and water environments. The specification is maintained as
+    a YAML-formatted LinkML schema serving as the authoritative source for generating
+    downstream GSC artifacts.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:38
@@ -5150,8 +5112,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Minimum information required to report the use of quantification techniques
     in a proteomics experiment
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: MIAPE-Quant
   purpose_detail: This module identifies the minimum information required to report
@@ -5252,8 +5212,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: mzData format
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: mzData
   purpose_detail: mzData is an XML format for representing mass spectrometry data
@@ -5273,8 +5231,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: mzIndentML format
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: mzIndentML
   purpose_detail: A large number of different proteomics search engines are available
@@ -5298,8 +5254,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: mzML format
   formal_specification: http://www.peptideatlas.org/tmp/mzML1.1.0.html
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: mzML
   publication: doi:10.1007/978-1-60761-444-9_22
@@ -5326,8 +5280,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: mzQuantML format
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: mzQuantML
   purpose_detail: The mzQuantML standard format is intended to store the systematic
@@ -5361,21 +5313,20 @@ data_standardortools_collection:
   is_open: true
   name: mzXML
   publication: doi:10.1038/nbt1031
-  purpose_detail: >-
-    mzXML was a pioneering open, generic XML (extensible markup language)
+  purpose_detail: mzXML was a pioneering open, generic XML (extensible markup language)
     representation specifically developed for mass spectrometry (MS) data exchange
     and storage in proteomics research. As one of the first standardized formats for
     MS data, mzXML provided a vendor-neutral way to represent complex mass spectrometry
     information including mass-to-charge ratios, intensity values, scan parameters,
-    and instrument metadata in a structured, machine-readable format. The format
-    supported both profile and centroid data representation modes and could accommodate
-    various types of MS experiments including MS/MS fragmentation spectra. Despite
-    its historical significance in establishing data standardization practices in
-    proteomics, mzXML is now deprecated and has been superseded by the more comprehensive
-    mzML format, which offers enhanced features, better compression, controlled vocabularies,
-    and broader community support. While legacy systems may still encounter mzXML
-    files, current best practices recommend migration to mzML for new data processing
-    workflows and long-term data preservation in mass spectrometry applications.
+    and instrument metadata in a structured, machine-readable format. The format supported
+    both profile and centroid data representation modes and could accommodate various
+    types of MS experiments including MS/MS fragmentation spectra. Despite its historical
+    significance in establishing data standardization practices in proteomics, mzXML
+    is now deprecated and has been superseded by the more comprehensive mzML format,
+    which offers enhanced features, better compression, controlled vocabularies, and
+    broader community support. While legacy systems may still encounter mzXML files,
+    current best practices recommend migration to mzML for new data processing workflows
+    and long-term data preservation in mass spectrometry applications.
   requires_registration: false
 - id: B2AI_STANDARD:224
   category: B2AI_STANDARD:BiomedicalStandard
@@ -5385,8 +5336,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: National Cancer Institute Enterprise Vocabulary Service
-  has_relevant_organization:
-  - B2AI_ORG:71
   is_open: true
   name: NCI EVS
   purpose_detail: Terminology content, tools, and services to accurately code, analyze
@@ -5424,8 +5373,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: National Patient-Centered Clinical Research Network Common Data Model
   formal_specification: https://pcornet.org/wp-content/uploads/2022/01/PCORnet-Common-Data-Model-v60-2020_10_221.pdf
-  has_relevant_organization:
-  - B2AI_ORG:81
   is_open: true
   name: PCORNet CDM
   purpose_detail: This guiding principle is expressed in the CDM design through prioritization
@@ -5450,8 +5397,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Natural Collections Description standard
-  has_relevant_organization:
-  - B2AI_ORG:93
   is_open: true
   name: NCD
   purpose_detail: Natural Collections Description (NCD) (A data standard for exchanging
@@ -5501,27 +5446,24 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: NCPDP Formulary and Benefit Standard
-  has_relevant_organization:
-  - B2AI_ORG:63
   is_open: false
   name: NCPDP F&B
-  purpose_detail: >-
-    The NCPDP Formulary and Benefit Standard provides a standardized
+  purpose_detail: The NCPDP Formulary and Benefit Standard provides a standardized
     means for pharmacy benefit payers, including health plans and Pharmacy Benefit
     Managers (PBMs), to electronically communicate formulary and benefit information
     to prescribers via technology vendor systems. This standard enables real-time
     access to critical medication coverage information at the point of prescribing,
-    including patient eligibility verification, product coverage status, benefit
-    financial details (copayments, deductibles, out-of-pocket costs), coverage restrictions
+    including patient eligibility verification, product coverage status, benefit financial
+    details (copayments, deductibles, out-of-pocket costs), coverage restrictions
     such as prior authorization requirements, step therapy protocols, quantity limits,
     and therapeutic alternatives when restrictions exist. By standardizing this data
-    exchange, the standard reduces prescription abandonment, improves medication
-    adherence, decreases prior authorization processing time, and enhances clinical
-    decision-making by providing prescribers with transparent, actionable benefit
-    information. The standard supports integration with Electronic Health Record
-    (EHR) systems and e-prescribing platforms in accordance with HIPAA, MMA, HITECH,
-    and Meaningful Use requirements, ultimately contributing to reduced healthcare
-    costs and improved patient safety through more informed prescribing decisions.
+    exchange, the standard reduces prescription abandonment, improves medication adherence,
+    decreases prior authorization processing time, and enhances clinical decision-making
+    by providing prescribers with transparent, actionable benefit information. The
+    standard supports integration with Electronic Health Record (EHR) systems and
+    e-prescribing platforms in accordance with HIPAA, MMA, HITECH, and Meaningful
+    Use requirements, ultimately contributing to reduced healthcare costs and improved
+    patient safety through more informed prescribing decisions.
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:63
@@ -5537,8 +5479,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: NESTcc Data Quality Framework
   formal_specification: https://mdic.org/wp-content/uploads/2020/02/NESTcc-Data-Quality-Framework.pdf
-  has_relevant_organization:
-  - B2AI_ORG:64
   is_open: true
   name: NESTcc DQF
   purpose_detail: Guiding principles and a foundation for the capture and use of high-quality
@@ -5559,7 +5499,24 @@ data_standardortools_collection:
   is_open: true
   name: NWB
   publication: doi:10.1101/523035
-  purpose_detail: Neurodata Without Borders (NWB) is a comprehensive data standard and software ecosystem for neurophysiology and behavioral data, developed by a collaborative team of neuroscientists and software developers to break down barriers to data sharing in neuroscience. NWB supports diverse neurophysiology data types including intracellular and extracellular electrophysiology (single-unit recordings, local field potentials, patch-clamp), optical physiology (calcium imaging, two-photon microscopy, optogenetics), behavioral tracking, stimulus presentation metadata, and experimental trial structures. The format is built on HDF5, providing efficient storage and access to large-scale datasets while maintaining human-readable metadata. NWB's extensibility mechanism through neurodata extensions allows researchers to adapt the standard for novel recording modalities and experimental paradigms without breaking compatibility. The ecosystem includes PyNWB and MatNWB APIs for data creation and access, validation tools, and integration with the DANDI Archive for public data sharing. NWB adoption is growing across major neuroscience initiatives with support from Allen Institute, HHMI, Kavli Foundation, Simons Foundation, and INCF, facilitating reproducible research, cross-laboratory data integration, and development of standardized analysis pipelines across cellular, systems, and computational neuroscience.
+  purpose_detail: Neurodata Without Borders (NWB) is a comprehensive data standard
+    and software ecosystem for neurophysiology and behavioral data, developed by a
+    collaborative team of neuroscientists and software developers to break down barriers
+    to data sharing in neuroscience. NWB supports diverse neurophysiology data types
+    including intracellular and extracellular electrophysiology (single-unit recordings,
+    local field potentials, patch-clamp), optical physiology (calcium imaging, two-photon
+    microscopy, optogenetics), behavioral tracking, stimulus presentation metadata,
+    and experimental trial structures. The format is built on HDF5, providing efficient
+    storage and access to large-scale datasets while maintaining human-readable metadata.
+    NWB's extensibility mechanism through neurodata extensions allows researchers
+    to adapt the standard for novel recording modalities and experimental paradigms
+    without breaking compatibility. The ecosystem includes PyNWB and MatNWB APIs for
+    data creation and access, validation tools, and integration with the DANDI Archive
+    for public data sharing. NWB adoption is growing across major neuroscience initiatives
+    with support from Allen Institute, HHMI, Kavli Foundation, Simons Foundation,
+    and INCF, facilitating reproducible research, cross-laboratory data integration,
+    and development of standardized analysis pipelines across cellular, systems, and
+    computational neuroscience.
   requires_registration: false
   url: https://www.nwb.org/
 - id: B2AI_STANDARD:232
@@ -5727,7 +5684,21 @@ data_standardortools_collection:
   description: Nibble sequence format
   is_open: true
   name: nib
-  purpose_detail: The nibble (.nib) format is a compact binary file format for storing DNA sequences, originally developed for the UCSC Genome Browser and BLAT alignment tool. The format achieves 4-fold compression by packing two nucleotide bases per byte using 2-bit encoding (A=00, C=01, G=10, T=11), significantly reducing storage requirements compared to text-based FASTA format. Each .nib file contains a single sequence record with a simple header specifying sequence length and format version, followed by the packed sequence data. The format stores sequences in a form optimized for rapid access by genome browsers and alignment algorithms, supporting efficient memory mapping for large-scale genomic analyses. While .nib files provide space-efficient storage, they lack the flexibility of indexed formats like 2bit (which can store multiple sequences) and have been largely superseded by more modern compressed formats. The format remains in use for legacy applications and continues to be supported by UCSC Genome Browser utilities including nibFrag for sequence extraction and faToNib/nibToFa for format conversion, primarily for maintaining compatibility with older genome browser implementations and analysis pipelines.
+  purpose_detail: The nibble (.nib) format is a compact binary file format for storing
+    DNA sequences, originally developed for the UCSC Genome Browser and BLAT alignment
+    tool. The format achieves 4-fold compression by packing two nucleotide bases per
+    byte using 2-bit encoding (A=00, C=01, G=10, T=11), significantly reducing storage
+    requirements compared to text-based FASTA format. Each .nib file contains a single
+    sequence record with a simple header specifying sequence length and format version,
+    followed by the packed sequence data. The format stores sequences in a form optimized
+    for rapid access by genome browsers and alignment algorithms, supporting efficient
+    memory mapping for large-scale genomic analyses. While .nib files provide space-efficient
+    storage, they lack the flexibility of indexed formats like 2bit (which can store
+    multiple sequences) and have been largely superseded by more modern compressed
+    formats. The format remains in use for legacy applications and continues to be
+    supported by UCSC Genome Browser utilities including nibFrag for sequence extraction
+    and faToNib/nibToFa for format conversion, primarily for maintaining compatibility
+    with older genome browser implementations and analysis pipelines.
   requires_registration: false
   url: https://genomebrowser.wustl.edu/goldenPath/help/blatSpec.html
 - id: B2AI_STANDARD:240
@@ -5740,8 +5711,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: NMR Self-defining Text Archive and Retrieval format
-  has_relevant_organization:
-  - B2AI_ORG:9
   is_open: true
   name: NMR-STAR
   publication: doi:10.1007/s10858-018-0220-3
@@ -5810,7 +5779,6 @@ data_standardortools_collection:
   description: Observational Medical Outcomes Partnership Common Data Model
   formal_specification: https://github.com/OHDSI/CommonDataModel
   has_relevant_organization:
-  - B2AI_ORG:76
   - B2AI_ORG:115
   - B2AI_ORG:114
   has_training_resource:
@@ -5844,8 +5812,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Observational Medical Outcomes Partnership Common Evidence Model
   formal_specification: https://github.com/OHDSI/CommonEvidenceModel
-  has_relevant_organization:
-  - B2AI_ORG:76
   has_training_resource:
   - B2AI_STANDARD:844
   is_open: true
@@ -5895,7 +5861,27 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   is_open: true
   name: Open mHealth
-  purpose_detail: Open mHealth (OMH) is a comprehensive ecosystem of data standards, schemas, and tools designed to make patient-generated health data from mobile devices, wearables, and sensors interoperable, meaningful, and actionable across healthcare and research applications. The OMH data standards provide JSON-based schemas for over 75 common health data types including physical activity (steps, distance, calories burned), vital signs (heart rate, blood pressure, body temperature), sleep metrics, body composition, medications, survey responses, and environmental data. Each schema includes metadata for data provenance (acquisition source, temporal relationship, user notes) enabling proper contextualization and interpretation. OMH tools include Shimmer for integrating data from diverse sources (Fitbit, Apple HealthKit, Google Fit, Withings, iHealth), libraries for data validation and storage, visualization components for detecting health patterns, and FHIR integration capabilities for aligning mobile health data with electronic health records. The platform supports diverse use cases including randomized controlled trials with standardized mobile data collection, remote patient monitoring programs, n-of-1 clinical trial analyses, machine learning algorithm development on normalized health datasets, and patient-reported outcomes integrated with biometric data. OMH is used by over 6,000 developers and health organizations including Cornell Tech, Kaiser Permanente, Stanford Medicine, UCSF, and Copenhagen Center for Health Technology, enabling research reproducibility and clinical care integration by transforming heterogeneous mobile health data into a unified, queryable format.
+  purpose_detail: Open mHealth (OMH) is a comprehensive ecosystem of data standards,
+    schemas, and tools designed to make patient-generated health data from mobile
+    devices, wearables, and sensors interoperable, meaningful, and actionable across
+    healthcare and research applications. The OMH data standards provide JSON-based
+    schemas for over 75 common health data types including physical activity (steps,
+    distance, calories burned), vital signs (heart rate, blood pressure, body temperature),
+    sleep metrics, body composition, medications, survey responses, and environmental
+    data. Each schema includes metadata for data provenance (acquisition source, temporal
+    relationship, user notes) enabling proper contextualization and interpretation.
+    OMH tools include Shimmer for integrating data from diverse sources (Fitbit, Apple
+    HealthKit, Google Fit, Withings, iHealth), libraries for data validation and storage,
+    visualization components for detecting health patterns, and FHIR integration capabilities
+    for aligning mobile health data with electronic health records. The platform supports
+    diverse use cases including randomized controlled trials with standardized mobile
+    data collection, remote patient monitoring programs, n-of-1 clinical trial analyses,
+    machine learning algorithm development on normalized health datasets, and patient-reported
+    outcomes integrated with biometric data. OMH is used by over 6,000 developers
+    and health organizations including Cornell Tech, Kaiser Permanente, Stanford Medicine,
+    UCSF, and Copenhagen Center for Health Technology, enabling research reproducibility
+    and clinical care integration by transforming heterogeneous mobile health data
+    into a unified, queryable format.
   requires_registration: false
   url: https://www.openmhealth.org/
   used_in_bridge2ai: true
@@ -5909,8 +5895,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Open Microscopy Environment TIFF specification
-  has_relevant_organization:
-  - B2AI_ORG:77
   is_open: true
   name: OME-TIFF
   purpose_detail: multi-spectral imaging data
@@ -5928,8 +5912,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Open Microscopy Environment XML format
-  has_relevant_organization:
-  - B2AI_ORG:77
   is_open: true
   name: OME-XML
   publication: doi:10.1186/gb-2005-6-5-r47
@@ -5950,8 +5932,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Open Modeling EXchange format
   formal_specification: http://co.mbine.org/specifications/omex.version-1.pdf
-  has_relevant_organization:
-  - B2AI_ORG:19
   is_open: true
   name: OMEX
   purpose_detail: A compressed file that contains all the information needed to describe
@@ -5968,8 +5948,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Open-Source Integrated Clinical Environment Standard
   formal_specification: https://github.com/mdpnp/mdpnp
-  has_relevant_organization:
-  - B2AI_ORG:54
   is_open: true
   name: OpenICE
   purpose_detail: OpenICE is an initiative to create a community implementation of
@@ -5993,8 +5971,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: openEHR Archetype Object Model
   formal_specification: https://specifications.openehr.org/releases/AM/latest/AOM1.4.html
-  has_relevant_organization:
-  - B2AI_ORG:79
   is_open: true
   name: AOM14
   purpose_detail: This document contains the definitive statement of archetype semantics,
@@ -6024,8 +6000,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: openEHR Architecture
   formal_specification: https://specifications.openehr.org/releases/BASE/latest/architecture_overview.html
-  has_relevant_organization:
-  - B2AI_ORG:79
   is_open: true
   name: openEHR
   purpose_detail: openEHR' is the name of a technology for e-health, consisting of
@@ -6080,8 +6054,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Patient-Centric Integrated Clinical Environment Standard
   formal_specification: https://www.astm.org/f2761-09r13.html
-  has_relevant_organization:
-  - B2AI_ORG:54
   is_open: false
   name: ICE
   purpose_detail: This standard specifies the characteristics necessary for the safe
@@ -6131,7 +6103,6 @@ data_standardortools_collection:
   description: Phenopackets schema
   formal_specification: https://github.com/phenopackets/phenopacket-schema
   has_relevant_organization:
-  - B2AI_ORG:34
   - B2AI_ORG:58
   is_open: true
   name: Phenopackets
@@ -6180,14 +6151,13 @@ data_standardortools_collection:
   is_open: true
   name: phyloXML
   publication: doi:10.1186/1471-2105-10-356
-  purpose_detail: >-
-    phyloXML is a specialized XML-based language for representing phylogenetic
+  purpose_detail: phyloXML is a specialized XML-based language for representing phylogenetic
     trees and networks, along with rich associated metadata. It provides standardized
     elements for encoding taxonomic information, gene names, sequence identifiers,
     branch lengths, support values, gene duplication and speciation events, and other
     evolutionary attributes. The extensible structure of phyloXML enables interoperability
-    between evolutionary biology and comparative genomics tools, supporting both
-    simple and complex tree annotations. Its schema allows for domain-specific extensions
+    between evolutionary biology and comparative genomics tools, supporting both simple
+    and complex tree annotations. Its schema allows for domain-specific extensions
     and integration with other bioinformatics resources, making it a widely adopted
     standard for sharing, visualizing, and analyzing phylogenetic data in research
     and database applications.
@@ -6201,8 +6171,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Physical Activity Monitoring for Fitness Wearables Step Counting
-  has_relevant_organization:
-  - B2AI_ORG:4
   is_open: true
   name: ANSI/CTA-2056
   purpose_detail: ANSI/CTA-2056 is a voluntary consensus standard developed by the
@@ -6212,9 +6180,9 @@ data_standardortools_collection:
     activity monitoring and health tracking. The standard defines a "step" as a single
     stride during human locomotion and specifies validation protocols using controlled
     laboratory testing on treadmills at various speeds (slow walking 2.0 mph, normal
-    walking 3.0 mph, brisk walking 4.0 mph) as well as free-living wear tests in
-    real-world conditions to evaluate device performance across diverse user populations
-    and activity patterns. ANSI/CTA-2056 requires manufacturers to report step counting
+    walking 3.0 mph, brisk walking 4.0 mph) as well as free-living wear tests in real-world
+    conditions to evaluate device performance across diverse user populations and
+    activity patterns. ANSI/CTA-2056 requires manufacturers to report step counting
     accuracy as mean absolute percentage error (MAPE) and specifies acceptable error
     thresholds - devices should achieve less than 10% error for controlled walking
     tests and less than 20% error for free-living conditions to meet the standard's
@@ -6328,8 +6296,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Proteomics Standards Initiative Protein Affinity Reagent format
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: PSI-PAR
   publication: doi:10.1074/mcp.M900185-MCP200
@@ -6359,8 +6325,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: PSI GelML
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: PSI GelML
   purpose_detail: GelML is a data exchange format for describing the results of gel
@@ -6379,8 +6343,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: PSI-MI XML
-  has_relevant_organization:
-  - B2AI_ORG:41
   is_open: true
   name: PSI-MI XML
   purpose_detail: The PSI-MI XML 2.5 is a community standard for molecular interactions
@@ -6476,10 +6438,9 @@ data_standardortools_collection:
   is_open: true
   name: REFLECT
   publication: doi:10.4315/0362-028x-73.3.579
-  purpose_detail: >-
-    REFLECT (Reporting guidElines For randomized controLled trials
-    for livEstoCk and food safeTy) is a specialized, evidence-based minimum set of
-    22 reporting items specifically designed to improve the transparency, reproducibility,
+  purpose_detail: REFLECT (Reporting guidElines For randomized controLled trials for
+    livEstoCk and food safeTy) is a specialized, evidence-based minimum set of 22
+    reporting items specifically designed to improve the transparency, reproducibility,
     and quality of randomized controlled trials in livestock production, animal health,
     and food safety research. This comprehensive reporting guideline addresses the
     unique challenges and complexities inherent in agricultural and veterinary research,
@@ -6490,11 +6451,11 @@ data_standardortools_collection:
     analyses, and results presentation. The guideline is specifically tailored for
     trials evaluating therapeutic or preventive interventions that impact production
     outcomes, animal health parameters, and food safety measures. Available in both
-    MS Word and PDF formats, REFLECT serves as a dynamic, evolving document that
-    is periodically updated as new evidence emerges, helping researchers, editors,
-    reviewers, and regulatory agencies ensure that livestock and food safety trials
-    are reported with sufficient detail for proper scientific evaluation and evidence-based
-    decision making.
+    MS Word and PDF formats, REFLECT serves as a dynamic, evolving document that is
+    periodically updated as new evidence emerges, helping researchers, editors, reviewers,
+    and regulatory agencies ensure that livestock and food safety trials are reported
+    with sufficient detail for proper scientific evaluation and evidence-based decision
+    making.
   requires_registration: false
   url: https://meridian.cvm.iastate.edu/reflect/
 - id: B2AI_STANDARD:270
@@ -6562,8 +6523,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Sentinel Common Data Model
   formal_specification: https://dev.sentinelsystem.org/projects/SCDM/repos/sentinel_common_data_model/browse
-  has_relevant_organization:
-  - B2AI_ORG:89
   is_open: true
   name: SCDM
   purpose_detail: A standard data structure that allows Sentinel Data Partners to
@@ -6585,7 +6544,26 @@ data_standardortools_collection:
   is_open: true
   name: SAM
   publication: doi:10.1093/bioinformatics/btp352
-  purpose_detail: The Sequence Alignment/Map (SAM) format is a TAB-delimited text format for storing sequence alignments against reference sequences, developed as part of the samtools project and maintained by the GA4GH Large Scale Genomics work stream. SAM consists of an optional header section (beginning with @ symbols) containing metadata about reference sequences, read groups, programs, and comments, followed by an alignment section with one line per aligned read. Each alignment line contains 11 mandatory fields including query name (QNAME), bitwise FLAG encoding mapping properties, reference sequence name (RNAME), 1-based leftmost mapping position (POS), mapping quality (MAPQ), CIGAR string describing alignment operations, mate pair information (RNEXT, PNEXT, TLEN), sequence (SEQ), and ASCII-encoded base quality scores (QUAL). The format supports optional fields as TAG:TYPE:VALUE triplets for storing additional information such as edit distance, alternative alignments, and aligner-specific metadata. SAM serves as the text-based companion to the binary BAM and compressed CRAM formats, with bidirectional conversion tools (samtools view) enabling interoperability. The format accommodates various alignment types including mapped, unmapped, secondary, supplementary, and chimeric alignments with proper-pair relationships. SAM files are human-readable for debugging and inspection, widely supported by aligners (BWA, Bowtie2, STAR), variant callers, and genomics toolkits, forming the foundation for standardized sequencing data exchange in next-generation sequencing workflows.
+  purpose_detail: The Sequence Alignment/Map (SAM) format is a TAB-delimited text
+    format for storing sequence alignments against reference sequences, developed
+    as part of the samtools project and maintained by the GA4GH Large Scale Genomics
+    work stream. SAM consists of an optional header section (beginning with @ symbols)
+    containing metadata about reference sequences, read groups, programs, and comments,
+    followed by an alignment section with one line per aligned read. Each alignment
+    line contains 11 mandatory fields including query name (QNAME), bitwise FLAG encoding
+    mapping properties, reference sequence name (RNAME), 1-based leftmost mapping
+    position (POS), mapping quality (MAPQ), CIGAR string describing alignment operations,
+    mate pair information (RNEXT, PNEXT, TLEN), sequence (SEQ), and ASCII-encoded
+    base quality scores (QUAL). The format supports optional fields as TAG:TYPE:VALUE
+    triplets for storing additional information such as edit distance, alternative
+    alignments, and aligner-specific metadata. SAM serves as the text-based companion
+    to the binary BAM and compressed CRAM formats, with bidirectional conversion tools
+    (samtools view) enabling interoperability. The format accommodates various alignment
+    types including mapped, unmapped, secondary, supplementary, and chimeric alignments
+    with proper-pair relationships. SAM files are human-readable for debugging and
+    inspection, widely supported by aligners (BWA, Bowtie2, STAR), variant callers,
+    and genomics toolkits, forming the foundation for standardized sequencing data
+    exchange in next-generation sequencing workflows.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:34
@@ -6608,16 +6586,15 @@ data_standardortools_collection:
   is_open: true
   name: SRA-XML
   publication: doi:10.1093/nar/gkq1019
-  purpose_detail: >-
-    SRA-XML is an XML-based metadata format used by the Sequence Read
+  purpose_detail: SRA-XML is an XML-based metadata format used by the Sequence Read
     Archive (SRA) and the European Nucleotide Archive (ENA) to describe and exchange
-    metadata for raw sequencing data submissions from next-generation sequencing
-    platforms. The format captures detailed information about sequencing experiments,
-    sample attributes, library preparation, instrument models, and data files, enabling
-    standardized data submission, validation, and integration across international
-    repositories. SRA-XML supports the reproducibility and discoverability of sequencing
-    datasets by providing a structured, machine-readable representation of experimental
-    context and provenance, facilitating large-scale genomics research and data sharing.
+    metadata for raw sequencing data submissions from next-generation sequencing platforms.
+    The format captures detailed information about sequencing experiments, sample
+    attributes, library preparation, instrument models, and data files, enabling standardized
+    data submission, validation, and integration across international repositories.
+    SRA-XML supports the reproducibility and discoverability of sequencing datasets
+    by providing a structured, machine-readable representation of experimental context
+    and provenance, facilitating large-scale genomics research and data sharing.
   requires_registration: false
   url: https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/
 - id: B2AI_STANDARD:275
@@ -6632,7 +6609,23 @@ data_standardortools_collection:
   description: Simple Omnibus Format in Text
   is_open: true
   name: SOFT
-  purpose_detail: Simple Omnibus Format in Text (SOFT) is a line-based, plain text format originally developed by NCBI Gene Expression Omnibus (GEO) for batch submission and download of genomic data. Though GEO discontinued accepting SOFT submissions in early 2024, all records remain available for download in SOFT format. The format uses four line types distinguished by first-character markers - caret lines (^) indicate entity types (PLATFORM, SAMPLE, SERIES), bang lines (!) specify entity attributes as label-value pairs, hash lines (#) describe data table headers, and data lines contain tab-delimited table rows. A single SOFT file can concatenate multiple Platform (GPL), Sample (GSM), and Series (GSE) records with their data tables and descriptive metadata. Platform tables require unique row identifiers and trackable sequence identifiers (GenBank/RefSeq accessions, clone IDs, oligo sequences) with standard headers for sequences, organism source, and various accession types. Sample tables must include ID_REF columns matching Platform identifiers and VALUE columns containing normalized, comparable measurements (scaled signals for single-channel or log ratios for dual-channel data). The format is compatible with common spreadsheet and database applications and supports MIAME standards for comprehensive data interpretation.
+  purpose_detail: Simple Omnibus Format in Text (SOFT) is a line-based, plain text
+    format originally developed by NCBI Gene Expression Omnibus (GEO) for batch submission
+    and download of genomic data. Though GEO discontinued accepting SOFT submissions
+    in early 2024, all records remain available for download in SOFT format. The format
+    uses four line types distinguished by first-character markers - caret lines (^)
+    indicate entity types (PLATFORM, SAMPLE, SERIES), bang lines (!) specify entity
+    attributes as label-value pairs, hash lines (#) describe data table headers, and
+    data lines contain tab-delimited table rows. A single SOFT file can concatenate
+    multiple Platform (GPL), Sample (GSM), and Series (GSE) records with their data
+    tables and descriptive metadata. Platform tables require unique row identifiers
+    and trackable sequence identifiers (GenBank/RefSeq accessions, clone IDs, oligo
+    sequences) with standard headers for sequences, organism source, and various accession
+    types. Sample tables must include ID_REF columns matching Platform identifiers
+    and VALUE columns containing normalized, comparable measurements (scaled signals
+    for single-channel or log ratios for dual-channel data). The format is compatible
+    with common spreadsheet and database applications and supports MIAME standards
+    for comprehensive data interpretation.
   requires_registration: false
   url: https://www.ncbi.nlm.nih.gov/geo/info/soft-seq.html
 - id: B2AI_STANDARD:276
@@ -6717,27 +6710,25 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Standard PREanalytical Code
-  has_relevant_organization:
-  - B2AI_ORG:48
   is_open: true
   name: SPREC
   publication: doi:10.1089/bio.2017.0109
   purpose_detail: The Standard PREanalytical Code (SPREC) is a comprehensive coding
     system developed by the ISBER Biospecimen Science Working Group to standardize
     documentation of pre-analytical variables that affect biospecimen quality. SPREC
-    uses a seven-element alphanumeric code to capture critical factors including
-    specimen type, primary container, time to processing (warm and cold ischemia),
-    centrifugation parameters (speed and temperature), and long-term storage conditions.
-    This systematic encoding enables biobanks and biorepositories to consistently
-    track and communicate how specimens were collected, processed, and preserved,
-    which directly impacts molecular analyte stability and experimental reproducibility.
-    By providing a standardized language for pre-analytical variation, SPREC facilitates
-    data harmonization across biobanks, enables quality comparisons between specimen
-    collections, supports regulatory compliance, and enhances the value of biological
-    samples for translational research. The code is particularly valuable for multi-center
-    studies where specimen provenance must be tracked and controlled. SPREC version
-    3.0 covers various specimen types including blood, tissue, urine, and other biological
-    fluids, with specific codes for derivatives like DNA, RNA, and proteins.
+    uses a seven-element alphanumeric code to capture critical factors including specimen
+    type, primary container, time to processing (warm and cold ischemia), centrifugation
+    parameters (speed and temperature), and long-term storage conditions. This systematic
+    encoding enables biobanks and biorepositories to consistently track and communicate
+    how specimens were collected, processed, and preserved, which directly impacts
+    molecular analyte stability and experimental reproducibility. By providing a standardized
+    language for pre-analytical variation, SPREC facilitates data harmonization across
+    biobanks, enables quality comparisons between specimen collections, supports regulatory
+    compliance, and enhances the value of biological samples for translational research.
+    The code is particularly valuable for multi-center studies where specimen provenance
+    must be tracked and controlled. SPREC version 3.0 covers various specimen types
+    including blood, tissue, urine, and other biological fluids, with specific codes
+    for derivatives like DNA, RNA, and proteins.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:48
@@ -6778,16 +6769,16 @@ data_standardortools_collection:
   name: Stockholm
   purpose_detail: The Stockholm format is a comprehensive system for marking up and
     annotating features in multiple sequence alignments, widely used by HMMER, Pfam,
-    and Belvu bioinformatics tools. The format supports detailed
-    annotation of secondary structure (SS), surface accessibility (SA), transmembrane
-    regions (TM), posterior probability (PP), ligand binding sites (LI), active sites
-    (AS), and intron positions (IN). The format includes structured headers with
-    STOCKHOLM 1.0 identifier, sequence alignment blocks with name/start-end notation,
-    and comprehensive markup capabilities supporting database references, organism
-    classification, phylogenetic trees in New Hampshire format, and various structural
-    and functional annotations. It provides flexible annotation of aligned sequences
-    with exact one-character-per-column markup for positional features and free-text
-    annotations for sequence and file-level metadata.
+    and Belvu bioinformatics tools. The format supports detailed annotation of secondary
+    structure (SS), surface accessibility (SA), transmembrane regions (TM), posterior
+    probability (PP), ligand binding sites (LI), active sites (AS), and intron positions
+    (IN). The format includes structured headers with STOCKHOLM 1.0 identifier, sequence
+    alignment blocks with name/start-end notation, and comprehensive markup capabilities
+    supporting database references, organism classification, phylogenetic trees in
+    New Hampshire format, and various structural and functional annotations. It provides
+    flexible annotation of aligned sequences with exact one-character-per-column markup
+    for positional features and free-text annotations for sequence and file-level
+    metadata.
   requires_registration: false
   url: https://sonnhammer.sbc.su.se/Stockholm.html
 - id: B2AI_STANDARD:283
@@ -6831,8 +6822,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Strengthening the Reporting of Observational studies in Epidemiology
-  has_relevant_organization:
-  - B2AI_ORG:91
   is_open: true
   name: STROBE
   publication: doi:10.1016/j.jclinepi.2007.11.008
@@ -6925,7 +6914,22 @@ data_standardortools_collection:
   is_open: true
   name: SBGN
   publication: doi:10.1038/nbt.1558
-  purpose_detail: Systems Biology Graphical Notation (SBGN) is a standardized visual language for representing biological processes and relationships in maps. SBGN defines the precise meaning of all graphical symbols through three complementary languages - Process Description (PD) for biochemical reactions and molecular interactions, Activity Flow (AF) for the flow of information between biochemical entities, and Entity Relationship (ER) for relationships between biological entities independent of temporal aspects. Each language has specific symbols, syntax rules, and semantic definitions to ensure unambiguous interpretation across different tools and users. SBGN-ML, an XML-based exchange format, enables storage and transfer of SBGN diagrams between software applications, supported by the standard LibSBGN library. The notation is widely adopted in major biological databases including Reactome, PANTHER Pathway, BioModels, and Pathway Commons. Multiple software tools support SBGN diagram creation and editing (CellDesigner, Newt Editor, VANTED/SBGN-ED, PathVisio, yEd), format conversion from KEGG, BioPAX, and SBML, and visualization of pathway models, facilitating standardized communication of complex biological knowledge across the systems biology community.
+  purpose_detail: Systems Biology Graphical Notation (SBGN) is a standardized visual
+    language for representing biological processes and relationships in maps. SBGN
+    defines the precise meaning of all graphical symbols through three complementary
+    languages - Process Description (PD) for biochemical reactions and molecular interactions,
+    Activity Flow (AF) for the flow of information between biochemical entities, and
+    Entity Relationship (ER) for relationships between biological entities independent
+    of temporal aspects. Each language has specific symbols, syntax rules, and semantic
+    definitions to ensure unambiguous interpretation across different tools and users.
+    SBGN-ML, an XML-based exchange format, enables storage and transfer of SBGN diagrams
+    between software applications, supported by the standard LibSBGN library. The
+    notation is widely adopted in major biological databases including Reactome, PANTHER
+    Pathway, BioModels, and Pathway Commons. Multiple software tools support SBGN
+    diagram creation and editing (CellDesigner, Newt Editor, VANTED/SBGN-ED, PathVisio,
+    yEd), format conversion from KEGG, BioPAX, and SBML, and visualization of pathway
+    models, facilitating standardized communication of complex biological knowledge
+    across the systems biology community.
   requires_registration: false
   url: https://sbgn.github.io/
 - id: B2AI_STANDARD:289
@@ -6943,13 +6947,12 @@ data_standardortools_collection:
   is_open: true
   name: SBML
   publication: doi:10.1515/jib-2017-0081
-  purpose_detail: >-
-    The Systems Biology Markup Language (SBML) is a comprehensive
-    XML-based exchange format specifically designed for representing computational
-    models of biological processes in a machine-readable, standardized form. Developed
-    and maintained by the international SBML community, SBML enables interoperability
-    between diverse systems biology software tools by providing a common model representation
-    language that eliminates translation errors and ensures consistent model interpretation
+  purpose_detail: The Systems Biology Markup Language (SBML) is a comprehensive XML-based
+    exchange format specifically designed for representing computational models of
+    biological processes in a machine-readable, standardized form. Developed and maintained
+    by the international SBML community, SBML enables interoperability between diverse
+    systems biology software tools by providing a common model representation language
+    that eliminates translation errors and ensures consistent model interpretation
     across different platforms. While SBML excels at representing biochemical reaction
     networks, metabolic pathways, gene regulatory networks, and signal transduction
     cascades, its flexible architecture supports modeling of various biological phenomena
@@ -6957,11 +6960,11 @@ data_standardortools_collection:
     for describing reaction kinetics, species concentrations, compartmentalization,
     parameter sensitivity, and dynamic behaviors through mathematical expressions
     and differential equations. SBML's modular design supports extensions for specialized
-    modeling requirements including spatial modeling, flux balance analysis, and
-    multi-scale simulations. Supported by over 270 software tools, SBML serves as
-    the de facto standard for systems biology model exchange, enabling reproducible
-    research, model sharing, database integration, and collaborative development
-    in computational systems biology.
+    modeling requirements including spatial modeling, flux balance analysis, and multi-scale
+    simulations. Supported by over 270 software tools, SBML serves as the de facto
+    standard for systems biology model exchange, enabling reproducible research, model
+    sharing, database integration, and collaborative development in computational
+    systems biology.
   related_to:
   - B2AI_STANDARD:829
   requires_registration: false
@@ -7023,8 +7026,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Taxonomic Concept Transfer Schema
   formal_specification: https://github.com/tdwg/tcs
-  has_relevant_organization:
-  - B2AI_ORG:93
   is_open: true
   name: TCS
   purpose_detail: The development of an abstract model for a taxonomic concept, which
@@ -7051,8 +7052,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Taxonomic Databases Working Group Standards Documentation Standard
-  has_relevant_organization:
-  - B2AI_ORG:93
   is_open: true
   name: TDWG SDS
   purpose_detail: This document defines how TDWG standards should be presented. Each
@@ -7094,8 +7093,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Transparent Reporting of Evaluations with Nonrandomized Designs
   formal_specification: https://www.cdc.gov/trendstatement/pdf/trendstatement_TREND_Checklist.pdf
-  has_relevant_organization:
-  - B2AI_ORG:12
   is_open: true
   name: TREND
   publication: doi:10.2105/ajph.94.3.361
@@ -7157,11 +7154,27 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Unique Ingredient Identifiers
-  has_relevant_organization:
-  - B2AI_ORG:31
   is_open: true
   name: UNII
-  purpose_detail: Unique Ingredient Identifiers (UNIIs) are alphanumeric codes generated by the FDA's Global Substance Registration System (GSRS) to uniquely identify substances based on their scientific identity characteristics using ISO 11238 data elements. Each UNII is derived from a substance's molecular structure and/or descriptive information, ensuring that the same substance always receives the same identifier regardless of when or where it is registered in the regulatory lifecycle. UNIIs enable efficient and accurate exchange of substance information across regulatory submissions, product labeling, adverse event reporting, and drug databases without ambiguity from varying nomenclature or trade names. The system covers diverse substance types including chemical compounds, proteins, nucleic acids, polymers, mixtures, structurally diverse materials, and specified substances (salts, stereoisomers, defined mixtures). UNIIs are generated at any time in the regulatory process and do not imply FDA review or approval. The GSRS database provides searchable access to UNIIs along with associated substance names, codes (CAS, INN, EC), structural representations, and attribute data. UNIIs are extensively used in SPL (Structured Product Labeling) documents, NDC (National Drug Code) directory, FAERS (FDA Adverse Event Reporting System), and international regulatory systems, facilitating interoperability between FDA databases and harmonization with global substance identification standards.
+  purpose_detail: Unique Ingredient Identifiers (UNIIs) are alphanumeric codes generated
+    by the FDA's Global Substance Registration System (GSRS) to uniquely identify
+    substances based on their scientific identity characteristics using ISO 11238
+    data elements. Each UNII is derived from a substance's molecular structure and/or
+    descriptive information, ensuring that the same substance always receives the
+    same identifier regardless of when or where it is registered in the regulatory
+    lifecycle. UNIIs enable efficient and accurate exchange of substance information
+    across regulatory submissions, product labeling, adverse event reporting, and
+    drug databases without ambiguity from varying nomenclature or trade names. The
+    system covers diverse substance types including chemical compounds, proteins,
+    nucleic acids, polymers, mixtures, structurally diverse materials, and specified
+    substances (salts, stereoisomers, defined mixtures). UNIIs are generated at any
+    time in the regulatory process and do not imply FDA review or approval. The GSRS
+    database provides searchable access to UNIIs along with associated substance names,
+    codes (CAS, INN, EC), structural representations, and attribute data. UNIIs are
+    extensively used in SPL (Structured Product Labeling) documents, NDC (National
+    Drug Code) directory, FAERS (FDA Adverse Event Reporting System), and international
+    regulatory systems, facilitating interoperability between FDA databases and harmonization
+    with global substance identification standards.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:31
@@ -7227,7 +7240,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Variation Representation Specification
   has_relevant_organization:
-  - B2AI_ORG:34
   - B2AI_ORG:117
   is_open: true
   name: VRS
@@ -7336,8 +7348,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: W3C HCLS Dataset Description
-  has_relevant_organization:
-  - B2AI_ORG:99
   is_open: true
   name: HCLS
   purpose_detail: Access to consistent, high-quality metadata is critical to finding,
@@ -7384,8 +7394,6 @@ data_standardortools_collection:
   description: Zeiss LSM series confocal microscope image
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:19
-  has_relevant_organization:
-  - B2AI_ORG:101
   is_open: false
   name: LSM
   purpose_detail: A proprietary image format based on TIFF.
@@ -8589,19 +8597,18 @@ data_standardortools_collection:
   - B2AI_ORG:99
   is_open: true
   name: RDFS
-  purpose_detail: >-
-    RDF Schema (RDFS) is the foundational vocabulary description language
+  purpose_detail: RDF Schema (RDFS) is the foundational vocabulary description language
     that extends the basic RDF vocabulary to provide essential data modeling capabilities
     for the Semantic Web and linked data applications. As a W3C Recommendation and
     semantic extension of RDF, RDFS enables the description of groups of related resources
     and relationships between them by defining classes, properties, and their hierarchical
     structures. Unlike traditional object-oriented programming models that define
-    classes in terms of their instance properties, RDFS takes a property-centric
-    approach where properties are described in terms of the classes they apply to
-    through domain and range mechanisms. This design philosophy promotes the extensibility
-    principle of the Web, allowing anyone to define additional properties for existing
-    resources without requiring modification of original class definitions. RDFS provides
-    core vocabulary elements including rdfs:Class, rdfs:Resource, rdfs:Property, rdfs:subClassOf,
+    classes in terms of their instance properties, RDFS takes a property-centric approach
+    where properties are described in terms of the classes they apply to through domain
+    and range mechanisms. This design philosophy promotes the extensibility principle
+    of the Web, allowing anyone to define additional properties for existing resources
+    without requiring modification of original class definitions. RDFS provides core
+    vocabulary elements including rdfs:Class, rdfs:Resource, rdfs:Property, rdfs:subClassOf,
     rdfs:subPropertyOf, rdfs:domain, rdfs:range, rdfs:label, and rdfs:comment, which
     form the basis for more sophisticated ontology languages like OWL. The schema
     supports the development of machine-readable vocabularies that can be processed
@@ -8621,23 +8628,22 @@ data_standardortools_collection:
   - B2AI_ORG:6
   is_open: true
   name: RIF-CS
-  purpose_detail: >-
-    The Registry Interchange Format - Collections and Services (RIF-CS)
+  purpose_detail: The Registry Interchange Format - Collections and Services (RIF-CS)
     is an XML-based metadata schema developed by the Australian National Data Service
-    (ANDS) for describing and exchanging information about research collections,
-    services, parties (people and organizations), and activities. RIF-CS serves
-    as the foundational data interchange format for Research Data Australia and enables
-    institutions to contribute metadata about their research assets to national and
-    international discovery services. The schema organizes metadata into four core
-    entity types with rich relationship modeling capabilities - collections (datasets,
-    databases, repositories), services (software tools, web services, facilities),
-    parties (researchers, institutions, funders), and activities (projects, programs,
-    events). Each entity supports comprehensive descriptive metadata including identifiers,
-    names, descriptions, locations, dates, subjects, and crucially, relationships
-    to other entities that create a connected graph of research infrastructure. RIF-CS
-    enables automated harvesting and aggregation of research metadata across institutions,
-    supporting research discovery, collaboration, and compliance with research data
-    management policies.
+    (ANDS) for describing and exchanging information about research collections, services,
+    parties (people and organizations), and activities. RIF-CS serves as the foundational
+    data interchange format for Research Data Australia and enables institutions to
+    contribute metadata about their research assets to national and international
+    discovery services. The schema organizes metadata into four core entity types
+    with rich relationship modeling capabilities - collections (datasets, databases,
+    repositories), services (software tools, web services, facilities), parties (researchers,
+    institutions, funders), and activities (projects, programs, events). Each entity
+    supports comprehensive descriptive metadata including identifiers, names, descriptions,
+    locations, dates, subjects, and crucially, relationships to other entities that
+    create a connected graph of research infrastructure. RIF-CS enables automated
+    harvesting and aggregation of research metadata across institutions, supporting
+    research discovery, collaboration, and compliance with research data management
+    policies.
   requires_registration: false
   url: https://services.ands.org.au/documentation/rifcs/1.2.0/guidelines/rif-cs.html
 - id: B2AI_STANDARD:372
@@ -9316,23 +9322,22 @@ data_standardortools_collection:
   formal_specification: https://github.com/berkeleybop/artificial-intelligence-ontology
   is_open: true
   name: AIO
-  purpose_detail: >-
-    The Artificial Intelligence Ontology (AIO) is a comprehensive formal
+  purpose_detail: The Artificial Intelligence Ontology (AIO) is a comprehensive formal
     ontology that provides standardized terminology and semantic relationships for
-    describing artificial intelligence systems, methods, and concepts. Developed
-    to address the need for consistent AI terminology across research and applications,
+    describing artificial intelligence systems, methods, and concepts. Developed to
+    address the need for consistent AI terminology across research and applications,
     AIO models classes and relationships describing deep learning networks, their
-    component layers and activation functions, machine learning algorithms, data
-    processing techniques, and potential algorithmic biases. The ontology contains
-    443 classes organized in a hierarchical structure with a maximum depth of 5 levels,
-    covering fundamental AI concepts from basic computational methods to complex
-    neural architectures. AIO serves as a critical resource for AI researchers, practitioners,
-    and systems developers who need standardized vocabularies for annotating AI
-    models, describing experimental procedures, ensuring reproducibility, and enabling
-    semantic interoperability between AI systems and databases. The ontology facilitates
-    automated reasoning about AI systems, supports metadata annotation for AI workflows,
-    and contributes to the broader goal of making artificial intelligence research
-    more findable, accessible, interoperable, and reusable.
+    component layers and activation functions, machine learning algorithms, data processing
+    techniques, and potential algorithmic biases. The ontology contains 443 classes
+    organized in a hierarchical structure with a maximum depth of 5 levels, covering
+    fundamental AI concepts from basic computational methods to complex neural architectures.
+    AIO serves as a critical resource for AI researchers, practitioners, and systems
+    developers who need standardized vocabularies for annotating AI models, describing
+    experimental procedures, ensuring reproducibility, and enabling semantic interoperability
+    between AI systems and databases. The ontology facilitates automated reasoning
+    about AI systems, supports metadata annotation for AI workflows, and contributes
+    to the broader goal of making artificial intelligence research more findable,
+    accessible, interoperable, and reusable.
   requires_registration: false
   url: https://bioportal.bioontology.org/ontologies/AIO
 - id: B2AI_STANDARD:408
@@ -9603,8 +9608,7 @@ data_standardortools_collection:
   - B2AI_ORG:13
   is_open: true
   name: CVX
-  purpose_detail: >-
-    The Clinical Vaccines Administered (CVX) code set is a comprehensive
+  purpose_detail: The Clinical Vaccines Administered (CVX) code set is a comprehensive
     standardized vocabulary developed and maintained by the CDC's National Center
     for Immunization and Respiratory Diseases (NCIRD) that provides unique numeric
     identifiers for all vaccines available in the United States healthcare system.
@@ -10379,24 +10383,23 @@ data_standardortools_collection:
   formal_specification: https://github.com/DiseaseOntology/HumanDiseaseOntology
   is_open: true
   name: DOID
-  purpose_detail: >-
-    The Human Disease Ontology (DOID) is a comprehensive, standardized
+  purpose_detail: The Human Disease Ontology (DOID) is a comprehensive, standardized
     ontology that provides a hierarchical classification system for human diseases
-    organized primarily by etiology (underlying cause). Developed as part of the
-    Open Biomedical Ontologies (OBO) Foundry, DOID serves as a cornerstone reference
-    for disease terminology in biomedical research, clinical informatics, and healthcare
+    organized primarily by etiology (underlying cause). Developed as part of the Open
+    Biomedical Ontologies (OBO) Foundry, DOID serves as a cornerstone reference for
+    disease terminology in biomedical research, clinical informatics, and healthcare
     applications. The ontology integrates multiple disease classification systems
     including ICD, SNOMED CT, UMLS, and MeSH, providing extensive cross-references
-    that enable interoperability between different medical coding systems. DOID
-    structures diseases into logical hierarchies based on disease mechanisms, affected
-    anatomical systems, and causal agents, enabling both broad categorical searches
-    and precise disease identification. Each disease concept includes standardized
-    names, definitions, synonyms, and relationships to parent and child terms, creating
-    a rich semantic network that supports computational analysis of disease data.
-    The ontology is extensively used in genomics databases, electronic health records,
-    biomedical literature annotation, drug discovery pipelines, and epidemiological
-    studies where consistent disease terminology is essential for data integration
-    and comparative analysis.
+    that enable interoperability between different medical coding systems. DOID structures
+    diseases into logical hierarchies based on disease mechanisms, affected anatomical
+    systems, and causal agents, enabling both broad categorical searches and precise
+    disease identification. Each disease concept includes standardized names, definitions,
+    synonyms, and relationships to parent and child terms, creating a rich semantic
+    network that supports computational analysis of disease data. The ontology is
+    extensively used in genomics databases, electronic health records, biomedical
+    literature annotation, drug discovery pipelines, and epidemiological studies where
+    consistent disease terminology is essential for data integration and comparative
+    analysis.
   requires_registration: false
   url: http://www.disease-ontology.org
 - id: B2AI_STANDARD:468
@@ -10757,23 +10760,21 @@ data_standardortools_collection:
   formal_specification: https://github.com/IEDB/MRO
   is_open: true
   name: MRO
-  purpose_detail: >-
-    The Major Histocompatibility Complex (MHC) Restriction Ontology
+  purpose_detail: The Major Histocompatibility Complex (MHC) Restriction Ontology
     (MRO) is a specialized ontology developed by the Immune Epitope Database (IEDB)
-    to provide standardized terminology for describing MHC restriction phenomena
-    in immunological experiments and data. MHC restriction refers to the biological
-    process by which T-cell recognition of antigens is limited to peptides presented
-    by specific MHC molecules that are compatible with the T-cell's own MHC background.
-    MRO systematically organizes the complex relationships between MHC alleles, T-cell
-    responses, and antigen presentation contexts that are crucial for understanding
-    adaptive immune responses, vaccine development, and transplantation immunology.
-    The ontology enables precise annotation of immunological experiments by providing
-    controlled vocabulary terms for MHC class I and class II molecules, their allelic
-    variants, restriction patterns, and associated experimental conditions. This
-    standardization is essential for comparative immunology studies, epitope mapping
-    projects, and the development of personalized immunotherapies where accurate
-    description of MHC-restricted immune responses is critical for data interpretation
-    and clinical translation.
+    to provide standardized terminology for describing MHC restriction phenomena in
+    immunological experiments and data. MHC restriction refers to the biological process
+    by which T-cell recognition of antigens is limited to peptides presented by specific
+    MHC molecules that are compatible with the T-cell's own MHC background. MRO systematically
+    organizes the complex relationships between MHC alleles, T-cell responses, and
+    antigen presentation contexts that are crucial for understanding adaptive immune
+    responses, vaccine development, and transplantation immunology. The ontology enables
+    precise annotation of immunological experiments by providing controlled vocabulary
+    terms for MHC class I and class II molecules, their allelic variants, restriction
+    patterns, and associated experimental conditions. This standardization is essential
+    for comparative immunology studies, epitope mapping projects, and the development
+    of personalized immunotherapies where accurate description of MHC-restricted immune
+    responses is critical for data interpretation and clinical translation.
   requires_registration: false
 - id: B2AI_STANDARD:490
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -11581,8 +11582,7 @@ data_standardortools_collection:
   formal_specification: https://github.com/PROconsortium/PRoteinOntology/
   is_open: true
   name: PR
-  purpose_detail: >-
-    The Protein Ontology (PR) is a comprehensive formal ontology that
+  purpose_detail: The Protein Ontology (PR) is a comprehensive formal ontology that
     provides standardized terminology and semantic relationships for describing protein-related
     entities across the complete spectrum of protein science. Developed by the PRotein
     Ontology consortium, PR serves as a unifying framework that integrates protein
@@ -11711,8 +11711,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Scientific Evidence and Provenance Information Ontology
   formal_specification: https://sepio-framework.github.io/sepio-linkml/
-  has_relevant_organization:
-  - B2AI_ORG:58
   is_open: true
   name: SEPIO
   publication: doi:10.5281/zenodo.5214269
@@ -11804,8 +11802,6 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Standard Current Procedural Terminology Consumer Friendly Descriptors
-  has_relevant_organization:
-  - B2AI_ORG:3
   is_open: false
   name: CFDs
   purpose_detail: Translate each code descriptor from the official CPT code set into
@@ -12220,8 +12216,7 @@ data_standardortools_collection:
   is_open: true
   name: XPO
   publication: doi:10.1186/s12859-022-04636-8
-  purpose_detail: >-
-    The Xenopus Phenotype Ontology (XPO) is a formal ontology for representing
+  purpose_detail: The Xenopus Phenotype Ontology (XPO) is a formal ontology for representing
     anatomical, cellular, and gene function phenotypes observed throughout the development
     of the African frogs Xenopus laevis and Xenopus tropicalis. XPO enables standardized
     annotation of phenotypes in Xenopus research, supporting integration with genotype,
@@ -12712,8 +12707,7 @@ data_standardortools_collection:
   is_open: true
   name: Kvak2022
   publication: doi:10.48550/arXiv.2203.10596
-  purpose_detail: >-
-    This study presents the design and implementation of a convolutional
+  purpose_detail: This study presents the design and implementation of a convolutional
     neural network (CNN)-based assistive diagnosis system for COVID-19 case detection
     from chest X-ray images. The Kvak2022 model leverages deep learning architectures
     (DenseNet and ResNet) to achieve high precision and recall in identifying SARS-CoV-2
@@ -12816,16 +12810,15 @@ data_standardortools_collection:
   is_open: true
   name: Bioregistry
   publication: doi:10.1101/2022.07.08.499378
-  purpose_detail: >-
-    The Bioregistry is an open-source, community-curated registry and
+  purpose_detail: The Bioregistry is an open-source, community-curated registry and
     meta-registry that catalogs prefixes, identifier formats, and metadata for biomedical
     ontologies, databases, and controlled vocabularies. It integrates and harmonizes
     information from multiple registries (e.g., OBO Foundry, Identifiers.org, OLS),
     providing a unified resource for resolving compact URIs (CURIEs) and supporting
     semantic interoperability. The Bioregistry also functions as a resolver, mapping
     CURIEs to web resources, and is governed by transparent contribution and review
-    processes. It is widely used for data integration, annotation, and knowledge
-    graph construction in the life sciences.
+    processes. It is widely used for data integration, annotation, and knowledge graph
+    construction in the life sciences.
   requires_registration: false
   url: https://bioregistry.io/
 - id: B2AI_STANDARD:708
@@ -12892,26 +12885,24 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: Dockstore
-  purpose_detail: >-
-    Dockstore is a comprehensive, open-source platform developed by
+  purpose_detail: Dockstore is a comprehensive, open-source platform developed by
     the Ontario Institute for Cancer Research (OICR) and other collaborators that
     serves as a central registry for sharing, discovering, and executing containerized
-    bioinformatics tools and computational workflows. Built on modern container
-    technologies including Docker and Singularity, Dockstore enables researchers
-    to package their analytical pipelines with all dependencies and configurations,
-    ensuring reproducibility across different computing environments. The platform
-    supports multiple workflow languages including Common Workflow Language (CWL),
-    Workflow Description Language (WDL), and Nextflow, providing flexibility for
-    diverse computational approaches in genomics, proteomics, and systems biology.
-    Dockstore integrates with popular code repositories like GitHub, GitLab, and
-    Bitbucket, enabling version-controlled development and automated testing of computational
-    tools. The platform facilitates scientific collaboration by allowing researchers
-    to discover validated, ready-to-use analytical workflows, reducing duplication
-    of effort and accelerating research discovery. With built-in execution engines
-    and cloud integration capabilities, Dockstore supports scalable workflow execution
-    on local clusters, cloud platforms, and high-performance computing systems,
-    making advanced bioinformatics accessible to researchers regardless of their
-    computational expertise.
+    bioinformatics tools and computational workflows. Built on modern container technologies
+    including Docker and Singularity, Dockstore enables researchers to package their
+    analytical pipelines with all dependencies and configurations, ensuring reproducibility
+    across different computing environments. The platform supports multiple workflow
+    languages including Common Workflow Language (CWL), Workflow Description Language
+    (WDL), and Nextflow, providing flexibility for diverse computational approaches
+    in genomics, proteomics, and systems biology. Dockstore integrates with popular
+    code repositories like GitHub, GitLab, and Bitbucket, enabling version-controlled
+    development and automated testing of computational tools. The platform facilitates
+    scientific collaboration by allowing researchers to discover validated, ready-to-use
+    analytical workflows, reducing duplication of effort and accelerating research
+    discovery. With built-in execution engines and cloud integration capabilities,
+    Dockstore supports scalable workflow execution on local clusters, cloud platforms,
+    and high-performance computing systems, making advanced bioinformatics accessible
+    to researchers regardless of their computational expertise.
   requires_registration: false
   url: https://dockstore.org/
 - id: B2AI_STANDARD:712
@@ -13692,8 +13683,7 @@ data_standardortools_collection:
   formal_specification: https://github.com/simonw/datasette
   is_open: true
   name: Datasette
-  purpose_detail: >-
-    Datasette is a comprehensive open-source tool ecosystem designed
+  purpose_detail: 'Datasette is a comprehensive open-source tool ecosystem designed
     for exploring, analyzing, and publishing data through an intuitive web interface
     and accompanying JSON API. Created by Simon Willison, Datasette transforms data
     of any shape into interactive websites that enable users to perform exploratory
@@ -13709,7 +13699,7 @@ data_standardortools_collection:
     data access control, and offers extensive customization options through its plugin
     architecture. Datasette serves data journalists, museum curators, archivists,
     local governments, scientists, researchers, and anyone seeking to make their data
-    more accessible and discoverable through web-based interfaces.
+    more accessible and discoverable through web-based interfaces.'
   requires_registration: false
   url: https://datasette.io/
 - id: B2AI_STANDARD:755
@@ -13776,12 +13766,11 @@ data_standardortools_collection:
   description: DigitalOcean
   is_open: false
   name: DigitalOcean
-  purpose_detail: >-
-    DigitalOcean is a comprehensive cloud infrastructure platform that
-    provides scalable computing resources designed to simplify cloud deployment
-    for developers, startups, and enterprises. The platform offers a complete suite
-    of cloud services including Droplets (virtual machines), Kubernetes clusters,
-    App Platform for application deployment, managed databases, object storage (Spaces),
+  purpose_detail: DigitalOcean is a comprehensive cloud infrastructure platform that
+    provides scalable computing resources designed to simplify cloud deployment for
+    developers, startups, and enterprises. The platform offers a complete suite of
+    cloud services including Droplets (virtual machines), Kubernetes clusters, App
+    Platform for application deployment, managed databases, object storage (Spaces),
     load balancers, and specialized AI/ML infrastructure including GPU-powered Droplets
     with NVIDIA H100, H200, and AMD MI325X accelerators. DigitalOcean distinguishes
     itself through developer-friendly interfaces, predictable pricing without bandwidth
@@ -13789,8 +13778,8 @@ data_standardortools_collection:
     The platform serves over 600,000 customers ranging from individual developers
     to large enterprises, offering both self-service infrastructure management and
     managed services with premium support options. DigitalOcean's global data center
-    network provides 99.99% uptime SLAs and supports diverse use cases including
-    web hosting, application development, AI inference workloads, container orchestration,
+    network provides 99.99% uptime SLAs and supports diverse use cases including web
+    hosting, application development, AI inference workloads, container orchestration,
     and data processing pipelines, making it particularly attractive for cost-conscious
     organizations seeking reliable cloud infrastructure without the complexity of
     larger cloud providers.
@@ -13873,11 +13862,11 @@ data_standardortools_collection:
     the optimal number of neighbors (k) based on target transcript counts and identifies
     significant principal components using variance fold-thresholding against simulated
     noise datasets. ENHANCE processes UMI-count matrices in tab-separated format,
-    supports gzip compression, and provides configurable parameters for neighbor
-    selection, PC threshold determination, and precision control. The tool enhances
-    downstream analyses such as clustering, trajectory inference, and differential
-    expression by reducing technical artifacts while maintaining cell type distinctions
-    and biological relationships in single-cell transcriptomic data.
+    supports gzip compression, and provides configurable parameters for neighbor selection,
+    PC threshold determination, and precision control. The tool enhances downstream
+    analyses such as clustering, trajectory inference, and differential expression
+    by reducing technical artifacts while maintaining cell type distinctions and biological
+    relationships in single-cell transcriptomic data.
   requires_registration: false
 - id: B2AI_STANDARD:763
   category: B2AI_STANDARD:SoftwareOrTool
@@ -14248,16 +14237,15 @@ data_standardortools_collection:
   is_open: true
   name: khmer
   publication: doi:10.12688/f1000research.6924.1
-  purpose_detail: >-
-    khmer is a free, open-source software library and suite of command-line
+  purpose_detail: khmer is a free, open-source software library and suite of command-line
     tools for efficient analysis of high-throughput DNA sequencing data, including
     genomes, transcriptomes, metagenomes, and single-cell datasets. It implements
-    advanced algorithms for probabilistic k-mer counting, digital normalization,
-    compressible De Bruijn graph representation, and graph partitioning, enabling
-    scalable de novo assembly, error correction, and data reduction. khmer is designed
-    for use in UNIX environments and is supported by extensive documentation, community
-    protocols, and integration with popular bioinformatics workflows. It is widely
-    used for preprocessing and quality control in large-scale sequencing projects.
+    advanced algorithms for probabilistic k-mer counting, digital normalization, compressible
+    De Bruijn graph representation, and graph partitioning, enabling scalable de novo
+    assembly, error correction, and data reduction. khmer is designed for use in UNIX
+    environments and is supported by extensive documentation, community protocols,
+    and integration with popular bioinformatics workflows. It is widely used for preprocessing
+    and quality control in large-scale sequencing projects.
   related_to:
   - B2AI_STANDARD:183
   requires_registration: false
@@ -15054,9 +15042,8 @@ data_standardortools_collection:
   formal_specification: https://github.com/snorkel-team/snorkel
   is_open: false
   name: Snorkel
-  purpose_detail: >-
-    Snorkel is a platform for automated data labeling. It has since been
-    extended into a full machine learning platform (see https://snorkel.ai/).
+  purpose_detail: Snorkel is a platform for automated data labeling. It has since
+    been extended into a full machine learning platform (see https://snorkel.ai/).
   requires_registration: true
   url: https://www.snorkel.org/
   collection:
@@ -15148,9 +15135,9 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: TES
-  purpose_detail: The Task Execution Service (TES) API is a proposed standard for describing
-    and executing tasks in a platform-agnostic way. Includes a TES API validator and
-    a Task Execution API specification.
+  purpose_detail: The Task Execution Service (TES) API is a proposed standard for
+    describing and executing tasks in a platform-agnostic way. Includes a TES API
+    validator and a Task Execution API specification.
   requires_registration: false
   url: https://ga4gh.github.io/task-execution-schemas/docs/
 - id: B2AI_STANDARD:831
@@ -15172,9 +15159,8 @@ data_standardortools_collection:
   is_open: true
   name: TF
   purpose_detail: TensorFlow is an end-to-end open source platform for machine learning.
-    It has an ecosystem of tools, libraries and community resources
-    that lets researchers and developers easily build
-    and deploy ML powered applications.
+    It has an ecosystem of tools, libraries and community resources that lets researchers
+    and developers easily build and deploy ML powered applications.
   related_to:
   - B2AI_STANDARD:354
   requires_registration: false
@@ -15252,8 +15238,8 @@ data_standardortools_collection:
   is_open: true
   name: TRS
   purpose_detail: A proposed standard for sharing and discovering tools and workflows
-    in a platform-agnostic way. Includes a Tool Registry Search validator and
-    a Tool Discovery API specification.
+    in a platform-agnostic way. Includes a Tool Registry Search validator and a Tool
+    Discovery API specification.
   requires_registration: false
   url: https://ga4gh.github.io/tool-registry-service-schemas/
 - id: B2AI_STANDARD:836
@@ -15531,7 +15517,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Fast Healthcare Interoperability Resources - US Core
   has_relevant_organization:
-  - B2AI_ORG:40
   - B2AI_ORG:103
   - B2AI_ORG:117
   has_training_resource:
@@ -15563,7 +15548,6 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Fast Healthcare Interoperability Resources - US Core Data for Interoperability
   has_relevant_organization:
-  - B2AI_ORG:40
   - B2AI_ORG:103
   has_training_resource:
   - B2AI_STANDARD:845
@@ -15596,7 +15580,6 @@ data_standardortools_collection:
   description: Fast Healthcare Interoperability Resources - US Core Data for Interoperability,
     version 1
   has_relevant_organization:
-  - B2AI_ORG:40
   - B2AI_ORG:103
   - B2AI_ORG:117
   has_training_resource:
@@ -15630,7 +15613,6 @@ data_standardortools_collection:
   description: Fast Healthcare Interoperability Resources - US Core Data for Interoperability,
     version 4
   has_relevant_organization:
-  - B2AI_ORG:40
   - B2AI_ORG:103
   - B2AI_ORG:117
   has_training_resource:
@@ -15785,20 +15767,19 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:8
   is_open: true
   name: Polars
-  purpose_detail: Polars is a high-performance DataFrame library written in Rust
-    with bindings for Python, Node.js, and R, designed as a fast alternative to
-    pandas. The library features a multi-threaded query engine with lazy evaluation,
-    query optimization, and streaming capabilities for processing larger-than-RAM
-    datasets. Polars utilizes Apache Arrow columnar format for zero-copy data sharing
-    and SIMD vectorization for cache-coherent algorithms. It supports both eager
-    and lazy execution modes, with the lazy API enabling automatic query optimization
-    and parallel execution across CPU cores. The library handles diverse data formats
-    including CSV, JSON, Parquet, Delta Lake, AVRO, Excel, and direct database connections
-    to MySQL, PostgreSQL, SQLite, and cloud storage systems. Polars provides an
-    intuitive expression API for data manipulation operations while maintaining
-    minimal dependencies and fast import times (70ms vs 520ms for pandas), making
-    it suitable for data analysis, ETL pipelines, and analytical workloads requiring
-    high performance.
+  purpose_detail: Polars is a high-performance DataFrame library written in Rust with
+    bindings for Python, Node.js, and R, designed as a fast alternative to pandas.
+    The library features a multi-threaded query engine with lazy evaluation, query
+    optimization, and streaming capabilities for processing larger-than-RAM datasets.
+    Polars utilizes Apache Arrow columnar format for zero-copy data sharing and SIMD
+    vectorization for cache-coherent algorithms. It supports both eager and lazy execution
+    modes, with the lazy API enabling automatic query optimization and parallel execution
+    across CPU cores. The library handles diverse data formats including CSV, JSON,
+    Parquet, Delta Lake, AVRO, Excel, and direct database connections to MySQL, PostgreSQL,
+    SQLite, and cloud storage systems. Polars provides an intuitive expression API
+    for data manipulation operations while maintaining minimal dependencies and fast
+    import times (70ms vs 520ms for pandas), making it suitable for data analysis,
+    ETL pipelines, and analytical workloads requiring high performance.
   requires_registration: false
   url: https://www.pola.rs/
 - id: B2AI_STANDARD:863
@@ -15883,19 +15864,19 @@ data_standardortools_collection:
   name: Frictionless
   purpose_detail: Frictionless data standards provide a comprehensive suite of lightweight,
     extensible specifications for describing datasets, data files, and tabular data
-    to enhance FAIR (Findability, Accessibility, Interoperability, Reusability)
-    principles. The core specifications include Data Package for dataset-level metadata
-    and resource collections, Data Resource for individual file descriptions, and
-    Table Schema for tabular data structure definition with field types, constraints,
-    and relationships. These specifications combine to create specialized formats
-    like Tabular Data Packages that integrate CSV/JSON data with JSON Schema-based
-    metadata descriptors. The standards follow a "small pieces, loosely joined"
-    philosophy, enabling individual components to be used independently or combined
-    for complex data scenarios. They support cross-technology implementation with
-    human-readable JSON metadata that facilitates machine processing, data validation,
-    and automated discovery. The specifications enable data portability, version
-    control, and collaborative data workflows while maintaining compatibility with
-    existing data formats and tools in the data science ecosystem.
+    to enhance FAIR (Findability, Accessibility, Interoperability, Reusability) principles.
+    The core specifications include Data Package for dataset-level metadata and resource
+    collections, Data Resource for individual file descriptions, and Table Schema
+    for tabular data structure definition with field types, constraints, and relationships.
+    These specifications combine to create specialized formats like Tabular Data Packages
+    that integrate CSV/JSON data with JSON Schema-based metadata descriptors. The
+    standards follow a "small pieces, loosely joined" philosophy, enabling individual
+    components to be used independently or combined for complex data scenarios. They
+    support cross-technology implementation with human-readable JSON metadata that
+    facilitates machine processing, data validation, and automated discovery. The
+    specifications enable data portability, version control, and collaborative data
+    workflows while maintaining compatibility with existing data formats and tools
+    in the data science ecosystem.
   requires_registration: false
   url: https://specs.frictionlessdata.io/
 - id: B2AI_STANDARD:869
@@ -16054,7 +16035,24 @@ data_standardortools_collection:
   is_open: true
   name: MI-CLAIM
   publication: doi:10.1038/s41591-020-1041-y
-  purpose_detail: MI-CLAIM (Minimum Information about CLinical AI Modeling) is a reporting standard and documentation checklist developed to address transparency and reproducibility challenges in clinical artificial intelligence research, published in Nature Medicine in 2020 by a multidisciplinary team of clinical and data scientists. MI-CLAIM serves two primary purposes - enabling direct assessment of clinical impact including fairness considerations, and allowing rapid replication of the technical design process for clinical AI studies. The standard provides a comprehensive checklist in MS Word table format covering essential reporting elements including study design and data characteristics (patient demographics, inclusion/exclusion criteria, data sources, temporal validation), model development details (feature engineering, architecture selection, hyperparameter tuning, training procedures), performance evaluation (metrics across demographic subgroups, confidence intervals, comparison to clinical standards), clinical implementation considerations (decision thresholds, interpretability mechanisms, failure modes), and ethical aspects (bias assessment, fairness metrics, regulatory status). The repository encourages community feedback through GitHub Issues to continuously improve the standard as the field evolves, promoting best practices for transparent, reproducible, and equitable clinical AI development and deployment across healthcare applications.
+  purpose_detail: MI-CLAIM (Minimum Information about CLinical AI Modeling) is a reporting
+    standard and documentation checklist developed to address transparency and reproducibility
+    challenges in clinical artificial intelligence research, published in Nature Medicine
+    in 2020 by a multidisciplinary team of clinical and data scientists. MI-CLAIM
+    serves two primary purposes - enabling direct assessment of clinical impact including
+    fairness considerations, and allowing rapid replication of the technical design
+    process for clinical AI studies. The standard provides a comprehensive checklist
+    in MS Word table format covering essential reporting elements including study
+    design and data characteristics (patient demographics, inclusion/exclusion criteria,
+    data sources, temporal validation), model development details (feature engineering,
+    architecture selection, hyperparameter tuning, training procedures), performance
+    evaluation (metrics across demographic subgroups, confidence intervals, comparison
+    to clinical standards), clinical implementation considerations (decision thresholds,
+    interpretability mechanisms, failure modes), and ethical aspects (bias assessment,
+    fairness metrics, regulatory status). The repository encourages community feedback
+    through GitHub Issues to continuously improve the standard as the field evolves,
+    promoting best practices for transparent, reproducible, and equitable clinical
+    AI development and deployment across healthcare applications.
   requires_registration: false
 - id: B2AI_STANDARD:878
   category: B2AI_STANDARD:DataStandardOrTool
@@ -16692,14 +16690,15 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: "Tutorial: Developing and Evaluating Your Extract, Transform, Load (ETL) Process to the OMOP CDM"
+  description: 'Tutorial: Developing and Evaluating Your Extract, Transform, Load
+    (ETL) Process to the OMOP CDM'
   has_relevant_organization:
   - B2AI_ORG:76
   is_open: true
   name: OHDSI 2024 Global Symposium ETL Tutorial
-  purpose_detail: >-
-    In this video tutorial, students will learn about the tools and practices developed by the OHDSI
-    community to support the journey to establish and maintain an ETL to standardize your data to
-    OMOP CDM and enable standardized evidence generation across a data network.
+  purpose_detail: In this video tutorial, students will learn about the tools and
+    practices developed by the OHDSI community to support the journey to establish
+    and maintain an ETL to standardize your data to OMOP CDM and enable standardized
+    evidence generation across a data network.
   requires_registration: false
   url: https://www.youtube.com/watch?v=H69dC7f-edQ
