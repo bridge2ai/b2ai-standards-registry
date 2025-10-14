@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'project/data/*.json'
+  workflow_dispatch:
 
 jobs:
   update_synapse_tables:
@@ -45,7 +46,7 @@ jobs:
         run: |
           if [ -n "${{ env.CHANGED_FILES }}" ]; then
             poetry run b2aisr update-synapse  ${{ env.CHANGED_FILES }}
-            poetry run b2aisr create-denormalized-tables --specific-tables DST_denormalized
+            poetry run b2aisr create-denormalized-tables   # --specific-tables DST_denormalized
           else
             echo "No relevant json files changed."
           fi
