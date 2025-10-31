@@ -97,8 +97,12 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
             if table['name'] == table_name:
                 if table_id:
                     if table['id'] != table_id:
-                        raise Exception(
-                            f"got table_id mismatch for {table_name}: {table['id']} != {table_id}")
+                        table_id_list = table_id.split('.')
+                        table_id = table_id_list[0]
+                        table_version = table_id_list[1] if table_id_list[1] else None
+                        if table_version is None:
+                            raise Exception(
+                                f"got table_id mismatch for {table_name}: {table['id']} != {table_id}")
                 else:
                     table_id = table['id']
                 query_result = syn.tableQuery(f"SELECT * FROM {table_id}")
@@ -118,5 +122,9 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     table_id = table_id or table.get('id', table.get('tableId'))
     if not table_id:
         raise f"Couldn't find table_id for {table_name}"
-    syn.create_snapshot_version(table_id)
+    try:
+        syn.create_snapshot_version(table_id)
+    except Exception as e:
+        print(f"Error creating new version of table {table_name}: {e}\nRetrying...")
+        table_id = table_id.split('.')[0]
     print(f"Created table: {table.schema.name} ({table.tableId})")
