@@ -91,6 +91,10 @@ DEST_TABLES = {
              'dest_cols': [
                  { 'name': 'description', 'alias': 'responsibleOrgDatasetDescriptions', 'columnType': 'LARGETEXT'},
              ]},
+			 {'join_tbl': 'DataSet_denormalized', 'base_tbl_col': 'responsible_organization', 'join_tbl_col': 'producedByOrgId',
+             'dest_cols': [
+                 { 'name': 'topics', 'alias': 'responsibleOrgDatasetTopics', 'columnType': 'LARGETEXT'},
+             ]},
 			 {'join_tbl': 'DataSet_denormalized', 'base_tbl_col': 'has_relevant_organization', 'join_tbl_col': 'producedByOrgId',
              'dest_cols': [
                  { 'name': 'description', 'alias': 'relevantOrgDatasetDescriptions', 'columnType': 'LARGETEXT'},
