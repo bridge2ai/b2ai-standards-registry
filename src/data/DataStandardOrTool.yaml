@@ -14599,9 +14599,33 @@ data_standardortools_collection:
   is_open: true
   name: Synapse
   publication: doi:10.2139/ssrn.3502410
-  purpose_detail: Synapse is a set of web services and tools that make it easier for
-    researchers to aggregate, organize, analyze, and share scientific data, code,
-    and insights.
+  purpose_detail: Synapse is a collaborative research platform developed by Sage Bionetworks
+    that provides web services and tools for aggregating, organizing, analyzing,
+    and sharing scientific data, code, and insights across biomedical research communities.
+    The platform implements a comprehensive data management infrastructure through
+    its Repository Services, offering RESTful JSON APIs for entity management, file
+    storage, versioning, and access control. Core functionality includes hierarchical
+    project organization with entities such as Projects, Folders, Files, Tables,
+    and Views that support structured data organization and metadata annotation. Synapse
+    provides advanced data access control through Access Requirements and Access Approvals,
+    enabling researchers to implement controlled access policies including ACTAccessRequirement
+    for managed access to sensitive data. The platform supports collaborative research
+    through Teams, subscription services for change notifications, messaging capabilities,
+    and wiki documentation integrated with research artifacts. Data governance features
+    include a Qualified Research Program that balances broad researcher access with
+    participant protections, research project management for data access requests,
+    and submission workflows for access review by the Access and Compliance Team
+    (ACT). Technical capabilities include multi-part file uploads, version tracking
+    with provenance through Activity records, search indexing using OpenSearch for
+    entity discovery, DOI minting for permanent identifiers, and integration with
+    OAuth2 authentication and OpenID Connect. Synapse implements the GA4GH DRS (Data
+    Repository Service) API specification for standardized data access, supports
+    tabular data through Table entities with SQL-like querying, and provides form-based
+    data collection with review workflows. The platform serves as infrastructure
+    for open science initiatives, enabling data sharing while encoding contractual
+    protections for research participants, and has been deployed in numerous biomedical
+    studies including mHealth research such as the mPower Parkinson disease observational
+    study.
   requires_registration: true
   url: https://www.synapse.org/
   used_in_bridge2ai: true
