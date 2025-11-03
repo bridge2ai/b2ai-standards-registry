@@ -10026,7 +10026,7 @@ data_standardortools_collection:
   name: XCO
   publication: doi:10.1186/2041-1480-4-26
   purpose_detail: Conditions under which physiological and morphological measurements
-    are made both in the clinic and in studies involving humans or model org...
+    are made both in the clinic and in studies involving humans or model organisms.
   requires_registration: false
   url: https://rgd.mcw.edu/rgdweb/ontology/view.html?acc_id=XCO:0000000
 - id: B2AI_STANDARD:447
@@ -13986,10 +13986,27 @@ data_standardortools_collection:
   formal_specification: https://github.com/minio/
   is_open: true
   name: MinIO
-  purpose_detail: S3 compatible object storage. Native to Kubernetes, MinIO is the
-    only object storage suite available on every public cloud, every Kubernetes distribution,
-    the private cloud and the edge. MinIO is software-defined and is 100% open source
-    under GNU AGPL v3.
+  purpose_detail: 'MinIO is a high-performance object storage system that implements
+    the Amazon S3 API for cloud-native environments. The system is designed as software-defined
+    storage and provides S3-compatible operations with reported latency under 10ms
+    and high throughput capabilities. MinIO is designed to run on Kubernetes and can
+    be deployed across public cloud platforms, private cloud infrastructure, and edge
+    environments. The architecture uses a distributed design that supports scaling
+    beyond traditional storage system limits, with deployment capabilities from single
+    servers to exabyte-scale installations using a single namespace. The platform
+    includes automated data management features such as self-healing, load balancing,
+    and data protection with erasure coding. Security features include encryption
+    at rest and in transit, identity and access management integration, and policy-based
+    access controls. MinIO is used in AI and machine learning workflows, providing
+    storage integration with frameworks like PyTorch and data lakehouse technologies
+    including Apache Iceberg. The system supports data lakehouse analytics engines
+    such as Apache Spark and Trino for structured and unstructured data processing.
+    Client libraries are available for multiple programming languages including Go,
+    Python, Java, .NET, Rust, and JavaScript. Associated tools include mc (command-line
+    client for object operations), DirectPV (a Kubernetes CSI driver), and a Kubernetes
+    operator for cluster deployment and management. The source code is released under
+    the GNU AGPLv3 license. The project reports over 2 billion downloads and maintains
+    an active development community with more than 50,000 stars on GitHub.'
   requires_registration: false
   url: https://min.io/
 - id: B2AI_STANDARD:792
@@ -14039,9 +14056,29 @@ data_standardortools_collection:
   is_open: true
   name: MLPro
   publication: doi:10.1016/j.simpa.2022.100421
-  purpose_detail: Embeds flexible and recombinable ML models into standardized processes
-    for training and real operations. In addition, it integrates numerous common open
-    source frameworks and thus standardizes their use.
+  purpose_detail: 'MLPro (Machine Learning Professional) is a middleware framework
+    for standardized machine learning development in Python. The framework provides
+    an object-oriented architecture that enables the integration and standardization
+    of multiple machine learning paradigms through reusable process models and templates.
+    MLPro consists of several sub-frameworks organized as modules: MLPro-BF (Basic
+    Functions) provides cross-sectional infrastructure including mathematics, data
+    management, plotting capabilities, and logging; MLPro-SL supports supervised
+    learning workflows; MLPro-RL implements reinforcement learning processes; MLPro-GT
+    covers game theory applications; and MLPro-OA focuses on online adaptive machine
+    learning. The architecture uses standardized interfaces that allow ML models to
+    be embedded into training pipelines and operational workflows in a modular fashion.
+    The framework integrates with external machine learning libraries including River
+    (for online learning), scikit-learn (for supervised learning), and OpenML (for
+    dataset and experiment management), providing wrappers that standardize their
+    usage within MLPro processes. Development follows object-oriented design principles
+    with test-driven development for quality assurance and continuous integration/deployment
+    (CI/CD) practices. The framework includes an extension hub for third-party integrations,
+    comprehensive documentation with API references, and an example pool demonstrating
+    various use cases. MLPro supports hybrid ML applications that combine multiple
+    learning paradigms and real-time adaptive systems. The project is developed and
+    maintained by the Group for Automation Technology and Learning Systems at South
+    Westphalia University of Applied Sciences in Germany. The source code is released
+    under the Apache 2.0 license and is available through PyPI for installation.'
   requires_registration: false
   url: https://mlpro.readthedocs.io/
 - id: B2AI_STANDARD:795
@@ -14906,8 +14943,33 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: WES
-  purpose_detail: Standard for submitting workflow requests to workflow execution
-    systems.
+  purpose_detail: The Workflow Execution Service (WES) is a GA4GH standard API specification
+    that provides a platform-agnostic approach for submitting and monitoring workflow
+    execution across different computational environments. WES enables researchers
+    to run standardized workflows, currently supporting Common Workflow Language
+    (CWL) and Workflow Description Language (WDL) formats, on multiple platforms,
+    clouds, and execution systems using a consistent interface. The API specification
+    is written in OpenAPI and embodies RESTful service principles, using JSON for
+    requests and responses with standard HTTP/HTTPS transport. Core functionality
+    includes workflow submission with parameter passing, run status monitoring through
+    detailed logs capturing stdout and stderr output, task-level execution tracking
+    with timing and exit codes, and workflow cancellation capabilities. WES addresses
+    critical use cases such as "bring your code to the data" scenarios where researchers
+    submit custom analyses to run on externally-owned datasets without data transfer,
+    and best-practices pipeline execution where researchers discover workflows from
+    shared repositories like Dockstore and execute them over controlled data environments.
+    The service implements OAuth2 bearer token authentication and authorization,
+    with implementations responsible for verifying user credentials and enforcing
+    submission policies. WES provides comprehensive service introspection through
+    its service-info endpoint, reporting supported workflow types, versions, filesystem
+    protocols, workflow engines, and system state information. The API supports paginated
+    listing of workflow runs, detailed run logs with output file locations, and granular
+    task-level monitoring. Run states include QUEUED, INITIALIZING, RUNNING, COMPLETE,
+    EXECUTOR_ERROR, SYSTEM_ERROR, CANCELED, and PREEMPTED, enabling detailed tracking
+    of workflow execution lifecycle. As a GA4GH standard, WES promotes interoperability
+    across bioinformatics workflow execution platforms and supports integration with
+    related GA4GH standards including the Data Object Service for credential management
+    and the Task Execution Service for extended task definitions.
   requires_registration: false
   url: https://ga4gh.github.io/workflow-execution-service-schemas/docs/
 - id: B2AI_STANDARD:842
