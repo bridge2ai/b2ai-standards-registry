@@ -2,7 +2,7 @@
 
 The Standards Explorer is part of [**Bridge2AI**](https://bridge2ai.org/), a consortium supported by the National Institute of Health Common Fund. Bridge2AI aims to propel biomedical research forward by setting the stage for widespread adoption of artificial intelligence (AI) that tackles complex biomedical challenges beyond human intuition. See the [official site](https://bridge2ai.org/) or [this NIH page](https://commonfund.nih.gov/bridge2ai) for more details on Bridge2AI.
 
-The Explorer is built and maintained by the [Bridge2AI Standards Working Group](https://bridge2ai.org/standards-practices-and-quality-assessment/). The Standards Working Group is focused on developing strategies to support generation of standardized, interoperable, and machine-readable data from biomedical research.
+The Explorer is built and maintained by the [Bridge2AI Standards Working Group](https://bridge2ai.org/people-standards/). The Standards Working Group is focused on developing strategies to support generation of standardized, interoperable, and machine-readable data from biomedical research.
 
 ## What is the Explorer for?
 
