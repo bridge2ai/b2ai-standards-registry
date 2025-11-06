@@ -255,7 +255,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
             for dest_col in join_config['dest_cols']:
                 faceted = dest_col.get('faceted', False)
 
-                col_def = create_join_column(base_table_name, base_df, join_df, base_tbl_col, join_tbl_col, join_config, dest_col, dest_df)
+                col_def = create_join_column(base_table_name, base_df, join_df, base_tbl_col, join_tbl_col, join_config, dest_col)
 
                 if col_def:
                     col_def['faceted'] = faceted
@@ -363,8 +363,7 @@ def create_join_column(
   base_tbl_col: str,
   join_tbl_col: str,
   join_config: Dict[str, Any],
-  dest_col: Dict[str, Any],
-  dest_df: pd.DataFrame
+  dest_col: Dict[str, Any]
 ) -> Dict[str, Any]:
     """
     Create a column containing lists of values or JSON objects from a join table.
@@ -393,7 +392,6 @@ def create_join_column(
     :param dest_col: Dictionary defining the output column, with:
                      - 'name': the field in join_df to extract
                      - 'alias': the name to assign to the new output column
-    :param dest_df: The current destination DataFrame
     :return: Dictionary with keys:
              - 'src': source join table name
              - 'name': name of the field used from the join table
@@ -443,8 +441,6 @@ def create_join_column(
              - 'col': Synapse Column definition (type JSON)
              - 'data': list of JSON-like structures (one per base row)
     """
-    if re.match(r'_', base_tbl_col) is None:
-        base_df = dest_df
 
     column_name = dest_col['alias']
     reverse_lookup = join_config.get('reverse_lookup', False)  # <- Moved here!
@@ -553,14 +549,6 @@ def create_join_column(
 
             if matching_rows.empty:
                 return []
-
-            # Attach the matched ids for each matching row (list), keeping behaviour similar to prior code
-            def matched_ids_for_row(val):
-                if isinstance(val, list):
-                    return [i for i in ids if i in val]
-                return [val] if val in ids else []
-
-            matching_rows['id'] = matching_rows[join_tbl_col].apply(matched_ids_for_row)
 
             if is_json_column:
                 return create_json_objects(matching_rows)
