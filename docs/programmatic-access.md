@@ -84,6 +84,52 @@ curl -X POST https://repo-prod.prod.sagebase.org/repo/v1/entity/syn65676531/tabl
 
 ## Python Access
 
+### Simplest Example (requests library)
+
+Here's the most minimal example to search the Standards Explorer:
+
+```python
+import requests
+import time
+
+def search_standards(search_term):
+    """Simple function to search standards by name."""
+    # Start query
+    response = requests.post(
+        "https://repo-prod.prod.sagebase.org/repo/v1/entity/syn63096833/table/query/async/start",
+        json={
+            "concreteType": "org.sagebionetworks.repo.model.table.QueryBundleRequest",
+            "entityId": "syn63096833",
+            "query": {"sql": f"SELECT id, name, description FROM syn63096833 WHERE name LIKE '%{search_term}%' LIMIT 10"},
+            "partMask": 29
+        },
+        headers={"Content-Type": "application/json"}
+    )
+    token = response.json()["token"]
+    
+    # Wait for results
+    while True:
+        result = requests.get(
+            f"https://repo-prod.prod.sagebase.org/repo/v1/entity/syn63096833/table/query/async/get/{token}",
+            headers={"Content-Type": "application/json"}
+        )
+        if result.status_code != 202:  # 202 = still processing
+            return result.json()["queryResult"]["queryResults"]["rows"]
+        time.sleep(1)
+
+# Use it
+for row in search_standards("FHIR"):
+    values = row["values"]
+    print(f"{values[0]}: {values[1]}")
+
+# Output:
+# B2AI_STANDARD:109: FHIR
+# B2AI_STANDARD:845: CDC Introduction to FHIR
+# B2AI_STANDARD:846: FHIR Drills
+```
+
+**Note:** The Synapse API requires an async query pattern (start query → poll for results), but the above function wraps this complexity for you.
+
 ### Using httpx (Async)
 
 This example shows how to query the API without the Synapse Python client:
