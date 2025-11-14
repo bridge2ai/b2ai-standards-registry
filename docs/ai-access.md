@@ -30,10 +30,10 @@ The MCP server requires Python 3.9+ and can be installed using `uv` or `pip`:
 
 ```bash
 # Using uv (recommended)
-uv pip install git+https://github.com/bridge2ai/standards-explorer-mcp.git
+uv pip install standards-explorer-mcp
 
 # Or using pip
-pip install git+https://github.com/bridge2ai/standards-explorer-mcp.git
+pip install standards-explorer-mcp
 ```
 
 ## Using the MCP with Agentic Frameworks
@@ -54,11 +54,7 @@ Claude Desktop has native MCP support. To add the Standards Explorer:
   "mcpServers": {
     "standards-explorer": {
       "command": "uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/bridge2ai/standards-explorer-mcp.git",
-        "standards-explorer-mcp"
-      ]
+      "args": ["standards-explorer-mcp"]
     }
   }
 }
@@ -68,6 +64,75 @@ Claude Desktop has native MCP support. To add the Standards Explorer:
 
 4. **Verify it's working:** Look for the 🔌 icon in Claude Desktop, or ask Claude:
    > "Can you search the Bridge2AI Standards Explorer for FHIR standards?"
+
+### Using with VSCode (GitHub Copilot Chat)
+
+VSCode with GitHub Copilot supports MCP servers through the Copilot Chat interface.
+
+1. **Install the MCP extension for VSCode:**
+   - Open VSCode Extensions (Ctrl+Shift+X / Cmd+Shift+X)
+   - Search for "Model Context Protocol"
+   - Install the MCP extension
+
+2. **Configure the MCP server:**
+   - Open VSCode Settings (Ctrl+, / Cmd+,)
+   - Search for "MCP Servers"
+   - Add the Standards Explorer configuration:
+
+```json
+{
+  "mcp.servers": {
+    "standards-explorer": {
+      "command": "uvx",
+      "args": ["standards-explorer-mcp"]
+    }
+  }
+}
+```
+
+3. **Restart VSCode**
+
+4. **Use in Copilot Chat:** Open Copilot Chat (Ctrl+Alt+I / Cmd+Option+I) and ask:
+   > "@standards-explorer Find standards related to FHIR"
+
+**Note:** MCP support in VSCode/GitHub Copilot may require specific versions or preview features. Check the [GitHub Copilot documentation](https://docs.github.com/en/copilot) for the latest information.
+
+### Using with Goose
+
+[Goose](https://github.com/square/goose) is an AI developer agent that runs in your terminal. It has native MCP support.
+
+1. **Install Goose:**
+```bash
+# Install via pip
+pip install goose-ai
+
+# Or via homebrew (macOS)
+brew install goose-ai
+```
+
+2. **Configure the MCP server:**
+
+Create or edit `~/.config/goose/config.yaml`:
+
+```yaml
+mcp_servers:
+  standards-explorer:
+    command: uvx
+    args:
+      - standards-explorer-mcp
+```
+
+3. **Run Goose:**
+```bash
+goose session start
+```
+
+4. **Use the Standards Explorer:** In the Goose session, ask:
+   > "Use the standards-explorer to find genomics standards"
+   
+   > "Query the Bridge2AI Standards Explorer for HL7 standards"
+
+Goose will automatically use the MCP server to access the Standards Explorer data.
 
 ### Using with Other AI Applications
 
@@ -330,7 +395,7 @@ The server separates business logic from MCP decorators for easy testing and mai
 - Check that `uvx` is installed: `uv --version`
 - Verify the config file syntax is valid JSON
 - Check Claude Desktop logs for error messages
-- Try running `uvx --from git+https://github.com/bridge2ai/standards-explorer-mcp.git standards-explorer-mcp` manually
+- Try running `uvx standards-explorer-mcp` manually to test
 
 ### No Tools Appearing
 
