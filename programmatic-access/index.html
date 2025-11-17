@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://bridge2ai.github.io/b2ai-standards-registry/manifest/">
+        <link rel="canonical" href="https://bridge2ai.github.io/b2ai-standards-registry/programmatic-access/">
       
       
-        <link rel="prev" href="../ai-access/">
+        <link rel="prev" href="../curation/">
       
       
-        <link rel="next" href="../UseCase/">
+        <link rel="next" href="../ai-access/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Data Manifest - Bridge2AI Standards Registry</title>
+        <title>Programmatic Access - Bridge2AI Standards Registry</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bridge2ai-data-manifest" class="md-skip">
+        <a href="#programmatic-access-to-the-standards-explorer" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Manifest
+              Programmatic Access
             
           </span>
         </div>
@@ -323,10 +323,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../programmatic-access/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Programmatic Access
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -337,6 +359,260 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rest-api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      REST API Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="REST API Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-query-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic Query Structure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-query-standards-table-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Query Standards Table (cURL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-search-by-name-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Search by Name (cURL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-query-denormalized-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example: Query Denormalized Table
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python Access
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simplest-example-requests-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simplest Example (requests library)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-httpx-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using httpx (Async)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-requests-synchronous" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using requests (Synchronous)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-synapse-python-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the Synapse Python Client
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-synapse-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using the Synapse CLI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-query-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Query Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Query Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-available-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      List Available Topics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-by-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search by Topic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-by-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search by Organization
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-by-data-substrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search by Data Substrate
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-by-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter by Category
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full-text Search
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-by-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filter by Properties
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-the-denormalized-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query the Denormalized Table
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rate-limits-and-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rate Limits and Best Practices
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Resources
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Support
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -367,32 +643,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Data Manifest
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../manifest/" class="md-nav__link">
         
   
   
@@ -403,62 +657,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#functional-genomics-grand-challenge" class="md-nav__link">
-    <span class="md-ellipsis">
-      Functional Genomics Grand Challenge
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#salutogenesis-grand-challenge" class="md-nav__link">
-    <span class="md-ellipsis">
-      Salutogenesis Grand Challenge
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#precision-public-health-grand-challenge" class="md-nav__link">
-    <span class="md-ellipsis">
-      Precision Public Health Grand Challenge
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aiml-for-clinical-care-grand-challenge" class="md-nav__link">
-    <span class="md-ellipsis">
-      AI/ML for Clinical Care Grand Challenge
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -4342,565 +4540,434 @@
   
 
 
-<h1 id="bridge2ai-data-manifest">Bridge2AI Data Manifest</h1>
-<p>This page provides a comprehensive manifest of all data subsets, standards, substrates, topics, and relevant anatomy used across the Bridge2AI consortium.</p>
-<p>Each data type is listed with its associated metadata and standards.</p>
-<div class="admonition tip">
-<p class="admonition-title">Table Features</p>
+<h1 id="programmatic-access-to-the-standards-explorer">Programmatic Access to the Standards Explorer</h1>
+<p>The Bridge2AI Standards Explorer data is hosted on <a href="https://www.synapse.org/">Sage Synapse</a> and is accessible through the Synapse REST API. All data tables are public, so <strong>no API key or authentication is required</strong> for read access.</p>
+<h2 id="overview">Overview</h2>
+<p>The Standards Explorer consists of several public Synapse tables:</p>
 <ul>
-<li>Click on any column header to sort the table</li>
-<li>Links are provided to standards, substrates, topics, and anatomy ontologies</li>
-<li>Icons indicate different types of metadata: 📋 Standards, 💾 Substrates, 🏷️ Topics, 🧬 Anatomy</li>
+<li><strong>DataStandardOrTool</strong> (<code>syn63096833</code>): Main table containing all standards, tools, and resources</li>
+<li><strong>DataTopics</strong> (<code>syn63096835</code>): Topics/domains that standards concern (e.g., EHR, Genomics, Image)</li>
+<li><strong>DataSubstrate</strong> (<code>syn63096834</code>): Data formats and structures (e.g., JSON, CSV, BIDS)</li>
+<li><strong>Organization</strong> (<code>syn63096836</code>): Organizations related to standards (e.g., HL7, W3C, CDISC)</li>
+<li><strong>DataStandardOrTool_denormalized</strong> (<code>syn65676531</code>): Flattened view for easier querying</li>
 </ul>
-</div>
-<h2 id="functional-genomics-grand-challenge">Functional Genomics Grand Challenge</h2>
-<div class="data-table">
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Description</th>
-<th>📋 Standards &amp; Tools</th>
-<th>💾 Substrates</th>
-<th>🏷️ Topics</th>
-<th>🧬 Anatomy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Cell maps</strong></td>
-<td>Cell maps of cellular systems.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td></td>
-<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>Cell line metadata</strong></td>
-<td>Cell line metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td></td>
-<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>AP-MS - Level 1</strong></td>
-<td>AP-MS raw signal and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td><a href="../substrates/mass-spectrometry-data/">B2AI_SUBSTRATE:58</a> (Mass Spectrometry Data)</td>
-<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell), <a href="../topics/Proteome/">B2AI_TOPIC:28</a> (Proteome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>AP-MS - Level 3</strong></td>
-<td>AP-MS peptide counts.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td><a href="../substrates/mass-spectrometry-data/">B2AI_SUBSTRATE:58</a> (Mass Spectrometry Data)</td>
-<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell), <a href="../topics/Proteome/">B2AI_TOPIC:28</a> (Proteome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>Confocal IF - Level 1</strong></td>
-<td>Confocal immunofluorescence cell imaging raw signal (pixel intensity) and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:344">B2AI_STANDARD:344</a> (JPEG), <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td><a href="../substrates/immunofluorescence-image/">B2AI_SUBSTRATE:56</a> (Immunofluorescence Image)</td>
-<td><a href="../topics/Cell/">B2AI_TOPIC:2</a> (Cell), <a href="../topics/MicroscaleImaging/">B2AI_TOPIC:19</a> (Microscale Imaging)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>CROP-seq - Level 1</strong></td>
-<td>CROP-seq raw signal (unaligned reads) and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:111">B2AI_STANDARD:111</a> (FASTQ), <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data)</td>
-<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>CROP-seq - Level 2</strong></td>
-<td>CROP-seq aligned reads and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:21">B2AI_STANDARD:21</a> (BAM/CRAM), <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data)</td>
-<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>CROP-seq - Level 3</strong></td>
-<td>CROP-seq gene counts and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data), <a href="../substrates/text/">B2AI_SUBSTRATE:43</a> (Text)</td>
-<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>CROP-seq protocol</strong></td>
-<td>CROP-seq assay attributes.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td></td>
-<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>CROP-seq sample metadata</strong></td>
-<td>CROP-seq sample attributes.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data), <a href="../substrates/comma-separated-values/">B2AI_SUBSTRATE:6</a> (Comma-separated values)</td>
-<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>CROP-seq QC</strong></td>
-<td>CROP-seq quality control metrics.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE)</td>
-<td><a href="../substrates/perturb-seq-data/">B2AI_SUBSTRATE:64</a> (Perturb-seq Data), <a href="../substrates/text/">B2AI_SUBSTRATE:43</a> (Text)</td>
-<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-<tr>
-<td><strong>Evidence</strong></td>
-<td>Evidence supporting predictions, modeled as provenance graphs.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:372">B2AI_STANDARD:372</a> (RO-CRATE), <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:444">B2AI_STANDARD:444</a> (EVI)</td>
-<td><a href="../substrates/json/">B2AI_SUBSTRATE:20</a> (JSON)</td>
-<td><a href="../topics/Transcriptome/">B2AI_TOPIC:34</a> (Transcriptome)</td>
-<td><a href="http://purl.obolibrary.org/obo/CLO_0000031">CLO:0000031</a> (cell line)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="salutogenesis-grand-challenge">Salutogenesis Grand Challenge</h2>
-<div class="data-table">
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Description</th>
-<th>📋 Standards &amp; Tools</th>
-<th>💾 Substrates</th>
-<th>🏷️ Topics</th>
-<th>🧬 Anatomy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>WGS - Level 1</strong></td>
-<td>Whole genome sequencing raw reads and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:111">B2AI_STANDARD:111</a> (FASTQ)</td>
-<td><a href="../substrates/dna-sequence-data/">B2AI_SUBSTRATE:61</a> (DNA Sequence Data)</td>
-<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>OCT</strong></td>
-<td>Optical coherence tomography (Retinal layer thickness measurements) and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/optical-coherence-tomography-data/">B2AI_SUBSTRATE:67</a> (Optical coherence tomography data)</td>
-<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a> (ocular fundus)</td>
-</tr>
-<tr>
-<td><strong>Near-IR ophthalmic imaging</strong></td>
-<td>Near-infrared ophthalmic imaging and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/retinal-image/">B2AI_SUBSTRATE:65</a> (Retinal Image)</td>
-<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a> (ocular fundus)</td>
-</tr>
-<tr>
-<td><strong>Retinal fundus imaging</strong></td>
-<td>Retinal fundus imaging and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/retinal-image/">B2AI_SUBSTRATE:65</a> (Retinal Image)</td>
-<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a> (ocular fundus)</td>
-</tr>
-<tr>
-<td><strong>OCTA</strong></td>
-<td>Optical coherence tomography angiography and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/optical-coherence-tomography-angiography-data/">B2AI_SUBSTRATE:68</a> (Optical coherence tomography angiography data)</td>
-<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a> (ocular fundus)</td>
-</tr>
-<tr>
-<td><strong>FLIO</strong></td>
-<td>Fluorescence lifetime imaging ophthalmoscopy and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/fluorescence-lifetime-imaging-ophthalmoscopy-data/">B2AI_SUBSTRATE:66</a> (Fluorescence Lifetime Imaging Ophthalmoscopy data)</td>
-<td><a href="../topics/OphthalmicImaging/">B2AI_TOPIC:24</a> (Ophthalmic Imaging)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0003951">UBERON:0003951</a> (ocular fundus)</td>
-</tr>
-<tr>
-<td><strong>Clinical visit</strong></td>
-<td>Data produced during clinical visits, including results of vision assessments.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243">B2AI_STANDARD:243</a> (OMOP CDM)</td>
-<td></td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/EyeDiseases/">B2AI_TOPIC:44</a> (Eye Diseases)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Clinical labs</strong></td>
-<td>Clinical laboratory measurements.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243">B2AI_STANDARD:243</a> (OMOP CDM)</td>
-<td></td>
-<td><a href="../topics/EHR/">B2AI_TOPIC:9</a> (EHR)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Survey data</strong></td>
-<td>Data from patient surveys, including social determinants of health (SDoH), diet, lifestyle, family history, and MoCA cognitive scores.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243">B2AI_STANDARD:243</a> (OMOP CDM), <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:821">B2AI_STANDARD:821</a> (REDCap)</td>
-<td><a href="../substrates/questionnaire-response-data/">B2AI_SUBSTRATE:80</a> (Questionnaire response data)</td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations)<br><a href="../topics/SDoH/">B2AI_TOPIC:29</a> (SDoH)<br><a href="../topics/Governance/">B2AI_TOPIC:40</a> (Governance)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Glucose levels</strong></td>
-<td>Patient glucose data from continuous monitoring over 10 days.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:246">B2AI_STANDARD:246</a> (Open mHealth)</td>
-<td><a href="../substrates/glucose-monitoring-data/">B2AI_SUBSTRATE:78</a> (Glucose monitoring data)</td>
-<td><a href="../topics/GlucoseMonitoring/">B2AI_TOPIC:38</a> (Glucose Monitoring)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000178">UBERON:0000178</a> (blood)</td>
-</tr>
-<tr>
-<td><strong>Activity levels</strong></td>
-<td>Patient activity data from continuous monitoring over 10 days.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:246">B2AI_STANDARD:246</a> (Open mHealth)</td>
-<td><a href="../substrates/physical-activity-data/">B2AI_SUBSTRATE:73</a> (Physical activity data), <a href="../substrates/caloric-burn-data/">B2AI_SUBSTRATE:74</a> (Caloric burn data)</td>
-<td><a href="../topics/ActivityMonitoring/">B2AI_TOPIC:39</a> (Activity Monitoring)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Heart rate</strong></td>
-<td>Patient heart rate data from continuous monitoring over 10 days.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:246">B2AI_STANDARD:246</a> (Open mHealth)</td>
-<td><a href="../substrates/heart-rate/">B2AI_SUBSTRATE:71</a> (Heart rate)</td>
-<td><a href="../topics/ActivityMonitoring/">B2AI_TOPIC:39</a> (Activity Monitoring)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000948">UBERON:0000948</a> (heart)</td>
-</tr>
-<tr>
-<td><strong>SpO2 levels</strong></td>
-<td>Patient blood oxygen saturation levels from continuous monitoring over 10 days.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:246">B2AI_STANDARD:246</a> (Open mHealth)</td>
-<td><a href="../substrates/oxygen-saturation/">B2AI_SUBSTRATE:72</a> (Oxygen saturation)</td>
-<td><a href="../topics/ActivityMonitoring/">B2AI_TOPIC:39</a> (Activity Monitoring), <a href="../topics/Respiration/">B2AI_TOPIC:46</a> (Respiration)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>ECG</strong></td>
-<td>Patient cardiac 12-lead electrocardiogram (waveform) data and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:202">B2AI_STANDARD:202</a> (WFDB Format)</td>
-<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
-<td><a href="../topics/Waveform/">B2AI_TOPIC:37</a> (Waveform)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000948">UBERON:0000948</a> (heart)</td>
-</tr>
-<tr>
-<td><strong>Environmental data</strong></td>
-<td>Patient environment and air quality data. Includes temperature, humidity, oxygen, particle, and other measures of the environment.</td>
-<td></td>
-<td></td>
-<td><a href="../topics/Environment/">B2AI_TOPIC:11</a> (Environment)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="precision-public-health-grand-challenge">Precision Public Health Grand Challenge</h2>
-<div class="data-table">
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Description</th>
-<th>📋 Standards &amp; Tools</th>
-<th>💾 Substrates</th>
-<th>🏷️ Topics</th>
-<th>🧬 Anatomy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>WGS - Level 1</strong></td>
-<td>Whole genome sequencing raw reads and metadata. Preserving/sharing unaligned reads (in same file as aligned reads) via CRAM.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:21">B2AI_STANDARD:21</a> (BAM/CRAM)</td>
-<td></td>
-<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>WGS - Level 2</strong></td>
-<td>Whole genome sequencing aligned reads and metadata. Preserving/sharing unaligned reads (in same file as aligned reads) via CRAM.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:21">B2AI_STANDARD:21</a> (BAM/CRAM)</td>
-<td></td>
-<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>WGS - Level 3</strong></td>
-<td>Whole genome sequencing variant calls (SNV/INDEL/CNV/SV) and metadata. Preserving/sharing unaligned reads (in same file as aligned reads) via CRAM.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:299">B2AI_STANDARD:299</a> (VCF)</td>
-<td></td>
-<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>WGS protocol</strong></td>
-<td>Whole genome sequencing protocol and metadata.</td>
-<td></td>
-<td></td>
-<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>WGS sample metadata</strong></td>
-<td>Whole genome sequencing sample attributes.</td>
-<td></td>
-<td></td>
-<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>WGS QC</strong></td>
-<td>Whole genome sequencing quality control metrics.</td>
-<td></td>
-<td></td>
-<td><a href="../topics/Genome/">B2AI_TOPIC:13</a> (Genome)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>CT</strong></td>
-<td>Computed tomography (CT) scans and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
-<td><a href="../topics/NeurologicImaging/">B2AI_TOPIC:22</a> (Neurologic Imaging)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>MR</strong></td>
-<td>Magnetic resonance (MR) imaging and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
-<td><a href="../topics/NeurologicImaging/">B2AI_TOPIC:22</a> (Neurologic Imaging)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>X-ray</strong></td>
-<td>X-ray imaging and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Voice</strong></td>
-<td>Voice recordings (spectrographs) and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:202">B2AI_STANDARD:202</a> (WFDB Format)</td>
-<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
-<td><a href="../topics/Voice/">B2AI_TOPIC:36</a> (Voice)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Laryngoscopy</strong></td>
-<td>Laryngoscopy videos and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM), <a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:352">B2AI_STANDARD:352</a> (MPEG-4)</td>
-<td><a href="../substrates/image/">B2AI_SUBSTRATE:19</a> (Image)</td>
-<td></td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0001737">UBERON:0001737</a> (larynx)</td>
-</tr>
-<tr>
-<td><strong>Speech test assessment</strong></td>
-<td>Speech test assessment results.</td>
-<td></td>
-<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
-<td><a href="../topics/Voice/">B2AI_TOPIC:36</a> (Voice), <a href="../topics/VoiceDisorders/">B2AI_TOPIC:45</a> (Voice Disorders)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Spontaneous speech assessment</strong></td>
-<td>Spontaneous speech assessment results.</td>
-<td></td>
-<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
-<td><a href="../topics/Voice/">B2AI_TOPIC:36</a> (Voice), <a href="../topics/VoiceDisorders/">B2AI_TOPIC:45</a> (Voice Disorders)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Forced cough assessment</strong></td>
-<td>Forced cough assessment results.</td>
-<td></td>
-<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
-<td><a href="../topics/Voice/">B2AI_TOPIC:36</a> (Voice), <a href="../topics/VoiceDisorders/">B2AI_TOPIC:45</a> (Voice Disorders)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Informed consent</strong></td>
-<td>Informed consent form responses.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:821">B2AI_STANDARD:821</a> (REDCap)</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Questionnaire</strong></td>
-<td>Questionnaire responses, including MoCA, GAD-7, VHI-10, PANAS, and DI.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:109">B2AI_STANDARD:109</a> (FHIR)</td>
-<td></td>
-<td><a href="../topics/Survey/">B2AI_TOPIC:31</a> (Survey)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Demographics</strong></td>
-<td>Participant demographics information.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:109">B2AI_STANDARD:109</a> (FHIR)</td>
-<td></td>
-<td><a href="../topics/SDoH/">B2AI_TOPIC:29</a> (SDoH), <a href="../topics/Survey/">B2AI_TOPIC:31</a> (Survey)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Treatment</strong></td>
-<td>Participant treatment history information.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:243">B2AI_STANDARD:243</a> (OMOP CDM)</td>
-<td></td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Diagnosis</strong></td>
-<td>Participant diagnosis history information and results of functional assessment.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:174">B2AI_STANDARD:174</a> (ICD-10-CM)</td>
-<td></td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/VoiceDisorders/">B2AI_TOPIC:45</a> (Voice Disorders)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000468">UBERON:0000468</a> (multicellular organism)</td>
-</tr>
-<tr>
-<td><strong>Vital signs</strong></td>
-<td>Participant vital signs information.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:109">B2AI_STANDARD:109</a> (FHIR)</td>
-<td></td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Social history</strong></td>
-<td>Participant social history information, including social history (e.g., smoking and alcohol use).</td>
-<td></td>
-<td></td>
-<td><a href="../topics/SDoH/">B2AI_TOPIC:29</a> (SDoH)</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="aiml-for-clinical-care-grand-challenge">AI/ML for Clinical Care Grand Challenge</h2>
-<div class="data-table">
-<table>
-<thead>
-<tr>
-<th>Data Type</th>
-<th>Description</th>
-<th>📋 Standards &amp; Tools</th>
-<th>💾 Substrates</th>
-<th>🏷️ Topics</th>
-<th>🧬 Anatomy</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Clinical labs</strong></td>
-<td>Clinical laboratory measurements.</td>
-<td></td>
-<td></td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/EHR/">B2AI_TOPIC:9</a> (EHR)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Clinical treatments</strong></td>
-<td>Clinical treatment information, including details of medications administered.</td>
-<td></td>
-<td></td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Physiologic telemetry</strong></td>
-<td>Physiologic telemetry data.</td>
-<td></td>
-<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/EHR/">B2AI_TOPIC:9</a> (EHR)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Physiologic EEG</strong></td>
-<td>Physiologic electroencephalogram data.</td>
-<td></td>
-<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
-<td><a href="../topics/ClinicalObservations/">B2AI_TOPIC:4</a> (Clinical Observations), <a href="../topics/EHR/">B2AI_TOPIC:9</a> (EHR)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000955">UBERON:0000955</a> (brain)</td>
-</tr>
-<tr>
-<td><strong>ECG</strong></td>
-<td>Patient cardiac 5-lead electrocardiogram (waveform) data and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:202">B2AI_STANDARD:202</a> (WFDB Format)</td>
-<td><a href="../substrates/waveform-data/">B2AI_SUBSTRATE:49</a> (Waveform Data)</td>
-<td><a href="../topics/Waveform/">B2AI_TOPIC:37</a> (Waveform)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000948">UBERON:0000948</a> (heart)</td>
-</tr>
-<tr>
-<td><strong>Heart rate</strong></td>
-<td>Patient heart rate data.</td>
-<td></td>
-<td><a href="../substrates/heart-rate/">B2AI_SUBSTRATE:71</a> (Heart rate)</td>
-<td><a href="../topics/ActivityMonitoring/">B2AI_TOPIC:39</a> (Activity Monitoring)</td>
-<td><a href="http://purl.obolibrary.org/obo/UBERON_0000948">UBERON:0000948</a> (heart)</td>
-</tr>
-<tr>
-<td><strong>SpO2 levels</strong></td>
-<td>Patient blood oxygen saturation levels.</td>
-<td></td>
-<td><a href="../substrates/oxygen-saturation/">B2AI_SUBSTRATE:72</a> (Oxygen saturation)</td>
-<td><a href="../topics/Respiration/">B2AI_TOPIC:46</a> (Respiration)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>X-ray</strong></td>
-<td>X-ray imaging and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>CT</strong></td>
-<td>Computed tomography (CT) scans and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
-<td><a href="../topics/NeurologicImaging/">B2AI_TOPIC:22</a> (Neurologic Imaging)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>MR</strong></td>
-<td>Magnetic resonance (MR) imaging and metadata.</td>
-<td><a href="https://b2ai.standards.synapse.org/Explore/Standard/DetailsPage?id=B2AI_STANDARD:98">B2AI_STANDARD:98</a> (DICOM)</td>
-<td><a href="../substrates/dicom/">B2AI_SUBSTRATE:11</a> (DICOM)</td>
-<td><a href="../topics/NeurologicImaging/">B2AI_TOPIC:22</a> (Neurologic Imaging)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Social determinants of health</strong></td>
-<td>Social determinants of health data based on Area Deprivation Index (ADI).</td>
-<td></td>
-<td></td>
-<td><a href="../topics/SDoH/">B2AI_TOPIC:29</a> (SDoH)</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Practice metadata</strong></td>
-<td>Metadata about clinical practice.</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>All tables belong to the Bridge2AI Standards Explorer project (<code>syn63096806</code>).</p>
+<h2 id="rest-api-access">REST API Access</h2>
+<p>The Synapse REST API endpoint is: <code>https://repo-prod.prod.sagebase.org</code></p>
+<h3 id="basic-query-structure">Basic Query Structure</h3>
+<p>To query a Synapse table, you need to:</p>
+<ol>
+<li>Start an async query job</li>
+<li>Poll for results using the returned token</li>
+<li>Retrieve the final results</li>
+</ol>
+<h3 id="example-query-standards-table-curl">Example: Query Standards Table (cURL)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Step 1: Start the async query</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://repo-prod.prod.sagebase.org/repo/v1/entity/syn63096833/table/query/async/start<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;concreteType&quot;: &quot;org.sagebionetworks.repo.model.table.QueryBundleRequest&quot;,</span>
+<span class="s1">    &quot;entityId&quot;: &quot;syn63096833&quot;,</span>
+<span class="s1">    &quot;query&quot;: {</span>
+<span class="s1">      &quot;sql&quot;: &quot;SELECT * FROM syn63096833 LIMIT 10&quot;</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;partMask&quot;: 29</span>
+<span class="s1">  }&#39;</span>
+
+<span class="c1"># This returns a token like: {&quot;token&quot;: &quot;12345&quot;}</span>
+
+<span class="c1"># Step 2: Poll for results (repeat until status is not 202)</span>
+curl<span class="w"> </span>https://repo-prod.prod.sagebase.org/repo/v1/entity/syn63096833/table/query/async/get/12345
+
+<span class="c1"># Step 3: Parse the results from the JSON response</span>
+</code></pre></div>
+<h3 id="example-search-by-name-curl">Example: Search by Name (cURL)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Search for standards with &quot;FHIR&quot; in the name</span>
+curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://repo-prod.prod.sagebase.org/repo/v1/entity/syn63096833/table/query/async/start<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;concreteType&quot;: &quot;org.sagebionetworks.repo.model.table.QueryBundleRequest&quot;,</span>
+<span class="s1">    &quot;entityId&quot;: &quot;syn63096833&quot;,</span>
+<span class="s1">    &quot;query&quot;: {</span>
+<span class="s1">      &quot;sql&quot;: &quot;SELECT id, name, description FROM syn63096833 WHERE name LIKE &#39;</span><span class="se">\&#39;</span><span class="s1">&#39;%FHIR%&#39;</span><span class="se">\&#39;</span><span class="s1">&#39; LIMIT 5&quot;</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;partMask&quot;: 29</span>
+<span class="s1">  }&#39;</span>
+</code></pre></div>
+<h3 id="example-query-denormalized-table">Example: Query Denormalized Table</h3>
+<p>The denormalized table includes expanded columns for easier querying:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>https://repo-prod.prod.sagebase.org/repo/v1/entity/syn65676531/table/query/async/start<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;concreteType&quot;: &quot;org.sagebionetworks.repo.model.table.QueryBundleRequest&quot;,</span>
+<span class="s1">    &quot;entityId&quot;: &quot;syn65676531&quot;,</span>
+<span class="s1">    &quot;query&quot;: {</span>
+<span class="s1">      &quot;sql&quot;: &quot;SELECT * FROM syn65676531 WHERE concerns_data_topic_names LIKE &#39;</span><span class="se">\&#39;</span><span class="s1">&#39;%Genomics%&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;&quot;</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;partMask&quot;: 29</span>
+<span class="s1">  }&#39;</span>
+</code></pre></div>
+<h2 id="python-access">Python Access</h2>
+<h3 id="simplest-example-requests-library">Simplest Example (requests library)</h3>
+<p>Here's the most minimal example to search the Standards Explorer:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">search_standards</span><span class="p">(</span><span class="n">search_term</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simple function to search standards by name.&quot;&quot;&quot;</span>
+    <span class="c1"># Start query</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="s2">&quot;https://repo-prod.prod.sagebase.org/repo/v1/entity/syn63096833/table/query/async/start&quot;</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;concreteType&quot;</span><span class="p">:</span> <span class="s2">&quot;org.sagebionetworks.repo.model.table.QueryBundleRequest&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;entityId&quot;</span><span class="p">:</span> <span class="s2">&quot;syn63096833&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sql&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;SELECT id, name, description FROM syn63096833 WHERE name LIKE &#39;%</span><span class="si">{</span><span class="n">search_term</span><span class="si">}</span><span class="s2">%&#39; LIMIT 10&quot;</span><span class="p">},</span>
+            <span class="s2">&quot;partMask&quot;</span><span class="p">:</span> <span class="mi">29</span>
+        <span class="p">},</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;token&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Wait for results</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;https://repo-prod.prod.sagebase.org/repo/v1/entity/syn63096833/table/query/async/get/</span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">202</span><span class="p">:</span>  <span class="c1"># 202 = still processing</span>
+            <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s2">&quot;queryResult&quot;</span><span class="p">][</span><span class="s2">&quot;queryResults&quot;</span><span class="p">][</span><span class="s2">&quot;rows&quot;</span><span class="p">]</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Use it</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">search_standards</span><span class="p">(</span><span class="s2">&quot;FHIR&quot;</span><span class="p">):</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># B2AI_STANDARD:109: FHIR</span>
+<span class="c1"># B2AI_STANDARD:845: CDC Introduction to FHIR</span>
+<span class="c1"># B2AI_STANDARD:846: FHIR Drills</span>
+</code></pre></div>
+<p><strong>Note:</strong> The Synapse API requires an async query pattern (start query → poll for results), but the above function wraps this complexity for you.</p>
+<h3 id="using-httpx-async">Using httpx (Async)</h3>
+<p>This example shows how to query the API without the Synapse Python client:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">httpx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">SYNAPSE_BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://repo-prod.prod.sagebase.org&quot;</span>
+<span class="n">TABLE_ID</span> <span class="o">=</span> <span class="s2">&quot;syn63096833&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">poll_async_job</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">table_id</span><span class="p">,</span> <span class="n">async_token</span><span class="p">,</span> <span class="n">max_wait</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Poll an async job until it completes or times out.&quot;&quot;&quot;</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SYNAPSE_BASE_URL</span><span class="si">}</span><span class="s2">/repo/v1/entity/</span><span class="si">{</span><span class="n">table_id</span><span class="si">}</span><span class="s2">/table/query/async/get/</span><span class="si">{</span><span class="n">async_token</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_event_loop</span><span class="p">()</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+        <span class="k">if</span> <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="n">max_wait</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Query timed out after </span><span class="si">{</span><span class="n">max_wait</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+        <span class="c1"># 202 means still processing</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">query_standards</span><span class="p">(</span><span class="n">sql_query</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Query the Standards Explorer table.&quot;&quot;&quot;</span>
+    <span class="n">query_request</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;concreteType&quot;</span><span class="p">:</span> <span class="s2">&quot;org.sagebionetworks.repo.model.table.QueryBundleRequest&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;entityId&quot;</span><span class="p">:</span> <span class="n">TABLE_ID</span><span class="p">,</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sql&quot;</span><span class="p">:</span> <span class="n">sql_query</span><span class="p">},</span>
+        <span class="s2">&quot;partMask&quot;</span><span class="p">:</span> <span class="mh">0x1</span> <span class="o">|</span> <span class="mh">0x4</span> <span class="o">|</span> <span class="mh">0x10</span>  <span class="c1"># queryResults + selectColumns + columnModels</span>
+    <span class="p">}</span>
+
+    <span class="k">async</span> <span class="k">with</span> <span class="n">httpx</span><span class="o">.</span><span class="n">AsyncClient</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mf">60.0</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="c1"># Start the async query</span>
+        <span class="n">start_response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SYNAPSE_BASE_URL</span><span class="si">}</span><span class="s2">/repo/v1/entity/</span><span class="si">{</span><span class="n">TABLE_ID</span><span class="si">}</span><span class="s2">/table/query/async/start&quot;</span><span class="p">,</span>
+            <span class="n">json</span><span class="o">=</span><span class="n">query_request</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+        <span class="n">start_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+        <span class="c1"># Get the async token</span>
+        <span class="n">async_token</span> <span class="o">=</span> <span class="n">start_response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Poll for results</span>
+        <span class="n">result_bundle</span> <span class="o">=</span> <span class="k">await</span> <span class="n">poll_async_job</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">TABLE_ID</span><span class="p">,</span> <span class="n">async_token</span><span class="p">)</span>
+
+        <span class="c1"># Extract rows</span>
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">result_bundle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;queryResult&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;queryResults&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rows&quot;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">result_bundle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;selectColumns&quot;</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">],</span>
+            <span class="s2">&quot;rows&quot;</span><span class="p">:</span> <span class="n">rows</span><span class="p">,</span>
+            <span class="s2">&quot;row_count&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="c1"># Example usage</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Get all standards (limited to 10)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">query_standards</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM syn63096833 LIMIT 10&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;row_count&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> standards&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Search for FHIR-related standards</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">query_standards</span><span class="p">(</span>
+        <span class="s2">&quot;SELECT id, name, description FROM syn63096833 WHERE name LIKE &#39;</span><span class="si">%F</span><span class="s2">HIR%&#39;&quot;</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;rows&#39;</span><span class="p">]:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;values&#39;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, Name: </span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Run the async function</span>
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+
+<span class="c1"># Expected output:</span>
+<span class="c1"># Found 10 standards</span>
+<span class="c1"># ID: B2AI_STANDARD:109, Name: FHIR</span>
+<span class="c1"># ID: B2AI_STANDARD:845, Name: CDC Introduction to FHIR</span>
+<span class="c1"># ID: B2AI_STANDARD:846, Name: FHIR Drills</span>
+</code></pre></div>
+<h3 id="using-requests-synchronous">Using requests (Synchronous)</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">SYNAPSE_BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://repo-prod.prod.sagebase.org&quot;</span>
+<span class="n">TABLE_ID</span> <span class="o">=</span> <span class="s2">&quot;syn63096833&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">query_standards</span><span class="p">(</span><span class="n">sql_query</span><span class="p">,</span> <span class="n">max_wait</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Query the Standards Explorer table synchronously.&quot;&quot;&quot;</span>
+    <span class="n">query_request</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;concreteType&quot;</span><span class="p">:</span> <span class="s2">&quot;org.sagebionetworks.repo.model.table.QueryBundleRequest&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;entityId&quot;</span><span class="p">:</span> <span class="n">TABLE_ID</span><span class="p">,</span>
+        <span class="s2">&quot;query&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;sql&quot;</span><span class="p">:</span> <span class="n">sql_query</span><span class="p">},</span>
+        <span class="s2">&quot;partMask&quot;</span><span class="p">:</span> <span class="mi">29</span>  <span class="c1"># Request all parts</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Start the async query</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SYNAPSE_BASE_URL</span><span class="si">}</span><span class="s2">/repo/v1/entity/</span><span class="si">{</span><span class="n">TABLE_ID</span><span class="si">}</span><span class="s2">/table/query/async/start&quot;</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">=</span><span class="n">query_request</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="n">async_token</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Poll for results</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span> <span class="o">&gt;</span> <span class="n">max_wait</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TimeoutError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Query timed out after </span><span class="si">{</span><span class="n">max_wait</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SYNAPSE_BASE_URL</span><span class="si">}</span><span class="s2">/repo/v1/entity/</span><span class="si">{</span><span class="n">TABLE_ID</span><span class="si">}</span><span class="s2">/table/query/async/get/</span><span class="si">{</span><span class="n">async_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">202</span><span class="p">:</span>  <span class="c1"># Still processing</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="n">result</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">query_standards</span><span class="p">(</span><span class="s2">&quot;SELECT id, name, description FROM syn63096833 WHERE name LIKE &#39;</span><span class="si">%F</span><span class="s2">HIR%&#39; LIMIT 5&quot;</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;queryResult&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;queryResults&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rows&quot;</span><span class="p">,</span> <span class="p">[])</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, Name: </span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># ID: B2AI_STANDARD:109, Name: FHIR</span>
+<span class="c1"># ID: B2AI_STANDARD:845, Name: CDC Introduction to FHIR</span>
+<span class="c1"># ID: B2AI_STANDARD:846, Name: FHIR Drills</span>
+</code></pre></div>
+<h3 id="using-the-synapse-python-client">Using the Synapse Python Client</h3>
+<p>The official Synapse Python client provides a simpler interface:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">synapseclient</span>
+
+<span class="c1"># Login (anonymous access for public data)</span>
+<span class="n">syn</span> <span class="o">=</span> <span class="n">synapseclient</span><span class="o">.</span><span class="n">Synapse</span><span class="p">()</span>
+<span class="n">syn</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+
+<span class="c1"># Query the table</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM syn63096833 WHERE name LIKE &#39;</span><span class="si">%F</span><span class="s2">HIR%&#39; LIMIT 10&quot;</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">tableQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+<span class="c1"># Convert to pandas DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">asDataFrame</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># Access specific columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]])</span>
+
+<span class="c1"># Example output:</span>
+<span class="c1">#                    id                           name  \</span>
+<span class="c1"># 0  B2AI_STANDARD:109                           FHIR   </span>
+<span class="c1"># 1  B2AI_STANDARD:845  CDC Introduction to FHIR   </span>
+<span class="c1"># 2  B2AI_STANDARD:846                    FHIR Drills   </span>
+<span class="c1">#</span>
+<span class="c1">#                                         description  </span>
+<span class="c1"># 0       Fast Healthcare Interoperability Resources  </span>
+<span class="c1"># 1          CDC Introduction to FHIR - Training...  </span>
+<span class="c1"># 2                                        FHIR Drills</span>
+</code></pre></div>
+<p><strong>Installation:</strong>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>synapseclient
+</code></pre></div></p>
+<h3 id="using-the-synapse-cli">Using the Synapse CLI</h3>
+<p>Query tables directly from the command line:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install synapseclient</span>
+pip<span class="w"> </span>install<span class="w"> </span>synapseclient
+
+<span class="c1"># Query and save to CSV</span>
+synapse<span class="w"> </span>query<span class="w"> </span><span class="s2">&quot;SELECT * FROM syn63096833 LIMIT 10&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>tmp.csv
+
+<span class="c1"># Clean the result (remove header rows)</span>
+tail<span class="w"> </span>-n<span class="w"> </span>+3<span class="w"> </span>tmp.csv<span class="w"> </span>&gt;<span class="w"> </span>standards.csv
+rm<span class="w"> </span>tmp.csv
+</code></pre></div>
+<h2 id="common-query-examples">Common Query Examples</h2>
+<h3 id="list-available-topics">List Available Topics</h3>
+<p>First, see what topics are available:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">query_topics</span><span class="p">():</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">query_standards</span><span class="p">(</span><span class="s2">&quot;SELECT id, name FROM syn63096835 LIMIT 10&quot;</span><span class="p">)</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;queryResult&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;queryResults&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;rows&quot;</span><span class="p">,</span> <span class="p">[])</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;values&quot;</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># B2AI_TOPIC:1: Biology</span>
+<span class="c1"># B2AI_TOPIC:2: Cell</span>
+<span class="c1"># B2AI_TOPIC:3: Cheminformatics</span>
+<span class="c1"># B2AI_TOPIC:4: Clinical Observations</span>
+<span class="c1"># B2AI_TOPIC:5: Data</span>
+<span class="c1"># B2AI_TOPIC:6: Demographics</span>
+<span class="c1"># B2AI_TOPIC:7: Disease</span>
+<span class="c1"># B2AI_TOPIC:8: Drug</span>
+<span class="c1"># B2AI_TOPIC:9: EHR</span>
+<span class="c1"># B2AI_TOPIC:10: EKG</span>
+</code></pre></div>
+<h3 id="search-by-topic">Search by Topic</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Find all standards related to genomics (topic ID: B2AI_TOPIC:5)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">syn63096833</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">concerns_data_topic</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%B2AI_TOPIC:5%&#39;</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example output:</span>
+<span class="c1"># B2AI_STANDARD:114: Genomics Operations</span>
+<span class="c1"># B2AI_STANDARD:127: FuGE-ML</span>
+<span class="c1"># B2AI_STANDARD:128: FuGEFlow</span>
+<span class="c1"># B2AI_STANDARD:141: GCDML</span>
+</code></pre></div>
+<h3 id="search-by-organization">Search by Organization</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Find standards from HL7 (org ID: B2AI_ORG:48)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="p">,</span><span class="w"> </span><span class="n">url</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">syn63096833</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">responsible_organization</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%B2AI_ORG:48%&#39;</span><span class="w"> </span>
+<span class="w">   </span><span class="k">OR</span><span class="w"> </span><span class="n">has_relevant_organization</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%B2AI_ORG:48%&#39;</span>
+</code></pre></div>
+<h3 id="search-by-data-substrate">Search by Data Substrate</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Find standards that work with JSON (substrate ID: B2AI_SUBSTRATE:58)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">syn63096833</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">has_relevant_data_substrate</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%B2AI_SUBSTRATE:58%&#39;</span>
+</code></pre></div>
+<h3 id="filter-by-category">Filter by Category</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Find all biomedical standards</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">syn63096833</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;B2AI_STANDARD:BiomedicalStandard&#39;</span>
+</code></pre></div>
+<h3 id="full-text-search">Full-text Search</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Search across multiple text fields</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">syn63096833</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%genomic%&#39;</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example output:</span>
+<span class="c1"># B2AI_STANDARD:44: SDTM</span>
+<span class="c1"># B2AI_STANDARD:114: Genomics Operations</span>
+<span class="c1"># B2AI_STANDARD:127: FuGE-ML</span>
+<span class="c1"># B2AI_STANDARD:128: FuGEFlow</span>
+<span class="c1"># B2AI_STANDARD:141: GCDML</span>
+</code></pre></div>
+<h3 id="filter-by-properties">Filter by Properties</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Find open standards</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">is_open</span><span class="w"> </span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">syn63096833</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">is_open</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;true&#39;</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example output:</span>
+<span class="c1"># B2AI_STANDARD:1: .ACE format (Open: true)</span>
+<span class="c1"># B2AI_STANDARD:2: DMS (Open: true)</span>
+<span class="c1"># B2AI_STANDARD:3: ABCD (Open: true)</span>
+<span class="c1"># B2AI_STANDARD:4: AGP (Open: true)</span>
+<span class="c1"># B2AI_STANDARD:5: AnIML (Open: true)</span>
+</code></pre></div>
+<h2 id="query-the-denormalized-table">Query the Denormalized Table</h2>
+<p>For easier querying with human-readable values, use the denormalized table:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">-- Search by topic name instead of ID</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">concerns_data_topic_names</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">syn65676531</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">concerns_data_topic_names</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%Genomics%&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">synapseclient</span>
+
+<span class="n">syn</span> <span class="o">=</span> <span class="n">synapseclient</span><span class="o">.</span><span class="n">Synapse</span><span class="p">()</span>
+<span class="n">syn</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+
+<span class="c1"># Query denormalized table with readable column names</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">SELECT id, name, category_label, concerns_data_topic_names, </span>
+<span class="s2">       responsible_organization_names</span>
+<span class="s2">FROM syn65676531 </span>
+<span class="s2">WHERE concerns_data_topic_names LIKE &#39;</span><span class="si">%E</span><span class="s2">HR%&#39;</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">syn</span><span class="o">.</span><span class="n">tableQuery</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="o">.</span><span class="n">asDataFrame</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="rate-limits-and-best-practices">Rate Limits and Best Practices</h2>
+<ul>
+<li><strong>No authentication required</strong> for public tables (read-only access)</li>
+<li>The API uses <strong>async queries</strong> - always poll for results rather than expecting immediate responses</li>
+<li><strong>Set reasonable timeouts</strong> (30-60 seconds for most queries)</li>
+<li>Use <strong>LIMIT</strong> clauses to avoid retrieving too much data at once</li>
+<li>The <strong>partMask</strong> parameter controls which parts of the query result are returned:</li>
+<li><code>0x1</code> (1): Query results</li>
+<li><code>0x4</code> (4): Select columns</li>
+<li><code>0x10</code> (16): Column models</li>
+<li><code>0x1D</code> (29): All parts (commonly used)</li>
+</ul>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://rest-docs.synapse.org/rest/index.html">Synapse REST API Documentation</a></li>
+<li><a href="https://python-docs.synapse.org/">Synapse Python Client Documentation</a></li>
+<li><a href="https://github.com/bridge2ai/standards-explorer-mcp">Standards Explorer MCP Implementation</a></li>
+<li><a href="https://www.synapse.org/#!Synapse:syn63096806">Standards Explorer Project on Synapse</a></li>
+</ul>
+<h2 id="support">Support</h2>
+<p>For questions or issues:
+- Open an issue on the <a href="https://github.com/bridge2ai/b2ai-standards-registry/issues">b2ai-standards-registry GitHub repository</a>
+- Contact the Bridge2AI Standards team</p>
 
 
 
