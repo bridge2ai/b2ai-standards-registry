@@ -3329,16 +3329,78 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:34
     category: B2AI:Application
-    name: Clinical Decision Support and Predictive Modeling
-    description: FHIR is extensively used in AI applications for clinical decision
-      support systems, predictive analytics, and machine learning models that analyze
-      electronic health records. AI systems leverage FHIR's standardized structure
-      to extract patient data, clinical observations, and medical histories for training
-      predictive models for disease risk assessment, patient outcome prediction, treatment
-      recommendation, and population health analytics. FHIR's REST API and resource-based
-      structure enables seamless integration of AI/ML models into clinical workflows,
-      allowing real-time inference and decision support at the point of care.
+    name: Cumulus Federated EHR Learning with Bulk FHIR and AI/NLP
+    description: The Cumulus platform operationalizes SMART/HL7 Bulk FHIR Access API
+      for standardized data export across multiple healthcare institutions, then applies
+      AI and natural language processing for computable phenotyping to define cohorts
+      and outcomes from both structured and unstructured EHR data. The SMART Text2FHIR
+      pipeline extracts insights from clinical texts and converts them into structured
+      FHIR data elements for analysis. Only aggregate outputs leave each institution,
+      enabling privacy-preserving federated learning across sites for public health
+      monitoring and research while maintaining data sovereignty and interoperability
+      through standardized FHIR exchange.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2024.02.02.24301940
+  - id: B2AI_APP:126
+    category: B2AI:Application
+    name: FHIR Observation Encoding of Radiology AI Findings for Interoperable Integration
+    description: A framework models radiology AI outputs (such as pulmonary nodule
+      characteristics from automated detection algorithms) as FHIR Observation resources
+      embedded within DiagnosticReport objects, standardizing AI-generated findings
+      alongside radiologist reports. This FHIR-based encoding enables interoperable
+      downstream use, long-term tracking of imaging findings, and integration with
+      electronic health records for clinical decision-making. The structured FHIR
+      representation facilitates reproducible data management, cohort identification,
+      and longitudinal analysis of AI-detected imaging biomarkers across healthcare
+      systems.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/jamia/ocae134
+  - id: B2AI_APP:127
+    category: B2AI:Application
+    name: MyDigiTwin FHIR Harmonization for Federated Learning Cohort Studies
+    description: The MyDigiTwin federated learning research infrastructure uses a
+      FHIR-based data harmonization framework to standardize cohort study variables
+      across multiple sites for cardiovascular risk prediction modeling. The pipeline
+      successfully generated approximately 150,000 FHIR bundles from Lifelines cohort
+      variable data, demonstrating practical large-scale FHIR use for multi-center
+      ML. This FHIR harmonization ensures interoperability and facilitates the structuring,
+      standardization, and exchange of healthcare data across federated learning nodes,
+      enabling distributed model training while data remains at local institutions.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3233/shti240735
+  - id: B2AI_APP:128
+    category: B2AI:Application
+    name: SMART on FHIR Integration for AI-Driven Clinical Decision Support Systems
+    description: SMART on FHIR provides a modular framework enabling third-party AI-driven
+      clinical decision support applications to integrate seamlessly into health information
+      systems. Implementations include automated breast cancer diagnosis via ultrasound
+      with FHIR-standardized diagnostic metadata, ECG stream analysis frameworks for
+      cloud-native AI processing, and machine learning-enhanced architectures that
+      use FHIR to standardize clinical and imaging data flow for AI-based risk assessment.
+      FHIR's standardized APIs and resource models enable deployment of predictive
+      models across clinical domains, improving adherence to guidelines and enhancing
+      diagnostic accessibility through interoperable, scalable CDSS implementations.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.20944/preprints202509.0818.v1
+  - id: B2AI_APP:129
+    category: B2AI:Application
+    name: FHIR-Based Analytics Platforms for Clinical Predictive Model Deployment
+    description: FHIR data models and APIs support analytics frameworks and deployment
+      of clinical predictive models including sepsis prediction, distributed phenotyping
+      analytics platforms, and personalized medicine applications. Implementations
+      provide patterns for converting FHIR resources to analysis-ready formats, hosting
+      predictive models as web services, and automating management of audit files
+      and structured medical data. Platforms like doc.ai leverage FHIR analytical
+      capabilities for personalized medicine, while distributed phenotyping systems
+      use FHIR to enable clinical decision-making across multiple healthcare sites
+      with standardized data access and model integration.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3390/healthcare11121729
 - id: B2AI_STANDARD:110
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3370,25 +3432,135 @@ data_standardortools_collection:
   - B2AI_ORG:114
   is_open: true
   name: FASTQ
-  purpose_detail: A text-based data format for nucleotide and amino acid sequences,
-    with fields for quality scores.
+  purpose_detail: FASTQ is a text-based file format for storing nucleotide sequences
+    along with their corresponding per-base quality scores, making it the de facto
+    standard for raw sequencing data from high-throughput sequencing platforms (Illumina,
+    PacBio, Oxford Nanopore, etc.). Each sequence record consists of four lines containing
+    a sequence identifier, the raw nucleotide sequence, a separator line, and ASCII-encoded
+    quality scores (Phred scores) representing the confidence of each base call. The
+    quality scores enable downstream tools to weight bases appropriately during alignment,
+    variant calling, and assembly operations. FASTQ supports various quality encoding
+    schemes (Phred+33, Phred+64) and accommodates reads of variable length from different
+    sequencing technologies. The format's simultaneous representation of sequence
+    and quality information is essential for quality control, error correction, read
+    filtering, and AI/ML applications that require confidence metrics for training
+    models on sequencing data quality assessment, base calling improvement, contamination
+    detection, and metagenomic classification tasks.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/FASTQ_format
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:35
     category: B2AI:Application
-    name: Deep Learning for Sequence Analysis and Quality Control
-    description: FASTQ format is used extensively in AI applications for raw sequencing
-      data analysis, including deep learning models for base calling improvement,
-      sequence quality assessment, and error correction. Neural networks process FASTQ
-      quality scores and sequence content to perform tasks such as contamination detection,
-      adapter identification, species classification, and metagenomic binning. AI
-      models leverage the standardized FASTQ structure to train on millions of sequencing
-      reads, enabling applications in de novo genome assembly optimization, RNA-seq
-      quality control, and real-time nanopore sequencing analysis where quality-aware
-      models improve downstream variant calling and gene expression quantification.
+    name: seqQscorer Automated FASTQ Quality Control Using Machine Learning
+    description: seqQscorer computes features from FASTQ files including per-base
+      and per-read quality metrics, overrepresented sequences, k-mer counts, and mapping-derived
+      statistics, then trains tree-based (Random Forest) and deep learning classifiers
+      to automatically flag low- versus high-quality NGS files. The system uses FASTQ-derived
+      quality scores as core predictive features with labels from ENCODE curation,
+      creating generalizable models across assays (RNA-seq, ChIP-seq, DNase-seq, ATAC-seq)
+      and species. This ML-based automated QC provides decision support for curators
+      and researchers, saving resources by identifying poor-quality experiments early
+      in analysis pipelines.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/s13059-021-02294-2
+  - id: B2AI_APP:130
+    category: B2AI:Application
+    name: MiniScrub CNN-Based Nanopore Read Error Scrubbing Using FASTQ Quality Pileups
+    description: MiniScrub encodes Oxford Nanopore read-to-read overlaps and per-base
+      qualities from FASTQ into image-like pileup channels that capture minimizer
+      matches, base quality scores, and inter-minimizer distances. A convolutional
+      neural network trained on these FASTQ-derived representations identifies and
+      removes low-quality read segments de novo, without requiring reference alignment
+      or hybrid error correction. This CNN-based scrubbing improves downstream assembly
+      quality by reducing misassemblies and indel errors, demonstrating how FASTQ
+      sequence and quality information can be transformed into ML-friendly image representations
+      for quality classification tasks.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/s12859-019-3103-z
+  - id: B2AI_APP:131
+    category: B2AI:Application
+    name: MAC-ErrorReads Supervised Classification for Filtering Erroneous NGS Reads
+    description: MAC-ErrorReads formulates erroneous-read filtration as supervised
+      binary classification using features extracted from FASTQ sequences via TF-IDF
+      encoding (treating sequence tokens/k-mers like text). Multiple supervised algorithms
+      including Naive Bayes models are trained to distinguish erroneous versus accurate
+      reads, retaining higher-quality reads and improving downstream assembly quality
+      and genomic coverage. This ML approach addresses increasing sequencing throughput
+      by providing automated, scalable read filtering that complements traditional
+      k-mer-based and alignment-based error-handling methods across both short-read
+      and long-read NGS platforms.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/s12859-024-05681-1
+  - id: B2AI_APP:132
+    category: B2AI:Application
+    name: SeqTagger CTC-CRF Basecaller for Nanopore Barcode Demultiplexing with Quality
+      Filtering
+    description: SeqTagger demultiplexes direct RNA nanopore datasets by training
+      a CTC-CRF DNA basecalling model (using Bonito software) to decode barcode sequences
+      from signal data, producing FASTQ basecalls that are then mapped to reference
+      barcodes. Per-read median base quality from FASTQ is used to filter out potential
+      misassignments, achieving high precision (approximately 99%) and recall (approximately
+      95%) for demultiplexing. This workflow demonstrates how FASTQ basecalled sequences
+      and their quality scores enable accurate barcode assignment and quality-based
+      filtering in direct RNA sequencing, contrasting with image-based CNN approaches
+      by operating in sequence space.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2024.10.29.620808
+  - id: B2AI_APP:133
+    category: B2AI:Application
+    name: Deep Learning Variant Calling from FASTQ-Aligned Read Pileups
+    description: Deep learning variant callers including DeepVariant, Clair3, and
+      DNAscope operate on pileup tensors built from FASTQ-aligned reads, incorporating
+      per-base quality scores as input features alongside base identity. These models
+      transform FASTQ-derived alignments into image-like or tensor representations
+      that preserve sequence context and quality information, then apply CNNs or specialized
+      architectures for genotype prediction. Benchmarks demonstrate that these deep
+      learning approaches outperform traditional algorithms for SNP and indel calling
+      across platforms (Illumina, PacBio HiFi, Oxford Nanopore), with quality scores
+      explicitly used to weight evidence and calibrate predictions through methods
+      like GATK's variant quality score recalibration (VQSR).
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2024.03.15.585313
+    - https://doi.org/10.1002/0471250953.bi1110s43
+  - id: B2AI_APP:134
+    category: B2AI:Application
+    name: CNN-Based eDNA Read Classification and rRNA Detection from FASTQ
+    description: Deep learning models for metagenomics and environmental DNA analysis
+      map FASTQ reads directly to taxonomic labels using k-mer embeddings or sequence
+      representations, enabling fast and scalable classification with comparable accuracy
+      to conventional pipelines. CNN-based workflows process raw FASTQ at high throughput
+      for taxonomic assignment, while tools like RiboDetector use bidirectional LSTM
+      models to identify ribosomal RNA reads in short-read data for contaminant removal.
+      These approaches transform FASTQ sequences (and optionally quality-derived features)
+      into token/k-mer embeddings or sequence inputs for classification tasks, demonstrating
+      rapid and accurate read-level identification that reduces misclassification
+      in downstream RNA-seq and metagenomic workflows.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2024.03.15.585313
+  - id: B2AI_APP:135
+    category: B2AI:Application
+    name: fastp FASTQ Preprocessing for ML-Ready Feature Generation
+    description: fastp performs ultra-fast all-in-one FASTQ preprocessing including
+      quality control, adapter trimming, quality filtering, UMI processing, and base
+      correction in a single scan, generating standardized outputs used as inputs
+      or targets for ML workflows. The tool produces per-base quality profiles, k-mer
+      occurrence tables, overrepresented-sequence positions, adapter detection results,
+      and paired-end overlap corrections that serve as features for ML quality prediction
+      models, denoising/error-correction training data, and metadata for classifiers.
+      UMI-processed consensus reads reduce noise for ML training, while comprehensive
+      pre- and post-filtering metrics enable automated quality assessment and artifact
+      detection across NGS workflows, facilitating large-scale dataset generation
+      for ML model development.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/bioinformatics/bty560
 - id: B2AI_STANDARD:112
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3851,8 +4023,20 @@ data_standardortools_collection:
   is_open: true
   name: FAF
   publication: doi:10.1186/s12885-015-1526-0
-  purpose_detail: A method to measure performance status with a high percentage of
-    agreement between observers.
+  purpose_detail: The Functionality Assessment Flowchart (FAF) is a structured clinical
+    assessment tool designed to evaluate cancer patients' performance status through
+    a standardized flowchart-based methodology. FAF provides a systematic approach
+    to measuring functional capacity and activities of daily living in oncology patients,
+    yielding performance status scores with high inter-observer agreement. The flowchart
+    format guides clinicians through a series of binary decision points based on patient
+    capabilities (ability to work, walk, self-care, etc.), resulting in consistent
+    and reproducible assessments. FAF addresses limitations of traditional performance
+    status scales by reducing subjectivity and improving reliability across different
+    observers and clinical settings. The standardized scoring enables comparison of
+    patient functional status over time, supports clinical decision-making for treatment
+    planning, facilitates stratification in clinical trials, and provides structured
+    data suitable for integration into electronic health records and outcomes research
+    databases.
   requires_registration: false
   url: https://doi.org/10.1186/s12885-015-1526-0
 - id: B2AI_STANDARD:130
@@ -3934,8 +4118,26 @@ data_standardortools_collection:
   description: GenBank Sequence Format
   is_open: true
   name: GB
-  purpose_detail: A text-based data format for nucleotide and amino acid sequences,
-    with fields for a variety of sequence metadata.
+  purpose_detail: The GenBank format is a comprehensive text-based annotation format
+    for nucleotide and protein sequences maintained by NCBI as part of the GenBank
+    sequence database, one of the three components of the International Nucleotide
+    Sequence Database Collaboration (INSDC) alongside EMBL and DDBJ. Each GenBank
+    record contains a sequence along with extensive structured metadata organized
+    into standardized fields including locus name and length, definition line, accession
+    and version numbers, keywords, source organism with taxonomic classification,
+    literature references with PubMed links, and feature table annotations. The feature
+    table uses a hierarchical key-value structure to annotate biological features
+    such as genes, coding sequences (CDS) with translation, regulatory elements, binding
+    sites, variations, and experimental evidence, with controlled qualifiers and ontology
+    terms. GenBank format supports protein translations, codon usage information,
+    cross-references to other databases (UniProt, PDB, Gene, etc.), and provenance
+    tracking of sequence submissions and updates. The rich annotation structure enables
+    integration of genomic context, functional annotations, phylogenetic information,
+    and experimental validation data in a single standardized record, making GenBank
+    essential for comparative genomics, gene annotation pipelines, sequence analysis
+    tools, and machine learning applications that leverage both sequence content and
+    biological metadata for training predictive models of gene structure, function,
+    and regulation.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/GenBank
 - id: B2AI_STANDARD:133
@@ -4037,8 +4239,21 @@ data_standardortools_collection:
   description: GenePattern GeneSet Table Format
   is_open: true
   name: GMT
-  purpose_detail: The GMX and GMT file formats are tab-delimited file formats that
-    describe gene sets.
+  purpose_detail: The GMT (Gene Matrix Transposed) format is a tab-delimited text
+    file format developed by the Broad Institute for representing gene sets used in
+    gene set enrichment analysis (GSEA) and related computational biology applications.
+    Each line in a GMT file represents a single gene set with a simple structure containing
+    the gene set name, description (or URL), and a tab-separated list of gene identifiers
+    (typically gene symbols, Entrez IDs, or other standard identifiers). The format's
+    simplicity and human readability make it ideal for storing and sharing curated
+    gene set collections such as pathway databases (KEGG, Reactome), Gene Ontology
+    term associations, disease gene signatures, transcription factor targets, and
+    experimentally derived co-expression modules. GMT files are widely used by enrichment
+    analysis tools (GSEA, Enrichr, WebGestalt), enable integration of custom gene
+    sets into analysis workflows, support reproducible research through standardized
+    gene set definitions, and facilitate machine learning applications that use gene
+    set membership as features for classification, dimension reduction, and biological
+    interpretation of high-throughput genomic data.
   requires_registration: false
   url: https://www.genepattern.org/file-formats-guide#GMT
 - id: B2AI_STANDARD:137
@@ -4275,8 +4490,20 @@ data_standardortools_collection:
   is_open: true
   name: GIATE
   publication: doi:10.1186/1756-0500-5-10
-  purpose_detail: A minimum information checklist creating a consistent framework
-    to transparently report the purpose, methods and results of the therapeutic experiments
+  purpose_detail: The Guidelines for Information About Therapy Experiments (GIATE)
+    is a minimum information checklist developed to establish a consistent framework
+    for transparently reporting the purpose, methods, and results of therapeutic experiments,
+    particularly in preclinical and translational research contexts. GIATE provides
+    structured reporting requirements covering experimental design, intervention details
+    (therapeutic agents, dosing, administration routes, timing), subject characteristics,
+    outcome measures, statistical methods, and results presentation. The guidelines
+    aim to improve reproducibility, enable meta-analyses, facilitate comparison across
+    studies, and enhance the quality of preclinical therapeutic research by ensuring
+    complete documentation of experimental parameters that affect interpretation and
+    translatability. GIATE addresses the need for standardized reporting of therapy
+    experiments to support evidence synthesis, reduce publication bias, and improve
+    the rigor and transparency of preclinical studies that inform clinical trial design
+    and therapeutic development pipelines.
   requires_registration: false
   url: https://doi.org/10.1186/1756-0500-5-10
 - id: B2AI_STANDARD:147
@@ -4294,7 +4521,7 @@ data_standardortools_collection:
   name: HIPAA
   purpose_detail: The Health Insurance Portability and Accountability Act of 1996
     (HIPAA) is a federal law that required the creation of national standards to protect
-    sensitive patient health information from being disclosed without the patient’s
+    sensitive patient health information from being disclosed without the patient's
     consent or knowledge. The US Department of Health and Human Services (HHS) issued
     the HIPAA Privacy Rule to implement the requirements of HIPAA. The HIPAA Security
     Rule protects a subset of information covered by the Privacy Rule.
@@ -4317,10 +4544,23 @@ data_standardortools_collection:
   description: Healthcare Common Procedure Coding System
   is_open: true
   name: HCPCS
-  purpose_detail: Code set for items and supplies and non-physician services not covered
-    by the American Medical Association's Current Procedural Terminology-4 (CPT-4)
-    codes; Medicare, Medicaid, and private health insurers use HCPCS procedure and
-    modifier codes for claims processing.
+  purpose_detail: The Healthcare Common Procedure Coding System (HCPCS) is a standardized
+    code set maintained by the Centers for Medicare & Medicaid Services (CMS) for
+    reporting medical procedures, products, supplies, and services to Medicare, Medicaid,
+    and private health insurers for claims processing and reimbursement. HCPCS consists
+    of two levels - Level I comprises CPT (Current Procedural Terminology) codes maintained
+    by the American Medical Association for physician services and procedures, while
+    Level II contains alphanumeric codes (A through V series) for items and services
+    not covered by CPT including durable medical equipment (DME), prosthetics, orthotics,
+    supplies, ambulance services, drugs administered via methods other than oral, and
+    temporary procedures. Each HCPCS code is accompanied by modifiers that provide
+    additional information about the service or item (laterality, level of service,
+    unusual circumstances). The code set is updated quarterly to reflect new technologies,
+    procedures, and supplies, and includes detailed descriptions, Medicare coverage
+    policies, and pricing information. HCPCS enables standardized billing, facilitates
+    claims adjudication, supports healthcare cost analysis and utilization research,
+    and provides the foundation for healthcare payment systems and revenue cycle management
+    across payers.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:17
@@ -4410,9 +4650,21 @@ data_standardortools_collection:
   description: HL7 Clinical Document Architecture Implementation Guide - Data Provenance
   is_open: true
   name: HL7 CDA Data Provenance
-  purpose_detail: Guidance and templates for basic provenance information about clinical
-    (and other care related information), who created it, when was it created, where
-    was it created, how it was created, and why it was created.
+  purpose_detail: The HL7 Clinical Document Architecture (CDA) Data Provenance Implementation
+    Guide provides standardized guidance and templates for capturing and exchanging
+    comprehensive provenance information about clinical and care-related information
+    within CDA documents. The guide addresses the fundamental provenance questions
+    - who created the information (author, organization, device), when it was created
+    (timestamps, versioning), where it was created (facility, location), how it was
+    created (method, procedure, source system), and why it was created (purpose, context).
+    The implementation guide defines structured elements and coded values for documenting
+    data transformations, aggregations, derivations, and chains of custody that are
+    critical for clinical decision-making, regulatory compliance, and legal accountability.
+    Provenance metadata supports trust and transparency in health information exchange,
+    enables auditability and traceability of clinical data across systems and care
+    settings, facilitates detection of data quality issues, and provides essential
+    context for interpreting clinical information in research, quality improvement,
+    and AI/ML applications where understanding data lineage and reliability is paramount.
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:40
@@ -4484,7 +4736,22 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   is_open: true
   name: MolecularSequence
-  purpose_detail: Resource for raw data describing a biological sequence.
+  purpose_detail: The FHIR MolecularSequence resource provides a standardized structure
+    for representing raw and processed biological sequence data including DNA, RNA,
+    and amino acid sequences within the FHIR ecosystem, enabling integration of genomic
+    information with clinical data. The resource captures observed sequences, reference
+    sequences, sequence variations (SNPs, indels, structural variants), quality scores,
+    read coverage information, and repository links to external sequence databases
+    (GenBank, EMBL, RefSeq). MolecularSequence supports representation of sequence
+    coordinates using zero-based or one-based numbering systems, strand orientation,
+    and relationships between sequences (such as transcript-to-protein mappings). The
+    resource can reference associated specimens, patients, or other subjects, and links
+    to variant calling results, expression data, and functional annotations. MolecularSequence
+    enables clinical genomics workflows including variant interpretation, pharmacogenomics
+    decision support, molecular diagnostics reporting, and precision medicine applications
+    by providing a FHIR-native way to exchange sequence data alongside phenotypic,
+    diagnostic, and treatment information in electronic health records and clinical
+    information systems.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:40
@@ -4505,8 +4772,23 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   is_open: true
   name: Observation
-  purpose_detail: Resource for measurements and simple assertions made about a patient,
-    device or other subject.
+  purpose_detail: The FHIR Observation resource is a central, versatile structure
+    for representing measurements, assessments, and assertions made about a patient,
+    device, location, or other subject in healthcare contexts. Observations encompass
+    a wide range of clinical and research data including vital signs (blood pressure,
+    heart rate, temperature), laboratory results (chemistry, hematology, microbiology),
+    imaging measurements, clinical assessments (pain scores, functional status), device
+    readings (glucose monitors, pulse oximeters), social determinants of health, genomic
+    findings, and quality metrics. The resource uses coded values from standard terminologies
+    (LOINC, SNOMED CT) to identify what was measured, supports numeric values with
+    units (UCUM), coded results, textual findings, and multimedia attachments. Observation
+    includes metadata for effective time, status, performer, method, specimen reference,
+    reference ranges, and interpretation flags. The resource supports panels and components
+    for organizing related observations (complete blood count, metabolic panel), enables
+    longitudinal tracking through sequences and trends, and links to supporting evidence
+    and derivations. Observations are fundamental to AI/ML applications requiring structured
+    clinical phenotypes, time-series analytics, predictive modeling, and integration
+    of diverse data types for clinical decision support and population health analysis.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:40
@@ -4528,8 +4810,24 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   is_open: true
   name: Patient
-  purpose_detail: Resource for demographics and other administrative information about
-    an individual or animal receiving care or other health-related services.
+  purpose_detail: The FHIR Patient resource provides a standardized structure for
+    representing demographics and administrative information about individuals or animals
+    receiving care or health-related services. The resource captures core demographic
+    data including name (with multiple name types and use contexts), birth date, gender,
+    address (with structured components and period of validity), telecom contact information
+    (phone, email, with use and priority indicators), and multiple identifiers (medical
+    record numbers, social security numbers, insurance IDs) with system and type codes.
+    Patient supports marital status, multiple languages with proficiency levels, photo
+    attachments, contact persons and their relationships, communication preferences,
+    general practitioners, managing organization, and links to related patients (merged
+    records, see-also relationships). The resource includes deceased indicator, multiple
+    birth information, and animal-specific extensions for species and breed. Patient
+    serves as a central hub linking to all other clinical resources (observations,
+    conditions, procedures, medications) and enables patient matching, record linkage,
+    demographic analytics, cohort identification, and population health management.
+    The standardized demographics are essential for AI/ML applications requiring patient
+    stratification, bias detection, social determinants analysis, and fair representation
+    across diverse populations in clinical prediction models and decision support systems.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:40
@@ -5157,19 +5455,114 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:37
     category: B2AI:Application
-    name: Laboratory Result Interpretation and Clinical NLP
-    description: LOINC is essential for AI applications in clinical natural language
-      processing, automated laboratory result interpretation, and predictive analytics
-      based on lab test data. Machine learning models use LOINC codes to standardize
-      and integrate laboratory observations across diverse EHR systems, enabling AI
-      applications such as automated critical result detection, longitudinal trend
-      analysis, and disease prediction based on lab patterns. AI systems leverage
-      LOINC's hierarchical structure and semantic relationships to perform multi-modal
-      clinical reasoning that combines lab results with clinical notes, imaging findings,
-      and patient demographics. LOINC standardization is particularly critical for
-      federated learning applications where AI models must understand lab results
-      consistently across institutions.
+    name: Automated ML-Based Mapping of Free-Text Laboratory Codes to LOINC
+    description: Machine learning classifiers including Random Forest, logistic regression,
+      and ensemble methods automatically map free-text laboratory descriptors (test
+      names, units, panels) from local EHR systems to standardized LOINC codes. Novel
+      encoding methods vectorize heterogeneous lab terminology, and trained models
+      achieve high accuracy (Random Forest approximately 94.5% top-1 accuracy; ensemble
+      approaches up to 99% accuracy) on nationwide oncology EHR data from approximately
+      280 US clinics. This automation dramatically reduces manual terminologist effort
+      (which typically requires 6-8 hours per 1000 terms) and enables research-ready
+      datasets by harmonizing laboratory data across institutions for downstream ML
+      applications.
     used_in_bridge2ai: false
+    references:
+    - https://pmc.ncbi.nlm.nih.gov/articles/PMC8861721/
+  - id: B2AI_APP:136
+    category: B2AI:Application
+    name: LLM-Based LOINC Standardization Using Pre-Trained T5 Embeddings
+    description: Pre-trained T5 large language models with contrastive learning and
+      few-shot fine-tuning retrieve and suggest top-k LOINC code candidates from local
+      laboratory descriptions, supporting human-in-the-loop curation workflows. The
+      approach uses contextual embeddings and data augmentation to handle acronyms,
+      synonyms, misspellings, and missing metadata across LOINC's six dimensions (component,
+      property, time, system, scale, method), generalizing to unseen LOINC targets
+      without retraining. Training and evaluation use source-target pairs from MIMIC-III
+      EHR data, demonstrating improved top-k retrieval performance for scalable cross-site
+      laboratory harmonization given LOINC's large code space (over 80,000 codes).
+    used_in_bridge2ai: false
+    references:
+    - https://proceedings.mlr.press/v193/tu22a/tu22a.pdf
+  - id: B2AI_APP:137
+    category: B2AI:Application
+    name: Value-Based Laboratory Code Mapping to LOINC Using Result Distributions
+    description: Statistical feature engineering on laboratory test result distributions
+      (mean, median, quartiles, variance, skewness) combined with unit normalization
+      enables AI mapping of in-house codes to LOINC via intermediate standards (JLAC10)
+      without relying on test-name NLP. Applied to the J-DREAMS diabetes database
+      (955,011 entries across 15 facilities, 51 analytes), classifiers achieved at
+      least 70% mapping accuracy for 80.4% of analytes. This value-centric approach
+      is particularly useful where NLP resources or medical corpora are limited, demonstrating
+      that unit and value harmonization tied to LOINC groupings is critical for accurate
+      automated mapping and international data sharing.
+    used_in_bridge2ai: false
+    references:
+    - https://pmc.ncbi.nlm.nih.gov/articles/PMC12150744/
+  - id: B2AI_APP:138
+    category: B2AI:Application
+    name: LOINC-Coded Laboratory Features for Improved Multi-Site Predictive Modeling
+    description: Using LOINC-standardized laboratory features in predictive models
+      significantly improves performance and cross-site transferability compared to
+      unmapped local codes. In a 13-hospital UPMC heart failure cohort (2008-2012)
+      predicting 30-day readmission, models trained with manually LOINC-mapped lab
+      features consistently achieved significantly higher AUCs despite modest overall
+      performance. LOINC aggregation and grouping procedures materially affect model
+      reproducibility and external validation across institutions, demonstrating that
+      explicit LOINC standardization should be reported as a critical data preprocessing
+      step in multi-site ML studies to ensure interpretability and portability.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/jamiaopen/ooy063
+  - id: B2AI_APP:139
+    category: B2AI:Application
+    name: LOINC-to-HPO Semantic Integration for Deep Phenotyping and Biomarker Discovery
+    description: A widely adopted pipeline maps LOINC-coded laboratory test results
+      transmitted via FHIR to Human Phenotype Ontology (HPO) terms, enabling computational
+      deep phenotyping and biomarker discovery. The system manually biocurated mappings
+      for 2,923 commonly used LOINC tests, handling numeric, ordinal, and nominal
+      results using standardized FHIR interpretation codes, and leveraging HPO's hierarchical
+      structure to aggregate heterogeneous tests with comparable interpretations.
+      Validated on 15,681 UNC EHR patients with respiratory complaints and identifying
+      known asthma biomarkers, the approach supports association studies, cohort analysis,
+      and was released as a SMART on FHIR application for EHR integration and downstream
+      ML applications requiring ontology-based phenotype embeddings.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41746-019-0110-4
+  - id: B2AI_APP:140
+    category: B2AI:Application
+    name: N3C Unit and Value Harmonization Using LOINC Concept Grouping for ML-Ready
+      Datasets
+    description: The National COVID Cohort Collaborative (N3C) unit harmonization
+      pipeline groups laboratory measurements by LOINC concepts, selects canonical
+      units with UCUM conventions and conversion formulas, and infers missing units
+      using Kolmogorov-Smirnov distributional comparisons across pooled multi-site
+      data. Applied to billions of OMOP-mapped EHR lab records, the pipeline harmonized
+      88.1% of values and imputed units for 78.2% of records missing units (41% of
+      contributors' records), reclaiming large data fractions otherwise unavailable
+      for analysis. This LOINC-based harmonization directly enables creation of ML-ready
+      datasets for predictive modeling, phenotyping, and analytics across heterogeneous
+      EHR sources.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/jamia/ocac054
+  - id: B2AI_APP:141
+    category: B2AI:Application
+    name: High-Throughput LOINC Document Ontology Mapping Using Metadata-Based Methods
+    description: A scalable pipeline maps clinical document metadata to LOINC Document
+      Ontology (LOINC DO) codes at large scale using bag-of-words and vector distance
+      methods applied to structured EHR fields (event titles, tags, encounter types)
+      rather than full-text NLP. Applied to University of Missouri Cerner database
+      (over 130 million decompressed notes), the metadata-driven approach achieved
+      73.4% document coverage and mapped 132 million notes in under 2 hours, claimed
+      to be an order of magnitude more efficient than NLP-based methods. This LOINC
+      DO standardization supports downstream computable phenotyping, documentation
+      quality assessment, and potential ML applications requiring standardized clinical
+      document classification.
+    used_in_bridge2ai: false
+    references:
+    - https://pmc.ncbi.nlm.nih.gov/articles/PMC10785913/pdf/1116.pdf
 - id: B2AI_STANDARD:188
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5335,22 +5728,6 @@ data_standardortools_collection:
     records within organizational workflows.
   requires_registration: false
   url: https://www.medin.org.uk/medin-discovery-metadata-standard
-  has_application:
-  - id: B2AI_APP:38
-    category: B2AI:Application
-    name: Marine Environmental Data Discovery and Modeling
-    description: MEDIN (Marine Environmental Data Information Network) discovery metadata
-      standard is used in AI applications for integrating marine and coastal environmental
-      data, enabling machine learning models for ocean health monitoring, species
-      distribution prediction, and climate impact assessment. AI systems leverage
-      MEDIN's standardized metadata to discover relevant marine datasets, assess data
-      quality and coverage, and integrate heterogeneous environmental observations
-      for training predictive models. Applications include automated quality control
-      of marine sensor data, prediction of harmful algal blooms, modeling of marine
-      species responses to environmental change, and AI-driven gap analysis for marine
-      monitoring networks. The standard enables large-scale machine learning on marine
-      environmental data by ensuring dataset discoverability and contextual understanding.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:196
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5508,18 +5885,86 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:39
     category: B2AI:Application
-    name: Physiological Signal Processing and Cardiac AI
-    description: WFDB format is extensively used in AI applications for training deep
-      learning models on physiological waveforms, particularly for arrhythmia detection,
-      ECG interpretation, and vital sign monitoring. Neural networks leverage WFDB's
-      standardized representation of time-series physiological signals (ECG, blood
-      pressure, respiration) along with annotations to learn complex temporal patterns
-      for automated diagnosis, risk stratification, and patient monitoring. The format's
-      widespread adoption in datasets like PhysioNet enables reproducible AI research,
-      benchmark comparisons, and transfer learning across different cardiac monitoring
-      applications. AI systems use WFDB for real-time signal processing in ICU monitoring,
-      wearable cardiac devices, and telemedicine platforms.
+    name: MIMIC-BP Curated Dataset for Blood Pressure Estimation Benchmarking
+    description: The Python wfdb package reads MIMIC-III waveform signals directly,
+      converts samples to double precision, and preserves signals exactly as recorded
+      for ML workflows. MIMIC-BP organizes 1,524 patients into fixed 30-second segments
+      (30 segments per patient) at 125 Hz with ABP, ECG, PPG, and RESP waveforms
+      stored as NumPy files, providing per-segment median SBP/DBP labels for supervised
+      learning. Pre-defined per-subject train/validation/test splits prevent data
+      leakage under calibration-free protocols. This WFDB-enabled standardized segmentation,
+      labeling, and splitting supports reproducible benchmarking of deep learning
+      (ResNet, LSTM, Transformer) and classical ML (SVR, Random Forest) models for
+      cuff-less blood pressure estimation across approximately 380 hours of ICU data.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41597-024-04041-1
+  - id: B2AI_APP:142
+    category: B2AI:Application
+    name: PulseDB Large-Scale BP Estimation Corpus Using WFDB Toolbox
+    description: The WFDB toolbox retrieves and validates MIMIC-III matched subset
+      records, filtering for simultaneous ECG (lead II), PPG, and ABP channels while
+      removing NaN samples by extracting the longest valid intervals per record (10
+      seconds to 10 hours). Signals are resampled to 125 Hz and segmented into standardized
+      10-second windows with beat-level annotations and per-segment SBP/DBP labels,
+      yielding 5.2 million segments. This WFDB-enabled quality control, multi-channel
+      synchronization, and standardized segmentation provides a large benchmarking
+      corpus for training and evaluating ML/DL cuff-less blood pressure estimators
+      with cross-study comparability and reproducible preprocessing pipelines.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3389/fdgth.2022.1090854
+  - id: B2AI_APP:143
+    category: B2AI:Application
+    name: Intracranial Hypertension Forecasting Using Multi-Scale WFDB Waveforms
+    description: MIMIC-III WFDB provides high-frequency waveforms (125 Hz) and derived
+      1 Hz time series for ML early-warning systems. Specific channels (ICP, CPP,
+      ABP variants, HR, PLETH, RESP, ECG) are selected via WFDB, with cohort filtering
+      enforcing minimum 24-hour recording length and maximum 25% per-channel missing
+      values, reducing to 123 usable segments. Preprocessing produces 1-minute blocks
+      with artifact deletion, and supervised labels are derived from WFDB ICP time
+      series (median ICP greater than 20 mmHg for five consecutive minutes defines
+      intracranial hypertension events). This WFDB-based channel selection, quality
+      filtering, segmentation, and labeling enables training of logistic regression
+      and feature-based predictive models for forecasting intracranial hypertension
+      up to 8 hours ahead.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1088/1361-6579/ab6360
+  - id: B2AI_APP:144
+    category: B2AI:Application
+    name: Deep Learning ABP Waveform Imputation from WFDB Multi-Channel Signals
+    description: MIMIC-III waveform records accessed via WFDB provide synchronized
+      ECG (lead II), PPG, and invasive ABP for training deep learning models to impute
+      continuous arterial blood pressure waveforms from non-invasive signals. Preprocessing
+      includes downsampling to 100 Hz, low-pass filtering (16 Hz cutoff), robust
+      per-window scaling, and cross-correlation-based clock drift correction (up to
+      plus or minus 4 seconds). Sliding 32-second windows with 16-second steps are
+      quality-filtered (variance and peak-count thresholds), and labels are derived
+      from invasive ABP medians over 4-second windows. This WFDB-enabled preprocessing,
+      segmentation, inter-signal alignment, and label derivation supports training
+      U-Net-like segmentation models with transfer learning to external (UCLA) cohorts
+      for generalizable waveform-to-waveform prediction.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41598-021-94913-y
+  - id: B2AI_APP:145
+    category: B2AI:Application
+    name: Comparative Deep Learning for ABP Prediction from WFDB Physiological Signals
+    description: MIMIC waveform records provide co-recorded ECG (lead V), PPG, and
+      ABP for comparative evaluation of deep learning architectures including ResNet,
+      WaveNet, and LSTM for blood pressure prediction. WFDB-sourced data undergoes
+      artifact detection and removal (flat lines, missing heartbeats, negative BP
+      values), signal filtering (8th-order Chebyshev bandpass for ECG at 2-59 Hz),
+      and segmentation into 10-minute recordings. Target ABP is normalized with physiological
+      bounds (15-300 mmHg) for model training using RMSE and Huber loss, requiring
+      de-normalization for evaluation. This WFDB-based data selection, preprocessing,
+      segmentation, and target normalization pipeline supports systematic comparison
+      of CNN and RNN architectures for continuous blood pressure estimation from ICU
+      waveforms.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1007/s12559-021-09910-0
 - id: B2AI_STANDARD:203
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5865,8 +6310,23 @@ data_standardortools_collection:
   is_open: true
   name: mz5
   publication: doi:10.1074/mcp.O111.011379
-  purpose_detail: mz5 is a complete reimplementation of the mzML ontology that is
-    based on the efficient, industrial strength storage backend HDF5.
+  purpose_detail: The mz5 format is a complete reimplementation of the mzML data
+    model and ontology built on the HDF5 (Hierarchical Data Format 5) storage backend,
+    designed to address performance and scalability limitations of XML-based mass
+    spectrometry formats. mz5 preserves the semantic structure and controlled vocabulary
+    terms of mzML while leveraging HDF5's binary format, chunked storage, and native
+    compression capabilities to achieve significantly faster read/write operations
+    and reduced file sizes compared to mzML. The format organizes mass spectrometry
+    data into hierarchical HDF5 groups and datasets representing spectra, chromatograms,
+    instrument configurations, and metadata, with support for efficient random access
+    to individual spectra and parallel I/O operations. mz5 maintains compatibility
+    with the Proteomics Standards Initiative controlled vocabularies and supports
+    the same rich metadata and data provenance as mzML, while providing superior
+    performance for large-scale proteomics and metabolomics datasets. The HDF5 foundation
+    enables integration with high-performance computing workflows, supports multiple
+    programming languages (C, Python, Java, R), and facilitates efficient processing
+    of high-resolution and high-throughput mass spectrometry data for downstream
+    analysis pipelines and machine learning applications.
   related_to:
   - B2AI_STANDARD:339
   requires_registration: false
