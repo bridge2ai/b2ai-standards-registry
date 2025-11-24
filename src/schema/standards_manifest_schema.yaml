@@ -86,6 +86,7 @@ slots:
       referenced with its B2AI_ORG ID.
     domain: Manifest
     range: Organization
+    multivalued: false
 
   datasets:
     is_a: related_to
@@ -141,7 +142,7 @@ slots:
     domain: DataPart
     range: DataTopic
     multivalued: true
-
+  
   notes:
     is_a: node_property
     range: string

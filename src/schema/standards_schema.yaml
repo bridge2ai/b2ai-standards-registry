@@ -9,6 +9,7 @@ see_also:
 
 prefixes:
   B2AI: https://w3id.org/bridge2ai/standards-schema/
+  B2AI_APP: https://w3id.org/bridge2ai/standards-schema/
   biolink: https://w3id.org/biolink/vocab/
   clo: http://purl.obolibrary.org/obo/CLO_
   edam.data: http://edamontology.org/data_
@@ -73,6 +74,7 @@ classes:
       - contributor_orcid
       - contribution_date
       - used_in_bridge2ai
+      - has_application
     class_uri: schema:Thing
 
   AnatomicalEntity:  # Based on Biolink Model v.3.2.6
@@ -87,6 +89,23 @@ classes:
     id_prefixes:
       - uberon
       - clo
+
+  Application:
+    is_a: NamedThing
+    description: >-
+      A set of details describing a specific application of a resource
+      (e.g., a standard or a dataset) to a specific purpose.
+      In the context of Bridge2AI, this will generally refer to
+      an artificial intelligence-driven application.
+      The related_to slot can be used to link to other relevant entities,
+      such as other Applications, UseCases, DataSets, or Standards.
+      Application objects have unique identifiers with the prefix B2AI_APP.
+      This allows an Application to be referenced from other objects
+      if needed. The category slot for Application objects
+      should always be set to B2AI:Application for clarity.
+    slots:
+      - datasheet
+      - references
 
 slots:
   node_property:
@@ -161,6 +180,21 @@ slots:
       URI of corresponding class in an ontology
       of experimental procedures, in CURIE form.
     multivalued: true
+  datasheet:
+    is_a: node_property
+    range: uriorcurie
+    description: >-
+      List of one or more URLs pointing to related
+      datasheets in the Datasheets for Datasets
+      format.
+    multivalued: true
+  references:
+    is_a: node_property
+    range: uriorcurie
+    description: >-
+      List of one or more URLs pointing to related
+      publications, preprints, or other references.
+    multivalued: true
 
   contributor_name:
     is_a: node_property
@@ -217,3 +251,13 @@ slots:
       specified, it is not known if the entity is
       related to Bridge2AI.
     range: boolean
+
+  has_application:
+    description: >-
+      A list of one or more specific applications
+      of this entity to a specific purpose.
+    domain: NamedThing
+    range: Application
+    inlined: true
+    inlined_as_list: true
+    multivalued: true
