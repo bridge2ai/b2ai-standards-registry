@@ -52,9 +52,40 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:1",
+          "category": "B2AI:Application",
+          "name": "DiSSCo Digital Specimen Architecture AI-Assisted Curation",
+          "description": "The Digital Specimen Architecture uses FAIR Digital Object type descriptions based on TDWG standards including ABCD. This enables registered AI services to automatically discover digital specimens, execute allowed actions, and attach machine-readable annotations such as automated extraction from images, relation creation for knowledge graphs, and standardization or correction. ABCD defines the object structure and attributes in the FDO, allowing AI services to operate uniformly across collections and propagate outputs to aggregators such as GBIF and GeoCASe.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.3897/biss.7.112678"
+          ]
+        },
+        {
+          "id": "B2AI_APP:102",
+          "category": "B2AI:Application",
+          "name": "Hespi Computer Vision and OCR Pipeline for Herbarium Sheets",
+          "description": "Hespi integrates object detection, OCR and handwriting recognition, and a multimodal LLM for post-processing and authority control in herbarium digitization. The pipeline explicitly situates digitization within community standards, citing ABCD alongside Darwin Core. Extracted fields from labels and sheet components are mapped to ABCD and DwC fields to produce interoperable records consumable by downstream AI and analytics systems.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.48550/arxiv.2410.08740"
+          ]
+        },
+        {
+          "id": "B2AI_APP:103",
+          "category": "B2AI:Application",
+          "name": "ML-Ready Benchmark Datasets via ABCD Standardization",
+          "description": "Work on improving transcribed digital specimen data highlights ABCD and Darwin Core as the target schema for interoperable outputs and schema-based annotation systems such as AnnoSys. This ecosystem underpins ML-ready benchmark datasets for herbarium images and semi-automated workflows for data cleaning and georeferencing, facilitating training and evaluation of computer vision and NLP models while keeping outputs in ABCD and DwC formats for data exchange.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1093/database/baz129"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:1"
@@ -166,8 +197,27 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
-      "collection": [
-        "has_ai_application"
+      "has_application": [
+        {
+          "id": "B2AI_APP:2",
+          "category": "B2AI:Application",
+          "name": "PACS-to-AIM Conversion for ML-Ready Label Generation",
+          "description": "A deployed workflow converts proprietary vendor DICOM presentation state annotations from commercial PACS systems into AIM XML using the AIM API, enabling standardization of legacy radiologist annotations for machine learning. A Python module matches lesions across longitudinal studies via 3D coordinates, producing AIM files that are imported into ePAD where lesions are linked over time and quantitative metrics are computed. This AIM conversion pipeline unlocks historical radiologist annotations from PACS for supervised training, radiomics pipelines, and generation of high-quality labeled datasets for deep learning, while ensuring interoperability and enabling large-scale analysis across institutions.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1007/s10278-019-00191-6"
+          ]
+        },
+        {
+          "id": "B2AI_APP:104",
+          "category": "B2AI:Application",
+          "name": "ePAD AIM-Based Radiomics and ML Data Platform",
+          "description": "ePAD stores annotations and quantitative imaging features in AIM XML and exposes RESTful web services allowing plugins and external tools to retrieve AIM annotations and associated images for downstream analysis. Plugins compute biomarkers and save results back into AIM format, while integrations with external pipelines such as QIFP and pyRadiomics enable feature extraction with outputs persisted in AIM. This AIM-centric architecture facilitates standardized training data management, radiomic feature extraction, and programmatic access for machine learning workflows, cohort analyses, and interoperable analytics environments for quantitative imaging research.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.18383/j.tom.2018.00055"
+          ]
+        }
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:9",
@@ -196,9 +246,40 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:3",
+          "category": "B2AI:Application",
+          "name": "Pre-Development ML Scoping and Data Provenance Documentation",
+          "description": "CTA-2090 recommends concrete developer actions for AI/ML workflows including listing potential use cases before development to properly scope algorithm functionality and limits, documenting whether datasets are raw or pre-processed and what preprocessing was performed, and understanding how original data were collected to identify potential biases. These practices operationalize the standard's emphasis on clear intended use, data lineage, traceability, and documentation requirements for trustworthy ML pipelines in healthcare, ensuring teams establish proper foundations during planning and data preparation stages.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.fdli.org/wp-content/uploads/2023/01/9-Ross.pdf"
+          ]
+        },
+        {
+          "id": "B2AI_APP:105",
+          "category": "B2AI:Application",
+          "name": "Bias Assessment and Post-Deployment Monitoring",
+          "description": "CTA-2090 guidance is applied through explicit testing for racial and other biases including testing on vulnerable populations, contractual diversity and representation benchmarks for training data, and inventories to review, screen, retrain, and prevent bias during development. Post-deployment operationalization includes ongoing real-world testing after approval and continuous review of algorithm results during clinical use. These practices implement the standard's expectations for bias identification, mitigation, representative data, lifecycle monitoring, and real-world performance auditing in healthcare AI systems.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.fdli.org/wp-content/uploads/2023/01/9-Ross.pdf"
+          ]
+        },
+        {
+          "id": "B2AI_APP:106",
+          "category": "B2AI:Application",
+          "name": "Z-Inspection Stakeholder Co-Design and Trust Assessment",
+          "description": "Healthcare AI systems apply CTA-2090 trustworthiness principles through Z-Inspection, an ethically aligned co-design methodology involving interdisciplinary stakeholders to examine ethical, technical, medical, and legal implications during development and deployment. Assessments uncover dataset bias risks, deployment shortcomings such as accent-related accuracy degradation, and protocol effects on ML output accuracy. Recommended practices include building explainability into models, documenting how decisions are generated, and conducting real-world validation that translates the standard's transparency, fairness, and reproducibility dimensions into concrete governance and evaluation activities.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.48550/arxiv.2206.09887"
+          ]
+        }
+      ],
       "collection": [
-        "guidelines",
-        "has_ai_application"
+        "guidelines"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -312,8 +393,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4"
@@ -487,9 +567,32 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:5",
+          "category": "B2AI:Application",
+          "name": "DeepVariant Deep Learning Variant Calling",
+          "description": "DeepVariant uses BAM/CRAM alignment files as input to train convolutional neural networks that classify candidate genomic variants with high accuracy across multiple sequencing technologies. The model transforms aligned reads into image-like pileup tensors that capture base qualities, mapping qualities, and strand information, enabling the CNN to learn complex patterns that distinguish true genetic variants from sequencing artifacts and alignment errors. This approach achieves state-of-the-art performance on benchmark datasets and generalizes well across Illumina, PacBio, and Oxford Nanopore sequencing platforms without technology-specific parameter tuning.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/nbt.4235",
+            "https://doi.org/10.1038/s41587-021-01108-x"
+          ]
+        },
+        {
+          "id": "B2AI_APP:101",
+          "category": "B2AI:Application",
+          "name": "Deep Learning for Structural Variant Detection",
+          "description": "Deep learning models trained on BAM/CRAM files enable detection of complex structural variants including deletions, duplications, inversions, and translocations that are challenging for traditional callers. Neural networks analyze read depth, split reads, discordant read pairs, and local assembly features from aligned data to identify structural rearrangements, with applications in cancer genomics where somatic structural variants drive tumorigenesis and treatment resistance. These models improve sensitivity for detecting variants in repetitive regions and provide better breakpoint resolution than conventional methods.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41467-022-28289-w",
+            "https://doi.org/10.1093/bioinformatics/btab732"
+          ]
+        }
+      ],
       "collection": [
         "fileformat",
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -609,9 +712,20 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:6",
+          "category": "B2AI:Application",
+          "name": "Translator Knowledge Graph for Drug Repurposing",
+          "description": "NCATS Biomedical Data Translator uses Biolink Model to integrate diverse biomedical knowledge sources into a unified knowledge graph supporting AI-driven drug repurposing and mechanism discovery. The standardized Biolink schema enables graph neural networks to perform multi-hop reasoning across chemical-protein-disease relationships, identifying candidate therapeutics by connecting drugs to diseases through intermediate biological entities. The Translator system's reasoning agents leverage Biolink predicates to score and rank hypothesized drug-disease associations based on mechanistic evidence paths learned from integrated data.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1111/cts.13302"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:20"
@@ -740,9 +854,30 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:7",
+          "category": "B2AI:Application",
+          "name": "FreeContact Protein Contact Prediction ML Output Format",
+          "description": "FreeContact implements statistical learning-based approaches for protein residue-residue contact prediction using mean-field Direct Coupling Analysis and PSICOV sparse inverse covariance methods. The tool explicitly supports BioXSD as an output format to facilitate integration into bioinformatics workflows and web services, with planned BioXSD input support. This demonstrates BioXSD serving as the standardized exchange format for machine learning tool outputs, enabling incorporation of ML-based contact predictions into interoperable analysis pipelines.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1186/1471-2105-15-85"
+          ]
+        },
+        {
+          "id": "B2AI_APP:107",
+          "category": "B2AI:Application",
+          "name": "OntoDT Datatype Ontology for ML Dataset Repositories",
+          "description": "The OntoDT generic ontology of datatypes uses BioXSD to improve representation of basic bioinformatics datatypes in exchange formats, enabling construction of taxonomies for datasets, data mining tasks, generalizations, and algorithms. OntoDT can be used for annotation and querying of machine learning dataset repositories and for constructing data mining workflows. This links BioXSD datatype representations to ML and data mining ontologies, supporting standardized workflow assembly through consistent bioinformatics datatype semantics.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1016/j.ins.2015.08.006"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:20"
@@ -765,9 +900,50 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:8",
+          "category": "B2AI:Application",
+          "name": "BIDS Apps for ML-Ready Preprocessing and Feature Extraction",
+          "description": "Containerized BIDS Apps such as fMRIPrep, MRIQC, and MRtrix3 Connectome accept BIDS datasets and emit standardized derivatives including preprocessed time series, image quality metrics, and connectivity matrices that function directly as inputs or labels for ML workflows. The BIDS Apps ecosystem uses containerization to provide reproducible preprocessing pipelines across systems including HPC environments via Singularity, enabling consistent feature extraction for training machine learning models on neuroimaging data.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1371/journal.pcbi.1005209"
+          ]
+        },
+        {
+          "id": "B2AI_APP:108",
+          "category": "B2AI:Application",
+          "name": "PyBIDS and MNE-BIDS Programmatic Dataset Assembly",
+          "description": "PyBIDS provides programmatic access to query BIDS datasets and their metadata and to organize derivatives in BIDS-Derivatives format, facilitating reproducible train-validation splits and feature assembly for ML pipelines. MNE-BIDS provides an integration layer for MNE-Python enabling standardized ingestion of EEG, MEG, and iEEG BIDS data into analysis pipelines that feed ML methods. These tools enable automated dataset selection, metadata-driven curation, and scalable learning across neuroimaging studies.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1162/imag_a_00103"
+          ]
+        },
+        {
+          "id": "B2AI_APP:109",
+          "category": "B2AI:Application",
+          "name": "BIDS Derivatives and Connectivity Specifications for ML Features",
+          "description": "The BIDS Connectivity extension and Derivatives specifications define interoperable formats for structural and functional connectivity matrices, seed-based maps, tractograms, and tractometry across modalities including sMRI, fMRI, DWI, PET, EEG, iEEG, and MEG. These standardized derivative schemas enable common ML features to be shared and allow benchmarking of ML models on consistent feature representations, supporting reproducible radiomics and connectomics analyses.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1162/imag_a_00103"
+          ]
+        },
+        {
+          "id": "B2AI_APP:110",
+          "category": "B2AI:Application",
+          "name": "XGBoost-Based DICOM to BIDS Automated Conversion",
+          "description": "An XGBoost classifier trained on DICOM metadata achieves 99.5% accuracy in classifying MRI acquisition types and automatically transforms unstructured clinical imaging into BIDS datasets with little to no user intervention. This ML-enabled conversion tool reduces manual curation burden, accelerates creation of standardized training corpora, and enables clinical imaging data to be rapidly prepared for downstream machine learning analyses in BIDS format.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1007/s12021-024-09659-5"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:22"
@@ -1067,9 +1243,40 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:9",
+          "category": "B2AI:Application",
+          "name": "HL7 FHIR to CDISC Laboratory Mapping for ML-Ready EHR Data",
+          "description": "The HL7 FHIR to CDISC Joint Mapping Implementation Guide includes mappings for the Laboratory domain that translate FHIR lab resources into CDISC variables, linked with CDISC LB-to-LOINC mapping guidance to leverage real-world data for clinical trials. This harmonization enables EHR laboratory observations to be transformed into standardized, ML-ready lab features with consistent semantic coding via LOINC, supporting downstream machine learning analyses, pooled studies, and data mining across clinical trial and real-world datasets.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.47912/jscdm.162"
+          ]
+        },
+        {
+          "id": "B2AI_APP:111",
+          "category": "B2AI:Application",
+          "name": "Metadata-Driven ETL for Scalable Lab Dataset Construction",
+          "description": "CDISC Laboratory Model implementations use metadata-driven ETL approaches to produce standards-compliant lab datasets from source systems, reducing manual data preparation through automated transformation logic that operates at the metadata level rather than requiring code changes. This metadata-driven approach is foundational for building scalable, ML-ready dataset construction pipelines that can consistently process laboratory data across multiple studies and sites, enabling reproducible preprocessing for machine learning workflows.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.lexjansen.com/pharmasug/2002/proceed/DM/dm01.pdf"
+          ]
+        },
+        {
+          "id": "B2AI_APP:112",
+          "category": "B2AI:Application",
+          "name": "Integrated SDTM Laboratory Data for Pooled ML Analytics",
+          "description": "Integration of clinical trial and real-world data using CDISC standards including the Laboratory domain produces harmonized SDTM and ADaM datasets that enable pooled analyses and data mining across multiple studies and sponsors. Standardized laboratory variables with CDISC Controlled Terminology facilitate dataset aggregation, warehousing, and reuse, supporting pooled machine learning analyses and real-world evidence research by providing consistent lab feature representations that serve as inputs for predictive modeling and downstream analytics.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.47912/jscdm.128"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4"
@@ -1093,9 +1300,20 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:10",
+          "category": "B2AI:Application",
+          "name": "Clinical Trial Data Integration and Predictive Modeling",
+          "description": "CDISC ODM (Operational Data Model) is used in AI applications for standardizing clinical trial data exchange, enabling machine learning models to train on multi-study datasets and predict trial outcomes, patient enrollment, and safety events. AI systems leverage ODM's XML-based representation of study metadata, case report forms, and clinical data to automatically harmonize data from different trials, perform cross-study analyses, and develop predictive models for trial design optimization. The standard enables AI applications that forecast patient dropout rates, identify optimal sites for recruitment based on historical data, and detect protocol deviations through anomaly detection. ODM's structured format facilitates automated quality control and regulatory submission preparation through AI-driven validation.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1016/j.cct.2019.105820"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4"
@@ -1258,9 +1476,50 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:11",
+          "category": "B2AI:Application",
+          "name": "LitGen Semi-Supervised Literature Recommendation and Evidence Classification",
+          "description": "LitGen uses semi-supervised deep learning trained on ClinGen VCI-curated papers annotated with ACMG/AMP-aligned evidence types, incorporating curator explanations and unlabeled ClinGen-linked papers to improve proxy labels for literature recommendation and evidence-type classification. The system leverages ClinGen Variant Curation Interface annotations to predict which papers support specific ACMG/AMP evidence criteria, achieving 7.9-12.6% relative performance improvement over supervised-only models and reducing manual curation burden for variant interpretation workflows.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1142/9789811215636_0007"
+          ]
+        },
+        {
+          "id": "B2AI_APP:113",
+          "category": "B2AI:Application",
+          "name": "ACMG/AMP Feature-Based Variant Pathogenicity Classification",
+          "description": "Machine learning models explicitly encode ACMG/AMP evidence criteria as features in penalized logistic regression to produce probabilistic pathogenicity scores and rank variants of uncertain significance for prioritization. The approach treats ClinGen/ACMG guideline-based evidence levels as structured ML features, enabling guidelines-informed classification that slightly outperforms some in silico scores on certain VUS datasets and improves prioritization for clinical decision support in hereditary disease gene panels.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41598-022-06547-3"
+          ]
+        },
+        {
+          "id": "B2AI_APP:114",
+          "category": "B2AI:Application",
+          "name": "ClinGen SVI Calibration of Computational Predictors to PP3/BP4",
+          "description": "A probabilistic framework maps continuous scores from missense variant prediction tools to ACMG/AMP PP3 and BP4 evidence strength levels using ClinGen/ACMG standards, establishing score intervals for Supporting, Moderate, and Strong evidence. This calibration enables automated, standardized assignment of computational evidence to ClinGen-aligned interpretation workflows, with most tools achieving Supporting level and several reaching Moderate or Strong evidence thresholds for pathogenic or benign classification.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1016/j.ajhg.2022.10.013"
+          ]
+        },
+        {
+          "id": "B2AI_APP:115",
+          "category": "B2AI:Application",
+          "name": "CGBench LLM Benchmarking for ClinGen Evidence Reasoning",
+          "description": "CGBench uses ClinGen VCI and GCI entries with expert explanations as ground truth to evaluate large language models on evidence extraction, strength scoring, and explanation concordance for variant interpretation. The benchmark shows moderate extraction performance with GPT-4o achieving 49% precision and 79% recall, improved explanation concordance with few-shot prompting reaching 70%, but limited strength-change prediction accuracy, revealing both capabilities and gaps in LLM reasoning for ClinGen-aligned genomic curation tasks.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.48550/arxiv.2510.11985"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4",
@@ -1382,9 +1641,20 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:12",
+          "category": "B2AI:Application",
+          "name": "CcpNmr-Integrated Deep Learning for HNCA Backbone Assignment",
+          "description": "Deep neural networks integrated with the CcpNmr AnalysisAssign software analyze HNCA spectrum line shapes to yield amino acid type probabilities for automated protein backbone assignment. The networks are trained on synthetic databases with realistic instrumental artifacts and noise, taking 2D slices of pyruvate-patterned HNCA spectra as input and outputting probability tables that combine with primary sequence information for rapid assignment. This ML integration within the CCPN software framework accelerates NMR analysis workflows, though networks require retraining when experimental parameters change.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1126/sciadv.ado0403"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -1404,9 +1674,50 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:13",
+          "category": "B2AI:Application",
+          "name": "CFDE Workbench ML-Ready Data Harmonization and Knowledge Graph Integration",
+          "description": "The CFDE Workbench uses C2M2 to harmonize metadata and host processed data in standardized, AI-ready formats that can be loaded as data frames and integrated into ML workflows. C2M2-derived metadata feeds PostgreSQL databases supporting complex queries for ML dataset preparation, while planned conversion to Neo4j knowledge graphs will align database structure with the metadata model to enhance search performance and facilitate ML applications. This harmonization across Common Fund programs reduces barriers to assembling training corpora and interoperable inputs for cross-program AI/ML analyses.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2025.02.04.636535"
+          ]
+        },
+        {
+          "id": "B2AI_APP:116",
+          "category": "B2AI:Application",
+          "name": "LLM-Powered Chatbot with C2M2-Grounded Workflow Automation",
+          "description": "The CFDE Workbench integrates an LLM chatbot using OpenAI assistants API that answers Common Fund program and data questions while executing API calls based on standardized workflow specifications. The chatbot leverages C2M2-harmonized resources and codified ETL workflows through the Playbook Workflow Builder to automate discovery and retrieval, using function calling to ensure comprehensive and reproducible results. This direct AI application is enabled by C2M2-backed infrastructure that provides the structured metadata and APIs necessary for the LLM to interact with heterogeneous datasets.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2025.02.04.636535"
+          ]
+        },
+        {
+          "id": "B2AI_APP:117",
+          "category": "B2AI:Application",
+          "name": "FAIRshake Assessment of C2M2-Derived Assets for AI-Readiness",
+          "description": "The CFDE Workbench subjects metadata, processed data, and code assets derived from C2M2 submissions to automated FAIR assessments via FAIRshake. These assessments evaluate findability, accessibility, interoperability, and reusability of C2M2-derived assets that support AI/ML tools including the Playbook Workflow Builder, GeneSetCart, DD-KG-UI, and CFDE-GSE. By operationalizing AI-readiness through systematic FAIRness evaluation, this application ensures that C2M2-structured datasets meet the accessibility and interoperability requirements necessary for downstream ML consumption.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2025.02.04.636535"
+          ]
+        },
+        {
+          "id": "B2AI_APP:118",
+          "category": "B2AI:Application",
+          "name": "Ecosystem-Level Metadata Harmonization for Cross-Program ML Dataset Discovery",
+          "description": "The CFDE catalog uses C2M2 to ingest diverse Data Coordinating Center metadata into a unified model supporting centralized indexing and search across NIH Common Fund programs. This harmonization with controlled vocabularies and ontologies minimizes barriers to cross-program dataset discovery and reuse, which is prerequisite for assembling training corpora and interoperable inputs for AI/ML analyses. C2M2's evolving model adapts to community standards and emerging AI/ML technologies, enabling effective search and retrieval mechanisms essential for training AI models on biomedical data while promoting FAIR principles.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2021.11.05.467504"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -1750,7 +2061,6 @@
       "collection": [
         "audiovisual",
         "fileformat",
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -1785,7 +2095,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -1820,7 +2129,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -1855,7 +2163,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -1890,7 +2197,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -1922,7 +2228,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -1957,7 +2262,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -1992,7 +2296,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2027,7 +2330,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2062,7 +2364,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2097,7 +2398,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2134,9 +2434,6 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
-      "collection": [
-        "has_ai_application"
-      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:15",
         "standards_process_maturity_final",
@@ -2170,7 +2467,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2205,7 +2501,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2240,7 +2535,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2275,7 +2569,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2310,7 +2603,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2345,7 +2637,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2380,7 +2671,6 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2414,8 +2704,92 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:33",
+          "category": "B2AI:Application",
+          "name": "NCI Imaging Data Commons FAIR Dataset Harmonization for ML Training",
+          "description": "The NCI Imaging Data Commons uses DICOM to harmonize large-scale public imaging collections with AI-derived annotations, supporting transparent cohort selection and reproducible ML development. IDC encodes images and derived artifacts (volumetric segmentations, slice-level annotations, radiomics features) consistently using DICOM Segmentation objects and Structured Reports, enabling FAIR (findable, accessible, interoperable, reusable) datasets. Cloud-ready tools and libraries including highdicom lower barriers for ML developers to produce and consume DICOM-compliant training labels and outputs directly from Python workflows, facilitating dataset quality control and reproducibility for AI model development.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41597-023-02864-y"
+          ]
+        },
+        {
+          "id": "B2AI_APP:119",
+          "category": "B2AI:Application",
+          "name": "DICOM Segmentation and Structured Report Encoding for Supervised Learning Labels",
+          "description": "Research datasets are re-encoded into DICOM annotation objects to make labels directly consumable by ML pipelines. LIDC-IDRI lung nodule annotations were converted to DICOM Segmentation (SEG) objects and DICOM Structured Reports following template TID1500, providing interoperable nodular masks and qualitative/quantitative assessments. Disease-specific datasets like HCC-TACE distribute DICOM-SEG tumor/liver labels for algorithm training and evaluation. DICOM-SEG metadata tags capture algorithm provenance (Segment algorithm type, Segmentation type) essential for data curation, reproducibility, and supervised ML workflows, while software stacks (DCMTK, ITK, dcmqi, pydicom-seg) enable conversion and pipeline integration.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1186/s13244-021-01081-8"
+          ]
+        },
+        {
+          "id": "B2AI_APP:120",
+          "category": "B2AI:Application",
+          "name": "Vendor-Agnostic PACS-Integrated Shadow Testing Pipeline for Near-Real-Time Segmentation",
+          "description": "A containerized, DICOM-compatible pipeline integrates PACS with ML inference for near-real-time clinical shadow testing of segmentation algorithms. PACS sends studies via classic DICOM services (C-STORE/C-FIND/C-MOVE) to an on-premises GPU host that performs nnU-Net inference and converts results to DICOM Segmentation objects and Structured Reports encoding volumetry. Results are stored in a DCM4CHEE archive and visualized in OHIF web viewer, enabling clinical evaluation, human-in-the-loop corrections, and dataset curation. This demonstrates concrete PACS-to-inference-to-reporting workflows using established DICOM network protocols for AI integration into radiology operations.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.3389/fmed.2023.1241570"
+          ]
+        },
+        {
+          "id": "B2AI_APP:121",
+          "category": "B2AI:Application",
+          "name": "DICOM Structured Report TID1500 for Machine-Readable AI Results and Radiomics",
+          "description": "Quantitative AI outputs including radiomics features and imaging biomarkers are standardized via DICOM Structured Report template TID1500 measurement reports, providing machine-readable, auditable AI results that facilitate downstream research and clinical decision support. DICOM SR encodes semantic measurements with standardized format and lexicon, acting as a big-data container for multimodal patient data integration. DICOM Parametric Map IODs preserve derived pixelwise feature maps (kurtosis, texture) as DICOM objects for reproducible feature extraction. Integration guidance from standards bodies emphasizes encoding AI outputs into SR to scale deployment across vendors and sites.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1186/s13244-021-01081-8",
+            "https://doi.org/10.1117/1.jmi.7.1.016502"
+          ]
+        },
+        {
+          "id": "B2AI_APP:122",
+          "category": "B2AI:Application",
+          "name": "DICOMweb RESTful Services for Scalable Cloud and Web-Based ML Pipelines",
+          "description": "DICOMweb RESTful services (WADO-RS, QIDO-RS, STOW-RS) connect external ML applications and viewers to enterprise archives over HTTP, enabling scalable web and cloud AI pipelines. DICOMweb client APIs allow external apps to retrieve, query, and store DICOM objects without classic DIMSE protocols, facilitating integration with modern web architectures. Frameworks stream DICOM and metadata from hospital PACS into research compute clusters to power real-time ML and operational analytics. Examples include Niffler for PACS-to-research pipelines with metadata extraction and ML analytics, and EMPAIA decentralized platform for running third-party AI on DICOM data at scale.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1016/j.cmpb.2024.108113"
+          ]
+        },
+        {
+          "id": "B2AI_APP:123",
+          "category": "B2AI:Application",
+          "name": "DICOM-WSI and DICOMweb for Computational Pathology ML Development",
+          "description": "DICOM Whole Slide Imaging (DICOM-WSI) and DICOMweb enable interoperable storage, visualization, and annotation of whole-slide images in web viewers for computational pathology. These standards support collecting standardized annotations and displaying AI inference outputs including segmentation masks, heat maps, and image-derived measurements within the DICOM ecosystem. DICOM-WSI brings pathology images into uniform DICOM workflows to facilitate ML model development and validation, while web viewers (e.g., Visilab Viewer) provide platforms for annotating training data and reviewing AI results in digital pathology contexts.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41597-023-02864-y",
+            "https://doi.org/10.1016/j.cmpb.2024.108113"
+          ]
+        },
+        {
+          "id": "B2AI_APP:124",
+          "category": "B2AI:Application",
+          "name": "IODeep Proposed IOD for DNN Model Management and Federated Learning in PACS",
+          "description": "The proposed IODeep DICOM Information Object Definition stores deep neural network architectures and weights inside PACS as non-patient objects, enabling model selection via DICOM tag metadata (modality, anatomical region, disease). Inference runs client-side or on dedicated servers proximal to viewers, with predicted ROIs saved as RT Structure Sets for physician validation and retraining. IODeep supports model lifecycle management including fine-tuning with hospital data and federated learning scenarios by sharing model metadata without moving patient data. The design uses Unlimited Text VR for JSON architecture descriptions and weight URIs, with parsers for TensorFlow/PyTorch instantiation, demonstrating an emerging pattern for managing AI models within DICOM-compliant workflows.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1016/j.cmpb.2024.108113"
+          ]
+        },
+        {
+          "id": "B2AI_APP:125",
+          "category": "B2AI:Application",
+          "name": "DICOM GSPS and RT Structure Sets for AI Annotation Presentation and Clinical Feedback",
+          "description": "DICOM Grayscale Softcopy Presentation State (GSPS) ensures consistent overlay and display of AI annotations across workstations, while RT Structure Set (RTSS) objects store physician-validated contours after AI suggestion, supporting clinical quality assurance and retraining workflows. RTSS is widely supported for storing ROI contours and labels for model training, enabling human-in-the-loop correction loops where radiologists review AI predictions, validate or correct them, and create ground-truth datasets. Integration of CAD results into PACS using DICOM SR and GSPS, combined with DICOM routers for communication and correction, supports maturity levels from investigational AI display through continuously updated deployed models driven by radiologist interactions.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1117/1.jmi.7.1.016502",
+            "https://doi.org/10.1016/j.cmpb.2024.108113"
+          ]
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2430,7 +2804,7 @@
       "has_training_resource": [
         "B2AI_STANDARD:849"
       ],
-      "purpose_detail": "Radiology imaging, including templates for narrative reports and machine-generated output.",
+      "purpose_detail": "Digital Imaging and Communications in Medicine (DICOM) is the international standard for medical imaging information and related data. DICOM defines the formats and communication protocols for medical images (CT, MRI, ultrasound, X-ray, etc.) and associated metadata including patient demographics, study information, equipment parameters, and image acquisition details. The standard encompasses file formats, network protocols, and information models that enable interoperability across imaging devices, PACS (Picture Archiving and Communication Systems), workstations, and clinical information systems. DICOM supports structured reporting through DICOM-SR for encoding measurements, annotations, and AI-generated findings in a standardized machine-readable format. The standard includes specialized modules for radiation dose tracking, workflow management, and integration of AI inference results. DICOM's comprehensive metadata structure and pixel data encoding make it essential for training and deploying AI models in medical imaging, while its widespread clinical adoption ensures that AI tools can integrate seamlessly into existing radiological workflows and health IT infrastructure.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.dicomstandard.org/",
@@ -2660,8 +3034,59 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:34",
+          "category": "B2AI:Application",
+          "name": "Cumulus Federated EHR Learning with Bulk FHIR and AI/NLP",
+          "description": "The Cumulus platform operationalizes SMART/HL7 Bulk FHIR Access API for standardized data export across multiple healthcare institutions, then applies AI and natural language processing for computable phenotyping to define cohorts and outcomes from both structured and unstructured EHR data. The SMART Text2FHIR pipeline extracts insights from clinical texts and converts them into structured FHIR data elements for analysis. Only aggregate outputs leave each institution, enabling privacy-preserving federated learning across sites for public health monitoring and research while maintaining data sovereignty and interoperability through standardized FHIR exchange.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.02.02.24301940"
+          ]
+        },
+        {
+          "id": "B2AI_APP:126",
+          "category": "B2AI:Application",
+          "name": "FHIR Observation Encoding of Radiology AI Findings for Interoperable Integration",
+          "description": "A framework models radiology AI outputs (such as pulmonary nodule characteristics from automated detection algorithms) as FHIR Observation resources embedded within DiagnosticReport objects, standardizing AI-generated findings alongside radiologist reports. This FHIR-based encoding enables interoperable downstream use, long-term tracking of imaging findings, and integration with electronic health records for clinical decision-making. The structured FHIR representation facilitates reproducible data management, cohort identification, and longitudinal analysis of AI-detected imaging biomarkers across healthcare systems.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1093/jamia/ocae134"
+          ]
+        },
+        {
+          "id": "B2AI_APP:127",
+          "category": "B2AI:Application",
+          "name": "MyDigiTwin FHIR Harmonization for Federated Learning Cohort Studies",
+          "description": "The MyDigiTwin federated learning research infrastructure uses a FHIR-based data harmonization framework to standardize cohort study variables across multiple sites for cardiovascular risk prediction modeling. The pipeline successfully generated approximately 150,000 FHIR bundles from Lifelines cohort variable data, demonstrating practical large-scale FHIR use for multi-center ML. This FHIR harmonization ensures interoperability and facilitates the structuring, standardization, and exchange of healthcare data across federated learning nodes, enabling distributed model training while data remains at local institutions.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.3233/shti240735"
+          ]
+        },
+        {
+          "id": "B2AI_APP:128",
+          "category": "B2AI:Application",
+          "name": "SMART on FHIR Integration for AI-Driven Clinical Decision Support Systems",
+          "description": "SMART on FHIR provides a modular framework enabling third-party AI-driven clinical decision support applications to integrate seamlessly into health information systems. Implementations include automated breast cancer diagnosis via ultrasound with FHIR-standardized diagnostic metadata, ECG stream analysis frameworks for cloud-native AI processing, and machine learning-enhanced architectures that use FHIR to standardize clinical and imaging data flow for AI-based risk assessment. FHIR's standardized APIs and resource models enable deployment of predictive models across clinical domains, improving adherence to guidelines and enhancing diagnostic accessibility through interoperable, scalable CDSS implementations.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.20944/preprints202509.0818.v1"
+          ]
+        },
+        {
+          "id": "B2AI_APP:129",
+          "category": "B2AI:Application",
+          "name": "FHIR-Based Analytics Platforms for Clinical Predictive Model Deployment",
+          "description": "FHIR data models and APIs support analytics frameworks and deployment of clinical predictive models including sepsis prediction, distributed phenotyping analytics platforms, and personalized medicine applications. Implementations provide patterns for converting FHIR resources to analysis-ready formats, hosting predictive models as web services, and automating management of audit files and structured medical data. Platforms like doc.ai leverage FHIR analytical capabilities for personalized medicine, while distributed phenotyping systems use FHIR to enable clinical decision-making across multiple healthcare sites with standardized data access and model integration.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.3390/healthcare11121729"
+          ]
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -2678,7 +3103,7 @@
         "B2AI_STANDARD:847",
         "B2AI_STANDARD:850"
       ],
-      "purpose_detail": "EHR exchange, EHRs",
+      "purpose_detail": "Fast Healthcare Interoperability Resources (FHIR) is a standard for exchanging healthcare information electronically, developed by HL7. FHIR defines a set of modular components called \"resources\" that represent discrete clinical and administrative concepts (patients, observations, medications, procedures, diagnostic reports, etc.) with well-defined data structures, terminology bindings, and RESTful API interactions. Each resource can be retrieved, created, updated, and searched via standard HTTP operations, enabling flexible system integration and mobile/web application development. FHIR supports multiple exchange paradigms including RESTful APIs, messaging, documents, and services, with extensibility mechanisms (profiles, extensions) to adapt to local requirements while maintaining interoperability. The standard leverages modern web technologies (JSON, XML), common terminologies (SNOMED CT, LOINC, RxNorm), and implementation guides to facilitate rapid deployment across EHR systems, clinical decision support tools, patient-facing applications, and research platforms. FHIR's structured, granular data representation and standardized APIs make it particularly suitable for AI/ML applications that require consistent access to longitudinal patient data, clinical observations, and healthcare workflows for training predictive models and deploying real-time decision support at the point of care.",
       "is_open": true,
       "requires_registration": true,
       "url": "https://www.hl7.org/fhir/overview.html",
@@ -2715,9 +3140,81 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:35",
+          "category": "B2AI:Application",
+          "name": "seqQscorer Automated FASTQ Quality Control Using Machine Learning",
+          "description": "seqQscorer computes features from FASTQ files including per-base and per-read quality metrics, overrepresented sequences, k-mer counts, and mapping-derived statistics, then trains tree-based (Random Forest) and deep learning classifiers to automatically flag low- versus high-quality NGS files. The system uses FASTQ-derived quality scores as core predictive features with labels from ENCODE curation, creating generalizable models across assays (RNA-seq, ChIP-seq, DNase-seq, ATAC-seq) and species. This ML-based automated QC provides decision support for curators and researchers, saving resources by identifying poor-quality experiments early in analysis pipelines.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1186/s13059-021-02294-2"
+          ]
+        },
+        {
+          "id": "B2AI_APP:130",
+          "category": "B2AI:Application",
+          "name": "MiniScrub CNN-Based Nanopore Read Error Scrubbing Using FASTQ Quality Pileups",
+          "description": "MiniScrub encodes Oxford Nanopore read-to-read overlaps and per-base qualities from FASTQ into image-like pileup channels that capture minimizer matches, base quality scores, and inter-minimizer distances. A convolutional neural network trained on these FASTQ-derived representations identifies and removes low-quality read segments de novo, without requiring reference alignment or hybrid error correction. This CNN-based scrubbing improves downstream assembly quality by reducing misassemblies and indel errors, demonstrating how FASTQ sequence and quality information can be transformed into ML-friendly image representations for quality classification tasks.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1186/s12859-019-3103-z"
+          ]
+        },
+        {
+          "id": "B2AI_APP:131",
+          "category": "B2AI:Application",
+          "name": "MAC-ErrorReads Supervised Classification for Filtering Erroneous NGS Reads",
+          "description": "MAC-ErrorReads formulates erroneous-read filtration as supervised binary classification using features extracted from FASTQ sequences via TF-IDF encoding (treating sequence tokens/k-mers like text). Multiple supervised algorithms including Naive Bayes models are trained to distinguish erroneous versus accurate reads, retaining higher-quality reads and improving downstream assembly quality and genomic coverage. This ML approach addresses increasing sequencing throughput by providing automated, scalable read filtering that complements traditional k-mer-based and alignment-based error-handling methods across both short-read and long-read NGS platforms.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1186/s12859-024-05681-1"
+          ]
+        },
+        {
+          "id": "B2AI_APP:132",
+          "category": "B2AI:Application",
+          "name": "SeqTagger CTC-CRF Basecaller for Nanopore Barcode Demultiplexing with Quality Filtering",
+          "description": "SeqTagger demultiplexes direct RNA nanopore datasets by training a CTC-CRF DNA basecalling model (using Bonito software) to decode barcode sequences from signal data, producing FASTQ basecalls that are then mapped to reference barcodes. Per-read median base quality from FASTQ is used to filter out potential misassignments, achieving high precision (approximately 99%) and recall (approximately 95%) for demultiplexing. This workflow demonstrates how FASTQ basecalled sequences and their quality scores enable accurate barcode assignment and quality-based filtering in direct RNA sequencing, contrasting with image-based CNN approaches by operating in sequence space.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.10.29.620808"
+          ]
+        },
+        {
+          "id": "B2AI_APP:133",
+          "category": "B2AI:Application",
+          "name": "Deep Learning Variant Calling from FASTQ-Aligned Read Pileups",
+          "description": "Deep learning variant callers including DeepVariant, Clair3, and DNAscope operate on pileup tensors built from FASTQ-aligned reads, incorporating per-base quality scores as input features alongside base identity. These models transform FASTQ-derived alignments into image-like or tensor representations that preserve sequence context and quality information, then apply CNNs or specialized architectures for genotype prediction. Benchmarks demonstrate that these deep learning approaches outperform traditional algorithms for SNP and indel calling across platforms (Illumina, PacBio HiFi, Oxford Nanopore), with quality scores explicitly used to weight evidence and calibrate predictions through methods like GATK's variant quality score recalibration (VQSR).",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.03.15.585313",
+            "https://doi.org/10.1002/0471250953.bi1110s43"
+          ]
+        },
+        {
+          "id": "B2AI_APP:134",
+          "category": "B2AI:Application",
+          "name": "CNN-Based eDNA Read Classification and rRNA Detection from FASTQ",
+          "description": "Deep learning models for metagenomics and environmental DNA analysis map FASTQ reads directly to taxonomic labels using k-mer embeddings or sequence representations, enabling fast and scalable classification with comparable accuracy to conventional pipelines. CNN-based workflows process raw FASTQ at high throughput for taxonomic assignment, while tools like RiboDetector use bidirectional LSTM models to identify ribosomal RNA reads in short-read data for contaminant removal. These approaches transform FASTQ sequences (and optionally quality-derived features) into token/k-mer embeddings or sequence inputs for classification tasks, demonstrating rapid and accurate read-level identification that reduces misclassification in downstream RNA-seq and metagenomic workflows.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.03.15.585313"
+          ]
+        },
+        {
+          "id": "B2AI_APP:135",
+          "category": "B2AI:Application",
+          "name": "fastp FASTQ Preprocessing for ML-Ready Feature Generation",
+          "description": "fastp performs ultra-fast all-in-one FASTQ preprocessing including quality control, adapter trimming, quality filtering, UMI processing, and base correction in a single scan, generating standardized outputs used as inputs or targets for ML workflows. The tool produces per-base quality profiles, k-mer occurrence tables, overrepresented-sequence positions, adapter detection results, and paired-end overlap corrections that serve as features for ML quality prediction models, denoising/error-correction training data, and metadata for classifiers. UMI-processed consensus reads reduce noise for ML training, while comprehensive pre- and post-filtering metrics enable automated quality assessment and artifact detection across NGS workflows, facilitating large-scale dataset generation for ML model development.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1093/bioinformatics/bty560"
+          ]
+        }
+      ],
       "collection": [
-        "fileformat",
-        "has_ai_application"
+        "fileformat"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:13"
@@ -2726,7 +3223,7 @@
         "B2AI_ORG:116",
         "B2AI_ORG:114"
       ],
-      "purpose_detail": "A text-based data format for nucleotide and amino acid sequences, with fields for quality scores.",
+      "purpose_detail": "FASTQ is a text-based file format for storing nucleotide sequences along with their corresponding per-base quality scores, making it the de facto standard for raw sequencing data from high-throughput sequencing platforms (Illumina, PacBio, Oxford Nanopore, etc.). Each sequence record consists of four lines containing a sequence identifier, the raw nucleotide sequence, a separator line, and ASCII-encoded quality scores (Phred scores) representing the confidence of each base call. The quality scores enable downstream tools to weight bases appropriately during alignment, variant calling, and assembly operations. FASTQ supports various quality encoding schemes (Phred+33, Phred+64) and accommodates reads of variable length from different sequencing technologies. The format's simultaneous representation of sequence and quality information is essential for quality control, error correction, read filtering, and AI/ML applications that require confidence metrics for training models on sequencing data quality assessment, base calling improvement, contamination detection, and metagenomic classification tasks.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://en.wikipedia.org/wiki/FASTQ_format"
@@ -3133,9 +3630,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:36",
+          "category": "B2AI:Application",
+          "name": "Functional Genomics Workflow Modeling and Reproducibility",
+          "description": "FuGEFlow is used in AI applications for standardizing functional genomics experimental workflows, enabling automated workflow optimization, experimental design prediction, and quality control through machine learning. AI systems leverage FuGEFlow's formal representation of experimental protocols, data transformations, and sample tracking to train models that predict optimal experimental conditions, identify protocol deviations that affect data quality, and automate experimental planning. The standard supports AI-driven meta-analysis across functional genomics studies by ensuring computational reproducibility and enabling models to learn from both successful and failed experiments. Applications include automated protocol generation, prediction of experimental outcomes based on design parameters, and workflow recommendation systems for genomics laboratories.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:13"
@@ -3160,7 +3665,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:9"
       ],
-      "purpose_detail": "A method to measure performance status with a high percentage of agreement between observers.",
+      "purpose_detail": "The Functionality Assessment Flowchart (FAF) is a structured clinical assessment tool designed to evaluate cancer patients' performance status through a standardized flowchart-based methodology. FAF provides a systematic approach to measuring functional capacity and activities of daily living in oncology patients, yielding performance status scores with high inter-observer agreement. The flowchart format guides clinicians through a series of binary decision points based on patient capabilities (ability to work, walk, self-care, etc.), resulting in consistent and reproducible assessments. FAF addresses limitations of traditional performance status scales by reducing subjectivity and improving reliability across different observers and clinical settings. The standardized scoring enables comparison of patient functional status over time, supports clinical decision-making for treatment planning, facilitates stratification in clinical trials, and provides structured data suitable for integration into electronic health records and outcomes research databases.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://doi.org/10.1186/s12885-015-1526-0",
@@ -3224,7 +3729,7 @@
         "B2AI_TOPIC:26",
         "B2AI_TOPIC:33"
       ],
-      "purpose_detail": "A text-based data format for nucleotide and amino acid sequences, with fields for a variety of sequence metadata.",
+      "purpose_detail": "The GenBank format is a comprehensive text-based annotation format for nucleotide and protein sequences maintained by NCBI as part of the GenBank sequence database, one of the three components of the International Nucleotide Sequence Database Collaboration (INSDC) alongside EMBL and DDBJ. Each GenBank record contains a sequence along with extensive structured metadata organized into standardized fields including locus name and length, definition line, accession and version numbers, keywords, source organism with taxonomic classification, literature references with PubMed links, and feature table annotations. The feature table uses a hierarchical key-value structure to annotate biological features such as genes, coding sequences (CDS) with translation, regulatory elements, binding sites, variations, and experimental evidence, with controlled qualifiers and ontology terms. GenBank format supports protein translations, codon usage information, cross-references to other databases (UniProt, PDB, Gene, etc.), and provenance tracking of sequence submissions and updates. The rich annotation structure enables integration of genomic context, functional annotations, phylogenetic information, and experimental validation data in a single standardized record, making GenBank essential for comparative genomics, gene annotation pipelines, sequence analysis tools, and machine learning applications that leverage both sequence content and biological metadata for training predictive models of gene structure, function, and regulation.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://en.wikipedia.org/wiki/GenBank"
@@ -3311,7 +3816,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:12"
       ],
-      "purpose_detail": "The GMX and GMT file formats are tab-delimited file formats that describe gene sets.",
+      "purpose_detail": "The GMT (Gene Matrix Transposed) format is a tab-delimited text file format developed by the Broad Institute for representing gene sets used in gene set enrichment analysis (GSEA) and related computational biology applications. Each line in a GMT file represents a single gene set with a simple structure containing the gene set name, description (or URL), and a tab-separated list of gene identifiers (typically gene symbols, Entrez IDs, or other standard identifiers). The format's simplicity and human readability make it ideal for storing and sharing curated gene set collections such as pathway databases (KEGG, Reactome), Gene Ontology term associations, disease gene signatures, transcription factor targets, and experimentally derived co-expression modules. GMT files are widely used by enrichment analysis tools (GSEA, Enrichr, WebGestalt), enable integration of custom gene sets into analysis workflows, support reproducible research through standardized gene set definitions, and facilitate machine learning applications that use gene set membership as features for classification, dimension reduction, and biological interpretation of high-throughput genomic data.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.genepattern.org/file-formats-guide#GMT"
@@ -3519,7 +4024,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:4"
       ],
-      "purpose_detail": "A minimum information checklist creating a consistent framework to transparently report the purpose, methods and results of the therapeutic experiments",
+      "purpose_detail": "The Guidelines for Information About Therapy Experiments (GIATE) is a minimum information checklist developed to establish a consistent framework for transparently reporting the purpose, methods, and results of therapeutic experiments, particularly in preclinical and translational research contexts. GIATE provides structured reporting requirements covering experimental design, intervention details (therapeutic agents, dosing, administration routes, timing), subject characteristics, outcome measures, statistical methods, and results presentation. The guidelines aim to improve reproducibility, enable meta-analyses, facilitate comparison across studies, and enhance the quality of preclinical therapeutic research by ensuring complete documentation of experimental parameters that affect interpretation and translatability. GIATE addresses the need for standardized reporting of therapy experiments to support evidence synthesis, reduce publication bias, and improve the rigor and transparency of preclinical studies that inform clinical trial design and therapeutic development pipelines.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://doi.org/10.1186/1756-0500-5-10",
@@ -3540,7 +4045,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:9"
       ],
-      "purpose_detail": "The Health Insurance Portability and Accountability Act of 1996 (HIPAA) is a federal law that required the creation of national standards to protect sensitive patient health information from being disclosed without the patient’s consent or knowledge. The US Department of Health and Human Services (HHS) issued the HIPAA Privacy Rule to implement the requirements of HIPAA. The HIPAA Security Rule protects a subset of information covered by the Privacy Rule.",
+      "purpose_detail": "The Health Insurance Portability and Accountability Act of 1996 (HIPAA) is a federal law that required the creation of national standards to protect sensitive patient health information from being disclosed without the patient's consent or knowledge. The US Department of Health and Human Services (HHS) issued the HIPAA Privacy Rule to implement the requirements of HIPAA. The HIPAA Security Rule protects a subset of information covered by the Privacy Rule.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.hhs.gov/hipaa/index.html",
@@ -3566,7 +4071,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:9"
       ],
-      "purpose_detail": "Code set for items and supplies and non-physician services not covered by the American Medical Association's Current Procedural Terminology-4 (CPT-4) codes; Medicare, Medicaid, and private health insurers use HCPCS procedure and modifier codes for claims processing.",
+      "purpose_detail": "The Healthcare Common Procedure Coding System (HCPCS) is a standardized code set maintained by the Centers for Medicare & Medicaid Services (CMS) for reporting medical procedures, products, supplies, and services to Medicare, Medicaid, and private health insurers for claims processing and reimbursement. HCPCS consists of two levels - Level I comprises CPT (Current Procedural Terminology) codes maintained by the American Medical Association for physician services and procedures, while Level II contains alphanumeric codes (A through V series) for items and services not covered by CPT including durable medical equipment (DME), prosthetics, orthotics, supplies, ambulance services, drugs administered via methods other than oral, and temporary procedures. Each HCPCS code is accompanied by modifiers that provide additional information about the service or item (laterality, level of service, unusual circumstances). The code set is updated quarterly to reflect new technologies, procedures, and supplies, and includes detailed descriptions, Medicare coverage policies, and pricing information. HCPCS enables standardized billing, facilitates claims adjudication, supports healthcare cost analysis and utilization research, and provides the foundation for healthcare payment systems and revenue cycle management across payers.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
@@ -3645,7 +4150,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:9"
       ],
-      "purpose_detail": "Guidance and templates for basic provenance information about clinical (and other care related information), who created it, when was it created, where was it created, how it was created, and why it was created.",
+      "purpose_detail": "The HL7 Clinical Document Architecture (CDA) Data Provenance Implementation Guide provides standardized guidance and templates for capturing and exchanging comprehensive provenance information about clinical and care-related information within CDA documents. The guide addresses the fundamental provenance questions - who created the information (author, organization, device), when it was created (timestamps, versioning), where it was created (facility, location), how it was created (method, procedure, source system), and why it was created (purpose, context). The implementation guide defines structured elements and coded values for documenting data transformations, aggregations, derivations, and chains of custody that are critical for clinical decision-making, regulatory compliance, and legal accountability. Provenance metadata supports trust and transparency in health information exchange, enables auditability and traceability of clinical data across systems and care settings, facilitates detection of data quality issues, and provides essential context for interpreting clinical information in research, quality improvement, and AI/ML applications where understanding data lineage and reliability is paramount.",
       "is_open": true,
       "requires_registration": true,
       "url": "http://www.hl7.org/implement/standards/product_brief.cfm?product_id=420",
@@ -3724,7 +4229,7 @@
         "B2AI_STANDARD:847",
         "B2AI_STANDARD:850"
       ],
-      "purpose_detail": "Resource for raw data describing a biological sequence.",
+      "purpose_detail": "The FHIR MolecularSequence resource provides a standardized structure for representing raw and processed biological sequence data including DNA, RNA, and amino acid sequences within the FHIR ecosystem, enabling integration of genomic information with clinical data. The resource captures observed sequences, reference sequences, sequence variations (SNPs, indels, structural variants), quality scores, read coverage information, and repository links to external sequence databases (GenBank, EMBL, RefSeq). MolecularSequence supports representation of sequence coordinates using zero-based or one-based numbering systems, strand orientation, and relationships between sequences (such as transcript-to-protein mappings). The resource can reference associated specimens, patients, or other subjects, and links to variant calling results, expression data, and functional annotations. MolecularSequence enables clinical genomics workflows including variant interpretation, pharmacogenomics decision support, molecular diagnostics reporting, and precision medicine applications by providing a FHIR-native way to exchange sequence data alongside phenotypic, diagnostic, and treatment information in electronic health records and clinical information systems.",
       "is_open": true,
       "requires_registration": false,
       "url": "http://hl7.org/implement/standards/fhir/molecularsequence.html",
@@ -3750,7 +4255,7 @@
         "B2AI_STANDARD:847",
         "B2AI_STANDARD:850"
       ],
-      "purpose_detail": "Resource for measurements and simple assertions made about a patient, device or other subject.",
+      "purpose_detail": "The FHIR Observation resource is a central, versatile structure for representing measurements, assessments, and assertions made about a patient, device, location, or other subject in healthcare contexts. Observations encompass a wide range of clinical and research data including vital signs (blood pressure, heart rate, temperature), laboratory results (chemistry, hematology, microbiology), imaging measurements, clinical assessments (pain scores, functional status), device readings (glucose monitors, pulse oximeters), social determinants of health, genomic findings, and quality metrics. The resource uses coded values from standard terminologies (LOINC, SNOMED CT) to identify what was measured, supports numeric values with units (UCUM), coded results, textual findings, and multimedia attachments. Observation includes metadata for effective time, status, performer, method, specimen reference, reference ranges, and interpretation flags. The resource supports panels and components for organizing related observations (complete blood count, metabolic panel), enables longitudinal tracking through sequences and trends, and links to supporting evidence and derivations. Observations are fundamental to AI/ML applications requiring structured clinical phenotypes, time-series analytics, predictive modeling, and integration of diverse data types for clinical decision support and population health analysis.",
       "is_open": true,
       "requires_registration": false,
       "url": "http://hl7.org/implement/standards/fhir/observation.html",
@@ -3777,7 +4282,7 @@
         "B2AI_STANDARD:847",
         "B2AI_STANDARD:850"
       ],
-      "purpose_detail": "Resource for demographics and other administrative information about an individual or animal receiving care or other health-related services.",
+      "purpose_detail": "The FHIR Patient resource provides a standardized structure for representing demographics and administrative information about individuals or animals receiving care or health-related services. The resource captures core demographic data including name (with multiple name types and use contexts), birth date, gender, address (with structured components and period of validity), telecom contact information (phone, email, with use and priority indicators), and multiple identifiers (medical record numbers, social security numbers, insurance IDs) with system and type codes. Patient supports marital status, multiple languages with proficiency levels, photo attachments, contact persons and their relationships, communication preferences, general practitioners, managing organization, and links to related patients (merged records, see-also relationships). The resource includes deceased indicator, multiple birth information, and animal-specific extensions for species and breed. Patient serves as a central hub linking to all other clinical resources (observations, conditions, procedures, medications) and enables patient matching, record linkage, demographic analytics, cohort identification, and population health management. The standardized demographics are essential for AI/ML applications requiring patient stratification, bias detection, social determinants analysis, and fair representation across diverse populations in clinical prediction models and decision support systems.",
       "is_open": true,
       "requires_registration": false,
       "url": "http://hl7.org/implement/standards/fhir/patient.html",
@@ -4401,9 +4906,80 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:37",
+          "category": "B2AI:Application",
+          "name": "Automated ML-Based Mapping of Free-Text Laboratory Codes to LOINC",
+          "description": "Machine learning classifiers including Random Forest, logistic regression, and ensemble methods automatically map free-text laboratory descriptors (test names, units, panels) from local EHR systems to standardized LOINC codes. Novel encoding methods vectorize heterogeneous lab terminology, and trained models achieve high accuracy (Random Forest approximately 94.5% top-1 accuracy; ensemble approaches up to 99% accuracy) on nationwide oncology EHR data from approximately 280 US clinics. This automation dramatically reduces manual terminologist effort (which typically requires 6-8 hours per 1000 terms) and enables research-ready datasets by harmonizing laboratory data across institutions for downstream ML applications.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC8861721/"
+          ]
+        },
+        {
+          "id": "B2AI_APP:136",
+          "category": "B2AI:Application",
+          "name": "LLM-Based LOINC Standardization Using Pre-Trained T5 Embeddings",
+          "description": "Pre-trained T5 large language models with contrastive learning and few-shot fine-tuning retrieve and suggest top-k LOINC code candidates from local laboratory descriptions, supporting human-in-the-loop curation workflows. The approach uses contextual embeddings and data augmentation to handle acronyms, synonyms, misspellings, and missing metadata across LOINC's six dimensions (component, property, time, system, scale, method), generalizing to unseen LOINC targets without retraining. Training and evaluation use source-target pairs from MIMIC-III EHR data, demonstrating improved top-k retrieval performance for scalable cross-site laboratory harmonization given LOINC's large code space (over 80,000 codes).",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://proceedings.mlr.press/v193/tu22a/tu22a.pdf"
+          ]
+        },
+        {
+          "id": "B2AI_APP:137",
+          "category": "B2AI:Application",
+          "name": "Value-Based Laboratory Code Mapping to LOINC Using Result Distributions",
+          "description": "Statistical feature engineering on laboratory test result distributions (mean, median, quartiles, variance, skewness) combined with unit normalization enables AI mapping of in-house codes to LOINC via intermediate standards (JLAC10) without relying on test-name NLP. Applied to the J-DREAMS diabetes database (955,011 entries across 15 facilities, 51 analytes), classifiers achieved at least 70% mapping accuracy for 80.4% of analytes. This value-centric approach is particularly useful where NLP resources or medical corpora are limited, demonstrating that unit and value harmonization tied to LOINC groupings is critical for accurate automated mapping and international data sharing.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC12150744/"
+          ]
+        },
+        {
+          "id": "B2AI_APP:138",
+          "category": "B2AI:Application",
+          "name": "LOINC-Coded Laboratory Features for Improved Multi-Site Predictive Modeling",
+          "description": "Using LOINC-standardized laboratory features in predictive models significantly improves performance and cross-site transferability compared to unmapped local codes. In a 13-hospital UPMC heart failure cohort (2008-2012) predicting 30-day readmission, models trained with manually LOINC-mapped lab features consistently achieved significantly higher AUCs despite modest overall performance. LOINC aggregation and grouping procedures materially affect model reproducibility and external validation across institutions, demonstrating that explicit LOINC standardization should be reported as a critical data preprocessing step in multi-site ML studies to ensure interpretability and portability.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1093/jamiaopen/ooy063"
+          ]
+        },
+        {
+          "id": "B2AI_APP:139",
+          "category": "B2AI:Application",
+          "name": "LOINC-to-HPO Semantic Integration for Deep Phenotyping and Biomarker Discovery",
+          "description": "A widely adopted pipeline maps LOINC-coded laboratory test results transmitted via FHIR to Human Phenotype Ontology (HPO) terms, enabling computational deep phenotyping and biomarker discovery. The system manually biocurated mappings for 2,923 commonly used LOINC tests, handling numeric, ordinal, and nominal results using standardized FHIR interpretation codes, and leveraging HPO's hierarchical structure to aggregate heterogeneous tests with comparable interpretations. Validated on 15,681 UNC EHR patients with respiratory complaints and identifying known asthma biomarkers, the approach supports association studies, cohort analysis, and was released as a SMART on FHIR application for EHR integration and downstream ML applications requiring ontology-based phenotype embeddings.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41746-019-0110-4"
+          ]
+        },
+        {
+          "id": "B2AI_APP:140",
+          "category": "B2AI:Application",
+          "name": "N3C Unit and Value Harmonization Using LOINC Concept Grouping for ML-Ready Datasets",
+          "description": "The National COVID Cohort Collaborative (N3C) unit harmonization pipeline groups laboratory measurements by LOINC concepts, selects canonical units with UCUM conventions and conversion formulas, and infers missing units using Kolmogorov-Smirnov distributional comparisons across pooled multi-site data. Applied to billions of OMOP-mapped EHR lab records, the pipeline harmonized 88.1% of values and imputed units for 78.2% of records missing units (41% of contributors' records), reclaiming large data fractions otherwise unavailable for analysis. This LOINC-based harmonization directly enables creation of ML-ready datasets for predictive modeling, phenotyping, and analytics across heterogeneous EHR sources.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1093/jamia/ocac054"
+          ]
+        },
+        {
+          "id": "B2AI_APP:141",
+          "category": "B2AI:Application",
+          "name": "High-Throughput LOINC Document Ontology Mapping Using Metadata-Based Methods",
+          "description": "A scalable pipeline maps clinical document metadata to LOINC Document Ontology (LOINC DO) codes at large scale using bag-of-words and vector distance methods applied to structured EHR fields (event titles, tags, encounter types) rather than full-text NLP. Applied to University of Missouri Cerner database (over 130 million decompressed notes), the metadata-driven approach achieved 73.4% document coverage and mapped 132 million notes in under 2 hours, claimed to be an order of magnitude more efficient than NLP-based methods. This LOINC DO standardization supports downstream computable phenotyping, documentation quality assessment, and potential ML applications requiring standardized clinical document classification.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10785913/pdf/1116.pdf"
+          ]
+        }
+      ],
       "collection": [
         "codesystem",
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -4580,8 +5156,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:11"
@@ -4721,9 +5296,60 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:39",
+          "category": "B2AI:Application",
+          "name": "MIMIC-BP Curated Dataset for Blood Pressure Estimation Benchmarking",
+          "description": "The Python wfdb package reads MIMIC-III waveform signals directly, converts samples to double precision, and preserves signals exactly as recorded for ML workflows. MIMIC-BP organizes 1,524 patients into fixed 30-second segments (30 segments per patient) at 125 Hz with ABP, ECG, PPG, and RESP waveforms stored as NumPy files, providing per-segment median SBP/DBP labels for supervised learning. Pre-defined per-subject train/validation/test splits prevent data leakage under calibration-free protocols. This WFDB-enabled standardized segmentation, labeling, and splitting supports reproducible benchmarking of deep learning (ResNet, LSTM, Transformer) and classical ML (SVR, Random Forest) models for cuff-less blood pressure estimation across approximately 380 hours of ICU data.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41597-024-04041-1"
+          ]
+        },
+        {
+          "id": "B2AI_APP:142",
+          "category": "B2AI:Application",
+          "name": "PulseDB Large-Scale BP Estimation Corpus Using WFDB Toolbox",
+          "description": "The WFDB toolbox retrieves and validates MIMIC-III matched subset records, filtering for simultaneous ECG (lead II), PPG, and ABP channels while removing NaN samples by extracting the longest valid intervals per record (10 seconds to 10 hours). Signals are resampled to 125 Hz and segmented into standardized 10-second windows with beat-level annotations and per-segment SBP/DBP labels, yielding 5.2 million segments. This WFDB-enabled quality control, multi-channel synchronization, and standardized segmentation provides a large benchmarking corpus for training and evaluating ML/DL cuff-less blood pressure estimators with cross-study comparability and reproducible preprocessing pipelines.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.3389/fdgth.2022.1090854"
+          ]
+        },
+        {
+          "id": "B2AI_APP:143",
+          "category": "B2AI:Application",
+          "name": "Intracranial Hypertension Forecasting Using Multi-Scale WFDB Waveforms",
+          "description": "MIMIC-III WFDB provides high-frequency waveforms (125 Hz) and derived 1 Hz time series for ML early-warning systems. Specific channels (ICP, CPP, ABP variants, HR, PLETH, RESP, ECG) are selected via WFDB, with cohort filtering enforcing minimum 24-hour recording length and maximum 25% per-channel missing values, reducing to 123 usable segments. Preprocessing produces 1-minute blocks with artifact deletion, and supervised labels are derived from WFDB ICP time series (median ICP greater than 20 mmHg for five consecutive minutes defines intracranial hypertension events). This WFDB-based channel selection, quality filtering, segmentation, and labeling enables training of logistic regression and feature-based predictive models for forecasting intracranial hypertension up to 8 hours ahead.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1088/1361-6579/ab6360"
+          ]
+        },
+        {
+          "id": "B2AI_APP:144",
+          "category": "B2AI:Application",
+          "name": "Deep Learning ABP Waveform Imputation from WFDB Multi-Channel Signals",
+          "description": "MIMIC-III waveform records accessed via WFDB provide synchronized ECG (lead II), PPG, and invasive ABP for training deep learning models to impute continuous arterial blood pressure waveforms from non-invasive signals. Preprocessing includes downsampling to 100 Hz, low-pass filtering (16 Hz cutoff), robust per-window scaling, and cross-correlation-based clock drift correction (up to plus or minus 4 seconds). Sliding 32-second windows with 16-second steps are quality-filtered (variance and peak-count thresholds), and labels are derived from invasive ABP medians over 4-second windows. This WFDB-enabled preprocessing, segmentation, inter-signal alignment, and label derivation supports training U-Net-like segmentation models with transfer learning to external (UCLA) cohorts for generalizable waveform-to-waveform prediction.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41598-021-94913-y"
+          ]
+        },
+        {
+          "id": "B2AI_APP:145",
+          "category": "B2AI:Application",
+          "name": "Comparative Deep Learning for ABP Prediction from WFDB Physiological Signals",
+          "description": "MIMIC waveform records provide co-recorded ECG (lead V), PPG, and ABP for comparative evaluation of deep learning architectures including ResNet, WaveNet, and LSTM for blood pressure prediction. WFDB-sourced data undergoes artifact detection and removal (flat lines, missing heartbeats, negative BP values), signal filtering (8th-order Chebyshev bandpass for ECG at 2-59 Hz), and segmentation into 10-minute recordings. Target ABP is normalized with physiological bounds (15-300 mmHg) for model training using RMSE and Huber loss, requiring de-normalization for evaluation. This WFDB-based data selection, preprocessing, segmentation, and target normalization pipeline supports systematic comparison of CNN and RNN architectures for continuous blood pressure estimation from ICU waveforms.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1007/s12559-021-09910-0"
+          ]
+        }
+      ],
       "collection": [
         "fileformat",
-        "has_ai_application",
         "implementation_maturity_production"
       ],
       "concerns_data_topic": [
@@ -5065,7 +5691,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
       ],
-      "purpose_detail": "mz5 is a complete reimplementation of the mzML ontology that is based on the efficient, industrial strength storage backend HDF5.",
+      "purpose_detail": "The mz5 format is a complete reimplementation of the mzML data model and ontology built on the HDF5 (Hierarchical Data Format 5) storage backend, designed to address performance and scalability limitations of XML-based mass spectrometry formats. mz5 preserves the semantic structure and controlled vocabulary terms of mzML while leveraging HDF5's binary format, chunked storage, and native compression capabilities to achieve significantly faster read/write operations and reduced file sizes compared to mzML. The format organizes mass spectrometry data into hierarchical HDF5 groups and datasets representing spectra, chromatograms, instrument configurations, and metadata, with support for efficient random access to individual spectra and parallel I/O operations. mz5 maintains compatibility with the Proteomics Standards Initiative controlled vocabularies and supports the same rich metadata and data provenance as mzML, while providing superior performance for large-scale proteomics and metabolomics datasets. The HDF5 foundation enables integration with high-performance computing workflows, supports multiple programming languages (C, Python, Java, R), and facilitates efficient processing of high-resolution and high-throughput mass spectrometry data for downstream analysis pipelines and machine learning applications.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://doi.org/10.1074/mcp.O111.011379",
@@ -5274,9 +5900,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:40",
+          "category": "B2AI:Application",
+          "name": "Research Project Metadata Mining and Dataset Discovery",
+          "description": "BioProject schema is used in AI applications for mining metadata about biological research projects, enabling automated discovery of relevant datasets, prediction of experimental outcomes, and analysis of research trends. Machine learning systems parse BioProject records to identify related studies for meta-analyses, recommend similar projects to researchers, and predict which experimental approaches are likely to succeed based on project descriptions. AI applications leverage structured project metadata to train models that classify research projects by methodology, extract experimental design features, and identify collaborative networks in biological research. The schema enables large-scale scientometric analyses and AI-driven research prioritization based on historical project outcomes and resource allocation.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:1"
@@ -5359,9 +5993,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:41",
+          "category": "B2AI:Application",
+          "name": "Neuroimaging Results Sharing and Meta-Analytic AI",
+          "description": "NIDM (NeuroImaging Data Model) is used in AI applications for sharing and aggregating neuroimaging analysis results across studies, enabling meta-analytic machine learning and improving reproducibility in computational neuroscience. AI systems leverage NIDM's semantic representation of imaging workflows, statistical maps, and analysis provenance to train models that learn from aggregated results rather than raw images, respecting data sharing constraints while enabling large-scale analyses. The model supports AI applications that perform automated quality assessment of imaging studies, detect inconsistencies in reported results, and synthesize findings across diverse analysis pipelines. NIDM enables machine learning systems to understand the complete analytical context of neuroimaging results, improving reproducibility and meta-analytic power.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:22"
@@ -5598,9 +6240,17 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:42",
+          "category": "B2AI:Application",
+          "name": "Large-Scale Observational Research and ML Model Training",
+          "description": "OMOP CDM is a foundational standard for AI applications in observational health research, enabling machine learning models to be trained and validated across diverse healthcare datasets. The standardized format allows AI algorithms to perform patient-level prediction, disease phenotyping, treatment pathway analysis, and adverse event detection across multiple institutions and databases. OMOP's common data model structure facilitates federated learning approaches where AI models can be trained on distributed datasets without data sharing, and enables systematic literature-scale evidence synthesis through tools like OHDSI's Patient-Level Prediction framework.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "datamodel",
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -5632,9 +6282,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:43",
+          "category": "B2AI:Application",
+          "name": "Causal Inference and Observational Study AI",
+          "description": "OMOP Common Evidence Model is used in AI applications for standardizing the representation of evidence from observational studies, enabling machine learning models to learn causal relationships from real-world data and generate reliable evidence for treatment effectiveness. AI systems leverage CEM's structured representation of study designs, populations, exposures, and outcomes to train models that estimate treatment effects from observational data, adjust for confounding using propensity score methods, and validate predictions through negative controls. The model enables AI applications in comparative effectiveness research, pharmacovigilance, and evidence synthesis where distinguishing correlation from causation is critical. Machine learning approaches use CEM to automate evidence quality assessment and synthesize findings across heterogeneous observational studies.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4"
@@ -5681,8 +6339,16 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:44",
+          "category": "B2AI:Application",
+          "name": "Mobile Health Data Integration for Behavioral AI",
+          "description": "Open mHealth schemas are used in AI applications for standardizing and integrating data from wearable devices, mobile health apps, and patient-generated health data streams for behavioral pattern recognition, activity classification, and health prediction models. Machine learning systems leverage Open mHealth's JSON-based data schemas to process heterogeneous data from fitness trackers, sleep monitors, medication adherence apps, and symptom tracking tools, enabling AI models for real-time health monitoring, early disease detection, and personalized intervention recommendations. The standardized format facilitates training of deep learning models on multi-modal time-series data including heart rate, physical activity, sleep patterns, and self-reported symptoms, supporting applications in chronic disease management, mental health monitoring, and precision behavioral medicine.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "implementation_maturity_production"
       ],
       "concerns_data_topic": [
@@ -5799,9 +6465,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:45",
+          "category": "B2AI:Application",
+          "name": "Clinical Archetypes and Semantic Interoperability for AI",
+          "description": "AOM14 (Archetype Object Model) is used in AI applications for defining reusable clinical information models that enable semantic interoperability of health data across systems and support consistent feature extraction for machine learning. AI systems leverage archetypes to understand the clinical meaning and constraints of health data elements, enabling models to learn from data collected using openEHR archetypes across different implementations. The standardized clinical models support AI applications that require portable feature definitions, enable transfer learning across healthcare systems using archetypes, and ensure that AI models interpret clinical concepts consistently regardless of underlying database structures. Archetypes provide machine-readable clinical semantics that improve AI model interpretability and facilitate automated validation of model inputs.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:9"
@@ -5904,9 +6578,20 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:46",
+          "category": "B2AI:Application",
+          "name": "Rare Disease Diagnosis and Phenotype-Driven AI",
+          "description": "Phenopackets is used in AI applications for standardizing clinical phenotype data linked with genomic information, enabling machine learning models for rare disease diagnosis, genotype-phenotype correlation, and automated phenotyping from clinical notes. AI systems leverage Phenopackets' structured representation of clinical observations using Human Phenotype Ontology (HPO) terms to train models that match patient phenotypes to disease profiles, prioritize candidate genes from sequencing data, and assist in differential diagnosis. The standard enables federated learning across rare disease registries, supports AI-driven patient matching for clinical trials, and facilitates automated literature mining to expand genotype-phenotype knowledge bases used by diagnostic AI systems.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41587-022-01357-4"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4"
@@ -6239,9 +6924,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:47",
+          "category": "B2AI:Application",
+          "name": "FDA Sentinel System and Distributed AI for Drug Safety",
+          "description": "Sentinel Common Data Model is used in AI applications for active surveillance of medical product safety across distributed healthcare databases, enabling privacy-preserving machine learning for adverse event detection and risk assessment. AI systems leverage SCDM's standardization of claims data, electronic health records, and registries to develop models that identify safety signals, predict adverse events, and characterize treatment patterns across the FDA Sentinel System network. The common data model enables federated learning where AI algorithms execute locally at each data partner without sharing patient-level data, supporting rapid assessment of emerging safety concerns. Machine learning applications use SCDM to train models on massive populations for rare adverse event detection and comparative safety analysis.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:9"
@@ -6286,9 +6979,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:48",
+          "category": "B2AI:Application",
+          "name": "Sequence Data Metadata Mining and Dataset Discovery",
+          "description": "SRA-XML (Sequence Read Archive metadata format) is used in AI applications for automated mining of experimental metadata from genomic studies, enabling dataset discovery, quality assessment, and training of models that learn from experimental design information. Machine learning systems parse SRA metadata to identify relevant datasets for specific research questions, predict data quality issues before download, and extract experimental conditions that inform downstream analysis. AI applications leverage structured metadata to train models for automated experiment type classification, sample relationship inference, and detection of metadata quality issues. The format enables large-scale meta-analyses where AI systems integrate findings across thousands of sequencing experiments by understanding their experimental context.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:12",
@@ -6370,9 +7071,20 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:49",
+          "category": "B2AI:Application",
+          "name": "Unambiguous Variant Representation for Clinical AI",
+          "description": "SPDI (Sequence-Position-Deletion-Insertion) notation is used in AI applications for creating precise, unambiguous representations of genetic variants that eliminate nomenclature inconsistencies affecting model training and clinical interpretation. AI systems leverage SPDI's standardized four-element format to normalize variant representations from diverse sources (clinical labs, research databases, literature), enabling consistent feature engineering for machine learning models predicting variant pathogenicity. The notation resolves ambiguities in variant left-normalization and reference sequence specification that can cause the same biological variant to appear as different features to AI models, improving model accuracy and reproducibility. SPDI is particularly valuable for clinical AI systems that must reconcile variants reported in different formats across laboratories.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.ncbi.nlm.nih.gov/variation/notation/"
+          ]
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:12",
@@ -6662,9 +7374,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:50",
+          "category": "B2AI:Application",
+          "name": "Taxonomic Data Integration and Species Classification AI",
+          "description": "TCS (Taxonomic Concept Schema) is used in AI applications for managing taxonomic concepts and classifications, enabling machine learning models to understand species relationships, resolve taxonomic synonyms, and integrate biodiversity data across different classification systems. AI systems leverage TCS to train models that automatically map species names across taxonomies, predict taxonomic placement of newly discovered organisms, and reconcile conflicting classifications. The schema supports natural language processing applications that extract taxonomic information from scientific literature, automated quality control of species occurrence records, and machine learning approaches to phylogenetic inference. TCS enables AI systems to reason about taxonomic hierarchies and evolutionary relationships when analyzing biological data.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:1"
@@ -6812,9 +7532,17 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:51",
+          "category": "B2AI:Application",
+          "name": "Variant Pathogenicity Prediction and Genomic AI",
+          "description": "VCF format is essential for AI applications in genomics, particularly for training machine learning models to predict variant pathogenicity, disease associations, and functional impacts. Deep learning models parse VCF files to extract genetic variants and their annotations for tasks such as rare disease diagnosis, cancer genome interpretation, and pharmacogenomic prediction. AI systems leverage VCF's structured representation of genomic variants, quality scores, and population frequencies to build models that integrate variant-level data with clinical phenotypes, enabling precision medicine applications and automated variant classification according to ACMG guidelines.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "fileformat",
-        "has_ai_application",
         "markuplanguage",
         "standards_process_maturity_final",
         "implementation_maturity_production"
@@ -6869,8 +7597,16 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:52",
+          "category": "B2AI:Application",
+          "name": "Standardized Variant Representation for ML Interoperability",
+          "description": "VRS (Variation Representation Specification) is used in AI applications to create unambiguous, computationally accessible representations of genetic variants that enable machine learning model interoperability across different genomic databases and variant calling pipelines. AI systems leverage VRS to normalize variant representations, resolve ambiguities in variant nomenclature, and create consistent feature representations for training models that predict variant effects, interpret clinical significance, or perform variant prioritization. VRS's precise coordinate system and allele representation enable AI models to correctly match variants across different genome builds, integrate data from multiple sources, and generate reproducible predictions that can be shared across institutions and validated against standardized variant benchmarks.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -7774,10 +8510,18 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:53",
+          "category": "B2AI:Application",
+          "name": "Medical Image Compression and Transfer Learning",
+          "description": "JPEG format is used in AI applications for efficient storage and transmission of medical images, particularly in telepathology, dermatology AI, and mobile diagnostic applications where bandwidth and storage constraints are critical. Deep learning models are trained on JPEG-compressed whole slide images, dermoscopic images, and fundus photographs to perform tasks such as cancer detection, skin lesion classification, and diabetic retinopathy screening. While DICOM remains the standard for radiology, JPEG enables AI deployment in resource-constrained settings and supports transfer learning from natural image datasets (ImageNet) to medical imaging domains. AI researchers must account for JPEG compression artifacts when training models, and recent work explores AI-optimized compression techniques that preserve diagnostically relevant features.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "audiovisual",
         "fileformat",
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -7849,9 +8593,17 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:54",
+          "category": "B2AI:Application",
+          "name": "AI-Ready Data Schema Design and Validation",
+          "description": "LinkML is used in AI applications to define machine-readable data schemas that enable automated data validation, transformation, and integration for machine learning pipelines. AI systems leverage LinkML schemas to ensure data quality and consistency across heterogeneous biomedical datasets, automatically generate data loaders and validators for ML frameworks, and create semantic mappings that allow AI models to understand relationships between data elements. LinkML's ability to compile to multiple formats (JSON Schema, SHACL, SQL DDL) makes it particularly valuable for building reproducible AI/ML workflows where data provenance and validation are critical.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "markuplanguage",
-        "has_ai_application",
         "standards_process_maturity_development",
         "implementation_maturity_pilot"
       ],
@@ -8026,9 +8778,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:55",
+          "category": "B2AI:Application",
+          "name": "Neural Network Exchange for Medical Device AI",
+          "description": "NNEF (Neural Network Exchange Format) is used in biomedical AI for deploying models on medical devices and embedded systems where hardware-specific optimization and standardized model representation are critical. Medical device manufacturers leverage NNEF to ensure neural network models can be optimized for diverse hardware accelerators (DSPs, NPUs, custom ASICs) commonly used in portable medical equipment, bedside monitors, and point-of-care devices. The format enables vendor-independent model deployment, facilitates regulatory approval by providing clear model specifications, and supports hardware efficiency optimizations necessary for real-time inference in resource-constrained medical devices. NNEF is particularly valuable for AI-enabled medical devices where power consumption, latency, and deterministic behavior are critical requirements.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "fileformat",
-        "has_ai_application"
+        "fileformat"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -8097,9 +8857,20 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:56",
+          "category": "B2AI:Application",
+          "name": "Cross-Platform Medical AI Model Interoperability",
+          "description": "ONNX (Open Neural Network Exchange) is used in biomedical AI for creating framework-agnostic models that can be trained in PyTorch, TensorFlow, or other frameworks and deployed across diverse clinical platforms and hardware accelerators. Healthcare AI developers leverage ONNX to ensure vendor independence, enabling models to run on different hospital IT systems, edge devices, and specialized medical hardware regardless of training framework. The standard facilitates regulatory submissions by providing a stable model representation, supports hardware optimization through ONNX Runtime's performance tuning for CPUs, GPUs, and custom accelerators, and enables model sharing across research institutions without requiring framework dependencies. ONNX is particularly valuable for clinical AI products that must support multiple deployment environments.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://github.com/microsoft/onnxruntime"
+          ]
+        }
+      ],
       "collection": [
-        "fileformat",
-        "has_ai_application"
+        "fileformat"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -8139,9 +8910,17 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:57",
+          "category": "B2AI:Application",
+          "name": "Efficient Large-Scale ML Data Storage and Processing",
+          "description": "Apache Parquet is widely adopted in AI/ML pipelines for efficient storage and processing of large-scale biomedical datasets, particularly for training deep learning models on tabular clinical data, multi-omics datasets, and imaging metadata. The columnar storage format enables high-performance data loading during model training, reduces storage costs through efficient compression, and supports predicate pushdown for selective feature reading. AI frameworks like TensorFlow, PyTorch, and scikit-learn leverage Parquet's integration with Apache Arrow for zero-copy data transfer, enabling faster iteration during hyperparameter tuning and model development. Parquet is particularly valuable for storing processed features from EHR data, genomic variant annotations, and large-scale biobank datasets where query performance and storage efficiency are critical.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "fileformat",
-        "has_ai_application",
         "implementation_maturity_production"
       ],
       "concerns_data_topic": [
@@ -8410,8 +9189,16 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:58",
+          "category": "B2AI:Application",
+          "name": "ML Model Packaging and Research Object Preservation",
+          "description": "RO-CRATE is used in AI applications for packaging machine learning models, training data, workflows, and associated metadata into portable, FAIR-compliant research objects. AI researchers leverage RO-CRATE to create self-describing archives that bundle trained models with their training datasets, preprocessing scripts, validation results, and computational environment specifications, ensuring reproducibility and reusability of AI research. The standard enables automated model repositories, facilitates model sharing across institutions, and supports provenance tracking for regulatory compliance in clinical AI applications. RO-CRATE's lightweight JSON-LD format makes it ideal for describing complex AI workflows while maintaining human readability.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "implementation_maturity_production"
       ],
       "concerns_data_topic": [
@@ -9157,8 +9944,14 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
-      "collection": [
-        "has_ai_application"
+      "has_application": [
+        {
+          "id": "B2AI_APP:59",
+          "category": "B2AI:Application",
+          "name": "AI/ML Ontology for Model Metadata and Pipeline Documentation",
+          "description": "AIO (Artificial Intelligence Ontology) is used in biomedical AI for standardizing the description of machine learning models, algorithms, and workflows, enabling semantic search for AI methods, automated model selection, and reproducible research documentation. Researchers leverage AIO to annotate AI models with formal descriptions of their architecture, training data requirements, and applicable use cases, facilitating discovery of appropriate models for specific biomedical tasks. The ontology supports automated reasoning about AI pipeline compatibility, enables knowledge graphs that link models to publications and datasets, and provides structured vocabulary for documenting AI experiments in compliance with reproducibility standards. AIO enables large language models to better understand and recommend AI approaches for biomedical problems.",
+          "used_in_bridge2ai": false
+        }
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -9924,8 +10717,16 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:60",
+          "category": "B2AI:Application",
+          "name": "Evidence-Based Biomedical Inference and Literature Mining",
+          "description": "EVI (Evidence Graph) ontology is used in AI applications for representing and reasoning over biomedical evidence from scientific literature, enabling automated hypothesis generation, evidence synthesis, and knowledge graph construction. Machine learning models leverage EVI's formal representation of claims, evidence types, and epistemic confidence to train systems that extract evidence-based relationships from publications, assess the quality and reliability of scientific findings, and generate evidence-weighted knowledge graphs. AI applications include automated systematic review, drug repurposing through evidence integration, and training of large language models that can cite and reason about scientific evidence with appropriate confidence levels. EVI enables AI systems to distinguish between different types of evidence and perform meta-analytic reasoning.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_draft",
         "implementation_maturity_pilot"
       ],
@@ -10572,9 +11373,6 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
-      "collection": [
-        "has_ai_application"
-      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
       ],
@@ -12839,8 +13637,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "standardsregistry",
-        "has_ai_application"
+        "standardsregistry"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -13138,9 +13935,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:63",
+          "category": "B2AI:Application",
+          "name": "Probabilistic Modeling and Bayesian Inference for Biomedicine",
+          "description": "Aesara (successor to Theano) is used in biomedical AI for implementing probabilistic graphical models, Bayesian neural networks, and statistical inference algorithms that quantify uncertainty in clinical predictions. Researchers leverage Aesara's symbolic math capabilities and automatic differentiation to build sophisticated probabilistic models for tasks like uncertainty-aware disease risk prediction, Bayesian optimization of drug dosing regimens, and hierarchical models for multi-center clinical studies. The library enables AI applications that provide calibrated confidence intervals for predictions, perform approximate Bayesian inference through variational methods, and integrate domain knowledge through informative priors. Aesara is particularly valuable when prediction uncertainty quantification is critical for clinical decision-making.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -13350,8 +14155,14 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
-      "collection": [
-        "has_ai_application"
+      "has_application": [
+        {
+          "id": "B2AI_APP:64",
+          "category": "B2AI:Application",
+          "name": "High-Frequency Physiological Waveform Analysis",
+          "description": "AtriumDB is used in AI applications for managing and analyzing high-frequency physiological waveform data at scale, enabling deep learning models for intensive care monitoring, perioperative risk prediction, and continuous vital sign analysis. The platform's efficient storage and query capabilities support training of neural networks on bedside monitor data including ECG, arterial blood pressure, and other high-resolution physiological signals collected over extended periods. AI systems leverage AtriumDB to access synchronized multi-parameter waveforms for developing early warning systems, detecting subtle physiological deterioration, and predicting adverse events in critically ill patients. The database's time-series optimization enables real-time AI inference on streaming waveform data.",
+          "used_in_bridge2ai": false
+        }
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4",
@@ -13610,8 +14421,7 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -13811,9 +14621,20 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:66",
+          "category": "B2AI:Application",
+          "name": "Scalable ML Training Platform for Healthcare Research",
+          "description": "Determined is used in biomedical AI for managing large-scale deep learning experiments, hyperparameter tuning, and distributed training across GPU clusters in research and healthcare organizations. AI teams leverage Determined's automated experiment tracking, resource scheduling, and hyperparameter optimization to efficiently develop medical imaging models, genomic prediction algorithms, and clinical NLP systems. The platform provides reproducible experiment management with automatic checkpointing, fault tolerance for long-running medical imaging training jobs, and collaborative features for multi-institutional research teams. Determined's integration with healthcare security requirements and support for diverse model frameworks makes it valuable for organizations scaling from research to production clinical AI.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://docs.determined.ai/"
+          ]
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -13969,8 +14790,16 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:67",
+          "category": "B2AI:Application",
+          "name": "FAIR ML Workflows and Computational Reproducibility",
+          "description": "FAIRSCAPE is used in AI applications to create Findable, Accessible, Interoperable, and Reusable machine learning workflows with comprehensive provenance tracking and metadata management. AI researchers leverage FAIRSCAPE to package complete ML pipelines including data preprocessing, model training, validation, and deployment with detailed computational provenance, enabling reproducible AI research and regulatory compliance. The framework supports automated metadata capture during model development, versioning of datasets and models, and generation of computational notebooks that document the entire ML lifecycle. FAIRSCAPE is particularly valuable for multi-institutional AI studies where workflow transparency, data lineage, and reproducibility are essential for scientific validity and clinical translation.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "implementation_maturity_pilot"
       ],
       "concerns_data_topic": [
@@ -13997,9 +14826,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:68",
+          "category": "B2AI:Application",
+          "name": "Rapid Medical AI Prototyping and Transfer Learning",
+          "description": "FastAI is used in biomedical research for rapid prototyping and training of deep learning models with minimal code, particularly valuable for researchers without extensive ML engineering backgrounds. Healthcare researchers leverage FastAI's high-level APIs, best-practice defaults, and powerful transfer learning capabilities to quickly develop models for medical image classification, clinical text analysis, and tabular clinical data prediction. The library's sophisticated learning rate scheduling, progressive resizing, and mixed precision training enable efficient use of computational resources, while its extensive documentation and educational materials democratize AI development in medicine. FastAI is particularly popular for exploratory research, kaggle-style medical AI competitions, and educational settings teaching clinical AI.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -14045,9 +14882,21 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:69",
+          "category": "B2AI:Application",
+          "name": "Cloud-Based Biomedical AI Infrastructure and Model Deployment",
+          "description": "Google Cloud Platform is extensively used in AI applications for scalable biomedical data processing, large-scale model training, and deployment of clinical AI systems with healthcare-compliant infrastructure. AI researchers leverage GCP's specialized services including Vertex AI for managed ML pipelines, BigQuery for analyzing massive clinical datasets, and Cloud Healthcare API for FHIR-based data integration. The platform enables distributed training of deep learning models on genomic sequences, medical images, and electronic health records at population scale, while providing HIPAA-compliant infrastructure for clinical AI deployment. GCP's TPU infrastructure accelerates training of large biomedical language models and computer vision systems, and its AutoML capabilities democratize AI development for healthcare institutions.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://cloud.google.com/healthcare-api",
+            "https://cloud.google.com/vertex-ai"
+          ]
+        }
+      ],
       "collection": [
-        "cloudservice",
-        "has_ai_application"
+        "cloudservice"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -14069,10 +14918,21 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:70",
+          "category": "B2AI:Application",
+          "name": "Graph Embedding and Network Medicine AI",
+          "description": "GrAPE (Graph Automatic Programming Environment) is used in biomedical AI for creating graph embeddings and training graph neural networks on biological networks, enabling applications in drug discovery, protein function prediction, and disease gene prioritization. Researchers leverage GrAPE's efficient graph processing capabilities to learn low-dimensional representations of large-scale biological networks including protein-protein interactions, gene regulatory networks, and knowledge graphs. The tool supports AI applications that predict novel drug-target interactions, identify disease modules, and perform link prediction in biomedical knowledge graphs. GrAPE's optimization for large graphs enables training on genome-scale networks and integration of multi-omics data through graph-based representations.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1093/gigascience/giab044"
+          ]
+        }
+      ],
       "collection": [
         "graphdataplatform",
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:21"
@@ -14158,9 +15018,20 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:71",
+          "category": "B2AI:Application",
+          "name": "Holistic Multi-Modal Healthcare AI Integration",
+          "description": "HAIM (Holistic AI in Medicine) framework is used for developing and evaluating multi-modal AI systems that integrate diverse healthcare data types including imaging, time-series, tabular clinical data, and text for comprehensive patient assessment. The framework enables training of models that leverage complementary information across modalities to improve diagnostic accuracy, risk prediction, and clinical decision support beyond single-modality approaches. HAIM provides standardized methods for multi-modal data fusion, handles missing modalities gracefully, and enables systematic evaluation of how different data types contribute to model performance. Applications include integrated ICU monitoring systems, comprehensive cancer diagnosis combining radiology and pathology, and patient deterioration prediction using all available clinical data streams.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1038/s41746-022-00689-4"
+          ]
+        }
+      ],
       "collection": [
-        "multimodal",
-        "has_ai_application"
+        "multimodal"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -14477,9 +15348,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:72",
+          "category": "B2AI:Application",
+          "name": "Medical Imaging Deep Learning Framework and Workflows",
+          "description": "MONAI (Medical Open Network for AI) is a specialized PyTorch-based framework extensively used for developing deep learning models on 3D medical imaging data across radiology, pathology, and microscopy. Researchers and clinical AI developers leverage MONAI's domain-specific transforms (intensity normalization, resampling, augmentation), pretrained models for medical imaging tasks, and optimized data loaders for large 3D volumes to accelerate development of segmentation, classification, and detection models. The framework provides standardized workflows for common medical imaging AI tasks, federated learning capabilities for multi-institutional collaboration, and Auto3DSeg for automated model development. MONAI's integration with clinical imaging standards and deployment tools makes it a bridge between research and clinical implementation.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -14600,9 +15479,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:73",
+          "category": "B2AI:Application",
+          "name": "Reinforcement Learning Framework for Adaptive Healthcare Systems",
+          "description": "MLPro is used in biomedical AI for developing reinforcement learning agents that learn optimal treatment strategies, adaptive monitoring protocols, and personalized intervention policies through interaction with healthcare environments. Researchers leverage MLPro's modular framework to implement and compare different RL algorithms for applications like dynamic treatment regimen optimization, adaptive clinical trial design, and automated ICU management. The platform supports simulation-based learning where agents train on synthetic patients before clinical deployment, multi-agent systems for coordinated care, and safe exploration strategies essential for healthcare applications. MLPro enables systematic evaluation of RL approaches for sequential decision-making problems in medicine where actions have long-term consequences.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -14728,9 +15615,17 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:74",
+          "category": "B2AI:Application",
+          "name": "Multi-Scale Cell Type Annotation and Classification",
+          "description": "MuSIC (Multi-Scale Integrated Cell classification) is used in AI applications for automated cell type annotation in single-cell RNA-seq data by leveraging reference datasets and hierarchical classification strategies. The tool employs machine learning algorithms that integrate multiple sources of evidence including marker genes, reference atlases, and cross-dataset mapping to assign cell type labels with confidence scores. AI systems build upon MuSIC's probabilistic framework to develop more sophisticated deep learning models for cell state identification, rare cell type discovery, and cross-species cell type mapping. The multi-scale approach enables AI models to make predictions at varying levels of granularity, from broad cell classes to fine-grained subtypes, which is essential for biological interpretation and downstream analysis.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "multimodal",
-        "has_ai_application"
+        "multimodal"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:26",
@@ -14859,9 +15754,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:75",
+          "category": "B2AI:Application",
+          "name": "Cell Type Annotation in Single-Cell Genomics",
+          "description": "NeuCA (Neural network-based Cell Annotation) is used in AI applications for automated cell type identification in single-cell RNA sequencing data, leveraging deep learning to achieve accurate, scalable annotation across diverse tissues and species. The tool employs neural network architectures optimized for single-cell expression profiles to classify cells based on marker gene expression patterns, enabling rapid analysis of large-scale atlas projects and clinical samples. NeuCA's transfer learning capabilities allow models trained on reference atlases to annotate new datasets with limited manual curation, supporting applications in cancer cell identification, immune profiling, and developmental biology. The method provides confidence scores for cell type assignments and can identify novel or transitional cell states.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "scrnaseqanalysis",
-        "has_ai_application"
+        "scrnaseqanalysis"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:34"
@@ -15065,9 +15968,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:76",
+          "category": "B2AI:Application",
+          "name": "Deep Learning for Biomedical Research and Clinical AI",
+          "description": "PyTorch is the dominant framework for biomedical AI research, used extensively for developing deep learning models across medical imaging, genomics, drug discovery, and clinical prediction. Researchers leverage PyTorch's dynamic computational graphs, extensive ecosystem (torchvision, torchaudio, TorchIO), and pretrained models to build custom neural architectures for tasks like cancer detection in pathology images, protein structure prediction, medical report generation, and patient outcome forecasting. PyTorch's flexibility enables rapid prototyping of novel architectures, its strong academic community supports reproducible research through shared model implementations, and its production deployment tools (TorchServe, TorchScript) facilitate clinical translation of research models.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -15151,9 +16062,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:77",
+          "category": "B2AI:Application",
+          "name": "Explainable Reinforcement Learning for Clinical Decision Support",
+          "description": "Relexi is used in biomedical AI for developing interpretable reinforcement learning systems that can explain their decision-making process, crucial for clinical applications where treatment recommendations must be understandable to physicians. The framework enables training of RL agents for sequential clinical decisions (medication dosing, ventilator management, treatment timing) while maintaining explainability through attention mechanisms and policy distillation. Relexi supports safe exploration in healthcare settings by incorporating domain constraints and enabling clinicians to understand why specific actions are recommended. Applications include explainable sepsis treatment protocols, interpretable insulin dosing algorithms, and transparent clinical trial enrollment strategies where understanding the agent's reasoning is essential for clinical trust and regulatory approval.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -15174,8 +16093,14 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
-      "collection": [
-        "has_ai_application"
+      "has_application": [
+        {
+          "id": "B2AI_APP:78",
+          "category": "B2AI:Application",
+          "name": "Clinical Research Data Capture for ML Model Development",
+          "description": "REDCap is widely used in AI applications as a platform for collecting high-quality, structured clinical research data that feeds machine learning model development and validation studies. AI researchers leverage REDCap's data dictionaries, validation rules, and standardized data collection instruments to create clean training datasets for predictive models in clinical trials, cohort studies, and patient registries. REDCap's API enables automated data extraction for ML pipelines, and its audit trails and data quality features ensure reproducibility in AI research. The platform is particularly valuable for multi-site AI studies where standardized data collection across institutions is essential for model generalizability.",
+          "used_in_bridge2ai": false
+        }
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:31"
@@ -15384,9 +16309,20 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:79",
+          "category": "B2AI:Application",
+          "name": "Production-Scale Healthcare AI Systems and Deployment",
+          "description": "TensorFlow is widely used for deploying production-grade AI systems in healthcare, particularly for applications requiring high-throughput inference, mobile deployment, and integration with enterprise IT infrastructure. Healthcare organizations leverage TensorFlow's mature ecosystem (TF Serving, TF Lite, TF.js) to deploy models for real-time clinical decision support, mobile diagnostic apps, and edge computing in medical devices. The framework's strong support for model optimization, quantization, and hardware acceleration (TPUs, GPUs) enables efficient deployment of complex models like retinal disease screening systems, ECG interpretation algorithms, and clinical NLP pipelines. TensorFlow Extended (TFX) provides production ML pipelines for managing data validation, model training, and continuous monitoring in regulated healthcare environments.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.tensorflow.org/tfx"
+          ]
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -15459,10 +16395,21 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:80",
+          "category": "B2AI:Application",
+          "name": "Legacy Deep Learning Models and Reproducible Research",
+          "description": "Theano was historically important in early biomedical deep learning research and continues to be relevant for reproducing published models and maintaining legacy clinical AI systems. Many influential early papers in medical AI used Theano, and researchers still need to run these models for comparison benchmarks, reproduce published results, and maintain systems deployed before modern frameworks emerged. The library's symbolic computation approach and automatic differentiation influenced the design of current frameworks, and understanding Theano remains valuable for historical context in AI research. While active development has ceased (succeeded by Aesara), Theano-based code remains in production in some clinical settings and research archives.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://theano-pymc.readthedocs.io/"
+          ]
+        }
+      ],
       "collection": [
         "deprecated",
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -15634,9 +16581,17 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:81",
+          "category": "B2AI:Application",
+          "name": "MLOps Orchestration for Biomedical AI Pipelines",
+          "description": "ZenML is used in biomedical AI for building reproducible, production-grade machine learning pipelines with comprehensive experiment tracking, model versioning, and deployment orchestration. Healthcare AI teams leverage ZenML to standardize workflows from data ingestion through model deployment, ensuring compliance with regulatory requirements for traceability and reproducibility. The platform integrates with diverse healthcare data sources, model registries, and deployment targets while maintaining complete lineage tracking essential for clinical AI validation. ZenML enables teams to implement best practices for ML operations including automated testing, continuous training, and model monitoring in healthcare settings where reliability and auditability are critical.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "machinelearningframework",
-        "has_ai_application"
+        "machinelearningframework"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -15800,8 +16755,19 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:82",
+          "category": "B2AI:Application",
+          "name": "US-Specific Clinical AI and Regulatory Compliance",
+          "description": "FHIR US Core Implementation Guide is used in AI applications that require compliance with US healthcare regulations and interoperability requirements, enabling standardized data extraction from US-based EHR systems for training clinical prediction models. AI systems leverage US Core's profiles for patient demographics, vital signs, laboratory results, medications, and conditions to build models that meet ONC certification requirements and support CMS quality measures. The implementation guide ensures AI applications can reliably access structured clinical data across diverse US healthcare systems, supporting use cases in risk adjustment, quality metric prediction, social determinants of health analysis, and value-based care optimization. US Core's mandatory data elements provide a consistent feature set for federated learning across US hospitals.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi"
+          ]
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -15838,8 +16804,19 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:83",
+          "category": "B2AI:Application",
+          "name": "Standardized Data Element Mapping for Healthcare AI",
+          "description": "FHIR USCDI (US Core Data for Interoperability) implementation is used in AI applications to ensure consistent access to core clinical data elements required by federal regulations, enabling interoperable AI systems across US healthcare. Machine learning models leverage USCDI-compliant data elements including allergies, procedures, immunizations, lab results, and clinical notes to train on standardized features that are guaranteed to be available across certified EHR systems. This standardization is critical for AI applications that need to be deployed broadly across healthcare organizations, ensuring model portability and consistent performance. USCDI compliance enables AI researchers to develop models that align with national interoperability goals and can participate in health information exchange networks.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi"
+          ]
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -15875,8 +16852,19 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:84",
+          "category": "B2AI:Application",
+          "name": "Foundation Models on Core Clinical Data Elements",
+          "description": "FHIR USCDI v1 provides the baseline data elements for AI applications requiring backward compatibility and stable data definitions for longitudinal model training. AI systems developed against USCDI v1 can reliably access essential clinical information including patient demographics, problems, medications, allergies, lab results, vital signs, and procedures across time, enabling training of models on historical data and ensuring consistency in production deployments. This version stability is crucial for validating AI models in clinical trials, meeting regulatory requirements for locked algorithms, and maintaining model performance monitoring over multi-year periods. USCDI v1 compliance ensures AI applications can function across healthcare systems at different stages of EHR modernization.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi-v1"
+          ]
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -15913,8 +16901,19 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:85",
+          "category": "B2AI:Application",
+          "name": "Advanced Clinical AI with Expanded Data Elements",
+          "description": "FHIR USCDI v4 enables next-generation AI applications with access to expanded data elements including social determinants of health, mental health assessments, substance use information, and care team details. Machine learning models leverage these additional data classes to develop more comprehensive prediction models that account for social, behavioral, and environmental factors affecting health outcomes. AI systems benefit from USCDI v4's enhanced data elements for health equity research, population health modeling, and holistic patient risk assessment that goes beyond traditional clinical variables. The expanded scope supports AI applications in addressing health disparities, improving care coordination, and developing interventions that consider the full spectrum of factors influencing patient health.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi-v4"
+          ]
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -16181,8 +17180,7 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2023-05-23",
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -16203,8 +17201,16 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2023-06-20",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:87",
+          "category": "B2AI:Application",
+          "name": "Population Health Analytics and Risk Stratification",
+          "description": "Compass Rose (Epic's population health tool) is used in AI applications for large-scale risk stratification, care gap identification, and population-level outcome prediction across Epic's extensive user base. Machine learning models leverage Compass Rose's aggregated clinical data, standardized quality measures, and longitudinal patient tracking to develop predictive algorithms for chronic disease management, preventive care optimization, and resource allocation. AI systems built on this platform can identify high-risk patient populations, predict hospital readmissions, and recommend targeted interventions at scale. The tool's integration with Epic's EHR ecosystem enables real-time AI inference during clinical encounters and automated outreach programs guided by ML-based risk scores.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "implementation_maturity_production"
       ],
       "concerns_data_topic": [
@@ -16365,9 +17371,17 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "0000-0001-5705-7831",
       "contribution_date": "2023-09-25",
+      "has_application": [
+        {
+          "id": "B2AI_APP:88",
+          "category": "B2AI:Application",
+          "name": "Clinical AI Reporting Standards and Model Documentation",
+          "description": "MI-CLAIM (Minimum Information about Clinical Artificial Intelligence Modeling) checklist is used to standardize reporting of clinical AI studies, ensuring reproducibility, transparency, and appropriate evaluation of machine learning models in healthcare. Researchers leverage MI-CLAIM guidelines to document essential details about model development, validation approaches, and clinical context that enable others to assess reliability and reproduce findings. The standard supports automated model card generation, structured documentation for regulatory submissions, and systematic reviews of clinical AI literature by providing a consistent framework for reporting. MI-CLAIM compliance facilitates responsible AI development by ensuring key information about data provenance, model limitations, and intended use cases is explicitly documented.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "minimuminformationschema",
-        "has_ai_application"
+        "minimuminformationschema"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -16428,8 +17442,14 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "0000-0001-5705-7831",
       "contribution_date": "2024-11-02",
-      "collection": [
-        "has_ai_application"
+      "has_application": [
+        {
+          "id": "B2AI_APP:89",
+          "category": "B2AI:Application",
+          "name": "Unified Data and AI Asset Governance",
+          "description": "Unity Catalog is used in biomedical AI for centralized governance of data assets, ML models, and AI artifacts across multi-cloud and hybrid healthcare IT environments. Healthcare organizations leverage Unity Catalog to implement fine-grained access controls for sensitive patient data used in model training, track lineage from raw clinical data through processed features to trained models, and ensure HIPAA compliance across distributed AI development teams. The catalog provides a single source of truth for data discovery, enables secure data sharing across research and clinical domains, and maintains comprehensive audit logs for regulatory compliance. Unity Catalog's integration with major ML platforms facilitates governed AI development where data scientists can access approved datasets while maintaining security and privacy requirements.",
+          "used_in_bridge2ai": false
+        }
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
@@ -16491,8 +17511,14 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2023-12-06",
-      "collection": [
-        "has_ai_application"
+      "has_application": [
+        {
+          "id": "B2AI_APP:90",
+          "category": "B2AI:Application",
+          "name": "Medical Imaging Data Processing for Deep Learning",
+          "description": "pydicom is the essential Python library for AI researchers working with medical imaging data, enabling reading, writing, and manipulation of DICOM files in machine learning pipelines. Virtually all medical imaging AI research using Python leverages pydicom to extract pixel data and metadata from DICOM images, convert images to NumPy arrays for neural network input, and create DICOM-compliant outputs for clinical integration. The library handles diverse DICOM transfer syntaxes and encodings, enables efficient batch processing of large imaging datasets, and provides the foundation for medical imaging data loaders in PyTorch and TensorFlow. pydicom's ability to preserve clinical metadata during AI processing ensures that model outputs maintain appropriate associations with patient context and imaging parameters.",
+          "used_in_bridge2ai": false
+        }
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:15"
@@ -16642,8 +17668,16 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-03-13",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:91",
+          "category": "B2AI:Application",
+          "name": "Biomedical Audio Analysis and Speech-Based Diagnostics",
+          "description": "torchaudio is used in AI applications for processing and analyzing biomedical audio signals including speech patterns for neurological assessment, respiratory sounds for pulmonary diagnosis, and cardiac auscultation for automated heart disease detection. Deep learning models built with torchaudio process audio biomarkers such as cough sounds for COVID-19 screening, voice characteristics for Parkinson's disease detection, and lung sounds for pneumonia classification. The library's preprocessing capabilities, pretrained models, and integration with PyTorch enable researchers to develop audio-based AI diagnostics that can be deployed on mobile devices for remote patient monitoring, telehealth applications, and resource-limited settings where traditional diagnostic equipment is unavailable.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "implementation_maturity_production"
       ],
       "concerns_data_topic": [
@@ -16716,9 +17750,17 @@
       "name": "PRIDE",
       "description": "PRoteomics IDEntifications Database",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:92",
+          "category": "B2AI:Application",
+          "name": "Proteomics Data Mining and Peptide Identification",
+          "description": "PRIDE (PRoteomics IDEntifications) database is used in AI applications for training deep learning models on mass spectrometry proteomics data, enabling improved peptide identification, protein quantification, and post-translational modification prediction. Machine learning systems leverage PRIDE's extensive repository of annotated spectra to develop neural networks for de novo peptide sequencing, spectral quality assessment, and cross-linking analysis. AI models trained on PRIDE data improve upon traditional database search algorithms by learning complex patterns in fragmentation spectra, enabling identification of novel peptides, non-canonical modifications, and proteoforms. The database's standardized mzML and mzIdentML formats facilitate reproducible AI research in clinical proteomics, biomarker discovery, and precision medicine applications.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "dataregistry",
-        "has_ai_application"
+        "dataregistry"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:5",
@@ -16739,9 +17781,17 @@
       "name": "ASCII File Format Guidelines for Earth Science Data",
       "description": "American Standard Code for Information Interchange ASCII File Format Guidelines for Earth Science Data",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:93",
+          "category": "B2AI:Application",
+          "name": "Environmental and Climate Health Data Integration",
+          "description": "ASCII File Format Guidelines for Earth Science Data are used in AI applications that integrate environmental and climate data with biomedical datasets to model health impacts of environmental change, predict disease patterns related to climate factors, and develop early warning systems for climate-sensitive health outcomes. Machine learning models leverage standardized ASCII representations of temperature, precipitation, air quality, and other environmental variables to train on relationships between environmental exposures and health outcomes such as vector-borne disease transmission, heat-related illness, respiratory disease exacerbation, and mental health impacts. The standardized format enables AI systems to integrate NASA Earth observations with clinical and epidemiological data for One Health applications bridging human, animal, and environmental health.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "fileformat",
-        "has_ai_application",
         "implementation_maturity_production",
         "standards_process_maturity_final"
       ],
@@ -16763,9 +17813,17 @@
       "name": "GIS Toolchain",
       "description": "Geographic Informations Systems Toolchain",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:94",
+          "category": "B2AI:Application",
+          "name": "Geospatial Health Analytics and Environmental Exposure Modeling",
+          "description": "GIS Toolchain (from OHDSI) is used in AI applications for integrating geographic information with clinical data to train models that account for environmental exposures, social determinants of health, and spatial disease patterns. Machine learning systems leverage geospatial features derived from this toolchain to develop prediction models for infectious disease spread, environmental health impacts, cancer cluster detection, and health equity analysis. AI applications combine geocoded patient addresses with environmental data layers (air quality, greenspace, food access) to create location-aware risk models that inform population health interventions and resource allocation. The toolchain's integration with OMOP CDM enables spatiotemporal analysis at scale across observational health databases.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "datamodel",
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],
@@ -16791,9 +17849,17 @@
         "B2AI_STANDARD:243"
       ],
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:95",
+          "category": "B2AI:Application",
+          "name": "Medical Imaging AI Data Standardization and Multi-Site Studies",
+          "description": "MI-CDM (Medical Imaging Common Data Model) is used in AI applications to standardize heterogeneous imaging metadata across institutions, enabling training of robust deep learning models on diverse multi-site imaging datasets. The common data model facilitates AI development by providing consistent representation of imaging protocols, scanner parameters, patient demographics, and clinical annotations across different PACS systems and imaging centers. Machine learning systems leverage MI-CDM to perform federated learning on distributed imaging data without raw image transfer, enable systematic bias detection across sites, and develop models that generalize across different scanner manufacturers and acquisition protocols. The standardization is critical for regulatory-grade AI where model validation requires diverse, well-characterized datasets.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "datamodel",
-        "has_ai_application",
         "standards_process_maturity_development",
         "implementation_maturity_pilot"
       ],
@@ -16816,8 +17882,16 @@
       "name": "CX",
       "description": "Cytoscape Exchange",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:96",
+          "category": "B2AI:Application",
+          "name": "Network Biology and Graph Neural Networks",
+          "description": "CX (Cytoscape Exchange) format is used in AI applications for representing biological networks that serve as input to graph neural networks for tasks such as protein function prediction, drug-target interaction prediction, and disease gene prioritization. Machine learning models leverage CX's standardized representation of nodes, edges, and network attributes to train graph-based deep learning architectures that capture complex biological relationships. AI systems use CX-encoded networks for multi-omics data integration, pathway analysis, and systems biology modeling where network topology and node features inform predictions. The format enables sharing of network models across platforms and reproducible AI research in network medicine, synthetic biology, and computational drug discovery.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "fileformat",
         "implementation_maturity_production"
       ],
@@ -16838,8 +17912,16 @@
       "name": "h5ad",
       "description": "Anndata h5ad format",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:97",
+          "category": "B2AI:Application",
+          "name": "Single-Cell Genomics and Deep Learning Integration",
+          "description": "h5ad format (HDF5-based AnnData) is the standard file format for AI applications in single-cell genomics, enabling efficient storage and access of large-scale single-cell RNA-seq datasets for training deep learning models. AI systems leverage h5ad's structured representation of cell-by-gene expression matrices, cell metadata, and dimensionality reduction embeddings to perform cell type classification, trajectory inference, gene regulatory network inference, and batch effect correction. Deep learning frameworks integrate seamlessly with h5ad through the AnnData API, supporting applications in cancer cell identification, developmental biology, immune profiling, and drug response prediction at single-cell resolution. The format's efficient sparse matrix storage enables training on datasets with millions of cells.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "fileformat"
       ],
       "concerns_data_topic": [
@@ -16914,8 +17996,16 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:98",
+          "category": "B2AI:Application",
+          "name": "Persistent Dataset Identification for ML Reproducibility",
+          "description": "ARK (Archival Resource Key) persistent identifiers are used in AI applications to create stable, long-term references to training datasets, model artifacts, and research outputs, ensuring reproducibility and provenance tracking in machine learning research. AI systems leverage ARK identifiers to maintain citations to specific versions of datasets used in model training, enabling verification of results and compliance with data governance policies. The identifier scheme's flexibility supports both fine-grained object identification (individual data files) and collections (entire datasets), which is essential for documenting complex ML pipelines. ARK PIDs facilitate data sharing in federated AI research while maintaining clear attribution and enabling auditable access logs for sensitive biomedical data.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "has_ai_application",
         "datamodel",
         "standards_process_maturity_draft",
         "implementation_maturity_production"
@@ -16942,9 +18032,17 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-05-29",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:99",
+          "category": "B2AI:Application",
+          "name": "Clinical Decision Support Rule Integration and ML Hybridization",
+          "description": "CDS (Clinical Decision Support) specification is used in AI applications to integrate machine learning models with traditional rule-based clinical decision support systems, enabling hybrid AI approaches that combine interpretable rules with data-driven predictions. AI systems leverage CDS Hooks and standardized interfaces to deploy ML models as FHIR-based services that provide real-time recommendations during clinical workflows, such as drug-drug interaction checking augmented with personalized risk predictions, or sepsis alerts that combine guideline-based criteria with neural network early warning scores. The specification enables AI applications to surface predictions within EHR user interfaces at appropriate decision points, while maintaining auditability through standardized request/response formats and provenance metadata.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
-        "datamodel",
-        "has_ai_application"
+        "datamodel"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:7",
@@ -16970,9 +18068,17 @@
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2025-05-29",
       "used_in_bridge2ai": true,
+      "has_application": [
+        {
+          "id": "B2AI_APP:100",
+          "category": "B2AI:Application",
+          "name": "Biomedical Knowledge Extraction and Semantic Search",
+          "description": "Schema.org vocabularies, particularly the biomedical extensions (BioSchemas), are used in AI applications for automated knowledge extraction from web resources, semantic annotation of datasets, and training large language models on structured biomedical information. AI systems leverage Schema.org markup to extract structured data about proteins, genes, diseases, clinical trials, and medical conditions from web pages, enabling automated knowledge base construction and question-answering systems. The vocabulary supports AI-driven dataset discovery, metadata standardization for machine learning pipelines, and training of biomedical language models that understand relationships between biological entities. Schema.org's widespread adoption makes it valuable for web-scale biomedical data mining and federated search applications.",
+          "used_in_bridge2ai": false
+        }
+      ],
       "collection": [
         "datamodel",
-        "has_ai_application",
         "standards_process_maturity_final",
         "implementation_maturity_production"
       ],

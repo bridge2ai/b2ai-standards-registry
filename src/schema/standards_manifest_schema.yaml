@@ -30,6 +30,7 @@ imports:
   - standards_datatopic_schema
   - standards_datasubstrate_schema
   - standards_datastandardortool_schema
+  - standards_dataset_schema
 
 classes:
 
@@ -78,7 +79,7 @@ slots:
     multivalued: true
 
   organization:
-    is_a: related_to
+    is_a: node_property
     description: >-
       The manifest corresponds to
       this organization.
@@ -89,7 +90,7 @@ slots:
     multivalued: false
 
   datasets:
-    is_a: related_to
+    is_a: node_property
     description: >-
       The manifest includes these datasets.
       Must be a list of Dataset objects,
