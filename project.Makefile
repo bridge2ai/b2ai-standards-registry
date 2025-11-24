@@ -82,7 +82,8 @@ validate:
 		["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer" \
 		["$(DATA_DIR)Organization.yaml"]="OrganizationContainer" \
 		["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer" \
-		["$(DATA_DIR)DataSet.yaml"]="DataSetContainer" ) \
+		["$(DATA_DIR)DataSet.yaml"]="DataSetContainer" \
+		["$(DATA_DIR)Manifest.yaml"]="ManifestContainer" ) \
 	; for key in "$${!CLASSES[@]}" ; do \
 		printf "Validating $${key}..." ; \
 		$(RUN_VALIDATE) -C $${CLASSES[$${key}]} $${key} ; \
