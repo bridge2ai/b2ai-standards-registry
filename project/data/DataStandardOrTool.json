@@ -6244,9 +6244,93 @@
         {
           "id": "B2AI_APP:42",
           "category": "B2AI:Application",
-          "name": "Large-Scale Observational Research and ML Model Training",
-          "description": "OMOP CDM is a foundational standard for AI applications in observational health research, enabling machine learning models to be trained and validated across diverse healthcare datasets. The standardized format allows AI algorithms to perform patient-level prediction, disease phenotyping, treatment pathway analysis, and adverse event detection across multiple institutions and databases. OMOP's common data model structure facilitates federated learning approaches where AI models can be trained on distributed datasets without data sharing, and enables systematic literature-scale evidence synthesis through tools like OHDSI's Patient-Level Prediction framework.",
-          "used_in_bridge2ai": false
+          "name": "Multi-Database Patient-Level Risk Prediction with External Validation",
+          "description": "OMOP-standardized features and the OHDSI Patient-Level Prediction (PLP) pipeline enabled development and extensive external validation of clinical risk models across international sites. A Lasso logistic regression model predicting symptomatic hemorrhagic transformation after ischemic stroke was developed on OMOP-mapped EHR and externally validated across 10 databases spanning the US, Europe, and Asia (internal AUC 0.75; mean external AUC approximately 0.71, range 0.60-0.78). OMOP's standardized covariate definitions and PLP tooling enabled identical feature extraction and cross-site code portability for reproducible, multi-database risk modeling.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1371/journal.pone.0226718"
+          ]
+        },
+        {
+          "id": "B2AI_APP:146",
+          "category": "B2AI:Application",
+          "name": "Federated Diabetes Heart Failure Risk Modeling",
+          "description": "OMOP CDM enabled federated patient-level prediction for 1-year incident heart failure risk in type 2 diabetes patients across five US databases. Shared cohort and covariate definitions in OMOP, combined with OHDSI tools, enabled reproducible distributed model development and validation using multiple classifiers (Lasso logistic regression, Random Forest, Gradient Boosting, XGBoost), achieving external AUCs of approximately 0.72-0.80 across validation sites. OMOP's standardization facilitated consistent model portability without patient-level data sharing.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1371/journal.pone.0226718"
+          ]
+        },
+        {
+          "id": "B2AI_APP:147",
+          "category": "B2AI:Application",
+          "name": "Hospital Length-of-Stay Prediction with Explainable AI",
+          "description": "OMOP v5.3-standardized features from condition, drug, procedure, and measurement tables supported operational length-of-stay prediction for planned hospital admissions using gradient-boosting methods (XGBoost, LightGBM) with SHAP explainability. A single-site OMOP implementation (South Korea) achieved internal AUROC up to 0.891, with external validation at a separate OMOP-mapped hospital yielding AUROC approximately 0.804. OMOP's standardized feature representation allowed reproducible training and external testing for operational forecasting.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.08.23.24311950"
+          ]
+        },
+        {
+          "id": "B2AI_APP:148",
+          "category": "B2AI:Application",
+          "name": "Portable NLP-Based Clinical Phenotyping",
+          "description": "A portable NLP phenotyping system stored NLP outputs and rule artifacts in OMOP tables (notes and annotation mapping) to enable cross-institutional reuse. The system combined rule-based extractions with statistical machine learning classifiers for phenotype identification (e.g., obesity and comorbidities) and demonstrated competitive performance on i2b2 challenge discharge summaries. OMOP's common schema for text-derived concepts enabled portable NLP pipelines and downstream machine learning for cohort discovery and trial recruitment across multiple sites.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1016/j.jbi.2023.104343"
+          ]
+        },
+        {
+          "id": "B2AI_APP:149",
+          "category": "B2AI:Application",
+          "name": "Clinical Knowledge Graphs for Explainable AI",
+          "description": "OMOP CDM served as the data source for constructing clinical knowledge graphs in FHIR RDF format (FHIR-Ontop-OMOP) to support explainable AI workflows. OMOP's standardized vocabularies and relational structure enabled consistent semantic linking and query over patient-level data, transforming OMOP tables into RDF knowledge graphs that provide semantic features and enable explainable AI by linking standardized clinical concepts through ontological relationships.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.08.23.24311950"
+          ]
+        },
+        {
+          "id": "B2AI_APP:150",
+          "category": "B2AI:Application",
+          "name": "Process Mining of Clinical Workflows",
+          "description": "Methods to derive event logs from OMOP tables (visit, procedure, measurement) enabled process mining of inpatient, outpatient, and emergency workflows and patient care pathways. Real-world surgical cases at a tertiary hospital were analyzed to construct clinical pathway models, and artificial neural networks were demonstrated for pathway variance prediction. OMOP CDM provided a reproducible source for process-aware analytics and downstream predictive tasks from standardized event sequences.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.08.23.24311950"
+          ]
+        },
+        {
+          "id": "B2AI_APP:151",
+          "category": "B2AI:Application",
+          "name": "Imaging AI Enablement via MI-CDM Extension",
+          "description": "The Medical Imaging CDM (MI-CDM) extends OMOP with imaging metadata and feature-provenance tables to link DICOM data and imaging-derived biomarkers with clinical OMOP data, enabling multimodal phenotyping and imaging AI workflows. A prototype use case demonstrated longitudinal CT lung nodule tracking, and implementations for prostate cancer research (ProCAncer-I) captured imaging metadata and curation processes. MI-CDM makes image-derived features computable within OMOP, supporting reproducible imaging AI pipelines and phenotype definitions that include imaging biomarkers.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1007/s10278-024-00982-6"
+          ]
+        },
+        {
+          "id": "B2AI_APP:152",
+          "category": "B2AI:Application",
+          "name": "Cross-Country Model Generalizability and Feature Selection",
+          "description": "OMOP-standardized features from EHRs mapped across the US, UK, Finland, and Korea enabled cross-site feature evaluation to improve external validity of prolonged opioid use prediction after surgery. Independent cross-site feature selection workflows using Lasso logistic regression improved generalizability, with local AUROC approximately 0.75 and averaged external AUROC approximately 0.69 after cross-site feature selection. OMOP's consistent feature representation enabled generalizable machine learning across countries and healthcare systems.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.08.23.24311950"
+          ]
+        },
+        {
+          "id": "B2AI_APP:153",
+          "category": "B2AI:Application",
+          "name": "Oncology-Specific AI with Genomic and Imaging Vocabularies",
+          "description": "OMOP oncology extensions incorporating genomic vocabularies (ClinVar, CIVic, OncoKB), HemOnc chemotherapy regimen vocabularies, and radiology CDM (R-CDM) with RadLex-mapped imaging tables enable cancer-specific AI applications. Use cases include case identification from clinical notes using support vector machines and tree-based models, predictive modeling with the ATLAS Patient-Level Prediction module on genomically-enriched OMOP data, and standardized imaging-AI workflows. OMOP's oncology-specific vocabularies and modules facilitate AI model development for precision oncology across harmonized multicenter datasets.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.3390/ijms231911834",
+            "https://doi.org/10.1101/2024.08.23.24311950"
+          ]
         }
       ],
       "collection": [
@@ -6264,7 +6348,7 @@
       "has_training_resource": [
         "B2AI_STANDARD:844"
       ],
-      "purpose_detail": "Open community data standard designed to standardize the structure and content of observational data and to enable efficient analyses that can produce reliable evidence.",
+      "purpose_detail": "The Observational Medical Outcomes Partnership (OMOP) Common Data Model is an open community data standard designed to standardize the structure and content of observational healthcare data from electronic health records, administrative claims, registries, and other sources to enable efficient, large-scale analyses that produce reliable evidence. OMOP CDM organizes patient-level data into standardized tables including person, visit, condition occurrence, drug exposure, procedure occurrence, measurement, observation, and device exposure, with relationships linking events to patients and care episodes. The model uses standardized vocabularies (SNOMED CT, RxNorm, LOINC, etc.) mapped through the OHDSI Vocabulary for semantic interoperability, ensuring consistent representation of clinical concepts across diverse healthcare systems. OMOP CDM supports longitudinal patient histories, enables reproducible network studies where the same analytic code runs on data from multiple institutions without sharing patient-level information, and provides the foundation for the OHDSI open-science community's analytical tools including cohort definition, characterization, population-level effect estimation, and patient-level prediction. The standardized schema facilitates federated learning, multi-site clinical research, comparative effectiveness studies, pharmacovigilance, and machine learning applications requiring harmonized features across heterogeneous EHR systems for training predictive models, phenotyping algorithms, and decision support tools.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://ohdsi.github.io/CommonDataModel/",
@@ -6324,7 +6408,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:5"
       ],
-      "purpose_detail": "A biology-oriented language for building ontologies, based on OWL.",
+      "purpose_detail": "The Open Biomedical Ontology (OBO) Flat File Format is a human-readable, line-oriented syntax for representing biomedical ontologies that originated with the Gene Ontology and has become a widely adopted standard within the OBO Foundry community. OBO format provides a simplified, tag-value structure for defining ontology terms, their hierarchical relationships (is_a), logical definitions, synonyms, cross-references, and metadata, with each term enclosed in a [Term] stanza containing fields like id, name, namespace, def (text definition with citations), and relationship tags. The format has a defined mapping to OWL (Web Ontology Language), allowing OBO files to be converted to OWL/RDF for semantic web applications while maintaining a more accessible syntax for biologists and curators. OBO format supports rich relationship types beyond simple hierarchies (part_of, regulates, develops_from), structured synonym types (exact, broad, narrow, related), obsoletion workflows with replaced_by and consider tags, and cross-references to external databases. The format is designed for version control systems (line-oriented changes), supports modular ontology development through import statements, and enables community-driven collaborative ontology construction. OBO format files are processed by standard tools (ROBOT, Owltools, OWL API with OBO parser) and underpin hundreds of biomedical ontologies including GO, Uberon, ChEBI, Disease Ontology, and Cell Ontology. The format balances human readability for manual curation with machine-parseability for computational workflows, semantic reasoning, data annotation, and integration into knowledge graphs supporting AI/ML applications in biomedicine.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html",
@@ -6383,7 +6467,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:19"
       ],
-      "purpose_detail": "multi-spectral imaging data",
+      "purpose_detail": "OME-TIFF (Open Microscopy Environment TIFF) is a file format specification that combines standard TIFF image files with OME-XML metadata embedded in the TIFF header, enabling storage of complex multi-dimensional microscopy datasets including multi-channel fluorescence, z-stacks, time series, and multi-position acquisitions. Each OME-TIFF file contains one or more standard TIFF images with rich microscopy metadata encoded as OME-XML in the ImageDescription tag of the first IFD (Image File Directory), describing acquisition parameters, instrument settings, channel information, dimensions, physical pixel sizes, timestamps, and experimental context. The format supports large datasets by allowing data to span multiple TIFF files while maintaining metadata consistency through the OME-XML master file that references all constituent files. OME-TIFF balances the advantages of widespread TIFF support in image processing software with the semantic richness of OME-XML metadata, making microscopy data accessible to both OME-aware applications (Bio-Formats, OMERO, ImageJ/Fiji) and standard image viewers. This dual compatibility facilitates data sharing, long-term archiving, interoperability across microscopy platforms, and integration into computational workflows including machine learning pipelines for image analysis, segmentation, and feature extraction in biological imaging applications.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://docs.openmicroscopy.org/ome-model/5.6.3/ome-tiff/#",
@@ -6405,7 +6489,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:19"
       ],
-      "purpose_detail": "OME-XML is a file format for storing microscopy information (both pixels and metadata) using the OME Data Model.",
+      "purpose_detail": "OME-XML (Open Microscopy Environment XML) is a comprehensive XML-based file format for storing both microscopy image pixels and associated metadata using the OME Data Model, a rich schema that describes biological imaging experiments with semantic precision. The format encodes multi-dimensional image data (x, y, z, channel, time) as Base64-encoded binary pixel arrays within XML elements, alongside extensive metadata including instrument configuration (microscope, objectives, detectors, light sources), acquisition parameters (exposure times, wavelengths, filters), experimental context (annotations, regions of interest, overlays), specimen information, and structured annotations. OME-XML uses a controlled vocabulary and hierarchical schema (defined by XSD) that ensures consistent representation of microscopy concepts across diverse imaging modalities including widefield, confocal, super-resolution, high-content screening, and light-sheet microscopy. The format serves as the foundation for OME-TIFF and is the native format for Bio-Formats library, enabling interoperability across proprietary microscope file formats through standardized conversion. OME-XML supports FAIR principles by providing rich, machine-readable metadata essential for data sharing, long-term preservation, reproducible analysis, and integration into computational workflows including image processing pipelines and machine learning applications requiring comprehensive contextual information about imaging experiments.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://docs.openmicroscopy.org/ome-model/5.6.3/ome-xml/",
@@ -6428,7 +6512,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:27"
       ],
-      "purpose_detail": "A compressed file that contains all the information needed to describe a modeling and simulation experiment.",
+      "purpose_detail": "OMEX (Open Modeling EXchange format) is a ZIP-based container file format developed by the COMBINE (Computational Modeling in Biology Network) community for bundling all components of a computational modeling and simulation experiment into a single, self-contained, exchangeable archive. An OMEX archive contains model descriptions (SBML, CellML, NeuroML, etc.), simulation experiment specifications (SED-ML for defining simulation protocols, analysis steps, and visualization), associated data files (initial conditions, parameters, experimental observations), metadata (OMEX Metadata describing provenance, authorship, annotations using RDF), and a manifest file that catalogs all contents with their roles and formats. The format ensures reproducibility by packaging model structure, simulation configuration, analysis workflows, and contextual information together, enabling complete recreation of computational experiments across different simulation tools and platforms. OMEX supports FAIR principles for computational models through standardized packaging, facilitates model exchange and reuse across the systems biology and computational physiology communities, enables archiving in model repositories (BioModels, PMR), and provides the foundation for reproducible in silico experiments essential for model validation, parameter estimation, and integration into larger computational workflows including systems biology pipelines and machine learning applications for biological modeling.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://github.com/combine-org/combine-specifications/blob/main/specifications/omex.md",
@@ -6500,7 +6584,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:9"
       ],
-      "purpose_detail": "openEHR' is the name of a technology for e-health, consisting of open specifications, clinical models and software that can be used to create standards, and build information and interoperability solutions for healthcare. The various artefacts of openEHR are produced by the openEHR community and managed by openEHR International, an international non-profit organisation originally established in 2003 and previously managed by the openEHR Foundation.",
+      "purpose_detail": "openEHR is the name of a technology for e-health, consisting of open specifications, clinical models and software that can be used to create standards, and build information and interoperability solutions for healthcare. The various artefacts of openEHR are produced by the openEHR community and managed by openEHR International, an international non-profit organisation originally established in 2003 and previously managed by the openEHR Foundation.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.openehr.org/about/what_is_openehr",
@@ -6582,10 +6666,62 @@
         {
           "id": "B2AI_APP:46",
           "category": "B2AI:Application",
-          "name": "Rare Disease Diagnosis and Phenotype-Driven AI",
-          "description": "Phenopackets is used in AI applications for standardizing clinical phenotype data linked with genomic information, enabling machine learning models for rare disease diagnosis, genotype-phenotype correlation, and automated phenotyping from clinical notes. AI systems leverage Phenopackets' structured representation of clinical observations using Human Phenotype Ontology (HPO) terms to train models that match patient phenotypes to disease profiles, prioritize candidate genes from sequencing data, and assist in differential diagnosis. The standard enables federated learning across rare disease registries, supports AI-driven patient matching for clinical trials, and facilitates automated literature mining to expand genotype-phenotype knowledge bases used by diagnostic AI systems.",
+          "name": "ML-Ready Rare Disease Corpus for Benchmarking and Training",
+          "description": "A curated corpus of 4,916 case-level phenopackets spanning 277 Mendelian and chromosomal diseases was released explicitly as an analysis-ready, AI-ready dataset to enable machine learning analyses of clinical phenotype data. The corpus supports gene and disease prioritization pipelines, patient stratification studies, and genotype-phenotype correlation analyses by providing standardized HPO-encoded phenotypes linked to genomic diagnoses. Phenopackets' uniform format enables benchmarking of diagnostic software performance, testing and tuning of algorithms on standardized inputs, and evaluation of ML models for rare disease genomic diagnostics across diverse disease presentations.",
           "used_in_bridge2ai": false,
           "references": [
+            "https://doi.org/10.1101/2024.05.29.24308104"
+          ]
+        },
+        {
+          "id": "B2AI_APP:154",
+          "category": "B2AI:Application",
+          "name": "Phenotype-Driven Diagnostic Tools Integration",
+          "description": "Widely used phenotype-driven diagnostic and gene/variant prioritization tools including Exomiser, LIRICAL, Phen2Gene, and CADA accept Phenopackets as standardized input files, enabling integration of patient-level HPO-encoded phenotypes with genomic data for AI-enabled diagnostics. Phenopackets facilitate computational pipeline integration by providing a consistent format for representing clinical observations, supporting aggregation across sites, and enabling interoperability with electronic health record (EHR) systems and rare disease registries. This standardization allows diagnostic AI tools to process patient data from diverse sources using a common schema, improving diagnostic accuracy and enabling federated diagnostic workflows.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2021.11.27.21266944",
+            "https://doi.org/10.1038/s41587-022-01357-4"
+          ]
+        },
+        {
+          "id": "B2AI_APP:155",
+          "category": "B2AI:Application",
+          "name": "Clinical Annotation System with Enhanced ML Performance",
+          "description": "SAMS (Symptom Annotation Made Simple), an HPO-integrated clinical annotation system that imports and exports Phenopackets, demonstrated measurable improvements in data quality that benefit downstream AI/ML pipelines. SAMS reported a 10% increase in recall for scientific publication annotations and a 20% increase in recall for EHR-derived annotations through improved entity linking and standardized symptom representation. These quality improvements in structured phenotype data directly enhance the performance of machine learning models that rely on high-quality, standardized clinical phenotypes for training and inference in diagnostic and research applications.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1093/nar/gkad1005"
+          ]
+        },
+        {
+          "id": "B2AI_APP:156",
+          "category": "B2AI:Application",
+          "name": "Large-Scale Federated Rare Disease Data Sharing",
+          "description": "Within the Solve-RD consortium, Phenopackets support standardized clinical data sharing for large federated cohorts with 11,349+ individuals (growing to over 19,000), facilitating AI/ML-ready data integration for rare disease diagnostics and research. The European Joint Programme on Rare Diseases (EJP RD) utilizes Phenopackets for federated data discovery across rare disease resources while adhering to FAIR principles. Phenopackets enable distributed analyses, patient matchmaking services, and cohort identification across international sites without requiring patient-level data sharing, providing a computable substrate for training and validating machine learning models on multi-institutional rare disease datasets.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2021.11.27.21266944"
+          ]
+        },
+        {
+          "id": "B2AI_APP:157",
+          "category": "B2AI:Application",
+          "name": "Genotype-Phenotype Correlation Analytics",
+          "description": "The GPSEA (GenoPheno Statistical Evidence Assessment) framework uses Phenopackets to represent adverse phenotype data and compute genotype-phenotype correlations across 6,613 individuals spanning 85 cohorts. Phenopackets' standardized representation of patient-level phenotypes, variants, and biosample information enables systematic computational analysis of genotype-phenotype relationships, supporting downstream AI/ML analytics for variant interpretation, phenotype prediction from genotypes, and discovery of novel genotype-phenotype associations. The format facilitates aggregation of case-level data from diverse sources into analysis-ready datasets that machine learning models can use to learn patterns between genetic variants and clinical presentations.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.1101/2024.05.29.24308104"
+          ]
+        },
+        {
+          "id": "B2AI_APP:158",
+          "category": "B2AI:Application",
+          "name": "Patient Matchmaking and Cohort Discovery Systems",
+          "description": "Phenopackets serve as the computable representation underlying data-driven patient matchmaking services that connect individuals with similar phenotypes across international rare disease networks for clinical research, trial recruitment, and collaborative diagnosis. The standardized format enables AI-powered differential diagnosis systems and automated cohort identification tools that match patient phenotypes to disease profiles, identify suitable clinical trial candidates, and discover similar cases in distributed databases. Phenopackets' consistent encoding of clinical observations using HPO terms allows machine learning algorithms to compute phenotypic similarity scores, cluster patients by presentation, and support precision medicine initiatives through data-driven patient stratification across global rare disease registries.",
+          "used_in_bridge2ai": false,
+          "references": [
+            "https://doi.org/10.17863/cam.87963",
             "https://doi.org/10.1038/s41587-022-01357-4"
           ]
         }
@@ -6599,7 +6735,7 @@
       "has_relevant_organization": [
         "B2AI_ORG:58"
       ],
-      "purpose_detail": "Patient phenotypes.",
+      "purpose_detail": "Phenopackets is a schema for exchanging computable representations of patient clinical phenotypes, diseases, genomic information, and associated metadata in a standardized, machine-readable format. The schema uses Protocol Buffers (protobuf) and JSON to encode clinical observations as Human Phenotype Ontology (HPO) terms, diseases as OMIM/MONDO identifiers, age and temporal information, biosample details, genomic interpretations (variants, genes), pedigree information, measurements, medical actions, and provenance metadata. Phenopackets supports multiple use cases including individual patient records, family pedigrees, and cohort descriptions, enabling seamless exchange of phenotypic data between clinical systems, research databases, and diagnostic platforms. The format bridges clinical phenotyping with genomics by linking patient phenotypes to genetic variants, facilitating variant interpretation, genotype-phenotype correlation studies, and rare disease diagnosis. Phenopackets promotes FAIR principles for clinical data through standardized vocabularies (HPO, LOINC, UCUM), supports federated analysis across rare disease registries without sharing raw patient data, enables AI/ML applications for automated phenotyping and diagnostic support, and provides the foundation for international data sharing initiatives including matchmaking services that connect patients with similar phenotypes for clinical research and trial recruitment.",
       "is_open": true,
       "requires_registration": false,
       "url": "http://phenopackets.org/",
@@ -6682,7 +6818,7 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:1"
       ],
-      "purpose_detail": "A formal specification for biological sample metadata structure. The PEP specification accommodates typical features of data-intensive bioinformatics projects with many biological samples.",
+      "purpose_detail": "The Portable Encapsulated Project (PEP) specification is a standardized, machine-readable format for organizing and describing biological sample metadata and associated computational analysis configurations in data-intensive bioinformatics projects. PEP uses a YAML-based configuration file (project_config.yaml) that points to a sample annotation table (typically CSV or TSV) containing sample attributes, along with optional subsample tables for complex hierarchical relationships. The specification defines a formal structure for representing sample metadata with arbitrary attributes, derived attributes computed from other columns, sample modifiers for conditional processing, and implied attributes inferred from organizational context. PEP supports amendments for alternative project configurations, subanotations for linking multiple data files to single samples, and project-level metadata including descriptions, keywords, and namespace information. The format is designed to make projects portable across compute environments, reproducible through version-controlled configurations, and interoperable across analysis tools through a growing ecosystem of PEP-compatible software (looper, pypiper, pepr, geofetch, pephub). PEP's structured metadata representation enables systematic queries across sample collections, facilitates batch processing and parallelization of analyses, supports complex experimental designs with multiple data types per sample, and provides a foundation for FAIR data practices in genomics and multi-omics research. The specification is particularly valuable for managing large-scale projects with hundreds or thousands of samples, enabling metadata-driven workflow execution, automated data retrieval, and standardized documentation that supports reproducible computational research and machine learning applications requiring well-annotated training datasets.",
       "is_open": true,
       "requires_registration": false,
       "url": "http://pep.databio.org/",
