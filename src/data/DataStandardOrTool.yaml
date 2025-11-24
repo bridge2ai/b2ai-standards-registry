@@ -294,21 +294,47 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:3
     category: B2AI:Application
-    name: AI Trustworthiness Assessment and Regulatory Compliance
-    description: ANSI/CTA-2090 standard is used to guide development and evaluation
-      of trustworthy AI systems in healthcare, providing framework principles that
-      inform model validation, transparency requirements, and deployment safeguards.
-      Healthcare organizations leverage this standard to assess AI systems for clinical
-      use against trustworthiness dimensions including safety, fairness, transparency,
-      and accountability. The standard supports AI applications in regulatory submission
-      preparation, clinical validation studies, and ongoing monitoring of deployed
-      models by providing clear criteria for demonstrating trustworthiness. Machine
-      learning teams use the framework to implement best practices for explainability,
-      bias detection, and human oversight in medical AI systems, ensuring alignment
-      with ethical principles and regulatory expectations for safe clinical deployment.
+    name: Pre-Development ML Scoping and Data Provenance Documentation
+    description: CTA-2090 recommends concrete developer actions for AI/ML workflows
+      including listing potential use cases before development to properly scope algorithm
+      functionality and limits, documenting whether datasets are raw or pre-processed
+      and what preprocessing was performed, and understanding how original data were
+      collected to identify potential biases. These practices operationalize the standard's
+      emphasis on clear intended use, data lineage, traceability, and documentation
+      requirements for trustworthy ML pipelines in healthcare, ensuring teams establish
+      proper foundations during planning and data preparation stages.
     used_in_bridge2ai: false
     references:
-    - https://www.cta.tech/Resources/Standards/ANSI-CTA-2090
+    - https://www.fdli.org/wp-content/uploads/2023/01/9-Ross.pdf
+  - id: B2AI_APP:105
+    category: B2AI:Application
+    name: Bias Assessment and Post-Deployment Monitoring
+    description: CTA-2090 guidance is applied through explicit testing for racial
+      and other biases including testing on vulnerable populations, contractual diversity
+      and representation benchmarks for training data, and inventories to review,
+      screen, retrain, and prevent bias during development. Post-deployment operationalization
+      includes ongoing real-world testing after approval and continuous review of
+      algorithm results during clinical use. These practices implement the standard's
+      expectations for bias identification, mitigation, representative data, lifecycle
+      monitoring, and real-world performance auditing in healthcare AI systems.
+    used_in_bridge2ai: false
+    references:
+    - https://www.fdli.org/wp-content/uploads/2023/01/9-Ross.pdf
+  - id: B2AI_APP:106
+    category: B2AI:Application
+    name: Z-Inspection Stakeholder Co-Design and Trust Assessment
+    description: Healthcare AI systems apply CTA-2090 trustworthiness principles through
+      Z-Inspection, an ethically aligned co-design methodology involving interdisciplinary
+      stakeholders to examine ethical, technical, medical, and legal implications
+      during development and deployment. Assessments uncover dataset bias risks, deployment
+      shortcomings such as accent-related accuracy degradation, and protocol effects
+      on ML output accuracy. Recommended practices include building explainability
+      into models, documenting how decisions are generated, and conducting real-world
+      validation that translates the standard's transparency, fairness, and reproducibility
+      dimensions into concrete governance and evaluation activities.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.48550/arxiv.2206.09887
 - id: B2AI_STANDARD:10
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -417,24 +443,6 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:40
   url: http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-careplan.html
-  has_application:
-  - id: B2AI_APP:4
-    category: B2AI:Application
-    name: Care Plan Recommendation and Treatment Pathway AI
-    description: Argonaut CarePlan FHIR profile is used in AI applications for generating,
-      optimizing, and personalizing patient care plans based on clinical guidelines,
-      patient characteristics, and predicted outcomes. Machine learning models leverage
-      the structured CarePlan representation to train on historical treatment sequences
-      and outcomes, predict optimal intervention timing, and recommend personalized
-      care activities. AI systems use this profile to generate FHIR-compliant care
-      plan suggestions that integrate seamlessly into EHR workflows, enabling clinical
-      decision support for complex care coordination. Applications include automated
-      care pathway optimization for chronic disease management, predictive models
-      for care plan adherence, and AI-driven adaptation of guidelines to individual
-      patient contexts while maintaining structured, interoperable care plan documentation.
-    used_in_bridge2ai: false
-    references:
-    - https://www.fhir.org/guides/argonaut/
 - id: B2AI_STANDARD:15
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
