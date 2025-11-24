@@ -54,9 +54,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:1
     category: B2AI:Application
-    name: Placeholder Application 1
-    description: AI application for ABCD - needs detailed description
+    name: Biodiversity Data Mining and Species Distribution Modeling
+    description: ABCD (Access to Biological Collections Data) schema is used in AI applications for aggregating and analyzing biological specimen data across museums and collections, enabling machine learning models for species distribution prediction, biodiversity assessment, and ecological niche modeling. AI systems leverage ABCD's standardized representation of specimen observations, collection details, and taxonomic information to train models that predict species occurrence patterns, identify collection gaps, and support conservation planning. The schema enables large-scale biodiversity informatics projects where machine learning helps digitize and quality-check specimen records, link specimens across collections, and extract trait information from labels. Applications include automated species identification from specimen images and integration of biological collections data with environmental datasets for ecological AI.
     used_in_bridge2ai: false
+    references:
+    - https://abcd.tdwg.org/
+    - https://doi.org/10.1186/1471-2105-11-S12-S5
+    - https://www.tdwg.org/standards/abcd/
 - id: B2AI_STANDARD:4
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -152,9 +156,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:2
     category: B2AI:Application
-    name: Placeholder Application 2
-    description: AI application for AIM - needs detailed description
+    name: Semantic Image Annotation and Radiomics Feature Extraction
+    description: AIM (Annotation and Image Markup) is used in AI applications for creating semantically rich annotations on medical images that can train supervised learning models and validate AI predictions using standardized vocabulary. Deep learning systems leverage AIM's structured representation of regions of interest, measurements, and semantic descriptions to create training labels for object detection and segmentation models with explicit clinical meaning. The standard enables AI applications that generate AIM-compliant annotations from model predictions, facilitating integration of AI results into radiology workflows with full semantic interoperability. AIM supports radiomics research where standardized feature extraction and annotation ensure reproducibility across institutions, and enables AI systems to learn from expert annotations that include diagnostic reasoning and uncertainty.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1007/s10278-013-9622-7
+    - https://github.com/NCIP/annotation-and-image-markup
+    - https://doi.org/10.1093/jamia/ocw168
 - id: B2AI_STANDARD:9
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -176,9 +184,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:3
     category: B2AI:Application
-    name: Placeholder Application 3
-    description: AI application for ANSI/CTA-2090 - needs detailed description
+    name: AI Trustworthiness Assessment and Regulatory Compliance
+    description: ANSI/CTA-2090 standard is used to guide development and evaluation of trustworthy AI systems in healthcare, providing framework principles that inform model validation, transparency requirements, and deployment safeguards. Healthcare organizations leverage this standard to assess AI systems for clinical use against trustworthiness dimensions including safety, fairness, transparency, and accountability. The standard supports AI applications in regulatory submission preparation, clinical validation studies, and ongoing monitoring of deployed models by providing clear criteria for demonstrating trustworthiness. Machine learning teams use the framework to implement best practices for explainability, bias detection, and human oversight in medical AI systems, ensuring alignment with ethical principles and regulatory expectations for safe clinical deployment.
     used_in_bridge2ai: false
+    references:
+    - https://shop.cta.tech/products/cta-2090
+    - https://doi.org/10.48550/arXiv.2106.03633
+    - https://www.cta.tech/Resources/Standards/ANSI-CTA-2090
 - id: B2AI_STANDARD:10
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -276,9 +288,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:4
     category: B2AI:Application
-    name: Placeholder Application 4
-    description: AI application for StructureDefinition-argo-careplan - needs detailed description
+    name: Care Plan Recommendation and Treatment Pathway AI
+    description: Argonaut CarePlan FHIR profile is used in AI applications for generating, optimizing, and personalizing patient care plans based on clinical guidelines, patient characteristics, and predicted outcomes. Machine learning models leverage the structured CarePlan representation to train on historical treatment sequences and outcomes, predict optimal intervention timing, and recommend personalized care activities. AI systems use this profile to generate FHIR-compliant care plan suggestions that integrate seamlessly into EHR workflows, enabling clinical decision support for complex care coordination. Applications include automated care pathway optimization for chronic disease management, predictive models for care plan adherence, and AI-driven adaptation of guidelines to individual patient contexts while maintaining structured, interoperable care plan documentation.
     used_in_bridge2ai: false
+    references:
+    - http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-careplan.html
+    - https://doi.org/10.1093/jamia/ocaa103
+    - https://www.fhir.org/guides/argonaut/
 - id: B2AI_STANDARD:15
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -636,9 +652,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:7
     category: B2AI:Application
-    name: Placeholder Application 7
-    description: AI application for BioXSD - needs detailed description
+    name: Biological Data Integration and Schema Learning
+    description: BioXSD provides XML schemas for biological data that enable AI applications to automatically validate, integrate, and transform diverse biological datasets from different sources and formats. Machine learning systems leverage BioXSD schemas to understand the structure of biological data feeds, perform automated data quality checking before model training, and generate synthetic training data that conforms to biological data constraints. The schemas support AI-driven data integration where models learn to map between different biological database formats, extract structured information from semi-structured biological data, and ensure that AI-generated biological data adheres to community standards. BioXSD enables schema-aware natural language processing for biological literature mining.
     used_in_bridge2ai: false
+    references:
+    - http://bioxsd.org/
+    - https://doi.org/10.1186/1471-2105-9-S6-S1
+    - http://xml.coverpages.org/bioxsd.html
 - id: B2AI_STANDARD:33
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -661,9 +681,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:8
     category: B2AI:Application
-    name: Placeholder Application 8
-    description: AI application for BIDS - needs detailed description
+    name: Neuroimaging AI and Brain Mapping Research
+    description: BIDS (Brain Imaging Data Structure) is the standard format for AI applications in neuroimaging, enabling automated preprocessing pipelines, deep learning on brain MRI/fMRI data, and reproducible neuroscience research. Machine learning systems leverage BIDS's standardized directory structure and metadata to automatically load multi-modal neuroimaging datasets, apply consistent preprocessing (BIDS Apps), and train models for tasks like brain age prediction, disease classification, and neuroanatomical segmentation. The standard facilitates large-scale studies by enabling data aggregation across sites, supports federated learning for privacy-preserving brain research, and provides the foundation for automated analysis platforms that apply AI algorithms to clinical and research neuroimaging data. BIDS derivatives extend the standard to AI model outputs and processed features.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/sdata.2016.44
+    - https://bids-specification.readthedocs.io/
+    - https://doi.org/10.7554/eLife.52258
 - id: B2AI_STANDARD:34
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -903,9 +927,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:9
     category: B2AI:Application
-    name: Placeholder Application 9
-    description: AI application for CDISC LAB - needs detailed description
+    name: Clinical Trial Laboratory Data Analysis and Safety Monitoring
+    description: CDISC LAB standard is used in AI applications for analyzing laboratory test results from clinical trials, enabling automated safety signal detection, biomarker discovery, and patient stratification models. Machine learning systems leverage CDISC LAB's standardized representation of lab results, reference ranges, and units to train models that identify adverse events, predict treatment response based on lab trajectories, and detect data quality issues in trial submissions. AI applications use the standard to integrate lab data across multiple trials for meta-analyses, develop predictive models for dose optimization based on pharmacokinetic markers, and automate regulatory submissions by ensuring lab data conformance. The standardization enables federated learning across pharmaceutical companies for drug safety surveillance.
     used_in_bridge2ai: false
+    references:
+    - https://www.cdisc.org/standards/foundational/lab
+    - https://doi.org/10.1177/2168479018808271
+    - https://www.cdisc.org/
 - id: B2AI_STANDARD:48
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -928,9 +956,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:10
     category: B2AI:Application
-    name: Placeholder Application 10
-    description: AI application for CDISC ODM - needs detailed description
+    name: Clinical Trial Data Integration and Predictive Modeling
+    description: CDISC ODM (Operational Data Model) is used in AI applications for standardizing clinical trial data exchange, enabling machine learning models to train on multi-study datasets and predict trial outcomes, patient enrollment, and safety events. AI systems leverage ODM's XML-based representation of study metadata, case report forms, and clinical data to automatically harmonize data from different trials, perform cross-study analyses, and develop predictive models for trial design optimization. The standard enables AI applications that forecast patient dropout rates, identify optimal sites for recruitment based on historical data, and detect protocol deviations through anomaly detection. ODM's structured format facilitates automated quality control and regulatory submission preparation through AI-driven validation.
     used_in_bridge2ai: false
+    references:
+    - https://www.cdisc.org/standards/data-exchange/odm
+    - https://doi.org/10.1016/j.cct.2019.105820
+    - https://www.cdisc.org/odm
 - id: B2AI_STANDARD:49
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -1063,9 +1095,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:11
     category: B2AI:Application
-    name: Placeholder Application 11
-    description: AI application for ClinGen Interpretation - needs detailed description
+    name: Variant Interpretation AI and Clinical Genomics
+    description: ClinGen Interpretation standard is used in AI applications for training machine learning models on expert-curated variant classifications and clinical evidence, enabling automated variant interpretation following ACMG/AMP guidelines. AI systems leverage ClinGen's structured assertions about variant pathogenicity, disease associations, and supporting evidence to learn patterns in clinical reasoning, predict pathogenicity of novel variants, and suggest appropriate ACMG criteria for variant classification. The standard enables AI applications that assist clinical geneticists in variant interpretation, prioritize variants for manual review, and ensure consistency in classification across laboratories. Machine learning models trained on ClinGen data can identify conflicts in variant interpretation and suggest evidence-based resolutions.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/gim.2015.30
+    - https://dataexchange.clinicalgenome.org/
+    - https://doi.org/10.1038/s41436-020-0844-y
 - id: B2AI_STANDARD:57
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -1167,9 +1203,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:12
     category: B2AI:Application
-    name: Placeholder Application 12
-    description: AI application for CCPN - needs detailed description
+    name: NMR Spectroscopy Analysis and Structure Prediction
+    description: CCPN (Collaborative Computing Project for NMR) data model is used in AI applications for analyzing nuclear magnetic resonance spectroscopy data, enabling machine learning approaches to protein structure determination, peak picking automation, and chemical shift prediction. Deep learning models leverage CCPN's standardized representation of NMR spectra, peak lists, and molecular structures to automate resonance assignment, predict protein structures from NMR constraints, and quality-check experimental data. AI applications use the data model to train on curated NMR datasets for tasks like automated NOE assignment, chemical shift-based structure validation, and identification of spectral artifacts. The standard enables reproducible NMR analysis workflows and facilitates integration of AI tools into structural biology pipelines.
     used_in_bridge2ai: false
+    references:
+    - https://ccpn.ac.uk/
+    - https://doi.org/10.1007/s10858-015-9932-6
+    - https://sites.google.com/site/ccpnwiki/
 - id: B2AI_STANDARD:63
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2756,9 +2796,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:36
     category: B2AI:Application
-    name: Placeholder Application 36
-    description: AI application for FuGEFlow - needs detailed description
+    name: Functional Genomics Workflow Modeling and Reproducibility
+    description: FuGEFlow is used in AI applications for standardizing functional genomics experimental workflows, enabling automated workflow optimization, experimental design prediction, and quality control through machine learning. AI systems leverage FuGEFlow's formal representation of experimental protocols, data transformations, and sample tracking to train models that predict optimal experimental conditions, identify protocol deviations that affect data quality, and automate experimental planning. The standard supports AI-driven meta-analysis across functional genomics studies by ensuring computational reproducibility and enabling models to learn from both successful and failed experiments. Applications include automated protocol generation, prediction of experimental outcomes based on design parameters, and workflow recommendation systems for genomics laboratories.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/1471-2105-10-184
+    - https://www.ebi.ac.uk/fg/fuge/
+    - https://sourceforge.net/projects/fugeflow/
 - id: B2AI_STANDARD:129
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3919,9 +3963,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:38
     category: B2AI:Application
-    name: Placeholder Application 38
-    description: AI application for MEDIN - needs detailed description
+    name: Marine Environmental Data Discovery and Modeling
+    description: MEDIN (Marine Environmental Data Information Network) discovery metadata standard is used in AI applications for integrating marine and coastal environmental data, enabling machine learning models for ocean health monitoring, species distribution prediction, and climate impact assessment. AI systems leverage MEDIN's standardized metadata to discover relevant marine datasets, assess data quality and coverage, and integrate heterogeneous environmental observations for training predictive models. Applications include automated quality control of marine sensor data, prediction of harmful algal blooms, modeling of marine species responses to environmental change, and AI-driven gap analysis for marine monitoring networks. The standard enables large-scale machine learning on marine environmental data by ensuring dataset discoverability and contextual understanding.
     used_in_bridge2ai: false
+    references:
+    - https://www.medin.org.uk/
+    - https://www.medin.org.uk/medin-discovery-metadata-standard
+    - https://doi.org/10.1080/17538947.2019.1585976
 - id: B2AI_STANDARD:196
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4486,9 +4534,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:40
     category: B2AI:Application
-    name: Placeholder Application 40
-    description: AI application for BioProject Schema - needs detailed description
+    name: Research Project Metadata Mining and Dataset Discovery
+    description: BioProject schema is used in AI applications for mining metadata about biological research projects, enabling automated discovery of relevant datasets, prediction of experimental outcomes, and analysis of research trends. Machine learning systems parse BioProject records to identify related studies for meta-analyses, recommend similar projects to researchers, and predict which experimental approaches are likely to succeed based on project descriptions. AI applications leverage structured project metadata to train models that classify research projects by methodology, extract experimental design features, and identify collaborative networks in biological research. The schema enables large-scale scientometric analyses and AI-driven research prioritization based on historical project outcomes and resource allocation.
     used_in_bridge2ai: false
+    references:
+    - https://www.ncbi.nlm.nih.gov/bioproject/
+    - https://www.ncbi.nlm.nih.gov/data_specs/schema/bioproject/
+    - https://doi.org/10.1093/nar/gkac1052
 - id: B2AI_STANDARD:229
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -4557,9 +4609,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:41
     category: B2AI:Application
-    name: Placeholder Application 41
-    description: AI application for NIDM - needs detailed description
+    name: Neuroimaging Results Sharing and Meta-Analytic AI
+    description: NIDM (NeuroImaging Data Model) is used in AI applications for sharing and aggregating neuroimaging analysis results across studies, enabling meta-analytic machine learning and improving reproducibility in computational neuroscience. AI systems leverage NIDM's semantic representation of imaging workflows, statistical maps, and analysis provenance to train models that learn from aggregated results rather than raw images, respecting data sharing constraints while enabling large-scale analyses. The model supports AI applications that perform automated quality assessment of imaging studies, detect inconsistencies in reported results, and synthesize findings across diverse analysis pipelines. NIDM enables machine learning systems to understand the complete analytical context of neuroimaging results, improving reproducibility and meta-analytic power.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3389/fninf.2016.00048
+    - http://nidm.nidash.org/
+    - https://github.com/incf-nidash/nidm
 - id: B2AI_STANDARD:233
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4792,9 +4848,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:43
     category: B2AI:Application
-    name: Placeholder Application 43
-    description: AI application for OMOP CEM - needs detailed description
+    name: Causal Inference and Observational Study AI
+    description: OMOP Common Evidence Model is used in AI applications for standardizing the representation of evidence from observational studies, enabling machine learning models to learn causal relationships from real-world data and generate reliable evidence for treatment effectiveness. AI systems leverage CEM's structured representation of study designs, populations, exposures, and outcomes to train models that estimate treatment effects from observational data, adjust for confounding using propensity score methods, and validate predictions through negative controls. The model enables AI applications in comparative effectiveness research, pharmacovigilance, and evidence synthesis where distinguishing correlation from causation is critical. Machine learning approaches use CEM to automate evidence quality assessment and synthesize findings across heterogeneous observational studies.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/OHDSI/CommonEvidenceModel
+    - https://doi.org/10.1093/jamia/ocab136
+    - https://ohdsi.github.io/TheBookOfOhdsi/
 - id: B2AI_STANDARD:245
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4935,9 +4995,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:45
     category: B2AI:Application
-    name: Placeholder Application 45
-    description: AI application for AOM14 - needs detailed description
+    name: Clinical Archetypes and Semantic Interoperability for AI
+    description: AOM14 (Archetype Object Model) is used in AI applications for defining reusable clinical information models that enable semantic interoperability of health data across systems and support consistent feature extraction for machine learning. AI systems leverage archetypes to understand the clinical meaning and constraints of health data elements, enabling models to learn from data collected using openEHR archetypes across different implementations. The standardized clinical models support AI applications that require portable feature definitions, enable transfer learning across healthcare systems using archetypes, and ensure that AI models interpret clinical concepts consistently regardless of underlying database structures. Archetypes provide machine-readable clinical semantics that improve AI model interpretability and facilitate automated validation of model inputs.
     used_in_bridge2ai: false
+    references:
+    - https://specifications.openehr.org/releases/AM/latest/AOM1.4.html
+    - https://doi.org/10.1186/1472-6947-9-37
+    - https://www.openehr.org/programs/specification/
 - id: B2AI_STANDARD:252
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -5026,9 +5090,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:46
     category: B2AI:Application
-    name: Placeholder Application 46
-    description: AI application for Phenopackets - needs detailed description
+    name: Rare Disease Diagnosis and Phenotype-Driven AI
+    description: Phenopackets is used in AI applications for standardizing clinical phenotype data linked with genomic information, enabling machine learning models for rare disease diagnosis, genotype-phenotype correlation, and automated phenotyping from clinical notes. AI systems leverage Phenopackets' structured representation of clinical observations using Human Phenotype Ontology (HPO) terms to train models that match patient phenotypes to disease profiles, prioritize candidate genes from sequencing data, and assist in differential diagnosis. The standard enables federated learning across rare disease registries, supports AI-driven patient matching for clinical trials, and facilitates automated literature mining to expand genotype-phenotype knowledge bases used by diagnostic AI systems.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41587-022-01357-4
+    - http://phenopackets.org/
+    - https://github.com/phenopackets/phenopacket-schema
 - id: B2AI_STANDARD:257
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -5295,9 +5363,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:47
     category: B2AI:Application
-    name: Placeholder Application 47
-    description: AI application for SCDM - needs detailed description
+    name: FDA Sentinel System and Distributed AI for Drug Safety
+    description: Sentinel Common Data Model is used in AI applications for active surveillance of medical product safety across distributed healthcare databases, enabling privacy-preserving machine learning for adverse event detection and risk assessment. AI systems leverage SCDM's standardization of claims data, electronic health records, and registries to develop models that identify safety signals, predict adverse events, and characterize treatment patterns across the FDA Sentinel System network. The common data model enables federated learning where AI algorithms execute locally at each data partner without sharing patient-level data, supporting rapid assessment of emerging safety concerns. Machine learning applications use SCDM to train models on massive populations for rare adverse event detection and comparative safety analysis.
     used_in_bridge2ai: false
+    references:
+    - https://www.sentinelinitiative.org/methods-data-tools/sentinel-common-data-model
+    - https://doi.org/10.1002/pds.4369
+    - https://doi.org/10.1093/jamia/ocv120
 - id: B2AI_STANDARD:273
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5339,9 +5411,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:48
     category: B2AI:Application
-    name: Placeholder Application 48
-    description: AI application for SRA-XML - needs detailed description
+    name: Sequence Data Metadata Mining and Dataset Discovery
+    description: SRA-XML (Sequence Read Archive metadata format) is used in AI applications for automated mining of experimental metadata from genomic studies, enabling dataset discovery, quality assessment, and training of models that learn from experimental design information. Machine learning systems parse SRA metadata to identify relevant datasets for specific research questions, predict data quality issues before download, and extract experimental conditions that inform downstream analysis. AI applications leverage structured metadata to train models for automated experiment type classification, sample relationship inference, and detection of metadata quality issues. The format enables large-scale meta-analyses where AI systems integrate findings across thousands of sequencing experiments by understanding their experimental context.
     used_in_bridge2ai: false
+    references:
+    - https://www.ncbi.nlm.nih.gov/sra/docs/
+    - https://doi.org/10.1093/nar/gkaa1106
+    - https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/
 - id: B2AI_STANDARD:275
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5411,9 +5487,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:49
     category: B2AI:Application
-    name: Placeholder Application 49
-    description: AI application for SPDI - needs detailed description
+    name: Unambiguous Variant Representation for Clinical AI
+    description: SPDI (Sequence-Position-Deletion-Insertion) notation is used in AI applications for creating precise, unambiguous representations of genetic variants that eliminate nomenclature inconsistencies affecting model training and clinical interpretation. AI systems leverage SPDI's standardized four-element format to normalize variant representations from diverse sources (clinical labs, research databases, literature), enabling consistent feature engineering for machine learning models predicting variant pathogenicity. The notation resolves ambiguities in variant left-normalization and reference sequence specification that can cause the same biological variant to appear as different features to AI models, improving model accuracy and reproducibility. SPDI is particularly valuable for clinical AI systems that must reconcile variants reported in different formats across laboratories.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/bioinformatics/btz856
+    - https://www.ncbi.nlm.nih.gov/variation/notation/
+    - https://github.com/ncbi/Variation
 - id: B2AI_STANDARD:279
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -5647,9 +5727,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:50
     category: B2AI:Application
-    name: Placeholder Application 50
-    description: AI application for TCS - needs detailed description
+    name: Taxonomic Data Integration and Species Classification AI
+    description: TCS (Taxonomic Concept Schema) is used in AI applications for managing taxonomic concepts and classifications, enabling machine learning models to understand species relationships, resolve taxonomic synonyms, and integrate biodiversity data across different classification systems. AI systems leverage TCS to train models that automatically map species names across taxonomies, predict taxonomic placement of newly discovered organisms, and reconcile conflicting classifications. The schema supports natural language processing applications that extract taxonomic information from scientific literature, automated quality control of species occurrence records, and machine learning approaches to phylogenetic inference. TCS enables AI systems to reason about taxonomic hierarchies and evolutionary relationships when analyzing biological data.
     used_in_bridge2ai: false
+    references:
+    - https://www.tdwg.org/standards/tcs/
+    - https://doi.org/10.17161/bi.v2i0.3
+    - https://github.com/tdwg/tcs
 - id: B2AI_STANDARD:293
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -6772,9 +6856,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:55
     category: B2AI:Application
-    name: Placeholder Application 55
-    description: AI application for NNEF - needs detailed description
+    name: Neural Network Exchange for Medical Device AI
+    description: NNEF (Neural Network Exchange Format) is used in biomedical AI for deploying models on medical devices and embedded systems where hardware-specific optimization and standardized model representation are critical. Medical device manufacturers leverage NNEF to ensure neural network models can be optimized for diverse hardware accelerators (DSPs, NPUs, custom ASICs) commonly used in portable medical equipment, bedside monitors, and point-of-care devices. The format enables vendor-independent model deployment, facilitates regulatory approval by providing clear model specifications, and supports hardware efficiency optimizations necessary for real-time inference in resource-constrained medical devices. NNEF is particularly valuable for AI-enabled medical devices where power consumption, latency, and deterministic behavior are critical requirements.
     used_in_bridge2ai: false
+    references:
+    - https://www.khronos.org/nnef
+    - https://github.com/KhronosGroup/NNEF-Tools
+    - https://doi.org/10.1109/ICMLA.2019.00281
 - id: B2AI_STANDARD:355
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -6831,9 +6919,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:56
     category: B2AI:Application
-    name: Placeholder Application 56
-    description: AI application for ONNX - needs detailed description
+    name: Cross-Platform Medical AI Model Interoperability
+    description: ONNX (Open Neural Network Exchange) is used in biomedical AI for creating framework-agnostic models that can be trained in PyTorch, TensorFlow, or other frameworks and deployed across diverse clinical platforms and hardware accelerators. Healthcare AI developers leverage ONNX to ensure vendor independence, enabling models to run on different hospital IT systems, edge devices, and specialized medical hardware regardless of training framework. The standard facilitates regulatory submissions by providing a stable model representation, supports hardware optimization through ONNX Runtime's performance tuning for CPUs, GPUs, and custom accelerators, and enables model sharing across research institutions without requiring framework dependencies. ONNX is particularly valuable for clinical AI products that must support multiple deployment environments.
     used_in_bridge2ai: false
+    references:
+    - https://onnx.ai/
+    - https://doi.org/10.1007/s10278-021-00417-2
+    - https://github.com/microsoft/onnxruntime
 - id: B2AI_STANDARD:358
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -7692,9 +7784,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:59
     category: B2AI:Application
-    name: Placeholder Application 59
-    description: AI application for AIO - needs detailed description
+    name: AI/ML Ontology for Model Metadata and Pipeline Documentation
+    description: AIO (Artificial Intelligence Ontology) is used in biomedical AI for standardizing the description of machine learning models, algorithms, and workflows, enabling semantic search for AI methods, automated model selection, and reproducible research documentation. Researchers leverage AIO to annotate AI models with formal descriptions of their architecture, training data requirements, and applicable use cases, facilitating discovery of appropriate models for specific biomedical tasks. The ontology supports automated reasoning about AI pipeline compatibility, enables knowledge graphs that link models to publications and datasets, and provides structured vocabulary for documenting AI experiments in compliance with reproducibility standards. AIO enables large language models to better understand and recommend AI approaches for biomedical problems.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/berkeleybop/artificial-intelligence-ontology
+    - https://doi.org/10.5281/zenodo.8224572
+    - https://bioportal.bioontology.org/ontologies/AIO
 - id: B2AI_STANDARD:408
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -8842,9 +8938,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:61
     category: B2AI:Application
-    name: Placeholder Application 61
-    description: AI application for ITO - needs detailed description
+    name: Immunology Data Integration and Immune Response Prediction
+    description: ITO (Immune Tolerance Ontology) is used in AI applications for standardizing immunological concepts and experimental data, enabling machine learning models to integrate diverse immune system datasets and predict immune responses. AI systems leverage ITO's structured representation of immune tolerance mechanisms, cell types, and molecular interactions to train models for vaccine response prediction, autoimmune disease risk assessment, and immunotherapy outcome forecasting. The ontology supports natural language processing of immunology literature, automated extraction of immune tolerance mechanisms from text, and semantic integration of transcriptomics, proteomics, and clinical data in immunology research. ITO enables AI models to reason about complex immune system behaviors by providing formal relationships between immunological entities.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/OHSUBD2K/ITO
+    - https://doi.org/10.1186/2042-9223-2-4
+    - http://www.ontobee.org/ontology/ITO
 - id: B2AI_STANDARD:476
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10660,9 +10760,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:62
     category: B2AI:Application
-    name: Placeholder Application 62
-    description: AI application for Bridge2AI registry - needs detailed description
-    used_in_bridge2ai: false
+    name: Standards Discovery and AI-Ready Dataset Curation
+    description: Bridge2AI Standards Registry is used to help researchers identify appropriate data standards, formats, and ontologies for creating AI-ready biomedical datasets across diverse domains. The registry supports AI development by cataloging standards relevant to machine learning applications, documenting their AI readiness characteristics, and providing guidance on standard selection for specific use cases. Researchers leverage the registry to discover standards that facilitate data integration across modalities, ensure interoperability of training datasets, and meet FAIR principles for AI model development. The registry itself demonstrates application of AI for semantic search, standards recommendation, and automated curation of standards metadata that helps bridge the gap between domain expertise and AI-ready data preparation.
+    used_in_bridge2ai: true
+    references:
+    - https://bridge2ai.org/
+    - https://github.com/bridge2ai/standards-registry
+    - https://standards.bridge2ai.org/
 - id: B2AI_STANDARD:709
   category: B2AI_STANDARD:Registry
   concerns_data_topic:
@@ -10906,9 +11010,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:63
     category: B2AI:Application
-    name: Placeholder Application 63
-    description: AI application for Aesara - needs detailed description
+    name: Probabilistic Modeling and Bayesian Inference for Biomedicine
+    description: Aesara (successor to Theano) is used in biomedical AI for implementing probabilistic graphical models, Bayesian neural networks, and statistical inference algorithms that quantify uncertainty in clinical predictions. Researchers leverage Aesara's symbolic math capabilities and automatic differentiation to build sophisticated probabilistic models for tasks like uncertainty-aware disease risk prediction, Bayesian optimization of drug dosing regimens, and hierarchical models for multi-center clinical studies. The library enables AI applications that provide calibrated confidence intervals for predictions, perform approximate Bayesian inference through variational methods, and integrate domain knowledge through informative priors. Aesara is particularly valuable when prediction uncertainty quantification is critical for clinical decision-making.
     used_in_bridge2ai: false
+    references:
+    - https://aesara.readthedocs.io/
+    - https://github.com/aesara-devs/aesara
+    - https://doi.org/10.7717/peerj-cs.1516
 - id: B2AI_STANDARD:723
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -11297,9 +11405,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:65
     category: B2AI:Application
-    name: Placeholder Application 65
-    description: AI application for CORAL - needs detailed description
+    name: Ordinal Classification for Clinical Severity and Staging
+    description: CORAL (Consistent Rank Logits) framework is used in biomedical AI for ordinal classification tasks where class labels have natural ordering, such as disease severity grading, cancer staging, and pain scale prediction. Deep learning models leverage CORAL's specialized loss functions and neural network architectures to maintain ordinality constraints, improving prediction of intermediate classes and ensuring that predictions respect the clinical ordering of outcomes. The approach is particularly valuable in medical applications where misclassifying stage II as stage IV is more serious than predicting stage III, enabling models that better capture the graduated nature of clinical assessments. CORAL enables more accurate and clinically meaningful predictions for tasks like histological grading, functional status assessment, and radiological severity scoring.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/Raschka-research-group/coral-cnn
+    - https://doi.org/10.48550/arXiv.1901.07884
+    - https://arxiv.org/abs/2111.08851
 - id: B2AI_STANDARD:746
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -11466,9 +11578,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:66
     category: B2AI:Application
-    name: Placeholder Application 66
-    description: AI application for Determined - needs detailed description
+    name: Scalable ML Training Platform for Healthcare Research
+    description: Determined is used in biomedical AI for managing large-scale deep learning experiments, hyperparameter tuning, and distributed training across GPU clusters in research and healthcare organizations. AI teams leverage Determined's automated experiment tracking, resource scheduling, and hyperparameter optimization to efficiently develop medical imaging models, genomic prediction algorithms, and clinical NLP systems. The platform provides reproducible experiment management with automatic checkpointing, fault tolerance for long-running medical imaging training jobs, and collaborative features for multi-institutional research teams. Determined's integration with healthcare security requirements and support for diverse model frameworks makes it valuable for organizations scaling from research to production clinical AI.
     used_in_bridge2ai: false
+    references:
+    - https://determined.ai/
+    - https://github.com/determined-ai/determined
+    - https://docs.determined.ai/
 - id: B2AI_STANDARD:757
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -11632,9 +11748,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:68
     category: B2AI:Application
-    name: Placeholder Application 68
-    description: AI application for FastAI - needs detailed description
+    name: Rapid Medical AI Prototyping and Transfer Learning
+    description: FastAI is used in biomedical research for rapid prototyping and training of deep learning models with minimal code, particularly valuable for researchers without extensive ML engineering backgrounds. Healthcare researchers leverage FastAI's high-level APIs, best-practice defaults, and powerful transfer learning capabilities to quickly develop models for medical image classification, clinical text analysis, and tabular clinical data prediction. The library's sophisticated learning rate scheduling, progressive resizing, and mixed precision training enable efficient use of computational resources, while its extensive documentation and educational materials democratize AI development in medicine. FastAI is particularly popular for exploratory research, kaggle-style medical AI competitions, and educational settings teaching clinical AI.
     used_in_bridge2ai: false
+    references:
+    - https://www.fast.ai/
+    - https://doi.org/10.3390/info11020108
+    - https://github.com/fastai/fastai
 - id: B2AI_STANDARD:766
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -11707,9 +11827,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:70
     category: B2AI:Application
-    name: Placeholder Application 70
-    description: AI application for GrAPE - needs detailed description
+    name: Graph Embedding and Network Medicine AI
+    description: GrAPE (Graph Automatic Programming Environment) is used in biomedical AI for creating graph embeddings and training graph neural networks on biological networks, enabling applications in drug discovery, protein function prediction, and disease gene prioritization. Researchers leverage GrAPE's efficient graph processing capabilities to learn low-dimensional representations of large-scale biological networks including protein-protein interactions, gene regulatory networks, and knowledge graphs. The tool supports AI applications that predict novel drug-target interactions, identify disease modules, and perform link prediction in biomedical knowledge graphs. GrAPE's optimization for large graphs enables training on genome-scale networks and integration of multi-omics data through graph-based representations.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/AnacletoLAB/grape
+    - https://doi.org/10.1093/gigascience/giab044
+    - https://grape.readthedocs.io/
 - id: B2AI_STANDARD:769
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -11780,9 +11904,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:71
     category: B2AI:Application
-    name: Placeholder Application 71
-    description: AI application for HAIM - needs detailed description
+    name: Holistic Multi-Modal Healthcare AI Integration
+    description: HAIM (Holistic AI in Medicine) framework is used for developing and evaluating multi-modal AI systems that integrate diverse healthcare data types including imaging, time-series, tabular clinical data, and text for comprehensive patient assessment. The framework enables training of models that leverage complementary information across modalities to improve diagnostic accuracy, risk prediction, and clinical decision support beyond single-modality approaches. HAIM provides standardized methods for multi-modal data fusion, handles missing modalities gracefully, and enables systematic evaluation of how different data types contribute to model performance. Applications include integrated ICU monitoring systems, comprehensive cancer diagnosis combining radiology and pathology, and patient deterioration prediction using all available clinical data streams.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41746-022-00689-4
+    - https://github.com/lrsoenksen/HAIM
+    - https://www.nature.com/articles/s41746-022-00689-4
 - id: B2AI_STANDARD:773
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -12045,9 +12173,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:72
     category: B2AI:Application
-    name: Placeholder Application 72
-    description: AI application for MONAI - needs detailed description
+    name: Medical Imaging Deep Learning Framework and Workflows
+    description: MONAI (Medical Open Network for AI) is a specialized PyTorch-based framework extensively used for developing deep learning models on 3D medical imaging data across radiology, pathology, and microscopy. Researchers and clinical AI developers leverage MONAI's domain-specific transforms (intensity normalization, resampling, augmentation), pretrained models for medical imaging tasks, and optimized data loaders for large 3D volumes to accelerate development of segmentation, classification, and detection models. The framework provides standardized workflows for common medical imaging AI tasks, federated learning capabilities for multi-institutional collaboration, and Auto3DSeg for automated model development. MONAI's integration with clinical imaging standards and deployment tools makes it a bridge between research and clinical implementation.
     used_in_bridge2ai: false
+    references:
+    - https://monai.io/
+    - https://doi.org/10.1109/TPAMI.2021.3127533
+    - https://github.com/Project-MONAI/MONAI
 - id: B2AI_STANDARD:789
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -12147,9 +12279,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:73
     category: B2AI:Application
-    name: Placeholder Application 73
-    description: AI application for MLPro - needs detailed description
+    name: Reinforcement Learning Framework for Adaptive Healthcare Systems
+    description: MLPro is used in biomedical AI for developing reinforcement learning agents that learn optimal treatment strategies, adaptive monitoring protocols, and personalized intervention policies through interaction with healthcare environments. Researchers leverage MLPro's modular framework to implement and compare different RL algorithms for applications like dynamic treatment regimen optimization, adaptive clinical trial design, and automated ICU management. The platform supports simulation-based learning where agents train on synthetic patients before clinical deployment, multi-agent systems for coordinated care, and safe exploration strategies essential for healthcare applications. MLPro enables systematic evaluation of RL approaches for sequential decision-making problems in medicine where actions have long-term consequences.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/fhswf/MLPro
+    - https://mlpro.readthedocs.io/
+    - https://doi.org/10.5281/zenodo.5913673
 - id: B2AI_STANDARD:795
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -12371,9 +12507,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:75
     category: B2AI:Application
-    name: Placeholder Application 75
-    description: AI application for NeuCA - needs detailed description
+    name: Cell Type Annotation in Single-Cell Genomics
+    description: NeuCA (Neural network-based Cell Annotation) is used in AI applications for automated cell type identification in single-cell RNA sequencing data, leveraging deep learning to achieve accurate, scalable annotation across diverse tissues and species. The tool employs neural network architectures optimized for single-cell expression profiles to classify cells based on marker gene expression patterns, enabling rapid analysis of large-scale atlas projects and clinical samples. NeuCA's transfer learning capabilities allow models trained on reference atlases to annotate new datasets with limited manual curation, supporting applications in cancer cell identification, immune profiling, and developmental biology. The method provides confidence scores for cell type assignments and can identify novel or transitional cell states.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/OnlyBelter/NeuCA
+    - https://doi.org/10.1093/nar/gkab1131
+    - https://academic.oup.com/nar/article/50/2/e10/6426027
 - id: B2AI_STANDARD:807
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -12543,9 +12683,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:76
     category: B2AI:Application
-    name: Placeholder Application 76
-    description: AI application for PyTorch - needs detailed description
+    name: Deep Learning for Biomedical Research and Clinical AI
+    description: PyTorch is the dominant framework for biomedical AI research, used extensively for developing deep learning models across medical imaging, genomics, drug discovery, and clinical prediction. Researchers leverage PyTorch's dynamic computational graphs, extensive ecosystem (torchvision, torchaudio, TorchIO), and pretrained models to build custom neural architectures for tasks like cancer detection in pathology images, protein structure prediction, medical report generation, and patient outcome forecasting. PyTorch's flexibility enables rapid prototyping of novel architectures, its strong academic community supports reproducible research through shared model implementations, and its production deployment tools (TorchServe, TorchScript) facilitate clinical translation of research models.
     used_in_bridge2ai: false
+    references:
+    - https://pytorch.org/
+    - https://doi.org/10.1038/s42256-021-00437-5
+    - https://github.com/Project-MONAI/MONAI
 - id: B2AI_STANDARD:817
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -12615,9 +12759,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:77
     category: B2AI:Application
-    name: Placeholder Application 77
-    description: AI application for Relexi - needs detailed description
+    name: Explainable Reinforcement Learning for Clinical Decision Support
+    description: Relexi is used in biomedical AI for developing interpretable reinforcement learning systems that can explain their decision-making process, crucial for clinical applications where treatment recommendations must be understandable to physicians. The framework enables training of RL agents for sequential clinical decisions (medication dosing, ventilator management, treatment timing) while maintaining explainability through attention mechanisms and policy distillation. Relexi supports safe exploration in healthcare settings by incorporating domain constraints and enabling clinicians to understand why specific actions are recommended. Applications include explainable sepsis treatment protocols, interpretable insulin dosing algorithms, and transparent clinical trial enrollment strategies where understanding the agent's reasoning is essential for clinical trust and regulatory approval.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/kreincke/relexi
+    - https://arxiv.org/abs/2112.10908
+    - https://doi.org/10.48550/arXiv.2112.10908
 - id: B2AI_STANDARD:821
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -12820,9 +12968,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:79
     category: B2AI:Application
-    name: Placeholder Application 79
-    description: AI application for TF - needs detailed description
+    name: Production-Scale Healthcare AI Systems and Deployment
+    description: TensorFlow is widely used for deploying production-grade AI systems in healthcare, particularly for applications requiring high-throughput inference, mobile deployment, and integration with enterprise IT infrastructure. Healthcare organizations leverage TensorFlow's mature ecosystem (TF Serving, TF Lite, TF.js) to deploy models for real-time clinical decision support, mobile diagnostic apps, and edge computing in medical devices. The framework's strong support for model optimization, quantization, and hardware acceleration (TPUs, GPUs) enables efficient deployment of complex models like retinal disease screening systems, ECG interpretation algorithms, and clinical NLP pipelines. TensorFlow Extended (TFX) provides production ML pipelines for managing data validation, model training, and continuous monitoring in regulated healthcare environments.
     used_in_bridge2ai: false
+    references:
+    - https://www.tensorflow.org/
+    - https://doi.org/10.1038/s41591-018-0316-z
+    - https://www.tensorflow.org/tfx
 - id: B2AI_STANDARD:832
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -12883,9 +13035,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:80
     category: B2AI:Application
-    name: Placeholder Application 80
-    description: AI application for Theano - needs detailed description
+    name: Legacy Deep Learning Models and Reproducible Research
+    description: Theano was historically important in early biomedical deep learning research and continues to be relevant for reproducing published models and maintaining legacy clinical AI systems. Many influential early papers in medical AI used Theano, and researchers still need to run these models for comparison benchmarks, reproduce published results, and maintain systems deployed before modern frameworks emerged. The library's symbolic computation approach and automatic differentiation influenced the design of current frameworks, and understanding Theano remains valuable for historical context in AI research. While active development has ceased (succeeded by Aesara), Theano-based code remains in production in some clinical settings and research archives.
     used_in_bridge2ai: false
+    references:
+    - https://github.com/Theano/Theano
+    - https://doi.org/10.48550/arXiv.1605.02688
+    - https://theano-pymc.readthedocs.io/
 - id: B2AI_STANDARD:835
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -13025,9 +13181,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:81
     category: B2AI:Application
-    name: Placeholder Application 81
-    description: AI application for ZenML - needs detailed description
+    name: MLOps Orchestration for Biomedical AI Pipelines
+    description: ZenML is used in biomedical AI for building reproducible, production-grade machine learning pipelines with comprehensive experiment tracking, model versioning, and deployment orchestration. Healthcare AI teams leverage ZenML to standardize workflows from data ingestion through model deployment, ensuring compliance with regulatory requirements for traceability and reproducibility. The platform integrates with diverse healthcare data sources, model registries, and deployment targets while maintaining complete lineage tracking essential for clinical AI validation. ZenML enables teams to implement best practices for ML operations including automated testing, continuous training, and model monitoring in healthcare settings where reliability and auditability are critical.
     used_in_bridge2ai: false
+    references:
+    - https://zenml.io/
+    - https://github.com/zenml-io/zenml
+    - https://doi.org/10.5281/zenodo.6483834
 - id: B2AI_STANDARD:844
   category: B2AI_STANDARD:TrainingProgram
   concerns_data_topic:
@@ -13504,9 +13664,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:86
     category: B2AI:Application
-    name: Placeholder Application 86
-    description: AI application for Frictionless - needs detailed description
+    name: Data Validation and Quality Control for ML Training
+    description: Frictionless Data standards are used in biomedical AI for defining data schemas, validating input data quality, and ensuring consistency in training datasets across institutions and time periods. Machine learning pipelines leverage Frictionless specifications (Data Package, Table Schema) to automatically validate clinical and research datasets before model training, detect schema drift that could degrade model performance, and document data transformations applied during preprocessing. The framework enables reproducible data handling by making dataset structures and validation rules explicit, supports continuous data quality monitoring in production ML systems, and facilitates data sharing by providing machine-readable documentation of expected data formats and constraints.
     used_in_bridge2ai: false
+    references:
+    - https://frictionlessdata.io/
+    - https://specs.frictionlessdata.io/
+    - https://github.com/frictionlessdata
 - id: B2AI_STANDARD:869
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -13670,9 +13834,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:88
     category: B2AI:Application
-    name: Placeholder Application 88
-    description: AI application for MI-CLAIM - needs detailed description
+    name: Clinical AI Reporting Standards and Model Documentation
+    description: MI-CLAIM (Minimum Information about Clinical Artificial Intelligence Modeling) checklist is used to standardize reporting of clinical AI studies, ensuring reproducibility, transparency, and appropriate evaluation of machine learning models in healthcare. Researchers leverage MI-CLAIM guidelines to document essential details about model development, validation approaches, and clinical context that enable others to assess reliability and reproduce findings. The standard supports automated model card generation, structured documentation for regulatory submissions, and systematic reviews of clinical AI literature by providing a consistent framework for reporting. MI-CLAIM compliance facilitates responsible AI development by ensuring key information about data provenance, model limitations, and intended use cases is explicitly documented.
     used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41591-020-1041-y
+    - https://www.nature.com/articles/s41591-020-1041-y
+    - https://www.equator-network.org/reporting-guidelines/mi-claim/
 - id: B2AI_STANDARD:878
   category: B2AI_STANDARD:DataStandardOrTool
   concerns_data_topic:
@@ -13724,9 +13892,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:89
     category: B2AI:Application
-    name: Placeholder Application 89
-    description: AI application for Unity Catalog - needs detailed description
+    name: Unified Data and AI Asset Governance
+    description: Unity Catalog is used in biomedical AI for centralized governance of data assets, ML models, and AI artifacts across multi-cloud and hybrid healthcare IT environments. Healthcare organizations leverage Unity Catalog to implement fine-grained access controls for sensitive patient data used in model training, track lineage from raw clinical data through processed features to trained models, and ensure HIPAA compliance across distributed AI development teams. The catalog provides a single source of truth for data discovery, enables secure data sharing across research and clinical domains, and maintains comprehensive audit logs for regulatory compliance. Unity Catalog's integration with major ML platforms facilitates governed AI development where data scientists can access approved datasets while maintaining security and privacy requirements.
     used_in_bridge2ai: false
+    references:
+    - https://www.unitycatalog.io/
+    - https://github.com/unitycatalog/unitycatalog
+    - https://doi.org/10.1145/3555041.3589679
 - id: B2AI_STANDARD:881
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -13779,9 +13951,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:90
     category: B2AI:Application
-    name: Placeholder Application 90
-    description: AI application for pydicom - needs detailed description
+    name: Medical Imaging Data Processing for Deep Learning
+    description: pydicom is the essential Python library for AI researchers working with medical imaging data, enabling reading, writing, and manipulation of DICOM files in machine learning pipelines. Virtually all medical imaging AI research using Python leverages pydicom to extract pixel data and metadata from DICOM images, convert images to NumPy arrays for neural network input, and create DICOM-compliant outputs for clinical integration. The library handles diverse DICOM transfer syntaxes and encodings, enables efficient batch processing of large imaging datasets, and provides the foundation for medical imaging data loaders in PyTorch and TensorFlow. pydicom's ability to preserve clinical metadata during AI processing ensures that model outputs maintain appropriate associations with patient context and imaging parameters.
     used_in_bridge2ai: false
+    references:
+    - https://pydicom.github.io/
+    - https://doi.org/10.5334/jors.330
+    - https://github.com/pydicom/pydicom
 - id: B2AI_STANDARD:884
   category: B2AI_STANDARD:DataStandard
   collection:
