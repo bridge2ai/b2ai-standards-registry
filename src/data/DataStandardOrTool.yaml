@@ -1868,23 +1868,18 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:12
     category: B2AI:Application
-    name: NMR Spectroscopy Analysis and Structure Prediction
-    description: CCPN (Collaborative Computing Project for NMR) data model is used
-      in AI applications for analyzing nuclear magnetic resonance spectroscopy data,
-      enabling machine learning approaches to protein structure determination, peak
-      picking automation, and chemical shift prediction. Deep learning models leverage
-      CCPN's standardized representation of NMR spectra, peak lists, and molecular
-      structures to automate resonance assignment, predict protein structures from
-      NMR constraints, and quality-check experimental data. AI applications use the
-      data model to train on curated NMR datasets for tasks like automated NOE assignment,
-      chemical shift-based structure validation, and identification of spectral artifacts.
-      The standard enables reproducible NMR analysis workflows and facilitates integration
-      of AI tools into structural biology pipelines.
+    name: CcpNmr-Integrated Deep Learning for HNCA Backbone Assignment
+    description: Deep neural networks integrated with the CcpNmr AnalysisAssign software
+      analyze HNCA spectrum line shapes to yield amino acid type probabilities for
+      automated protein backbone assignment. The networks are trained on synthetic
+      databases with realistic instrumental artifacts and noise, taking 2D slices
+      of pyruvate-patterned HNCA spectra as input and outputting probability tables
+      that combine with primary sequence information for rapid assignment. This ML
+      integration within the CCPN software framework accelerates NMR analysis workflows,
+      though networks require retraining when experimental parameters change.
     used_in_bridge2ai: false
     references:
-    - https://ccpn.ac.uk/
-    - https://doi.org/10.1007/s10858-015-9932-6
-    - https://sites.google.com/site/ccpnwiki/
+    - https://doi.org/10.1126/sciadv.ado0403
 - id: B2AI_STANDARD:63
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1923,20 +1918,60 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:13
     category: B2AI:Application
-    name: Automated NIH Common Fund Dataset Discovery
-    description: C2M2 metadata enables machine learning systems to automatically discover
-      and recommend relevant datasets across NIH Common Fund programs based on research
-      questions, data types needed, and experimental design requirements. Natural
-      language processing models parse C2M2 metadata descriptions to match datasets
-      to user queries, while graph-based recommendation systems leverage relationships
-      between files, biosamples, and subjects to suggest complementary data sources.
-      The standardized metadata structure allows automated assessment of dataset completeness,
-      quality metrics, and cross-program integration feasibility for multi-modal biomedical
-      AI research.
+    name: CFDE Workbench ML-Ready Data Harmonization and Knowledge Graph Integration
+    description: The CFDE Workbench uses C2M2 to harmonize metadata and host processed
+      data in standardized, AI-ready formats that can be loaded as data frames and
+      integrated into ML workflows. C2M2-derived metadata feeds PostgreSQL databases
+      supporting complex queries for ML dataset preparation, while planned conversion
+      to Neo4j knowledge graphs will align database structure with the metadata model
+      to enhance search performance and facilitate ML applications. This harmonization
+      across Common Fund programs reduces barriers to assembling training corpora
+      and interoperable inputs for cross-program AI/ML analyses.
     used_in_bridge2ai: false
     references:
-    - https://doi.org/10.1101/2021.08.09.455720
-    - https://doi.org/10.1093/gigascience/giad022
+    - https://doi.org/10.1101/2025.02.04.636535
+  - id: B2AI_APP:116
+    category: B2AI:Application
+    name: LLM-Powered Chatbot with C2M2-Grounded Workflow Automation
+    description: The CFDE Workbench integrates an LLM chatbot using OpenAI assistants
+      API that answers Common Fund program and data questions while executing API
+      calls based on standardized workflow specifications. The chatbot leverages C2M2-harmonized
+      resources and codified ETL workflows through the Playbook Workflow Builder to
+      automate discovery and retrieval, using function calling to ensure comprehensive
+      and reproducible results. This direct AI application is enabled by C2M2-backed
+      infrastructure that provides the structured metadata and APIs necessary for
+      the LLM to interact with heterogeneous datasets.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2025.02.04.636535
+  - id: B2AI_APP:117
+    category: B2AI:Application
+    name: FAIRshake Assessment of C2M2-Derived Assets for AI-Readiness
+    description: The CFDE Workbench subjects metadata, processed data, and code assets
+      derived from C2M2 submissions to automated FAIR assessments via FAIRshake. These
+      assessments evaluate findability, accessibility, interoperability, and reusability
+      of C2M2-derived assets that support AI/ML tools including the Playbook Workflow
+      Builder, GeneSetCart, DD-KG-UI, and CFDE-GSE. By operationalizing AI-readiness
+      through systematic FAIRness evaluation, this application ensures that C2M2-structured
+      datasets meet the accessibility and interoperability requirements necessary
+      for downstream ML consumption.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2025.02.04.636535
+  - id: B2AI_APP:118
+    category: B2AI:Application
+    name: Ecosystem-Level Metadata Harmonization for Cross-Program ML Dataset Discovery
+    description: The CFDE catalog uses C2M2 to ingest diverse Data Coordinating Center
+      metadata into a unified model supporting centralized indexing and search across
+      NIH Common Fund programs. This harmonization with controlled vocabularies and
+      ontologies minimizes barriers to cross-program dataset discovery and reuse,
+      which is prerequisite for assembling training corpora and interoperable inputs
+      for AI/ML analyses. C2M2's evolving model adapts to community standards and
+      emerging AI/ML technologies, enabling effective search and retrieval mechanisms
+      essential for training AI models on biomedical data while promoting FAIR principles.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2021.11.05.467504
 - id: B2AI_STANDARD:64
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2312,24 +2347,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:14
-    category: B2AI:Application
-    name: Medical Image Dataset Organization for ML Training
-    description: DICOMDIR is used in AI applications to organize and index large collections
-      of medical images for efficient access during deep learning model training and
-      inference. AI systems leverage DICOMDIR's hierarchical file structure to quickly
-      navigate patient-study-series relationships when loading training batches, enabling
-      efficient data loaders for large-scale imaging datasets stored on local storage
-      or network file systems. The directory structure supports AI applications that
-      need to process entire imaging studies cohesively, maintain patient-level cross-validation
-      splits, and track image provenance during model development. DICOMDIR facilitates
-      reproducible dataset curation by providing a standardized manifest of imaging
-      data used in ML research.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-019-00215-9
-    - https://doi.org/10.3390/jimaging4080105
 - id: B2AI_STANDARD:80
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2359,24 +2376,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:15
-    category: B2AI:Application
-    name: Medical Image Network Transfer for Distributed AI
-    description: DICOM Part 11 (Media Storage Application Profiles) is used in AI
-      applications for standardized transfer and storage of medical images across
-      network boundaries, enabling federated learning and distributed AI training
-      on imaging data. AI systems leverage Part 11 profiles to ensure consistent image
-      formatting when moving data between PACS systems, cloud storage, and GPU training
-      infrastructure while maintaining metadata integrity. The specification supports
-      AI applications requiring secure, reliable transport of large imaging datasets
-      for multi-site collaborative research, edge computing deployments in radiology
-      departments, and hybrid cloud-edge AI architectures where images are preprocessed
-      locally before cloud-based training.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-020-00400-7
-    - https://doi.org/10.1038/s41746-020-0250-y
 - id: B2AI_STANDARD:81
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2407,24 +2406,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:16
-    category: B2AI:Application
-    name: Standardized Media Formats for AI Dataset Distribution
-    description: DICOM Part 12 (Media Formats and Physical Media) is used in AI applications
-      for creating standardized, portable datasets of medical images that can be shared
-      across institutions for model training and validation. The specification enables
-      AI researchers to package imaging datasets on removable media or as standardized
-      file system structures that preserve DICOM metadata and directory organization.
-      This is particularly valuable for distributing curated training datasets, challenge
-      competition data, and reference datasets that need to be accessible offline
-      or in bandwidth-limited research environments. Part 12 compliance ensures that
-      AI datasets remain interpretable across different platforms and can be loaded
-      consistently by diverse training frameworks.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1148/radiol.2019191442
-    - https://doi.org/10.1148/radiol.2017162265
 - id: B2AI_STANDARD:82
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2457,25 +2438,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:17
-    category: B2AI:Application
-    name: Grayscale Image Processing for Deep Learning
-    description: DICOM Part 14 (Grayscale Standard Display Function) is used in AI
-      applications to ensure consistent image presentation and preprocessing for deep
-      learning models trained on grayscale medical images. The GSDF specification
-      enables AI systems to perform perceptually uniform grayscale transformations
-      that match human visual perception, which is important when transferring models
-      between different display systems or when preprocessing images for neural networks.
-      AI applications leverage GSDF for standardizing image intensity windowing, normalizing
-      pixel values across different scanner types, and ensuring that models trained
-      on data from one institution can be reliably applied at others. The standard
-      is particularly relevant for quantitative imaging AI where pixel intensity has
-      clinical significance.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-018-0122-5
-    - https://doi.org/10.1007/s10278-020-00348-8
 - id: B2AI_STANDARD:83
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2506,24 +2468,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:18
-    category: B2AI:Application
-    name: Secure Medical Image AI with Privacy Protection
-    description: DICOM Part 15 (Security and System Management) is used in AI applications
-      to implement secure workflows for handling protected health information in medical
-      imaging AI systems, including encryption, access control, and audit logging.
-      AI systems leverage Part 15 specifications to ensure HIPAA-compliant processing
-      of imaging data during model training and deployment, implement secure communication
-      channels for federated learning, and maintain comprehensive audit trails of
-      data access for regulatory compliance. The security profiles support AI applications
-      requiring de-identification of training data, secure enclaves for sensitive
-      data processing, and role-based access control for AI model outputs in clinical
-      settings.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1148/radiol.2020201030
-    - https://doi.org/10.3390/jimaging4080105
 - id: B2AI_STANDARD:84
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2562,25 +2506,6 @@ data_standardortools_collection:
   - B2AI_ORG:25
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:19
-    category: B2AI:Application
-    name: Structured Radiology Reports and NLP Training Data
-    description: DCMR (DICOM Content Mapping Resource - formerly Part 16) provides
-      structured templates and coded terminology used in AI applications for natural
-      language processing of radiology reports and generating standardized AI outputs.
-      Machine learning models leverage DCMR templates to train on structured report
-      content, extract findings with appropriate anatomical and pathological codes,
-      and generate AI-derived reports that conform to established clinical standards.
-      AI systems use DCMR's structured reporting templates for training models that
-      convert free-text reports to structured data, validate completeness of AI-generated
-      findings, and ensure that model outputs integrate seamlessly into PACS workflows.
-      The coded content supports semantic search and knowledge extraction from large
-      radiology report repositories.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-020-00329-x
-    - https://doi.org/10.1038/s41746-020-0250-y
 - id: B2AI_STANDARD:85
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2608,25 +2533,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:20
-    category: B2AI:Application
-    name: DICOM Implementation Guidance for AI Integration
-    description: DICOM Part 17 (Explanatory Information) is used in AI applications
-      as a reference for understanding DICOM implementation nuances that affect medical
-      imaging AI development, including guidance on image encoding, metadata interpretation,
-      and conformance requirements. AI researchers leverage Part 17's explanatory
-      content to correctly implement DICOM readers for training pipelines, understand
-      modality-specific requirements that impact preprocessing, and ensure their AI
-      systems handle diverse DICOM implementations encountered in real-world data.
-      The explanatory annexes help AI developers navigate common pitfalls in DICOM
-      interpretation, understand the rationale behind design decisions that affect
-      model development, and implement robust DICOM handling that generalizes across
-      vendor implementations.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-021-00512-4
-    - https://doi.org/10.1148/radiol.2017162265
 - id: B2AI_STANDARD:86
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2657,24 +2563,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:21
-    category: B2AI:Application
-    name: RESTful Medical Imaging AI Services and Cloud Deployment
-    description: DICOMweb is extensively used in AI applications for deploying medical
-      imaging AI models as web services that integrate with modern PACS and vendor-neutral
-      archives through RESTful APIs. AI systems leverage DICOMweb protocols (WADO,
-      STOW, QIDO) to retrieve images for inference, return AI-generated annotations
-      and measurements, and query imaging metadata without requiring traditional DICOM
-      network protocols. The web-based standard enables cloud-native AI architectures,
-      microservices-based inference engines, and browser-based AI applications that
-      can access imaging data from anywhere. DICOMweb facilitates real-time AI integration
-      into radiologist workflows, mobile AI applications for point-of-care imaging
-      interpretation, and scalable cloud deployments of imaging AI services.
-    used_in_bridge2ai: false
-    references:
-    - https://www.dicomstandard.org/using/dicomweb
-    - https://doi.org/10.1007/s10278-018-0082-9
 - id: B2AI_STANDARD:87
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2709,24 +2597,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:22
-    category: B2AI:Application
-    name: AI Model Hosting and Application Integration Standards
-    description: DICOM Part 19 (Application Hosting) is used in AI applications to
-      standardize the deployment and integration of medical imaging AI models within
-      clinical PACS environments through a common hosting framework. The specification
-      enables AI algorithms to be packaged as DICOM-compliant applications that can
-      be launched from within PACS workstations, receive imaging data through standardized
-      interfaces, and return results in formats that integrate seamlessly with radiologist
-      workflows. This standardization is critical for commercial AI products that
-      need to work across different vendor platforms, enabling plug-and-play AI deployment
-      where hospitals can select and integrate multiple AI algorithms without custom
-      integration for each vendor system.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-020-00384-4
-    - https://doi.org/10.1007/s10278-020-00348-8
 - id: B2AI_STANDARD:88
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2757,24 +2627,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:23
-    category: B2AI:Application
-    name: DICOM Conformance for AI Product Development
-    description: DICOM Part 2 (Conformance) is used in AI applications to specify
-      and validate how medical imaging AI products interact with DICOM networks and
-      systems, ensuring interoperability and regulatory compliance. AI developers
-      leverage Part 2 conformance statements to document which DICOM services their
-      algorithms support, what image types they can process, and how they return results,
-      which is essential for FDA submissions and clinical deployment. The conformance
-      framework helps AI vendors clearly specify their product capabilities, enables
-      healthcare IT departments to assess compatibility before procurement, and provides
-      a standardized format for communicating AI system requirements and limitations
-      to clinical users.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-019-00262-2
-    - https://doi.org/10.3390/jimaging4080105
 - id: B2AI_STANDARD:89
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2806,25 +2658,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:24
-    category: B2AI:Application
-    name: Legacy System Integration for Imaging AI
-    description: DICOM Part 20 (Imaging Reports using HL7 Clinical Document Architecture)
-      is used in AI applications to generate structured imaging reports that can be
-      integrated into electronic health record systems, enabling AI findings to be
-      documented in standards-compliant clinical documents. AI systems leverage this
-      specification to produce CDA-formatted reports containing AI-detected findings,
-      measurements, and recommendations that can be incorporated into patient records
-      alongside traditional radiologist reports. The standard supports AI applications
-      that need to communicate results to referring physicians through EHR inboxes,
-      contribute to longitudinal patient records, and ensure that AI-generated content
-      is available for clinical decision support across the healthcare enterprise,
-      not just within radiology systems.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1093/jamia/ocaa267
-    - https://doi.org/10.1038/s41746-020-0250-y
 - id: B2AI_STANDARD:90
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -2851,24 +2684,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:25
-    category: B2AI:Application
-    name: Protocol-Driven Imaging AI and Acquisition Optimization
-    description: DICOM Part 21 (Transformations between DICOM and other Data Models)
-      is used in AI applications to convert medical imaging data between DICOM and
-      other formats commonly used in machine learning frameworks, enabling seamless
-      integration of DICOM data into AI research pipelines. AI developers leverage
-      this specification to understand standardized approaches for converting DICOM
-      to formats like NIfTI for neuroimaging research, NumPy arrays for deep learning,
-      or FHIR ImagingStudy resources for integrated clinical-imaging analytics. The
-      transformation guidance supports reproducible preprocessing pipelines, ensures
-      metadata preservation during format conversion, and helps AI researchers maintain
-      clinical context when working with imaging data in non-DICOM environments.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-021-00488-1
-    - https://doi.org/10.1148/radiol.2017162265
 - id: B2AI_STANDARD:91
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2898,24 +2713,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:26
-    category: B2AI:Application
-    name: Real-Time Imaging AI with Protocol Transformation
-    description: DICOM Part 22 (Real-Time Communication) is used in AI applications
-      requiring real-time processing of medical imaging streams, such as AI-guided
-      interventional procedures, live surgical video analysis, and real-time quality
-      control during image acquisition. AI systems leverage real-time DICOM communication
-      to receive imaging data during ongoing procedures, perform immediate analysis
-      (e.g., catheter tip detection, surgical instrument tracking), and return guidance
-      or alerts with minimal latency. This specification supports AI applications
-      in interventional radiology, intraoperative imaging, fluoroscopy guidance, and
-      ultrasound where immediate feedback is clinically necessary and batch processing
-      is not feasible.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s11548-021-02401-6
-    - https://doi.org/10.1007/s10278-020-00348-8
 - id: B2AI_STANDARD:92
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2947,25 +2744,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:27
-    category: B2AI:Application
-    name: Medical Image Information Model for AI Feature Extraction
-    description: DICOM Part 3 (Information Object Definitions) is fundamental to AI
-      applications as it defines the structure and content of medical images, enabling
-      AI systems to correctly interpret image metadata, patient demographics, acquisition
-      parameters, and anatomical context. Deep learning models leverage Part 3's IODs
-      to extract relevant DICOM tags that inform preprocessing (window/level, pixel
-      spacing, slice thickness), understand image orientation for 3D reconstruction,
-      and access clinical context (patient age, study indication) that enhances prediction
-      accuracy. AI systems use these information objects to ensure they process appropriate
-      image types, respect patient privacy through proper attribute handling, and
-      generate AI outputs that conform to established DICOM objects like Segmentation,
-      Structured Report, or Parametric Map.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-020-00321-5
-    - https://doi.org/10.3390/jimaging4080105
 - id: B2AI_STANDARD:93
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2994,24 +2772,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:28
-    category: B2AI:Application
-    name: DICOM Service Integration for AI Workflows
-    description: DICOM Part 4 (Service Class Specifications) is used in AI applications
-      to define how imaging AI systems interact with PACS networks through standardized
-      services for image retrieval, query, storage, and modality worklist management.
-      AI systems leverage Part 4 service classes to automatically fetch relevant priors
-      for comparison studies, query for cases matching specific criteria to build
-      training sets, and store AI-generated DICOM objects back to PACS. The specification
-      enables AI applications to function as DICOM nodes on hospital networks, participate
-      in automated routing workflows, and trigger AI analysis based on PACS events.
-      Service class understanding is essential for deploying AI that integrates seamlessly
-      into clinical imaging workflows.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-019-00280-0
-    - https://doi.org/10.1038/s41746-020-0250-y
 - id: B2AI_STANDARD:94
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3043,24 +2803,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:29
-    category: B2AI:Application
-    name: Medical Image Encoding and Transfer Syntax for AI Data Loading
-    description: DICOM Part 5 (Data Structures and Encoding) is critical for AI applications
-      as it defines how pixel data and metadata are encoded in DICOM files, affecting
-      data loading performance and preprocessing requirements for deep learning. AI
-      developers leverage understanding of transfer syntaxes (uncompressed, JPEG,
-      JPEG2000) to optimize data pipelines, choose appropriate decompression strategies,
-      and handle byte ordering for efficient batch loading during training. The specification
-      helps AI systems correctly parse DICOM files with different encodings, implement
-      efficient data loaders that minimize I/O bottlenecks, and ensure pixel data
-      integrity when converting between formats. Proper handling of Part 5 encoding
-      rules is essential for reproducible AI research.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-020-00365-7
-    - https://doi.org/10.1148/radiol.2017162265
 - id: B2AI_STANDARD:95
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3092,24 +2834,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:30
-    category: B2AI:Application
-    name: Standardized Terminology for AI Annotation and Reporting
-    description: DICOM Part 6 (Data Dictionary) is used in AI applications to ensure
-      consistent use of coded terminology when AI systems generate annotations, measurements,
-      and findings. Machine learning models leverage Part 6's controlled vocabularies
-      to produce standardized output labels that can be understood across different
-      clinical systems, such as anatomical locations (using SNOMED CT codes), lesion
-      characteristics, and measurement types. AI applications use the data dictionary
-      to validate their outputs conform to DICOM requirements, map internal class
-      labels to standard medical terminology, and generate DICOM Structured Reports
-      with properly coded content that supports semantic interoperability, clinical
-      decision support, and regulatory compliance.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-021-00435-0
-    - https://doi.org/10.1007/s10278-020-00348-8
 - id: B2AI_STANDARD:96
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3139,24 +2863,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:31
-    category: B2AI:Application
-    name: Network Protocol for AI-PACS Communication
-    description: DIMSE (DICOM Message Service Element from Part 7) is used in AI applications
-      to implement network communication between AI servers and PACS systems, enabling
-      automated image retrieval for batch processing, storage of AI results, and query-based
-      case selection. AI systems implement DIMSE services (C-FIND, C-MOVE, C-STORE,
-      C-GET) to function as DICOM network nodes that can discover available studies,
-      retrieve images for analysis, and return AI-generated DICOM objects to archives.
-      The protocol supports automated AI workflows where imaging studies matching
-      specific criteria trigger analysis, results are stored back to PACS with appropriate
-      associations, and AI systems can be monitored through DIMSE echo and status
-      services.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-019-00276-w
-    - https://doi.org/10.3390/jimaging4080105
 - id: B2AI_STANDARD:97
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3188,24 +2894,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:32
-    category: B2AI:Application
-    name: Network Communication Infrastructure for Imaging AI
-    description: DICOM Part 8 (Network Communication Support) is used in AI applications
-      to establish reliable network connections between AI inference servers and hospital
-      imaging infrastructure, ensuring secure, standards-compliant data exchange.
-      AI developers leverage Part 8 specifications to implement TCP/IP-based DICOM
-      communication that handles connection management, error recovery, and negotiation
-      of transfer syntaxes and service capabilities. The standard enables AI systems
-      to operate as DICOM Application Entities on hospital networks, participate in
-      PACS routing rules, and maintain persistent connections for high-throughput
-      processing. Understanding Part 8 is essential for deploying enterprise AI solutions
-      that must coexist with existing radiology IT infrastructure.
-    used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1007/s10278-020-00327-z
-    - https://doi.org/10.1038/s41746-020-0250-y
 - id: B2AI_STANDARD:98
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
