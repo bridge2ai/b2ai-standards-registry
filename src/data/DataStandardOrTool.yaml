@@ -824,7 +824,6 @@ data_standardortools_collection:
     used_in_bridge2ai: false
     references:
     - https://doi.org/10.1111/cts.13302
-    - https://doi.org/10.1093/clinchem/hvab120
 - id: B2AI_STANDARD:27
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -995,22 +994,31 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:7
     category: B2AI:Application
-    name: Biological Data Integration and Schema Learning
-    description: BioXSD provides XML schemas for biological data that enable AI applications
-      to automatically validate, integrate, and transform diverse biological datasets
-      from different sources and formats. Machine learning systems leverage BioXSD
-      schemas to understand the structure of biological data feeds, perform automated
-      data quality checking before model training, and generate synthetic training
-      data that conforms to biological data constraints. The schemas support AI-driven
-      data integration where models learn to map between different biological database
-      formats, extract structured information from semi-structured biological data,
-      and ensure that AI-generated biological data adheres to community standards.
-      BioXSD enables schema-aware natural language processing for biological literature
-      mining.
+    name: FreeContact Protein Contact Prediction ML Output Format
+    description: FreeContact implements statistical learning-based approaches for protein
+      residue-residue contact prediction using mean-field Direct Coupling Analysis
+      and PSICOV sparse inverse covariance methods. The tool explicitly supports BioXSD
+      as an output format to facilitate integration into bioinformatics workflows
+      and web services, with planned BioXSD input support. This demonstrates BioXSD
+      serving as the standardized exchange format for machine learning tool outputs,
+      enabling incorporation of ML-based contact predictions into interoperable analysis
+      pipelines.
     used_in_bridge2ai: false
     references:
-    - https://doi.org/10.1186/1471-2105-9-S6-S1
-    - http://xml.coverpages.org/bioxsd.html
+    - https://doi.org/10.1186/1471-2105-15-85
+  - id: B2AI_APP:107
+    category: B2AI:Application
+    name: OntoDT Datatype Ontology for ML Dataset Repositories
+    description: The OntoDT generic ontology of datatypes uses BioXSD to improve representation
+      of basic bioinformatics datatypes in exchange formats, enabling construction
+      of taxonomies for datasets, data mining tasks, generalizations, and algorithms.
+      OntoDT can be used for annotation and querying of machine learning dataset repositories
+      and for constructing data mining workflows. This links BioXSD datatype representations
+      to ML and data mining ontologies, supporting standardized workflow assembly
+      through consistent bioinformatics datatype semantics.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1016/j.ins.2015.08.006
 - id: B2AI_STANDARD:33
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1037,23 +1045,54 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:8
     category: B2AI:Application
-    name: Neuroimaging AI and Brain Mapping Research
-    description: BIDS (Brain Imaging Data Structure) is the standard format for AI
-      applications in neuroimaging, enabling automated preprocessing pipelines, deep
-      learning on brain MRI/fMRI data, and reproducible neuroscience research. Machine
-      learning systems leverage BIDS's standardized directory structure and metadata
-      to automatically load multi-modal neuroimaging datasets, apply consistent preprocessing
-      (BIDS Apps), and train models for tasks like brain age prediction, disease classification,
-      and neuroanatomical segmentation. The standard facilitates large-scale studies
-      by enabling data aggregation across sites, supports federated learning for privacy-preserving
-      brain research, and provides the foundation for automated analysis platforms
-      that apply AI algorithms to clinical and research neuroimaging data. BIDS derivatives
-      extend the standard to AI model outputs and processed features.
+    name: BIDS Apps for ML-Ready Preprocessing and Feature Extraction
+    description: Containerized BIDS Apps such as fMRIPrep, MRIQC, and MRtrix3 Connectome
+      accept BIDS datasets and emit standardized derivatives including preprocessed
+      time series, image quality metrics, and connectivity matrices that function
+      directly as inputs or labels for ML workflows. The BIDS Apps ecosystem uses
+      containerization to provide reproducible preprocessing pipelines across systems
+      including HPC environments via Singularity, enabling consistent feature extraction
+      for training machine learning models on neuroimaging data.
     used_in_bridge2ai: false
     references:
-    - https://doi.org/10.1038/sdata.2016.44
-    - https://bids-specification.readthedocs.io/
-    - https://doi.org/10.7554/eLife.52258
+    - https://doi.org/10.1371/journal.pcbi.1005209
+  - id: B2AI_APP:108
+    category: B2AI:Application
+    name: PyBIDS and MNE-BIDS Programmatic Dataset Assembly
+    description: PyBIDS provides programmatic access to query BIDS datasets and their
+      metadata and to organize derivatives in BIDS-Derivatives format, facilitating
+      reproducible train-validation splits and feature assembly for ML pipelines.
+      MNE-BIDS provides an integration layer for MNE-Python enabling standardized
+      ingestion of EEG, MEG, and iEEG BIDS data into analysis pipelines that feed
+      ML methods. These tools enable automated dataset selection, metadata-driven
+      curation, and scalable learning across neuroimaging studies.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1162/imag_a_00103
+  - id: B2AI_APP:109
+    category: B2AI:Application
+    name: BIDS Derivatives and Connectivity Specifications for ML Features
+    description: The BIDS Connectivity extension and Derivatives specifications define
+      interoperable formats for structural and functional connectivity matrices, seed-based
+      maps, tractograms, and tractometry across modalities including sMRI, fMRI, DWI,
+      PET, EEG, iEEG, and MEG. These standardized derivative schemas enable common
+      ML features to be shared and allow benchmarking of ML models on consistent feature
+      representations, supporting reproducible radiomics and connectomics analyses.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1162/imag_a_00103
+  - id: B2AI_APP:110
+    category: B2AI:Application
+    name: XGBoost-Based DICOM to BIDS Automated Conversion
+    description: An XGBoost classifier trained on DICOM metadata achieves 99.5% accuracy
+      in classifying MRI acquisition types and automatically transforms unstructured
+      clinical imaging into BIDS datasets with little to no user intervention. This
+      ML-enabled conversion tool reduces manual curation burden, accelerates creation
+      of standardized training corpora, and enables clinical imaging data to be rapidly
+      prepared for downstream machine learning analyses in BIDS format.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1007/s12021-024-09659-5
 - id: B2AI_STANDARD:34
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1385,9 +1424,7 @@ data_standardortools_collection:
       companies for drug safety surveillance.
     used_in_bridge2ai: false
     references:
-    - https://www.cdisc.org/standards/foundational/lab
     - https://doi.org/10.1177/2168479018808271
-    - https://www.cdisc.org/
 - id: B2AI_STANDARD:48
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1429,7 +1466,6 @@ data_standardortools_collection:
     used_in_bridge2ai: false
     references:
     - https://doi.org/10.1016/j.cct.2019.105820
-    - https://www.cdisc.org/odm
 - id: B2AI_STANDARD:49
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -1650,7 +1686,6 @@ data_standardortools_collection:
     used_in_bridge2ai: false
     references:
     - https://doi.org/10.1038/gim.2015.30
-    - https://dataexchange.clinicalgenome.org/
     - https://doi.org/10.1038/s41436-020-0844-y
 - id: B2AI_STANDARD:57
   category: B2AI_STANDARD:BiomedicalStandard
