@@ -241,23 +241,34 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:2
     category: B2AI:Application
-    name: Semantic Image Annotation and Radiomics Feature Extraction
-    description: AIM (Annotation and Image Markup) is used in AI applications for
-      creating semantically rich annotations on medical images that can train supervised
-      learning models and validate AI predictions using standardized vocabulary. Deep
-      learning systems leverage AIM's structured representation of regions of interest,
-      measurements, and semantic descriptions to create training labels for object
-      detection and segmentation models with explicit clinical meaning. The standard
-      enables AI applications that generate AIM-compliant annotations from model predictions,
-      facilitating integration of AI results into radiology workflows with full semantic
-      interoperability. AIM supports radiomics research where standardized feature
-      extraction and annotation ensure reproducibility across institutions, and enables
-      AI systems to learn from expert annotations that include diagnostic reasoning
-      and uncertainty.
+    name: PACS-to-AIM Conversion for ML-Ready Label Generation
+    description: A deployed workflow converts proprietary vendor DICOM presentation
+      state annotations from commercial PACS systems into AIM XML using the AIM API,
+      enabling standardization of legacy radiologist annotations for machine learning.
+      A Python module matches lesions across longitudinal studies via 3D coordinates,
+      producing AIM files that are imported into ePAD where lesions are linked over
+      time and quantitative metrics are computed. This AIM conversion pipeline unlocks
+      historical radiologist annotations from PACS for supervised training, radiomics
+      pipelines, and generation of high-quality labeled datasets for deep learning,
+      while ensuring interoperability and enabling large-scale analysis across institutions.
     used_in_bridge2ai: false
     references:
-    - https://doi.org/10.1007/s10278-013-9622-7
-    - https://doi.org/10.1093/jamia/ocw168
+    - https://doi.org/10.1007/s10278-019-00191-6
+  - id: B2AI_APP:104
+    category: B2AI:Application
+    name: ePAD AIM-Based Radiomics and ML Data Platform
+    description: ePAD stores annotations and quantitative imaging features in AIM
+      XML and exposes RESTful web services allowing plugins and external tools to
+      retrieve AIM annotations and associated images for downstream analysis. Plugins
+      compute biomarkers and save results back into AIM format, while integrations
+      with external pipelines such as QIFP and pyRadiomics enable feature extraction
+      with outputs persisted in AIM. This AIM-centric architecture facilitates standardized
+      training data management, radiomic feature extraction, and programmatic access
+      for machine learning workflows, cohort analyses, and interoperable analytics
+      environments for quantitative imaging research.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.18383/j.tom.2018.00055
 - id: B2AI_STANDARD:9
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -18181,7 +18192,6 @@ data_standardortools_collection:
       biomedical data.
     used_in_bridge2ai: false
     references:
-    - https://arks.org/
     - https://doi.org/10.1162/dint_a_00025
 - id: B2AI_STANDARD:903
   category: B2AI_STANDARD:BiomedicalStandard
