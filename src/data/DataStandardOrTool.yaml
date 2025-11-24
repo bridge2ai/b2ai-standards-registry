@@ -1410,21 +1410,44 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:9
     category: B2AI:Application
-    name: Clinical Trial Laboratory Data Analysis and Safety Monitoring
-    description: CDISC LAB standard is used in AI applications for analyzing laboratory
-      test results from clinical trials, enabling automated safety signal detection,
-      biomarker discovery, and patient stratification models. Machine learning systems
-      leverage CDISC LAB's standardized representation of lab results, reference ranges,
-      and units to train models that identify adverse events, predict treatment response
-      based on lab trajectories, and detect data quality issues in trial submissions.
-      AI applications use the standard to integrate lab data across multiple trials
-      for meta-analyses, develop predictive models for dose optimization based on
-      pharmacokinetic markers, and automate regulatory submissions by ensuring lab
-      data conformance. The standardization enables federated learning across pharmaceutical
-      companies for drug safety surveillance.
+    name: HL7 FHIR to CDISC Laboratory Mapping for ML-Ready EHR Data
+    description: The HL7 FHIR to CDISC Joint Mapping Implementation Guide includes
+      mappings for the Laboratory domain that translate FHIR lab resources into CDISC
+      variables, linked with CDISC LB-to-LOINC mapping guidance to leverage real-world
+      data for clinical trials. This harmonization enables EHR laboratory observations
+      to be transformed into standardized, ML-ready lab features with consistent semantic
+      coding via LOINC, supporting downstream machine learning analyses, pooled studies,
+      and data mining across clinical trial and real-world datasets.
     used_in_bridge2ai: false
     references:
-    - https://doi.org/10.1177/2168479018808271
+    - https://doi.org/10.47912/jscdm.162
+  - id: B2AI_APP:111
+    category: B2AI:Application
+    name: Metadata-Driven ETL for Scalable Lab Dataset Construction
+    description: CDISC Laboratory Model implementations use metadata-driven ETL approaches
+      to produce standards-compliant lab datasets from source systems, reducing manual
+      data preparation through automated transformation logic that operates at the
+      metadata level rather than requiring code changes. This metadata-driven approach
+      is foundational for building scalable, ML-ready dataset construction pipelines
+      that can consistently process laboratory data across multiple studies and sites,
+      enabling reproducible preprocessing for machine learning workflows.
+    used_in_bridge2ai: false
+    references:
+    - https://www.lexjansen.com/pharmasug/2002/proceed/DM/dm01.pdf
+  - id: B2AI_APP:112
+    category: B2AI:Application
+    name: Integrated SDTM Laboratory Data for Pooled ML Analytics
+    description: Integration of clinical trial and real-world data using CDISC standards
+      including the Laboratory domain produces harmonized SDTM and ADaM datasets that
+      enable pooled analyses and data mining across multiple studies and sponsors.
+      Standardized laboratory variables with CDISC Controlled Terminology facilitate
+      dataset aggregation, warehousing, and reuse, supporting pooled machine learning
+      analyses and real-world evidence research by providing consistent lab feature
+      representations that serve as inputs for predictive modeling and downstream
+      analytics.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.47912/jscdm.128
 - id: B2AI_STANDARD:48
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -14249,9 +14272,6 @@ data_standardortools_collection:
       and predicting adverse events in critically ill patients. The database's time-series
       optimization enables real-time AI inference on streaming waveform data.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1101/2023.05.23.23290232
-    - https://github.com/LaussenLabs/atriumdb
 - id: B2AI_STANDARD:733
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -14483,26 +14503,6 @@ data_standardortools_collection:
     reproducible data analysis
   requires_registration: false
   url: https://github.com/jmchandonia/CORAL
-  has_application:
-  - id: B2AI_APP:65
-    category: B2AI:Application
-    name: Ordinal Classification for Clinical Severity and Staging
-    description: CORAL (Consistent Rank Logits) framework is used in biomedical AI
-      for ordinal classification tasks where class labels have natural ordering, such
-      as disease severity grading, cancer staging, and pain scale prediction. Deep
-      learning models leverage CORAL's specialized loss functions and neural network
-      architectures to maintain ordinality constraints, improving prediction of intermediate
-      classes and ensuring that predictions respect the clinical ordering of outcomes.
-      The approach is particularly valuable in medical applications where misclassifying
-      stage II as stage IV is more serious than predicting stage III, enabling models
-      that better capture the graduated nature of clinical assessments. CORAL enables
-      more accurate and clinically meaningful predictions for tasks like histological
-      grading, functional status assessment, and radiological severity scoring.
-    used_in_bridge2ai: false
-    references:
-    - https://github.com/Raschka-research-group/coral-cnn
-    - https://doi.org/10.48550/arXiv.1901.07884
-    - https://arxiv.org/abs/2111.08851
 - id: B2AI_STANDARD:746
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -14718,7 +14718,6 @@ data_standardortools_collection:
       to production clinical AI.
     used_in_bridge2ai: false
     references:
-    - https://determined.ai/
     - https://docs.determined.ai/
 - id: B2AI_STANDARD:757
   category: B2AI_STANDARD:SoftwareOrTool
@@ -14911,9 +14910,6 @@ data_standardortools_collection:
       data lineage, and reproducibility are essential for scientific validity and
       clinical translation.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1038/s41597-023-02365-6
-    - https://github.com/fairscape
 - id: B2AI_STANDARD:765
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -14959,7 +14955,6 @@ data_standardortools_collection:
       and educational settings teaching clinical AI.
     used_in_bridge2ai: false
     references:
-    - https://www.fast.ai/
     - https://doi.org/10.3390/info11020108
 - id: B2AI_STANDARD:766
   category: B2AI_STANDARD:SoftwareOrTool
@@ -15061,7 +15056,6 @@ data_standardortools_collection:
     used_in_bridge2ai: false
     references:
     - https://doi.org/10.1093/gigascience/giab044
-    - https://grape.readthedocs.io/
 - id: B2AI_STANDARD:769
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -15152,7 +15146,6 @@ data_standardortools_collection:
     used_in_bridge2ai: false
     references:
     - https://doi.org/10.1038/s41746-022-00689-4
-    - https://www.nature.com/articles/s41746-022-00689-4
 - id: B2AI_STANDARD:773
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -15466,8 +15459,6 @@ data_standardortools_collection:
       with clinical imaging standards and deployment tools makes it a bridge between
       research and clinical implementation.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1109/TPAMI.2021.3127533
 - id: B2AI_STANDARD:789
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
