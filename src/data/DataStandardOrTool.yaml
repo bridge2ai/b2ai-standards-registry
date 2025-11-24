@@ -1694,22 +1694,57 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:11
     category: B2AI:Application
-    name: Variant Interpretation AI and Clinical Genomics
-    description: ClinGen Interpretation standard is used in AI applications for training
-      machine learning models on expert-curated variant classifications and clinical
-      evidence, enabling automated variant interpretation following ACMG/AMP guidelines.
-      AI systems leverage ClinGen's structured assertions about variant pathogenicity,
-      disease associations, and supporting evidence to learn patterns in clinical
-      reasoning, predict pathogenicity of novel variants, and suggest appropriate
-      ACMG criteria for variant classification. The standard enables AI applications
-      that assist clinical geneticists in variant interpretation, prioritize variants
-      for manual review, and ensure consistency in classification across laboratories.
-      Machine learning models trained on ClinGen data can identify conflicts in variant
-      interpretation and suggest evidence-based resolutions.
+    name: LitGen Semi-Supervised Literature Recommendation and Evidence Classification
+    description: LitGen uses semi-supervised deep learning trained on ClinGen VCI-curated
+      papers annotated with ACMG/AMP-aligned evidence types, incorporating curator
+      explanations and unlabeled ClinGen-linked papers to improve proxy labels for
+      literature recommendation and evidence-type classification. The system leverages
+      ClinGen Variant Curation Interface annotations to predict which papers support
+      specific ACMG/AMP evidence criteria, achieving 7.9-12.6% relative performance
+      improvement over supervised-only models and reducing manual curation burden
+      for variant interpretation workflows.
     used_in_bridge2ai: false
     references:
-    - https://doi.org/10.1038/gim.2015.30
-    - https://doi.org/10.1038/s41436-020-0844-y
+    - https://doi.org/10.1142/9789811215636_0007
+  - id: B2AI_APP:113
+    category: B2AI:Application
+    name: ACMG/AMP Feature-Based Variant Pathogenicity Classification
+    description: Machine learning models explicitly encode ACMG/AMP evidence criteria
+      as features in penalized logistic regression to produce probabilistic pathogenicity
+      scores and rank variants of uncertain significance for prioritization. The approach
+      treats ClinGen/ACMG guideline-based evidence levels as structured ML features,
+      enabling guidelines-informed classification that slightly outperforms some in
+      silico scores on certain VUS datasets and improves prioritization for clinical
+      decision support in hereditary disease gene panels.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41598-022-06547-3
+  - id: B2AI_APP:114
+    category: B2AI:Application
+    name: ClinGen SVI Calibration of Computational Predictors to PP3/BP4
+    description: A probabilistic framework maps continuous scores from missense variant
+      prediction tools to ACMG/AMP PP3 and BP4 evidence strength levels using ClinGen/ACMG
+      standards, establishing score intervals for Supporting, Moderate, and Strong
+      evidence. This calibration enables automated, standardized assignment of computational
+      evidence to ClinGen-aligned interpretation workflows, with most tools achieving
+      Supporting level and several reaching Moderate or Strong evidence thresholds
+      for pathogenic or benign classification.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1016/j.ajhg.2022.10.013
+  - id: B2AI_APP:115
+    category: B2AI:Application
+    name: CGBench LLM Benchmarking for ClinGen Evidence Reasoning
+    description: CGBench uses ClinGen VCI and GCI entries with expert explanations
+      as ground truth to evaluate large language models on evidence extraction, strength
+      scoring, and explanation concordance for variant interpretation. The benchmark
+      shows moderate extraction performance with GPT-4o achieving 49% precision and
+      79% recall, improved explanation concordance with few-shot prompting reaching
+      70%, but limited strength-change prediction accuracy, revealing both capabilities
+      and gaps in LLM reasoning for ClinGen-aligned genomic curation tasks.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.48550/arxiv.2510.11985
 - id: B2AI_STANDARD:57
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -6679,10 +6714,6 @@ data_standardortools_collection:
       and enables systematic literature-scale evidence synthesis through tools like
       OHDSI's Patient-Level Prediction framework.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1093/jamia/ocab255
-    - https://doi.org/10.1038/s41746-021-00513-1
-    - https://ohdsi.github.io/PatientLevelPrediction/
 - id: B2AI_STANDARD:244
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6722,9 +6753,6 @@ data_standardortools_collection:
       Machine learning approaches use CEM to automate evidence quality assessment
       and synthesize findings across heterogeneous observational studies.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1093/jamia/ocab136
-    - https://ohdsi.github.io/TheBookOfOhdsi/
 - id: B2AI_STANDARD:245
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6802,9 +6830,6 @@ data_standardortools_collection:
       in chronic disease management, mental health monitoring, and precision behavioral
       medicine.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.2196/10326
-    - https://github.com/openmhealth/schemas
 - id: B2AI_STANDARD:247
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6929,9 +6954,6 @@ data_standardortools_collection:
       that improve AI model interpretability and facilitate automated validation of
       model inputs.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1186/1472-6947-9-37
-    - https://www.openehr.org/programs/specification/
 - id: B2AI_STANDARD:252
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -7504,9 +7526,6 @@ data_standardortools_collection:
       applications use SCDM to train models on massive populations for rare adverse
       event detection and comparative safety analysis.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1002/pds.4369
-    - https://doi.org/10.1093/jamia/ocv120
 - id: B2AI_STANDARD:273
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -7588,9 +7607,6 @@ data_standardortools_collection:
       where AI systems integrate findings across thousands of sequencing experiments
       by understanding their experimental context.
     used_in_bridge2ai: false
-    references:
-    - https://www.ncbi.nlm.nih.gov/sra/docs/
-    - https://doi.org/10.1093/nar/gkaa1106
 - id: B2AI_STANDARD:275
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -7697,7 +7713,6 @@ data_standardortools_collection:
     used_in_bridge2ai: false
     references:
     - https://www.ncbi.nlm.nih.gov/variation/notation/
-    - https://github.com/ncbi/Variation
 - id: B2AI_STANDARD:279
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -8075,7 +8090,6 @@ data_standardortools_collection:
       evolutionary relationships when analyzing biological data.
     used_in_bridge2ai: false
     references:
-    - https://www.tdwg.org/standards/tcs/
     - https://doi.org/10.17161/bi.v2i0.3
 - id: B2AI_STANDARD:293
   category: B2AI_STANDARD:BiomedicalStandard
@@ -8323,10 +8337,6 @@ data_standardortools_collection:
       multiple sources, and generate reproducible predictions that can be shared across
       institutions and validated against standardized variant benchmarks.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1371/journal.pbio.3001797
-    - https://vrs.ga4gh.org/
-    - https://www.ga4gh.org/product/variation-representation-specification-vrs/
 - id: B2AI_STANDARD:302
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -9193,7 +9203,6 @@ data_standardortools_collection:
     references:
     - https://doi.org/10.1038/s41591-020-0942-0
     - https://doi.org/10.1001/jamadermatol.2019.2335
-    - https://jpeg.org/
 - id: B2AI_STANDARD:345
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -9272,8 +9281,6 @@ data_standardortools_collection:
     used_in_bridge2ai: false
     references:
     - https://doi.org/10.1101/2023.08.07.552376
-    - https://linkml.io/linkml/
-    - https://github.com/linkml
 - id: B2AI_STANDARD:348
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
