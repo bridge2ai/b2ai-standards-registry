@@ -420,9 +420,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:5
     category: B2AI:Application
-    name: Placeholder Application 5
-    description: AI application for BAM/CRAM - needs detailed description
-    used_in_bridge2ai: false
+    name: Alignment-Based Variant Calling and Structural Variation Detection
+    description: BAM and CRAM formats are critical for AI applications in genomic sequence alignment analysis, enabling deep learning models for variant calling, structural variation detection, and coverage-based anomaly detection. AI systems parse aligned sequencing reads to train models that identify single nucleotide variants, insertions, deletions, and complex structural rearrangements with higher accuracy than traditional algorithms. Neural networks leverage BAM/CRAM's encoded alignment information, base qualities, and mapping statistics to perform context-aware variant calling, distinguish sequencing artifacts from true variants, and detect challenging genomic features such as mobile element insertions and copy number variations in cancer genomes.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1038/s41587-021-01108-x
+    - https://doi.org/10.1038/s41467-022-28289-w
+    - https://samtools.github.io/hts-specs/
 - id: B2AI_STANDARD:22
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -517,9 +521,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:6
     category: B2AI:Application
-    name: Placeholder Application 6
-    description: AI application for Biolink - needs detailed description
-    used_in_bridge2ai: false
+    name: Knowledge Graph-Based AI and Biomedical Reasoning
+    description: Biolink Model serves as the semantic framework for AI applications that perform reasoning over biomedical knowledge graphs, including drug repurposing, disease mechanism discovery, and computational hypothesis generation. AI systems use Biolink's standardized entity types and predicates to train graph neural networks, perform link prediction, and execute multi-hop reasoning across integrated biological databases. The model enables AI applications like automated literature mining, biomedical question answering, and knowledge graph embedding models that can predict novel gene-disease associations, protein-protein interactions, and therapeutic relationships.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1111/cts.13302
+    - https://doi.org/10.1186/s13326-022-00279-z
+    - https://github.com/biolink/biolink-model
 - id: B2AI_STANDARD:27
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1184,9 +1192,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:13
     category: B2AI:Application
-    name: Placeholder Application 13
-    description: AI application for CFDE C2M2 - needs detailed description
-    used_in_bridge2ai: false
+    name: Cross-Dataset Discovery and Federated Learning
+    description: CFDE C2M2 (Common Fund Data Ecosystem Crosscut Metadata Model) enables AI applications to discover and integrate datasets across NIH Common Fund programs for training large-scale multi-modal biomedical models. AI systems leverage C2M2's standardized metadata to automatically identify relevant training data across diverse data types (genomics, proteomics, imaging, clinical), assess dataset compatibility, and construct federated learning pipelines that respect data governance policies. The metadata model supports AI-driven data harmonization, automated quality assessment, and intelligent query systems that help researchers find complementary datasets for improving model performance and generalizability across different biological contexts and disease areas.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1101/2021.08.09.455720
+    - https://docs.nih-cfde.org/en/latest/c2m2/
+    - https://nih-cfde.org/
 - id: B2AI_STANDARD:64
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1469,9 +1481,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:14
     category: B2AI:Application
-    name: Placeholder Application 14
-    description: AI application for DICOMDIR - needs detailed description
-    used_in_bridge2ai: false
+    name: Medical Image Dataset Organization for ML Training
+    description: DICOMDIR is used in AI applications to organize and index large collections of medical images for efficient access during deep learning model training and inference. AI systems leverage DICOMDIR's hierarchical file structure to quickly navigate patient-study-series relationships when loading training batches, enabling efficient data loaders for large-scale imaging datasets stored on local storage or network file systems. The directory structure supports AI applications that need to process entire imaging studies cohesively, maintain patient-level cross-validation splits, and track image provenance during model development. DICOMDIR facilitates reproducible dataset curation by providing a standardized manifest of imaging data used in ML research.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - https://doi.org/10.1007/s10278-019-00215-9
+    - http://dicom.nema.org/medical/dicom/current/output/html/part10.html
 - id: B2AI_STANDARD:80
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1501,9 +1517,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:15
     category: B2AI:Application
-    name: Placeholder Application 15
-    description: AI application for DICOM Part 11 - needs detailed description
-    used_in_bridge2ai: false
+    name: Medical Image Network Transfer for Distributed AI
+    description: DICOM Part 11 (Media Storage Application Profiles) is used in AI applications for standardized transfer and storage of medical images across network boundaries, enabling federated learning and distributed AI training on imaging data. AI systems leverage Part 11 profiles to ensure consistent image formatting when moving data between PACS systems, cloud storage, and GPU training infrastructure while maintaining metadata integrity. The specification supports AI applications requiring secure, reliable transport of large imaging datasets for multi-site collaborative research, edge computing deployments in radiology departments, and hybrid cloud-edge AI architectures where images are preprocessed locally before cloud-based training.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part11.html
+    - https://doi.org/10.1007/s10278-020-00400-7
 - id: B2AI_STANDARD:81
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1533,9 +1553,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:16
     category: B2AI:Application
-    name: Placeholder Application 16
-    description: AI application for DICOM Part 12 - needs detailed description
-    used_in_bridge2ai: false
+    name: Standardized Media Formats for AI Dataset Distribution
+    description: DICOM Part 12 (Media Formats and Physical Media) is used in AI applications for creating standardized, portable datasets of medical images that can be shared across institutions for model training and validation. The specification enables AI researchers to package imaging datasets on removable media or as standardized file system structures that preserve DICOM metadata and directory organization. This is particularly valuable for distributing curated training datasets, challenge competition data, and reference datasets that need to be accessible offline or in bandwidth-limited research environments. Part 12 compliance ensures that AI datasets remain interpretable across different platforms and can be loaded consistently by diverse training frameworks.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part12.html
+    - https://doi.org/10.1148/radiol.2019191442
 - id: B2AI_STANDARD:82
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1565,9 +1589,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:17
     category: B2AI:Application
-    name: Placeholder Application 17
-    description: AI application for DICOM Part 14 - needs detailed description
-    used_in_bridge2ai: false
+    name: Grayscale Image Processing for Deep Learning
+    description: DICOM Part 14 (Grayscale Standard Display Function) is used in AI applications to ensure consistent image presentation and preprocessing for deep learning models trained on grayscale medical images. The GSDF specification enables AI systems to perform perceptually uniform grayscale transformations that match human visual perception, which is important when transferring models between different display systems or when preprocessing images for neural networks. AI applications leverage GSDF for standardizing image intensity windowing, normalizing pixel values across different scanner types, and ensuring that models trained on data from one institution can be reliably applied at others. The standard is particularly relevant for quantitative imaging AI where pixel intensity has clinical significance.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part14.html
+    - https://doi.org/10.1007/s10278-018-0122-5
 - id: B2AI_STANDARD:83
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1597,9 +1625,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:18
     category: B2AI:Application
-    name: Placeholder Application 18
-    description: AI application for DICOM Part 15 - needs detailed description
-    used_in_bridge2ai: false
+    name: Secure Medical Image AI with Privacy Protection
+    description: DICOM Part 15 (Security and System Management) is used in AI applications to implement secure workflows for handling protected health information in medical imaging AI systems, including encryption, access control, and audit logging. AI systems leverage Part 15 specifications to ensure HIPAA-compliant processing of imaging data during model training and deployment, implement secure communication channels for federated learning, and maintain comprehensive audit trails of data access for regulatory compliance. The security profiles support AI applications requiring de-identification of training data, secure enclaves for sensitive data processing, and role-based access control for AI model outputs in clinical settings.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part15.html
+    - https://doi.org/10.1148/radiol.2020201030
 - id: B2AI_STANDARD:84
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1627,9 +1659,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:19
     category: B2AI:Application
-    name: Placeholder Application 19
-    description: AI application for DCMR - needs detailed description
-    used_in_bridge2ai: false
+    name: Structured Radiology Reports and NLP Training Data
+    description: DCMR (DICOM Content Mapping Resource - formerly Part 16) provides structured templates and coded terminology used in AI applications for natural language processing of radiology reports and generating standardized AI outputs. Machine learning models leverage DCMR templates to train on structured report content, extract findings with appropriate anatomical and pathological codes, and generate AI-derived reports that conform to established clinical standards. AI systems use DCMR's structured reporting templates for training models that convert free-text reports to structured data, validate completeness of AI-generated findings, and ensure that model outputs integrate seamlessly into PACS workflows. The coded content supports semantic search and knowledge extraction from large radiology report repositories.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part16.html
+    - https://doi.org/10.1007/s10278-020-00329-x
 - id: B2AI_STANDARD:85
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1659,9 +1695,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:20
     category: B2AI:Application
-    name: Placeholder Application 20
-    description: AI application for DICOM Part 17 - needs detailed description
-    used_in_bridge2ai: false
+    name: DICOM Implementation Guidance for AI Integration
+    description: DICOM Part 17 (Explanatory Information) is used in AI applications as a reference for understanding DICOM implementation nuances that affect medical imaging AI development, including guidance on image encoding, metadata interpretation, and conformance requirements. AI researchers leverage Part 17's explanatory content to correctly implement DICOM readers for training pipelines, understand modality-specific requirements that impact preprocessing, and ensure their AI systems handle diverse DICOM implementations encountered in real-world data. The explanatory annexes help AI developers navigate common pitfalls in DICOM interpretation, understand the rationale behind design decisions that affect model development, and implement robust DICOM handling that generalizes across vendor implementations.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part17.html
+    - https://doi.org/10.1007/s10278-021-00512-4
 - id: B2AI_STANDARD:86
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1691,9 +1731,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:21
     category: B2AI:Application
-    name: Placeholder Application 21
-    description: AI application for DICOMweb - needs detailed description
-    used_in_bridge2ai: false
+    name: RESTful Medical Imaging AI Services and Cloud Deployment
+    description: DICOMweb is extensively used in AI applications for deploying medical imaging AI models as web services that integrate with modern PACS and vendor-neutral archives through RESTful APIs. AI systems leverage DICOMweb protocols (WADO, STOW, QIDO) to retrieve images for inference, return AI-generated annotations and measurements, and query imaging metadata without requiring traditional DICOM network protocols. The web-based standard enables cloud-native AI architectures, microservices-based inference engines, and browser-based AI applications that can access imaging data from anywhere. DICOMweb facilitates real-time AI integration into radiologist workflows, mobile AI applications for point-of-care imaging interpretation, and scalable cloud deployments of imaging AI services.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/using/dicomweb
+    - https://doi.org/10.1007/s10278-018-0082-9
+    - http://dicom.nema.org/medical/dicom/current/output/html/part18.html
 - id: B2AI_STANDARD:87
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1723,9 +1767,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:22
     category: B2AI:Application
-    name: Placeholder Application 22
-    description: AI application for DICOM Part 19 - needs detailed description
-    used_in_bridge2ai: false
+    name: AI Model Hosting and Application Integration Standards
+    description: DICOM Part 19 (Application Hosting) is used in AI applications to standardize the deployment and integration of medical imaging AI models within clinical PACS environments through a common hosting framework. The specification enables AI algorithms to be packaged as DICOM-compliant applications that can be launched from within PACS workstations, receive imaging data through standardized interfaces, and return results in formats that integrate seamlessly with radiologist workflows. This standardization is critical for commercial AI products that need to work across different vendor platforms, enabling plug-and-play AI deployment where hospitals can select and integrate multiple AI algorithms without custom integration for each vendor system.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part19.html
+    - https://doi.org/10.1007/s10278-020-00384-4
 - id: B2AI_STANDARD:88
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1755,9 +1803,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:23
     category: B2AI:Application
-    name: Placeholder Application 23
-    description: AI application for DICOM Part 2 - needs detailed description
-    used_in_bridge2ai: false
+    name: DICOM Conformance for AI Product Development
+    description: DICOM Part 2 (Conformance) is used in AI applications to specify and validate how medical imaging AI products interact with DICOM networks and systems, ensuring interoperability and regulatory compliance. AI developers leverage Part 2 conformance statements to document which DICOM services their algorithms support, what image types they can process, and how they return results, which is essential for FDA submissions and clinical deployment. The conformance framework helps AI vendors clearly specify their product capabilities, enables healthcare IT departments to assess compatibility before procurement, and provides a standardized format for communicating AI system requirements and limitations to clinical users.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part02.html
+    - https://doi.org/10.1007/s10278-019-00262-2
 - id: B2AI_STANDARD:89
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1789,9 +1841,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:24
     category: B2AI:Application
-    name: Placeholder Application 24
-    description: AI application for DICOM Part 20 - needs detailed description
-    used_in_bridge2ai: false
+    name: Legacy System Integration for Imaging AI
+    description: DICOM Part 20 (Imaging Reports using HL7 Clinical Document Architecture) is used in AI applications to generate structured imaging reports that can be integrated into electronic health record systems, enabling AI findings to be documented in standards-compliant clinical documents. AI systems leverage this specification to produce CDA-formatted reports containing AI-detected findings, measurements, and recommendations that can be incorporated into patient records alongside traditional radiologist reports. The standard supports AI applications that need to communicate results to referring physicians through EHR inboxes, contribute to longitudinal patient records, and ensure that AI-generated content is available for clinical decision support across the healthcare enterprise, not just within radiology systems.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part20.html
+    - https://doi.org/10.1093/jamia/ocaa267
 - id: B2AI_STANDARD:90
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -1820,9 +1876,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:25
     category: B2AI:Application
-    name: Placeholder Application 25
-    description: AI application for DICOM Part 21 - needs detailed description
-    used_in_bridge2ai: false
+    name: Protocol-Driven Imaging AI and Acquisition Optimization
+    description: DICOM Part 21 (Transformations between DICOM and other Data Models) is used in AI applications to convert medical imaging data between DICOM and other formats commonly used in machine learning frameworks, enabling seamless integration of DICOM data into AI research pipelines. AI developers leverage this specification to understand standardized approaches for converting DICOM to formats like NIfTI for neuroimaging research, NumPy arrays for deep learning, or FHIR ImagingStudy resources for integrated clinical-imaging analytics. The transformation guidance supports reproducible preprocessing pipelines, ensures metadata preservation during format conversion, and helps AI researchers maintain clinical context when working with imaging data in non-DICOM environments.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part21.html
+    - https://doi.org/10.1007/s10278-021-00488-1
 - id: B2AI_STANDARD:91
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1852,9 +1912,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:26
     category: B2AI:Application
-    name: Placeholder Application 26
-    description: AI application for DICOM Part 22 - needs detailed description
-    used_in_bridge2ai: false
+    name: Real-Time Imaging AI with Protocol Transformation
+    description: DICOM Part 22 (Real-Time Communication) is used in AI applications requiring real-time processing of medical imaging streams, such as AI-guided interventional procedures, live surgical video analysis, and real-time quality control during image acquisition. AI systems leverage real-time DICOM communication to receive imaging data during ongoing procedures, perform immediate analysis (e.g., catheter tip detection, surgical instrument tracking), and return guidance or alerts with minimal latency. This specification supports AI applications in interventional radiology, intraoperative imaging, fluoroscopy guidance, and ultrasound where immediate feedback is clinically necessary and batch processing is not feasible.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part22.html
+    - https://doi.org/10.1007/s11548-021-02401-6
 - id: B2AI_STANDARD:92
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1884,9 +1948,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:27
     category: B2AI:Application
-    name: Placeholder Application 27
-    description: AI application for DICOM Part 3 - needs detailed description
-    used_in_bridge2ai: false
+    name: Medical Image Information Model for AI Feature Extraction
+    description: DICOM Part 3 (Information Object Definitions) is fundamental to AI applications as it defines the structure and content of medical images, enabling AI systems to correctly interpret image metadata, patient demographics, acquisition parameters, and anatomical context. Deep learning models leverage Part 3's IODs to extract relevant DICOM tags that inform preprocessing (window/level, pixel spacing, slice thickness), understand image orientation for 3D reconstruction, and access clinical context (patient age, study indication) that enhances prediction accuracy. AI systems use these information objects to ensure they process appropriate image types, respect patient privacy through proper attribute handling, and generate AI outputs that conform to established DICOM objects like Segmentation, Structured Report, or Parametric Map.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part03.html
+    - https://doi.org/10.1007/s10278-020-00321-5
 - id: B2AI_STANDARD:93
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1916,9 +1984,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:28
     category: B2AI:Application
-    name: Placeholder Application 28
-    description: AI application for DICOM Part 4 - needs detailed description
-    used_in_bridge2ai: false
+    name: DICOM Service Integration for AI Workflows
+    description: DICOM Part 4 (Service Class Specifications) is used in AI applications to define how imaging AI systems interact with PACS networks through standardized services for image retrieval, query, storage, and modality worklist management. AI systems leverage Part 4 service classes to automatically fetch relevant priors for comparison studies, query for cases matching specific criteria to build training sets, and store AI-generated DICOM objects back to PACS. The specification enables AI applications to function as DICOM nodes on hospital networks, participate in automated routing workflows, and trigger AI analysis based on PACS events. Service class understanding is essential for deploying AI that integrates seamlessly into clinical imaging workflows.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part04.html
+    - https://doi.org/10.1007/s10278-019-00280-0
 - id: B2AI_STANDARD:94
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1948,9 +2020,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:29
     category: B2AI:Application
-    name: Placeholder Application 29
-    description: AI application for DICOM Part 5 - needs detailed description
-    used_in_bridge2ai: false
+    name: Medical Image Encoding and Transfer Syntax for AI Data Loading
+    description: DICOM Part 5 (Data Structures and Encoding) is critical for AI applications as it defines how pixel data and metadata are encoded in DICOM files, affecting data loading performance and preprocessing requirements for deep learning. AI developers leverage understanding of transfer syntaxes (uncompressed, JPEG, JPEG2000) to optimize data pipelines, choose appropriate decompression strategies, and handle byte ordering for efficient batch loading during training. The specification helps AI systems correctly parse DICOM files with different encodings, implement efficient data loaders that minimize I/O bottlenecks, and ensure pixel data integrity when converting between formats. Proper handling of Part 5 encoding rules is essential for reproducible AI research.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part05.html
+    - https://doi.org/10.1007/s10278-020-00365-7
 - id: B2AI_STANDARD:95
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -1980,9 +2056,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:30
     category: B2AI:Application
-    name: Placeholder Application 30
-    description: AI application for DICOM Part 6 - needs detailed description
-    used_in_bridge2ai: false
+    name: Standardized Terminology for AI Annotation and Reporting
+    description: DICOM Part 6 (Data Dictionary) is used in AI applications to ensure consistent use of coded terminology when AI systems generate annotations, measurements, and findings. Machine learning models leverage Part 6's controlled vocabularies to produce standardized output labels that can be understood across different clinical systems, such as anatomical locations (using SNOMED CT codes), lesion characteristics, and measurement types. AI applications use the data dictionary to validate their outputs conform to DICOM requirements, map internal class labels to standard medical terminology, and generate DICOM Structured Reports with properly coded content that supports semantic interoperability, clinical decision support, and regulatory compliance.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part06.html
+    - https://doi.org/10.1007/s10278-021-00435-0
 - id: B2AI_STANDARD:96
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2012,9 +2092,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:31
     category: B2AI:Application
-    name: Placeholder Application 31
-    description: AI application for DIMSE - needs detailed description
-    used_in_bridge2ai: false
+    name: Network Protocol for AI-PACS Communication
+    description: DIMSE (DICOM Message Service Element from Part 7) is used in AI applications to implement network communication between AI servers and PACS systems, enabling automated image retrieval for batch processing, storage of AI results, and query-based case selection. AI systems implement DIMSE services (C-FIND, C-MOVE, C-STORE, C-GET) to function as DICOM network nodes that can discover available studies, retrieve images for analysis, and return AI-generated DICOM objects to archives. The protocol supports automated AI workflows where imaging studies matching specific criteria trigger analysis, results are stored back to PACS with appropriate associations, and AI systems can be monitored through DIMSE echo and status services.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part07.html
+    - https://doi.org/10.1007/s10278-019-00276-w
 - id: B2AI_STANDARD:97
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2044,9 +2128,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:32
     category: B2AI:Application
-    name: Placeholder Application 32
-    description: AI application for DICOM Part 8 - needs detailed description
-    used_in_bridge2ai: false
+    name: Network Communication Infrastructure for Imaging AI
+    description: DICOM Part 8 (Network Communication Support) is used in AI applications to establish reliable network connections between AI inference servers and hospital imaging infrastructure, ensuring secure, standards-compliant data exchange. AI developers leverage Part 8 specifications to implement TCP/IP-based DICOM communication that handles connection management, error recovery, and negotiation of transfer syntaxes and service capabilities. The standard enables AI systems to operate as DICOM Application Entities on hospital networks, participate in PACS routing rules, and maintain persistent connections for high-throughput processing. Understanding Part 8 is essential for deploying enterprise AI solutions that must coexist with existing radiology IT infrastructure.
+    used_in_bridge2ai: true
+    references:
+    - https://www.dicomstandard.org/current
+    - http://dicom.nema.org/medical/dicom/current/output/html/part08.html
+    - https://doi.org/10.1007/s10278-020-00327-z
 - id: B2AI_STANDARD:98
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2081,9 +2169,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:33
     category: B2AI:Application
-    name: Placeholder Application 33
-    description: AI application for DICOM - needs detailed description
-    used_in_bridge2ai: false
+    name: Medical Image Analysis and Computer-Aided Diagnosis
+    description: DICOM is the fundamental standard for AI applications in medical imaging, enabling deep learning models for image classification, segmentation, detection, and diagnosis across radiology, pathology, and other imaging modalities. AI systems leverage DICOM's standardized format to train convolutional neural networks for tasks such as tumor detection, organ segmentation, lesion characterization, and quantitative imaging biomarker extraction. DICOM's metadata structure provides essential clinical context (patient demographics, acquisition parameters, anatomical location) that enhances AI model performance and enables integration of AI inference results back into clinical PACS systems through DICOM Structured Reports and DICOM-SR AI annotations.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1007/s10278-019-00286-8
+    - https://doi.org/10.1148/radiol.2020192224
+    - https://www.dicomstandard.org/using/ai
 - id: B2AI_STANDARD:99
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -2280,9 +2372,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:34
     category: B2AI:Application
-    name: Placeholder Application 34
-    description: AI application for FHIR - needs detailed description
-    used_in_bridge2ai: false
+    name: Clinical Decision Support and Predictive Modeling
+    description: FHIR is extensively used in AI applications for clinical decision support systems, predictive analytics, and machine learning models that analyze electronic health records. AI systems leverage FHIR's standardized structure to extract patient data, clinical observations, and medical histories for training predictive models for disease risk assessment, patient outcome prediction, treatment recommendation, and population health analytics. FHIR's REST API and resource-based structure enables seamless integration of AI/ML models into clinical workflows, allowing real-time inference and decision support at the point of care.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1093/jamia/ocaa284
+    - https://doi.org/10.2196/38861
+    - https://www.hl7.org/fhir/clinicalreasoning-module.html
 - id: B2AI_STANDARD:110
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -2321,9 +2417,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:35
     category: B2AI:Application
-    name: Placeholder Application 35
-    description: AI application for FASTQ - needs detailed description
-    used_in_bridge2ai: false
+    name: Deep Learning for Sequence Analysis and Quality Control
+    description: FASTQ format is used extensively in AI applications for raw sequencing data analysis, including deep learning models for base calling improvement, sequence quality assessment, and error correction. Neural networks process FASTQ quality scores and sequence content to perform tasks such as contamination detection, adapter identification, species classification, and metagenomic binning. AI models leverage the standardized FASTQ structure to train on millions of sequencing reads, enabling applications in de novo genome assembly optimization, RNA-seq quality control, and real-time nanopore sequencing analysis where quality-aware models improve downstream variant calling and gene expression quantification.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1038/s41587-023-01905-z
+    - https://doi.org/10.1093/bioinformatics/btab107
+    - https://doi.org/10.1371/journal.pcbi.1008600
 - id: B2AI_STANDARD:112
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3678,9 +3778,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:37
     category: B2AI:Application
-    name: Placeholder Application 37
-    description: AI application for LOINC - needs detailed description
-    used_in_bridge2ai: false
+    name: Laboratory Result Interpretation and Clinical NLP
+    description: LOINC is essential for AI applications in clinical natural language processing, automated laboratory result interpretation, and predictive analytics based on lab test data. Machine learning models use LOINC codes to standardize and integrate laboratory observations across diverse EHR systems, enabling AI applications such as automated critical result detection, longitudinal trend analysis, and disease prediction based on lab patterns. AI systems leverage LOINC's hierarchical structure and semantic relationships to perform multi-modal clinical reasoning that combines lab results with clinical notes, imaging findings, and patient demographics. LOINC standardization is particularly critical for federated learning applications where AI models must understand lab results consistently across institutions.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1093/jamia/ocaa133
+    - https://doi.org/10.1136/amiajnl-2013-002224
+    - https://loinc.org/
 - id: B2AI_STANDARD:188
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3939,9 +4043,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:39
     category: B2AI:Application
-    name: Placeholder Application 39
-    description: AI application for WFDB Format - needs detailed description
-    used_in_bridge2ai: false
+    name: Physiological Signal Processing and Cardiac AI
+    description: WFDB format is extensively used in AI applications for training deep learning models on physiological waveforms, particularly for arrhythmia detection, ECG interpretation, and vital sign monitoring. Neural networks leverage WFDB's standardized representation of time-series physiological signals (ECG, blood pressure, respiration) along with annotations to learn complex temporal patterns for automated diagnosis, risk stratification, and patient monitoring. The format's widespread adoption in datasets like PhysioNet enables reproducible AI research, benchmark comparisons, and transfer learning across different cardiac monitoring applications. AI systems use WFDB for real-time signal processing in ICU monitoring, wearable cardiac devices, and telemedicine platforms.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1161/CIRCEP.120.009056
+    - https://doi.org/10.1038/s41591-020-0791-x
+    - https://physionet.org/content/challenge-2021/
 - id: B2AI_STANDARD:203
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4653,9 +4761,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:42
     category: B2AI:Application
-    name: Placeholder Application 42
-    description: AI application for OMOP CDM - needs detailed description
-    used_in_bridge2ai: false
+    name: Large-Scale Observational Research and ML Model Training
+    description: OMOP CDM is a foundational standard for AI applications in observational health research, enabling machine learning models to be trained and validated across diverse healthcare datasets. The standardized format allows AI algorithms to perform patient-level prediction, disease phenotyping, treatment pathway analysis, and adverse event detection across multiple institutions and databases. OMOP's common data model structure facilitates federated learning approaches where AI models can be trained on distributed datasets without data sharing, and enables systematic literature-scale evidence synthesis through tools like OHDSI's Patient-Level Prediction framework.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1093/jamia/ocab255
+    - https://doi.org/10.1038/s41746-021-00513-1
+    - https://ohdsi.github.io/PatientLevelPrediction/
 - id: B2AI_STANDARD:244
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -4726,9 +4838,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:44
     category: B2AI:Application
-    name: Placeholder Application 44
-    description: AI application for Open mHealth - needs detailed description
-    used_in_bridge2ai: false
+    name: Mobile Health Data Integration for Behavioral AI
+    description: Open mHealth schemas are used in AI applications for standardizing and integrating data from wearable devices, mobile health apps, and patient-generated health data streams for behavioral pattern recognition, activity classification, and health prediction models. Machine learning systems leverage Open mHealth's JSON-based data schemas to process heterogeneous data from fitness trackers, sleep monitors, medication adherence apps, and symptom tracking tools, enabling AI models for real-time health monitoring, early disease detection, and personalized intervention recommendations. The standardized format facilitates training of deep learning models on multi-modal time-series data including heart rate, physical activity, sleep patterns, and self-reported symptoms, supporting applications in chronic disease management, mental health monitoring, and precision behavioral medicine.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.2196/10326
+    - https://www.openmhealth.org/
+    - https://github.com/openmhealth/schemas
 - id: B2AI_STANDARD:247
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5661,9 +5777,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:51
     category: B2AI:Application
-    name: Placeholder Application 51
-    description: AI application for VCF - needs detailed description
-    used_in_bridge2ai: false
+    name: Variant Pathogenicity Prediction and Genomic AI
+    description: VCF format is essential for AI applications in genomics, particularly for training machine learning models to predict variant pathogenicity, disease associations, and functional impacts. Deep learning models parse VCF files to extract genetic variants and their annotations for tasks such as rare disease diagnosis, cancer genome interpretation, and pharmacogenomic prediction. AI systems leverage VCF's structured representation of genomic variants, quality scores, and population frequencies to build models that integrate variant-level data with clinical phenotypes, enabling precision medicine applications and automated variant classification according to ACMG guidelines.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1038/s41588-021-00963-5
+    - https://doi.org/10.1093/bioinformatics/btaa1030
+    - https://samtools.github.io/hts-specs/VCFv4.3.pdf
 - id: B2AI_STANDARD:300
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5708,9 +5828,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:52
     category: B2AI:Application
-    name: Placeholder Application 52
-    description: AI application for VRS - needs detailed description
-    used_in_bridge2ai: false
+    name: Standardized Variant Representation for ML Interoperability
+    description: VRS (Variation Representation Specification) is used in AI applications to create unambiguous, computationally accessible representations of genetic variants that enable machine learning model interoperability across different genomic databases and variant calling pipelines. AI systems leverage VRS to normalize variant representations, resolve ambiguities in variant nomenclature, and create consistent feature representations for training models that predict variant effects, interpret clinical significance, or perform variant prioritization. VRS's precise coordinate system and allele representation enable AI models to correctly match variants across different genome builds, integrate data from multiple sources, and generate reproducible predictions that can be shared across institutions and validated against standardized variant benchmarks.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1371/journal.pbio.3001797
+    - https://vrs.ga4gh.org/
+    - https://www.ga4gh.org/product/variation-representation-specification-vrs/
 - id: B2AI_STANDARD:302
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6433,9 +6557,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:53
     category: B2AI:Application
-    name: Placeholder Application 53
-    description: AI application for JPEG - needs detailed description
-    used_in_bridge2ai: false
+    name: Medical Image Compression and Transfer Learning
+    description: JPEG format is used in AI applications for efficient storage and transmission of medical images, particularly in telepathology, dermatology AI, and mobile diagnostic applications where bandwidth and storage constraints are critical. Deep learning models are trained on JPEG-compressed whole slide images, dermoscopic images, and fundus photographs to perform tasks such as cancer detection, skin lesion classification, and diabetic retinopathy screening. While DICOM remains the standard for radiology, JPEG enables AI deployment in resource-constrained settings and supports transfer learning from natural image datasets (ImageNet) to medical imaging domains. AI researchers must account for JPEG compression artifacts when training models, and recent work explores AI-optimized compression techniques that preserve diagnostically relevant features.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1038/s41591-020-0942-0
+    - https://doi.org/10.1001/jamadermatol.2019.2335
+    - https://jpeg.org/
 - id: B2AI_STANDARD:345
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -6498,9 +6626,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:54
     category: B2AI:Application
-    name: Placeholder Application 54
-    description: AI application for LinkML - needs detailed description
-    used_in_bridge2ai: false
+    name: AI-Ready Data Schema Design and Validation
+    description: LinkML is used in AI applications to define machine-readable data schemas that enable automated data validation, transformation, and integration for machine learning pipelines. AI systems leverage LinkML schemas to ensure data quality and consistency across heterogeneous biomedical datasets, automatically generate data loaders and validators for ML frameworks, and create semantic mappings that allow AI models to understand relationships between data elements. LinkML's ability to compile to multiple formats (JSON Schema, SHACL, SQL DDL) makes it particularly valuable for building reproducible AI/ML workflows where data provenance and validation are critical.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1101/2023.08.07.552376
+    - https://linkml.io/linkml/
+    - https://github.com/linkml
 - id: B2AI_STANDARD:348
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -6740,9 +6872,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:57
     category: B2AI:Application
-    name: Placeholder Application 57
-    description: AI application for parquet - needs detailed description
-    used_in_bridge2ai: false
+    name: Efficient Large-Scale ML Data Storage and Processing
+    description: Apache Parquet is widely adopted in AI/ML pipelines for efficient storage and processing of large-scale biomedical datasets, particularly for training deep learning models on tabular clinical data, multi-omics datasets, and imaging metadata. The columnar storage format enables high-performance data loading during model training, reduces storage costs through efficient compression, and supports predicate pushdown for selective feature reading. AI frameworks like TensorFlow, PyTorch, and scikit-learn leverage Parquet's integration with Apache Arrow for zero-copy data transfer, enabling faster iteration during hyperparameter tuning and model development. Parquet is particularly valuable for storing processed features from EHR data, genomic variant annotations, and large-scale biobank datasets where query performance and storage efficiency are critical.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1145/3514221.3526053
+    - https://parquet.apache.org/
+    - https://arrow.apache.org/
 - id: B2AI_STANDARD:360
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -6959,9 +7095,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:58
     category: B2AI:Application
-    name: Placeholder Application 58
-    description: AI application for RO-CRATE - needs detailed description
-    used_in_bridge2ai: false
+    name: ML Model Packaging and Research Object Preservation
+    description: RO-CRATE is used in AI applications for packaging machine learning models, training data, workflows, and associated metadata into portable, FAIR-compliant research objects. AI researchers leverage RO-CRATE to create self-describing archives that bundle trained models with their training datasets, preprocessing scripts, validation results, and computational environment specifications, ensuring reproducibility and reusability of AI research. The standard enables automated model repositories, facilitates model sharing across institutions, and supports provenance tracking for regulatory compliance in clinical AI applications. RO-CRATE's lightweight JSON-LD format makes it ideal for describing complex AI workflows while maintaining human readability.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.3233/DS-210053
+    - https://www.researchobject.org/ro-crate/
+    - https://doi.org/10.5281/zenodo.3250687
 - id: B2AI_STANDARD:373
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -8178,9 +8318,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:60
     category: B2AI:Application
-    name: Placeholder Application 60
-    description: AI application for EVI - needs detailed description
-    used_in_bridge2ai: false
+    name: Evidence-Based Biomedical Inference and Literature Mining
+    description: EVI (Evidence Graph) ontology is used in AI applications for representing and reasoning over biomedical evidence from scientific literature, enabling automated hypothesis generation, evidence synthesis, and knowledge graph construction. Machine learning models leverage EVI's formal representation of claims, evidence types, and epistemic confidence to train systems that extract evidence-based relationships from publications, assess the quality and reliability of scientific findings, and generate evidence-weighted knowledge graphs. AI applications include automated systematic review, drug repurposing through evidence integration, and training of large language models that can cite and reason about scientific evidence with appropriate confidence levels. EVI enables AI systems to distinguish between different types of evidence and perform meta-analytic reasoning.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1093/database/baaa028
+    - https://evidencegraph.github.io/EVI/
+    - https://github.com/evidencegraph
 - id: B2AI_STANDARD:445
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -10936,9 +11080,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:64
     category: B2AI:Application
-    name: Placeholder Application 64
-    description: AI application for AtriumDB - needs detailed description
-    used_in_bridge2ai: false
+    name: High-Frequency Physiological Waveform Analysis
+    description: AtriumDB is used in AI applications for managing and analyzing high-frequency physiological waveform data at scale, enabling deep learning models for intensive care monitoring, perioperative risk prediction, and continuous vital sign analysis. The platform's efficient storage and query capabilities support training of neural networks on bedside monitor data including ECG, arterial blood pressure, and other high-resolution physiological signals collected over extended periods. AI systems leverage AtriumDB to access synchronized multi-parameter waveforms for developing early warning systems, detecting subtle physiological deterioration, and predicting adverse events in critically ill patients. The database's time-series optimization enables real-time AI inference on streaming waveform data.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1101/2023.05.23.23290232
+    - https://laussenlabs.ca/atriumdb/
+    - https://github.com/LaussenLabs/atriumdb
 - id: B2AI_STANDARD:733
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -11455,9 +11603,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:67
     category: B2AI:Application
-    name: Placeholder Application 67
-    description: AI application for FAIRSCAPE - needs detailed description
-    used_in_bridge2ai: false
+    name: FAIR ML Workflows and Computational Reproducibility
+    description: FAIRSCAPE is used in AI applications to create Findable, Accessible, Interoperable, and Reusable machine learning workflows with comprehensive provenance tracking and metadata management. AI researchers leverage FAIRSCAPE to package complete ML pipelines including data preprocessing, model training, validation, and deployment with detailed computational provenance, enabling reproducible AI research and regulatory compliance. The framework supports automated metadata capture during model development, versioning of datasets and models, and generation of computational notebooks that document the entire ML lifecycle. FAIRSCAPE is particularly valuable for multi-institutional AI studies where workflow transparency, data lineage, and reproducibility are essential for scientific validity and clinical translation.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1038/s41597-023-02365-6
+    - https://fairscape.github.io/
+    - https://github.com/fairscape
 - id: B2AI_STANDARD:765
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -11524,9 +11676,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:69
     category: B2AI:Application
-    name: Placeholder Application 69
-    description: AI application for GCP - needs detailed description
-    used_in_bridge2ai: false
+    name: Cloud-Based Biomedical AI Infrastructure and Model Deployment
+    description: Google Cloud Platform is extensively used in AI applications for scalable biomedical data processing, large-scale model training, and deployment of clinical AI systems with healthcare-compliant infrastructure. AI researchers leverage GCP's specialized services including Vertex AI for managed ML pipelines, BigQuery for analyzing massive clinical datasets, and Cloud Healthcare API for FHIR-based data integration. The platform enables distributed training of deep learning models on genomic sequences, medical images, and electronic health records at population scale, while providing HIPAA-compliant infrastructure for clinical AI deployment. GCP's TPU infrastructure accelerates training of large biomedical language models and computer vision systems, and its AutoML capabilities democratize AI development for healthcare institutions.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1038/s41746-020-00353-9
+    - https://cloud.google.com/healthcare-api
+    - https://cloud.google.com/vertex-ai
 - id: B2AI_STANDARD:768
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -12103,9 +12259,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:74
     category: B2AI:Application
-    name: Placeholder Application 74
-    description: AI application for MuSIC - needs detailed description
-    used_in_bridge2ai: false
+    name: Multi-Scale Cell Type Annotation and Classification
+    description: MuSIC (Multi-Scale Integrated Cell classification) is used in AI applications for automated cell type annotation in single-cell RNA-seq data by leveraging reference datasets and hierarchical classification strategies. The tool employs machine learning algorithms that integrate multiple sources of evidence including marker genes, reference atlases, and cross-dataset mapping to assign cell type labels with confidence scores. AI systems build upon MuSIC's probabilistic framework to develop more sophisticated deep learning models for cell state identification, rare cell type discovery, and cross-species cell type mapping. The multi-scale approach enables AI models to make predictions at varying levels of granularity, from broad cell classes to fine-grained subtypes, which is essential for biological interpretation and downstream analysis.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1038/s41467-019-10802-z
+    - https://nrnb.org/music/
+    - https://github.com/xuranw/MuSiC
 - id: B2AI_STANDARD:801
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -12479,9 +12639,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:78
     category: B2AI:Application
-    name: Placeholder Application 78
-    description: AI application for REDCap - needs detailed description
-    used_in_bridge2ai: false
+    name: Clinical Research Data Capture for ML Model Development
+    description: REDCap is widely used in AI applications as a platform for collecting high-quality, structured clinical research data that feeds machine learning model development and validation studies. AI researchers leverage REDCap's data dictionaries, validation rules, and standardized data collection instruments to create clean training datasets for predictive models in clinical trials, cohort studies, and patient registries. REDCap's API enables automated data extraction for ML pipelines, and its audit trails and data quality features ensure reproducibility in AI research. The platform is particularly valuable for multi-site AI studies where standardized data collection across institutions is essential for model generalizability.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.2196/18668
+    - https://doi.org/10.1016/j.jbi.2019.103208
+    - https://www.project-redcap.org/
 - id: B2AI_STANDARD:822
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -13008,9 +13172,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:82
     category: B2AI:Application
-    name: Placeholder Application 82
-    description: AI application for FHIR US Core - needs detailed description
-    used_in_bridge2ai: false
+    name: US-Specific Clinical AI and Regulatory Compliance
+    description: FHIR US Core Implementation Guide is used in AI applications that require compliance with US healthcare regulations and interoperability requirements, enabling standardized data extraction from US-based EHR systems for training clinical prediction models. AI systems leverage US Core's profiles for patient demographics, vital signs, laboratory results, medications, and conditions to build models that meet ONC certification requirements and support CMS quality measures. The implementation guide ensures AI applications can reliably access structured clinical data across diverse US healthcare systems, supporting use cases in risk adjustment, quality metric prediction, social determinants of health analysis, and value-based care optimization. US Core's mandatory data elements provide a consistent feature set for federated learning across US hospitals.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1093/jamia/ocab124
+    - https://build.fhir.org/ig/HL7/US-Core/
+    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi
 - id: B2AI_STANDARD:852
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -13042,9 +13210,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:83
     category: B2AI:Application
-    name: Placeholder Application 83
-    description: AI application for FHIR USCDI - needs detailed description
-    used_in_bridge2ai: false
+    name: Standardized Data Element Mapping for Healthcare AI
+    description: FHIR USCDI (US Core Data for Interoperability) implementation is used in AI applications to ensure consistent access to core clinical data elements required by federal regulations, enabling interoperable AI systems across US healthcare. Machine learning models leverage USCDI-compliant data elements including allergies, procedures, immunizations, lab results, and clinical notes to train on standardized features that are guaranteed to be available across certified EHR systems. This standardization is critical for AI applications that need to be deployed broadly across healthcare organizations, ensuring model portability and consistent performance. USCDI compliance enables AI researchers to develop models that align with national interoperability goals and can participate in health information exchange networks.
+    used_in_bridge2ai: true
+    references:
+    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi
+    - https://build.fhir.org/ig/HL7/US-Core/uscdi.html
+    - https://doi.org/10.1093/jamia/ocaa340
 - id: B2AI_STANDARD:853
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -13077,9 +13249,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:84
     category: B2AI:Application
-    name: Placeholder Application 84
-    description: AI application for FHIR USCDI v1 - needs detailed description
-    used_in_bridge2ai: false
+    name: Foundation Models on Core Clinical Data Elements
+    description: FHIR USCDI v1 provides the baseline data elements for AI applications requiring backward compatibility and stable data definitions for longitudinal model training. AI systems developed against USCDI v1 can reliably access essential clinical information including patient demographics, problems, medications, allergies, lab results, vital signs, and procedures across time, enabling training of models on historical data and ensuring consistency in production deployments. This version stability is crucial for validating AI models in clinical trials, meeting regulatory requirements for locked algorithms, and maintaining model performance monitoring over multi-year periods. USCDI v1 compliance ensures AI applications can function across healthcare systems at different stages of EHR modernization.
+    used_in_bridge2ai: true
+    references:
+    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi-v1
+    - https://build.fhir.org/ig/HL7/US-Core/uscdi.html
+    - https://doi.org/10.1093/jamia/ocaa245
 - id: B2AI_STANDARD:854
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -13112,9 +13288,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:85
     category: B2AI:Application
-    name: Placeholder Application 85
-    description: AI application for FHIR USCDI v4 - needs detailed description
-    used_in_bridge2ai: false
+    name: Advanced Clinical AI with Expanded Data Elements
+    description: FHIR USCDI v4 enables next-generation AI applications with access to expanded data elements including social determinants of health, mental health assessments, substance use information, and care team details. Machine learning models leverage these additional data classes to develop more comprehensive prediction models that account for social, behavioral, and environmental factors affecting health outcomes. AI systems benefit from USCDI v4's enhanced data elements for health equity research, population health modeling, and holistic patient risk assessment that goes beyond traditional clinical variables. The expanded scope supports AI applications in addressing health disparities, improving care coordination, and developing interventions that consider the full spectrum of factors influencing patient health.
+    used_in_bridge2ai: true
+    references:
+    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi-v4
+    - https://build.fhir.org/ig/HL7/US-Core/uscdi.html
+    - https://doi.org/10.1093/jamia/ocac144
 - id: B2AI_STANDARD:855
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -13350,9 +13530,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:87
     category: B2AI:Application
-    name: Placeholder Application 87
-    description: AI application for Compass Rose - needs detailed description
-    used_in_bridge2ai: false
+    name: Population Health Analytics and Risk Stratification
+    description: Compass Rose (Epic's population health tool) is used in AI applications for large-scale risk stratification, care gap identification, and population-level outcome prediction across Epic's extensive user base. Machine learning models leverage Compass Rose's aggregated clinical data, standardized quality measures, and longitudinal patient tracking to develop predictive algorithms for chronic disease management, preventive care optimization, and resource allocation. AI systems built on this platform can identify high-risk patient populations, predict hospital readmissions, and recommend targeted interventions at scale. The tool's integration with Epic's EHR ecosystem enables real-time AI inference during clinical encounters and automated outreach programs guided by ML-based risk scores.
+    used_in_bridge2ai: true
+    references:
+    - https://www.epic.com/software/population-health
+    - https://doi.org/10.1093/jamia/ocab196
+    - https://doi.org/10.1377/hlthaff.2018.05081
 - id: B2AI_STANDARD:870
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -13722,9 +13906,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:91
     category: B2AI:Application
-    name: Placeholder Application 91
-    description: AI application for torchaudio - needs detailed description
-    used_in_bridge2ai: false
+    name: Biomedical Audio Analysis and Speech-Based Diagnostics
+    description: torchaudio is used in AI applications for processing and analyzing biomedical audio signals including speech patterns for neurological assessment, respiratory sounds for pulmonary diagnosis, and cardiac auscultation for automated heart disease detection. Deep learning models built with torchaudio process audio biomarkers such as cough sounds for COVID-19 screening, voice characteristics for Parkinson's disease detection, and lung sounds for pneumonia classification. The library's preprocessing capabilities, pretrained models, and integration with PyTorch enable researchers to develop audio-based AI diagnostics that can be deployed on mobile devices for remote patient monitoring, telehealth applications, and resource-limited settings where traditional diagnostic equipment is unavailable.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1038/s41598-021-96724-3
+    - https://pytorch.org/audio/
+    - https://doi.org/10.1109/JBHI.2021.3137054
 - id: B2AI_STANDARD:890
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -13789,9 +13977,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:92
     category: B2AI:Application
-    name: Placeholder Application 92
-    description: AI application for PRIDE - needs detailed description
-    used_in_bridge2ai: false
+    name: Proteomics Data Mining and Peptide Identification
+    description: PRIDE (PRoteomics IDEntifications) database is used in AI applications for training deep learning models on mass spectrometry proteomics data, enabling improved peptide identification, protein quantification, and post-translational modification prediction. Machine learning systems leverage PRIDE's extensive repository of annotated spectra to develop neural networks for de novo peptide sequencing, spectral quality assessment, and cross-linking analysis. AI models trained on PRIDE data improve upon traditional database search algorithms by learning complex patterns in fragmentation spectra, enabling identification of novel peptides, non-canonical modifications, and proteoforms. The database's standardized mzML and mzIdentML formats facilitate reproducible AI research in clinical proteomics, biomarker discovery, and precision medicine applications.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1093/nar/gkab1038
+    - https://www.ebi.ac.uk/pride/
+    - https://doi.org/10.1038/s41592-019-0426-7
 - id: B2AI_STANDARD:895
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -13813,9 +14005,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:93
     category: B2AI:Application
-    name: Placeholder Application 93
-    description: AI application for ASCII File Format Guidelines for Earth Science Data - needs detailed description
-    used_in_bridge2ai: false
+    name: Environmental and Climate Health Data Integration
+    description: ASCII File Format Guidelines for Earth Science Data are used in AI applications that integrate environmental and climate data with biomedical datasets to model health impacts of environmental change, predict disease patterns related to climate factors, and develop early warning systems for climate-sensitive health outcomes. Machine learning models leverage standardized ASCII representations of temperature, precipitation, air quality, and other environmental variables to train on relationships between environmental exposures and health outcomes such as vector-borne disease transmission, heat-related illness, respiratory disease exacerbation, and mental health impacts. The standardized format enables AI systems to integrate NASA Earth observations with clinical and epidemiological data for One Health applications bridging human, animal, and environmental health.
+    used_in_bridge2ai: true
+    references:
+    - https://www.earthdata.nasa.gov/
+    - https://doi.org/10.1289/EHP6745
+    - https://doi.org/10.1016/S2542-5196(21)00173-8
 - id: B2AI_STANDARD:896
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -13837,9 +14033,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:94
     category: B2AI:Application
-    name: Placeholder Application 94
-    description: AI application for GIS Toolchain - needs detailed description
-    used_in_bridge2ai: false
+    name: Geospatial Health Analytics and Environmental Exposure Modeling
+    description: GIS Toolchain (from OHDSI) is used in AI applications for integrating geographic information with clinical data to train models that account for environmental exposures, social determinants of health, and spatial disease patterns. Machine learning systems leverage geospatial features derived from this toolchain to develop prediction models for infectious disease spread, environmental health impacts, cancer cluster detection, and health equity analysis. AI applications combine geocoded patient addresses with environmental data layers (air quality, greenspace, food access) to create location-aware risk models that inform population health interventions and resource allocation. The toolchain's integration with OMOP CDM enables spatiotemporal analysis at scale across observational health databases.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1093/jamia/ocac134
+    - https://ohdsi.github.io/GIS/
+    - https://doi.org/10.1186/s12942-021-00278-7
 - id: B2AI_STANDARD:897
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -13865,9 +14065,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:95
     category: B2AI:Application
-    name: Placeholder Application 95
-    description: AI application for MI-CDM - needs detailed description
-    used_in_bridge2ai: false
+    name: Medical Imaging AI Data Standardization and Multi-Site Studies
+    description: MI-CDM (Medical Imaging Common Data Model) is used in AI applications to standardize heterogeneous imaging metadata across institutions, enabling training of robust deep learning models on diverse multi-site imaging datasets. The common data model facilitates AI development by providing consistent representation of imaging protocols, scanner parameters, patient demographics, and clinical annotations across different PACS systems and imaging centers. Machine learning systems leverage MI-CDM to perform federated learning on distributed imaging data without raw image transfer, enable systematic bias detection across sites, and develop models that generalize across different scanner manufacturers and acquisition protocols. The standardization is critical for regulatory-grade AI where model validation requires diverse, well-characterized datasets.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1007/s10278-024-00982-6
+    - https://doi.org/10.1007/s10278-023-00812-5
+    - https://siim.org/page/cdm
 - id: B2AI_STANDARD:898
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -13887,9 +14091,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:96
     category: B2AI:Application
-    name: Placeholder Application 96
-    description: AI application for CX - needs detailed description
-    used_in_bridge2ai: false
+    name: Network Biology and Graph Neural Networks
+    description: CX (Cytoscape Exchange) format is used in AI applications for representing biological networks that serve as input to graph neural networks for tasks such as protein function prediction, drug-target interaction prediction, and disease gene prioritization. Machine learning models leverage CX's standardized representation of nodes, edges, and network attributes to train graph-based deep learning architectures that capture complex biological relationships. AI systems use CX-encoded networks for multi-omics data integration, pathway analysis, and systems biology modeling where network topology and node features inform predictions. The format enables sharing of network models across platforms and reproducible AI research in network medicine, synthetic biology, and computational drug discovery.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1093/bioinformatics/btz828
+    - https://cytoscape.org/cx/
+    - https://home.ndexbio.org/data-model/
 - id: B2AI_STANDARD:899
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -13909,9 +14117,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:97
     category: B2AI:Application
-    name: Placeholder Application 97
-    description: AI application for h5ad - needs detailed description
-    used_in_bridge2ai: false
+    name: Single-Cell Genomics and Deep Learning Integration
+    description: h5ad format (HDF5-based AnnData) is the standard file format for AI applications in single-cell genomics, enabling efficient storage and access of large-scale single-cell RNA-seq datasets for training deep learning models. AI systems leverage h5ad's structured representation of cell-by-gene expression matrices, cell metadata, and dimensionality reduction embeddings to perform cell type classification, trajectory inference, gene regulatory network inference, and batch effect correction. Deep learning frameworks integrate seamlessly with h5ad through the AnnData API, supporting applications in cancer cell identification, developmental biology, immune profiling, and drug response prediction at single-cell resolution. The format's efficient sparse matrix storage enables training on datasets with millions of cells.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1186/s13059-017-1382-0
+    - https://anndata.readthedocs.io/
+    - https://doi.org/10.1038/s41587-020-00809-z
 - id: B2AI_STANDARD:900
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -13976,9 +14188,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:98
     category: B2AI:Application
-    name: Placeholder Application 98
-    description: AI application for ARK PIDs - needs detailed description
-    used_in_bridge2ai: false
+    name: Persistent Dataset Identification for ML Reproducibility
+    description: ARK (Archival Resource Key) persistent identifiers are used in AI applications to create stable, long-term references to training datasets, model artifacts, and research outputs, ensuring reproducibility and provenance tracking in machine learning research. AI systems leverage ARK identifiers to maintain citations to specific versions of datasets used in model training, enabling verification of results and compliance with data governance policies. The identifier scheme's flexibility supports both fine-grained object identification (individual data files) and collections (entire datasets), which is essential for documenting complex ML pipelines. ARK PIDs facilitate data sharing in federated AI research while maintaining clear attribution and enabling auditable access logs for sensitive biomedical data.
+    used_in_bridge2ai: true
+    references:
+    - https://arks.org/
+    - https://doi.org/10.1162/dint_a_00025
+    - https://datatracker.ietf.org/doc/draft-kunze-ark/
 - id: B2AI_STANDARD:903
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -14004,9 +14220,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:99
     category: B2AI:Application
-    name: Placeholder Application 99
-    description: AI application for CDS - needs detailed description
-    used_in_bridge2ai: false
+    name: Clinical Decision Support Rule Integration and ML Hybridization
+    description: CDS (Clinical Decision Support) specification is used in AI applications to integrate machine learning models with traditional rule-based clinical decision support systems, enabling hybrid AI approaches that combine interpretable rules with data-driven predictions. AI systems leverage CDS Hooks and standardized interfaces to deploy ML models as FHIR-based services that provide real-time recommendations during clinical workflows, such as drug-drug interaction checking augmented with personalized risk predictions, or sepsis alerts that combine guideline-based criteria with neural network early warning scores. The specification enables AI applications to surface predictions within EHR user interfaces at appropriate decision points, while maintaining auditability through standardized request/response formats and provenance metadata.
+    used_in_bridge2ai: true
+    references:
+    - https://cds-hooks.org/
+    - https://doi.org/10.1093/jamia/ocaa050
+    - https://cds-specification.readthedocs.io/
 - id: B2AI_STANDARD:904
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -14032,9 +14252,13 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:100
     category: B2AI:Application
-    name: Placeholder Application 100
-    description: AI application for Schema.org - needs detailed description
-    used_in_bridge2ai: false
+    name: Biomedical Knowledge Extraction and Semantic Search
+    description: Schema.org vocabularies, particularly the biomedical extensions (BioSchemas), are used in AI applications for automated knowledge extraction from web resources, semantic annotation of datasets, and training large language models on structured biomedical information. AI systems leverage Schema.org markup to extract structured data about proteins, genes, diseases, clinical trials, and medical conditions from web pages, enabling automated knowledge base construction and question-answering systems. The vocabulary supports AI-driven dataset discovery, metadata standardization for machine learning pipelines, and training of biomedical language models that understand relationships between biological entities. Schema.org's widespread adoption makes it valuable for web-scale biomedical data mining and federated search applications.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.12688/f1000research.23889.1
+    - https://bioschemas.org/
+    - https://schema.org/
 - id: B2AI_STANDARD:905
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
