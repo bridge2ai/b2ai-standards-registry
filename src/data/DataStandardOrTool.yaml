@@ -77,23 +77,42 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:1
     category: B2AI:Application
-    name: Biodiversity Data Mining and Species Distribution Modeling
-    description: ABCD (Access to Biological Collections Data) schema is used in AI
-      applications for aggregating and analyzing biological specimen data across museums
-      and collections, enabling machine learning models for species distribution prediction,
-      biodiversity assessment, and ecological niche modeling. AI systems leverage
-      ABCD's standardized representation of specimen observations, collection details,
-      and taxonomic information to train models that predict species occurrence patterns,
-      identify collection gaps, and support conservation planning. The schema enables
-      large-scale biodiversity informatics projects where machine learning helps digitize
-      and quality-check specimen records, link specimens across collections, and extract
-      trait information from labels. Applications include automated species identification
-      from specimen images and integration of biological collections data with environmental
-      datasets for ecological AI.
+    name: DiSSCo Digital Specimen Architecture AI-Assisted Curation
+    description: The Digital Specimen Architecture uses FAIR Digital Object type descriptions
+      based on TDWG standards including ABCD. This enables registered AI services
+      to automatically discover digital specimens, execute allowed actions, and attach
+      machine-readable annotations such as automated extraction from images, relation
+      creation for knowledge graphs, and standardization or correction. ABCD defines
+      the object structure and attributes in the FDO, allowing AI services to operate
+      uniformly across collections and propagate outputs to aggregators such as GBIF
+      and GeoCASe.
     used_in_bridge2ai: false
     references:
-    - https://doi.org/10.1186/1471-2105-11-S12-S5
-    - https://www.tdwg.org/standards/abcd/
+    - https://doi.org/10.3897/biss.7.112678
+  - id: B2AI_APP:102
+    category: B2AI:Application
+    name: Hespi Computer Vision and OCR Pipeline for Herbarium Sheets
+    description: Hespi integrates object detection, OCR and handwriting recognition,
+      and a multimodal LLM for post-processing and authority control in herbarium
+      digitization. The pipeline explicitly situates digitization within community
+      standards, citing ABCD alongside Darwin Core. Extracted fields from labels and
+      sheet components are mapped to ABCD and DwC fields to produce interoperable
+      records consumable by downstream AI and analytics systems.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.48550/arxiv.2410.08740
+  - id: B2AI_APP:103
+    category: B2AI:Application
+    name: ML-Ready Benchmark Datasets via ABCD Standardization
+    description: Work on improving transcribed digital specimen data highlights ABCD
+      and Darwin Core as the target schema for interoperable outputs and schema-based
+      annotation systems such as AnnoSys. This ecosystem underpins ML-ready benchmark
+      datasets for herbarium images and semi-automated workflows for data cleaning
+      and georeferencing, facilitating training and evaluation of computer vision
+      and NLP models while keeping outputs in ABCD and DwC formats for data exchange.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/database/baz129
 - id: B2AI_STANDARD:4
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
