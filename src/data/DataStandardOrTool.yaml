@@ -2917,8 +2917,21 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: DICOM
-  purpose_detail: Radiology imaging, including templates for narrative reports and
-    machine-generated output.
+  purpose_detail: Digital Imaging and Communications in Medicine (DICOM) is the international
+    standard for medical imaging information and related data. DICOM defines the
+    formats and communication protocols for medical images (CT, MRI, ultrasound, X-ray,
+    etc.) and associated metadata including patient demographics, study information,
+    equipment parameters, and image acquisition details. The standard encompasses
+    file formats, network protocols, and information models that enable interoperability
+    across imaging devices, PACS (Picture Archiving and Communication Systems), workstations,
+    and clinical information systems. DICOM supports structured reporting through
+    DICOM-SR for encoding measurements, annotations, and AI-generated findings in
+    a standardized machine-readable format. The standard includes specialized modules
+    for radiation dose tracking, workflow management, and integration of AI inference
+    results. DICOM's comprehensive metadata structure and pixel data encoding make
+    it essential for training and deploying AI models in medical imaging, while its
+    widespread clinical adoption ensures that AI tools can integrate seamlessly into
+    existing radiological workflows and health IT infrastructure.
   related_to:
   - B2AI_STANDARD:691
   requires_registration: false
@@ -2929,22 +2942,135 @@ data_standardortools_collection:
   has_application:
   - id: B2AI_APP:33
     category: B2AI:Application
-    name: Medical Image Analysis and Computer-Aided Diagnosis
-    description: DICOM is the fundamental standard for AI applications in medical
-      imaging, enabling deep learning models for image classification, segmentation,
-      detection, and diagnosis across radiology, pathology, and other imaging modalities.
-      AI systems leverage DICOM's standardized format to train convolutional neural
-      networks for tasks such as tumor detection, organ segmentation, lesion characterization,
-      and quantitative imaging biomarker extraction. DICOM's metadata structure provides
-      essential clinical context (patient demographics, acquisition parameters, anatomical
-      location) that enhances AI model performance and enables integration of AI inference
-      results back into clinical PACS systems through DICOM Structured Reports and
-      DICOM-SR AI annotations.
+    name: NCI Imaging Data Commons FAIR Dataset Harmonization for ML Training
+    description: The NCI Imaging Data Commons uses DICOM to harmonize large-scale
+      public imaging collections with AI-derived annotations, supporting transparent
+      cohort selection and reproducible ML development. IDC encodes images and derived
+      artifacts (volumetric segmentations, slice-level annotations, radiomics features)
+      consistently using DICOM Segmentation objects and Structured Reports, enabling
+      FAIR (findable, accessible, interoperable, reusable) datasets. Cloud-ready tools
+      and libraries including highdicom lower barriers for ML developers to produce
+      and consume DICOM-compliant training labels and outputs directly from Python
+      workflows, facilitating dataset quality control and reproducibility for AI model
+      development.
     used_in_bridge2ai: false
     references:
-    - https://doi.org/10.1007/s10278-019-00286-8
-    - https://doi.org/10.1148/radiol.2020192224
-    - https://www.dicomstandard.org/using/ai
+    - https://doi.org/10.1038/s41597-023-02864-y
+  - id: B2AI_APP:119
+    category: B2AI:Application
+    name: DICOM Segmentation and Structured Report Encoding for Supervised Learning
+      Labels
+    description: Research datasets are re-encoded into DICOM annotation objects to
+      make labels directly consumable by ML pipelines. LIDC-IDRI lung nodule annotations
+      were converted to DICOM Segmentation (SEG) objects and DICOM Structured Reports
+      following template TID1500, providing interoperable nodular masks and qualitative/quantitative
+      assessments. Disease-specific datasets like HCC-TACE distribute DICOM-SEG tumor/liver
+      labels for algorithm training and evaluation. DICOM-SEG metadata tags capture
+      algorithm provenance (Segment algorithm type, Segmentation type) essential for
+      data curation, reproducibility, and supervised ML workflows, while software
+      stacks (DCMTK, ITK, dcmqi, pydicom-seg) enable conversion and pipeline integration.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/s13244-021-01081-8
+  - id: B2AI_APP:120
+    category: B2AI:Application
+    name: Vendor-Agnostic PACS-Integrated Shadow Testing Pipeline for Near-Real-Time
+      Segmentation
+    description: A containerized, DICOM-compatible pipeline integrates PACS with ML
+      inference for near-real-time clinical shadow testing of segmentation algorithms.
+      PACS sends studies via classic DICOM services (C-STORE/C-FIND/C-MOVE) to an
+      on-premises GPU host that performs nnU-Net inference and converts results to
+      DICOM Segmentation objects and Structured Reports encoding volumetry. Results
+      are stored in a DCM4CHEE archive and visualized in OHIF web viewer, enabling
+      clinical evaluation, human-in-the-loop corrections, and dataset curation. This
+      demonstrates concrete PACS-to-inference-to-reporting workflows using established
+      DICOM network protocols for AI integration into radiology operations.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3389/fmed.2023.1241570
+  - id: B2AI_APP:121
+    category: B2AI:Application
+    name: DICOM Structured Report TID1500 for Machine-Readable AI Results and Radiomics
+    description: Quantitative AI outputs including radiomics features and imaging
+      biomarkers are standardized via DICOM Structured Report template TID1500 measurement
+      reports, providing machine-readable, auditable AI results that facilitate downstream
+      research and clinical decision support. DICOM SR encodes semantic measurements
+      with standardized format and lexicon, acting as a big-data container for multimodal
+      patient data integration. DICOM Parametric Map IODs preserve derived pixelwise
+      feature maps (kurtosis, texture) as DICOM objects for reproducible feature extraction.
+      Integration guidance from standards bodies emphasizes encoding AI outputs into
+      SR to scale deployment across vendors and sites.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/s13244-021-01081-8
+    - https://doi.org/10.1117/1.jmi.7.1.016502
+  - id: B2AI_APP:122
+    category: B2AI:Application
+    name: DICOMweb RESTful Services for Scalable Cloud and Web-Based ML Pipelines
+    description: DICOMweb RESTful services (WADO-RS, QIDO-RS, STOW-RS) connect external
+      ML applications and viewers to enterprise archives over HTTP, enabling scalable
+      web and cloud AI pipelines. DICOMweb client APIs allow external apps to retrieve,
+      query, and store DICOM objects without classic DIMSE protocols, facilitating
+      integration with modern web architectures. Frameworks stream DICOM and metadata
+      from hospital PACS into research compute clusters to power real-time ML and
+      operational analytics. Examples include Niffler for PACS-to-research pipelines
+      with metadata extraction and ML analytics, and EMPAIA decentralized platform
+      for running third-party AI on DICOM data at scale.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1016/j.cmpb.2024.108113
+  - id: B2AI_APP:123
+    category: B2AI:Application
+    name: DICOM-WSI and DICOMweb for Computational Pathology ML Development
+    description: DICOM Whole Slide Imaging (DICOM-WSI) and DICOMweb enable interoperable
+      storage, visualization, and annotation of whole-slide images in web viewers
+      for computational pathology. These standards support collecting standardized
+      annotations and displaying AI inference outputs including segmentation masks,
+      heat maps, and image-derived measurements within the DICOM ecosystem. DICOM-WSI
+      brings pathology images into uniform DICOM workflows to facilitate ML model
+      development and validation, while web viewers (e.g., Visilab Viewer) provide
+      platforms for annotating training data and reviewing AI results in digital pathology
+      contexts.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41597-023-02864-y
+    - https://doi.org/10.1016/j.cmpb.2024.108113
+  - id: B2AI_APP:124
+    category: B2AI:Application
+    name: IODeep Proposed IOD for DNN Model Management and Federated Learning in
+      PACS
+    description: The proposed IODeep DICOM Information Object Definition stores deep
+      neural network architectures and weights inside PACS as non-patient objects,
+      enabling model selection via DICOM tag metadata (modality, anatomical region,
+      disease). Inference runs client-side or on dedicated servers proximal to viewers,
+      with predicted ROIs saved as RT Structure Sets for physician validation and
+      retraining. IODeep supports model lifecycle management including fine-tuning
+      with hospital data and federated learning scenarios by sharing model metadata
+      without moving patient data. The design uses Unlimited Text VR for JSON architecture
+      descriptions and weight URIs, with parsers for TensorFlow/PyTorch instantiation,
+      demonstrating an emerging pattern for managing AI models within DICOM-compliant
+      workflows.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1016/j.cmpb.2024.108113
+  - id: B2AI_APP:125
+    category: B2AI:Application
+    name: DICOM GSPS and RT Structure Sets for AI Annotation Presentation and Clinical
+      Feedback
+    description: DICOM Grayscale Softcopy Presentation State (GSPS) ensures consistent
+      overlay and display of AI annotations across workstations, while RT Structure
+      Set (RTSS) objects store physician-validated contours after AI suggestion, supporting
+      clinical quality assurance and retraining workflows. RTSS is widely supported
+      for storing ROI contours and labels for model training, enabling human-in-the-loop
+      correction loops where radiologists review AI predictions, validate or correct
+      them, and create ground-truth datasets. Integration of CAD results into PACS
+      using DICOM SR and GSPS, combined with DICOM routers for communication and correction,
+      supports maturity levels from investigational AI display through continuously
+      updated deployed models driven by radiologist interactions.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1117/1.jmi.7.1.016502
+    - https://doi.org/10.1016/j.cmpb.2024.108113
 - id: B2AI_STANDARD:99
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -3199,7 +3325,6 @@ data_standardortools_collection:
     references:
     - https://doi.org/10.1093/jamia/ocaa284
     - https://doi.org/10.2196/38861
-    - https://www.hl7.org/fhir/clinicalreasoning-module.html
 - id: B2AI_STANDARD:110
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -3703,9 +3828,6 @@ data_standardortools_collection:
       protocol generation, prediction of experimental outcomes based on design parameters,
       and workflow recommendation systems for genomics laboratories.
     used_in_bridge2ai: false
-    references:
-    - https://www.ebi.ac.uk/fg/fuge/
-    - https://sourceforge.net/projects/fugeflow/
 - id: B2AI_STANDARD:129
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5038,10 +5160,6 @@ data_standardortools_collection:
       federated learning applications where AI models must understand lab results
       consistently across institutions.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1093/jamia/ocaa133
-    - https://doi.org/10.1136/amiajnl-2013-002224
-    - https://loinc.org/
 - id: B2AI_STANDARD:188
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5223,9 +5341,6 @@ data_standardortools_collection:
       monitoring networks. The standard enables large-scale machine learning on marine
       environmental data by ensuring dataset discoverability and contextual understanding.
     used_in_bridge2ai: false
-    references:
-    - https://www.medin.org.uk/
-    - https://doi.org/10.1080/17538947.2019.1585976
 - id: B2AI_STANDARD:196
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -5395,10 +5510,6 @@ data_standardortools_collection:
       applications. AI systems use WFDB for real-time signal processing in ICU monitoring,
       wearable cardiac devices, and telemedicine platforms.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.1161/CIRCEP.120.009056
-    - https://doi.org/10.1038/s41591-020-0791-x
-    - https://physionet.org/content/challenge-2021/
 - id: B2AI_STANDARD:203
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -6003,10 +6114,6 @@ data_standardortools_collection:
       scientometric analyses and AI-driven research prioritization based on historical
       project outcomes and resource allocation.
     used_in_bridge2ai: false
-    references:
-    - https://www.ncbi.nlm.nih.gov/bioproject/
-    - https://www.ncbi.nlm.nih.gov/data_specs/schema/bioproject/
-    - https://doi.org/10.1093/nar/gkac1052
 - id: B2AI_STANDARD:229
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -6128,9 +6235,6 @@ data_standardortools_collection:
       learning systems to understand the complete analytical context of neuroimaging
       results, improving reproducibility and meta-analytic power.
     used_in_bridge2ai: false
-    references:
-    - https://doi.org/10.3389/fninf.2016.00048
-    - https://github.com/incf-nidash/nidm
 - id: B2AI_STANDARD:233
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
