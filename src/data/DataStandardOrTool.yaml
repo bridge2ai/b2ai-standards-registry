@@ -11265,7 +11265,26 @@ data_standardortools_collection:
   is_open: true
   name: CL
   publication: doi:10.1186/s13326-016-0088-7
-  purpose_detail: Cell Types
+  purpose_detail: The Cell Ontology (CL) is an OBO Foundry ontology covering biological
+    cell types with curation focused on animal cell types and interoperability with
+    specialized cell type ontologies in other biological domains. CL is tightly integrated
+    with the Uberon multi-species anatomy ontology (for recording cell location) and
+    the Gene Ontology (GO, which uses CL as its main cell type reference and provides
+    cell function annotations). Built on FAIR principles, CL enables community-driven
+    curation with active embedded editors from multiple projects responsive on the
+    issue tracker. The ontology is released in multiple standard formats (OWL/RDF/XML,
+    OBO, JSON obographs) with multiple variants: full (all imports merged, reasoner-classified),
+    base (not pre-reasoned, only CL axioms including non-CL class references), and
+    simple (pre-reasoned, CL classes only), all with resolvable version IRIs for persistent
+    access. CL is integrated into standard tools including Ubergraph (for logical
+    queries like finding cells by location), Ontology Access Kit (OAK), and major
+    browsers (OLS, Ontobee). The ontology supports major initiatives including BICCN
+    cell type knowledge explorer, HubMap Human Reference Atlas, ENCODE, FANTOM5, Single
+    Cell Expression Atlas, Human Cell Atlas, and CellKB. CL enables AI/ML applications
+    including OnClass for automatic cell type classification, Brain Data Standards
+    Ontology (BDSO) for cell type navigation and search, and provides standardized
+    cell type annotations essential for single-cell omics machine learning, cross-dataset
+    integration, and cell type discovery algorithms.
   requires_registration: false
   url: https://cell-ontology.github.io/
 - id: B2AI_STANDARD:417
@@ -11303,7 +11322,22 @@ data_standardortools_collection:
   is_open: true
   name: CHEBI
   publication: doi:10.1093/nar/gkv1031
-  purpose_detail: Chemicals
+  purpose_detail: ChEBI is an open-access OBO Foundry database and ontology of chemical
+    entities covering constitutionally or isotopically distinct atoms, molecules,
+    ions, ion pairs, radicals, complexes, conformers, groups, chemical substances,
+    and classes of molecular entities. The database contains over 195,000 entries
+    of naturally occurring molecules or synthetic compounds used to intervene in biological
+    processes, with macromolecules directly encoded by genomes (nucleic acids, proteins,
+    peptides) excluded. ChEBI incorporates ontological classification defining relationships
+    between chemical entities and their parent/child classes, enabling queries based
+    on chemical class and role. The database provides comprehensive information including
+    nomenclature following IUPAC and NC-IUBMB standards, molecular formulas, InChI
+    and SMILES identifiers, literature citations, cross-references to other databases,
+    and species data. ChEBI supports text and structure searches and is released in
+    multiple formats (SDF, OBO, OWL, flat file, SQL dumps). As an ELIXIR Core Data
+    Resource and Global Core Biodata Resource, ChEBI enables AI/ML applications in
+    cheminformatics, drug discovery, metabolomics, systems biology, and chemical-phenotype
+    association studies.
   requires_registration: false
   url: https://www.ebi.ac.uk/chebi/
 - id: B2AI_STANDARD:419
@@ -12026,7 +12060,25 @@ data_standardortools_collection:
   - B2AI_ORG:58
   is_open: true
   name: GENO
-  purpose_detail: Genotypes
+  purpose_detail: GENO is an OWL2 OBO Foundry ontology representing levels of genetic
+    variation specified in genotypes to support genotype-to-phenotype (G2P) data aggregation
+    and analysis across diverse research communities and sources. The core model is
+    a graph decomposing genotypes into smaller components of variation, from complete
+    genotypes specifying sequence variation across entire genomes down to specific
+    allelic variants and sequence alterations. This partonomy structure enables integrated
+    analysis of G2P data where phenotype annotations are made at different granularity
+    levels. GENO describes genotype attributes including zygosity, genomic position,
+    expression, dominance, and functional dependencies or consequences of variants.
+    Beyond heritable genomic sequence variation, GENO represents transient variation
+    in gene expression from knockdown reagents or overexpression constructs, representing
+    this variation in terms of targeted genes to parallel sequence variation representation.
+    GENO models G2P associations focusing on genotype-phenotype-environment interplay
+    and uses the Scientific Evidence and Provenance Information Ontology (SEPIO) for
+    provenance and experimental evidence. The ontology is orthogonal to but integrates
+    with the Sequence Ontology (SO), Human Phenotype Ontology (HPO), Feature Annotation
+    Location Description Ontology (FALDO), and Variation Ontology (VariO), supporting
+    AI/ML applications in variant effect prediction, phenotype association analysis,
+    and precision medicine.
   requires_registration: false
   url: https://github.com/monarch-initiative/GENO-ontology
 - id: B2AI_STANDARD:458
@@ -12709,7 +12761,23 @@ data_standardortools_collection:
   is_open: true
   name: MONDO
   publication: doi:10.1093/nar/gkw1128
-  purpose_detail: Diseases
+  purpose_detail: MONDO is an OBO Foundry ontology providing a unified disease terminology
+    that harmonizes disease definitions across multiple resources including HPO,
+    OMIM, SNOMED CT, ICD, ORDO, DO, MedGen, GARD, and others. It addresses the proliferation
+    of inconsistent disease mappings by providing logic-based structure with precise
+    1:1 equivalence axioms connecting to other resources, validated by OWL reasoning.
+    MONDO contains over 25,880 diseases including 22,919 human diseases (4,727 cancers,
+    1,074 infectious diseases, 11,601 Mendelian diseases, 15,857 rare diseases) and
+    2,960 non-human diseases, with 129,785 database cross-references and 108,076
+    synonyms (exact, narrow, broad, and related). The ontology provides hierarchical
+    classification for disease grouping and "rolling up" and uses precise semantic
+    annotations for each mapping rather than loose cross-references. MONDO is released
+    in three formats: mondo-with-equivalents.owl (with OWL equivalence axioms and
+    inter-ontology axiomatization using CL, Uberon, GO, HP, RO, NCBITaxon), mondo.obo
+    (simplified with xrefs), and mondo-with-equivalents.json. Coordinated with the
+    Human Phenotype Ontology (HPO) which describes phenotypic features, MONDO supports
+    AI/ML applications in disease classification, phenotype-disease association, rare
+    disease diagnosis, and cross-resource knowledge integration.
   requires_registration: false
   url: https://mondo.monarchinitiative.org/
 - id: B2AI_STANDARD:496
@@ -13904,7 +13972,20 @@ data_standardortools_collection:
   is_open: true
   name: UBERON
   publication: doi:10.1186/gb-2012-13-1-r5
-  purpose_detail: Anatomy
+  purpose_detail: UBERON is an OBO Foundry ontology providing an integrated cross-species
+    anatomy ontology covering anatomical structures in animals, with a focus on multi-species
+    interoperability. The ontology enables semantic annotation of anatomical entities
+    across diverse species, supporting comparative anatomy research, phenotype studies,
+    and integration with specialized anatomies. UBERON is tightly integrated with
+    the Gene Ontology (GO) and the Cell Ontology (CL), using formal ontology design
+    patterns to represent anatomical locations and relationships. It follows FAIR
+    principles and is released in standard formats (OWL, OBO, JSON obographs) with
+    resolvable version IRIs. UBERON is integrated into standard tools including Ubergraph
+    for logical queries (e.g., finding cell types by location), the Ontology Access
+    Kit (OAK), and major browsers (OLS, Ontobee, BioPortal). The ontology supports
+    AI/ML applications by providing standardized anatomical annotations for training
+    data across species and enabling cross-species knowledge transfer in biomedical
+    machine learning models.
   requires_registration: false
   url: https://obophenotype.github.io/uberon/
 - id: B2AI_STANDARD:564
@@ -14443,7 +14524,27 @@ data_standardortools_collection:
   is_open: true
   name: OBO Foundry
   publication: doi:10.1093/database/baab069
-  purpose_detail: Ontologies.
+  purpose_detail: The OBO Foundry is a collaborative community initiative for developing
+    interoperable ontologies for the biological and biomedical sciences. It establishes
+    and maintains a set of principles for ontology development to ensure quality,
+    consistency, and interoperability across its library of domain ontologies. The
+    OBO Foundry principles address key requirements including open availability, common
+    syntax and semantics, clearly defined scope and content, use of well-documented
+    collaborative procedures, orthogonality with other ontologies, provision of unique
+    identifiers, and adherence to established naming conventions. The Foundry provides
+    comprehensive community resources including the OBO tutorial, ontology browsers
+    and tools, operations committees and working groups, and communication channels
+    (mailing list, Slack workspace). The OBO Library registry provides standardized
+    access to member ontologies in multiple formats (YAML, JSON-LD, RDF/Turtle) and
+    includes domain-specific ontologies covering anatomy (UBERON), cell types (CL),
+    diseases (MONDO), chemicals (ChEBI), genotypes (GENO), phenotypes (HPO), and many
+    others. The OBO Foundry infrastructure includes consistent use of permanent URLs
+    (PURLs), version control via GitHub, automated quality checks, and standardized
+    release workflows. By ensuring semantic interoperability through shared upper-level
+    ontologies and design patterns, OBO Foundry enables cross-domain data integration
+    essential for AI/ML applications in biomedical knowledge graphs, automated reasoning,
+    data harmonization, and multi-modal machine learning across diverse biological
+    datasets.
   requires_registration: false
   url: https://obofoundry.org/
 - id: B2AI_STANDARD:717
