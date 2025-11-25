@@ -10313,7 +10313,38 @@ data_standardortools_collection:
   description: Postscript Format
   is_open: true
   name: PS
-  purpose_detail: A page description language.
+  purpose_detail: PostScript (PS) is a Turing-complete, stack-based page description
+    language and programming language developed by Adobe Systems (John Warnock, Chuck
+    Geschke, Doug Brotz, Ed Taft, Bill Paxton) and released in 1984, revolutionizing
+    desktop publishing by providing device-independent representation of documents
+    combining text, vector graphics, and raster images. PostScript uses reverse Polish
+    notation and an interpreted execution model where documents are programs that,
+    when executed by a PostScript interpreter (Raster Image Processor or RIP), render
+    pages at the target device's resolution. The language describes graphics using
+    vector primitives (straight lines, cubic Bézier curves) enabling arbitrary scaling,
+    rotation, and transformation without quality loss, crucial for professional typography
+    and technical illustrations. PostScript's sophisticated font system uses outline
+    fonts with font hinting to maintain glyph quality at low resolutions, standardized
+    through Type 1, Type 2, and Type 3 font formats that influenced modern font technologies
+    like TrueType and OpenType. Three major versions exist: PostScript Level 1 (1984)
+    introducing basic page description capabilities, PostScript Level 2 (1991) adding
+    improved speed, image decompression (JPEG support), composite fonts, color separation,
+    and form caching, and PostScript 3 (1997) providing enhanced color handling with
+    up to 4096 gray levels, smooth shading operations, DeviceN color space for spot
+    colors, and better filtering. PostScript powered the Apple LaserWriter (1985),
+    triggering the desktop publishing revolution by enabling WYSIWYG document creation
+    on Macintosh with PageMaker software. The language became the de facto standard
+    for electronic prepress systems, high-end typesetters (Linotronic), and professional
+    printing workflows throughout the 1980s-1990s. PostScript's imaging model directly
+    influenced PDF (Portable Document Format), Adobe's 1993 successor that simplified
+    PostScript for document distribution by removing general-purpose programming features
+    while retaining the imaging model, making PDF documents static data structures
+    rather than executable programs. PostScript remains common in high-end printers,
+    professional publishing, and scientific visualization where precise vector graphics
+    control is required. Open-source implementations like Ghostscript enable PostScript
+    rendering on devices lacking native PostScript support. Scientific applications
+    include generation of publication-quality figures from computational analysis
+    software, precise technical diagrams, and device-independent archival documents.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/PostScript
 - id: B2AI_STANDARD:364
@@ -11510,7 +11541,38 @@ data_standardortools_collection:
   formal_specification: https://github.com/rsc-ontologies/rsc-cmo
   is_open: true
   name: CHMO
-  purpose_detail: A chemical methods ontology.
+  purpose_detail: The Chemical Methods Ontology (CHMO) provides a comprehensive,
+    standardized vocabulary for describing experimental methods, techniques, and instruments
+    used in chemical analysis, material synthesis, and sample preparation, maintained
+    by the Royal Society of Chemistry (RSC) and aligned with OBO Foundry principles.
+    CHMO encompasses three primary domains: analytical methods for data collection
+    (mass spectrometry including ESI-MS, MALDI-TOF, GC-MS, LC-MS; spectroscopic techniques
+    including NMR, IR, UV-Vis, Raman, X-ray spectroscopy; electron microscopy including
+    SEM, TEM, STEM; and diffraction methods), separation and sample preparation techniques
+    (chromatography including HPLC, GC, TLC, size-exclusion, affinity, ion-exchange;
+    electrophoresis including SDS-PAGE, capillary electrophoresis, isoelectric focusing;
+    sample ionization methods including electrospray, MALDI, electron impact; and
+    extraction procedures), and material synthesis methods (chemical vapor deposition,
+    epitaxy, sol-gel processes, crystallization, polymerization, and nanoparticle
+    synthesis). The ontology also describes instruments and equipment (mass spectrometers,
+    chromatography columns, detectors, vacuum systems, heating/cooling apparatus)
+    and their components, operational parameters (temperature, pressure, flow rate,
+    voltage, resolution), and measurement outputs (spectra, chromatograms, diffraction
+    patterns, images). CHMO integrates with OBI (Ontology for Biomedical Investigations)
+    for process and measurement concepts, CHEBI (Chemical Entities of Biological Interest)
+    for chemical substances, and other OBO ontologies for cross-domain applications
+    in metabolomics, proteomics, and materials science. The ontology provides both
+    textual and formal OWL definitions enabling automated reasoning, classification
+    of methods by input material types, conditions of application, and output data
+    formats. CHMO supports reproducibility in chemical research by standardizing method
+    descriptions in electronic laboratory notebooks, method sections of publications,
+    protocols repositories, and analytical chemistry databases. Applications include
+    semantic search for analytical protocols, automated method selection based on
+    sample properties, FAIRification of chemical data workflows, text mining of chemical
+    literature for method extraction, and quality control in analytical laboratories.
+    The ontology is developed using the Ontology Development Kit (ODK) and distributed
+    under CC-BY-4.0 license, with releases available in OBO, OWL, and JSON formats
+    through http://purl.obolibrary.org/obo/chmo.owl.
   requires_registration: false
   url: https://github.com/rsc-ontologies/rsc-cmo
 - id: B2AI_STANDARD:421
@@ -12197,7 +12259,37 @@ data_standardortools_collection:
   formal_specification: https://github.com/IHCC-cohorts/GECKO
   is_open: true
   name: GECKO
-  purpose_detail: Genomics cohort attributes.
+  purpose_detail: The Genomics Cohorts Knowledge Ontology (GECKO) provides a standardized
+    vocabulary for describing attributes of genomics cohorts and individual-level
+    data in population-based research studies. Developed by the CINECA (Common Infrastructure
+    for National Cohorts in Europe, Canada, and Africa) project and maintained for
+    the International HundredK+ Cohorts Consortium (IHCC), GECKO enables harmonized
+    representation of cohort metadata across diverse genomics studies, biobanks, and
+    research consortia. The ontology encompasses five major categories: cohort design
+    characteristics (prospective/retrospective, longitudinal/cross-sectional, case-control,
+    family-based), participant demographics and socioeconomic attributes, phenotypic
+    data collection methods (questionnaires, clinical assessments, biospecimen types),
+    genomics data types (whole genome sequencing, exome sequencing, genome-wide association
+    studies, RNA-seq, methylation arrays), and data access policies with consent frameworks.
+    GECKO standardizes terminology for cohort recruitment strategies, inclusion/exclusion
+    criteria, sample sizes, age ranges, ancestry populations, geographic locations,
+    and follow-up durations critical for cohort discovery and meta-analysis planning.
+    The ontology integrates with other OBO Foundry ontologies including BFO (Basic
+    Formal Ontology) as top-level and OBI (Ontology for Biomedical Investigations)
+    as mid-level, ensuring semantic interoperability. GECKO provides two products:
+    the OBO-compliant gecko.owl for formal ontology applications, and ihcc-gecko.owl
+    tailored for IHCC cohort cataloging with specialized browser labels and categorization.
+    Automated tools based on JSON schema mapping files enable generation of harmonized
+    data dictionaries and FAIRified metadata for cohort studies. Applications include
+    cohort discovery portals enabling researchers to identify suitable cohorts for
+    collaborative studies, standardized phenotype harmonization across studies for
+    meta-GWAS, ethical data sharing frameworks through consent ontology terms, and
+    FAIR data principles implementation in population genomics repositories. GECKO
+    facilitates interoperability between cohort catalogs like BBMRI-ERIC, Maelstrom
+    Research, dbGaP, and EGA by providing common terminology for cohort characteristics,
+    enabling federated queries across international biobanks. The ontology is distributed
+    under Creative Commons Attribution 4.0 International License, ensuring open access
+    for academic and commercial research.
   requires_registration: false
   url: https://github.com/IHCC-cohorts/GECKO
 - id: B2AI_STANDARD:457
@@ -12392,7 +12484,39 @@ data_standardortools_collection:
   formal_specification: https://github.com/obophenotype/developmental-stage-ontologies
   is_open: true
   name: HSAPDV
-  purpose_detail: Life cycle stages for Human.
+  purpose_detail: The Human Developmental Stages ontology (HsapDv) provides standardized
+    terminology for describing human lifecycle stages from conception through senescence,
+    developed by the Bgee group in collaboration with Uberon and EHDAA2 (Human Developmental
+    Anatomy Ontology) developers to enable precise temporal annotation of biological
+    data across developmental biology, clinical research, and population studies.
+    HsapDv encompasses both embryonic and postnatal stages, utilizing Carnegie staging
+    system for prenatal development (Carnegie stages 1-23 covering days 1-56 post-fertilization,
+    approximately embryonic weeks 1-8) which provides morphology-based developmental
+    milestones independent of gestational age variations. Embryonic stages capture
+    critical developmental events including fertilization, cleavage, blastocyst formation,
+    gastrulation, neurulation, organogenesis, and fetal development through birth.
+    Postnatal stages include neonatal period (birth to 28 days), infancy (1 month
+    to 2 years), early childhood (2-6 years), middle childhood (6-12 years), adolescence
+    (12-18 years encompassing puberty), young adulthood (18-40 years), middle adulthood
+    (40-65 years), and late adulthood/senescence (65+ years) with subdivisions for
+    geriatric populations. Each stage is formally defined with temporal boundaries,
+    morphological characteristics, physiological milestones (motor skills, cognitive
+    development, hormonal changes), and relationships to other developmental stages
+    through "immediately_preceded_by" and "part_of" relations. HsapDv integrates
+    with Uberon for anatomical structure development timing, enabling queries like
+    "when does the cerebral cortex develop" or "which genes are expressed in neural
+    tube during neurulation." Applications span developmental biology research (temporal
+    annotation of gene expression atlases, single-cell RNA-seq developmental trajectories,
+    epigenetic modification timelines), clinical medicine (prenatal diagnosis, developmental
+    delay assessment, age-appropriate clinical reference ranges), teratology studies
+    (critical periods for teratogen exposure), pharmacology (age-specific drug metabolism
+    and dosing), and epidemiology (age-stratified disease incidence). HsapDv enables
+    cross-species developmental comparisons through alignment with other species-specific
+    developmental ontologies (mouse MmusDv, zebrafish ZFS), facilitating translational
+    research and comparative embryology. The ontology is distributed in OBO and OWL
+    formats through http://purl.obolibrary.org/obo/hsapdv.owl and browsable via OBO
+    Foundry portals, supporting reproducible temporal annotation in biomedical databases,
+    developmental atlases, and clinical decision support systems.
   requires_registration: false
   url: https://github.com/obophenotype/developmental-stage-ontologies/wiki/HsapDv
 - id: B2AI_STANDARD:467
@@ -12712,7 +12836,40 @@ data_standardortools_collection:
   formal_specification: https://github.com/obophenotype/developmental-stage-ontologies
   is_open: true
   name: OLATDV
-  purpose_detail: Life cycle stages for Medaka
+  purpose_detail: The Medaka Developmental Stages ontology (OlatDv) provides standardized
+    terminology for describing developmental stages of medaka (Oryzias latipes, Japanese
+    rice fish), a key teleost model organism in developmental biology, genetics, toxicology,
+    and comparative vertebrate research, based on Iwamatsu staging system and developed
+    from the original Medaka Fish Ontology (MFO) by Thorsten Henrich. Medaka serves
+    as a powerful model organism complementing zebrafish and mouse due to its transparent
+    embryos enabling live imaging, short generation time (2-3 months), small size
+    suitable for laboratory culture, fully sequenced genome with conserved vertebrate
+    gene organization, and established genetic tools including transgenesis, CRISPR/Cas9
+    editing, and mutant libraries. OlatDv encompasses embryonic and larval stages
+    from fertilization through sexual maturity, currently focusing on pre-adult development.
+    Embryonic stages follow Iwamatsu's morphological staging system (stages 1-40)
+    covering fertilization (stage 1), cleavage (stages 2-7), blastula (stages 8-10),
+    gastrulation (stages 11-17), neurulation (stages 18-20), organogenesis (stages
+    21-30), and pre-hatching development (stages 31-40 leading to hatching at approximately
+    day 7-10 post-fertilization at 26°C). Each stage is defined by specific morphological
+    landmarks including somite numbers, heart development, pigmentation patterns, fin
+    bud appearance, eye development, and gill filament formation. Post-hatching larval
+    stages capture metamorphosis, scale formation, sex differentiation, and juvenile
+    maturation through first reproduction. OlatDv provides temporal annotations crucial
+    for comparative developmental biology studies examining vertebrate evolution, particularly
+    teleost-specific genome duplication events and developmental innovations. Applications
+    include temporal annotation of gene expression databases (Medaka Expression Database),
+    developmental toxicology studies (OECD fish embryo toxicity tests using medaka
+    as alternative to zebrafish), endocrine disruption research (sex determination
+    mechanisms), carcinogenesis studies (medaka exhibits spontaneous tumor formation),
+    and aging research (short lifespan enables longitudinal studies). Integration
+    with Uberon anatomical ontology enables queries linking developmental stage to
+    organ system maturation, essential for understanding tissue-specific gene expression
+    changes during development. OlatDv facilitates cross-species developmental comparisons
+    through alignment with zebrafish ZFS, frog XAO, and mammalian developmental ontologies,
+    supporting evolutionary developmental biology (evo-devo) research and identification
+    of conserved versus lineage-specific developmental programs across vertebrates.
+    The ontology is distributed through OBO Foundry as olatdv.obo and olatdv.owl formats.
   requires_registration: false
   url: https://github.com/obophenotype/developmental-stage-ontologies/wiki/OlatDv
 - id: B2AI_STANDARD:484
@@ -13936,7 +14093,46 @@ data_standardortools_collection:
   - B2AI_ORG:47
   is_open: true
   name: STATO
-  purpose_detail: Statistical tests and methods
+  purpose_detail: The Statistics Ontology (STATO) provides comprehensive standardized
+    vocabulary for statistical methods, experimental design concepts, hypothesis testing
+    procedures, and statistical measures used across life sciences, biomedical research,
+    and data-intensive scientific domains, developed by the ISA-tools community to
+    support reproducible research and transparent reporting of statistical analyses.
+    STATO encompasses five major categories: statistical tests (parametric tests including
+    t-tests, ANOVA, ANCOVA, linear regression, mixed models; non-parametric tests
+    including Mann-Whitney U, Kruskal-Wallis, Wilcoxon signed-rank, Spearman correlation;
+    and specialized methods like survival analysis, multivariate analysis, time series
+    analysis), probability distributions (normal, binomial, Poisson, exponential,
+    chi-square, t-distribution, F-distribution) essential for understanding test assumptions,
+    descriptive statistics (measures of central tendency including mean, median, mode;
+    measures of dispersion including standard deviation, variance, interquartile range;
+    and measures of shape including skewness, kurtosis), data types and variables
+    (categorical/nominal, ordinal, continuous, discrete, dependent/independent variables,
+    covariates, confounding variables), and experimental design concepts (randomization,
+    blocking, replication, control groups, factorial designs, crossover designs, longitudinal
+    studies). STATO provides formal OWL definitions enabling automated reasoning about
+    test conditions of application, linking test selection to data characteristics
+    (e.g., "use Mann-Whitney U when comparing two independent groups with non-normal
+    distributions"), and capturing assumptions (normality, homoscedasticity, independence)
+    that must be verified before test application. Each statistical method includes
+    textual definitions for human understanding, formal logical definitions for machine
+    reasoning, associated R code snippets via 'R-command' annotations enabling direct
+    implementation, and documentation of appropriate use cases and interpretation guidelines.
+    STATO integrates with BFO (Basic Formal Ontology) as upper-level ontology and
+    OBI (Ontology for Biomedical Investigations) for process definitions, ensuring
+    interoperability across biomedical ontologies. Applications include annotation
+    of analysis methods in ISA-Tab metadata files for omics studies, standardized
+    reporting of statistical procedures in publications to meet journal guidelines
+    (CONSORT, STROBE, ARRIVE), automated validation of statistical analysis workflows
+    in computational notebooks, education and training through formal definitions
+    of statistical concepts with R implementation examples, and text mining of scientific
+    literature to extract statistical method usage patterns. STATO supports reproducibility
+    by precisely specifying analysis procedures, capturing multiple testing correction
+    methods (Bonferroni, Benjamini-Hochberg FDR, permutation tests), effect size measures
+    (Cohen's d, odds ratios, hazard ratios), and confidence interval calculations.
+    The ontology facilitates peer review by enabling reviewers to verify appropriate
+    test selection and assists researchers in choosing correct statistical methods
+    based on study design and data characteristics.
   requires_registration: false
   url: http://stato-ontology.org/
 - id: B2AI_STANDARD:552
@@ -14335,7 +14531,42 @@ data_standardortools_collection:
   formal_specification: https://github.com/AnimalGenome/vertebrate-trait-ontology
   is_open: true
   name: VT
-  purpose_detail: Traits covering vertebrates.
+  purpose_detail: The Vertebrate Trait Ontology (VT) provides comprehensive standardized
+    terminology for describing measurable or observable phenotypic characteristics
+    across vertebrate species, maintained by the AnimalGenome organization to support
+    agricultural genomics, comparative biology, quantitative genetics, and translational
+    research linking animal models to human health. VT encompasses broad trait categories
+    including morphological traits (body size, organ dimensions, skeletal measurements,
+    integument characteristics), physiological traits (metabolic parameters, cardiovascular
+    function, respiratory capacity, immune response, reproductive performance), behavioral
+    traits (temperament, learning ability, social interactions, feeding behavior),
+    production traits critical for livestock industries (growth rate, feed efficiency,
+    milk yield, egg production, meat quality, wool production), disease resistance
+    traits (pathogen susceptibility, vaccine response, parasite load), and life history
+    traits (longevity, fertility, developmental timing). Each trait is formally defined
+    with measurement methodologies, units, biological context, and relationships to
+    anatomical structures (via Uberon) and biological processes (via Gene Ontology).
+    VT serves as the primary phenotype ontology for agricultural animal genomics databases
+    including AnimalQTLdb (quantitative trait loci database for cattle, pig, chicken,
+    sheep, horse, rainbow trout), supporting annotation of QTL mapping studies that
+    identify genomic regions influencing economically important traits. The ontology
+    enables cross-species phenotype comparisons essential for translational research,
+    allowing researchers to leverage livestock as biomedical models (e.g., pig cardiovascular
+    traits for human heart disease research, sheep bone traits for osteoporosis studies).
+    Applications span livestock breeding programs through genomic selection where VT
+    standardizes trait definitions for estimated breeding values (EBVs), wildlife
+    conservation genetics for monitoring population health indicators, aquaculture
+    for trait improvement in fish and shellfish, and comparative physiology studies
+    examining adaptive evolution of traits across vertebrate lineages. VT facilitates
+    GWAS (genome-wide association studies) meta-analyses by harmonizing trait definitions
+    across studies, enables phenotype-driven queries in genomics databases ("find
+    all QTL affecting milk fat percentage in dairy cattle"), and supports machine
+    learning models predicting complex traits from genotype data by providing structured
+    phenotype representations. Integration with other ontologies including Mammalian
+    Phenotype Ontology (MP), Human Phenotype Ontology (HPO), and Clinical Measurement
+    Ontology (CMO) enables bidirectional translation between agricultural animal research
+    and human biomedicine. VT is distributed under CC-BY-NC 4.0 license through http://purl.obolibrary.org/obo/vt.owl
+    with releases synchronized to OBO Foundry and AgroPortal.
   requires_registration: false
   url: https://github.com/AnimalGenome/vertebrate-trait-ontology
 - id: B2AI_STANDARD:573
@@ -15824,7 +16055,35 @@ data_standardortools_collection:
   - B2AI_ORG:115
   is_open: false
   name: GCP
-  purpose_detail: Cloud computing platform.
+  purpose_detail: Google Cloud Platform (GCP) is a comprehensive cloud computing
+    platform offering over 200+ services spanning compute, storage, databases, networking,
+    AI/machine learning, data analytics, and developer tools across Google's global
+    infrastructure. Core compute offerings include Compute Engine VMs, App Engine
+    for platform-as-a-service deployment, Google Kubernetes Engine for container
+    orchestration, and Cloud Functions for serverless computing. For AI and machine
+    learning, GCP provides Vertex AI as a unified platform for building, deploying,
+    and scaling ML models, including access to Google's Gemini large language models,
+    AutoML capabilities, and specialized hardware like Tensor Processing Units (TPUs)
+    for accelerated training. Storage solutions include Cloud Storage for object storage,
+    persistent disks for block storage, and Filestore for managed file storage. Database
+    services encompass Cloud SQL for managed relational databases (MySQL, PostgreSQL,
+    SQL Server), Cloud Spanner for globally distributed relational databases, BigQuery
+    for serverless data warehousing and analytics, Firestore for NoSQL document databases,
+    and Bigtable for wide-column NoSQL. Healthcare and life sciences researchers benefit
+    from specialized services like Healthcare API for FHIR-based health data exchange,
+    Life Sciences API for genomics pipeline execution, and Cloud Healthcare Console
+    for managing sensitive patient data with HIPAA and HITRUST compliance. BigQuery
+    ML enables researchers to create and execute machine learning models using SQL
+    queries directly on large biomedical datasets. GCP is explicitly used in Bridge2AI
+    projects for scalable biomedical data processing, AI model training and deployment,
+    and collaborative research infrastructure. The platform emphasizes security with
+    encryption at rest and in transit, IAM for access control, VPC for network isolation,
+    and compliance certifications including HIPAA, FedRAMP, ISO 27001, and SOC 2.
+    GCP's global network spans 40+ regions and 120+ edge locations, providing low-latency
+    access and data residency options for international research collaborations. Integration
+    with Google Workspace, Looker for business intelligence, and open-source frameworks
+    like TensorFlow and PyTorch facilitates comprehensive workflows from data ingestion
+    through analysis, visualization, and publication.
   requires_registration: true
   url: https://cloud.google.com/
   used_in_bridge2ai: true
@@ -16216,7 +16475,36 @@ data_standardortools_collection:
   description: Linode
   is_open: false
   name: Linode
-  purpose_detail: Cloud computing platform.
+  purpose_detail: Linode (now part of Akamai Connected Cloud) is a developer-focused
+    cloud computing platform emphasizing simplicity, predictable pricing, and high
+    performance for compute, storage, and networking services across a globally distributed
+    infrastructure. Core compute offerings include Essential Compute instances (Shared
+    CPU, Dedicated CPU, High Memory, and Premium CPU), GPU instances for parallel
+    processing workloads including machine learning and scientific computing, and
+    Accelerated Compute for specialized workloads. Container orchestration is provided
+    through Linode Kubernetes Engine (LKE) for managed Kubernetes clusters, and App
+    Platform for rapid cloud-native application deployment with automated infrastructure
+    management. Storage solutions encompass Block Storage for scalable persistent
+    volumes, Object Storage with S3-compatible API for unstructured data, and automated
+    Backups for data protection. Managed Databases support MySQL and PostgreSQL with
+    automated maintenance, backups, and high availability configurations. Networking
+    features include NodeBalancers for load distribution, Cloud Firewall for security,
+    DNS Manager, Private Networking (VLAN), and DDoS protection. Linode differentiates
+    itself through transparent flat pricing bundling CPU, transfer, storage, and
+    RAM without hidden egress fees or complex tier structures, making it particularly
+    attractive for budget-conscious researchers and startups. The platform provides
+    comprehensive API access, CLI tools, Terraform provider, and extensive documentation
+    for programmatic infrastructure management. Following acquisition by Akamai in
+    2022, Linode benefits from integration with Akamai's global CDN network and security
+    capabilities while maintaining its developer-friendly approach and competitive
+    pricing. Linode's global presence includes data centers across North America,
+    Europe, Asia-Pacific, and emerging markets, providing edge computing capabilities
+    and reduced latency for distributed applications. The platform offers free DDoS
+    protection, 24/7/365 support, and a Cloud Computing Foundations Certification
+    program for developer education. While more streamlined than hyperscale competitors,
+    Linode provides essential cloud services suitable for web applications, data pipelines,
+    containerized workloads, and computational research without vendor lock-in through
+    standard open-source technologies.
   requires_registration: true
   url: https://www.linode.com/
 - id: B2AI_STANDARD:786
@@ -16323,7 +16611,39 @@ data_standardortools_collection:
   - B2AI_ORG:56
   is_open: false
   name: Azure
-  purpose_detail: Cloud computing platform.
+  purpose_detail: Microsoft Azure is a comprehensive enterprise-grade cloud computing
+    platform offering 200+ services spanning compute, storage, databases, networking,
+    AI/machine learning, analytics, IoT, and developer tools with deep integration
+    into Microsoft's enterprise ecosystem. Core compute services include Azure Virtual
+    Machines for Windows and Linux workloads, Azure App Service for web application
+    hosting, Azure Kubernetes Service (AKS) for container orchestration, Azure Container
+    Instances for serverless containers, and Azure Functions for event-driven serverless
+    computing. For AI and machine learning, Azure provides Azure AI Studio (including
+    Microsoft Foundry for AI agent development), Azure Machine Learning for end-to-end
+    ML workflows, Azure Cognitive Services for pre-trained AI models (vision, speech,
+    language), and Azure OpenAI Service for accessing GPT, Codex, and DALL-E models.
+    Data and analytics capabilities include Azure Synapse Analytics for unified data
+    warehousing and big data analytics, Azure Databricks for Apache Spark-based analytics,
+    Azure Data Lake for scalable data storage, and Microsoft Fabric for unified data
+    platform integration. Database services encompass Azure SQL Database for managed
+    relational databases, Azure Cosmos DB for globally distributed NoSQL, Azure Database
+    for PostgreSQL/MySQL/MariaDB, and Azure DocumentDB for MongoDB-compatible document
+    storage. Healthcare and life sciences benefit from Azure Health Data Services
+    for FHIR-based health data management, Azure Genomics for scalable genomics pipeline
+    execution, Azure Healthcare APIs, and compliance with HIPAA, HITRUST, GxP, and
+    FDA 21 CFR Part 11 regulations. Researchers leverage Azure Machine Learning for
+    model training with GPU/FPGA acceleration, automated ML (AutoML) capabilities,
+    MLOps for model lifecycle management, and integration with popular frameworks
+    like TensorFlow, PyTorch, and scikit-learn. Azure's hybrid cloud capabilities
+    through Azure Arc enable consistent management across on-premises, multi-cloud,
+    and edge environments, crucial for institutions with existing infrastructure investments.
+    Enterprise integration with Active Directory, Microsoft 365, Windows Server, SQL
+    Server, and Visual Studio provides seamless authentication, collaboration, and
+    development workflows. Azure's global infrastructure spans 60+ regions worldwide
+    with data residency and compliance options for international regulations. Security
+    features include Azure Security Center, Azure Sentinel for SIEM, Azure Active
+    Directory for identity management, encryption at rest and in transit, and extensive
+    compliance certifications across healthcare, government, and financial sectors.
   requires_registration: true
   url: https://azure.microsoft.com/
 - id: B2AI_STANDARD:791
