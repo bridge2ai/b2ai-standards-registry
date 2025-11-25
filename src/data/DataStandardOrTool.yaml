@@ -5184,7 +5184,36 @@ data_standardortools_collection:
   description: International Classification of Diseases 10th Revision Clinical Modification
   is_open: true
   name: ICD-10-CM
-  purpose_detail: Diseases and diagnostic categories
+  purpose_detail: ICD-10-CM (International Classification of Diseases, 10th Revision,
+    Clinical Modification) is the United States' clinical modification of the WHO's
+    ICD-10 classification system, mandated for reporting diagnoses and health conditions
+    in all healthcare settings for billing, epidemiology, quality measurement, and
+    public health surveillance since October 2015. Maintained by the National Center
+    for Health Statistics (NCHS) in collaboration with CMS, ICD-10-CM provides over
+    70,000 diagnosis codes with significantly expanded granularity compared to ICD-9-CM,
+    enabling more precise documentation of disease severity, anatomical location,
+    episode of care (initial encounter, subsequent encounter, sequela), and laterality
+    (left, right, bilateral). The coding structure uses alphanumeric format with 3-7
+    characters where the first character is alphabetic, second is numeric, third through
+    seventh provide increasing specificity of body site, etiology, severity, and clinical
+    details, with optional seventh characters as extensions for encounter context
+    or injury staging. Major chapters include infectious diseases (A00-B99), neoplasms
+    (C00-D49), endocrine and metabolic disorders (E00-E89), mental and behavioral
+    disorders (F01-F99), nervous system (G00-G99), circulatory (I00-I99), respiratory
+    (J00-J99), digestive (K00-K95), musculoskeletal (M00-M99), and external causes
+    of morbidity (V00-Y99). Critical features include combination codes that capture
+    multiple conditions or manifestations in single codes, placeholder 'x' characters
+    to allow for future expansion, and seventh character extensions for obstetric
+    outcomes, fracture healing status, and diabetes complications. ICD-10-CM drives
+    healthcare reimbursement through diagnosis-related groups (DRGs), enables clinical
+    decision support systems through structured diagnosis data, supports population
+    health analytics identifying disease trends and risk factors, powers epidemiological
+    surveillance for CDC reportable conditions tracking disease outbreaks, and provides
+    standardized terminology for electronic health record (EHR) systems ensuring interoperability.
+    Annual updates released October 1st incorporate new diseases, refined definitions,
+    and code revisions reflecting medical advances, essential for medical billing
+    specialists, clinical coders, health informaticians, public health researchers,
+    and healthcare quality officers.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:14
@@ -5203,7 +5232,43 @@ data_standardortools_collection:
   description: International Classification of Diseases 11th Revision
   is_open: true
   name: ICD-11
-  purpose_detail: Diseases and diagnostic categories
+  purpose_detail: ICD-11 (International Classification of Diseases, 11th Revision)
+    is the World Health Organization's latest global standard for diagnostic health
+    information, officially adopted by the World Health Assembly in 2019 and effective
+    from January 2022, representing the most comprehensive revision in over three
+    decades with fully digital-native architecture designed for electronic health
+    systems and multilingual implementation. Developed through extensive international
+    collaboration involving thousands of health professionals across 90 countries,
+    ICD-11 contains over 17,000 diagnostic categories with significantly enhanced
+    granularity, clinical detail, and scientific accuracy compared to ICD-10, incorporating
+    advances in medical knowledge including genomic medicine, patient safety, traditional
+    medicine integration, and sexual health classifications. The classification uses
+    a multi-hierarchical structure with foundation component enabling flexible content
+    management, allowing multiple parent categories and post-coordination where complex
+    conditions are composed by combining codes for anatomy, etiology, severity, temporality,
+    and other clinical dimensions. Major structural improvements include entirely
+    new chapters for traditional medicine (validated practices from Chinese, Ayurvedic,
+    and other systems), extension codes for functional assessment using WHO Disability
+    Assessment Schedule 2.0 (WHODAS), detailed antimicrobial resistance documentation,
+    gaming disorder and other emerging conditions, and significantly expanded mental
+    health classifications with dimensional assessments. ICD-11 features built-in
+    multilingual support covering Arabic, Chinese, English, French, Russian, Spanish
+    with machine translation capabilities, linearizations tailored for different use
+    cases (mortality reporting, morbidity statistics, primary care, clinical documentation),
+    and modern URI-based coding enabling semantic web integration and FHIR compatibility.
+    Critical technical features include embedded logical definitions using description
+    logic enabling automated classification and consistency checking, standardized
+    application programming interfaces (APIs) for EHR integration, and continuous
+    online updating mechanism replacing decennial revision cycles with regular incremental
+    updates. ICD-11 supports global health surveillance enabling real-time disease
+    outbreak tracking, international health statistics comparability across countries
+    and regions, research data standardization for epidemiological studies and clinical
+    trials, health service planning through accurate disease burden measurement, and
+    AI/machine learning applications through structured, semantically rich diagnostic
+    data. Adoption varies globally with some countries implementing immediately while
+    others transition gradually, essential for medical informaticians, public health
+    authorities, clinical coders, WHO collaborating centers, and healthcare system
+    planners.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:100
@@ -5220,7 +5285,40 @@ data_standardortools_collection:
   description: International Classification of Diseases 9th Revision Clinical Modification
   is_open: true
   name: ICD-9-CM
-  purpose_detail: Diseases and diagnostic categories
+  purpose_detail: ICD-9-CM (International Classification of Diseases, 9th Revision,
+    Clinical Modification) was the official medical classification system used in
+    the United States from 1979 until September 2015 for coding diagnoses and procedures
+    in healthcare billing, epidemiological research, and health statistics, representing
+    the U.S. clinical modification of WHO's ICD-9 with additional detail for morbidity
+    classification. Developed by the National Center for Health Statistics (NCHS)
+    and used by CMS for Medicare/Medicaid reimbursement, ICD-9-CM contained approximately
+    13,000 diagnosis codes and 3,000 procedure codes, structured with 3-5 digit numeric
+    format where first three digits represent disease category and subsequent digits
+    add specificity for anatomical location, etiology, or manifestations. Major diagnostic
+    chapters included infectious and parasitic diseases (001-139), neoplasms (140-239),
+    endocrine and metabolic diseases (240-279), mental disorders (290-319), nervous
+    system (320-389), circulatory system (390-459), respiratory system (460-519),
+    digestive system (520-579), genitourinary system (580-629), and external causes
+    (E codes E800-E999) documenting injury circumstances. The procedure classification
+    (Volume 3) used 2-4 digit numeric codes organized by anatomical system, covering
+    surgical operations, diagnostic procedures, and therapeutic interventions primarily
+    for inpatient hospital settings. Despite decades of widespread adoption creating
+    massive legacy datasets and establishing institutional coding workflows, ICD-9-CM
+    became outdated due to limited specificity insufficient for modern medicine's
+    diagnostic precision, exhausted code capacity with no room for new diseases or
+    procedures, lack of laterality designation, and outdated medical terminology inconsistent
+    with current clinical practice. The mandated transition to ICD-10-CM/PCS in October
+    2015 required extensive healthcare industry preparation including EHR system updates,
+    coder retraining, and billing system modifications, yet ICD-9-CM remains critically
+    important for historical medical records analysis, longitudinal epidemiological
+    studies spanning pre-2015 data, retrospective cohort studies, trend analysis requiring
+    crosswalk mappings between ICD-9 and ICD-10, and legacy system maintenance. Applications
+    include historical disease surveillance tracking public health trends, health
+    services research analyzing treatment patterns, medical informatics developing
+    code translation algorithms, and archival medical data management, essential for
+    health informaticians managing legacy data, epidemiologists conducting temporal
+    studies, medical archivists, and researchers working with pre-2015 healthcare
+    datasets.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:14
@@ -10669,7 +10767,27 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:19
   is_open: true
   name: SGI
-  purpose_detail: A raster graphics file format.
+  purpose_detail: Silicon Graphics Image (SGI or RGB) is a raster graphics file format
+    developed by Silicon Graphics, Inc. for storing and displaying digital images
+    on SGI workstations and UNIX systems. The format supports 8-bit, 16-bit, and 24-bit
+    color depths with optional alpha channel for transparency, allowing representation
+    of grayscale, RGB, and RGBA images with various bit depths per channel. SGI images
+    can be stored uncompressed or with run-length encoding (RLE) compression for reduced
+    file sizes while maintaining lossless quality. The format was widely used in professional
+    computer graphics, visual effects, scientific visualization, and medical imaging
+    during the 1980s-1990s when SGI workstations dominated high-end graphics computing.
+    SGI files use .sgi, .rgb, .rgba, .bw, or .int file extensions depending on color
+    configuration and bit depth. The format specifies image dimensions, number of
+    channels (1 for grayscale, 3 for RGB, 4 for RGBA), compression method, and pixel
+    data in a header-based structure readable by graphics software on big-endian systems.
+    While largely superseded by more modern formats like PNG and TIFF for general
+    use, SGI format remains relevant in legacy scientific visualization applications,
+    particularly in medical imaging archives, computational fluid dynamics visualization,
+    and legacy 3D rendering pipelines. ImageMagick, GIMP, and specialized scientific
+    visualization software maintain SGI format support for backward compatibility with
+    historical image datasets. The format's simplicity and direct pixel representation
+    made it suitable for high-performance graphics rendering on SGI's proprietary hardware
+    and OpenGL-based visualization systems.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Silicon_Graphics_Image
 - id: B2AI_STANDARD:378
@@ -12397,7 +12515,32 @@ data_standardortools_collection:
   - B2AI_ORG:92
   is_open: true
   name: HSO
-  purpose_detail: Surveillance system level data.
+  purpose_detail: The Health Surveillance Ontology (HSO) provides a comprehensive
+    framework for standardizing terminology and concepts related to health surveillance
+    systems, disease monitoring programs, and public health data collection across
+    human and veterinary medicine. Developed by the Swedish Veterinary Agency (SVA)
+    and aligned with OBO Foundry principles, HSO enables interoperability between
+    surveillance databases, epidemiological studies, and public health information
+    systems by providing consistent vocabulary for surveillance activities, case definitions,
+    reporting requirements, and data quality metrics. The ontology encompasses surveillance
+    system architectures (passive surveillance, active surveillance, sentinel surveillance,
+    syndromic surveillance), data collection methodologies (laboratory-based surveillance,
+    clinical reporting, population surveys, environmental monitoring), case classification
+    criteria (confirmed cases, probable cases, suspect cases based on laboratory/clinical/epidemiological
+    evidence), temporal and spatial granularity specifications (reporting periods,
+    geographic resolution, population denominators), and data quality indicators (completeness,
+    timeliness, representativeness, sensitivity, specificity). HSO supports One Health
+    approaches by bridging human, animal, and environmental health surveillance domains,
+    facilitating detection of zoonotic disease emergence, antimicrobial resistance
+    tracking, and foodborne outbreak investigations. Applications include standardization
+    of surveillance system metadata for interoperability between national and international
+    health agencies (WHO, ECDC, OIE), automated validation of surveillance data submissions,
+    harmonization of case definitions across jurisdictions, and machine-readable representation
+    of surveillance protocols for reproducibility. HSO integrates with disease ontologies
+    (DO, DOID), pathogen ontologies (IDO, NCBITaxon), and geographic ontologies (GAZ)
+    to provide comprehensive semantic framework for epidemiological data. The ontology
+    enables FAIR principles implementation in public health surveillance by making
+    surveillance system documentation findable, accessible, interoperable, and reusable.
   requires_registration: false
   url: https://w3id.org/hso
 - id: B2AI_STANDARD:462
@@ -12940,7 +13083,36 @@ data_standardortools_collection:
   formal_specification: https://github.com/jannahastings/mental-functioning-ontology
   is_open: true
   name: MF
-  purpose_detail: All aspects of mental functioning.
+  purpose_detail: The Mental Functioning Ontology (MF) is an OBO Foundry ontology
+    providing structured terminology for mental processes, cognitive functions, emotional
+    states, and behavioral phenomena to support standardized annotation of neuroscience
+    data, psychiatric research, psychological assessments, and mental health informatics.
+    Developed by Janna Hastings and collaborators, MF extends the Basic Formal Ontology
+    (BFO) upper-level framework and integrates with domain ontologies including the
+    Mental Disease Ontology (MD) for psychiatric disorders, the Cognitive Atlas for
+    cognitive processes, the Emotion Ontology for affective states, and the Gene
+    Ontology (GO) for molecular underpinnings of neural function. The ontology comprehensively
+    represents cognitive domains including perception (visual, auditory, somatosensory,
+    chemosensory), attention (selective, divided, sustained), memory (working, episodic,
+    semantic, procedural), executive functions (planning, inhibition, cognitive flexibility,
+    decision-making), language processing, and reasoning, alongside emotional and
+    motivational constructs such as valence, arousal, mood states, personality traits,
+    and social cognition (theory of mind, empathy, social perception). MF captures
+    temporal dynamics of mental processes (onset, duration, termination), intensity
+    dimensions, and contextual dependencies, enabling nuanced representation of psychological
+    phenomena. Integration with clinical terminologies like DSM-5, ICD-11, and RDoC
+    (Research Domain Criteria) facilitates translational psychiatry linking basic
+    neuroscience to clinical phenotypes. Applications include standardized annotation
+    of neuroimaging studies identifying brain regions associated with specific mental
+    functions, computational psychiatry modeling mental disorders as disruptions in
+    cognitive and emotional processes, natural language processing extracting mental
+    state descriptions from clinical notes, AI-based mental health assessment systems,
+    meta-analysis of psychological experiments through unified terminology, and personalized
+    medicine approaches tailoring psychiatric treatments to individual cognitive profiles.
+    MF follows OBO Foundry principles with open-source development, logical consistency
+    checking, and community-driven refinement, essential for computational neuroscience,
+    digital mental health platforms, cognitive science research, and integrative brain
+    databases.
   requires_registration: false
   url: https://github.com/jannahastings/mental-functioning-ontology
 - id: B2AI_STANDARD:488
@@ -13075,7 +13247,33 @@ data_standardortools_collection:
   - B2AI_ORG:29
   is_open: true
   name: MOP
-  purpose_detail: Processes at the molecular level
+  purpose_detail: The Molecular Process Ontology (MOP) provides standardized vocabulary
+    for describing molecular-level processes, transformations, and mechanisms that
+    occur in chemical and biochemical systems, maintained by the Royal Society of
+    Chemistry as part of the RSC ontology ecosystem. MOP encompasses reaction mechanisms
+    (nucleophilic substitution, electrophilic addition, radical reactions, pericyclic
+    reactions), molecular interactions (hydrogen bonding, van der Waals forces, π-π
+    stacking, hydrophobic interactions, electrostatic interactions), conformational
+    changes (protein folding, ligand-induced conformational shifts, allosteric transitions),
+    energy transfer processes (fluorescence resonance energy transfer FRET, photoinduced
+    electron transfer, vibrational energy relaxation), and transport phenomena (diffusion,
+    membrane permeation, active transport, facilitated diffusion). The ontology provides
+    detailed mechanistic descriptions including activation energies, transition states,
+    reaction intermediates, rate-determining steps, and catalytic cycles essential
+    for understanding chemical reactivity and biological function at the molecular
+    scale. MOP integrates with the Chemical Methods Ontology (CHMO) for experimental
+    techniques, CHEBI for chemical entities, and the Gene Ontology (GO) for biological
+    processes, enabling comprehensive annotation of molecular transformations from
+    pure chemistry through biochemistry to systems biology. Applications include annotation
+    of reaction databases for synthetic chemistry planning, mechanistic modeling of
+    enzymatic catalysis, drug-target interaction mechanisms for rational drug design,
+    metabolic pathway analysis with detailed reaction mechanisms, and computational
+    chemistry workflow documentation. MOP supports reproducibility in mechanistic studies
+    by standardizing descriptions of reaction conditions, stereochemical outcomes,
+    regioselectivity, and stereoselectivity patterns. The ontology enables semantic
+    searches for reactions by mechanism type, facilitating discovery of analogous
+    transformations across different chemical contexts and supporting retrosynthetic
+    analysis in computer-aided synthesis planning tools.
   requires_registration: false
   url: https://www.ebi.ac.uk/ols/ontologies/mop
 - id: B2AI_STANDARD:495
@@ -14039,7 +14237,33 @@ data_standardortools_collection:
   formal_specification: https://github.com/scdodev/scdo-ontology
   is_open: true
   name: SCDO
-  purpose_detail: Sickle Cell Disease terminology.
+  purpose_detail: The Sickle Cell Disease Ontology (SCDO) provides comprehensive
+    standardized terminology for describing all aspects of sickle cell disease (SCD),
+    a group of inherited hemoglobin disorders affecting millions globally, particularly
+    populations of African, Mediterranean, Middle Eastern, and Indian ancestry. Developed
+    by the H3ABioNet consortium and aligned with OBO Foundry principles, SCDO encompasses
+    genetic variants (HbS, HbC, HbE, beta-thalassemia mutations), disease phenotypes
+    (sickle cell anemia HbSS, HbSC disease, HbS-beta thalassemia, sickle cell trait),
+    clinical manifestations (vaso-occlusive crises, acute chest syndrome, stroke,
+    priapism, splenic sequestration, chronic organ damage), laboratory findings (hemoglobin
+    electrophoresis patterns, reticulocyte counts, bilirubin levels, fetal hemoglobin
+    percentages), complications (pulmonary hypertension, renal dysfunction, avascular
+    necrosis, leg ulcers, retinopathy), treatment modalities (hydroxyurea, blood transfusions,
+    hematopoietic stem cell transplantation, gene therapy, pain management), and patient
+    outcomes (quality of life measures, hospitalization rates, mortality). The ontology
+    integrates genetic, clinical, laboratory, and treatment concepts to support comprehensive
+    SCD patient data management and research. SCDO enables standardized phenotyping
+    for genotype-phenotype correlation studies identifying disease modifiers (fetal
+    hemoglobin levels, alpha-thalassemia co-inheritance, genetic polymorphisms affecting
+    disease severity), facilitates clinical trial recruitment through precise inclusion/exclusion
+    criteria specification, and supports electronic health record integration for
+    automated SCD surveillance and quality improvement initiatives. Applications include
+    natural history studies characterizing disease progression patterns, pharmacogenomics
+    research examining hydroxyurea response variability, health disparities research
+    documenting access to disease-modifying therapies, and global SCD registries enabling
+    cross-population comparisons. SCDO facilitates data harmonization across international
+    SCD cohorts, enabling meta-analyses and collaborative research essential for rare
+    disease studies where no single center has sufficient patient numbers.
   requires_registration: false
   url: https://scdontology.h3abionet.org/
 - id: B2AI_STANDARD:549
@@ -14481,7 +14705,35 @@ data_standardortools_collection:
   is_open: true
   name: VO
   publication: doi:10.1186/2041-1480-3-17
-  purpose_detail: Vaccine and vaccination ontology.
+  purpose_detail: The Vaccine Ontology (VO) is an OBO Foundry community-based biomedical
+    ontology that systematically represents vaccine components, vaccine types, vaccination
+    procedures, vaccine-induced immune responses, and vaccine-preventable infectious
+    diseases in a standardized machine-readable format to support vaccine research,
+    immunization program management, and vaccinomics data integration. Developed through
+    international collaboration coordinated by the University of Michigan Medical
+    School, VO encompasses comprehensive coverage of licensed human and veterinary
+    vaccines including live-attenuated vaccines, inactivated vaccines, subunit vaccines,
+    toxoid vaccines, mRNA vaccines, viral vector vaccines, and conjugate vaccines,
+    representing their antigenic components, adjuvants, preservatives, manufacturing
+    processes, and delivery routes. The ontology integrates with multiple biomedical
+    ontologies including the Infectious Disease Ontology (IDO) for pathogen-host
+    interactions, the Ontology for Biomedical Investigations (OBI) for vaccination
+    protocols, the Protein Ontology (PRO) for vaccine antigens, and SNOMED CT and
+    ICD codes for clinical documentation, enabling semantic interoperability across
+    vaccine databases and immunization information systems. VO formally represents
+    immunization schedules (primary series, booster doses, catch-up schedules), adverse
+    events following immunization (AEFI) including local reactions and systemic effects,
+    contraindications and precautions for specific populations, vaccine efficacy and
+    effectiveness measures, and herd immunity thresholds. Applications include standardized
+    annotation of vaccine clinical trials data, integration of vaccine safety surveillance
+    systems (VAERS, Vaccine Safety Datalink), comparative vaccine effectiveness studies
+    across populations and time periods, semantic queries of vaccine literature through
+    PubMed and clinical databases, machine learning models predicting vaccine immunogenicity
+    or reactogenicity from vaccine composition, and global immunization data harmonization
+    supporting WHO vaccination coverage monitoring and pandemic preparedness. VO follows
+    OBO Foundry principles with open-source development, versioned releases, and persistent
+    URIs, making it essential infrastructure for computational vaccinology and evidence-based
+    immunization policy.
   requires_registration: false
   url: https://github.com/vaccineontology/VO
 - id: B2AI_STANDARD:570
@@ -16180,7 +16432,32 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:42
   is_open: true
   name: Hangar
-  purpose_detail: Version control for tensor data.
+  purpose_detail: Hangar is a version control system specifically designed for managing
+    tensor data and numerical arrays in machine learning and scientific computing
+    workflows, providing Git-like versioning capabilities for datasets that are too
+    large or complex for traditional version control systems. Built with Python and
+    optimized for performance, Hangar enables data scientists and ML engineers to
+    track changes in training datasets, model weights, embeddings, and experimental
+    results with full history, branching, merging, and collaboration features. The
+    system uses content-addressable storage with automatic data deduplication, storing
+    only changed array blocks rather than entire files, making it efficient for large
+    multidimensional datasets common in deep learning (image datasets, genomic sequences,
+    time series, medical imaging volumes). Hangar provides atomic commits ensuring
+    data consistency, supports concurrent read access for distributed training, and
+    enables reproducible machine learning by linking dataset versions to specific
+    model training runs. Key features include automatic detection of array schema
+    changes, efficient storage of sparse arrays, lazy loading for memory-efficient
+    data access, and integration with NumPy, PyTorch, and TensorFlow workflows. Applications
+    span ML experiment tracking where different dataset versions are tested with model
+    architectures, collaborative dataset curation where multiple researchers contribute
+    annotations or corrections, model debugging through inspection of training data
+    that caused specific failures, and regulatory compliance in medical AI where dataset
+    provenance and versioning history must be maintained. Hangar addresses critical
+    gaps in ML operations by providing reproducibility (exact dataset version used
+    for published results), collaboration (merge dataset contributions from multiple
+    sources), and auditability (full history of dataset modifications with timestamps
+    and contributors), essential for rigorous scientific research and production ML
+    systems.
   requires_registration: false
   url: https://hangar-py.readthedocs.io/en/stable/
 - id: B2AI_STANDARD:771
@@ -16371,7 +16648,32 @@ data_standardortools_collection:
   formal_specification: https://github.com/kaldi-asr/kaldi
   is_open: true
   name: Kaldi
-  purpose_detail: Toolkit for speech recognition.
+  purpose_detail: Kaldi is an open-source toolkit for speech recognition research
+    and development, written primarily in C++ with scripting interfaces, providing
+    comprehensive implementations of state-of-the-art automatic speech recognition
+    (ASR) algorithms including deep neural networks (DNNs), hidden Markov models (HMMs),
+    Gaussian mixture models (GMMs), and modern end-to-end architectures. Developed
+    by researchers at Johns Hopkins University and maintained by a global community,
+    Kaldi emphasizes flexibility, efficiency, and reproducibility in speech recognition
+    pipelines. The toolkit provides modular components for acoustic feature extraction
+    (MFCCs, PLPs, filterbank energies, pitch features), acoustic modeling (DNN-HMM
+    hybrid systems, time-delay neural networks TDNNs, chain models with lattice-free
+    MMI training), language modeling (n-gram models, recurrent neural network language
+    models), and decoding (weighted finite-state transducers WFSTs for efficient search).
+    Kaldi supports both speaker-independent and speaker-adaptive recognition, with
+    tools for vocal tract length normalization, feature-space maximum likelihood linear
+    regression (fMLLR), and i-vector/x-vector speaker embeddings for robust recognition
+    across diverse acoustic conditions. The toolkit includes recipes for training
+    ASR systems on standard benchmarks (LibriSpeech, WSJ, Switchboard, Fisher, TED-LIUM,
+    AMI, CHiME) with documented pipelines enabling researchers to replicate published
+    results and adapt models to new datasets and languages. Applications span transcription
+    of clinical conversations for medical documentation, analysis of patient-physician
+    interactions, voice biomarker extraction for neurological disease monitoring (Parkinson's,
+    ALS, dementia), mental health assessment through speech characteristics, and accessibility
+    tools for hearing-impaired patients. Kaldi's extensive documentation, active mailing
+    list, and well-tested recipes make it accessible for both research and production
+    deployment despite its complexity, bridging traditional statistical ASR approaches
+    with modern deep learning methods.
   requires_registration: false
   url: https://kaldi-asr.org/
 - id: B2AI_STANDARD:781
@@ -16941,7 +17243,38 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:9
   is_open: true
   name: Neo4j
-  purpose_detail: A popular graph database platform.
+  purpose_detail: Neo4j is a native graph database platform implementing property
+    graph model with ACID-compliant transactions, designed for storing and querying
+    highly connected data through nodes, relationships, and properties, enabling efficient
+    traversal of complex relationship patterns at scale. Developed by Neo4j, Inc.
+    and available in both open-source Community Edition and commercial Enterprise
+    Edition, Neo4j uses the declarative Cypher query language allowing pattern-matching
+    queries that naturally express graph relationships (e.g., `MATCH (person:Person)-[:FRIENDS_WITH]->(friend)
+    RETURN person, friend`) without complex join operations required in relational
+    databases. The architecture employs index-free adjacency where each node directly
+    references its adjacent nodes enabling constant-time traversals regardless of
+    graph size, native graph storage optimized for relationship-heavy queries, and
+    clustered deployment supporting high availability, horizontal scaling, and causal
+    consistency across distributed systems. Key features include rich graph algorithms
+    library (Graph Data Science) implementing PageRank, community detection, shortest
+    path, centrality measures, and similarity algorithms; APOC (Awesome Procedures
+    on Cypher) extending functionality with graph refactoring, data integration, and
+    advanced algorithms; support for temporal queries and multiple graph projections;
+    and integration with analytics tools (Apache Spark, Python data science stack)
+    and machine learning frameworks. Biomedical and AI applications span knowledge
+    graphs integrating biomedical ontologies, drug databases, genomic data, and literature
+    for drug repurposing and target discovery; clinical decision support modeling
+    patient-symptom-disease-treatment relationships for diagnosis recommendation;
+    biological network analysis representing protein-protein interactions, metabolic
+    pathways, gene regulatory networks for systems biology research; healthcare interoperability
+    mapping relationships between FHIR resources, HL7 messages, and clinical terminologies;
+    and ML feature engineering extracting graph embeddings, network features, and
+    relationship patterns as input for predictive models. Neo4j enables real-time
+    recommendation systems, fraud detection networks, identity and access management,
+    supply chain optimization, and social network analysis, essential for data scientists
+    working with connected data, bioinformaticians building biological knowledge bases,
+    clinical informaticians developing patient care pathways, and ML engineers requiring
+    graph-structured features.
   requires_registration: false
   url: https://neo4j.com/
 - id: B2AI_STANDARD:803
