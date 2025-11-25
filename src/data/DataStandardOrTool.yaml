@@ -5184,7 +5184,36 @@ data_standardortools_collection:
   description: International Classification of Diseases 10th Revision Clinical Modification
   is_open: true
   name: ICD-10-CM
-  purpose_detail: Diseases and diagnostic categories
+  purpose_detail: "ICD-10-CM (International Classification of Diseases, 10th Revision,
+    Clinical Modification) is the United States' clinical modification of the WHO's
+    ICD-10 classification system, mandated for reporting diagnoses and health conditions
+    in all healthcare settings for billing, epidemiology, quality measurement, and
+    public health surveillance since October 2015. Maintained by the National Center
+    for Health Statistics (NCHS) in collaboration with CMS, ICD-10-CM provides over
+    70,000 diagnosis codes with significantly expanded granularity compared to ICD-9-CM,
+    enabling more precise documentation of disease severity, anatomical location,
+    episode of care (initial encounter, subsequent encounter, sequela), and laterality
+    (left, right, bilateral). The coding structure uses alphanumeric format with 3-7
+    characters where the first character is alphabetic, second is numeric, third through
+    seventh provide increasing specificity of body site, etiology, severity, and clinical
+    details, with optional seventh characters as extensions for encounter context
+    or injury staging. Major chapters include infectious diseases (A00-B99), neoplasms
+    (C00-D49), endocrine and metabolic disorders (E00-E89), mental and behavioral
+    disorders (F01-F99), nervous system (G00-G99), circulatory (I00-I99), respiratory
+    (J00-J99), digestive (K00-K95), musculoskeletal (M00-M99), and external causes
+    of morbidity (V00-Y99). Critical features include combination codes that capture
+    multiple conditions or manifestations in single codes, placeholder 'x' characters
+    to allow for future expansion, and seventh character extensions for obstetric
+    outcomes, fracture healing status, and diabetes complications. ICD-10-CM drives
+    healthcare reimbursement through diagnosis-related groups (DRGs), enables clinical
+    decision support systems through structured diagnosis data, supports population
+    health analytics identifying disease trends and risk factors, powers epidemiological
+    surveillance for CDC reportable conditions tracking disease outbreaks, and provides
+    standardized terminology for electronic health record (EHR) systems ensuring interoperability.
+    Annual updates released October 1st incorporate new diseases, refined definitions,
+    and code revisions reflecting medical advances, essential for medical billing
+    specialists, clinical coders, health informaticians, public health researchers,
+    and healthcare quality officers."
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:14
@@ -5203,7 +5232,43 @@ data_standardortools_collection:
   description: International Classification of Diseases 11th Revision
   is_open: true
   name: ICD-11
-  purpose_detail: Diseases and diagnostic categories
+  purpose_detail: "ICD-11 (International Classification of Diseases, 11th Revision)
+    is the World Health Organization's latest global standard for diagnostic health
+    information, officially adopted by the World Health Assembly in 2019 and effective
+    from January 2022, representing the most comprehensive revision in over three
+    decades with fully digital-native architecture designed for electronic health
+    systems and multilingual implementation. Developed through extensive international
+    collaboration involving thousands of health professionals across 90 countries,
+    ICD-11 contains over 17,000 diagnostic categories with significantly enhanced
+    granularity, clinical detail, and scientific accuracy compared to ICD-10, incorporating
+    advances in medical knowledge including genomic medicine, patient safety, traditional
+    medicine integration, and sexual health classifications. The classification uses
+    a multi-hierarchical structure with foundation component enabling flexible content
+    management, allowing multiple parent categories and post-coordination where complex
+    conditions are composed by combining codes for anatomy, etiology, severity, temporality,
+    and other clinical dimensions. Major structural improvements include entirely
+    new chapters for traditional medicine (validated practices from Chinese, Ayurvedic,
+    and other systems), extension codes for functional assessment using WHO Disability
+    Assessment Schedule 2.0 (WHODAS), detailed antimicrobial resistance documentation,
+    gaming disorder and other emerging conditions, and significantly expanded mental
+    health classifications with dimensional assessments. ICD-11 features built-in
+    multilingual support covering Arabic, Chinese, English, French, Russian, Spanish
+    with machine translation capabilities, linearizations tailored for different use
+    cases (mortality reporting, morbidity statistics, primary care, clinical documentation),
+    and modern URI-based coding enabling semantic web integration and FHIR compatibility.
+    Critical technical features include embedded logical definitions using description
+    logic enabling automated classification and consistency checking, standardized
+    application programming interfaces (APIs) for EHR integration, and continuous
+    online updating mechanism replacing decennial revision cycles with regular incremental
+    updates. ICD-11 supports global health surveillance enabling real-time disease
+    outbreak tracking, international health statistics comparability across countries
+    and regions, research data standardization for epidemiological studies and clinical
+    trials, health service planning through accurate disease burden measurement, and
+    AI/machine learning applications through structured, semantically rich diagnostic
+    data. Adoption varies globally with some countries implementing immediately while
+    others transition gradually, essential for medical informaticians, public health
+    authorities, clinical coders, WHO collaborating centers, and healthcare system
+    planners."
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:100
@@ -5220,7 +5285,40 @@ data_standardortools_collection:
   description: International Classification of Diseases 9th Revision Clinical Modification
   is_open: true
   name: ICD-9-CM
-  purpose_detail: Diseases and diagnostic categories
+  purpose_detail: "ICD-9-CM (International Classification of Diseases, 9th Revision,
+    Clinical Modification) was the official medical classification system used in
+    the United States from 1979 until September 2015 for coding diagnoses and procedures
+    in healthcare billing, epidemiological research, and health statistics, representing
+    the U.S. clinical modification of WHO's ICD-9 with additional detail for morbidity
+    classification. Developed by the National Center for Health Statistics (NCHS)
+    and used by CMS for Medicare/Medicaid reimbursement, ICD-9-CM contained approximately
+    13,000 diagnosis codes and 3,000 procedure codes, structured with 3-5 digit numeric
+    format where first three digits represent disease category and subsequent digits
+    add specificity for anatomical location, etiology, or manifestations. Major diagnostic
+    chapters included infectious and parasitic diseases (001-139), neoplasms (140-239),
+    endocrine and metabolic diseases (240-279), mental disorders (290-319), nervous
+    system (320-389), circulatory system (390-459), respiratory system (460-519),
+    digestive system (520-579), genitourinary system (580-629), and external causes
+    (E codes E800-E999) documenting injury circumstances. The procedure classification
+    (Volume 3) used 2-4 digit numeric codes organized by anatomical system, covering
+    surgical operations, diagnostic procedures, and therapeutic interventions primarily
+    for inpatient hospital settings. Despite decades of widespread adoption creating
+    massive legacy datasets and establishing institutional coding workflows, ICD-9-CM
+    became outdated due to limited specificity insufficient for modern medicine's
+    diagnostic precision, exhausted code capacity with no room for new diseases or
+    procedures, lack of laterality designation, and outdated medical terminology inconsistent
+    with current clinical practice. The mandated transition to ICD-10-CM/PCS in October
+    2015 required extensive healthcare industry preparation including EHR system updates,
+    coder retraining, and billing system modifications, yet ICD-9-CM remains critically
+    important for historical medical records analysis, longitudinal epidemiological
+    studies spanning pre-2015 data, retrospective cohort studies, trend analysis requiring
+    crosswalk mappings between ICD-9 and ICD-10, and legacy system maintenance. Applications
+    include historical disease surveillance tracking public health trends, health
+    services research analyzing treatment patterns, medical informatics developing
+    code translation algorithms, and archival medical data management, essential for
+    health informaticians managing legacy data, epidemiologists conducting temporal
+    studies, medical archivists, and researchers working with pre-2015 healthcare
+    datasets."
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:14
@@ -9223,7 +9321,29 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:19
   is_open: true
   name: BMP
-  purpose_detail: A bitmap image format.
+  purpose_detail: 'BMP (Bitmap) is a raster graphics file format developed by Microsoft for storing
+    device-independent bitmaps (DIBs) in Windows and OS/2 systems. The format consists
+    of a file header, DIB header (with multiple versions: BITMAPCOREHEADER, BITMAPINFOHEADER,
+    BITMAPV4HEADER, BITMAPV5HEADER), optional color palette, and pixel array storing
+    uncompressed or RLE-compressed bitmap data. BMP supports 1, 4, 8, 16, 24, and
+    32 bits per pixel, accommodating indexed color (palettes), RGB color, and alpha
+    channels for transparency. The format uses little-endian byte ordering and stores
+    pixel rows bottom-to-top by default, with each row padded to 4-byte boundaries.
+    BMP files can contain color profiles (ICC) for color management and support various
+    compression methods including BI_RGB (uncompressed), BI_RLE4/BI_RLE8 (run-length
+    encoding), and BI_BITFIELDS (custom RGB bit masks). The simplicity, widespread
+    familiarity, and open format specification make BMP common in Windows applications,
+    image processing software, and scientific imaging. While BMP files are typically
+    large due to minimal compression, they compress efficiently with lossless algorithms
+    (ZIP, RAR). BMP is used in GDI (Graphics Device Interface) subsystems, icons (ICO),
+    cursors (CUR), and as an intermediate format for image processing. Software support
+    is extensive: Adobe Photoshop, GIMP, Microsoft Office, browsers (Chrome, Edge),
+    and programming libraries across platforms. In AI/ML imaging applications, BMP
+    serves as a raw, lossless format for medical imaging (preserving pixel accuracy),
+    training data preparation (avoiding compression artifacts), image annotation workflows,
+    and intermediate processing steps where format simplicity facilitates pixel-level
+    manipulation for computer vision tasks, though typically converted to compressed
+    formats for efficient storage and transmission.'
   requires_registration: false
   url: https://en.wikipedia.org/wiki/BMP_file_format
 - id: B2AI_STANDARD:317
@@ -9373,7 +9493,27 @@ data_standardortools_collection:
   description: Dataset Cards
   is_open: true
   name: Dataset Cards
-  purpose_detail: Describe datasets.
+  purpose_detail: 'Dataset Cards are structured documentation templates for describing machine
+    learning datasets, introduced by Google and adopted widely in the ML community,
+    particularly through Hugging Face''s Datasets library. Dataset Cards provide standardized
+    metadata capturing dataset purpose, structure, creation methodology, intended uses,
+    limitations, and ethical considerations. The documentation includes: dataset summary
+    and description; language coverage and data sources; supported ML tasks and features;
+    dataset structure (splits, configurations, data fields); creation process (annotations,
+    quality control, collection methodology); considerations for using the data (social
+    impact, biases, privacy concerns); additional resources (papers, repositories,
+    licenses). Dataset Cards promote responsible AI by making dataset characteristics
+    transparent, helping practitioners assess fitness for purpose, understand potential
+    biases, and evaluate dataset limitations before use. The structured format enables
+    dataset discovery on ML platforms, facilitates reproducibility by documenting provenance,
+    and encourages accountability in dataset creation and curation. Hugging Face hosts
+    100,000+ dataset cards in their Hub, standardizing documentation for NLP, computer
+    vision, audio, and multimodal datasets. Dataset Cards complement Model Cards by
+    extending documentation principles to training data, addressing data quality, collection
+    practices, annotation procedures, and data ethics. In AI/ML pipelines, Dataset
+    Cards support informed dataset selection, bias mitigation through transparency,
+    reproducible research by documenting data versions, and regulatory compliance (AI
+    Act, GDPR) by clarifying data provenance, consent, and usage restrictions.'
   requires_registration: false
   url: https://huggingface.co/docs/datasets/dataset_card
 - id: B2AI_STANDARD:326
@@ -9506,7 +9646,28 @@ data_standardortools_collection:
   formal_specification: https://github.com/frictionlessdata/specs
   is_open: true
   name: Frictionless
-  purpose_detail: Describe datasets.
+  purpose_detail: 'Frictionless Data Package is a specification for packaging, describing, and
+    sharing datasets in a lightweight, standardized container format developed by
+    Open Knowledge Foundation. A Data Package consists of a descriptor (datapackage.json)
+    containing metadata about the package and its resources, along with the data files
+    themselves (local or remote). The specification defines comprehensive metadata
+    including: package title, description, licenses, version, sources, contributors,
+    and keywords; resource information for each data file (path/URL, format, schema,
+    encoding); Table Schema for tabular data defining field names, types, constraints,
+    and relationships; and optional goodtables validation rules. Frictionless supports
+    FAIR data principles by ensuring datasets are Findable (rich metadata), Accessible
+    (standard formats, clear paths), Interoperable (JSON-based descriptor, Table Schema),
+    and Reusable (license, provenance, structure documentation). The ecosystem includes
+    libraries for Python, JavaScript, R, Ruby, PHP, and command-line tools for validation,
+    conversion, and publishing. Frictionless integrates with data portals (CKAN, Dataverse),
+    notebooks (Jupyter), and analysis tools, enabling seamless dataset exchange and
+    processing. Extensions support specialized data types (geospatial, time series,
+    budget data) and validation frameworks. In AI/ML workflows, Frictionless Data
+    Packages standardize dataset distribution for reproducible research, provide machine-readable
+    schemas for automated data validation and ingestion, enable data versioning and
+    provenance tracking for ML pipelines, and facilitate dataset documentation complementing
+    model training by ensuring data quality, consistency, and interpretability across
+    collaborative ML projects.'
   requires_registration: false
   url: https://specs.frictionlessdata.io/data-package/
 - id: B2AI_STANDARD:333
@@ -9613,7 +9774,7 @@ data_standardortools_collection:
   description: Graphics Interchange Format
   is_open: true
   name: GIF
-  purpose_detail: A bitmap image format.
+  purpose_detail: 'Graphics Interchange Format (GIF) is a bitmap image format developed by CompuServe in 1987 that supports lossless LZW compression, up to 256 colors from a 24-bit RGB palette, transparency, and multi-frame animation with per-frame delay controls. GIF became widely adopted on the early web for its efficient compression and cross-platform compatibility, and remains ubiquitous for short animated loops and simple graphics with well-defined edges. The format supports two versions (GIF87a and GIF89a), with the latter adding animation delays, transparent backgrounds, and application-specific metadata. While the LZW patent controversy drove development of PNG as an alternative, GIF''s animation capabilities and "hot" data accessibility (frames stored sequentially without random access penalties) maintain its relevance for social media reactions, educational demonstrations, and web UI elements. Modern applications leverage GIF''s deterministic looping (via Netscape Application Block extension) and universal browser support, though video formats like WebP and MP4 increasingly replace GIF for better compression ratios. The format''s 256-color limitation makes it suitable for logos, diagrams, and pixel art but less appropriate for photographs or gradients, where dithering techniques are often applied. GIF files consist of a logical screen descriptor, optional global color table, image descriptors with optional local color tables, and LZW-encoded pixel data stored in sub-blocks. For AI/ML workflows, GIF serves as a compact format for visualizing model predictions over time series, displaying attention mechanisms frame-by-frame, and sharing animated training/validation metrics without requiring video codec dependencies.'
   requires_registration: false
   url: https://en.wikipedia.org/wiki/GIF
 - id: B2AI_STANDARD:339
@@ -9784,7 +9945,25 @@ data_standardortools_collection:
   formal_specification: https://github.com/json-schema-org/json-schema-spec
   is_open: true
   name: JSON-schema
-  purpose_detail: JSON validation
+  purpose_detail: 'JSON Schema is a vocabulary for annotating and validating JSON documents,
+    providing a declarative format for describing the structure, constraints, and
+    semantics of JSON data. As an IETF standard (draft specifications progressing
+    toward RFC status), JSON Schema defines a JSON-based format for specifying the
+    expected shape of JSON data, including data types, required properties, value
+    ranges, string patterns, array constraints, and object structures. The schema
+    itself is expressed in JSON, enabling meta-schema validation and recursive definitions.
+    JSON Schema supports multiple vocabularies including Core, Validation, Hyper-Schema
+    for hypermedia, and Format for semantic validation. Widely adopted across industries
+    with 60+ million weekly downloads, it powers API documentation (OpenAPI/Swagger),
+    configuration validation, code generation, form generation in UIs, and data interchange
+    contracts. Major implementations exist in JavaScript, Python, Java, Go, and 40+
+    other languages, with extensive tooling ecosystem including validators, generators,
+    linters, and editors. JSON Schema enables confident JSON data handling through
+    streamlined testing, seamless data exchange via shared understanding, and clear
+    documentation for developer collaboration. In AI/ML contexts, JSON Schema validates
+    training data structures, API request/response payloads, configuration files for
+    ML pipelines, and ensures data quality for machine learning workflows by catching
+    inconsistencies and schema violations at ingestion time.'
   related_to:
   - B2AI_STANDARD:761
   requires_registration: false
@@ -9803,7 +9982,25 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:21
   is_open: true
   name: KGX
-  purpose_detail: linked knowledge
+  purpose_detail: 'Knowledge Graph Exchange (KGX) is a standardized graph-oriented data format
+    for exchanging knowledge graphs, developed by the Biolink community to facilitate
+    interoperability between biomedical knowledge bases. KGX provides both a formal
+    specification and a Python toolkit (kgx library) for transforming, validating,
+    and exchanging knowledge graphs conforming to the Biolink Model. The format represents
+    graphs as nodes (entities with identifiers, categories, and properties) and edges
+    (relationships with predicates, subject/object references, and provenance), serialized
+    in JSON, TSV, or RDF formats. KGX ensures semantic alignment by enforcing Biolink
+    Model categories (e.g., Gene, Disease, Pathway) and predicates (e.g., causes,
+    treats, interacts_with), enabling consistent cross-database integration. The toolkit
+    supports graph transformations (merging, filtering, mapping), format conversions
+    (Neo4j, RDF, GraphML), and validation against Biolink Model constraints. KGX is
+    foundational for Translator knowledge graphs, integrating data from 150+ biomedical
+    sources including Monarch Initiative, NCATS Biomedical Data Translator, and Clinical
+    Data Commons. In AI/ML applications, KGX-formatted knowledge graphs power link
+    prediction for drug repurposing, knowledge graph embeddings for biomedical entity
+    representation learning, reasoning algorithms for hypothesis generation, and multi-modal
+    knowledge integration combining genomics, phenotypes, pathways, and clinical data
+    to support precision medicine and systems biology research.'
   related_to:
   - B2AI_STANDARD:783
   requires_registration: false
@@ -10214,7 +10411,38 @@ data_standardortools_collection:
   description: Postscript Format
   is_open: true
   name: PS
-  purpose_detail: A page description language.
+  purpose_detail: "PostScript (PS) is a Turing-complete, stack-based page description
+    language and programming language developed by Adobe Systems (John Warnock, Chuck
+    Geschke, Doug Brotz, Ed Taft, Bill Paxton) and released in 1984, revolutionizing
+    desktop publishing by providing device-independent representation of documents
+    combining text, vector graphics, and raster images. PostScript uses reverse Polish
+    notation and an interpreted execution model where documents are programs that,
+    when executed by a PostScript interpreter (Raster Image Processor or RIP), render
+    pages at the target device's resolution. The language describes graphics using
+    vector primitives (straight lines, cubic Bézier curves) enabling arbitrary scaling,
+    rotation, and transformation without quality loss, crucial for professional typography
+    and technical illustrations. PostScript's sophisticated font system uses outline
+    fonts with font hinting to maintain glyph quality at low resolutions, standardized
+    through Type 1, Type 2, and Type 3 font formats that influenced modern font technologies
+    like TrueType and OpenType. Three major versions exist: PostScript Level 1 (1984)
+    introducing basic page description capabilities, PostScript Level 2 (1991) adding
+    improved speed, image decompression (JPEG support), composite fonts, color separation,
+    and form caching, and PostScript 3 (1997) providing enhanced color handling with
+    up to 4096 gray levels, smooth shading operations, DeviceN color space for spot
+    colors, and better filtering. PostScript powered the Apple LaserWriter (1985),
+    triggering the desktop publishing revolution by enabling WYSIWYG document creation
+    on Macintosh with PageMaker software. The language became the de facto standard
+    for electronic prepress systems, high-end typesetters (Linotronic), and professional
+    printing workflows throughout the 1980s-1990s. PostScript's imaging model directly
+    influenced PDF (Portable Document Format), Adobe's 1993 successor that simplified
+    PostScript for document distribution by removing general-purpose programming features
+    while retaining the imaging model, making PDF documents static data structures
+    rather than executable programs. PostScript remains common in high-end printers,
+    professional publishing, and scientific visualization where precise vector graphics
+    control is required. Open-source implementations like Ghostscript enable PostScript
+    rendering on devices lacking native PostScript support. Scientific applications
+    include generation of publication-quality figures from computational analysis
+    software, precise technical diagrams, and device-independent archival documents."
   requires_registration: false
   url: https://en.wikipedia.org/wiki/PostScript
 - id: B2AI_STANDARD:364
@@ -10437,7 +10665,26 @@ data_standardortools_collection:
   - B2AI_ORG:99
   is_open: true
   name: RDF
-  purpose_detail: describe anything
+  purpose_detail: 'Resource Description Framework (RDF) is a W3C standard framework for representing
+    information about resources on the Web using subject-predicate-object triples.
+    RDF provides a graph-based data model where resources are identified by IRIs (Internationalized
+    Resource Identifiers) and relationships form a directed, labeled graph. The framework
+    enables decentralized knowledge representation, allowing anyone to make statements
+    about any resource and merge distributed data seamlessly. RDF Schema (RDFS) extends
+    RDF with vocabulary for describing classes, properties, domain, range, and hierarchical
+    relationships, enabling semantic reasoning and inference. RDF supports multiple
+    serialization formats including Turtle (human-readable), RDF/XML (verbose XML),
+    JSON-LD (JSON-based), and N-Triples (line-oriented). The semantic web stack builds
+    upon RDF: OWL for rich ontologies, SPARQL for querying RDF graphs, SHACL for
+    shape validation. RDF powers linked open data initiatives (DBpedia, Wikidata),
+    biomedical ontologies (OBO Foundry, Bio2RDF), knowledge graphs (Google Knowledge
+    Graph principles), and enterprise knowledge management. The framework enables
+    data integration across heterogeneous sources by providing common vocabularies
+    (Dublin Core, FOAF, Schema.org) and federated querying. In AI/ML contexts, RDF
+    graphs serve as structured knowledge bases for knowledge graph embeddings (TransE,
+    DistMult, ComplEx), semantic reasoning for inference rules, ontology-guided feature
+    engineering, and multi-relational learning where symbolic knowledge augments statistical
+    learning, enabling explainable AI and knowledge-driven machine learning systems.'
   requires_registration: false
   url: https://www.w3.org/TR/rdf-schema/
 - id: B2AI_STANDARD:374
@@ -10520,7 +10767,27 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:19
   is_open: true
   name: SGI
-  purpose_detail: A raster graphics file format.
+  purpose_detail: Silicon Graphics Image (SGI or RGB) is a raster graphics file format
+    developed by Silicon Graphics, Inc. for storing and displaying digital images
+    on SGI workstations and UNIX systems. The format supports 8-bit, 16-bit, and 24-bit
+    color depths with optional alpha channel for transparency, allowing representation
+    of grayscale, RGB, and RGBA images with various bit depths per channel. SGI images
+    can be stored uncompressed or with run-length encoding (RLE) compression for reduced
+    file sizes while maintaining lossless quality. The format was widely used in professional
+    computer graphics, visual effects, scientific visualization, and medical imaging
+    during the 1980s-1990s when SGI workstations dominated high-end graphics computing.
+    SGI files use .sgi, .rgb, .rgba, .bw, or .int file extensions depending on color
+    configuration and bit depth. The format specifies image dimensions, number of
+    channels (1 for grayscale, 3 for RGB, 4 for RGBA), compression method, and pixel
+    data in a header-based structure readable by graphics software on big-endian systems.
+    While largely superseded by more modern formats like PNG and TIFF for general
+    use, SGI format remains relevant in legacy scientific visualization applications,
+    particularly in medical imaging archives, computational fluid dynamics visualization,
+    and legacy 3D rendering pipelines. ImageMagick, GIMP, and specialized scientific
+    visualization software maintain SGI format support for backward compatibility with
+    historical image datasets. The format's simplicity and direct pixel representation
+    made it suitable for high-performance graphics rendering on SGI's proprietary hardware
+    and OpenGL-based visualization systems.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Silicon_Graphics_Image
 - id: B2AI_STANDARD:378
@@ -10948,7 +11215,7 @@ data_standardortools_collection:
   description: Model Zoo
   is_open: true
   name: modelzoo.co
-  purpose_detail: machine learning models
+  purpose_detail: 'Model Zoo (modelzoo.co) is a curated discovery platform that aggregates pre-trained machine learning models from diverse frameworks (TensorFlow, PyTorch, Caffe, MXNet, ONNX), providing a centralized index for finding models across computer vision, natural language processing, speech recognition, and reinforcement learning domains. Originally launched as a community-driven resource, Model Zoo enables practitioners to search for state-of-the-art architectures by task (object detection, semantic segmentation, translation), dataset (ImageNet, COCO, WMT), or framework compatibility. The platform serves as a model marketplace connecting researchers publishing novel architectures with practitioners seeking production-ready implementations, reducing the barrier to adopting cutting-edge techniques. Model Zoo listings typically include architecture descriptions, training configurations, performance benchmarks (accuracy, inference speed), framework-specific code repositories, and pre-trained weight files for transfer learning. Unlike framework-specific repositories (PyTorch Hub, TensorFlow Hub), Model Zoo provides cross-framework search capabilities, enabling users to discover equivalent architectures implemented in multiple ecosystems and compare performance characteristics across frameworks. The platform supports both academic research models (recent conference publications) and industry-proven architectures (ResNet, BERT variants), with community ratings and download metrics indicating model popularity and reliability. Model Zoo facilitates reproducibility by linking to original papers, training datasets, and hyperparameter configurations, while model cards provide metadata on intended use cases, known limitations, and ethical considerations. For AI/ML practitioners, Model Zoo accelerates prototyping by providing a starting point for transfer learning, enabling rapid experimentation with pre-trained models fine-tuned on domain-specific data rather than training from scratch, particularly valuable when compute resources or labeled data are limited.'
   requires_registration: false
   url: https://modelzoo.co/
 - id: B2AI_STANDARD:400
@@ -10981,7 +11248,7 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:33
   is_open: true
   name: PyTorch Hub
-  purpose_detail: machine learning models
+  purpose_detail: 'PyTorch Hub is the official model repository and distribution system for the PyTorch deep learning framework, providing programmatic access to pre-trained models through a standardized torch.hub API that enables single-line model loading with automatic dependency resolution and weight downloading. Launched by Facebook AI Research (now Meta AI) and the PyTorch Foundation, Hub hosts curated models from leading research institutions including FAIR, NVIDIA, Hugging Face, Intel, and academic labs, covering computer vision (YOLOv5, ResNet, EfficientNet), NLP (Transformers, RoBERTa), speech (Silero models, Tacotron2), and video understanding (SlowFast, X3D) domains. Each Hub model is defined by a hubconf.py file in a GitHub repository that specifies entry points, dependencies, and preprocessing pipelines, ensuring reproducible model instantiation across environments. PyTorch Hub supports both feature extraction (frozen backbone models) and fine-tuning workflows (unfrozen weights), with models returning standard torch.nn.Module objects compatible with PyTorch training loops, data loaders, and distributed training frameworks (DDP, FSDP). The platform integrates with PyTorch''s TorchScript compilation for deployment optimization, ONNX export for cross-framework compatibility, and TorchServe for production serving. Hub models include metadata specifying input/output tensor shapes, preprocessing requirements (normalization statistics, resize dimensions), and performance benchmarks (latency, throughput) across hardware configurations (CPU, GPU, mobile). The repository supports version pinning via Git commit hashes or tags, enabling deterministic model loading and reproducible research results. For researchers, PyTorch Hub accelerates experimentation by providing battle-tested implementations of recent architectures (often released alongside conference publications) with pre-trained ImageNet, COCO, or Kinetics weights, reducing training time from weeks to hours through transfer learning. In AI/ML pipelines, Hub models serve as feature extractors for downstream tasks (medical imaging, satellite analysis), few-shot learning backbones, and initialization points for domain adaptation, with the torch.hub.load() API supporting custom repositories for internal enterprise model sharing.'
   related_to:
   - B2AI_STANDARD:816
   requires_registration: false
@@ -10998,7 +11265,7 @@ data_standardortools_collection:
   - B2AI_ORG:37
   is_open: true
   name: TFHub
-  purpose_detail: machine learning models
+  purpose_detail: 'TensorFlow Hub (tfhub.dev) is Google''s official repository for reusable machine learning modules, providing pre-trained model components as SavedModel or TF2 format assets that integrate seamlessly into TensorFlow and Keras workflows via the tensorflow-hub library. Launched in 2018, TF Hub pioneered the concept of "transfer learning building blocks" by packaging not just model weights but complete computational graphs including preprocessing layers, embedding extractors, and prediction heads that can be composed into larger architectures. Hub modules span text embeddings (Universal Sentence Encoder, BERT, LaBSE), image feature vectors (MobileNet, EfficientNet, ResNet), object detection (SSD, Faster R-CNN), image generation (BigGAN, StyleGAN), video understanding (I3D, MoViNet), and audio processing (YAMNet, TRILL). Each module provides a consistent interface via hub.KerasLayer or hub.load(), supporting both feature extraction (trainable=False) and fine-tuning (trainable=True) modes with automatic gradient flow through module internals. TF Hub emphasizes model cards with detailed documentation on training data, performance metrics, intended use cases, and ethical considerations (bias, fairness), promoting responsible AI deployment. The platform supports multiple serving formats including TensorFlow Lite for mobile/edge deployment, TensorFlow.js for in-browser inference, and TensorFlow Serving for production APIs, with modules optimized for quantization and pruning. Hub''s standardized interface enables model composition where text embeddings feed into classification heads, or image encoders combine with text encoders for multimodal learning. For researchers, TF Hub reduces training time and computational costs by providing pre-trained representations on large-scale datasets (Wikipedia, ImageNet, YouTube-8M) that transfer effectively to specialized domains with limited data. In AI/ML production systems, Hub modules accelerate deployment by providing battle-tested, versioned components with defined input/output signatures, enabling A/B testing of different encoders and rapid iteration on model architectures without retraining entire pipelines from scratch.'
   requires_registration: false
   url: https://tfhub.dev/
 - id: B2AI_STANDARD:403
@@ -11127,7 +11394,28 @@ data_standardortools_collection:
   is_open: true
   name: BFO
   publication: doi:10.3233/AO-160164
-  purpose_detail: Upper level ontology.
+  purpose_detail: 'Basic Formal Ontology (BFO) is a small, upper-level ontology designed for supporting
+    information retrieval, analysis, and integration in scientific and other domains.
+    As a genuine upper ontology, BFO provides foundational categories that are domain-neutral
+    and applicable across all areas of scientific investigation, rather than containing
+    domain-specific terms. BFO distinguishes between continuants (entities that endure
+    through time, such as objects, qualities, and spatial regions) and occurrents
+    (entities that unfold over time, such as processes and temporal regions), providing
+    a rigorous framework for representing the fundamental structure of reality. The
+    ontology employs formal logic (first-order logic, OWL2) to define its 39 core
+    classes and relations, ensuring precise semantics and enabling automated reasoning.
+    BFO is used by over 550 ontology-driven projects worldwide as the top-level framework
+    for domain ontologies in biomedicine (OBO Foundry ontologies like GO, CHEBI, Uberon),
+    healthcare (OGMS for disease), environmental science, manufacturing, and military
+    intelligence. The ontology promotes interoperability by providing consistent upper-level
+    structure, enabling ontology integration and cross-domain data federation. BFO
+    has been developed through extensive international collaboration, with contributions
+    from philosophers, logicians, and domain scientists, and is continuously refined
+    based on practical applications. In AI/ML contexts, BFO provides foundational
+    structure for knowledge graphs, enabling ontology-guided reasoning, semantic data
+    integration across heterogeneous sources, knowledge representation for explainable
+    AI, and principled ontology alignment, supporting knowledge-driven machine learning
+    where symbolic foundations enhance statistical learning with formal semantics.'
   requires_registration: false
   url: http://basic-formal-ontology.org/
 - id: B2AI_STANDARD:409
@@ -11265,7 +11553,26 @@ data_standardortools_collection:
   is_open: true
   name: CL
   publication: doi:10.1186/s13326-016-0088-7
-  purpose_detail: Cell Types
+  purpose_detail: "The Cell Ontology (CL) is an OBO Foundry ontology covering biological
+    cell types with curation focused on animal cell types and interoperability with
+    specialized cell type ontologies in other biological domains. CL is tightly integrated
+    with the Uberon multi-species anatomy ontology (for recording cell location) and
+    the Gene Ontology (GO, which uses CL as its main cell type reference and provides
+    cell function annotations). Built on FAIR principles, CL enables community-driven
+    curation with active embedded editors from multiple projects responsive on the
+    issue tracker. The ontology is released in multiple standard formats (OWL/RDF/XML,
+    OBO, JSON obographs) with multiple variants: full (all imports merged, reasoner-classified),
+    base (not pre-reasoned, only CL axioms including non-CL class references), and
+    simple (pre-reasoned, CL classes only), all with resolvable version IRIs for persistent
+    access. CL is integrated into standard tools including Ubergraph (for logical
+    queries like finding cells by location), Ontology Access Kit (OAK), and major
+    browsers (OLS, Ontobee). The ontology supports major initiatives including BICCN
+    cell type knowledge explorer, HubMap Human Reference Atlas, ENCODE, FANTOM5, Single
+    Cell Expression Atlas, Human Cell Atlas, and CellKB. CL enables AI/ML applications
+    including OnClass for automatic cell type classification, Brain Data Standards
+    Ontology (BDSO) for cell type navigation and search, and provides standardized
+    cell type annotations essential for single-cell omics machine learning, cross-dataset
+    integration, and cell type discovery algorithms."
   requires_registration: false
   url: https://cell-ontology.github.io/
 - id: B2AI_STANDARD:417
@@ -11303,7 +11610,22 @@ data_standardortools_collection:
   is_open: true
   name: CHEBI
   publication: doi:10.1093/nar/gkv1031
-  purpose_detail: Chemicals
+  purpose_detail: "ChEBI is an open-access OBO Foundry database and ontology of chemical
+    entities covering constitutionally or isotopically distinct atoms, molecules,
+    ions, ion pairs, radicals, complexes, conformers, groups, chemical substances,
+    and classes of molecular entities. The database contains over 195,000 entries
+    of naturally occurring molecules or synthetic compounds used to intervene in biological
+    processes, with macromolecules directly encoded by genomes (nucleic acids, proteins,
+    peptides) excluded. ChEBI incorporates ontological classification defining relationships
+    between chemical entities and their parent/child classes, enabling queries based
+    on chemical class and role. The database provides comprehensive information including
+    nomenclature following IUPAC and NC-IUBMB standards, molecular formulas, InChI
+    and SMILES identifiers, literature citations, cross-references to other databases,
+    and species data. ChEBI supports text and structure searches and is released in
+    multiple formats (SDF, OBO, OWL, flat file, SQL dumps). As an ELIXIR Core Data
+    Resource and Global Core Biodata Resource, ChEBI enables AI/ML applications in
+    cheminformatics, drug discovery, metabolomics, systems biology, and chemical-phenotype
+    association studies."
   requires_registration: false
   url: https://www.ebi.ac.uk/chebi/
 - id: B2AI_STANDARD:419
@@ -11337,7 +11659,38 @@ data_standardortools_collection:
   formal_specification: https://github.com/rsc-ontologies/rsc-cmo
   is_open: true
   name: CHMO
-  purpose_detail: A chemical methods ontology.
+  purpose_detail: "The Chemical Methods Ontology (CHMO) provides a comprehensive,
+    standardized vocabulary for describing experimental methods, techniques, and instruments
+    used in chemical analysis, material synthesis, and sample preparation, maintained
+    by the Royal Society of Chemistry (RSC) and aligned with OBO Foundry principles.
+    CHMO encompasses three primary domains: analytical methods for data collection
+    (mass spectrometry including ESI-MS, MALDI-TOF, GC-MS, LC-MS; spectroscopic techniques
+    including NMR, IR, UV-Vis, Raman, X-ray spectroscopy; electron microscopy including
+    SEM, TEM, STEM; and diffraction methods), separation and sample preparation techniques
+    (chromatography including HPLC, GC, TLC, size-exclusion, affinity, ion-exchange;
+    electrophoresis including SDS-PAGE, capillary electrophoresis, isoelectric focusing;
+    sample ionization methods including electrospray, MALDI, electron impact; and
+    extraction procedures), and material synthesis methods (chemical vapor deposition,
+    epitaxy, sol-gel processes, crystallization, polymerization, and nanoparticle
+    synthesis). The ontology also describes instruments and equipment (mass spectrometers,
+    chromatography columns, detectors, vacuum systems, heating/cooling apparatus)
+    and their components, operational parameters (temperature, pressure, flow rate,
+    voltage, resolution), and measurement outputs (spectra, chromatograms, diffraction
+    patterns, images). CHMO integrates with OBI (Ontology for Biomedical Investigations)
+    for process and measurement concepts, CHEBI (Chemical Entities of Biological Interest)
+    for chemical substances, and other OBO ontologies for cross-domain applications
+    in metabolomics, proteomics, and materials science. The ontology provides both
+    textual and formal OWL definitions enabling automated reasoning, classification
+    of methods by input material types, conditions of application, and output data
+    formats. CHMO supports reproducibility in chemical research by standardizing method
+    descriptions in electronic laboratory notebooks, method sections of publications,
+    protocols repositories, and analytical chemistry databases. Applications include
+    semantic search for analytical protocols, automated method selection based on
+    sample properties, FAIRification of chemical data workflows, text mining of chemical
+    literature for method extraction, and quality control in analytical laboratories.
+    The ontology is developed using the Ontology Development Kit (ODK) and distributed
+    under CC-BY-4.0 license, with releases available in OBO, OWL, and JSON formats
+    through http://purl.obolibrary.org/obo/chmo.owl."
   requires_registration: false
   url: https://github.com/rsc-ontologies/rsc-cmo
 - id: B2AI_STANDARD:421
@@ -11585,7 +11938,23 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: DUO
-  purpose_detail: Data use rules
+  purpose_detail: 'The Data Use Ontology (DUO) provides standardized vocabulary for describing
+    data use conditions, restrictions, and requirements in biomedical and genomics
+    research. Developed by the Global Alliance for Genomics and Health (GA4GH), DUO
+    enables semantic tagging of datasets with consent-derived restrictions (e.g.,
+    health/medical/biomedical research only, disease-specific research, non-commercial
+    use, research ethics approval). The ontology supports automated data access matching,
+    where algorithms determine whether a researcher''s purpose is compatible with dataset
+    restrictions, enabling services like DUOS (Data Use Oversight System) and EGA
+    (European Genome-phenome Archive) to streamline data sharing while respecting
+    participant consent. DUO extends NIH dbGaP data use categories with hierarchical
+    structure for logical inference, includes consent codes for international data
+    sharing, and implements ADA-M (Automated Data Access Matrix) for granular permissions.
+    Used by 60+ million weekly downloads, DUO facilitates GDPR-aware data governance,
+    phenotype-driven differential diagnostics, and translational research. The ontology
+    ensures that informed consent language translates into machine-readable terms,
+    accelerating responsible data reuse for AI/ML training datasets, clinical phenotyping,
+    and genomic diagnostics while maintaining participant privacy and ethical oversight.'
   requires_registration: false
   url: https://github.com/EBISPOT/DUO
 - id: B2AI_STANDARD:434
@@ -12008,7 +12377,37 @@ data_standardortools_collection:
   formal_specification: https://github.com/IHCC-cohorts/GECKO
   is_open: true
   name: GECKO
-  purpose_detail: Genomics cohort attributes.
+  purpose_detail: "The Genomics Cohorts Knowledge Ontology (GECKO) provides a standardized
+    vocabulary for describing attributes of genomics cohorts and individual-level
+    data in population-based research studies. Developed by the CINECA (Common Infrastructure
+    for National Cohorts in Europe, Canada, and Africa) project and maintained for
+    the International HundredK+ Cohorts Consortium (IHCC), GECKO enables harmonized
+    representation of cohort metadata across diverse genomics studies, biobanks, and
+    research consortia. The ontology encompasses five major categories: cohort design
+    characteristics (prospective/retrospective, longitudinal/cross-sectional, case-control,
+    family-based), participant demographics and socioeconomic attributes, phenotypic
+    data collection methods (questionnaires, clinical assessments, biospecimen types),
+    genomics data types (whole genome sequencing, exome sequencing, genome-wide association
+    studies, RNA-seq, methylation arrays), and data access policies with consent frameworks.
+    GECKO standardizes terminology for cohort recruitment strategies, inclusion/exclusion
+    criteria, sample sizes, age ranges, ancestry populations, geographic locations,
+    and follow-up durations critical for cohort discovery and meta-analysis planning.
+    The ontology integrates with other OBO Foundry ontologies including BFO (Basic
+    Formal Ontology) as top-level and OBI (Ontology for Biomedical Investigations)
+    as mid-level, ensuring semantic interoperability. GECKO provides two products:
+    the OBO-compliant gecko.owl for formal ontology applications, and ihcc-gecko.owl
+    tailored for IHCC cohort cataloging with specialized browser labels and categorization.
+    Automated tools based on JSON schema mapping files enable generation of harmonized
+    data dictionaries and FAIRified metadata for cohort studies. Applications include
+    cohort discovery portals enabling researchers to identify suitable cohorts for
+    collaborative studies, standardized phenotype harmonization across studies for
+    meta-GWAS, ethical data sharing frameworks through consent ontology terms, and
+    FAIR data principles implementation in population genomics repositories. GECKO
+    facilitates interoperability between cohort catalogs like BBMRI-ERIC, Maelstrom
+    Research, dbGaP, and EGA by providing common terminology for cohort characteristics,
+    enabling federated queries across international biobanks. The ontology is distributed
+    under Creative Commons Attribution 4.0 International License, ensuring open access
+    for academic and commercial research."
   requires_registration: false
   url: https://github.com/IHCC-cohorts/GECKO
 - id: B2AI_STANDARD:457
@@ -12026,7 +12425,25 @@ data_standardortools_collection:
   - B2AI_ORG:58
   is_open: true
   name: GENO
-  purpose_detail: Genotypes
+  purpose_detail: GENO is an OWL2 OBO Foundry ontology representing levels of genetic
+    variation specified in genotypes to support genotype-to-phenotype (G2P) data aggregation
+    and analysis across diverse research communities and sources. The core model is
+    a graph decomposing genotypes into smaller components of variation, from complete
+    genotypes specifying sequence variation across entire genomes down to specific
+    allelic variants and sequence alterations. This partonomy structure enables integrated
+    analysis of G2P data where phenotype annotations are made at different granularity
+    levels. GENO describes genotype attributes including zygosity, genomic position,
+    expression, dominance, and functional dependencies or consequences of variants.
+    Beyond heritable genomic sequence variation, GENO represents transient variation
+    in gene expression from knockdown reagents or overexpression constructs, representing
+    this variation in terms of targeted genes to parallel sequence variation representation.
+    GENO models G2P associations focusing on genotype-phenotype-environment interplay
+    and uses the Scientific Evidence and Provenance Information Ontology (SEPIO) for
+    provenance and experimental evidence. The ontology is orthogonal to but integrates
+    with the Sequence Ontology (SO), Human Phenotype Ontology (HPO), Feature Annotation
+    Location Description Ontology (FALDO), and Variation Ontology (VariO), supporting
+    AI/ML applications in variant effect prediction, phenotype association analysis,
+    and precision medicine.
   requires_registration: false
   url: https://github.com/monarch-initiative/GENO-ontology
 - id: B2AI_STANDARD:458
@@ -12098,7 +12515,32 @@ data_standardortools_collection:
   - B2AI_ORG:92
   is_open: true
   name: HSO
-  purpose_detail: Surveillance system level data.
+  purpose_detail: The Health Surveillance Ontology (HSO) provides a comprehensive
+    framework for standardizing terminology and concepts related to health surveillance
+    systems, disease monitoring programs, and public health data collection across
+    human and veterinary medicine. Developed by the Swedish Veterinary Agency (SVA)
+    and aligned with OBO Foundry principles, HSO enables interoperability between
+    surveillance databases, epidemiological studies, and public health information
+    systems by providing consistent vocabulary for surveillance activities, case definitions,
+    reporting requirements, and data quality metrics. The ontology encompasses surveillance
+    system architectures (passive surveillance, active surveillance, sentinel surveillance,
+    syndromic surveillance), data collection methodologies (laboratory-based surveillance,
+    clinical reporting, population surveys, environmental monitoring), case classification
+    criteria (confirmed cases, probable cases, suspect cases based on laboratory/clinical/epidemiological
+    evidence), temporal and spatial granularity specifications (reporting periods,
+    geographic resolution, population denominators), and data quality indicators (completeness,
+    timeliness, representativeness, sensitivity, specificity). HSO supports One Health
+    approaches by bridging human, animal, and environmental health surveillance domains,
+    facilitating detection of zoonotic disease emergence, antimicrobial resistance
+    tracking, and foodborne outbreak investigations. Applications include standardization
+    of surveillance system metadata for interoperability between national and international
+    health agencies (WHO, ECDC, OIE), automated validation of surveillance data submissions,
+    harmonization of case definitions across jurisdictions, and machine-readable representation
+    of surveillance protocols for reproducibility. HSO integrates with disease ontologies
+    (DO, DOID), pathogen ontologies (IDO, NCBITaxon), and geographic ontologies (GAZ)
+    to provide comprehensive semantic framework for epidemiological data. The ontology
+    enables FAIR principles implementation in public health surveillance by making
+    surveillance system documentation findable, accessible, interoperable, and reusable.
   requires_registration: false
   url: https://w3id.org/hso
 - id: B2AI_STANDARD:462
@@ -12185,7 +12627,39 @@ data_standardortools_collection:
   formal_specification: https://github.com/obophenotype/developmental-stage-ontologies
   is_open: true
   name: HSAPDV
-  purpose_detail: Life cycle stages for Human.
+  purpose_detail: The Human Developmental Stages ontology (HsapDv) provides standardized
+    terminology for describing human lifecycle stages from conception through senescence,
+    developed by the Bgee group in collaboration with Uberon and EHDAA2 (Human Developmental
+    Anatomy Ontology) developers to enable precise temporal annotation of biological
+    data across developmental biology, clinical research, and population studies.
+    HsapDv encompasses both embryonic and postnatal stages, utilizing Carnegie staging
+    system for prenatal development (Carnegie stages 1-23 covering days 1-56 post-fertilization,
+    approximately embryonic weeks 1-8) which provides morphology-based developmental
+    milestones independent of gestational age variations. Embryonic stages capture
+    critical developmental events including fertilization, cleavage, blastocyst formation,
+    gastrulation, neurulation, organogenesis, and fetal development through birth.
+    Postnatal stages include neonatal period (birth to 28 days), infancy (1 month
+    to 2 years), early childhood (2-6 years), middle childhood (6-12 years), adolescence
+    (12-18 years encompassing puberty), young adulthood (18-40 years), middle adulthood
+    (40-65 years), and late adulthood/senescence (65+ years) with subdivisions for
+    geriatric populations. Each stage is formally defined with temporal boundaries,
+    morphological characteristics, physiological milestones (motor skills, cognitive
+    development, hormonal changes), and relationships to other developmental stages
+    through "immediately_preceded_by" and "part_of" relations. HsapDv integrates
+    with Uberon for anatomical structure development timing, enabling queries like
+    "when does the cerebral cortex develop" or "which genes are expressed in neural
+    tube during neurulation." Applications span developmental biology research (temporal
+    annotation of gene expression atlases, single-cell RNA-seq developmental trajectories,
+    epigenetic modification timelines), clinical medicine (prenatal diagnosis, developmental
+    delay assessment, age-appropriate clinical reference ranges), teratology studies
+    (critical periods for teratogen exposure), pharmacology (age-specific drug metabolism
+    and dosing), and epidemiology (age-stratified disease incidence). HsapDv enables
+    cross-species developmental comparisons through alignment with other species-specific
+    developmental ontologies (mouse MmusDv, zebrafish ZFS), facilitating translational
+    research and comparative embryology. The ontology is distributed in OBO and OWL
+    formats through http://purl.obolibrary.org/obo/hsapdv.owl and browsable via OBO
+    Foundry portals, supporting reproducible temporal annotation in biomedical databases,
+    developmental atlases, and clinical decision support systems.
   requires_registration: false
   url: https://github.com/obophenotype/developmental-stage-ontologies/wiki/HsapDv
 - id: B2AI_STANDARD:467
@@ -12233,7 +12707,28 @@ data_standardortools_collection:
   formal_specification: https://github.com/obophenotype/human-phenotype-ontology
   is_open: true
   name: HPO
-  purpose_detail: Phenotypic Features
+  purpose_detail: 'The Human Phenotype Ontology (HPO) provides standardized vocabulary for phenotypic
+    abnormalities encountered in human disease, containing over 18,000 terms and 156,000+
+    annotations to hereditary diseases. Each HPO term describes a specific phenotypic
+    feature (e.g., "Atrial septal defect" HP:0001631) organized in a hierarchical
+    structure from general to specific findings. Developed using medical literature,
+    Orphanet, DECIPHER, and OMIM, HPO enables precise phenotype-driven differential
+    diagnostics, genomic variant interpretation, and translational research. The ontology
+    integrates with major biomedical resources and powers phenotype matching algorithms
+    that rank diseases by clinical feature similarity. HPO is foundational for rare
+    disease diagnosis tools (Exomiser, Phenomizer, PhenoTips), electronic health record
+    phenotyping, and clinical decision support systems. As a Monarch Initiative flagship
+    product and GA4GH driver project, HPO enables semantic integration across species,
+    connecting human phenotypes to model organism phenotypes for translational research.
+    The ontology supports deep phenotyping in genomics studies, electronic health record
+    phenotype extraction, natural language processing for clinical notes, and phenotype-driven
+    gene prioritization. HPO annotations link phenotypes to genes, diseases, and publications,
+    facilitating genotype-phenotype correlation studies. In AI/ML applications, HPO
+    powers phenotype-based similarity learning for rare disease diagnosis, automated
+    phenotype extraction from clinical narratives using NLP, ontology-guided feature
+    engineering for predictive models, knowledge graph embeddings for disease gene
+    discovery, and multi-modal patient representation learning combining genomics,
+    phenotypes, and clinical data to support precision medicine and clinical genomics.'
   related_to:
   - B2AI_STANDARD:784
   requires_registration: false
@@ -12484,7 +12979,40 @@ data_standardortools_collection:
   formal_specification: https://github.com/obophenotype/developmental-stage-ontologies
   is_open: true
   name: OLATDV
-  purpose_detail: Life cycle stages for Medaka
+  purpose_detail: The Medaka Developmental Stages ontology (OlatDv) provides standardized
+    terminology for describing developmental stages of medaka (Oryzias latipes, Japanese
+    rice fish), a key teleost model organism in developmental biology, genetics, toxicology,
+    and comparative vertebrate research, based on Iwamatsu staging system and developed
+    from the original Medaka Fish Ontology (MFO) by Thorsten Henrich. Medaka serves
+    as a powerful model organism complementing zebrafish and mouse due to its transparent
+    embryos enabling live imaging, short generation time (2-3 months), small size
+    suitable for laboratory culture, fully sequenced genome with conserved vertebrate
+    gene organization, and established genetic tools including transgenesis, CRISPR/Cas9
+    editing, and mutant libraries. OlatDv encompasses embryonic and larval stages
+    from fertilization through sexual maturity, currently focusing on pre-adult development.
+    Embryonic stages follow Iwamatsu's morphological staging system (stages 1-40)
+    covering fertilization (stage 1), cleavage (stages 2-7), blastula (stages 8-10),
+    gastrulation (stages 11-17), neurulation (stages 18-20), organogenesis (stages
+    21-30), and pre-hatching development (stages 31-40 leading to hatching at approximately
+    day 7-10 post-fertilization at 26°C). Each stage is defined by specific morphological
+    landmarks including somite numbers, heart development, pigmentation patterns, fin
+    bud appearance, eye development, and gill filament formation. Post-hatching larval
+    stages capture metamorphosis, scale formation, sex differentiation, and juvenile
+    maturation through first reproduction. OlatDv provides temporal annotations crucial
+    for comparative developmental biology studies examining vertebrate evolution, particularly
+    teleost-specific genome duplication events and developmental innovations. Applications
+    include temporal annotation of gene expression databases (Medaka Expression Database),
+    developmental toxicology studies (OECD fish embryo toxicity tests using medaka
+    as alternative to zebrafish), endocrine disruption research (sex determination
+    mechanisms), carcinogenesis studies (medaka exhibits spontaneous tumor formation),
+    and aging research (short lifespan enables longitudinal studies). Integration
+    with Uberon anatomical ontology enables queries linking developmental stage to
+    organ system maturation, essential for understanding tissue-specific gene expression
+    changes during development. OlatDv facilitates cross-species developmental comparisons
+    through alignment with zebrafish ZFS, frog XAO, and mammalian developmental ontologies,
+    supporting evolutionary developmental biology (evo-devo) research and identification
+    of conserved versus lineage-specific developmental programs across vertebrates.
+    The ontology is distributed through OBO Foundry as olatdv.obo and olatdv.owl formats.
   requires_registration: false
   url: https://github.com/obophenotype/developmental-stage-ontologies/wiki/OlatDv
 - id: B2AI_STANDARD:484
@@ -12555,7 +13083,36 @@ data_standardortools_collection:
   formal_specification: https://github.com/jannahastings/mental-functioning-ontology
   is_open: true
   name: MF
-  purpose_detail: All aspects of mental functioning.
+  purpose_detail: The Mental Functioning Ontology (MF) is an OBO Foundry ontology
+    providing structured terminology for mental processes, cognitive functions, emotional
+    states, and behavioral phenomena to support standardized annotation of neuroscience
+    data, psychiatric research, psychological assessments, and mental health informatics.
+    Developed by Janna Hastings and collaborators, MF extends the Basic Formal Ontology
+    (BFO) upper-level framework and integrates with domain ontologies including the
+    Mental Disease Ontology (MD) for psychiatric disorders, the Cognitive Atlas for
+    cognitive processes, the Emotion Ontology for affective states, and the Gene
+    Ontology (GO) for molecular underpinnings of neural function. The ontology comprehensively
+    represents cognitive domains including perception (visual, auditory, somatosensory,
+    chemosensory), attention (selective, divided, sustained), memory (working, episodic,
+    semantic, procedural), executive functions (planning, inhibition, cognitive flexibility,
+    decision-making), language processing, and reasoning, alongside emotional and
+    motivational constructs such as valence, arousal, mood states, personality traits,
+    and social cognition (theory of mind, empathy, social perception). MF captures
+    temporal dynamics of mental processes (onset, duration, termination), intensity
+    dimensions, and contextual dependencies, enabling nuanced representation of psychological
+    phenomena. Integration with clinical terminologies like DSM-5, ICD-11, and RDoC
+    (Research Domain Criteria) facilitates translational psychiatry linking basic
+    neuroscience to clinical phenotypes. Applications include standardized annotation
+    of neuroimaging studies identifying brain regions associated with specific mental
+    functions, computational psychiatry modeling mental disorders as disruptions in
+    cognitive and emotional processes, natural language processing extracting mental
+    state descriptions from clinical notes, AI-based mental health assessment systems,
+    meta-analysis of psychological experiments through unified terminology, and personalized
+    medicine approaches tailoring psychiatric treatments to individual cognitive profiles.
+    MF follows OBO Foundry principles with open-source development, logical consistency
+    checking, and community-driven refinement, essential for computational neuroscience,
+    digital mental health platforms, cognitive science research, and integrative brain
+    databases.
   requires_registration: false
   url: https://github.com/jannahastings/mental-functioning-ontology
 - id: B2AI_STANDARD:488
@@ -12690,7 +13247,33 @@ data_standardortools_collection:
   - B2AI_ORG:29
   is_open: true
   name: MOP
-  purpose_detail: Processes at the molecular level
+  purpose_detail: The Molecular Process Ontology (MOP) provides standardized vocabulary
+    for describing molecular-level processes, transformations, and mechanisms that
+    occur in chemical and biochemical systems, maintained by the Royal Society of
+    Chemistry as part of the RSC ontology ecosystem. MOP encompasses reaction mechanisms
+    (nucleophilic substitution, electrophilic addition, radical reactions, pericyclic
+    reactions), molecular interactions (hydrogen bonding, van der Waals forces, π-π
+    stacking, hydrophobic interactions, electrostatic interactions), conformational
+    changes (protein folding, ligand-induced conformational shifts, allosteric transitions),
+    energy transfer processes (fluorescence resonance energy transfer FRET, photoinduced
+    electron transfer, vibrational energy relaxation), and transport phenomena (diffusion,
+    membrane permeation, active transport, facilitated diffusion). The ontology provides
+    detailed mechanistic descriptions including activation energies, transition states,
+    reaction intermediates, rate-determining steps, and catalytic cycles essential
+    for understanding chemical reactivity and biological function at the molecular
+    scale. MOP integrates with the Chemical Methods Ontology (CHMO) for experimental
+    techniques, CHEBI for chemical entities, and the Gene Ontology (GO) for biological
+    processes, enabling comprehensive annotation of molecular transformations from
+    pure chemistry through biochemistry to systems biology. Applications include annotation
+    of reaction databases for synthetic chemistry planning, mechanistic modeling of
+    enzymatic catalysis, drug-target interaction mechanisms for rational drug design,
+    metabolic pathway analysis with detailed reaction mechanisms, and computational
+    chemistry workflow documentation. MOP supports reproducibility in mechanistic studies
+    by standardizing descriptions of reaction conditions, stereochemical outcomes,
+    regioselectivity, and stereoselectivity patterns. The ontology enables semantic
+    searches for reactions by mechanism type, facilitating discovery of analogous
+    transformations across different chemical contexts and supporting retrosynthetic
+    analysis in computer-aided synthesis planning tools.
   requires_registration: false
   url: https://www.ebi.ac.uk/ols/ontologies/mop
 - id: B2AI_STANDARD:495
@@ -12709,7 +13292,23 @@ data_standardortools_collection:
   is_open: true
   name: MONDO
   publication: doi:10.1093/nar/gkw1128
-  purpose_detail: Diseases
+  purpose_detail: "MONDO is an OBO Foundry ontology providing a unified disease terminology
+    that harmonizes disease definitions across multiple resources including HPO,
+    OMIM, SNOMED CT, ICD, ORDO, DO, MedGen, GARD, and others. It addresses the proliferation
+    of inconsistent disease mappings by providing logic-based structure with precise
+    1:1 equivalence axioms connecting to other resources, validated by OWL reasoning.
+    MONDO contains over 25,880 diseases including 22,919 human diseases (4,727 cancers,
+    1,074 infectious diseases, 11,601 Mendelian diseases, 15,857 rare diseases) and
+    2,960 non-human diseases, with 129,785 database cross-references and 108,076
+    synonyms (exact, narrow, broad, and related). The ontology provides hierarchical
+    classification for disease grouping and rolling up and uses precise semantic
+    annotations for each mapping rather than loose cross-references. MONDO is released
+    in three formats: mondo-with-equivalents.owl (with OWL equivalence axioms and
+    inter-ontology axiomatization using CL, Uberon, GO, HP, RO, NCBITaxon), mondo.obo
+    (simplified with xrefs), and mondo-with-equivalents.json. Coordinated with the
+    Human Phenotype Ontology (HPO) which describes phenotypic features, MONDO supports
+    AI/ML applications in disease classification, phenotype-disease association, rare
+    disease diagnosis, and cross-resource knowledge integration."
   requires_registration: false
   url: https://mondo.monarchinitiative.org/
 - id: B2AI_STANDARD:496
@@ -13060,7 +13659,7 @@ data_standardortools_collection:
   formal_specification: https://github.com/OAE-ontology/OAE/
   is_open: true
   name: OAE
-  purpose_detail: Adverse clinical events.
+  purpose_detail: 'Ontology of Adverse Events (OAE) is a community-developed biomedical ontology following OBO Foundry principles that provides standardized representation and classification of adverse events resulting from medical interventions including drug administration, vaccination, medical devices, procedures, and dietary supplements, enabling systematic analysis of safety data across clinical trials, pharmacovigilance systems, and electronic health records. OAE structures adverse events hierarchically under upper-level classes from the Basic Formal Ontology (BFO), integrating with domain ontologies including OGMS (disease processes), VO (vaccine components), DRON (drug products), and UBERON (anatomical structures) to capture mechanistic relationships between interventions, biological processes, and observed adverse outcomes. The ontology distinguishes between adverse events (any untoward medical occurrence temporally associated with intervention use) and adverse drug reactions (events with causal relationship to intervention), incorporating causality assessment frameworks (Naranjo scale, WHO-UMC criteria) as logical axioms that infer ADR status based on evidence patterns. OAE represents clinical manifestations (symptoms, signs, laboratory abnormalities), severity grades (CTCAE scales from mild to life-threatening), temporal patterns (immediate hypersensitivity, delayed reactions, cumulative toxicity), and anatomical localizations, supporting detailed phenotyping of safety profiles. The ontology enables cross-study aggregation of adverse event data by providing standardized terms that harmonize heterogeneous reporting formats from FDA FAERS, EMA EudraVigilance, WHO VigiBase, and clinical trial databases, facilitating meta-analyses of intervention safety and identification of rare adverse events invisible in individual studies. OAE supports pharmacovigilance signal detection by structuring adverse event hierarchies that enable mining of parent-child term relationships, discovering drug-event associations through disproportionality analysis (ROR, IC025), and prioritizing signals for regulatory review. In vaccine safety surveillance, OAE terms annotate Brighton Collaboration case definitions for standardized adverse event reporting post-vaccination (AEFI), supporting global safety monitoring networks coordinated by WHO. For AI/ML applications, OAE provides structured labels for training natural language processing models to extract adverse event mentions from clinical notes, social media posts, and regulatory documents, enables knowledge graph construction linking drugs, vaccines, adverse events, and patient characteristics for predictive safety modeling, and supports explainable AI systems that generate human-interpretable safety signals by reasoning over ontology-encoded mechanistic pathways connecting interventions to adverse outcomes, ultimately enhancing patient safety through earlier detection and characterization of intervention-related harms.'
   requires_registration: false
   url: https://github.com/OAE-ontology/OAE/
 - id: B2AI_STANDARD:517
@@ -13526,7 +14125,7 @@ data_standardortools_collection:
   is_open: true
   name: RS
   publication: doi:10.1186/2041-1480-4-36
-  purpose_detail: Ontology of rat strains.
+  purpose_detail: 'Rat Strain Ontology (RS) is a structured vocabulary maintained by the Rat Genome Database (RGD) at the Medical College of Wisconsin, providing standardized nomenclature and hierarchical classification for laboratory rat strains, wild-derived strains, mutant lines, consomic/congenic strains, and transgenic/knockout rat models used in biomedical research, with integration into the OBO Foundry ecosystem supporting cross-species comparative genomics and phenotype studies. RS catalogs 5,000+ rat strains spanning inbred strains with defined genetic backgrounds (Wistar, Sprague-Dawley, Fischer 344, Brown Norway), outbred stocks with genetic heterogeneity, recombinant inbred lines for QTL mapping, consomic strains where complete chromosomes are substituted between strains, and gene-edited models (CRISPR knockouts, transgenic insertions) targeting specific disease mechanisms. The ontology structures strain relationships through "derived from" properties linking parent-progeny strains, "has genetic background" properties specifying founding strains for congenic lines, and "model of" properties connecting strains to disease phenotypes (hypertension, diabetes, cancer susceptibility), enabling navigation of complex breeding schemes and genetic derivations. RS terms include strain-specific metadata on phenotypic characteristics (coat color, obesity, behavioral traits), genetic markers (microsatellites, SNPs), tissue/cell sources, husbandry requirements, and availability from repositories (Rat Resource and Research Center, Charles River), facilitating experimental planning and reproducibility. The ontology integrates with RGD''s comprehensive annotations linking strains to quantitative trait loci (QTL), genes, pathways, diseases, and phenotypes (Mammalian Phenotype Ontology terms), supporting genome-wide association studies (GWAS), eQTL mapping, and systems genetics analyses that connect genetic variation to physiological endpoints. RS enables translational research by mapping rat models to human disease orthologs, facilitating target validation for drug discovery where rat pharmacology and toxicology data inform human clinical trial design, particularly for cardiovascular disease, neurodegeneration, and metabolic disorders where rat models recapitulate human pathophysiology better than mouse models. In AI/ML applications for precision medicine, RS provides structured metadata for training genomic prediction models that associate strain genotypes with phenotypic outcomes, supports knowledge graph construction linking rat genetic data to human disease mechanisms for cross-species inference, and enables meta-analyses aggregating phenotypic data across studies by standardizing strain identifiers, ultimately accelerating translational discoveries by leveraging the rat''s role as a premier mammalian model for human disease research.'
   requires_registration: false
   url: http://rgd.mcw.edu/rgdweb/search/strains.html
 - id: B2AI_STANDARD:543
@@ -13638,7 +14237,33 @@ data_standardortools_collection:
   formal_specification: https://github.com/scdodev/scdo-ontology
   is_open: true
   name: SCDO
-  purpose_detail: Sickle Cell Disease terminology.
+  purpose_detail: The Sickle Cell Disease Ontology (SCDO) provides comprehensive
+    standardized terminology for describing all aspects of sickle cell disease (SCD),
+    a group of inherited hemoglobin disorders affecting millions globally, particularly
+    populations of African, Mediterranean, Middle Eastern, and Indian ancestry. Developed
+    by the H3ABioNet consortium and aligned with OBO Foundry principles, SCDO encompasses
+    genetic variants (HbS, HbC, HbE, beta-thalassemia mutations), disease phenotypes
+    (sickle cell anemia HbSS, HbSC disease, HbS-beta thalassemia, sickle cell trait),
+    clinical manifestations (vaso-occlusive crises, acute chest syndrome, stroke,
+    priapism, splenic sequestration, chronic organ damage), laboratory findings (hemoglobin
+    electrophoresis patterns, reticulocyte counts, bilirubin levels, fetal hemoglobin
+    percentages), complications (pulmonary hypertension, renal dysfunction, avascular
+    necrosis, leg ulcers, retinopathy), treatment modalities (hydroxyurea, blood transfusions,
+    hematopoietic stem cell transplantation, gene therapy, pain management), and patient
+    outcomes (quality of life measures, hospitalization rates, mortality). The ontology
+    integrates genetic, clinical, laboratory, and treatment concepts to support comprehensive
+    SCD patient data management and research. SCDO enables standardized phenotyping
+    for genotype-phenotype correlation studies identifying disease modifiers (fetal
+    hemoglobin levels, alpha-thalassemia co-inheritance, genetic polymorphisms affecting
+    disease severity), facilitates clinical trial recruitment through precise inclusion/exclusion
+    criteria specification, and supports electronic health record integration for
+    automated SCD surveillance and quality improvement initiatives. Applications include
+    natural history studies characterizing disease progression patterns, pharmacogenomics
+    research examining hydroxyurea response variability, health disparities research
+    documenting access to disease-modifying therapies, and global SCD registries enabling
+    cross-population comparisons. SCDO facilitates data harmonization across international
+    SCD cohorts, enabling meta-analyses and collaborative research essential for rare
+    disease studies where no single center has sufficient patient numbers.
   requires_registration: false
   url: https://scdontology.h3abionet.org/
 - id: B2AI_STANDARD:549
@@ -13692,7 +14317,46 @@ data_standardortools_collection:
   - B2AI_ORG:47
   is_open: true
   name: STATO
-  purpose_detail: Statistical tests and methods
+  purpose_detail: "The Statistics Ontology (STATO) provides comprehensive standardized
+    vocabulary for statistical methods, experimental design concepts, hypothesis testing
+    procedures, and statistical measures used across life sciences, biomedical research,
+    and data-intensive scientific domains, developed by the ISA-tools community to
+    support reproducible research and transparent reporting of statistical analyses.
+    STATO encompasses five major categories: statistical tests (parametric tests including
+    t-tests, ANOVA, ANCOVA, linear regression, mixed models; non-parametric tests
+    including Mann-Whitney U, Kruskal-Wallis, Wilcoxon signed-rank, Spearman correlation;
+    and specialized methods like survival analysis, multivariate analysis, time series
+    analysis), probability distributions (normal, binomial, Poisson, exponential,
+    chi-square, t-distribution, F-distribution) essential for understanding test assumptions,
+    descriptive statistics (measures of central tendency including mean, median, mode;
+    measures of dispersion including standard deviation, variance, interquartile range;
+    and measures of shape including skewness, kurtosis), data types and variables
+    (categorical/nominal, ordinal, continuous, discrete, dependent/independent variables,
+    covariates, confounding variables), and experimental design concepts (randomization,
+    blocking, replication, control groups, factorial designs, crossover designs, longitudinal
+    studies). STATO provides formal OWL definitions enabling automated reasoning about
+    test conditions of application, linking test selection to data characteristics
+    (e.g., use Mann-Whitney U when comparing two independent groups with non-normal
+    distributions), and capturing assumptions (normality, homoscedasticity, independence)
+    that must be verified before test application. Each statistical method includes
+    textual definitions for human understanding, formal logical definitions for machine
+    reasoning, associated R code snippets via 'R-command' annotations enabling direct
+    implementation, and documentation of appropriate use cases and interpretation guidelines.
+    STATO integrates with BFO (Basic Formal Ontology) as upper-level ontology and
+    OBI (Ontology for Biomedical Investigations) for process definitions, ensuring
+    interoperability across biomedical ontologies. Applications include annotation
+    of analysis methods in ISA-Tab metadata files for omics studies, standardized
+    reporting of statistical procedures in publications to meet journal guidelines
+    (CONSORT, STROBE, ARRIVE), automated validation of statistical analysis workflows
+    in computational notebooks, education and training through formal definitions
+    of statistical concepts with R implementation examples, and text mining of scientific
+    literature to extract statistical method usage patterns. STATO supports reproducibility
+    by precisely specifying analysis procedures, capturing multiple testing correction
+    methods (Bonferroni, Benjamini-Hochberg FDR, permutation tests), effect size measures
+    (Cohen's d, odds ratios, hazard ratios), and confidence interval calculations.
+    The ontology facilitates peer review by enabling reviewers to verify appropriate
+    test selection and assists researchers in choosing correct statistical methods
+    based on study design and data characteristics."
   requires_registration: false
   url: http://stato-ontology.org/
 - id: B2AI_STANDARD:552
@@ -13747,7 +14411,27 @@ data_standardortools_collection:
   - B2AI_ORG:74
   is_open: true
   name: SNMI
-  purpose_detail: SNOMED, not SNOMED-CT
+  purpose_detail: 'Systematized Nomenclature of Medicine International (SNMI) is a historical medical
+    terminology and classification system that preceded SNOMED CT. Developed in the
+    1960s-1970s by the College of American Pathologists, SNMI represented one of the
+    earliest attempts to create a comprehensive, multi-axial medical nomenclature covering
+    topography (anatomy), morphology (structural changes), etiology (causes), and function
+    (physiological processes). SNMI employed a systematic coding structure where concepts
+    were represented by alphanumeric codes and could be combined using post-coordination
+    to express complex clinical findings (e.g., combining topography codes with morphology
+    codes to describe disease locations and characteristics). The terminology was designed
+    primarily for pathology and clinical documentation, providing structured vocabulary
+    for diagnoses, procedures, and laboratory findings. SNMI evolved through several
+    versions including SNOMED (Systematized Nomenclature of Medicine), SNOMED II, and
+    SNOMED III before being integrated into SNOMED CT (Clinical Terms) in 2002 through
+    merger with UK''s Clinical Terms Version 3 (Read Codes). While SNMI itself is
+    now deprecated and replaced by SNOMED CT for current clinical use, it is historically
+    significant as a foundational medical terminology that pioneered multi-axial compositional
+    approaches to medical concept representation. Legacy SNMI data may still exist
+    in historical medical records and research databases, requiring mapping to modern
+    terminologies for interoperability. Understanding SNMI''s structure provides context
+    for SNOMED CT''s architecture and the evolution of standardized medical terminologies
+    used in electronic health records, clinical research, and healthcare data analytics.'
   requires_registration: false
   url: https://bioportal.bioontology.org/ontologies/SNMI
 - id: B2AI_STANDARD:555
@@ -13904,7 +14588,20 @@ data_standardortools_collection:
   is_open: true
   name: UBERON
   publication: doi:10.1186/gb-2012-13-1-r5
-  purpose_detail: Anatomy
+  purpose_detail: UBERON is an OBO Foundry ontology providing an integrated cross-species
+    anatomy ontology covering anatomical structures in animals, with a focus on multi-species
+    interoperability. The ontology enables semantic annotation of anatomical entities
+    across diverse species, supporting comparative anatomy research, phenotype studies,
+    and integration with specialized anatomies. UBERON is tightly integrated with
+    the Gene Ontology (GO) and the Cell Ontology (CL), using formal ontology design
+    patterns to represent anatomical locations and relationships. It follows FAIR
+    principles and is released in standard formats (OWL, OBO, JSON obographs) with
+    resolvable version IRIs. UBERON is integrated into standard tools including Ubergraph
+    for logical queries (e.g., finding cell types by location), the Ontology Access
+    Kit (OAK), and major browsers (OLS, Ontobee, BioPortal). The ontology supports
+    AI/ML applications by providing standardized anatomical annotations for training
+    data across species and enabling cross-species knowledge transfer in biomedical
+    machine learning models.
   requires_registration: false
   url: https://obophenotype.github.io/uberon/
 - id: B2AI_STANDARD:564
@@ -14008,7 +14705,35 @@ data_standardortools_collection:
   is_open: true
   name: VO
   publication: doi:10.1186/2041-1480-3-17
-  purpose_detail: Vaccine and vaccination ontology.
+  purpose_detail: The Vaccine Ontology (VO) is an OBO Foundry community-based biomedical
+    ontology that systematically represents vaccine components, vaccine types, vaccination
+    procedures, vaccine-induced immune responses, and vaccine-preventable infectious
+    diseases in a standardized machine-readable format to support vaccine research,
+    immunization program management, and vaccinomics data integration. Developed through
+    international collaboration coordinated by the University of Michigan Medical
+    School, VO encompasses comprehensive coverage of licensed human and veterinary
+    vaccines including live-attenuated vaccines, inactivated vaccines, subunit vaccines,
+    toxoid vaccines, mRNA vaccines, viral vector vaccines, and conjugate vaccines,
+    representing their antigenic components, adjuvants, preservatives, manufacturing
+    processes, and delivery routes. The ontology integrates with multiple biomedical
+    ontologies including the Infectious Disease Ontology (IDO) for pathogen-host
+    interactions, the Ontology for Biomedical Investigations (OBI) for vaccination
+    protocols, the Protein Ontology (PRO) for vaccine antigens, and SNOMED CT and
+    ICD codes for clinical documentation, enabling semantic interoperability across
+    vaccine databases and immunization information systems. VO formally represents
+    immunization schedules (primary series, booster doses, catch-up schedules), adverse
+    events following immunization (AEFI) including local reactions and systemic effects,
+    contraindications and precautions for specific populations, vaccine efficacy and
+    effectiveness measures, and herd immunity thresholds. Applications include standardized
+    annotation of vaccine clinical trials data, integration of vaccine safety surveillance
+    systems (VAERS, Vaccine Safety Datalink), comparative vaccine effectiveness studies
+    across populations and time periods, semantic queries of vaccine literature through
+    PubMed and clinical databases, machine learning models predicting vaccine immunogenicity
+    or reactogenicity from vaccine composition, and global immunization data harmonization
+    supporting WHO vaccination coverage monitoring and pandemic preparedness. VO follows
+    OBO Foundry principles with open-source development, versioned releases, and persistent
+    URIs, making it essential infrastructure for computational vaccinology and evidence-based
+    immunization policy.
   requires_registration: false
   url: https://github.com/vaccineontology/VO
 - id: B2AI_STANDARD:570
@@ -14026,7 +14751,7 @@ data_standardortools_collection:
   - B2AI_ORG:58
   is_open: true
   name: VBO
-  purpose_detail: Vertebrate breed names.
+  purpose_detail: 'Vertebrate Breed Ontology (VBO) is a comprehensive ontology providing standardized nomenclature and hierarchical classification for vertebrate animal breeds across 38 species including cattle, sheep, goats, pigs, horses, chickens, dogs, and cats, developed collaboratively by the Monarch Initiative, Online Mendelian Inheritance in Animals (OMIA), and FAO''s Domestic Animal Diversity Information System (DAD-IS). VBO structures breed information using OBO Foundry principles, capturing breed names, synonyms (alternate spellings, historical names, local language variants), geographical origins, breed characteristics (size, coat color, production traits), and relationships to parent breeds or breed groups. The ontology integrates with DAD-IS''s 15,000+ national breed populations representing 8,800+ breeds maintained by 182 countries'' National Coordinators, ensuring global coverage and continuous updates reflecting new breed registrations and naming conventions. VBO supports cross-species breed queries by organizing breeds under species-specific classes (bovine breeds, equine breeds) while maintaining inter-breed relationships such as "derived from" for composite breeds and "related to" for breeds sharing genetic heritage. The ontology enables precise phenotype-genotype associations in animal genetics research by providing stable breed identifiers (VBO IDs) that link to genomic datasets, genetic variant databases, and phenotype repositories, facilitating genome-wide association studies (GWAS) and quantitative trait locus (QTL) mapping in livestock. VBO integrates with other biomedical ontologies including the Livestock Breed Ontology (LBO), Mammalian Phenotype Ontology (MP), and UBERON anatomy ontology to support complex queries across breed characteristics, anatomical features, and disease susceptibilities. For agricultural genomics, VBO enables tracking of breed-specific genetic diversity, conservation status of rare breeds (endangered, critical, vulnerable), and lineage documentation for breeding programs aimed at preserving genetic resources. In AI/ML applications, VBO provides structured metadata for training computer vision models on breed classification, natural language processing systems for extracting breed information from veterinary records, and knowledge graphs connecting breed genetics to production traits (milk yield, growth rate, disease resistance) and animal welfare indicators, supporting precision livestock farming and genomic selection programs.'
   requires_registration: false
   url: https://github.com/monarch-initiative/vertebrate-breed-ontology
 - id: B2AI_STANDARD:571
@@ -14058,7 +14783,42 @@ data_standardortools_collection:
   formal_specification: https://github.com/AnimalGenome/vertebrate-trait-ontology
   is_open: true
   name: VT
-  purpose_detail: Traits covering vertebrates.
+  purpose_detail: The Vertebrate Trait Ontology (VT) provides comprehensive standardized
+    terminology for describing measurable or observable phenotypic characteristics
+    across vertebrate species, maintained by the AnimalGenome organization to support
+    agricultural genomics, comparative biology, quantitative genetics, and translational
+    research linking animal models to human health. VT encompasses broad trait categories
+    including morphological traits (body size, organ dimensions, skeletal measurements,
+    integument characteristics), physiological traits (metabolic parameters, cardiovascular
+    function, respiratory capacity, immune response, reproductive performance), behavioral
+    traits (temperament, learning ability, social interactions, feeding behavior),
+    production traits critical for livestock industries (growth rate, feed efficiency,
+    milk yield, egg production, meat quality, wool production), disease resistance
+    traits (pathogen susceptibility, vaccine response, parasite load), and life history
+    traits (longevity, fertility, developmental timing). Each trait is formally defined
+    with measurement methodologies, units, biological context, and relationships to
+    anatomical structures (via Uberon) and biological processes (via Gene Ontology).
+    VT serves as the primary phenotype ontology for agricultural animal genomics databases
+    including AnimalQTLdb (quantitative trait loci database for cattle, pig, chicken,
+    sheep, horse, rainbow trout), supporting annotation of QTL mapping studies that
+    identify genomic regions influencing economically important traits. The ontology
+    enables cross-species phenotype comparisons essential for translational research,
+    allowing researchers to leverage livestock as biomedical models (e.g., pig cardiovascular
+    traits for human heart disease research, sheep bone traits for osteoporosis studies).
+    Applications span livestock breeding programs through genomic selection where VT
+    standardizes trait definitions for estimated breeding values (EBVs), wildlife
+    conservation genetics for monitoring population health indicators, aquaculture
+    for trait improvement in fish and shellfish, and comparative physiology studies
+    examining adaptive evolution of traits across vertebrate lineages. VT facilitates
+    GWAS (genome-wide association studies) meta-analyses by harmonizing trait definitions
+    across studies, enables phenotype-driven queries in genomics databases ("find
+    all QTL affecting milk fat percentage in dairy cattle"), and supports machine
+    learning models predicting complex traits from genotype data by providing structured
+    phenotype representations. Integration with other ontologies including Mammalian
+    Phenotype Ontology (MP), Human Phenotype Ontology (HPO), and Clinical Measurement
+    Ontology (CMO) enables bidirectional translation between agricultural animal research
+    and human biomedicine. VT is distributed under CC-BY-NC 4.0 license through http://purl.obolibrary.org/obo/vt.owl
+    with releases synchronized to OBO Foundry and AgroPortal.
   requires_registration: false
   url: https://github.com/AnimalGenome/vertebrate-trait-ontology
 - id: B2AI_STANDARD:573
@@ -14241,7 +15001,28 @@ data_standardortools_collection:
   formal_specification: https://github.com/ncbo
   is_open: true
   name: BioPortal
-  purpose_detail: An ontology registry.
+  purpose_detail: 'BioPortal is a comprehensive, open-access ontology repository and collaborative
+    platform developed by the National Center for Biomedical Ontology (NCBO) at Stanford,
+    hosting over 1,000 biomedical ontologies, terminologies, and vocabularies. The
+    platform provides centralized access to diverse biomedical knowledge organization
+    systems including OBO Foundry ontologies (GO, Uberon, CHEBI, HPO), medical terminologies
+    (SNOMED CT, ICD, RxNorm, LOINC), domain-specific vocabularies, and community-developed
+    ontologies. BioPortal offers rich functionality including: ontology browsing with
+    hierarchical visualization and concept lookup; powerful search across all ontologies
+    with autocomplete and recommendations; mapping services for finding correspondences
+    between ontologies; annotator services for identifying ontology concepts in free
+    text; versioning and change tracking for ontology evolution; widgets and web services
+    (REST APIs) for programmatic access; and community features for commenting, discussions,
+    and ontology reviews. The platform serves as infrastructure for ontology developers
+    (submission, hosting, versioning), data curators (annotation, mapping, validation),
+    and application developers (APIs, widgets, SPARQL endpoints). BioPortal enables
+    semantic annotation of biomedical data, cross-resource data integration through
+    ontology mappings, and standardized vocabularies for clinical research, genomics,
+    drug discovery, and translational medicine. In AI/ML applications, BioPortal supports
+    ontology-based feature engineering for predictive models, semantic search for literature
+    and dataset discovery, text mining and NLP by providing concept recognizers, knowledge
+    graph construction by linking data to standardized ontologies, and explainable
+    AI through ontological reasoning and structured domain knowledge integration.'
   requires_registration: false
   url: https://bioportal.bioontology.org/
 - id: B2AI_STANDARD:707
@@ -14368,7 +15149,7 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:9
   is_open: true
   name: Fairsharing
-  purpose_detail: standards and databases
+  purpose_detail: 'FAIRsharing (fairsharing.org) is a comprehensive, curated registry of research data standards, databases, repositories, and policies that promotes Findable, Accessible, Interoperable, and Reusable (FAIR) data practices across life sciences, environmental sciences, social sciences, and humanities domains. Established by the UK BBSRC, ELIXIR, and Oxford e-Research Centre, FAIRsharing catalogs 2,000+ data standards (ontologies, terminologies, formats, models), 1,800+ databases and repositories (discipline-specific archives, institutional repositories, generalist repositories), and 800+ data policies from funders, journals, and institutions, providing a one-stop resource for discovering community-endorsed resources that facilitate data reuse and reproducibility. Each FAIRsharing record includes structured metadata describing the resource''s scope, governance (community-driven, institutional, commercial), licenses, interoperability capabilities, and relationships to other standards/databases, with persistent identifiers (FAIRsharing DOIs) enabling stable citations in data management plans and publications. The registry employs a domain-tagging system covering biomedical sciences (genomics, proteomics, metabolomics), environmental sciences (climate, biodiversity, geosciences), social sciences, and interdisciplinary fields, with cross-links to related resources illustrating standard-database-policy connections within research ecosystems. FAIRsharing supports researchers in selecting appropriate standards for data annotation (MIAME for microarrays, STROBE for epidemiology) and repositories for data deposition (GEO for gene expression, PDB for protein structures), facilitating compliance with journal and funder mandates for open data sharing. The platform integrates with research infrastructure projects (ELIXIR, RDA, CODATA) and provides APIs for embedding FAIRsharing recommendations into data management planning tools, electronic lab notebooks, and repository submission interfaces. For data stewards, FAIRsharing enables discovery of domain-specific controlled vocabularies (ontologies, taxonomies) that enhance dataset interoperability, semantic search capabilities, and cross-study integration in meta-analyses. In AI/ML research, FAIRsharing guides selection of training data repositories with rich metadata, standardized formats that minimize preprocessing overhead, and permissive licenses enabling model training, while the registry''s coverage of ML-specific resources (model registries, benchmark datasets, evaluation metrics) supports reproducible AI research aligned with FAIR principles for algorithms and models (FAIR4ML).'
   requires_registration: false
   url: https://fairsharing.org/
 - id: B2AI_STANDARD:713
@@ -14443,7 +15224,27 @@ data_standardortools_collection:
   is_open: true
   name: OBO Foundry
   publication: doi:10.1093/database/baab069
-  purpose_detail: Ontologies.
+  purpose_detail: The OBO Foundry is a collaborative community initiative for developing
+    interoperable ontologies for the biological and biomedical sciences. It establishes
+    and maintains a set of principles for ontology development to ensure quality,
+    consistency, and interoperability across its library of domain ontologies. The
+    OBO Foundry principles address key requirements including open availability, common
+    syntax and semantics, clearly defined scope and content, use of well-documented
+    collaborative procedures, orthogonality with other ontologies, provision of unique
+    identifiers, and adherence to established naming conventions. The Foundry provides
+    comprehensive community resources including the OBO tutorial, ontology browsers
+    and tools, operations committees and working groups, and communication channels
+    (mailing list, Slack workspace). The OBO Library registry provides standardized
+    access to member ontologies in multiple formats (YAML, JSON-LD, RDF/Turtle) and
+    includes domain-specific ontologies covering anatomy (UBERON), cell types (CL),
+    diseases (MONDO), chemicals (ChEBI), genotypes (GENO), phenotypes (HPO), and many
+    others. The OBO Foundry infrastructure includes consistent use of permanent URLs
+    (PURLs), version control via GitHub, automated quality checks, and standardized
+    release workflows. By ensuring semantic interoperability through shared upper-level
+    ontologies and design patterns, OBO Foundry enables cross-domain data integration
+    essential for AI/ML applications in biomedical knowledge graphs, automated reasoning,
+    data harmonization, and multi-modal machine learning across diverse biological
+    datasets.
   requires_registration: false
   url: https://obofoundry.org/
 - id: B2AI_STANDARD:717
@@ -14598,7 +15399,7 @@ data_standardortools_collection:
   description: Amazon Web Services
   is_open: false
   name: AWS
-  purpose_detail: Cloud computing platform.
+  purpose_detail: 'Amazon Web Services (AWS) is the world''s most comprehensive and broadly adopted cloud computing platform, providing 200+ fully managed services spanning compute (EC2, Lambda serverless), storage (S3 object storage, EBS block storage, EFS file systems), databases (RDS, DynamoDB, Redshift), networking (VPC, CloudFront CDN), machine learning (SageMaker, Bedrock, Rekognition), analytics (EMR, Athena, Kinesis), security (IAM, KMS, CloudHSM), and application integration (SQS, SNS, EventBridge) across 38 geographic regions with 120 availability zones globally. Launched in 2006, AWS pioneered the Infrastructure-as-a-Service (IaaS) model, transforming IT economics by offering pay-as-you-go pricing, elastic scalability, and eliminating upfront capital expenditures for hardware, enabling organizations from startups to enterprises to access enterprise-grade infrastructure previously available only to large corporations. AWS''s compute offerings range from general-purpose EC2 instances for traditional workloads to specialized instance types optimized for memory-intensive applications (R-series), compute-intensive HPC (C-series, Hpc7a), GPU-accelerated deep learning (P5, G5, Trn1 with AWS Trainium/Inferentia chips), and serverless Lambda functions billed per millisecond execution time. The platform''s storage hierarchy includes S3 for durable object storage with 99.999999999% durability, S3 Glacier for archival with retrieval SLAs from minutes to hours, EBS for low-latency block storage attached to EC2 instances, and EFS for scalable shared file systems supporting concurrent access across thousands of compute nodes. AWS''s managed database services eliminate operational overhead of patching, backups, and replication, offering relational databases (Amazon RDS for MySQL, PostgreSQL, Oracle, SQL Server; Amazon Aurora with MySQL/PostgreSQL compatibility), NoSQL databases (DynamoDB for key-value, DocumentDB for MongoDB workloads), graph databases (Neptune), time-series databases (Timestream), and data warehouses (Redshift) with columnar storage for OLAP queries on petabyte-scale datasets. For AI/ML workloads, AWS SageMaker provides end-to-end ML lifecycle management with built-in algorithms, Jupyter notebooks, distributed training across GPU clusters, hyperparameter tuning, model deployment to real-time/batch inference endpoints, and MLOps capabilities (model registry, monitoring, CI/CD pipelines). AWS Bedrock offers access to foundation models from AI21 Labs, Anthropic, Cohere, Meta, Stability AI, and Amazon Titan via unified API with retrieval-augmented generation (RAG) capabilities connecting models to enterprise data in S3 or knowledge bases. The platform''s security model includes IAM for fine-grained access control with role-based policies, KMS for encryption key management, CloudHSM for FIPS 140-2 Level 3 hardware security modules, AWS Shield for DDoS protection, GuardDuty for threat detection, and comprehensive compliance certifications (SOC 1/2/3, PCI-DSS, HIPAA, FedRAMP, ISO 27001) enabling deployment of regulated workloads. AWS supports hybrid cloud architectures through AWS Outposts (on-premises hardware running AWS services), AWS Direct Connect (dedicated network connections bypassing public internet), and Storage Gateway (seamless cloud-extension of on-premises storage), enabling gradual cloud migrations and latency-sensitive edge computing scenarios. For AI/ML infrastructure in Bridge2AI and biomedical research, AWS provides scalable compute for genome sequencing analysis (AWS Batch, EC2 Spot instances), secure storage for HIPAA-compliant patient data (S3 with server-side encryption, VPC endpoints preventing internet exposure), managed databases for clinical trial data (RDS with automated backups, multi-AZ high availability), federated learning frameworks (AWS HealthLake for FHIR-based interoperability), and specialized AI services for medical imaging analysis (AWS HealthImaging, Amazon Rekognition Custom Labels), accelerating research workflows while maintaining data privacy, auditability, and compliance with healthcare regulations.'
   requires_registration: true
   url: https://aws.amazon.com/
   used_in_bridge2ai: true
@@ -15506,7 +16307,35 @@ data_standardortools_collection:
   - B2AI_ORG:115
   is_open: false
   name: GCP
-  purpose_detail: Cloud computing platform.
+  purpose_detail: Google Cloud Platform (GCP) is a comprehensive cloud computing
+    platform offering over 200+ services spanning compute, storage, databases, networking,
+    AI/machine learning, data analytics, and developer tools across Google's global
+    infrastructure. Core compute offerings include Compute Engine VMs, App Engine
+    for platform-as-a-service deployment, Google Kubernetes Engine for container
+    orchestration, and Cloud Functions for serverless computing. For AI and machine
+    learning, GCP provides Vertex AI as a unified platform for building, deploying,
+    and scaling ML models, including access to Google's Gemini large language models,
+    AutoML capabilities, and specialized hardware like Tensor Processing Units (TPUs)
+    for accelerated training. Storage solutions include Cloud Storage for object storage,
+    persistent disks for block storage, and Filestore for managed file storage. Database
+    services encompass Cloud SQL for managed relational databases (MySQL, PostgreSQL,
+    SQL Server), Cloud Spanner for globally distributed relational databases, BigQuery
+    for serverless data warehousing and analytics, Firestore for NoSQL document databases,
+    and Bigtable for wide-column NoSQL. Healthcare and life sciences researchers benefit
+    from specialized services like Healthcare API for FHIR-based health data exchange,
+    Life Sciences API for genomics pipeline execution, and Cloud Healthcare Console
+    for managing sensitive patient data with HIPAA and HITRUST compliance. BigQuery
+    ML enables researchers to create and execute machine learning models using SQL
+    queries directly on large biomedical datasets. GCP is explicitly used in Bridge2AI
+    projects for scalable biomedical data processing, AI model training and deployment,
+    and collaborative research infrastructure. The platform emphasizes security with
+    encryption at rest and in transit, IAM for access control, VPC for network isolation,
+    and compliance certifications including HIPAA, FedRAMP, ISO 27001, and SOC 2.
+    GCP's global network spans 40+ regions and 120+ edge locations, providing low-latency
+    access and data residency options for international research collaborations. Integration
+    with Google Workspace, Looker for business intelligence, and open-source frameworks
+    like TensorFlow and PyTorch facilitates comprehensive workflows from data ingestion
+    through analysis, visualization, and publication.
   requires_registration: true
   url: https://cloud.google.com/
   used_in_bridge2ai: true
@@ -15603,7 +16432,32 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:42
   is_open: true
   name: Hangar
-  purpose_detail: Version control for tensor data.
+  purpose_detail: Hangar is a version control system specifically designed for managing
+    tensor data and numerical arrays in machine learning and scientific computing
+    workflows, providing Git-like versioning capabilities for datasets that are too
+    large or complex for traditional version control systems. Built with Python and
+    optimized for performance, Hangar enables data scientists and ML engineers to
+    track changes in training datasets, model weights, embeddings, and experimental
+    results with full history, branching, merging, and collaboration features. The
+    system uses content-addressable storage with automatic data deduplication, storing
+    only changed array blocks rather than entire files, making it efficient for large
+    multidimensional datasets common in deep learning (image datasets, genomic sequences,
+    time series, medical imaging volumes). Hangar provides atomic commits ensuring
+    data consistency, supports concurrent read access for distributed training, and
+    enables reproducible machine learning by linking dataset versions to specific
+    model training runs. Key features include automatic detection of array schema
+    changes, efficient storage of sparse arrays, lazy loading for memory-efficient
+    data access, and integration with NumPy, PyTorch, and TensorFlow workflows. Applications
+    span ML experiment tracking where different dataset versions are tested with model
+    architectures, collaborative dataset curation where multiple researchers contribute
+    annotations or corrections, model debugging through inspection of training data
+    that caused specific failures, and regulatory compliance in medical AI where dataset
+    provenance and versioning history must be maintained. Hangar addresses critical
+    gaps in ML operations by providing reproducibility (exact dataset version used
+    for published results), collaboration (merge dataset contributions from multiple
+    sources), and auditability (full history of dataset modifications with timestamps
+    and contributors), essential for rigorous scientific research and production ML
+    systems.
   requires_registration: false
   url: https://hangar-py.readthedocs.io/en/stable/
 - id: B2AI_STANDARD:771
@@ -15794,7 +16648,32 @@ data_standardortools_collection:
   formal_specification: https://github.com/kaldi-asr/kaldi
   is_open: true
   name: Kaldi
-  purpose_detail: Toolkit for speech recognition.
+  purpose_detail: Kaldi is an open-source toolkit for speech recognition research
+    and development, written primarily in C++ with scripting interfaces, providing
+    comprehensive implementations of state-of-the-art automatic speech recognition
+    (ASR) algorithms including deep neural networks (DNNs), hidden Markov models (HMMs),
+    Gaussian mixture models (GMMs), and modern end-to-end architectures. Developed
+    by researchers at Johns Hopkins University and maintained by a global community,
+    Kaldi emphasizes flexibility, efficiency, and reproducibility in speech recognition
+    pipelines. The toolkit provides modular components for acoustic feature extraction
+    (MFCCs, PLPs, filterbank energies, pitch features), acoustic modeling (DNN-HMM
+    hybrid systems, time-delay neural networks TDNNs, chain models with lattice-free
+    MMI training), language modeling (n-gram models, recurrent neural network language
+    models), and decoding (weighted finite-state transducers WFSTs for efficient search).
+    Kaldi supports both speaker-independent and speaker-adaptive recognition, with
+    tools for vocal tract length normalization, feature-space maximum likelihood linear
+    regression (fMLLR), and i-vector/x-vector speaker embeddings for robust recognition
+    across diverse acoustic conditions. The toolkit includes recipes for training
+    ASR systems on standard benchmarks (LibriSpeech, WSJ, Switchboard, Fisher, TED-LIUM,
+    AMI, CHiME) with documented pipelines enabling researchers to replicate published
+    results and adapt models to new datasets and languages. Applications span transcription
+    of clinical conversations for medical documentation, analysis of patient-physician
+    interactions, voice biomarker extraction for neurological disease monitoring (Parkinson's,
+    ALS, dementia), mental health assessment through speech characteristics, and accessibility
+    tools for hearing-impaired patients. Kaldi's extensive documentation, active mailing
+    list, and well-tested recipes make it accessible for both research and production
+    deployment despite its complexity, bridging traditional statistical ASR approaches
+    with modern deep learning methods.
   requires_registration: false
   url: https://kaldi-asr.org/
 - id: B2AI_STANDARD:781
@@ -15898,7 +16777,36 @@ data_standardortools_collection:
   description: Linode
   is_open: false
   name: Linode
-  purpose_detail: Cloud computing platform.
+  purpose_detail: Linode (now part of Akamai Connected Cloud) is a developer-focused
+    cloud computing platform emphasizing simplicity, predictable pricing, and high
+    performance for compute, storage, and networking services across a globally distributed
+    infrastructure. Core compute offerings include Essential Compute instances (Shared
+    CPU, Dedicated CPU, High Memory, and Premium CPU), GPU instances for parallel
+    processing workloads including machine learning and scientific computing, and
+    Accelerated Compute for specialized workloads. Container orchestration is provided
+    through Linode Kubernetes Engine (LKE) for managed Kubernetes clusters, and App
+    Platform for rapid cloud-native application deployment with automated infrastructure
+    management. Storage solutions encompass Block Storage for scalable persistent
+    volumes, Object Storage with S3-compatible API for unstructured data, and automated
+    Backups for data protection. Managed Databases support MySQL and PostgreSQL with
+    automated maintenance, backups, and high availability configurations. Networking
+    features include NodeBalancers for load distribution, Cloud Firewall for security,
+    DNS Manager, Private Networking (VLAN), and DDoS protection. Linode differentiates
+    itself through transparent flat pricing bundling CPU, transfer, storage, and
+    RAM without hidden egress fees or complex tier structures, making it particularly
+    attractive for budget-conscious researchers and startups. The platform provides
+    comprehensive API access, CLI tools, Terraform provider, and extensive documentation
+    for programmatic infrastructure management. Following acquisition by Akamai in
+    2022, Linode benefits from integration with Akamai's global CDN network and security
+    capabilities while maintaining its developer-friendly approach and competitive
+    pricing. Linode's global presence includes data centers across North America,
+    Europe, Asia-Pacific, and emerging markets, providing edge computing capabilities
+    and reduced latency for distributed applications. The platform offers free DDoS
+    protection, 24/7/365 support, and a Cloud Computing Foundations Certification
+    program for developer education. While more streamlined than hyperscale competitors,
+    Linode provides essential cloud services suitable for web applications, data pipelines,
+    containerized workloads, and computational research without vendor lock-in through
+    standard open-source technologies.
   requires_registration: true
   url: https://www.linode.com/
 - id: B2AI_STANDARD:786
@@ -16005,7 +16913,39 @@ data_standardortools_collection:
   - B2AI_ORG:56
   is_open: false
   name: Azure
-  purpose_detail: Cloud computing platform.
+  purpose_detail: Microsoft Azure is a comprehensive enterprise-grade cloud computing
+    platform offering 200+ services spanning compute, storage, databases, networking,
+    AI/machine learning, analytics, IoT, and developer tools with deep integration
+    into Microsoft's enterprise ecosystem. Core compute services include Azure Virtual
+    Machines for Windows and Linux workloads, Azure App Service for web application
+    hosting, Azure Kubernetes Service (AKS) for container orchestration, Azure Container
+    Instances for serverless containers, and Azure Functions for event-driven serverless
+    computing. For AI and machine learning, Azure provides Azure AI Studio (including
+    Microsoft Foundry for AI agent development), Azure Machine Learning for end-to-end
+    ML workflows, Azure Cognitive Services for pre-trained AI models (vision, speech,
+    language), and Azure OpenAI Service for accessing GPT, Codex, and DALL-E models.
+    Data and analytics capabilities include Azure Synapse Analytics for unified data
+    warehousing and big data analytics, Azure Databricks for Apache Spark-based analytics,
+    Azure Data Lake for scalable data storage, and Microsoft Fabric for unified data
+    platform integration. Database services encompass Azure SQL Database for managed
+    relational databases, Azure Cosmos DB for globally distributed NoSQL, Azure Database
+    for PostgreSQL/MySQL/MariaDB, and Azure DocumentDB for MongoDB-compatible document
+    storage. Healthcare and life sciences benefit from Azure Health Data Services
+    for FHIR-based health data management, Azure Genomics for scalable genomics pipeline
+    execution, Azure Healthcare APIs, and compliance with HIPAA, HITRUST, GxP, and
+    FDA 21 CFR Part 11 regulations. Researchers leverage Azure Machine Learning for
+    model training with GPU/FPGA acceleration, automated ML (AutoML) capabilities,
+    MLOps for model lifecycle management, and integration with popular frameworks
+    like TensorFlow, PyTorch, and scikit-learn. Azure's hybrid cloud capabilities
+    through Azure Arc enable consistent management across on-premises, multi-cloud,
+    and edge environments, crucial for institutions with existing infrastructure investments.
+    Enterprise integration with Active Directory, Microsoft 365, Windows Server, SQL
+    Server, and Visual Studio provides seamless authentication, collaboration, and
+    development workflows. Azure's global infrastructure spans 60+ regions worldwide
+    with data residency and compliance options for international regulations. Security
+    features include Azure Security Center, Azure Sentinel for SIEM, Azure Active
+    Directory for identity management, encryption at rest and in transit, and extensive
+    compliance certifications across healthcare, government, and financial sectors.
   requires_registration: true
   url: https://azure.microsoft.com/
 - id: B2AI_STANDARD:791
@@ -16303,7 +17243,38 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:9
   is_open: true
   name: Neo4j
-  purpose_detail: A popular graph database platform.
+  purpose_detail: "Neo4j is a native graph database platform implementing property
+    graph model with ACID-compliant transactions, designed for storing and querying
+    highly connected data through nodes, relationships, and properties, enabling efficient
+    traversal of complex relationship patterns at scale. Developed by Neo4j, Inc.
+    and available in both open-source Community Edition and commercial Enterprise
+    Edition, Neo4j uses the declarative Cypher query language allowing pattern-matching
+    queries that naturally express graph relationships (e.g., `MATCH (person:Person)-[:FRIENDS_WITH]->(friend)
+    RETURN person, friend`) without complex join operations required in relational
+    databases. The architecture employs index-free adjacency where each node directly
+    references its adjacent nodes enabling constant-time traversals regardless of
+    graph size, native graph storage optimized for relationship-heavy queries, and
+    clustered deployment supporting high availability, horizontal scaling, and causal
+    consistency across distributed systems. Key features include rich graph algorithms
+    library (Graph Data Science) implementing PageRank, community detection, shortest
+    path, centrality measures, and similarity algorithms; APOC (Awesome Procedures
+    on Cypher) extending functionality with graph refactoring, data integration, and
+    advanced algorithms; support for temporal queries and multiple graph projections;
+    and integration with analytics tools (Apache Spark, Python data science stack)
+    and machine learning frameworks. Biomedical and AI applications span knowledge
+    graphs integrating biomedical ontologies, drug databases, genomic data, and literature
+    for drug repurposing and target discovery; clinical decision support modeling
+    patient-symptom-disease-treatment relationships for diagnosis recommendation;
+    biological network analysis representing protein-protein interactions, metabolic
+    pathways, gene regulatory networks for systems biology research; healthcare interoperability
+    mapping relationships between FHIR resources, HL7 messages, and clinical terminologies;
+    and ML feature engineering extracting graph embeddings, network features, and
+    relationship patterns as input for predictive models. Neo4j enables real-time
+    recommendation systems, fraud detection networks, identity and access management,
+    supply chain optimization, and social network analysis, essential for data scientists
+    working with connected data, bioinformaticians building biological knowledge bases,
+    clinical informaticians developing patient care pathways, and ML engineers requiring
+    graph-structured features."
   requires_registration: false
   url: https://neo4j.com/
 - id: B2AI_STANDARD:803
@@ -17108,7 +18079,7 @@ data_standardortools_collection:
   description: Wasabi Cloud Storage
   is_open: false
   name: Wasabi
-  purpose_detail: Cloud storage platform.
+  purpose_detail: 'Wasabi Cloud Storage is a high-performance, S3-compatible object storage service providing hot cloud storage with predictable pricing, no egress fees, and 80% lower total cost of ownership compared to hyperscaler alternatives (AWS S3, Azure Blob, Google Cloud Storage), designed for data-intensive workloads requiring frequent access and large-scale data archival. Founded in 2017 by Carbonite co-founders, Wasabi operates 16 globally distributed storage regions across North America, Europe, Asia-Pacific, with SOC-2, ISO 27001, and PCI-DSS certified data centers providing enterprise-grade security, immutability features (WORM, Object Lock), and compliance certifications (HIPAA, GDPR, FERPA) suitable for regulated industries. Wasabi''s "always hot" architecture eliminates tiered storage complexity by storing all data on high-performance disk arrays with consistent millisecond latency for reads/writes, avoiding cold storage retrieval delays that plague glacier-tier alternatives while maintaining cost parity with archival storage services. The platform''s S3 API compatibility ensures drop-in replacement for existing AWS workflows, supporting standard S3 operations (PUT, GET, LIST, multipart uploads), bucket policies, IAM-style access controls, and seamless integration with S3-compatible tools (AWS CLI, SDKs, third-party backup software, media asset managers). Wasabi''s zero-fee model for egress, API requests, and reads eliminates the unpredictable costs that typically double hyperscaler storage bills, enabling cost-effective access for AI/ML training pipelines, video surveillance archives, genomic datasets, and medical imaging repositories where frequent data retrieval is essential. The service provides native integrations with major backup platforms (Veeam, Commvault, Rubrik), media workflows (Adobe Premiere, Frame.io), surveillance systems (Milestone, Hanwha), and object storage gateways, supporting hybrid cloud architectures where on-premises applications seamlessly tier to Wasabi for capacity expansion and disaster recovery. For AI/ML workloads, Wasabi''s high-throughput object storage (up to 10 Gbps per connection) supports rapid dataset ingestion for model training, low-latency access to training data during distributed training across GPU clusters, and cost-effective storage for model checkpoints, experiment artifacts, and inference result archives without egress penalties for iterative model development and hyperparameter tuning requiring repeated dataset access.'
   requires_registration: true
   url: https://wasabi.com/
 - id: B2AI_STANDARD:840
