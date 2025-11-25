@@ -9223,7 +9223,29 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:19
   is_open: true
   name: BMP
-  purpose_detail: A bitmap image format.
+  purpose_detail: 'BMP (Bitmap) is a raster graphics file format developed by Microsoft for storing
+    device-independent bitmaps (DIBs) in Windows and OS/2 systems. The format consists
+    of a file header, DIB header (with multiple versions: BITMAPCOREHEADER, BITMAPINFOHEADER,
+    BITMAPV4HEADER, BITMAPV5HEADER), optional color palette, and pixel array storing
+    uncompressed or RLE-compressed bitmap data. BMP supports 1, 4, 8, 16, 24, and
+    32 bits per pixel, accommodating indexed color (palettes), RGB color, and alpha
+    channels for transparency. The format uses little-endian byte ordering and stores
+    pixel rows bottom-to-top by default, with each row padded to 4-byte boundaries.
+    BMP files can contain color profiles (ICC) for color management and support various
+    compression methods including BI_RGB (uncompressed), BI_RLE4/BI_RLE8 (run-length
+    encoding), and BI_BITFIELDS (custom RGB bit masks). The simplicity, widespread
+    familiarity, and open format specification make BMP common in Windows applications,
+    image processing software, and scientific imaging. While BMP files are typically
+    large due to minimal compression, they compress efficiently with lossless algorithms
+    (ZIP, RAR). BMP is used in GDI (Graphics Device Interface) subsystems, icons (ICO),
+    cursors (CUR), and as an intermediate format for image processing. Software support
+    is extensive: Adobe Photoshop, GIMP, Microsoft Office, browsers (Chrome, Edge),
+    and programming libraries across platforms. In AI/ML imaging applications, BMP
+    serves as a raw, lossless format for medical imaging (preserving pixel accuracy),
+    training data preparation (avoiding compression artifacts), image annotation workflows,
+    and intermediate processing steps where format simplicity facilitates pixel-level
+    manipulation for computer vision tasks, though typically converted to compressed
+    formats for efficient storage and transmission.'
   requires_registration: false
   url: https://en.wikipedia.org/wiki/BMP_file_format
 - id: B2AI_STANDARD:317
@@ -9373,7 +9395,27 @@ data_standardortools_collection:
   description: Dataset Cards
   is_open: true
   name: Dataset Cards
-  purpose_detail: Describe datasets.
+  purpose_detail: 'Dataset Cards are structured documentation templates for describing machine
+    learning datasets, introduced by Google and adopted widely in the ML community,
+    particularly through Hugging Face''s Datasets library. Dataset Cards provide standardized
+    metadata capturing dataset purpose, structure, creation methodology, intended uses,
+    limitations, and ethical considerations. The documentation includes: dataset summary
+    and description; language coverage and data sources; supported ML tasks and features;
+    dataset structure (splits, configurations, data fields); creation process (annotations,
+    quality control, collection methodology); considerations for using the data (social
+    impact, biases, privacy concerns); additional resources (papers, repositories,
+    licenses). Dataset Cards promote responsible AI by making dataset characteristics
+    transparent, helping practitioners assess fitness for purpose, understand potential
+    biases, and evaluate dataset limitations before use. The structured format enables
+    dataset discovery on ML platforms, facilitates reproducibility by documenting provenance,
+    and encourages accountability in dataset creation and curation. Hugging Face hosts
+    100,000+ dataset cards in their Hub, standardizing documentation for NLP, computer
+    vision, audio, and multimodal datasets. Dataset Cards complement Model Cards by
+    extending documentation principles to training data, addressing data quality, collection
+    practices, annotation procedures, and data ethics. In AI/ML pipelines, Dataset
+    Cards support informed dataset selection, bias mitigation through transparency,
+    reproducible research by documenting data versions, and regulatory compliance (AI
+    Act, GDPR) by clarifying data provenance, consent, and usage restrictions.'
   requires_registration: false
   url: https://huggingface.co/docs/datasets/dataset_card
 - id: B2AI_STANDARD:326
@@ -9506,7 +9548,28 @@ data_standardortools_collection:
   formal_specification: https://github.com/frictionlessdata/specs
   is_open: true
   name: Frictionless
-  purpose_detail: Describe datasets.
+  purpose_detail: 'Frictionless Data Package is a specification for packaging, describing, and
+    sharing datasets in a lightweight, standardized container format developed by
+    Open Knowledge Foundation. A Data Package consists of a descriptor (datapackage.json)
+    containing metadata about the package and its resources, along with the data files
+    themselves (local or remote). The specification defines comprehensive metadata
+    including: package title, description, licenses, version, sources, contributors,
+    and keywords; resource information for each data file (path/URL, format, schema,
+    encoding); Table Schema for tabular data defining field names, types, constraints,
+    and relationships; and optional goodtables validation rules. Frictionless supports
+    FAIR data principles by ensuring datasets are Findable (rich metadata), Accessible
+    (standard formats, clear paths), Interoperable (JSON-based descriptor, Table Schema),
+    and Reusable (license, provenance, structure documentation). The ecosystem includes
+    libraries for Python, JavaScript, R, Ruby, PHP, and command-line tools for validation,
+    conversion, and publishing. Frictionless integrates with data portals (CKAN, Dataverse),
+    notebooks (Jupyter), and analysis tools, enabling seamless dataset exchange and
+    processing. Extensions support specialized data types (geospatial, time series,
+    budget data) and validation frameworks. In AI/ML workflows, Frictionless Data
+    Packages standardize dataset distribution for reproducible research, provide machine-readable
+    schemas for automated data validation and ingestion, enable data versioning and
+    provenance tracking for ML pipelines, and facilitate dataset documentation complementing
+    model training by ensuring data quality, consistency, and interpretability across
+    collaborative ML projects.'
   requires_registration: false
   url: https://specs.frictionlessdata.io/data-package/
 - id: B2AI_STANDARD:333
@@ -9784,7 +9847,25 @@ data_standardortools_collection:
   formal_specification: https://github.com/json-schema-org/json-schema-spec
   is_open: true
   name: JSON-schema
-  purpose_detail: JSON validation
+  purpose_detail: 'JSON Schema is a vocabulary for annotating and validating JSON documents,
+    providing a declarative format for describing the structure, constraints, and
+    semantics of JSON data. As an IETF standard (draft specifications progressing
+    toward RFC status), JSON Schema defines a JSON-based format for specifying the
+    expected shape of JSON data, including data types, required properties, value
+    ranges, string patterns, array constraints, and object structures. The schema
+    itself is expressed in JSON, enabling meta-schema validation and recursive definitions.
+    JSON Schema supports multiple vocabularies including Core, Validation, Hyper-Schema
+    for hypermedia, and Format for semantic validation. Widely adopted across industries
+    with 60+ million weekly downloads, it powers API documentation (OpenAPI/Swagger),
+    configuration validation, code generation, form generation in UIs, and data interchange
+    contracts. Major implementations exist in JavaScript, Python, Java, Go, and 40+
+    other languages, with extensive tooling ecosystem including validators, generators,
+    linters, and editors. JSON Schema enables confident JSON data handling through
+    streamlined testing, seamless data exchange via shared understanding, and clear
+    documentation for developer collaboration. In AI/ML contexts, JSON Schema validates
+    training data structures, API request/response payloads, configuration files for
+    ML pipelines, and ensures data quality for machine learning workflows by catching
+    inconsistencies and schema violations at ingestion time.'
   related_to:
   - B2AI_STANDARD:761
   requires_registration: false
@@ -9803,7 +9884,25 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:21
   is_open: true
   name: KGX
-  purpose_detail: linked knowledge
+  purpose_detail: 'Knowledge Graph Exchange (KGX) is a standardized graph-oriented data format
+    for exchanging knowledge graphs, developed by the Biolink community to facilitate
+    interoperability between biomedical knowledge bases. KGX provides both a formal
+    specification and a Python toolkit (kgx library) for transforming, validating,
+    and exchanging knowledge graphs conforming to the Biolink Model. The format represents
+    graphs as nodes (entities with identifiers, categories, and properties) and edges
+    (relationships with predicates, subject/object references, and provenance), serialized
+    in JSON, TSV, or RDF formats. KGX ensures semantic alignment by enforcing Biolink
+    Model categories (e.g., Gene, Disease, Pathway) and predicates (e.g., causes,
+    treats, interacts_with), enabling consistent cross-database integration. The toolkit
+    supports graph transformations (merging, filtering, mapping), format conversions
+    (Neo4j, RDF, GraphML), and validation against Biolink Model constraints. KGX is
+    foundational for Translator knowledge graphs, integrating data from 150+ biomedical
+    sources including Monarch Initiative, NCATS Biomedical Data Translator, and Clinical
+    Data Commons. In AI/ML applications, KGX-formatted knowledge graphs power link
+    prediction for drug repurposing, knowledge graph embeddings for biomedical entity
+    representation learning, reasoning algorithms for hypothesis generation, and multi-modal
+    knowledge integration combining genomics, phenotypes, pathways, and clinical data
+    to support precision medicine and systems biology research.'
   related_to:
   - B2AI_STANDARD:783
   requires_registration: false
@@ -10437,7 +10536,26 @@ data_standardortools_collection:
   - B2AI_ORG:99
   is_open: true
   name: RDF
-  purpose_detail: describe anything
+  purpose_detail: 'Resource Description Framework (RDF) is a W3C standard framework for representing
+    information about resources on the Web using subject-predicate-object triples.
+    RDF provides a graph-based data model where resources are identified by IRIs (Internationalized
+    Resource Identifiers) and relationships form a directed, labeled graph. The framework
+    enables decentralized knowledge representation, allowing anyone to make statements
+    about any resource and merge distributed data seamlessly. RDF Schema (RDFS) extends
+    RDF with vocabulary for describing classes, properties, domain, range, and hierarchical
+    relationships, enabling semantic reasoning and inference. RDF supports multiple
+    serialization formats including Turtle (human-readable), RDF/XML (verbose XML),
+    JSON-LD (JSON-based), and N-Triples (line-oriented). The semantic web stack builds
+    upon RDF: OWL for rich ontologies, SPARQL for querying RDF graphs, SHACL for
+    shape validation. RDF powers linked open data initiatives (DBpedia, Wikidata),
+    biomedical ontologies (OBO Foundry, Bio2RDF), knowledge graphs (Google Knowledge
+    Graph principles), and enterprise knowledge management. The framework enables
+    data integration across heterogeneous sources by providing common vocabularies
+    (Dublin Core, FOAF, Schema.org) and federated querying. In AI/ML contexts, RDF
+    graphs serve as structured knowledge bases for knowledge graph embeddings (TransE,
+    DistMult, ComplEx), semantic reasoning for inference rules, ontology-guided feature
+    engineering, and multi-relational learning where symbolic knowledge augments statistical
+    learning, enabling explainable AI and knowledge-driven machine learning systems.'
   requires_registration: false
   url: https://www.w3.org/TR/rdf-schema/
 - id: B2AI_STANDARD:374
@@ -11127,7 +11245,28 @@ data_standardortools_collection:
   is_open: true
   name: BFO
   publication: doi:10.3233/AO-160164
-  purpose_detail: Upper level ontology.
+  purpose_detail: 'Basic Formal Ontology (BFO) is a small, upper-level ontology designed for supporting
+    information retrieval, analysis, and integration in scientific and other domains.
+    As a genuine upper ontology, BFO provides foundational categories that are domain-neutral
+    and applicable across all areas of scientific investigation, rather than containing
+    domain-specific terms. BFO distinguishes between continuants (entities that endure
+    through time, such as objects, qualities, and spatial regions) and occurrents
+    (entities that unfold over time, such as processes and temporal regions), providing
+    a rigorous framework for representing the fundamental structure of reality. The
+    ontology employs formal logic (first-order logic, OWL2) to define its 39 core
+    classes and relations, ensuring precise semantics and enabling automated reasoning.
+    BFO is used by over 550 ontology-driven projects worldwide as the top-level framework
+    for domain ontologies in biomedicine (OBO Foundry ontologies like GO, CHEBI, Uberon),
+    healthcare (OGMS for disease), environmental science, manufacturing, and military
+    intelligence. The ontology promotes interoperability by providing consistent upper-level
+    structure, enabling ontology integration and cross-domain data federation. BFO
+    has been developed through extensive international collaboration, with contributions
+    from philosophers, logicians, and domain scientists, and is continuously refined
+    based on practical applications. In AI/ML contexts, BFO provides foundational
+    structure for knowledge graphs, enabling ontology-guided reasoning, semantic data
+    integration across heterogeneous sources, knowledge representation for explainable
+    AI, and principled ontology alignment, supporting knowledge-driven machine learning
+    where symbolic foundations enhance statistical learning with formal semantics.'
   requires_registration: false
   url: http://basic-formal-ontology.org/
 - id: B2AI_STANDARD:409
@@ -11619,7 +11758,23 @@ data_standardortools_collection:
   - B2AI_ORG:34
   is_open: true
   name: DUO
-  purpose_detail: Data use rules
+  purpose_detail: 'The Data Use Ontology (DUO) provides standardized vocabulary for describing
+    data use conditions, restrictions, and requirements in biomedical and genomics
+    research. Developed by the Global Alliance for Genomics and Health (GA4GH), DUO
+    enables semantic tagging of datasets with consent-derived restrictions (e.g.,
+    health/medical/biomedical research only, disease-specific research, non-commercial
+    use, research ethics approval). The ontology supports automated data access matching,
+    where algorithms determine whether a researcher''s purpose is compatible with dataset
+    restrictions, enabling services like DUOS (Data Use Oversight System) and EGA
+    (European Genome-phenome Archive) to streamline data sharing while respecting
+    participant consent. DUO extends NIH dbGaP data use categories with hierarchical
+    structure for logical inference, includes consent codes for international data
+    sharing, and implements ADA-M (Automated Data Access Matrix) for granular permissions.
+    Used by 60+ million weekly downloads, DUO facilitates GDPR-aware data governance,
+    phenotype-driven differential diagnostics, and translational research. The ontology
+    ensures that informed consent language translates into machine-readable terms,
+    accelerating responsible data reuse for AI/ML training datasets, clinical phenotyping,
+    and genomic diagnostics while maintaining participant privacy and ethical oversight.'
   requires_registration: false
   url: https://github.com/EBISPOT/DUO
 - id: B2AI_STANDARD:434
@@ -12285,7 +12440,28 @@ data_standardortools_collection:
   formal_specification: https://github.com/obophenotype/human-phenotype-ontology
   is_open: true
   name: HPO
-  purpose_detail: Phenotypic Features
+  purpose_detail: 'The Human Phenotype Ontology (HPO) provides standardized vocabulary for phenotypic
+    abnormalities encountered in human disease, containing over 18,000 terms and 156,000+
+    annotations to hereditary diseases. Each HPO term describes a specific phenotypic
+    feature (e.g., "Atrial septal defect" HP:0001631) organized in a hierarchical
+    structure from general to specific findings. Developed using medical literature,
+    Orphanet, DECIPHER, and OMIM, HPO enables precise phenotype-driven differential
+    diagnostics, genomic variant interpretation, and translational research. The ontology
+    integrates with major biomedical resources and powers phenotype matching algorithms
+    that rank diseases by clinical feature similarity. HPO is foundational for rare
+    disease diagnosis tools (Exomiser, Phenomizer, PhenoTips), electronic health record
+    phenotyping, and clinical decision support systems. As a Monarch Initiative flagship
+    product and GA4GH driver project, HPO enables semantic integration across species,
+    connecting human phenotypes to model organism phenotypes for translational research.
+    The ontology supports deep phenotyping in genomics studies, electronic health record
+    phenotype extraction, natural language processing for clinical notes, and phenotype-driven
+    gene prioritization. HPO annotations link phenotypes to genes, diseases, and publications,
+    facilitating genotype-phenotype correlation studies. In AI/ML applications, HPO
+    powers phenotype-based similarity learning for rare disease diagnosis, automated
+    phenotype extraction from clinical narratives using NLP, ontology-guided feature
+    engineering for predictive models, knowledge graph embeddings for disease gene
+    discovery, and multi-modal patient representation learning combining genomics,
+    phenotypes, and clinical data to support precision medicine and clinical genomics.'
   related_to:
   - B2AI_STANDARD:784
   requires_registration: false
@@ -13815,7 +13991,27 @@ data_standardortools_collection:
   - B2AI_ORG:74
   is_open: true
   name: SNMI
-  purpose_detail: SNOMED, not SNOMED-CT
+  purpose_detail: 'Systematized Nomenclature of Medicine International (SNMI) is a historical medical
+    terminology and classification system that preceded SNOMED CT. Developed in the
+    1960s-1970s by the College of American Pathologists, SNMI represented one of the
+    earliest attempts to create a comprehensive, multi-axial medical nomenclature covering
+    topography (anatomy), morphology (structural changes), etiology (causes), and function
+    (physiological processes). SNMI employed a systematic coding structure where concepts
+    were represented by alphanumeric codes and could be combined using post-coordination
+    to express complex clinical findings (e.g., combining topography codes with morphology
+    codes to describe disease locations and characteristics). The terminology was designed
+    primarily for pathology and clinical documentation, providing structured vocabulary
+    for diagnoses, procedures, and laboratory findings. SNMI evolved through several
+    versions including SNOMED (Systematized Nomenclature of Medicine), SNOMED II, and
+    SNOMED III before being integrated into SNOMED CT (Clinical Terms) in 2002 through
+    merger with UK''s Clinical Terms Version 3 (Read Codes). While SNMI itself is
+    now deprecated and replaced by SNOMED CT for current clinical use, it is historically
+    significant as a foundational medical terminology that pioneered multi-axial compositional
+    approaches to medical concept representation. Legacy SNMI data may still exist
+    in historical medical records and research databases, requiring mapping to modern
+    terminologies for interoperability. Understanding SNMI''s structure provides context
+    for SNOMED CT''s architecture and the evolution of standardized medical terminologies
+    used in electronic health records, clinical research, and healthcare data analytics.'
   requires_registration: false
   url: https://bioportal.bioontology.org/ontologies/SNMI
 - id: B2AI_STANDARD:555
@@ -14322,7 +14518,28 @@ data_standardortools_collection:
   formal_specification: https://github.com/ncbo
   is_open: true
   name: BioPortal
-  purpose_detail: An ontology registry.
+  purpose_detail: 'BioPortal is a comprehensive, open-access ontology repository and collaborative
+    platform developed by the National Center for Biomedical Ontology (NCBO) at Stanford,
+    hosting over 1,000 biomedical ontologies, terminologies, and vocabularies. The
+    platform provides centralized access to diverse biomedical knowledge organization
+    systems including OBO Foundry ontologies (GO, Uberon, CHEBI, HPO), medical terminologies
+    (SNOMED CT, ICD, RxNorm, LOINC), domain-specific vocabularies, and community-developed
+    ontologies. BioPortal offers rich functionality including: ontology browsing with
+    hierarchical visualization and concept lookup; powerful search across all ontologies
+    with autocomplete and recommendations; mapping services for finding correspondences
+    between ontologies; annotator services for identifying ontology concepts in free
+    text; versioning and change tracking for ontology evolution; widgets and web services
+    (REST APIs) for programmatic access; and community features for commenting, discussions,
+    and ontology reviews. The platform serves as infrastructure for ontology developers
+    (submission, hosting, versioning), data curators (annotation, mapping, validation),
+    and application developers (APIs, widgets, SPARQL endpoints). BioPortal enables
+    semantic annotation of biomedical data, cross-resource data integration through
+    ontology mappings, and standardized vocabularies for clinical research, genomics,
+    drug discovery, and translational medicine. In AI/ML applications, BioPortal supports
+    ontology-based feature engineering for predictive models, semantic search for literature
+    and dataset discovery, text mining and NLP by providing concept recognizers, knowledge
+    graph construction by linking data to standardized ontologies, and explainable
+    AI through ontological reasoning and structured domain knowledge integration.'
   requires_registration: false
   url: https://bioportal.bioontology.org/
 - id: B2AI_STANDARD:707
