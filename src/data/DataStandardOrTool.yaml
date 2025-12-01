@@ -11261,8 +11261,44 @@ data_standardortools_collection:
   description: YAML Ain't Markup Language
   is_open: true
   name: YAML
-  purpose_detail: A human-readable data-serialization language. It is commonly used
-    for configuration files and in applications where data is being stored or transmitted.
+  purpose_detail: YAML (YAML Ain't Markup Language, originally Yet Another Markup
+    Language) is a human-readable data serialization language designed for configuration
+    files, data exchange between programming languages with different data structures,
+    and representation of complex hierarchical data in a format that prioritizes readability
+    and minimal syntax over machine parsing efficiency. YAML's design philosophy emphasizes
+    whitespace-based indentation rather than brackets or braces, uses intuitive syntax
+    for common data types (scalars, lists, dictionaries/mappings), supports multi-line
+    strings without escape characters, allows inline comments prefixed with #, and
+    provides advanced features including anchors and aliases for avoiding repetition,
+    custom data type tags, and document streaming with multiple YAML documents in
+    a single file separated by ---. The language is a superset of JSON, meaning any
+    valid JSON document is also valid YAML, but offers more expressive syntax with
+    less visual noise, making it the preferred format for human-authored configuration
+    files in DevOps, continuous integration/deployment pipelines (GitHub Actions,
+    GitLab CI, CircleCI, Travis CI), container orchestration (Kubernetes manifests,
+    Docker Compose), infrastructure-as-code tools (Ansible playbooks, Helm charts,
+    CloudFormation templates), and application configuration management. YAML parsers
+    exist for virtually all programming languages (PyYAML and ruamel.yaml for Python,
+    js-yaml for JavaScript, SnakeYAML for Java, yaml-cpp for C++, gopkg.in/yaml for
+    Go), enabling cross-language data interchange in polyglot software systems and
+    supporting serialization of native data structures from one language for consumption
+    by another. In scientific computing and data science, YAML serves as a lightweight
+    schema language for defining data models and metadata standards (LinkML, FAIR
+    Genomes semantic model, OpenAPI specifications, JSON Schema), configuration format
+    for machine learning experiment tracking (MLflow, Weights & Biases, Hydra), pipeline
+    definition files for workflow engines (Snakemake, Nextflow, CWL), and package
+    metadata (conda environment.yml, Python pyproject.toml's dynamic dependencies).
+    YAML's human-friendliness makes it suitable for version control and collaborative
+    editing, as diffs are readable and merge conflicts can be resolved without specialized
+    tools, though this same flexibility introduces security risks (arbitrary code
+    execution through deserialization of unsafe types) that require careful parser
+    configuration and validation of untrusted input. The format is maintained by the
+    YAML community with formal specification (YAML 1.2.2 as of 2021) and reference
+    implementations, and has become ubiquitous in cloud-native software development,
+    where entire application stacks are defined as YAML manifests that declaratively
+    specify desired infrastructure state, enabling GitOps workflows where infrastructure
+    changes are reviewed, version-controlled, and audited through standard software
+    development practices applied to configuration files.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/YAML
 - id: B2AI_STANDARD:394
