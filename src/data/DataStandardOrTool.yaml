@@ -19789,6 +19789,132 @@ data_standardortools_collection:
       be deployed on mobile devices for remote patient monitoring, telehealth applications,
       and resource-limited settings where traditional diagnostic equipment is unavailable.
     used_in_bridge2ai: false
+  - id: B2AI_APP:174
+    category: B2AI:Application
+    name: Self-Supervised Learning Pipelines for Speech Foundation Models
+    description: 'TorchAudio provides pretrained self-supervised learning (SSL) pipelines
+      and fine-tuning recipes for speech foundation models including Wav2Vec 2.0,
+      HuBERT, XLS-R, and WavLM, enabling researchers to leverage large-scale pretrained
+      encoders for downstream tasks. The library supplies "models and pre-trained
+      pipelines for Wav2Vec 2.0, HuBERT, XLS-R, and WavLM" where "each pre-trained
+      pipeline relies on the weights... and thus produces identical outputs" to upstream
+      implementations, ensuring reproducibility when fine-tuning on domain-specific
+      data. TorchAudio includes "end-to-end training recipes that allow for pre-training
+      and fine-tuning HuBERT models from scratch" on LibriSpeech and custom datasets.
+      A downstream spoken language understanding study explicitly "used the pretrained
+      ASR models provided by TorchAudio," including WAV2VEC2_ASR_BASE_960H and HUBERT_ASR_LARGE
+      checkpoints, to build joint-CTC SLU systems for intent classification and dialogue
+      act recognition. The pretrained SSL encoders are designed for CTC fine-tuning
+      and serve as feature extractors for tasks beyond ASR, demonstrating TorchAudio''s
+      role as the primary distribution mechanism for PyTorch-compatible speech foundation
+      models in research and production.'
+    references:
+    - https://doi.org/10.48550/arxiv.2310.17864
+    - https://doi.org/10.1109/icassp49357.2023.10096795
+    used_in_bridge2ai: false
+  - id: B2AI_APP:175
+    category: B2AI:Application
+    name: ASR Model Training, Streaming Inference, and CTC Decoding
+    description: 'TorchAudio implements complete automatic speech recognition training
+      and inference pipelines including Conformer transducer, RNN-Transducer, and
+      streaming Emformer architectures with production-ready decoders and forced alignment.
+      The library provides "end-to-end training recipes" for Conformer and RNN-T,
+      and introduces a "streaming-capable transformer-based acoustic model Emformer"
+      that enables "real-time inference on CPU" for audio-visual ASR. For decoding,
+      TorchAudio supplies a high-performance CTC beam search decoder supporting "both
+      lexicon and lexicon-free decoding" with KenLM language model integration and
+      custom neural network support, plus the "only publicly available CUDA-compatible
+      CTC decoder" for GPU-accelerated inference. The library includes the "first
+      publicly available GPU-based solution for computing forced alignments" via a
+      "CTC-based forced alignment implementation" that supports both CPU and CUDA
+      execution. StreamReader/StreamWriter APIs enable "chunked streaming of audio/video
+      tensors from files and remote sources," supporting online ASR pipelines entirely
+      in PyTorch with examples demonstrating how to "stream audio chunk by chunk from
+      a remote video file." These components operationalize full ASR workflows from
+      data loading through model training, streaming inference, beam search decoding,
+      and timestamp alignment for subtitling and transcription applications.'
+    references:
+    - https://doi.org/10.48550/arxiv.2310.17864
+    used_in_bridge2ai: false
+  - id: B2AI_APP:176
+    category: B2AI:Application
+    name: Audio Preprocessing, Feature Extraction, and Data Augmentation
+    description: 'TorchAudio''s functional, transform, and sox_effects modules provide
+      comprehensive preprocessing and augmentation capabilities for ML training pipelines,
+      with GPU-accelerated and TorchScript-compatible implementations suitable for
+      production deployment. The library implements core preprocessing operations including
+      "Spectrogram/InverseSpectrogram, mel-frequency cepstrum coefficients (MFCC),
+      spectral centroid, phase vocoder and Griffin-Lim, resampling, and other filters"
+      as torch.nn.Module subclasses that integrate seamlessly with PyTorch model pipelines
+      via torch.nn.Sequential. The sox_effects module exposes "58 different sound
+      effects, such as resampling, pitch shift" for data augmentation, with all transforms
+      "fully torchscriptable" to enable compilation for inference optimization. TorchAudio
+      emphasizes "GPU compute capability, automatic differentiation, and production
+      readiness," allowing audio preprocessing to be included in end-to-end trainable
+      pipelines where gradient flow through feature extraction can improve model performance.
+      The library serves as "the foundational audio layer for downstream PyTorch toolkits
+      (ESPnet, SpeechBrain, NeMo, fairseq)" by providing standardized, well-tested
+      building blocks that avoid reimplementation of basic operations across projects.
+      Transforms support runtime and inference acceleration through JIT compilation
+      and "support [for] TorchScript and PyTorch-native quantization and leverage
+      PyTorch 2.0''s Accelerated Transformers... to speed up training and inference,"
+      with benchmarking on AWS p4d A100 hardware demonstrating performance parity
+      or improvements over reference implementations.'
+    references:
+    - https://doi.org/10.48550/arxiv.2310.17864
+    - https://doi.org/10.1109/icassp43922.2022.9747236
+    used_in_bridge2ai: false
+  - id: B2AI_APP:177
+    category: B2AI:Application
+    name: Multichannel Speech Enhancement and MVDR Beamforming
+    description: 'TorchAudio 2.1 introduces mask-based MVDR (Minimum Variance Distortionless
+      Response) beamforming and multichannel speech enhancement components that integrate
+      with STFT/ISTFT processing and can be trained end-to-end with ASR models. The
+      library implements a "mask-based MVDR beamforming model" where "the MVDR module
+      is applied to the masks and multi-channel spectrum to produce the beamforming
+      weights" and the "enhanced waveform is derived via inverse STFT," with training
+      using "Ci-SDR as the loss function." The enhancement pipeline is designed for
+      joint optimization with downstream tasks, as demonstrated by experiments "jointly
+      leveraging TorchAudio''s mask-based MVDR beamforming model, Conformer transducer
+      model, and TorchAudio-Squim" to perform "multi-channel speech enhancement, ASR,
+      and speech quality assessment all within TorchAudio." The MVDR module supports
+      integration with both Conformer transducer and Wav2Vec-2.0-based ASR models,
+      enabling researchers to build end-to-end pipelines from multichannel microphone
+      array input through beamforming, enhancement, recognition, and quality assessment.
+      Experiments validate "the efficacy of TorchAudio''s MVDR module" for improving
+      ASR performance in noisy and reverberant environments, with all components implemented
+      as differentiable PyTorch modules that support GPU acceleration and gradient-based
+      optimization of enhancement parameters jointly with acoustic model weights.'
+    references:
+    - https://doi.org/10.48550/arxiv.2310.17864
+    used_in_bridge2ai: false
+  - id: B2AI_APP:178
+    category: B2AI:Application
+    name: Reference-Less Speech Quality Assessment and Evaluation
+    description: TorchAudio-Squim provides reference-less speech quality assessment
+      tools that estimate perceptual and objective metrics including STOI (Short-Time
+      Objective Intelligibility), PESQ (Perceptual Evaluation of Speech Quality),
+      Si-SDR (Scale-Invariant Signal-to-Distortion Ratio), and MOS (Mean Opinion Score)
+      without requiring clean reference signals, enabling integrated evaluation and
+      training-time feedback within speech processing pipelines. The tool allows researchers
+      to "estimate STOI, PESQ, and Si-SDR" during model training and inference, supporting
+      quality-aware optimization and automated assessment of enhancement, separation,
+      and synthesis outputs. TorchAudio-Squim is designed for integration with other
+      library components, as demonstrated in experiments combining MVDR beamforming,
+      Conformer/Wav2Vec-2.0 ASR, and "TorchAudio-Squim for quality assessment," providing
+      a unified framework for training and evaluating multichannel enhancement pipelines
+      with perceptual quality feedback. The reference-less approach is particularly
+      valuable for real-world applications where clean reference signals are unavailable,
+      such as live enhancement of telephony, conferencing, or broadcast audio, and
+      for self-supervised or unsupervised training regimes where quality metrics guide
+      model optimization without paired clean/noisy training data. By providing standardized,
+      GPU-accelerated quality estimators as PyTorch modules, TorchAudio-Squim enables
+      researchers to incorporate perceptual loss functions and quality monitoring
+      directly into training loops, supporting development of enhancement and generation
+      models optimized for human-perceived speech quality.
+    references:
+    - https://doi.org/10.48550/arxiv.2310.17864
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:890
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
