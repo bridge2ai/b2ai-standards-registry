@@ -19878,6 +19878,53 @@ data_standardortools_collection:
       resolution. The format's efficient sparse matrix storage enables training on
       datasets with millions of cells.
     used_in_bridge2ai: false
+  - id: B2AI_APP:168
+    category: B2AI:Application
+    name: scvi-tools Probabilistic Modeling and Integration with AnnData
+    references:
+    - https://doi.org/10.1038/s41587-021-01206-w
+    description: The scvi-tools Python library uses h5ad/AnnData as the primary data
+      interface for probabilistic deep learning models in single-cell genomics, with
+      models consuming AnnData objects directly for training and inference. The framework
+      provides setup_anndata to register tensor locations from AnnData objects, enabling
+      models like scVI, scANVI, and totalVI to operate on h5ad files via code such
+      as "SCVI.setup_anndata(adata, batch_key='donor')" followed by "model = SCVI(adata)".
+      The AnnDataLoader component "reads data from the AnnData object and automatically
+      structures it for training or for downstream analysis with the trained model,"
+      supporting joint multimodal processing of transcriptomics and proteomics data.
+      Batch integration is enabled through batch_key parameters, and model-specific
+      requirements (UMI counts, labels_key) are handled through the AnnData interface.
+      The reimplementation of methods like Stereoscope and CellAssign within scvi-tools
+      allows these models to "be used from Jupyter notebooks and with AnnData objects,"
+      with visualization via Scanpy taking less than 20 lines of code. This demonstrates
+      h5ad as the standard format for training variational autoencoders, performing
+      batch correction, cell type annotation, and multimodal integration in the single-cell
+      ecosystem.
+    used_in_bridge2ai: false
+  - id: B2AI_APP:169
+    category: B2AI:Application
+    name: PyTorch Integration for ML Training on Single-Cell Data
+    references:
+    - https://doi.org/10.21105/joss.04371
+    - https://doi.org/10.1101/2021.12.16.473007
+    description: AnnData provides native PyTorch integration for machine learning
+      workflows through the AnnLoader DataLoader interface and AnnCollection for lazy
+      concatenation of larger-than-memory datasets, enabling seamless training of
+      deep learning models on h5ad files. The format uses "language-independent, hierarchical
+      on-disk formats HDF5 and zarr (commonly .h5ad)" with a one-to-one mapping between
+      in-memory and on-disk structures, allowing compressed sparse matrices (CSR,
+      CSC) to be stored as data, indices, and indptr arrays while tabular data is
+      stored columnar. This design enables partial I/O operations where models can
+      read specific data components without loading entire files into memory, critical
+      for training on million-cell datasets. The PyTorch integration via AnnLoader
+      and AnnCollection allows h5ad-backed objects to serve directly as model input,
+      supporting training workflows that combine numpy-centered tools (scikit-learn,
+      UMAP) with PyTorch-based deep learning. Major consortia including the Human
+      Cell Atlas and HuBMAP distribute single-cell datasets through h5ad format, and
+      the ecosystem explicitly includes scvi-tools for deep generative modeling, demonstrating
+      h5ad as the interchange format connecting data repositories, preprocessing workflows,
+      and ML model training in single-cell genomics.
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:900
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
