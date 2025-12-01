@@ -17688,6 +17688,136 @@ data_standardortools_collection:
       for multi-site AI studies where standardized data collection across institutions
       is essential for model generalizability.
     used_in_bridge2ai: false
+  - id: B2AI_APP:79
+    category: B2AI:Application
+    name: Interoperable AI Data Pipelines via REDCap-to-FHIR ETL
+    references:
+    - https://doi.org/10.1101/2024.03.15.24303032
+    description: The EuCanImage consortium uses REDCap as a standardized intermediary
+      data store with Python ETL pipelines that map to FHIR endpoints and common
+      data models to create AI-ready datasets for oncology research. REDCap Clinical
+      Data Interoperability Services (CDIS) enables high-fidelity extraction of treatment
+      data from EHRs via FHIR, positioning REDCap within AI data pipelines by unlocking
+      structured, trustworthy inputs for downstream modeling. This approach enables
+      harmonized multicenter data capture and transformation for AI model development
+      and submission to permanent repositories, demonstrating how REDCap supports
+      FAIR data principles and interoperability standards essential for collaborative
+      AI research.
+    used_in_bridge2ai: false
+  - id: B2AI_APP:80
+    category: B2AI:Application
+    name: Multimodal Machine Learning Combining Imaging and Clinical Data
+    references:
+    - https://doi.org/10.48550/arxiv.2501.11535
+    description: REDCap-derived tabular clinical variables are combined with radiomics
+      features in multimodal machine learning models for cancer staging and prognosis.
+      In hepatocellular carcinoma studies, XGBoost models trained on combined imaging
+      and REDCap tabular data achieved superior performance compared to single-modality
+      models, with feature importance analyses identifying critical REDCap-captured
+      variables such as age and tumor characteristics. This application demonstrates
+      REDCap's role in providing curated clinical features that complement imaging
+      biomarkers, with preprocessing workflows that filter REDCap columns based on
+      data quality thresholds and domain relevance before model training.
+    used_in_bridge2ai: false
+  - id: B2AI_APP:81
+    category: B2AI:Application
+    name: Federated Rare Disease Registries Supporting Deep Learning
+    references:
+    - https://doi.org/10.1093/jamia/ocad132
+    description: The National Mesothelioma Virtual Bank uses REDCap with standardized
+      Common Data Elements (CDEs) and an API-driven ETL pipeline (CSV export via REDCap
+      API, processed through R and JavaScript, served via AWS Lambda) to power cohort
+      discovery and deidentified data provisioning for advanced analytics and deep
+      learning on rare-disease cohorts. This federated REDCap deployment aggregates
+      over 2,000 cases across multiple institutions, enabling scalable multicenter
+      datasets with faceted search capabilities and honest-broker data protection
+      models. The standardized data capture and automated deidentification workflows
+      make these registries valuable resources for training ML models on rare diseases
+      where data scarcity is a major challenge.
+    used_in_bridge2ai: false
+  - id: B2AI_APP:82
+    category: B2AI:Application
+    name: REDCap-Embedded Risk Scoring and Triage Algorithms
+    references:
+    - https://doi.org/10.1017/cts.2024.1134
+    description: Clinical decision support algorithms are implemented directly within
+      REDCap using calculated fields and conditional logic to perform real-time risk
+      prediction and automated triage. The Mayo Clinic deployed a Risk Prediction
+      and Management (RPM) scoring tool in REDCap that evaluates operational risks
+      for incoming clinical studies, automatically scoring approximately 200 projects
+      and routing high-risk cases to physician leadership for review. This in-app
+      decision support approach leverages REDCap's computational capabilities to operationalize
+      algorithmic scoring without requiring external systems, demonstrating how REDCap
+      can serve not only as a data capture platform but also as a deployment environment
+      for prediction models in operational workflows.
+    used_in_bridge2ai: false
+  - id: B2AI_APP:83
+    category: B2AI:Application
+    name: Prospective ML Model Monitoring and Continuous Retraining
+    references:
+    - https://doi.org/10.1186/s13017-025-00594-7
+    description: The MINERVA study protocol uses REDCap as the secure primary data
+      repository for training a deep learning relapse-risk model with plans for continuous
+      real-time monitoring, automated logging, and iterative retraining tied to REDCap-collected
+      outcomes. The framework includes web-based monitoring of model performance metrics
+      (sensitivity, specificity, PPV, NPV), automated capture of instances where predictions
+      diverge from clinical outcomes, root-cause analysis workflows, and data validation
+      checks that feed back into model refinement. This application demonstrates how
+      REDCap can support the full ML lifecycle from initial training data collection
+      through deployment monitoring and model maintenance, with role-based access
+      controls and deidentification protocols ensuring data security throughout the
+      process.
+    used_in_bridge2ai: false
+  - id: B2AI_APP:84
+    category: B2AI:Application
+    name: Reproducible ML Pipelines for Nuclear Medicine
+    references:
+    - https://iris.unito.it/bitstream/2318/2067667/2/01_PhD_thesis_Rovera_Guido.pdf
+    description: REDCap-centered workflows in nuclear medicine use REDCap for standardized
+      clinical data capture with ETL pipelines (REDCap-ETL or custom Python/R scripts)
+      that export to SQLite databases for machine learning analyses with scikit-learn.
+      These pipelines emphasize anonymization, reproducibility through version-controlled
+      scripts, dynamic real-time data retrieval, and automated computation of derived
+      variables to support ML workflows. The use of REDCap's repeating instruments
+      feature enables capture of relational time-series events, while project XML
+      templates support multi-center reproducibility. This approach demonstrates how
+      REDCap integrates into end-to-end ML pipelines for medical imaging and clinical
+      prediction tasks, with synthetic data generation capabilities for testing model
+      scalability.
+    used_in_bridge2ai: false
+  - id: B2AI_APP:85
+    category: B2AI:Application
+    name: Clinical Decision Support for Post-Surgical Risk and STI Recommendations
+    references:
+    - https://doi.org/10.1017/cts.2021.529
+    description: REDCap implementations have been documented generating ML-based risk
+      predictions for post-surgical outcomes, producing sexually transmitted infection
+      (STI) test recommendations and orders, and improving clinical handoffs in surgical
+      oncology through decision support workflows. These applications leverage REDCap's
+      data capture capabilities combined with statistical and machine learning methods
+      to deliver actionable clinical recommendations, though published documentation
+      of such novel uses remains limited. The integration patterns demonstrate REDCap's
+      potential to bridge research data collection and clinical decision support,
+      enabling evidence-based interventions derived from ML models trained on REDCap-captured
+      data.
+    used_in_bridge2ai: false
+  - id: B2AI_APP:86
+    category: B2AI:Application
+    name: Translational Research Frameworks Integrating Multimodal Data for Predictive
+      Modeling
+    references:
+    - https://iris.unito.it/bitstream/2318/2067667/2/01_PhD_thesis_Rovera_Guido.pdf
+    description: Preclinical and translational research frameworks use REDCap instruments
+      for single-measure clinical data capture with customized API and ETL pipelines
+      to integrate multimodal datasets (clinical, imaging, molecular) for dashboards
+      and predictive modeling applications. These frameworks demonstrate REDCap's
+      role as a data backbone that feeds analytic workflows, supporting integrated
+      datasets that combine REDCap-captured clinical assessments with laboratory results,
+      imaging features, and genomic data. The metadata-driven structure of REDCap
+      projects facilitates standardized variable definitions across data modalities,
+      enabling machine learning models to leverage complementary information sources
+      for improved prediction accuracy in translational medicine.
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:822
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
