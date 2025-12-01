@@ -17668,8 +17668,47 @@ data_standardortools_collection:
   is_open: true
   name: REDCap
   publication: doi:10.1016/j.jbi.2008.08.010
-  purpose_detail: Electronic data capture software and workflow methodology for designing
-    clinical and translational research databases.
+  purpose_detail: REDCap (Research Electronic Data Capture) is a mature, metadata-driven
+    software platform designed for building and managing online databases and surveys
+    for clinical and translational research studies, developed at Vanderbilt University
+    and now maintained by an international consortium of over 6,000 institutional
+    partners across 150 countries. The platform provides a comprehensive web-based
+    application with an intuitive interface for rapid development of electronic data
+    capture instruments using a data dictionary that defines field types, validation
+    rules, branching logic, and calculated fields without requiring programming expertise.
+    Core features include secure user authentication with role-based access controls,
+    audit trails tracking all data changes with timestamps and user attribution, automated
+    data quality checks through validation rules and range constraints, repeating
+    instruments and events for longitudinal data collection, survey distribution with
+    public and private links, and mobile-responsive data entry forms accessible from
+    any device. REDCap supports complex study designs through its project management
+    capabilities including multi-site studies, randomization modules, scheduling and
+    calendar features, file upload repositories, and automated survey invitations
+    with customizable reminder logic. The platform emphasizes data security and regulatory
+    compliance with HIPAA-compatible infrastructure, 21 CFR Part 11 validation documentation,
+    encrypted data transmission and storage, automatic de-identification tools for
+    exporting datasets, and comprehensive logging for audit purposes. REDCap's extensibility
+    is enabled through a robust RESTful API supporting programmatic data import/export,
+    project metadata retrieval, and integration with external systems, plus the REDCap
+    External Modules framework allowing custom functionality development. The Clinical
+    Data Interoperability Services (CDIS) extension provides FHIR-based integration
+    enabling bidirectional data exchange with electronic health records, supporting
+    real-time EHR data extraction and write-back capabilities. Data analysis features
+    include built-in descriptive statistics, graphical data visualization, data export
+    to multiple formats (CSV, SPSS, SAS, R, Stata, Excel), and the REDCap-ETL tool
+    for transforming and loading data into relational databases for advanced analytics.
+    The platform has been extensively adopted in AI and machine learning workflows
+    as a standardized data capture layer feeding training datasets, with documented
+    applications spanning multimodal ML combining clinical tabular data with imaging
+    features, federated rare disease registries supporting deep learning on aggregated
+    cohorts, in-app risk scoring and triage algorithms implemented via calculated
+    fields, reproducible ETL pipelines to SQLite/Python/scikit-learn for nuclear
+    medicine ML, FHIR-mediated interoperable AI data pipelines for oncology research,
+    and prospective ML model monitoring frameworks with continuous retraining tied
+    to REDCap-collected outcomes. REDCap's metadata-driven architecture, standardized
+    common data elements support, API-driven ETL capabilities, and integration with
+    research informatics ecosystems make it essential infrastructure for rigorous,
+    reproducible clinical research and AI-ready biomedical data collection.
   requires_registration: true
   url: https://www.project-redcap.org/
   used_in_bridge2ai: true
