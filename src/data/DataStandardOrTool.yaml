@@ -19450,6 +19450,88 @@ data_standardortools_collection:
       during AI processing ensures that model outputs maintain appropriate associations
       with patient context and imaging parameters.
     used_in_bridge2ai: false
+  - id: B2AI_APP:170
+    category: B2AI:Application
+    name: DICOM Loading and Model Output Encoding via Highdicom
+    description: "Highdicom builds on pydicom to provide standardized encoding of
+      image annotations and ML model outputs for pathology and radiology workflows.
+      The library uses pydicom to read DICOM files and interpret image metadata and
+      pixel data, passing pixel data as NumPy arrays to ML models for inference on
+      CT and slide microscopy images. Model outputs (NumPy arrays) are encoded back
+      into DICOM Structured Reporting (SR) and Segmentation (SEG) objects constructed
+      from pydicom.Dataset instances, enabling storage through DICOMweb and visualization
+      in clinical viewers (OHIF, Slim). Highdicom explicitly \"copies this metadata
+      directly from the source images provided as evidence to the constructor\" using
+      pydicom, ensuring proper propagation of patient, study, and specimen metadata
+      to derived objects for dataset curation, model validation, and audit trails.
+      The library exposes parsing methods that decode DICOM annotations into NumPy
+      label maps for use as training targets, demonstrating bidirectional integration
+      of pydicom-based DICOM I/O with PyTorch and TensorFlow ML frameworks."
+    references:
+    - https://doi.org/10.1007/s10278-022-00683-y
+    used_in_bridge2ai: false
+  - id: B2AI_APP:171
+    category: B2AI:Application
+    name: Real-time Radiology ML Pipelines with Niffler Metadata Extraction
+    description: 'The Niffler DICOM framework for machine learning against real-time
+      radiology images explicitly "uses the Pydicom library to extract metadata and
+      process the DICOM images" at institutional scale (715 scanners, up to 350 GB/day).
+      Niffler''s Python3 core runs a periodic extract_metadata thread that iterates
+      series and extracts metadata (by default one image per series) into a metadata
+      store indexed by PatientID/StudyInstanceUID/SeriesInstanceUID, enabling dataset
+      curation, real-time feature collection, and operational analytics for downstream
+      ML pipelines. The system converts received compressed DICOM to PNG using GDCM
+      "for the ML pipelines to consume in a de-identified manner," with ML workloads
+      running as Docker containers "on the images and metadata that it stores." Niffler
+      demonstrates pydicom''s role in production-scale metadata extraction, format
+      conversion, and continuous ingestion workflows supporting real-time ML applications
+      such as IVC filter detection and segmentation pipelines.'
+    references:
+    - https://doi.org/10.1007/s10278-021-00491-w
+    used_in_bridge2ai: false
+  - id: B2AI_APP:172
+    category: B2AI:Application
+    name: DICOM Annotation Encoding and Decoding for ML Training
+    description: 'Highdicom implements Python classes derived from pydicom.Dataset
+      to encode ML model outputs (NumPy arrays) plus metadata into DICOM annotation
+      objects and decode DICOM annotations (pydicom objects) into NumPy arrays used
+      as training targets. The library provides validated constructors for DICOM Segmentation
+      and Structured Reporting that handle "highly nested and interdependent structure"
+      of annotation IODs, addressing limitations of pydicom''s low-level API which
+      "has no concept of IODs" and requires manual attribute setting. Highdicom uses
+      pydicom for coded vocabularies ("the SCT vocabulary built in to pydicom" via
+      pydicom.sr.codedict.codes) and file loading (pydicom.dcmread), then constructs
+      SR and SEG objects (hd.sr.Comprehensive3DSR.from_dataset, hd.seg.Segmentation.from_dataset)
+      that expose methods to collect ROI polygons (get_planar_roi_measurement_groups)
+      and produce NumPy label maps (seg_image.get_pixels_by_source_instance). This
+      enables standardized integration of DICOM annotations with PyTorch and TensorFlow
+      training/inference pipelines while maintaining clinical interoperability.'
+    references:
+    - https://doi.org/10.1007/s10278-022-00683-y
+    used_in_bridge2ai: false
+  - id: B2AI_APP:173
+    category: B2AI:Application
+    name: DICOM De-identification and Anonymization for AI Datasets
+    description: Pydicom is used for metadata de-identification in DICOM anonymization
+      pipelines preparing imaging datasets for AI research. A peer-reviewed pipeline
+      implemented "a custom Python program utilizing the Pydicom library (v2.2.2)"
+      to programmatically remove PHI from DICOM attributes while preserving required
+      attributes for standard compliance, achieving successful metadata de-identification
+      on all images in a dataset sampled from 37,866 prior de-identification requests
+      (1,391 exam validation sample). The XNAT/MIDI-B deidentification pipeline explicitly
+      names pydicom among Python libraries used for "deidentification of metadata"
+      within broader workflows that combine metadata redaction with OCR-based pixel
+      text removal for burned-in annotations. A knee MRI preprocessing study for deep
+      learning lists "PyDicom and Simple ITK" as Python packages used for DICOM preprocessing
+      alongside dataset anonymization steps. These applications demonstrate pydicom's
+      role in institutional-scale anonymization workflows that strip/modify DICOM
+      metadata attributes to prepare privacy-compliant datasets for ML development,
+      often integrated with pixel-processing tools for comprehensive de-identification.
+    references:
+    - https://doi.org/10.1007/s10278-024-01098-7
+    - https://doi.org/10.48550/arxiv.2504.20657
+    - https://doi.org/10.26574/maedica.2024.19.3.526
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:884
   category: B2AI_STANDARD:DataStandard
   collection:
