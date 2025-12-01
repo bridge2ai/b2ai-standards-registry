@@ -17239,6 +17239,129 @@ data_standardortools_collection:
       with clinical imaging standards and deployment tools makes it a bridge between
       research and clinical implementation.
     used_in_bridge2ai: false
+  - id: B2AI_APP:179
+    category: B2AI:Application
+    name: Generative Medical Image Synthesis with MONAI Generative Models
+    description: 'MONAI Generative Models extends the framework with latent diffusion
+      and GAN-based architectures to synthesize multi-modality medical images for
+      data augmentation, privacy-preserving dataset generation, and methodological
+      research. The package provides implementations of "Latent Diffusion Model comprising
+      an autoencoder (compression) and a diffusion generative model" with perceptual,
+      spectral, and patch-based adversarial losses, plus a "2.5D perceptual-loss strategy
+      for 3D" volumes. Concrete applications span chest X-ray synthesis on MIMIC-CXR
+      (96,161 images, FID 8.8325, MS-SSIM 0.4276), mammography on CSAW-M (9,523 images),
+      retinal OCT (84,483 images), 2D brain MRI slices (UK Biobank, 360,525 slices),
+      and 3D T1 brain volumes (UK Biobank, 41,162 volumes, FID 0.0051, MS-SSIM 0.9217).
+      MONAI components include pretrained networks (RadImageNet for 2D, MedicalNet
+      for 3D) and standardized metrics (MS-SSIM for autoencoder reconstruction, FID
+      and MS-SSIM for sample fidelity/diversity, CLIP Score for conditioning). The
+      package releases "experiment code publicly available" with pretrained models
+      for reproducible benchmarking, enabling researchers to generate synthetic medical
+      images that preserve anatomical realism while avoiding patient identifiers,
+      supporting data augmentation for rare diseases and methodological studies of
+      generative model behavior in medical imaging domains.'
+    references:
+    - https://doi.org/10.48550/arxiv.2307.15208
+    used_in_bridge2ai: false
+  - id: B2AI_APP:180
+    category: B2AI:Application
+    name: Clinical Prostate MRI Segmentation Deployment with MONAI Deploy
+    description: 'MONAI Deploy Express enables production clinical deployment of AI
+      segmentation and lesion detection pipelines integrated with PACS and biopsy
+      planning workflows. A research-based clinical deployment at a major medical
+      center used MONAI Deploy to operationalize a prostate mpMRI pipeline running
+      on "a dedicated inference server" that generates "binary lesion prediction and
+      probability maps" presented in biopsy preparation platforms where clinicians
+      approve or reject AI-identified targets. Prospective evaluation across Phase
+      1 (58 patients) and Phase 2 (35 patients, 72 radiologist-accepted lesions with
+      23 AI+/Rad- lesions) demonstrated that "concordant AI+/Rad+ lesions showed highest
+      cancer detection rate (CDR)—82.1% for PCa and 42.9% for csPCa" with added value
+      from AI-only ROIs showing "47.8% CDR when AI-proposed ROIs were accepted" and
+      clinically significant cancer found in 4 of 23 AI+/Rad- lesions. The deployment
+      achieved "results similar to original model development" with "excellent concordance
+      for PIRADS 5" while maintaining clinical integration through user approval workflows.
+      This exemplifies MONAI Deploy''s capability to package trained models into containerized
+      applications that integrate with radiology information systems, enable clinician
+      oversight of AI predictions, and deliver actionable outputs within clinical
+      decision-making timelines for interventional procedures.'
+    references:
+    - https://doi.org/10.1007/s00261-025-05014-7
+    used_in_bridge2ai: false
+  - id: B2AI_APP:181
+    category: B2AI:Application
+    name: Interactive Annotation and Active Learning with MONAI Label
+    description: 'MONAI Label provides interactive annotation workflows with active
+      learning that accelerate dataset curation and iteratively improve model performance
+      through human-in-the-loop refinement. At Karolinska University Hospital within
+      the MAIA platform, a CT vertebral metastasis segmentation project began with
+      30 labeled subjects and used MONAI Label to enable "radiologists to load new
+      batches of unlabeled data, visualize model predictions, and perform corrective
+      annotations," scaling to 150 cases through iterative labeling cycles. Model
+      performance improved dramatically: "segmentation model sensitivity improved
+      from 55% (30 cases) to 82% (150 cases)" through MONAI Label-assisted expansion.
+      The workflow was "containerized, enabling on-demand instantiation for prediction
+      on new patient data" with end-to-end Kubeflow orchestration managing "DICOM
+      loading and NIfTI conversion through preprocessing, segmentation, optional correction,
+      and postprocessing, to the final DICOM output." MONAI Label integrates with
+      clinical viewers (OHIF, 3D Slicer, XNAT) where radiologists review and correct
+      predictions, with "updated annotations returned to the server" for model retraining.
+      This active learning approach addresses the annotation bottleneck in medical
+      AI by prioritizing uncertain predictions for expert review, progressively refining
+      models with minimal labeling effort while maintaining clinical DICOM format
+      compatibility throughout the annotation-training-deployment lifecycle.'
+    references:
+    - https://doi.org/10.1038/s44387-025-00042-6
+    - https://openarchive.ki.se/articles/thesis/Design_and_integration_of_AI_solutions_in_oncology_and_healthcare_infrastructures_bridging_the_gap_between_AI_innovation_and_clinical_practice/30466691/1/files/59123939.pdf
+    used_in_bridge2ai: false
+  - id: B2AI_APP:182
+    category: B2AI:Application
+    name: Clinical Chest X-ray Device Detection with MONAI Frameworks
+    description: 'MONAI-based frameworks operationalize clinical AI pipelines for
+      safety-critical applications including detection and identification of MRI-hazardous
+      implanted devices on chest radiographs. At Mayo Clinic, a production system
+      uses "MONAI-based frameworks to operationalize the pipeline" with "two cascading
+      models—detection with a Faster R-CNN followed by identification with a multi-class
+      CNN" to identify leadless electronic devices (e.g., Bravo esophageal reflux
+      pH capsules) that pose MRI safety risks. The system processes "frontal chest
+      x-rays at Mayo Clinic" with continuous learning and reports exemplar performance
+      such as devices "correctly detected and identified (with 10/10 certainty)."
+      Clinical integration includes "integration into a robust viewer with back-end
+      data recording and adjudication by radiologists," enabling continuous quality
+      monitoring and iterative improvement from real-world deployment feedback. The
+      application demonstrates MONAI''s role in building clinical decision support
+      systems for patient safety, where automated detection flags potentially hazardous
+      conditions for radiologist review before MRI procedures, combining computer
+      vision with clinical workflow integration and human oversight to prevent adverse
+      events while maintaining audit trails for quality assurance and model refinement.'
+    references:
+    - https://doi.org/10.2196/55833
+    used_in_bridge2ai: false
+  - id: B2AI_APP:183
+    category: B2AI:Application
+    name: MONAI Application Packages for Standards-Compliant Clinical Deployment
+    description: 'MONAI Deploy App SDK structures clinical inference as MONAI Application
+      Packages (MAPs) that are "DAGs of Operators" providing standardized components
+      for DICOM-native medical AI deployment with EMR integration. Operators include
+      StudyLoaderOperator, SeriesSelectorOperator, SeriesToVolumeOperator for DICOM
+      parsing, preprocessing operators (Gaussian filter, threshold), and model prediction
+      operators that "parse DICOM into numpy arrays for inference" with models retrievable
+      from "MONAI Model Zoo." Clinical outputs are formatted as "DICOM Segmentation
+      or DICOM Structured Reports" that integrate with PACS systems, with deep integration
+      via "DICOM Router (Laurel Bridge)" enabling "routing rules to normalize and
+      filter studies (e.g., thin vs thick slices)" and "parallel routing to reduce
+      latency" for real-time clinical throughput. Advanced integration includes generation
+      of "HL7 v2 messages from DICOM SR (via custom C# on the router) for EMR/worklist
+      integration," enabling AI predictions to populate electronic health records
+      and trigger clinical workflows. This architecture addresses the gap between
+      research prototypes and clinical deployment by providing reusable, standards-compliant
+      components that handle medical imaging complexities (modality-specific preprocessing,
+      series selection, coordinate systems) while maintaining interoperability with
+      radiology IT infrastructure through DICOM/HL7 messaging standards and supporting
+      regulatory requirements for medical device software through documented, version-controlled
+      deployment packages.'
+    references:
+    - https://doi.org/10.48550/arxiv.2311.10840
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:789
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
