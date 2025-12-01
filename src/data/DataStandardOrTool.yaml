@@ -2524,8 +2524,62 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: DICOM Part 17
-  purpose_detail: This Part of the DICOM Standard contains explanatory information
-    in the form of Normative and Informative Annexes.
+  purpose_detail: 'DICOM Part 17: Explanatory Information serves as the comprehensive
+    educational and interpretive companion to the DICOM (Digital Imaging and Communications
+    in Medicine) Standard, providing normative annexes that clarify implementation
+    requirements and extensive informative annexes that explain the rationale, context,
+    and practical application of DICOM specifications across the complete multi-part
+    standard maintained by NEMA (National Electrical Manufacturers Association) and
+    the Medical Imaging & Technology Alliance. This part functions as the bridge between
+    the formal, technically precise language of the normative DICOM specifications
+    (Parts 1-21) and the practical needs of implementers, including medical device
+    manufacturers, PACS vendors, healthcare IT developers, clinical engineers, radiologists,
+    and AI/ML researchers who must correctly interpret and apply DICOM protocols in
+    real-world medical imaging systems. Part 17 contains normative annexes that define
+    mandatory implementation rules, unique identifier (UID) allocation schemes, conformance
+    statement structures, and security profiles referenced throughout other DICOM
+    parts, making compliance verification and interoperability testing possible. The
+    informative annexes provide contextual explanations, use case scenarios, implementation
+    guidelines, and best practices that illuminate the "why" behind DICOM''s design
+    decisions, including historical context for legacy features maintained for backward
+    compatibility, clinical workflow considerations that shaped information model
+    choices, and trade-offs between flexibility and interoperability in attribute
+    definitions. For AI and machine learning applications in medical imaging, Part
+    17''s explanatory material is invaluable for understanding how to correctly encode
+    AI-generated annotations (segmentations, structured reports, parametric maps)
+    in DICOM formats, interpret manufacturer-specific private tags that may contain
+    proprietary imaging parameters needed for model training, navigate the complexities
+    of coordinate system transformations between image acquisition space and patient
+    anatomical space, and ensure that AI model outputs maintain proper DICOM conformance
+    for integration into clinical PACS workflows. The part includes detailed explanations
+    of DICOM''s information object definitions (IODs), service-object pair (SOP) classes,
+    and application entities that form the foundation for network communication between
+    imaging modalities, archives, workstations, and AI inference servers. Part 17
+    clarifies the distinction between DICOM''s composite and normalized information
+    models, explains the role of Type 1 (required), Type 2 (required but may be empty),
+    and Type 3 (optional) attributes in ensuring semantic interoperability, and provides
+    guidance on handling multi-frame images, enhanced MR/CT IODs, and whole slide
+    imaging pyramids that are increasingly common in pathology AI applications. For
+    researchers building AI training datasets from clinical DICOM archives, Part 17''s
+    explanatory material helps interpret DICOM metadata for proper cohort selection,
+    understand acquisition parameter variations that affect image characteristics
+    and model generalizability, and recognize quality control indicators embedded
+    in DICOM headers that may signal artifacts or protocol deviations requiring exclusion
+    from training sets. The part also explains DICOM''s approach to encoding patient
+    orientation, anatomical landmarks, and spatial registration information critical
+    for multi-modal image fusion and longitudinal studies where AI models must track
+    anatomical changes over time or correlate findings across different imaging modalities
+    (CT, MRI, PET, ultrasound). Part 17''s annexes document the rationale behind DICOM''s
+    privacy and security frameworks, including de-identification profiles and attribute
+    confidentiality levels essential for creating shareable AI training datasets that
+    comply with HIPAA, GDPR, and institutional review board requirements. The explanatory
+    information supports regulatory submissions by providing the interpretive context
+    needed to demonstrate DICOM conformance in FDA 510(k) applications and EU Medical
+    Device Regulation (MDR) technical documentation for AI-enabled medical imaging
+    products. Updated with each DICOM standard revision, Part 17 incorporates explanations
+    of new supplements and correction proposals, ensuring that implementers understand
+    the evolution of the standard and can plan migration paths for existing systems
+    while maintaining backward compatibility with legacy imaging equipment and archives.'
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
