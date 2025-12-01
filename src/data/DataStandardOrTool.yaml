@@ -10585,6 +10585,219 @@ data_standardortools_collection:
     used_in_bridge2ai: false
     references:
     - https://github.com/microsoft/onnxruntime
+  - id: B2AI_APP:193
+    category: B2AI:Application
+    name: Cross-Framework Model Interoperability and Export-Once-Run-Anywhere Workflows
+    description: ONNX serves as the standard cross-framework interchange format enabling
+      "export once, run anywhere" workflows where models trained in PyTorch, TensorFlow,
+      Keras, or scikit-learn are converted to a common intermediate representation
+      with a standardized operator set and extensible custom operator domains. The
+      format encodes computation graphs, learned weights, and input/output specifications
+      in a portable .onnx file that decouples training frameworks from inference runtimes,
+      allowing data scientists to experiment with diverse architectures while deployment
+      engineers optimize for production targets. PyTorch models are exported via torch.onnx.export
+      with configurable options (input/output names, dynamic_axes for variable batch
+      sizes, opset_version for compatibility), and the resulting graphs can be visualized
+      using Netron for inspection of layer connectivity, operator types, and tensor
+      shapes. ONNX's extensibility through custom operator domains enables migration
+      among frameworks, compilers (Apache TVM), and hardware-specific runtimes (TensorRT,
+      OpenVINO, MiGraphX) while preserving model portability and avoiding vendor lock-in.
+      In biomedical AI, cross-framework interoperability enables research groups to
+      share pretrained models (medical image segmentation, clinical NLP, genomics
+      variant calling) via model zoos (ONNX Model Zoo, Hugging Face Hub, BioImage
+      Model Zoo) without requiring recipients to install the original training framework,
+      facilitating reproducibility and transfer learning across institutions. Evaluation
+      toolchains like kenning integrate ONNX as the standard export format, with
+      dedicated onnxconverters modules and ModelWrapper implementations requiring
+      ONNX serialization support, enabling systematic benchmarking of quality and
+      inference performance across frameworks. The common file format simplifies regulatory
+      submissions (FDA 510(k), EU MDR) by providing stable, versioned model representations
+      that can be validated independently of training code, with explicit operator
+      semantics and numerical behavior documentation.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3390/electronics14152977
+    - https://lirias.kuleuven.be/retrieve/c1369a18-92c9-4ba2-9752-7001dac30e46
+    - https://udspace.udel.edu/bitstreams/92c9aa1c-0e9e-456d-bd9d-9cc913fed657/download
+  - id: B2AI_APP:194
+    category: B2AI:Application
+    name: Edge and IoT Deployment with ONNX Runtime for Low-Latency Inference
+    description: ONNX Runtime is an embeddable, multi-language inference engine designed
+      for efficient deployment on edge devices, mobile applications, embedded systems,
+      and server APIs, providing optimized execution across CPUs, GPUs, and specialized
+      accelerators without framework-specific dependencies. Benchmarking studies on
+      NVIDIA Jetson AGX Orin edge platforms include ONNX Runtime (v1.17.1) alongside
+      TensorRT, TVM, PyTorch, and JAX, evaluating realistic deployment metrics including
+      inference time, throughput, memory usage, power consumption, and accuracy (Top-1/Top-5)
+      on ImageNet datasets with both convolutional networks and transformers, demonstrating
+      ONNX Runtime's suitability for production edge AI. The runtime applies automatic
+      graph-level optimizations including operator fusion (Conv+BatchNorm+ReLU patterns),
+      constant folding, reshape/transpose elimination, and removal of identity operations
+      to reduce inference latency and memory overhead. For IoT architectures, ONNX
+      models provisioned to run locally on devices (Intel Atom, ARM-based embedded
+      boards) with ONNX Runtime enable decentralized serving patterns that avoid central
+      HTTP endpoints, reducing cloud dependency, network latency, and data privacy
+      concerns—critical for medical devices performing on-device diagnostics or wearable
+      health monitors processing physiological signals. ONNX Runtime supports multiple
+      programming languages (Python, C++, Java, C#, JavaScript) enabling integration
+      into diverse application stacks, from Python-based research prototypes to C++
+      embedded firmware for real-time clinical decision support systems. The runtime's
+      predictable latency, efficient memory usage, and cross-platform consistency
+      make it suitable for production-scale deployments in healthcare settings where
+      AI models must execute reliably on heterogeneous hardware ranging from hospital
+      workstations to portable ultrasound devices and point-of-care diagnostic instruments.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3390/electronics14152977
+    - https://lirias.kuleuven.be/retrieve/c1369a18-92c9-4ba2-9752-7001dac30e46
+    - https://aaltodoc.aalto.fi/bitstreams/a68b52e2-5581-43ee-89a6-0358e2963df4/download
+  - id: B2AI_APP:195
+    category: B2AI:Application
+    name: Hardware Acceleration via Pluggable Execution Providers and Backend Optimization
+    description: ONNX Runtime provides a flexible execution provider architecture
+      enabling hardware-appropriate acceleration through pluggable backends spanning
+      NVIDIA CUDA GPUs, TensorRT for optimized NVIDIA inference, Intel OpenVINO for
+      CPU/GPU/VPU, ARM XNNPACK for mobile/edge, AMD MiGraphX (beta status), and DirectML
+      for Windows devices, allowing deployment engineers to target diverse hardware
+      from desktop workstations to edge SoCs without modifying model code. Execution
+      providers apply vendor-specific graph optimizations, kernel fusion, and memory
+      layout transformations tailored to target hardware characteristics—for example,
+      TensorRT compiles ONNX graphs into fully optimized inference engines with serialization/deserialization
+      support that eliminates rebuild overhead during application startup, while OpenVINO
+      optimizes for Intel architectures including CPU SIMD instructions, integrated
+      GPUs, and Vision Processing Units in medical imaging workstations. Studies on
+      exascale supercomputers demonstrate ONNX Runtime's support for heterogeneous
+      HPC hardware including CPU clusters, NVIDIA GPUs via CUDA/TensorRT, and AMD
+      GPUs via MiGraphX, with containerization recommended to manage runtime dependencies
+      and backend variations when migrating between hardware vendors (NVIDIA↔AMD)
+      or acceleration strategies (CUDA↔TensorRT). The pluggable backend architecture
+      enables biomedical AI applications to maintain portable ONNX models while leveraging
+      specialized accelerators—radiotherapy planning systems can deploy on NVIDIA
+      GPUs with TensorRT optimization, pathology whole-slide image analysis can utilize
+      Intel integrated GPUs via OpenVINO on diagnostic workstations, and portable
+      ultrasound devices can execute models on ARM processors with XNNPACK acceleration.
+      For performance-critical applications, ONNX Runtime performs operator fusion,
+      constant folding, and graph pruning at the IR level, with experiments reporting
+      inference speedups when models are optimized specifically for ONNX Runtime execution.
+      Integration with compiler frameworks like Apache TVM enables further low-level
+      optimization through operator fusion and ML-based schedule search, combining
+      ONNX portability with hardware-specific kernel generation for maximum throughput.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3390/electronics14152977
+    - https://udspace.udel.edu/bitstreams/92c9aa1c-0e9e-456d-bd9d-9cc913fed657/download
+    - https://lirias.kuleuven.be/retrieve/c1369a18-92c9-4ba2-9752-7001dac30e46
+  - id: B2AI_APP:196
+    category: B2AI:Application
+    name: Post-Training Quantization and Reduced Precision for Model Compression
+    description: ONNX Runtime supports Post-Training Quantization (PTQ) to INT8 precision
+      for reducing model size and inference latency without requiring retraining,
+      with both dynamic quantization (weights converted to INT8, activations quantized
+      on-the-fly at runtime in FP32) and static quantization (both weights and activations
+      quantized using calibration datasets to measure activation ranges) available
+      for CPU and accelerator deployments. Quantization guidance recommends FP16 execution
+      on NVIDIA GPUs including Jetson edge platforms, industrial PCs, and datacenter
+      GPUs to achieve 2x throughput improvements over FP32 with minimal accuracy degradation,
+      particularly valuable for real-time medical imaging applications processing
+      high-resolution scans (CT, MRI, whole-slide pathology) where inference latency
+      directly impacts clinical workflow efficiency. While ONNX Runtime does not support
+      Quantization-Aware Training (QAT) natively, models can undergo QAT in PyTorch
+      or TensorFlow training frameworks and then be exported to ONNX format for optimized
+      inference, enabling workflows where simulated quantization during training produces
+      models robust to reduced precision at deployment. Integration with hardware-specific
+      quantization tools (Intel Neural Compressor for CPU/OpenVINO targets, NVIDIA
+      TensorRT for GPU INT8 calibration) extends quantization capabilities to vendor-optimized
+      implementations. For biomedical AI deployed on resource-constrained devices—portable
+      diagnostic instruments, wearable health monitors, point-of-care ultrasound—PTQ
+      enables execution of sophisticated deep learning models (segmentation networks,
+      object detectors, classification CNNs) within power and memory budgets while
+      maintaining clinical-grade accuracy. Quantization also reduces cloud inference
+      costs in large-scale screening programs and population health studies where
+      millions of scans are processed, with INT8 models providing 4x memory reduction
+      and proportional decreases in storage and bandwidth requirements for model distribution
+      to federated clinical sites. The combination of ONNX's portable model representation
+      and ONNX Runtime's PTQ support enables "quantize once, deploy anywhere" workflows
+      where a single quantized model artifact runs efficiently across diverse edge
+      and server hardware.
+    used_in_bridge2ai: false
+    references:
+    - https://lirias.kuleuven.be/retrieve/c1369a18-92c9-4ba2-9752-7001dac30e46
+  - id: B2AI_APP:197
+    category: B2AI:Application
+    name: Classical Machine Learning Support via ai.onnx.ml Operator Set
+    description: ONNX's ai.onnx.ml operator set extends the standard ai.onnx deep
+      learning operators to represent classical machine learning models and pipelines,
+      including linear regression, support vector machines (SVM), decision trees,
+      random forests, gradient boosting, bagging ensembles, and dimensionality reduction
+      techniques (PCA mapped to matrix operations), enabling portable inference for
+      traditional ML algorithms alongside deep neural networks. ONNX Runtime was the
+      first inference engine to support both ai.onnx (deep learning) and ai.onnx.ml
+      (classical ML) operator sets for unified execution, allowing deployment of hybrid
+      pipelines that combine classical feature engineering, ensemble models, and deep
+      learning components in a single ONNX graph. Conversion tools like sklearn-onnx
+      enable exporting scikit-learn pipelines (preprocessing transformers, feature
+      selectors, estimators) to ONNX format for deployment on diverse hardware (CPUs,
+      GPUs, edge devices) without Python/scikit-learn dependencies, valuable for embedding
+      ML models in mobile applications, microservices, or embedded systems. In biomedical
+      applications, classical ML remains relevant for structured clinical data (EHR-derived
+      features, lab values, vital signs) where tree-based models and linear models
+      often achieve performance comparable to deep learning with greater interpretability
+      and lower computational requirements. ONNX's support for classical ML enables
+      clinical decision support systems to deploy interpretable risk prediction models
+      (logistic regression for mortality prediction, random forests for readmission
+      risk) alongside deep learning models for imaging or unstructured text analysis,
+      with unified ONNX Runtime inference simplifying production deployment and monitoring.
+      Genomics applications leverage classical ML for variant effect prediction, gene
+      expression classification, and phenotype association where gradient boosting
+      and ensemble methods excel, and ONNX export enables these models to be integrated
+      into automated diagnostic pipelines or shared across research institutions as
+      portable artifacts. The ai.onnx.ml operator set also supports feature engineering
+      operations (scaling, normalization, one-hot encoding, binning) directly within
+      the ONNX graph, reducing deployment complexity by embedding preprocessing logic
+      that would otherwise require separate data pipeline code.
+    used_in_bridge2ai: false
+    references:
+    - https://aaltodoc.aalto.fi/bitstreams/a68b52e2-5581-43ee-89a6-0358e2963df4/download
+    - https://doi.org/10.3390/electronics14152977
+  - id: B2AI_APP:198
+    category: B2AI:Application
+    name: HPC and Compiler-Level Optimization for Scientific ML Workflows
+    description: ONNX provides the portability layer for deploying machine learning
+      models on heterogeneous supercomputer and HPC infrastructure, enabling scientific
+      AI workflows to target diverse CPU clusters, NVIDIA GPU nodes (via CUDA/TensorRT),
+      and AMD GPU nodes (via MiGraphX) with a single model artifact, critical for
+      exascale computing environments where code must efficiently utilize mixed vendor
+      hardware across compute partitions. Studies on scientific applications in exascale
+      supercomputing demonstrate ONNX Runtime's inference capabilities across HPC
+      backends, with experiments reporting speedups when models are optimized for
+      ONNX Runtime execution and recommendations for containerization (Docker, Singularity)
+      to manage runtime dependencies and backend variations when migrating between
+      hardware configurations (e.g., CUDA to TensorRT transitions or NVIDIA to AMD
+      vendor switches). For compiler-level optimization, ONNX models serve as input
+      to Apache TVM's compilation framework, which applies operator fusion, automated
+      schedule search using ML-based cost models, and target-specific kernel generation
+      to produce highly optimized executables for specific hardware; the combination
+      of ONNX+ONNX Runtime+TVM provides a pathway from framework-agnostic model representation
+      through portable inference to hardware-specialized performance. In biomedical
+      research, HPC deployments of ONNX models enable large-scale molecular dynamics
+      simulations coupled with ML-based force field prediction, cryo-EM image reconstruction
+      with deep learning denoising on GPU clusters, genomic variant calling pipelines
+      processing population-scale whole-genome sequencing datasets, and drug discovery
+      virtual screening campaigns evaluating millions of compounds using structure-based
+      binding affinity prediction models. The ONNX ecosystem's support for batching,
+      dynamic shape inference, and efficient memory management makes it suitable for
+      throughput-oriented HPC workloads where thousands of inference requests are
+      processed in parallel across distributed compute nodes. ONNX's standardized
+      operator semantics and versioned opsets ensure reproducibility in scientific
+      ML experiments, allowing researchers to document exact model architectures and
+      weights in publications while enabling independent verification by other groups
+      using different hardware or software stacks. The integration of ONNX with HPC
+      resource managers (Slurm, PBS) and workflow engines (Nextflow, Snakemake) supports
+      complex multi-stage scientific pipelines that alternate between data preprocessing,
+      simulation, ML inference, and analysis steps.
+    used_in_bridge2ai: false
+    references:
+    - https://udspace.udel.edu/bitstreams/92c9aa1c-0e9e-456d-bd9d-9cc913fed657/download
 - id: B2AI_STANDARD:358
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
