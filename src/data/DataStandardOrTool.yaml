@@ -8589,9 +8589,54 @@ data_standardortools_collection:
   description: Structure Data Format
   is_open: true
   name: SDF
-  purpose_detail: SDF is one of a family of chemical-data file formats developed by
-    MDL; it is intended especially for structural information. SDF stands for structure-data
-    file, and SDF files actually wrap the molfile (MDL Molfile) format.
+  purpose_detail: SDF (Structure-Data File) is a widely adopted chemical file format
+    developed by Molecular Design Limited (MDL, now part of BIOVIA/Dassault Systèmes)
+    for storing and exchanging molecular structure information along with associated
+    chemical, biological, and pharmaceutical data in a single text-based file. The
+    format extends the MDL Molfile specification by wrapping individual molecular
+    structures with delimited data fields, enabling storage of multiple compounds
+    with their properties, experimental measurements, and metadata in a concatenated
+    format suitable for chemical databases and compound libraries. Each SDF record
+    begins with a Molfile block containing the connection table representation of
+    a molecule including atom coordinates (2D or 3D), bond connectivity, atom types,
+    bond orders, stereochemistry (wedge/dash bonds, chiral centers), and charge states,
+    followed by a data block with tagged fields containing arbitrary properties such
+    as chemical names, CAS registry numbers, molecular weights, melting points, solubility
+    measurements, biological activity values (IC50, EC50, Ki), ADMET properties, patent
+    identifiers, or custom annotations. The format uses delimiter lines ($$$$) to
+    separate individual compound records, allowing files to contain from single molecules
+    to millions of structures in vendor catalogs, virtual screening libraries, or
+    high-throughput screening datasets. SDF supports representation of organic and
+    inorganic molecules, polymers, organometallics, and molecular complexes with features
+    including isotopic labels, radical species, multi-component systems (salts, mixtures),
+    and query structures with variable attachment points or R-groups for combinatorial
+    libraries. The text-based format ensures human readability and cross-platform
+    compatibility, though binary variants exist for improved storage efficiency. SDF
+    files are extensively used in cheminformatics workflows for compound registration
+    systems storing chemical inventory with associated metadata, structure-activity
+    relationship (SAR) databases linking molecular structures to biological screening
+    results, virtual screening campaigns where docking scores and predicted properties
+    are stored alongside structures, chemical vendor catalogs (ChemBridge, Enamine,
+    ZINC database) distributing purchasable compounds, patent chemistry databases
+    documenting novel chemical matter, and chemical property prediction where computed
+    descriptors (logP, TPSA, hydrogen bond donors/acceptors) are appended to structures.
+    Machine learning applications in drug discovery rely heavily on SDF format for
+    training datasets where molecular structures are converted to fingerprints, graph
+    representations, or SMILES strings while associated SDF data fields provide activity
+    labels, potency values, or ADMET endpoints for supervised learning models predicting
+    bioactivity, toxicity, or pharmacokinetic properties. SDF readers and writers
+    are implemented in all major cheminformatics toolkits including RDKit (Python),
+    Open Babel, ChemAxon, CDK (Chemistry Development Kit), OEChem (OpenEye), and commercial
+    platforms (Pipeline Pilot, KNIME, Schrodinger Suite), ensuring interoperability
+    across drug discovery informatics pipelines. Limitations include lack of formal
+    standardization for data field naming conventions leading to inconsistent property
+    tags across different data sources, limited support for complex molecular features
+    like polymers or biologics compared to newer formats, and verbosity for large
+    datasets where binary or compressed formats may be preferred. Despite these limitations,
+    SDF remains the de facto standard for molecular structure exchange in pharmaceutical
+    research, academic chemistry, and commercial chemical databases due to its simplicity,
+    extensibility, widespread tool support, and ability to bundle molecular structures
+    with rich experimental and computed data in a single portable file format.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Chemical_table_file#SDF
 - id: B2AI_STANDARD:286
