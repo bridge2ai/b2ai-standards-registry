@@ -7337,6 +7337,29 @@ data_standardortools_collection:
       in chronic disease management, mental health monitoring, and precision behavioral
       medicine.
     used_in_bridge2ai: false
+  - id: B2AI_APP:167
+    category: B2AI:Application
+    name: LSTM Time-Series Prediction for Athlete Readiness Monitoring
+    references:
+    - https://doi.org/10.1145/3395035.3425300
+    description: Open mHealth data standards are used in sports analytics systems
+      for storing and processing athlete self-reported data as training datasets for
+      LSTM-based prediction models. In the PMSys elite soccer analytics platform,
+      a Reporter App synchronized player self-reported "readiness" assessments to
+      an OMH-compliant Data Storage Unit (DSU) as Open mHealth JSON datapoint objects,
+      which served as the training dataset for an LSTM model predicting next-day athlete
+      readiness. The implementation used a 4-layer LSTM architecture (input layer,
+      2 hidden layers, output layer) with sequence length of 36, trained for 30 epochs
+      with batch size 4 using the rmsprop optimizer. Data were collected from 19 elite
+      soccer players over January-August, with two training regimes evaluated. Training
+      on a single athlete's data proved insufficient for reliable predictions, while
+      training on team-wide data yielded substantially more accurate predictions with
+      clearly visible peaks in readiness patterns. This application demonstrates how
+      OMH's standardized JSON datapoint format enables reproducible time-series machine
+      learning workflows in sports science, where longitudinal self-reported assessments
+      combined with team-level data aggregation support predictive modeling for performance
+      optimization and injury prevention.
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:247
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
