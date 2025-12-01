@@ -4348,9 +4348,57 @@ data_standardortools_collection:
   formal_specification: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gvf.md
   is_open: true
   name: GVF
-  purpose_detail: The Genome Variation Format (GVF) is a very simple file format for
-    describing sequence alteration features at nucleotide resolution relative to a
-    reference genome.
+  purpose_detail: The Genome Variation Format (GVF) is a specialized extension of
+    the Generic Feature Format version 3 (GFF3) designed specifically for representing
+    sequence variants, structural variations, and genomic alterations at nucleotide
+    resolution relative to a reference genome assembly, developed and maintained by
+    the Sequence Ontology Consortium. GVF inherits GFF3's tab-delimited, nine-column
+    structure (seqid, source, type, start, end, score, strand, phase, attributes)
+    while adding variant-specific conventions and controlled vocabularies for describing
+    single nucleotide variants (SNVs), insertions, deletions, inversions, translocations,
+    copy number variations (CNVs), and complex genomic rearrangements with precise
+    breakpoint coordinates and allelic information. The format uses Sequence Ontology
+    (SO) terms in the "type" column to classify variant types (SO:0001483 for SNV,
+    SO:1000032 for indel, SO:0001019 for CNV, SO:0000199 for translocation), ensuring
+    semantic consistency and computational interoperability across variant calling
+    pipelines, annotation systems, and genomic databases. GVF's attribute column supports
+    standardized key-value pairs including Variant_seq for alternate alleles, Reference_seq
+    for reference alleles, Genotype for individual genotypes, Variant_freq for population
+    allele frequencies, Variant_effect for functional consequences predicted by tools
+    like VEP or SnpEff, and Dbxref for cross-references to variant databases (dbSNP,
+    ClinVar, COSMIC, gnomAD). The format was designed to address limitations of earlier
+    variant formats (such as ambiguities in coordinate systems and lack of standardized
+    variant classification) while maintaining backward compatibility with existing
+    GFF3 parsers and genome browsers. GVF files include structured pragma directives
+    (##gvf-version, ##genome-build, ##sequence-region) that specify format version,
+    reference genome assembly (e.g., GRCh38, GRCm39), and chromosome/scaffold boundaries,
+    enabling unambiguous interpretation of variant coordinates across different reference
+    assemblies and coordinate systems. The format supports multi-sample variant data
+    through the Genotype attribute, allowing representation of diploid or polyploid
+    genotypes (homozygous reference, heterozygous, homozygous alternate) and phasing
+    information for linked variants on the same haplotype. GVF is particularly valuable
+    for documenting structural variations and complex genomic events that involve
+    multiple breakpoints, nested features, or imprecise boundaries, where VCF's linear
+    representation becomes cumbersome or ambiguous. Research applications include
+    population genetics studies reporting allele frequencies and linkage disequilibrium
+    patterns, clinical genomics workflows annotating pathogenic variants with ACMG
+    classifications and penetrance estimates, cancer genomics projects cataloging
+    somatic mutations and driver events, and comparative genomics analyses tracking
+    orthologous variants across species. GVF files integrate with genome browsers
+    (UCSC Genome Browser, Ensembl, IGV) for visualization of variant landscapes alongside
+    gene annotations, regulatory elements, and conservation scores. The format's standardized
+    structure enables systematic variant aggregation and meta-analysis, supporting
+    databases like Ensembl Variation, NCBI dbSNP, and model organism databases that
+    curate and distribute genome-wide variant catalogs. While VCF (Variant Call Format)
+    has become the dominant standard for high-throughput sequencing variant calls
+    due to its compact representation and extensive tool support, GVF remains relevant
+    for scenarios requiring richer semantic annotations, complex structural variants
+    with feature hierarchies, or integration with GFF3-based annotation pipelines
+    where variant features are treated as genomic intervals in unified analytical
+    workflows. The Sequence Ontology Consortium maintains the GVF specification and
+    provides reference implementations, validation tools, and mappings to related
+    standards (VCF, HGVS nomenclature) to facilitate format interconversion and data
+    harmonization across genomic resources.
   requires_registration: false
   url: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gvf.md
 - id: B2AI_STANDARD:141
