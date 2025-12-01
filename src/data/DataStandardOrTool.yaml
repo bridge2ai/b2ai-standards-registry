@@ -6056,8 +6056,46 @@ data_standardortools_collection:
   description: MDL molfile Format
   is_open: true
   name: MDL
-  purpose_detail: An MDL Molfile is a file format for holding information about the
-    atoms, bonds, connectivity and coordinates of a molecule.
+  purpose_detail: 'The MDL Molfile format (also known as MOL format or V2000/V3000
+    format) is the de facto standard file format for representing chemical structures
+    in computational chemistry, developed by MDL Information Systems (now BIOVIA)
+    and widely adopted across cheminformatics tools, chemical databases, and drug
+    discovery platforms. A Molfile encodes a molecule as a connection table specifying
+    atom types, 2D or 3D coordinates, bond types (single, double, triple, aromatic),
+    stereochemistry (wedge/dash bonds for chiral centers, cis/trans double bonds),
+    formal charges, isotopes, and molecular properties (header block with compound
+    name, program identifiers, comments; counts line with atom/bond tallies; atom
+    block with element symbols and Cartesian coordinates; bond block with connectivity
+    and bond orders; properties block with M CHG, M ISO, M RAD tags). The format exists
+    in two versions: V2000 (limited to 999 atoms/bonds, widely compatible) and V3000
+    (extended format supporting large molecules, enhanced stereochemistry, polymers,
+    Markush structures used in patent databases). Molfiles are plain-text ASCII, enabling
+    human inspection, version control, and parsing by cheminformatics libraries (RDKit,
+    Open Babel, CDK, OEChem, ChemmineR) that convert MOL data to in-memory molecular
+    objects for computational manipulation, similarity searching, substructure matching,
+    and property prediction. The SDF (Structure-Data File) format extends Molfile
+    by concatenating multiple MOL records with associated data fields (biological
+    activity, physicochemical properties, vendor information), forming the basis for
+    PubChem, ChEMBL, ZINC, and DrugBank downloads. For AI and machine learning in
+    drug discovery, Molfile-encoded structures serve as primary inputs for featurization
+    pipelines: molecular fingerprints (ECFP/Morgan, MACCS keys, topological torsions)
+    are computed from connection tables for QSAR modeling and virtual screening; graph
+    neural networks (GNNs) directly consume atom and bond tables as node/edge features
+    for property prediction (solubility, toxicity, binding affinity, blood-brain barrier
+    permeability); 3D conformations extracted from Molfiles train geometric deep learning
+    models for structure-based drug design; and generative models (variational autoencoders,
+    GANs, diffusion models) output Molfile-formatted structures for de novo molecular
+    generation optimizing multi-objective criteria (potency, selectivity, ADMET properties,
+    synthetic accessibility). Large-scale Molfile datasets (millions of compounds
+    from commercial libraries, patent filings, bioassay repositories) enable transfer
+    learning and foundation models (e.g., MolFormer, ChemBERTa pre-trained on SMILES
+    derived from Molfiles) that generalize across chemical space, while standardized
+    structure representation facilitates benchmarking of ML architectures on reproducible
+    test sets, data augmentation through conformational sampling or stereoisomer enumeration,
+    and federated learning across pharmaceutical organizations where Molfile compatibility
+    ensures interoperability without revealing proprietary compound identities, ultimately
+    accelerating hit identification, lead optimization, and AI-driven exploration of
+    synthetically accessible chemical matter for therapeutic applications.'
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Chemical_table_file
 - id: B2AI_STANDARD:191
