@@ -5643,10 +5643,50 @@ data_standardortools_collection:
   is_open: true
   name: INTRPRT
   publication: doi:10.1038/s41746-022-00699-2
-  purpose_detail: A design directive for transparent ML systems in medical image analysis.
-    The INTRPRT guideline suggests human-centered design principles, recommending
-    formative user research as the first step to understand user needs and domain
-    requirements.
+  purpose_detail: 'INTRPRT (INTerpretability, Reproducibility, Prediction, Trustworthiness)
+    is a set of evidence-based design guidelines for developing transparent, trustworthy
+    machine learning systems in medical image analysis, addressing critical barriers
+    to clinical adoption of AI diagnostic tools. Published through a systematic literature
+    review and expert consensus process, INTRPRT provides actionable recommendations
+    across four core transparency dimensions: Interpretability (explaining model decisions
+    through techniques like saliency maps, attention mechanisms, feature importance,
+    and counterfactual explanations that clinicians can understand and validate against
+    domain knowledge), Reproducibility (ensuring consistent results through standardized
+    data preprocessing, version-controlled code, containerized environments, transparent
+    reporting of hyperparameters, cross-validation strategies, and external validation
+    on diverse patient cohorts), Prediction quality (reporting comprehensive performance
+    metrics including sensitivity, specificity, AUC, confidence intervals, subgroup
+    analyses stratified by demographics/disease severity, failure mode characterization,
+    and uncertainty quantification), and Trustworthiness (building clinical confidence
+    through user-centered design, formative research with radiologists and clinicians
+    to understand workflow integration needs, prospective clinical validation studies,
+    regulatory compliance with FDA/CE marking requirements, bias auditing across patient
+    populations, and ongoing post-deployment monitoring). INTRPRT emphasizes human-centered
+    design as the foundational first step, recommending formative user research (interviews,
+    contextual inquiry, usability testing with radiologists in clinical settings)
+    to elicit user needs, identify pain points in existing workflows, understand domain-specific
+    requirements for explanation granularity and visualization preferences, and co-design
+    interfaces that present AI predictions alongside interpretability artifacts (highlighted
+    regions of interest, similar reference cases, diagnostic reasoning chains) in
+    formats aligned with radiological training and cognitive processes. The guidelines
+    address the "black box" problem in deep learning medical imaging by providing
+    concrete implementation strategies: for interpretability, recommend layer-wise
+    relevance propagation, GradCAM heatmaps, or concept-based explanations validated
+    against radiologist annotations; for reproducibility, specify use of public benchmark
+    datasets (MICCAI challenges, Medical Decathlon), standardized evaluation protocols,
+    and open-source model repositories; for prediction, require reporting of calibration
+    curves, decision thresholds optimized for clinical utility, and comparison to
+    inter-reader agreement; for trustworthiness, mandate transparent disclosure of
+    training data characteristics (demographic composition, imaging protocols, label
+    sources), model limitations, and intended use statements. INTRPRT has influenced
+    AI reporting standards (CONSORT-AI, SPIRIT-AI extensions), regulatory guidance
+    (FDA''s "Proposed Regulatory Framework for Modifications to AI/ML-Based Software
+    as a Medical Device"), journal submission requirements for AI research (Nature
+    Medicine, Radiology: Artificial Intelligence), and institutional review processes
+    for clinical AI deployment, providing a practical framework that bridges the gap
+    between algorithmic innovation and responsible, effective integration of machine
+    learning into diagnostic radiology, pathology, dermatology, and other image-intensive
+    medical specialties.'
   requires_registration: false
   url: https://doi.org/10.1038/s41746-022-00699-2
 - id: B2AI_STANDARD:178
