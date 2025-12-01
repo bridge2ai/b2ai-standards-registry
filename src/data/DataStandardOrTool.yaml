@@ -17687,6 +17687,122 @@ data_standardortools_collection:
       at varying levels of granularity, from broad cell classes to fine-grained subtypes,
       which is essential for biological interpretation and downstream analysis.
     used_in_bridge2ai: false
+  - id: B2AI_APP:184
+    category: B2AI:Application
+    name: Multimodal Representation Learning and Contrastive Co-Embedding
+    description: 'MuSIC applies deep learning-based representation learning to fuse
+      immunofluorescence imaging and protein-protein interaction (PPI) network data
+      for integrated mapping of subcellular architecture. The pipeline uses "a deep
+      convolutional neural network" to embed each protein''s IF images as a 1024-dimension
+      feature vector and "node2vec embeds AP-MS interaction neighborhoods as a second
+      1024-dimension vector," computing protein-protein similarities as cosine distances
+      in these high-dimensional embeddings. The CM4AI extension employs "contrastive
+      deep learning to integrate those embeddings into a joint co-embedding per protein"
+      and applies "graph representation learning (PPI networks processed with node2vec)"
+      plus "image representation learning (IF images processed with a Human Protein
+      Atlas deep learning model)" to produce integrated representations. MuSIC calibrates
+      and combines the two distance measures "using machine learning, sampling known
+      subcellular components of varying physical size to relate embedding distances
+      to spatial scale," enabling cross-modal integration where "pairs close by one
+      modality are enriched for closeness by the other." Downstream unsupervised ML
+      tasks include "community detection and hierarchy creation from all-by-all similarities
+      in co-embedding space" to produce hierarchical cell maps, with MuSIC 1.0 resolving
+      69 subcellular systems. This demonstrates end-to-end application of deep learning
+      for image feature extraction, graph embedding for network topology, metric learning
+      for cross-modal calibration, and unsupervised clustering for biological system
+      discovery.'
+    references:
+    - https://doi.org/10.1101/2020.06.21.163709
+    - https://doi.org/10.1101/2024.05.21.589311
+    used_in_bridge2ai: false
+  - id: B2AI_APP:185
+    category: B2AI:Application
+    name: AI-Ready Dataset Packaging with FAIRSCAPE and RO-Crate
+    description: 'CM4AI operationalizes MuSIC as an AI-ready data production pipeline
+      that packages outputs with comprehensive provenance and metadata for reproducible
+      machine learning benchmarking. MuSIC processes input datasets (Human Protein
+      Atlas microscopy, BioPlex AP-MS interactions) "to RO-Crate outputs" with "FAIRSCAPE
+      provenance graphs, persistent identifiers, and JSON-Schema characterization"
+      that establish "FAIR metadata and persistent identifiers; computing machine-readable
+      provenance graphs for inputs, computations, software, and outputs; and characterizing/validating
+      datasets with JSON-Schema mini-data-dictionaries." The standardized outputs
+      are "shared via NDEx/HiView/Cytoscape for downstream ML use and benchmarking,"
+      enabling researchers to access hierarchical cell maps with "communities derived
+      from embeddings that integrate protein image and affinity purification data"
+      through interactive visualization that supports "zooming into nested communities,
+      showing underlying interaction networks and providing lists of proteins per
+      community." CM4AI frames AI-readiness around explicit criteria: "FAIR, Provenanced,
+      Explainable, Ethical," emphasizing "interoperability, provenance metadata, statistical
+      characterization, and ethical documentation." Released data packages include
+      "software links, input datasets, dataset schemas, and deep provenance graphs"
+      under CC-BY-NC-SA 4.0 licensing with Data Access Committee oversight. This standardization
+      infrastructure "targets reproducible training/validation and structured benchmarking
+      of multimodal cell-architecture models" and provides production-ready datasets
+      for foundation model pretraining, graph neural network development, and multimodal
+      integration model evaluation.'
+    references:
+    - https://doi.org/10.1101/2024.05.21.589311
+    used_in_bridge2ai: false
+  - id: B2AI_APP:186
+    category: B2AI:Application
+    name: Model Interpretability via Visible Neural Networks and LLM Annotation
+    description: 'MuSIC provides interpretability mechanisms for AI models through
+      biological grounding, structural validation, and natural language annotation
+      of learned protein assemblies. The pipeline "align[s] cell-map communities to
+      GO/Reactome for biological validation" and "use[s] an LLM to name protein assemblies
+      with confidence scores, supporting interpretability and human-readable labels
+      for ML evaluation," enabling researchers to understand what biological processes
+      and structures correspond to learned representations. CM4AI "ranks communities
+      by available structural data (PDB, AlphaFoldDB, crosslinking) and performs integrative
+      structure modeling, which can provide structural restraints and validation data
+      for model training and interpretation." The framework explicitly supports "visible
+      machine learning" or "visible neural networks (VNNs)" that "link protein assemblies
+      to cell-level phenotype predictions, supporting interpretability" by mapping
+      learned neural network components directly to interpretable biological modules
+      from MuSIC hierarchies. This approach enables "human-interpretable model inspection
+      and hypothesis generation" where each layer or module of a neural architecture
+      corresponds to a specific protein complex or cellular system with known functional
+      annotations and structural evidence. The combination of ontology alignment,
+      structural evidence ranking, and LLM-based natural language naming creates a
+      multi-layered interpretability strategy that makes black-box models transparent
+      to biologists, facilitates validation against orthogonal data sources (crystallographic
+      structures, pathway databases), and supports explainability requirements for
+      clinical or diagnostic AI applications.'
+    references:
+    - https://doi.org/10.1101/2024.05.21.589311
+    used_in_bridge2ai: false
+  - id: B2AI_APP:187
+    category: B2AI:Application
+    name: Foundation Models and Graph Neural Network Training on Cell Architecture
+      Maps
+    description: 'MuSIC outputs serve as training corpora and benchmarks for foundation
+      models, graph neural networks, and multimodal generative models that require
+      multi-scale, multi-modal, perturbation-aware cell architecture data. While not
+      MuSIC-specific, AI guidance highlights that "MuSIC-style multi-modal, multi-scale,
+      perturbation-aware datasets enable foundation-model pretraining, graph neural
+      networks on protein assemblies, multimodal generative/integration models, and
+      causal/perturbation-aware evaluation." MuSIC provides hierarchical protein assembly
+      graphs with rich node features (image embeddings, interaction profiles, localization
+      patterns) and edge attributes (co-membership scores, physical interactions)
+      suitable for graph convolutional networks and attention-based architectures
+      that learn from network topology. The availability of "co-measured dynamic/perturbation
+      cohorts" from single-cell CRISPR screens integrated with MuSIC maps enables
+      "action–response analyses (causal or intervention-aware training and validation)"
+      where models can learn how genetic perturbations propagate through cellular
+      systems. Foundation models (scGPT, transformers, Stofm) can be pretrained on
+      MuSIC-derived representations to learn generalizable features of cellular organization
+      transferable across cell types and experimental conditions. Multimodal integration
+      models (totalVI, Multivi) benefit from MuSIC''s calibrated fusion of imaging
+      and interaction modalities as reference implementations for cross-modal alignment
+      strategies. The standardized, FAIR-compliant packaging of MuSIC outputs with
+      "platform-aware alignment and leakage-aware partitions" supports "fair train/validation
+      splits and generalization testing," enabling reproducible benchmarking of model
+      architectures and rigorous evaluation of generalization to held-out cell lines,
+      conditions, or perturbations.'
+    references:
+    - https://doi.org/10.1101/2024.05.21.589311
+    - https://doi.org/10.48550/arxiv.2510.12498
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:801
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
