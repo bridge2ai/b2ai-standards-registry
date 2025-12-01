@@ -12032,7 +12032,48 @@ data_standardortools_collection:
   is_open: true
   name: CIO
   publication: doi:10.1093/database/bav043
-  purpose_detail: Capture confidence information about annotations.
+  purpose_detail: The Confidence Information Ontology (CIO) is a specialized OBO
+    Foundry ontology that provides standardized terms for expressing the confidence
+    or certainty associated with biological annotations, computational predictions,
+    and experimental assertions, enabling researchers and bioinformatics resources
+    to capture nuanced distinctions between high-confidence findings backed by multiple
+    lines of evidence and tentative conclusions requiring further validation. Developed
+    by the Bgee gene expression database team and published in Database (2015), CIO
+    addresses the critical need to represent not just what is annotated (e.g., a
+    gene-disease association, protein-protein interaction, or gene expression pattern)
+    but also the strength of evidence supporting that annotation, distinguishing between
+    statements derived from manual expert curation, automated computational inference,
+    high-throughput screening, or text mining with varying reliability. The ontology
+    defines hierarchical terms describing confidence levels (high confidence, medium
+    confidence, low confidence), evidence types contributing to confidence assessments
+    (experimental evidence, computational prediction, literature-based inference,
+    author statement, curator inference), and sources of uncertainty (incomplete data,
+    conflicting evidence, limited reproducibility, indirect evidence). CIO terms are
+    structured to integrate with evidence codes from the Evidence and Conclusion Ontology
+    (ECO), allowing biocuration teams to specify both the type of evidence (e.g.,
+    "inferred from mutant phenotype") and the confidence in that evidence (e.g., "supported
+    by single experiment" vs. "confirmed by independent studies"). The ontology supports
+    practical use cases including quality assessment of automated annotations in large-scale
+    databases (UniProt, Gene Ontology, model organism databases), prioritization
+    of experimental targets by filtering high-confidence predictions from computational
+    pipelines, meta-analysis weighting schemes that adjust contribution of individual
+    studies based on confidence scores, and transparent reporting of AI/ML model predictions
+    with associated uncertainty estimates. For machine learning applications in biology,
+    CIO enables construction of training datasets with explicit confidence labels
+    that inform loss functions and class weighting strategies, supports active learning
+    systems that prioritize low-confidence predictions for human review, and facilitates
+    ensemble methods that combine multiple predictors with confidence-weighted voting.
+    The ontology includes terms for time-dependent confidence (e.g., annotations marked
+    as "requires periodic review" due to rapidly evolving evidence), context-specific
+    confidence (e.g., "applicable to specific tissue type" vs. "generalizable across
+    species"), and mechanisms for tracking provenance of confidence assessments (curator
+    identity, date of assessment, version of evidence used). CIO is maintained on
+    GitHub with versioned releases, integrates with OBO Foundry best practices (unique
+    persistent identifiers, human-readable labels, logical definitions in OWL), and
+    is used by gene expression databases (Bgee), orthology resources, pathway databases,
+    and systems biology platforms that require principled representation of data quality
+    and reliability to support evidence-based research decision-making and computational
+    workflows that propagate uncertainty through analysis pipelines.
   requires_registration: false
   url: https://github.com/BgeeDB/confidence-information-ontology
 - id: B2AI_STANDARD:429
