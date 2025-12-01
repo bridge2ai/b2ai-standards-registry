@@ -4348,7 +4348,7 @@ data_standardortools_collection:
   formal_specification: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gvf.md
   is_open: true
   name: GVF
-  purpose_detail: The Genome Variation Format (GVF) is a specialized extension of
+  purpose_detail: "The Genome Variation Format (GVF) is a specialized extension of
     the Generic Feature Format version 3 (GFF3) designed specifically for representing
     sequence variants, structural variations, and genomic alterations at nucleotide
     resolution relative to a reference genome assembly, developed and maintained by
@@ -4358,7 +4358,7 @@ data_standardortools_collection:
     single nucleotide variants (SNVs), insertions, deletions, inversions, translocations,
     copy number variations (CNVs), and complex genomic rearrangements with precise
     breakpoint coordinates and allelic information. The format uses Sequence Ontology
-    (SO) terms in the "type" column to classify variant types (SO:0001483 for SNV,
+    (SO) terms in the 'type' column to classify variant types (SO:0001483 for SNV,
     SO:1000032 for indel, SO:0001019 for CNV, SO:0000199 for translocation), ensuring
     semantic consistency and computational interoperability across variant calling
     pipelines, annotation systems, and genomic databases. GVF's attribute column supports
@@ -4370,7 +4370,7 @@ data_standardortools_collection:
     variant formats (such as ambiguities in coordinate systems and lack of standardized
     variant classification) while maintaining backward compatibility with existing
     GFF3 parsers and genome browsers. GVF files include structured pragma directives
-    (##gvf-version, ##genome-build, ##sequence-region) that specify format version,
+    that specify format version,
     reference genome assembly (e.g., GRCh38, GRCm39), and chromosome/scaffold boundaries,
     enabling unambiguous interpretation of variant coordinates across different reference
     assemblies and coordinate systems. The format supports multi-sample variant data
@@ -4398,7 +4398,7 @@ data_standardortools_collection:
     workflows. The Sequence Ontology Consortium maintains the GVF specification and
     provides reference implementations, validation tools, and mappings to related
     standards (VCF, HGVS nomenclature) to facilitate format interconversion and data
-    harmonization across genomic resources.
+    harmonization across genomic resources."
   requires_registration: false
   url: https://github.com/The-Sequence-Ontology/Specifications/blob/master/gvf.md
 - id: B2AI_STANDARD:141
