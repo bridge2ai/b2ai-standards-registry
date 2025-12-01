@@ -19876,8 +19876,49 @@ data_standardortools_collection:
   is_open: true
   name: REMBI
   publication: doi:10.1038/s41592-021-01166-8
-  purpose_detail: Draft metadata guidelines to begin addressing the needs of diverse
-    communities within light and electron microscopy
+  purpose_detail: REMBI (Recommended Metadata for Biological Images) is a community-developed
+    specification that defines minimum metadata standards for biological imaging experiments
+    across light microscopy, electron microscopy, and other imaging modalities, addressing
+    the critical need for reproducible, interpretable, and reusable image data in
+    biomedical research by establishing consensus guidelines for documenting experimental
+    context, sample preparation, imaging acquisition parameters, and image processing
+    workflows. Published in Nature Methods (2021) through a collaborative effort involving
+    microscopy core facilities, imaging scientists, data managers, and standards organizations,
+    REMBI provides a hierarchical framework organized into four tiers of metadata
+    granularity—from essential contextual information required for all imaging datasets
+    to detailed technical parameters needed for advanced image analysis and computational
+    modeling. The specification covers study-level metadata (biological question,
+    experimental design, organism/cell line identifiers linked to ontologies), specimen
+    preparation details (fixation methods, labeling strategies, mounting media), imaging
+    acquisition parameters specific to each modality (objective magnification, numerical
+    aperture, excitation/emission wavelengths, laser power, detector settings, pixel
+    size, bit depth, acquisition speed), and image processing provenance (software
+    versions, algorithms applied, parameter settings, visualization adjustments like
+    brightness/contrast). REMBI emphasizes use of controlled vocabularies and ontologies
+    including the Biological Imaging Methods Ontology (FBbi), Cell Ontology (CL),
+    Uberon anatomy ontology, and Chemical Entities of Biological Interest (ChEBI)
+    for fluorophores and dyes, ensuring semantic consistency and enabling automated
+    metadata validation and cross-dataset queries. The guidelines are intentionally
+    flexible to accommodate the diversity of biological imaging—from high-content
+    screening and live-cell time-lapse to super-resolution and correlative light-electron
+    microscopy—while maintaining core requirements that ensure datasets can be properly
+    cited, understood without direct contact with original investigators, and computationally
+    processed using documented protocols. REMBI is designed for integration with emerging
+    imaging data repositories (Image Data Resource, BioImage Archive, Cell Image
+    Library), OMERO image management systems, and Electronic Lab Notebook platforms,
+    with implementation efforts producing metadata capture templates, validation tools,
+    and export utilities that embed REMBI-compliant metadata into OME-TIFF and OME-ZARR
+    file formats. For AI/ML applications in biological imaging, REMBI metadata enables
+    proper documentation of training datasets, supports domain adaptation by revealing
+    systematic differences in imaging protocols across labs, facilitates development
+    of imaging biomarkers by linking acquisition parameters to biological outcomes,
+    and ensures that deep learning models trained on specific microscopy modalities
+    can be appropriately applied to new datasets or flagged when imaging conditions
+    fall outside training distribution. The standard has been adopted by major microscopy
+    facilities as a framework for user training and data management policies, is referenced
+    in data management plans for imaging-intensive grants, and serves as a foundation
+    for specialized extensions addressing modality-specific requirements in cryo-electron
+    microscopy, spatial transcriptomics imaging, and high-throughput phenotypic screening.
   requires_registration: false
   url: https://docs.google.com/spreadsheets/d/1Ck1NeLp-ZN4eMGdNYo2nV6KLEdSfN6oQBKnnWU6Npeo/edit?gid=1023506919#gid=1023506919
 - id: B2AI_STANDARD:894
