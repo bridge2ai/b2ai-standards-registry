@@ -25,4 +25,5 @@ for entry in data['data_standardortools_collection']:
 with open(file_path, 'w') as file:
     yaml.dump(data, file, sort_keys=False)
 
-print(f"Modified {count_modified} entries, adding default concerns_data_topic: B2AI_TOPIC:5")
+print(
+    f"Modified {count_modified} entries, adding default concerns_data_topic: B2AI_TOPIC:5")
