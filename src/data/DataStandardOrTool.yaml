@@ -6974,20 +6974,107 @@ data_standardortools_collection:
   requires_registration: false
   url: https://www.ncbi.nlm.nih.gov/data_specs/schema/other/bioproject/
   has_application:
-  - id: B2AI_APP:40
+  - id: B2AI_APP:199
     category: B2AI:Application
-    name: Research Project Metadata Mining and Dataset Discovery
-    description: BioProject schema is used in AI applications for mining metadata
-      about biological research projects, enabling automated discovery of relevant
-      datasets, prediction of experimental outcomes, and analysis of research trends.
-      Machine learning systems parse BioProject records to identify related studies
-      for meta-analyses, recommend similar projects to researchers, and predict which
-      experimental approaches are likely to succeed based on project descriptions.
-      AI applications leverage structured project metadata to train models that classify
-      research projects by methodology, extract experimental design features, and
-      identify collaborative networks in biological research. The schema enables large-scale
-      scientometric analyses and AI-driven research prioritization based on historical
-      project outcomes and resource allocation.
+    name: XML Parsing for Thermostability Dataset Construction
+    description: 'HotProtein (2022) parsed NCBI BioProject XML files to filter organisms
+      by environmental metadata fields (OptimumTemperature, TemperatureRange) to construct
+      a large-scale species-level thermostability dataset with 182,000 protein samples.
+      The structured XML Schema enabled programmatic extraction of temperature annotations
+      from BioProject records, which were used to derive lower-bound thermostability
+      labels for training classification and regression models predicting protein
+      thermal stability. The resulting HotProtein dataset powered deep learning models
+      (ESM-1B with full-sequence training, augmentation, and structure-aware pooling)
+      achieving Spearman correlations of 0.906±0.010 and Pearson correlations of
+      0.923±0.012 on sequence-to-confidence benchmarks (HP-S2C2), with gains of 1.17%–13.48%
+      accuracy and 0.016–0.474 Spearman correlation over baseline approaches. This
+      application demonstrates how BioProject XML fields directly enable ML dataset
+      curation by providing machine-readable organism-level environmental annotations
+      that cannot be efficiently extracted from unstructured text sources.'
+    references:
+    - https://openreview.net/pdf?id=YDJRFWBMNby
+    used_in_bridge2ai: false
+  - id: B2AI_APP:200
+    category: B2AI:Application
+    name: BioProject ID Linkage for Multi-Study Dataset Assembly
+    description: 'Webb et al. (2021) assembled multi-study RNA-seq training datasets
+      by programmatically collecting SRA accessions grouped by BioProject identifiers,
+      enabling cross-species age prediction and classification using machine learning.
+      BioProject IDs served as the organizing principle for harmonizing expression
+      data from independent sequencing initiatives, allowing the authors to discover
+      conserved transcriptome signatures predicting chronological age across species.
+      The structured project-level metadata in BioProject records (organism taxonomy,
+      experimental type, data relationships) facilitated federated searches and programmatic
+      batch retrieval of related SRA runs, reducing manual curation overhead and ensuring
+      consistent data provenance. This workflow exemplifies how BioProject accessions
+      function as stable linkage keys for assembling large-scale ML training corpora
+      spanning multiple NCBI repositories (SRA, GEO, GenBank), supporting reproducible
+      meta-analyses and transfer learning across biological domains where project-level
+      context is critical for interpreting technical and biological variability.'
+    references:
+    - https://doi.org/10.5204/thesis.eprints.256582
+    used_in_bridge2ai: false
+  - id: B2AI_APP:201
+    category: B2AI:Application
+    name: NLP Topic Modeling with BioProject-Linked Publications
+    description: 'Molik et al. (2021) programmatically mapped 1,380 SRA amplicon
+      datasets to BioProject IDs and retrieved the associated journal articles, using
+      those publication texts as the corpus for Natural Language Processing (NLP)
+      workflows including Latent Dirichlet Allocation (LDA) topic modeling and Random
+      Forest classification to infer pathogen–environment associations for Cryptococcus
+      neoformans. BioProject metadata served as the linkage mechanism connecting raw
+      sequencing data (SRA FASTA records filtered via blastn_vdb with 98% identity
+      and e-value 1e-140 thresholds) to peer-reviewed literature, enabling automated
+      assembly of a text corpus for machine learning analysis. This approach leveraged
+      BioProject''s role as a hub record connecting data repositories (SRA), taxonomic
+      classifications, and publication references (PubMed IDs), demonstrating how
+      structured project-level metadata enables large-scale literature mining for
+      ecological niche prediction and scientometric analyses that would require extensive
+      manual curation without programmatic BioProject access.'
+    references:
+    - https://doi.org/10.1371/journal.pntd.0008755
+    used_in_bridge2ai: false
+  - id: B2AI_APP:202
+    category: B2AI:Application
+    name: LLM-Assisted Metadata Curation via BioProject Submission Fields
+    description: 'Zhao et al. (2023) developed the Search-based Geographic Metadata
+      Curation (SGMC) pipeline that programmatically retrieves and parses BioProject
+      submission fields (BP) alongside SRA and BioSample fields for 2.3 million accessions,
+      extracting attribute–value pairs (e.g., submitting institution, center name)
+      and using a generative AI model (ChatGPT) to refine geographic assignments (institution,
+      country, coordinates) at scale. The pipeline accessed BioProject metadata via
+      AWS Athena queries on s3://sra-pub-metadata-us-east-1 and web scraping of NCBI
+      pages using Python (requests, BeautifulSoup, pandas), treating BioProject accessions
+      as unique keys for linking submission metadata to sequencing records. SGMC outputs
+      achieved high concordance with CDC manual curation, improving geographic metadata
+      quality for public health surveillance and outbreak investigation. This application
+      demonstrates how structured BioProject submission fields enable large-language-model-assisted
+      curation workflows, combining programmatic metadata extraction with AI refinement
+      to address missing or inconsistent geographic annotations in biomedical sequence
+      repositories.'
+    references:
+    - https://doi.org/10.3389/fpubh.2023.1254976
+    used_in_bridge2ai: false
+  - id: B2AI_APP:203
+    category: B2AI:Application
+    name: NER Over BioProject Descriptions for Annotation Recovery
+    description: 'Klie et al. (2021) proposed extending their deep learning Named
+      Entity Recognition (NER) model, originally trained on BioSample TITLE fields,
+      to BioProject descriptions as an additional free-text source for recovering
+      missing sample metadata. The authors explicitly noted that BioProject descriptions
+      and linked publications often contain study design and sample preparation details
+      absent from BioSample records, suggesting that applying NER to BioProject free-text
+      could capture annotations missing from TITLEs, verify TITLE-based predictions,
+      or refine BioSample metadata. While the paper validated the model only on TITLE
+      text, it identified BioProject descriptions as a logical target for extending
+      NLP-based metadata enhancement pipelines, leveraging the schema''s unstructured
+      text fields (ProjectDescr description, relevance, objectives) to improve metadata
+      coverage via deep learning information extraction. This proposed application
+      highlights how BioProject''s structured XML Schema can support hybrid curation
+      approaches combining rule-based parsing of controlled fields with neural NER
+      over free-text elements.'
+    references:
+    - https://doi.org/10.1093/database/baab021
     used_in_bridge2ai: false
 - id: B2AI_STANDARD:229
   category: B2AI_STANDARD:BiomedicalStandard
