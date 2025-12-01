@@ -38,7 +38,7 @@ def sort_keys(data):
 
 def main():
     """
-    Main function that reads datatypes.csv and updates DataStandardOrTool.yaml with 
+    Main function that reads datatypes.csv and updates DataStandardOrTool.yaml with
     has_relevant_data_substrate values.
     """
     repo_path = Path('/home/harry/b2ai-standards-registry')
