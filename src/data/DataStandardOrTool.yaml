@@ -4147,11 +4147,62 @@ data_standardortools_collection:
   is_open: true
   name: FuGEFlow
   publication: doi:10.1186/1471-2105-10-184
-  purpose_detail: FuGEFlow represents a collaborative effort to develop of flow cytometry
-    experimental workflow description based on the FuGE model. The Functional Genomics
-    Experiment data model (FuGE) describes common aspects of comprehensive, high-throughput
-    experiments. FuGE is an extendable model that provides a basis for creation of
-    new technology-specific data formats, such as FuGEFlow for flow cytometry.
+  purpose_detail: FuGEFlow is a specialized extension of the Functional Genomics Experiment
+    (FuGE) data model designed to provide comprehensive, machine-readable representation
+    of flow cytometry experimental workflows, metadata, and data provenance in compliance
+    with the Minimum Information about a Flow Cytometry Experiment (MIFlowCyt) reporting
+    guidelines, developed through collaborative efforts between the ISAC Data Standards
+    Task Force, British Columbia Cancer Agency, and NIH/NIAID to enable standardized
+    data exchange, repository integration, and computational reproducibility in high-throughput
+    flow cytometry research. The model comprises Flow-OM (Flow Cytometry Object Model)
+    defined in UML and Flow-ML (Flow Markup Language) implemented as an XML schema
+    generated via AndroMDA, extending FuGE's core classes to capture flow cytometry-specific
+    entities including cytometer instrumentation (flow cells, lasers, optical detectors
+    with voltage parameters), sample preparation protocols (staining, fixation, permeabilization),
+    acquisition parameters, and analytical workflows while maintaining references
+    to external standards including FCS (Flow Cytometry Standard) list-mode data
+    files and Gating-ML gating transformation descriptions rather than duplicating
+    raw fluorescence measurements. FuGEFlow maps all MIFlowCyt mandatory and optional
+    metadata elements to FuGE classes or newly defined FuGEFlow extensions (e.g.,
+    ListModeDataFile, extended Material and Equipment classes), enabling complete
+    experiment documentation from biological source through data acquisition to computational
+    analysis with explicit ontology term bindings for standardized vocabularies.
+    The framework supports conversion to ISA-TAB (Investigation-Study-Assay) tabular
+    format via XSL stylesheets, facilitating integration with broader functional
+    genomics data repositories and cross-domain meta-analyses that combine flow cytometry
+    with transcriptomics, proteomics, or metabolomics datasets. FuGEFlow's design
+    enables software tool interoperability through the FuGE toolkit which generates
+    programmatic interfaces from the object model, and its flexible architecture
+    accommodates diverse experimental designs including time-course studies, dose-response
+    assays, and complex multi-parametric analyses that were not anticipated during
+    initial specification development. In the context of artificial intelligence and
+    machine learning applications, FuGEFlow serves as an enabling infrastructure standard
+    rather than a direct ML analysis framework—while peer-reviewed literature does
+    not document specific cases where ML models were trained or validated using FuGEFlow-encoded
+    datasets, the standard's comprehensive metadata capture and standardized experiment
+    representation provide the foundation for several potential ML use cases including
+    cross-study dataset integration for training population-scale classification
+    models, reproducible feature extraction pipelines that link raw FCS signals through
+    Gating-ML transformations to derived cellular phenotypes, automated quality control
+    systems that detect instrument drift or protocol deviations through metadata
+    pattern analysis, and meta-learning approaches that generalize gating strategies
+    or cell population identification algorithms across diverse experimental conditions
+    documented in standardized metadata. The ISA-TAB conversion capability enables
+    export to tabular formats commonly consumed by ML frameworks (pandas, scikit-learn,
+    TensorFlow), while FuGEFlow's provenance tracking supports reproducible ML workflows
+    where training data lineage, preprocessing steps, and analytical transformations
+    must be documented for regulatory compliance or scientific validation. Public
+    flow cytometry data repositories built on Flow-ML infrastructure (as planned in
+    the original FuGEFlow publication with anticipated ImmPort integration) could
+    serve as curated training corpora for supervised learning of cell type classifiers,
+    automated gating algorithms, or anomaly detection systems, though such repositories'
+    ML utilization has not been systematically reported in subsequent literature.
+    The standard's ontology-based knowledge representation aligns with broader data
+    mining best practices articulated by the minimum information community, where
+    machine-readable experiment metadata enables computational hypothesis generation,
+    experimental design optimization, and integration of biological knowledge with
+    primary analytical results—capabilities that form the semantic foundation for
+    AI systems even when FuGEFlow itself is not explicitly invoked in ML method descriptions.
   requires_registration: false
   url: https://doi.org/10.1186/1471-2105-10-184
   has_application:
