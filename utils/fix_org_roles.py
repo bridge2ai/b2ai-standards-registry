@@ -121,7 +121,8 @@ def main() -> int:
     collection_key = "data_standardortools_collection"
     standards = data.get(collection_key)
     if not isinstance(standards, list):
-        print(f"ERROR: Could not find list at key '{collection_key}' in {args.input}", file=sys.stderr)
+        print(
+            f"ERROR: Could not find list at key '{collection_key}' in {args.input}", file=sys.stderr)
         return 2
 
     changed_count, changes = fix_overlaps(standards)
@@ -129,9 +130,11 @@ def main() -> int:
     if changed_count == 0:
         print("No overlaps found. Nothing to change.")
     else:
-        print(f"Found {changed_count} entr{'y' if changed_count == 1 else 'ies'} with overlaps.\n")
+        print(
+            f"Found {changed_count} entr{'y' if changed_count == 1 else 'ies'} with overlaps.\n")
         for c in changes:
-            print(f"- {c['id']}: removed from has_relevant_organization -> {c['removed']}")
+            print(
+                f"- {c['id']}: removed from has_relevant_organization -> {c['removed']}")
 
     # Decide on output
     if args.output:
