@@ -3661,14 +3661,65 @@ data_standardortools_collection:
   is_open: true
   name: CDMH
   purpose_detail: The Common Data Models Harmonization (CDMH) FHIR Implementation
-    Guide (IG) will focus on mapping and translating observational data extracted
-    for Patient Centered Outcome Research (PCOR) and other purposes into FHIR format.
-    Data is extracted from the different networks each of which may use a different
-    data model for their data representation. The project focuses on the Common Data
-    Models (CDMs) from the following four networks:Patient Centered Outcome Research
-    Network (PCORNet), Informatics for Integrating Biology and Bedside (i2b2) Accrual
-    to Clinical Trials (ACT), also known as i2b2/ACT., Observational Medical Outcomes
-    Partnership (OMOP), and Food and Drug Administration’s Sentinel
+    Guide is an HL7-sponsored specification that provides standardized mappings and
+    transformation rules for converting observational clinical data from multiple
+    common data models (CDMs) into HL7 FHIR format, enabling interoperability between
+    patient-centered outcomes research networks, federated data networks, and learning
+    health systems that use different data representation schemas while preserving
+    semantic fidelity and supporting cross-network queries for comparative effectiveness
+    research, quality improvement initiatives, and post-market surveillance studies.
+    CDMH focuses on harmonizing four major CDMs widely adopted in the United States
+    research infrastructure—PCORNet (Patient-Centered Outcomes Research Network),
+    i2b2/ACT (Informatics for Integrating Biology and Bedside / Accrual to Clinical
+    Trials), OMOP (Observational Medical Outcomes Partnership), and FDA Sentinel—each
+    of which employs distinct data schemas, terminology bindings, and structural conventions
+    that historically impeded data sharing and federated analysis across research
+    consortia. The Implementation Guide defines FHIR resource profiles, ConceptMaps,
+    StructureMaps, and transformation logic that specify how core clinical entities
+    (patient demographics, encounters, diagnoses, procedures, medications, laboratory
+    results, vital signs) represented in PCORNet's relational model, i2b2/ACT's star
+    schema with ontology-driven observations, OMOP's standardized vocabularies and
+    fact tables, or Sentinel's distributed query architecture are mapped to corresponding
+    FHIR resources (Patient, Encounter, Condition, Procedure, MedicationRequest,
+    Observation) with appropriate code system translations and cardinality adjustments.
+    By providing bidirectional mappings, CDMH enables research networks to expose
+    their existing CDM data through FHIR APIs without requiring complete data migration,
+    allowing external applications, quality measure engines, and clinical decision
+    support tools built on FHIR to access multi-network datasets while preserving
+    local data governance and privacy controls. The harmonization approach addresses
+    semantic challenges including vocabulary alignment (mapping between SNOMED CT,
+    RxNorm, ICD-10-CM, LOINC, and CDM-specific code systems like PCORNet value sets
+    or OMOP concept codes), temporal representation differences (event dates versus
+    observation periods versus time spans), and structural mismatches (flat tables
+    versus hierarchical resources, normalized schemas versus denormalized views).
+    CDMH supports use cases in comparative effectiveness research where investigators
+    need to pool patient cohorts from multiple networks to achieve sufficient sample
+    sizes for detecting treatment effects, rare disease studies, or subgroup analyses,
+    with the FHIR-based harmonization layer enabling federated queries that execute
+    locally at each network site and aggregate de-identified summary statistics without
+    transferring patient-level data across organizational boundaries. For regulatory
+    applications, CDMH facilitates FDA Sentinel's integration with FHIR-enabled clinical
+    data sources, enabling post-market safety surveillance queries to span both claims-based
+    data (traditional Sentinel domain) and EHR-based clinical observations (accessible
+    via FHIR), improving signal detection for adverse events that require clinical
+    context beyond billing codes. The Implementation Guide provides validation rules,
+    conformance testing criteria, and quality metrics (data completeness, mapping
+    coverage, terminology alignment rates) to assess the fidelity of CDM-to-FHIR
+    transformations and identify data quality issues requiring remediation. CDMH integration
+    with SMART on FHIR enables patient-facing applications (patient-reported outcomes
+    capture, longitudinal health records, research participation platforms) to interact
+    with research network data through standardized APIs, supporting patient engagement
+    in research and transparent data sharing with participants. The harmonization
+    framework supports machine learning and AI applications by providing unified access
+    to training datasets aggregated from multiple CDMs, with FHIR's structured representation
+    facilitating feature engineering, phenotype definition, and model validation across
+    diverse source systems. As research networks adopt FHIR natively (via FHIR-native
+    CDMs or dual-model architectures), CDMH serves as a transition pathway preserving
+    investments in existing CDM implementations while enabling incremental migration
+    toward standards-based interoperability. The IG is maintained by HL7's Clinical
+    Interoperability Council with input from PCORnet, i2b2, OMOP/OHDSI, and FDA Sentinel
+    stakeholder communities, ensuring alignment with evolving CDM specifications and
+    FHIR release cycles.
   related_to:
   - B2AI_STANDARD:109
   requires_registration: false
