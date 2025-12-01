@@ -12153,7 +12153,55 @@ data_standardortools_collection:
   - B2AI_ORG:75
   is_open: true
   name: COB
-  purpose_detail: Terms from a wide range of OBO projects to improve interoperability.
+  purpose_detail: The Core Ontology for Biology and Biomedicine (COB) is a foundational
+    upper-level ontology developed by the OBO Foundry that provides a minimal set
+    of high-level, broadly applicable terms representing fundamental biological and
+    biomedical entities, serving as a unifying framework to improve interoperability
+    and semantic consistency across the diverse landscape of domain-specific OBO ontologies
+    spanning anatomy, development, phenotypes, diseases, chemicals, and experimental
+    methods. COB addresses the challenge that different OBO ontologies historically
+    defined overlapping or conflicting representations of core concepts (organism,
+    cell, anatomical structure, biological process, material entity, information content
+    entity), leading to integration difficulties when combining data annotated with
+    multiple ontologies or reasoning across ontology boundaries. By establishing authoritative,
+    consensus definitions for approximately 50 core terms that appear throughout biological
+    knowledge representation, COB enables domain ontologies to import and reuse these
+    shared definitions rather than creating redundant or incompatible local versions,
+    facilitating automated reasoning, cross-ontology mappings, and federated queries
+    across biomedical data resources. The ontology is organized as an OWL (Web Ontology
+    Language) hierarchy with formal logical definitions grounded in Basic Formal Ontology
+    (BFO) and Relations Ontology (RO), ensuring philosophical rigor and computational
+    tractability for description logic reasoners used in semantic web applications
+    and knowledge graph construction. COB terms cover fundamental categories including
+    material entities (organism, cell, anatomical entity, molecule), processes (biological
+    process, molecular function, behavior), qualities and attributes (phenotypic quality,
+    measurement datum), and information entities (data item, objective specification,
+    model representation), with careful axiomatization to support inference of implicit
+    relationships and detection of logical inconsistencies in downstream ontologies.
+    The development process involves extensive community consultation through OBO
+    Foundry working groups, GitHub issue discussions, and workshops to achieve consensus
+    on definitions that balance precision for computational applications with accessibility
+    for domain scientists, addressing edge cases and philosophical debates about entity
+    boundaries, parthood relations, and temporal aspects of biological entities. COB
+    is designed for lightweight adoption, providing a "core" that domain ontologies
+    can extend with specialized terms while maintaining interoperability—for example,
+    Uberon (anatomy), GO (Gene Ontology), ChEBI (Chemical Entities of Biological
+    Interest), and MONDO (disease ontology) can all reference COB's definitions of
+    "organism" or "biological process" as shared anchor points. For data integration
+    and AI/ML applications, COB enables construction of unified knowledge graphs that
+    span multiple biological domains by providing consistent semantics for entity
+    types and relations, supports transfer learning across datasets annotated with
+    different ontologies by mapping domain-specific terms to shared COB concepts,
+    and facilitates development of foundation models for biomedical NLP by establishing
+    ground-truth semantic categories for entity recognition and relation extraction.
+    The ontology includes provenance metadata documenting the source ontologies contributing
+    each term, editorial notes explaining design decisions, and mappings to external
+    resources (MeSH, SNOMED CT, NCIT) to bridge OBO Foundry ontologies with clinical
+    terminologies and legacy systems. COB is maintained on GitHub with public development,
+    follows OBO Foundry principles (open licensing, unique persistent identifiers,
+    semantic versioning), and undergoes periodic releases coordinated with major OBO
+    ontology updates to ensure ecosystem-wide compatibility as biological knowledge
+    and ontology best practices evolve.
   requires_registration: false
   url: https://github.com/OBOFoundry/COB
 - id: B2AI_STANDARD:431
