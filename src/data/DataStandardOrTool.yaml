@@ -19819,7 +19819,49 @@ data_standardortools_collection:
   formal_specification: https://github.com/fairgenomes/fairgenomes-semantic-model/blob/main/fair-genomes.yml
   is_open: true
   name: FAIRGenomes
-  purpose_detail: A semantic model for describing genomic data in a FAIR manner.
+  purpose_detail: FAIR Genomes is a semantic metadata model that provides a comprehensive,
+    extensible framework for describing human genomic and phenotypic datasets in accordance
+    with FAIR principles (Findable, Accessible, Interoperable, Reusable), addressing
+    the critical challenge of standardizing metadata across diverse genomics studies,
+    biobanks, and clinical genomics programs to enable data discovery, integration,
+    and responsible sharing. The model defines a structured vocabulary organized into
+    modular components covering study metadata (project descriptions, consent codes,
+    data access policies), subject/patient attributes (demographics, ancestry, clinical
+    diagnoses using ontology terms from HPO, MONDO, ORDO), sample characteristics
+    (tissue types, preservation methods, collection protocols referencing UBERON and
+    OBI), sequencing information (platforms, library preparation, coverage metrics,
+    file formats), and variant/molecular data annotations (variant calling pipelines,
+    reference genomes, quality metrics). FAIR Genomes is expressed as a machine-readable
+    YAML schema (fair-genomes.yml) that specifies element definitions, data types,
+    cardinality constraints, recommended ontologies and controlled vocabularies for
+    each field, and mappings to existing standards including GA4GH Phenopackets, European
+    Genome-phenome Archive (EGA) metadata schema, and Dublin Core terms. The model
+    emphasizes use of established biomedical ontologies (Human Phenotype Ontology
+    for phenotypes, NCIT for cancer types, LOINC for lab measurements, SNOMED CT
+    for clinical concepts) to ensure semantic interoperability and enable automated
+    reasoning, cross-dataset queries, and ontology-based data harmonization essential
+    for meta-analyses and federated research networks. FAIR Genomes supports capture
+    of consent and data use restrictions through structured encoding of informed consent
+    types, data use ontology (DUO) terms, and return-of-results policies, facilitating
+    compliant data sharing and automated assessment of whether a dataset can be used
+    for a proposed research purpose. The schema is designed for extensibility through
+    defined extension mechanisms that allow research communities to add domain-specific
+    modules (rare disease registries, cancer genomics, population cohorts) while maintaining
+    core compatibility, and it provides versioning and provenance tracking to document
+    schema evolution over time. Implementation tooling includes Python and R libraries
+    for validating metadata against the FAIR Genomes schema, converting between FAIR
+    Genomes and other metadata formats (VCF headers, PED files, Phenopackets JSON),
+    and generating metadata submission templates for data producers. For clinical
+    genomics and precision medicine applications, FAIR Genomes enables integration
+    of research genomic datasets with electronic health records, supports clinical
+    variant interpretation workflows that require patient phenotype and family history
+    context, and facilitates development of machine learning models that leverage
+    rich phenotypic annotations for variant pathogenicity prediction and genomic risk
+    scoring. The model has been adopted by European genomic data infrastructures including
+    the European Rare Disease Research Infrastructure (RD-Connect), Solve-RD consortium,
+    and national genome initiatives implementing federated analysis frameworks where
+    standardized metadata is essential for distributed query execution without moving
+    sensitive patient data across institutional boundaries.
   requires_registration: false
   url: https://github.com/fairgenomes/fairgenomes-semantic-model
 - id: B2AI_STANDARD:893
