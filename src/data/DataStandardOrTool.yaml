@@ -6072,8 +6072,46 @@ data_standardortools_collection:
   description: MDL reaction Format
   is_open: true
   name: RXN
-  purpose_detail: The MDL reaction format is used to store information on chemical
-    reactions.
+  purpose_detail: 'The MDL RXN (reaction) format is a widely adopted file format for
+    representing chemical reactions with complete structural information about reactants,
+    products, and reagents, developed by MDL Information Systems (now part of BIOVIA)
+    as an extension of the MDL Molfile (MOL/SDF) format. An RXN file encodes a reaction
+    as a collection of connection tables specifying atom coordinates, bond types,
+    stereochemistry, and molecular properties for each component, organized into reactant
+    and product blocks separated by delimiter lines ($RXN header, reaction counts,
+    individual MOL blocks for each molecule). The format supports stoichiometric coefficients,
+    reaction conditions metadata (temperature, pressure, solvents, catalysts encoded
+    as comments or extended properties), atom mapping numbers that trace atom transformations
+    from reactants to products (critical for reaction mechanism elucidation and retrosynthetic
+    analysis), and hierarchical reaction schemes with multiple steps. RXN files are
+    human-readable ASCII text, enabling version control and manual inspection, while
+    remaining machine-parsable through cheminformatics toolkits (RDKit, Open Babel,
+    CDK Chemistry Development Kit, OEChem) that convert RXN to internal reaction objects
+    for computational manipulation. The format is essential for reaction databases
+    (Reaxys, SciFinder, USPTO patent reactions, Pistachio from NextMove Software),
+    electronic lab notebooks (ELNs), and synthetic route planning tools, where standardized
+    reaction representation supports querying by substructure, similarity searching,
+    yield prediction, and reaction classification. For AI and machine learning in
+    drug discovery and synthetic chemistry, RXN-encoded reactions provide training
+    data for reaction outcome prediction models (predicting major products, regioselectivity,
+    stereoselectivity from reactant structures and conditions), retrosynthetic planning
+    algorithms (neural network-based approaches like Molecular Transformer, graph
+    neural networks decomposing target molecules into purchasable precursors via learned
+    reaction templates), reaction condition optimization (ML models predicting optimal
+    temperature, catalyst, solvent combinations from historical RXN datasets), and
+    generative models for novel reaction discovery (variational autoencoders, reinforcement
+    learning agents exploring chemical reaction space). Atom mapping in RXN files
+    enables extraction of reaction templates (SMARTS patterns capturing reaction mechanisms)
+    used as features or constraints in graph-based neural architectures, while reaction
+    fingerprints (bit vectors encoding structural changes) derived from RXN data support
+    similarity-based recommendation systems for analogous reactions. Large-scale RXN
+    datasets (millions of reactions from patents and literature) power transfer learning
+    strategies where models pre-trained on general organic reactions are fine-tuned
+    for specialized domains (medicinal chemistry, materials synthesis, enzymatic biocatalysis),
+    and RXN standardization facilitates benchmarking of ML models across reproducible
+    test sets, ultimately accelerating computer-aided synthesis planning, reducing
+    experimental trial-and-error, and enabling AI-driven exploration of uncharted
+    regions of chemical reaction space for therapeutic discovery and sustainable manufacturing.'
   requires_registration: false
   url: https://open-babel.readthedocs.io/en/latest/FileFormats/MDL_RXN_format.html
 - id: B2AI_STANDARD:192
