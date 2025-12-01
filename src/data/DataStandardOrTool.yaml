@@ -19764,7 +19764,47 @@ data_standardortools_collection:
   description: RadElement Common Data Elements (CDEs) for Radiology
   is_open: true
   name: RadElement
-  purpose_detail: A set of common data elements for radiology research.
+  purpose_detail: RadElement is an open-source initiative that defines and curates
+    standardized Common Data Elements (CDEs) for radiology research, providing machine-readable
+    structured reporting templates that enable consistent capture of imaging findings,
+    measurements, and clinical assessments across institutions, PACS vendors, and
+    research consortia. Developed by the Radiological Society of North America (RSNA)
+    with collaborative input from specialty societies, RadElement addresses the fragmentation
+    of radiology reporting by creating consensus-driven data element sets organized
+    into modular templates for specific clinical scenarios (lung nodule characterization,
+    liver lesion reporting, prostate MRI, breast density assessment, stroke imaging
+    protocols) that specify precise terminology, permissible values, measurement methods,
+    and reporting conventions. Each CDE includes metadata describing the element's
+    definition, units of measurement, data type, value sets drawn from controlled
+    vocabularies (RadLex, SNOMED CT, LOINC), cardinality constraints, and provenance
+    documentation linking to source guidelines from ACR, RSNA, and disease-specific
+    professional societies. RadElement templates are expressed in JSON Schema format
+    and distributed through the RadElement.org web platform, which provides search,
+    browsing, and API access to the CDE library, enabling software developers to integrate
+    standardized reporting into radiology information systems, structured reporting
+    tools, and clinical decision support applications. By standardizing the representation
+    of imaging observations, RadElement facilitates secondary use of radiology data
+    for clinical research, quality improvement, and AI model development, as structured
+    reports can be automatically parsed and aggregated across large patient cohorts
+    without manual chart review or natural language processing of free-text reports.
+    For AI/ML applications, RadElement provides ground-truth annotations and training
+    labels derived from structured clinical reports, enables automated quality control
+    of annotated imaging datasets, and supports development of AI-generated structured
+    reports that populate CDE fields with model predictions for radiologist review.
+    The initiative has released CDE sets for high-impact imaging applications including
+    lung cancer screening (Lung-RADS), liver tumor response assessment (LI-RADS),
+    prostate cancer staging (PI-RADS), traumatic brain injury, COVID-19 pneumonia,
+    and pediatric appendicitis, with ongoing expansion driven by community contributions
+    and feedback from pilot implementations. RadElement supports FAIR data principles
+    by making imaging research data more Findable (standardized metadata schema),
+    Accessible (open web platform and APIs), Interoperable (controlled vocabularies
+    and FHIR mappings), and Reusable (versioned templates with clear licensing), addressing
+    a critical need for semantic interoperability in multi-site imaging studies and
+    federated learning scenarios where consistent data representation is essential
+    for combining datasets. The platform tracks CDE usage statistics, version history,
+    and validator tools that check report conformance to template specifications,
+    promoting reproducibility and data quality in radiology research while reducing
+    the burden on investigators to develop ad hoc data dictionaries for each new study.
   requires_registration: false
   url: https://www.radelement.org/
 - id: B2AI_STANDARD:891
