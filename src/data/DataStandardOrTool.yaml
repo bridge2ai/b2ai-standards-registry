@@ -17837,7 +17837,55 @@ data_standardortools_collection:
   is_open: true
   name: NetSeekR
   publication: doi:10.1186/S12859-021-04554-1
-  purpose_detail: A network analysis pipeline for RNA-Seq time series data.
+  purpose_detail: NetSeekR is an R package that implements a network analysis pipeline
+    specifically designed for RNA-Seq time series data, enabling researchers to identify
+    dynamic gene regulatory networks and temporal patterns of gene expression changes
+    by integrating differential expression analysis, gene co-expression network construction,
+    and time-dependent module detection to reveal biological processes activated or
+    repressed across experimental time courses. Published in BMC Bioinformatics (2021),
+    NetSeekR addresses the challenge that traditional differential expression analysis
+    identifies individual genes changing over time but fails to capture coordinated
+    regulation among functionally related genes and the temporal dynamics of regulatory
+    network rewiring during biological processes such as development, disease progression,
+    drug response, or environmental adaptation. The package provides an end-to-end
+    workflow that begins with RNA-Seq count matrices and sample metadata, performs
+    temporal differential expression analysis using methods like DESeq2 or edgeR to
+    identify significantly changing genes, constructs weighted gene co-expression
+    networks (WGCN) based on pairwise correlation of expression profiles across time
+    points, and applies graph clustering algorithms to identify gene modules representing
+    co-regulated functional units. NetSeekR implements time-aware network inference
+    that accounts for temporal ordering of samples, allowing detection of early-response
+    and late-response gene programs, identification of hub genes (highly connected
+    regulators likely controlling module behavior), and tracking of how module membership
+    and connectivity evolve across time series stages. The pipeline integrates functional
+    enrichment analysis to annotate identified modules with Gene Ontology terms, pathway
+    databases (KEGG, Reactome), and disease associations, providing biological context
+    for temporal network patterns and enabling hypothesis generation about regulatory
+    mechanisms. NetSeekR supports visualization of time series expression profiles,
+    network topology with module-level summaries, and temporal trajectories of module
+    activity scores, facilitating interpretation of complex multi-gene dynamics through
+    dimensionality reduction from thousands of genes to dozens of interpretable modules.
+    The package is designed for common RNA-Seq time series experimental designs including
+    longitudinal sampling in developmental biology (embryogenesis, organogenesis),
+    disease progression studies (cancer evolution, viral infection time courses, neurodegeneration),
+    drug treatment response profiling (pharmacodynamics, resistance emergence), and
+    environmental perturbation experiments (stress response, circadian rhythms). For
+    machine learning and systems biology applications, NetSeekR-derived network modules
+    serve as biologically informed feature sets for predictive modeling (using module
+    eigengenes as features instead of individual genes), enable transfer learning
+    across related time series datasets by mapping conserved modules, and provide
+    mechanistic interpretations for AI models trained on temporal omics data by linking
+    predictions to specific regulatory programs. The package outputs can be integrated
+    with causal inference methods to distinguish correlation from regulatory causation,
+    combined with ChIP-seq or ATAC-seq data to validate predicted transcription factor-target
+    relationships, and used to prioritize candidate drug targets by identifying hub
+    genes in disease-associated temporal modules. NetSeekR is implemented in R with
+    dependencies on Bioconductor packages (DESeq2, edgeR, WGCNA), provides example
+    datasets and vignettes for reproducible analysis, and outputs network structures
+    compatible with Cytoscape and other network visualization tools, supporting integrative
+    analysis of temporal transcriptomics in developmental biology, immunology, cancer
+    research, and pharmacology where understanding time-dependent gene regulation
+    is essential for mechanistic insight and therapeutic intervention.
   requires_registration: false
   url: https://github.com/igbb-popescu-lab/NetSeekR
 - id: B2AI_STANDARD:805
