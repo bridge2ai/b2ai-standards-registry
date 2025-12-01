@@ -8607,9 +8607,54 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:40
   is_open: true
   name: SummarizedExperiment
-  purpose_detail: The SummarizedExperiment container contains one or more assays,
-    each represented by a matrix-like object of numeric or other mode. The rows typically
-    represent genomic ranges of interest and the columns represent samples.
+  purpose_detail: SummarizedExperiment is a foundational S4 class in the Bioconductor
+    ecosystem providing a standardized container for storing and manipulating rectangular
+    matrices of experimental results (assays) alongside associated genomic coordinates
+    (row data) and sample annotations (column data), enabling coordinated subsetting,
+    transformation, and analysis of high-throughput biological experiments. The data
+    structure organizes assay data as one or more matrix-like objects (supporting
+    dense matrices, sparse matrices, HDF5-backed arrays, and DelayedArray for out-of-memory
+    computation) where rows typically represent genomic features (genes, transcripts,
+    exons, peaks, CpG sites, genomic ranges) and columns represent biological samples
+    (patients, conditions, replicates, time points). Each SummarizedExperiment object
+    contains three primary components coordinated through shared row and column names
+    ensuring data integrity through guaranteed synchronization during subsetting operations.
+    The assays component stores primary experimental measurements as a list of matrices
+    (raw counts, normalized counts, log-transformed values, TPM, FPKM, p-values, effect
+    sizes) allowing multiple representations of the same experiment in parallel. The
+    rowData (or rowRanges for genomic coordinates) component stores feature-level
+    metadata as a DataFrame or GRanges object including gene symbols, Ensembl IDs,
+    chromosome positions, strand information, gene biotypes, functional annotations,
+    statistical summaries, or quality metrics for each measured feature. The colData
+    component stores sample-level metadata as a DataFrame capturing experimental design
+    variables (treatment groups, batch information, sequencing depth, clinical covariates,
+    patient demographics, tissue types) essential for downstream statistical analysis.
+    Additional metadata slots include the metadata list for experiment-level information
+    (protocol descriptions, processing parameters, references), names for assay identifiers,
+    and elementMetadata for slot-specific annotations. SummarizedExperiment supports
+    advanced genomic operations through integration with GenomicRanges, enabling coordinate-based
+    subsetting to extract features overlapping genomic regions of interest, interval
+    arithmetic for computing coverage and enrichment, and annotation with regulatory
+    elements or variant positions. The design ensures memory efficiency through support
+    for HDF5-backed storage via HDF5Array allowing analysis of datasets exceeding
+    RAM capacity, DelayedArray for lazy evaluation deferring computation until results
+    are needed, and sparse matrix formats for single-cell data with predominantly
+    zero values. Extensions include RangedSummarizedExperiment for genomic coordinate-aware
+    operations, SingleCellExperiment adding reduced dimension embeddings and alternative
+    experiments for single-cell transcriptomics, MultiAssayExperiment for multi-omics
+    integration coordinating RNA-seq, proteomics, metabolomics, and clinical data
+    from the same samples, and specialized derivatives for specific assay types (SpatialExperiment
+    for spatial transcriptomics, TreeSummarizedExperiment for microbiome phylogenetic
+    data). The format is extensively used across Bioconductor packages with over 400
+    packages building upon SummarizedExperiment for RNA-seq analysis (DESeq2, edgeR,
+    limma), ChIP-seq peak calling, DNA methylation profiling, variant calling workflows,
+    single-cell genomics (Seurat conversion, scater, scran), spatial transcriptomics
+    (Giotto, Seurat spatial), and machine learning applications where coordinated
+    feature-sample matrices with rich annotations enable supervised learning, batch
+    correction, dimensionality reduction, and multi-omics integration. The standardized
+    structure facilitates interoperability across analysis tools, reproducible research
+    through self-contained data objects preserving experimental context, and scalable
+    workflows handling datasets from bulk RNA-seq to million-cell single-cell atlases.
   requires_registration: false
   url: https://bioconductor.org/packages/release/bioc/html/SummarizedExperiment.html
 - id: B2AI_STANDARD:287
