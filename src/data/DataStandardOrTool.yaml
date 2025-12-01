@@ -7244,20 +7244,147 @@ data_standardortools_collection:
   requires_registration: false
   url: http://nidm.nidash.org/
   has_application:
-  - id: B2AI_APP:41
+  - id: B2AI_APP:204
     category: B2AI:Application
-    name: Neuroimaging Results Sharing and Meta-Analytic AI
-    description: NIDM (NeuroImaging Data Model) is used in AI applications for sharing
-      and aggregating neuroimaging analysis results across studies, enabling meta-analytic
-      machine learning and improving reproducibility in computational neuroscience.
-      AI systems leverage NIDM's semantic representation of imaging workflows, statistical
-      maps, and analysis provenance to train models that learn from aggregated results
-      rather than raw images, respecting data sharing constraints while enabling large-scale
-      analyses. The model supports AI applications that perform automated quality
-      assessment of imaging studies, detect inconsistencies in reported results, and
-      synthesize findings across diverse analysis pipelines. NIDM enables machine
-      learning systems to understand the complete analytical context of neuroimaging
-      results, improving reproducibility and meta-analytic power.
+    name: PyNIDM Direct Statistical and ML Operations on NIDM Documents
+    description: 'PyNIDM provides a command-line linear regression tool (nidm_linreg)
+      that operates directly on NIDM documents, supporting contrasts and regularization
+      for statistical modeling before complex ML workflows. The Python toolbox enables
+      researchers to query NIDM documents to find studies with comparable phenotypic
+      variables, facilitating dataset harmonization, feature selection, and data pooling
+      across studies for machine learning. PyNIDM''s query utilities interrogate
+      datasets using PROV-based provenance and community terminologies, enabling transformation
+      and combination of data that improves reproducibility and supports traceable
+      feature lineage. By running high-level statistical analyses directly on standardized
+      NIDM metadata and capturing computation/workflow graphs in NIDM documents, PyNIDM
+      provides ML-ready inputs with complete provenance tracking suitable for integration
+      into scikit-learn, PyTorch, and TensorFlow pipelines.'
+    references:
+    - https://pdfs.semanticscholar.org/2d12/4072e9751291590f041e24c631435859d159.pdf
+    used_in_bridge2ai: false
+  - id: B2AI_APP:205
+    category: B2AI:Application
+    name: ENIGMA-COINSTAC Federated Analysis with NIDM Output
+    description: 'The COINSTAC (Collaborative Informatics and Neuroimaging Suite Toolkit
+      for Anonymous Computation) platform automatically generates NIDM-formatted results
+      for decentralized neuroimaging analyses, demonstrated initially for VBM (voxel-based
+      morphometry) regression pipelines with efforts to generalize across arbitrary
+      pipelines. COINSTAC runs local Dockerized R/Python analyses, uploads local results
+      to a central node for meta-analysis without creating a centralized data repository,
+      and captures rich semantic metadata and provenance in NIDM format to improve
+      description of experiments, analyses, and results. The ENIGMA Organic Data Science
+      platform creates a searchable index of NIDM-formatted analyses to facilitate
+      method comparison and interoperability, with a planned API allowing external
+      platforms to query COINSTAC datasets. This integration supports federated learning
+      approaches by providing ML-ready, semantically rich outputs with complete provenance
+      across distributed sites, enabling meta-analyses (e.g., Cohen''s d = −0.39,
+      SE=0.18, p=0.03 for expressive deficit) and potential federated machine learning
+      workflows where NIDM-formatted metadata ensures comparability.'
+    references:
+    - https://doi.org/10.1007/s12021-021-09559-y
+    used_in_bridge2ai: false
+  - id: B2AI_APP:206
+    category: B2AI:Application
+    name: NIDM REST API for Programmatic ML Pipeline Integration
+    description: 'The NIDM API provides RESTful JSON query interfaces over NIDM documents,
+      enabling programmatic access to structured neuroimaging metadata and results
+      for automated integration into Python-based ML pipelines. The nidm-query executable
+      downloads, validates, and executes queries identified by unique identifiers,
+      returning JSON results suitable for direct ingestion into scikit-learn, PyTorch,
+      TensorFlow, and other ML frameworks. A browser-based interface supports query
+      creation, and Linked Open Data (LOD) capabilities enable semantic dataset discovery.
+      This tooling facilitates automated dataset discovery, validation of metadata
+      quality, and assembly of training cohorts with traceable provenance, allowing
+      ML engineers to programmatically retrieve phenotypic variables, workflow descriptions,
+      and derived results while maintaining PROV-based lineage information critical
+      for reproducible AI research.'
+    references:
+    - https://doi.org/10.1186/s13742-016-0147-0
+    used_in_bridge2ai: false
+  - id: B2AI_APP:207
+    category: B2AI:Application
+    name: DABI AutoML Ecosystem with NIDM Metadata Standardization
+    description: 'The Data Archive for the BRAIN Initiative (DABI) leverages NIDM
+      for associated metadata and provenance standardization alongside BIDS (Brain
+      Imaging Data Structure) to support an advanced AutoML ecosystem for supervised
+      neuroimaging analyses. DABI implements H2O AutoML (R/Python) with multiple model
+      types including General Linear Model, Random Forest, XGBoost, Gradient Boosting,
+      Deep Learning, and Stacked Ensemble, with automated k-fold cross-validation,
+      oversampling, variable importance plots, AUC measures, SHAP explainability,
+      and partial dependence visualizations. NIDM-standardized metadata enables harmonized
+      feature representation across studies, facilitating large-scale ML analyses
+      such as predicting clinical outcomes from iEEG features (26 patients, preprocessed
+      with wavelet decomposition and harmonized electrode/region features fed into
+      ML models) and linear mixed-effects modeling (31 patients, PDQ8 scores decreasing
+      with treatment, p=0.005). The standardized provenance and metadata framework
+      allows scalable, reproducible ML workflows where NIDM documentation supports
+      interpretability and regulatory compliance.'
+    references:
+    - https://doi.org/10.1038/s41597-023-01972-z
+    - https://doi.org/10.1038/s41597-023-02614-0
+    used_in_bridge2ai: false
+  - id: B2AI_APP:208
+    category: B2AI:Application
+    name: ARIES Knowledge Graph with NIDM for ML Feature Engineering
+    description: 'The Arkansas Imaging Enterprise System (ARIES) integrates semantic
+      knowledge graphs with NIDM to represent neuroimaging workflows and provenance,
+      explicitly supporting feature engineering for statistical and machine learning
+      applications. ARIES uses NIDM to provide semantic representations of processing
+      pipelines, describing software applications, processing steps, and derived neuroimaging
+      results with machine-interpretable description logic definitions that support
+      inference, analysis, and exploration. The knowledge graph combines multi-modal
+      data with NIDM-standardized workflow metadata to enable reproducible feature
+      extraction, where explicit semantics facilitate automated reasoning over processing
+      lineage. ARIES stores executable processing pipelines in containers, and the
+      NIDM-enhanced knowledge graph provides traceable provenance critical for regulatory-compliant
+      ML research, supporting applications in precision medicine where understanding
+      feature derivation paths is essential for model interpretability and validation.'
+    references:
+    - https://doi.org/10.3389/frai.2021.649970
+    used_in_bridge2ai: false
+  - id: B2AI_APP:209
+    category: B2AI:Application
+    name: NeuroBridge Deep Learning NLP for NIDM-Enhanced Dataset Discovery
+    description: 'The NeuroBridge platform uses deep learning NLP methods to annotate
+      neuroimaging articles with ontology terms for dataset discovery, with companion
+      work reviewing NIDM-Experiment (NIDM-E) as part of provenance modeling supporting
+      FAIR data discovery for assembling ML-ready cohorts. NeuroBridge creates embedding
+      vectors for ontology terms using SapBERT (pre-trained biomedical language model)
+      and compares them via ElasticSearch Cosine Similarity, matching user queries
+      (e.g., "abstinent") to NeuroQuery terms (e.g., "abstinence") across ~13,000
+      articles. The system extracted >4,400 assessment instrument names from the National
+      Database for Autism Research (NDA) using Apache Solr textual similarity methods.
+      The NeuroBridge computable provenance ontology (660 classes, 49 properties,
+      3,200 axioms) includes mappings to W3C PROV and NIDM, representing the first
+      computable metadata model for recent schizophrenia and substance-use neuroimaging.
+      By integrating NIDM provenance standards with deep learning document annotation,
+      NeuroBridge enables AI-driven discovery of long-tail neuroimaging datasets with
+      rich metadata suitable for training cohort assembly and cross-study harmonization.'
+    references:
+    - https://doi.org/10.3389/fninf.2023.1215261
+    - https://doi.org/10.3389/fninf.2023.1216443
+    used_in_bridge2ai: false
+  - id: B2AI_APP:210
+    category: B2AI:Application
+    name: Provenance-Based Recommender System for Dataset-Pipeline Compatibility
+    description: 'A collaborative-filtering recommender system trained on provenance
+      and execution records predicts dataset–pipeline compatibility for neuroimaging
+      analyses, outperforming expert predictions (AUC=0.83 vs expert AUC=0.63, chance=0.5).
+      The system leverages standardized provenance frameworks like NIDM to capture
+      features needed for ML-driven recommendations, including file format dependencies
+      (e.g., FSL-FIRST requiring NIfTI while some datasets use MINC), pre-processing
+      requirements (binary masks, external templates, prior pipeline outputs like
+      bedpostx), and execution success/failure patterns. Analysis of 31% "file format
+      not supported" failures, 38.5% "dataset not available" issues, and 18% Type
+      D pre-processing dependencies demonstrates how NIDM-structured provenance enables
+      the recommender to learn complex compatibility rules. At threshold 1.2, 8/10
+      recommended pipelines successfully apply to new datasets. This application shows
+      how NIDM''s machine-readable provenance representation enables AI systems to
+      automate workflow planning, reduce failed executions, and improve reproducibility
+      by predicting which analysis pipelines are compatible with available datasets
+      based on learned patterns from historical execution traces.'
+    references:
+    - https://doi.org/10.1109/works54523.2021.00006
     used_in_bridge2ai: false
 - id: B2AI_STANDARD:233
   category: B2AI_STANDARD:BiomedicalStandard
