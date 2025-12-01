@@ -8343,41 +8343,139 @@ data_standardortools_collection:
   formal_specification: https://specifications.openehr.org/releases/AM/latest/AOM1.4.html
   is_open: true
   name: AOM14
-  purpose_detail: This document contains the definitive statement of archetype semantics,
-    in the form of an object model for archetypes. The AOM provides a comprehensive
-    formal specification enabling software to process archetypes independent of their
-    persistent representation (ADL, XML, or other formats). The model defines constraint-based
-    domain entities through hierarchical structures alternating between object and
-    attribute constraints (C_COMPLEX_OBJECT, C_ATTRIBUTE, C_PRIMITIVE_OBJECT classes).
-    It supports archetype specialization with explicit depth tracking, composition
-    through archetype slots with assertion-based constraints, and domain-specific
-    extensions via C_DOMAIN_TYPE classes. The AOM includes comprehensive primitive
-    type constraints (C_DATE, C_TIME, C_STRING, C_INTEGER), reference mechanisms (ARCHETYPE_INTERNAL_REF,
-    CONSTRAINT_REF), and assertion capabilities using first-order predicate logic.
-    It provides the semantic foundation for archetype-enabled kernels, ADL parsers,
-    and archetype validation systems in clinical information modeling, enabling programmatic
-    manipulation of constraint structures and serving as the API specification for
-    archetype-based software applications.
+  purpose_detail: 'The openEHR Archetype Object Model (AOM) 1.4 provides the definitive
+    formal specification of archetype semantics as an object-oriented model enabling
+    software to process, validate, and manipulate clinical archetypes independent
+    of their serialization format (ADL, XML, JSON, or other representations). AOM
+    defines constraint-based domain modeling through hierarchical structures alternating
+    between object constraints (C_COMPLEX_OBJECT representing archetyped classes with
+    node identifiers, occurrences, and attribute constraints) and attribute constraints
+    (C_ATTRIBUTE specifying cardinality, existence, and child object constraints),
+    supporting multiple reference model types (openEHR Reference Model, HL7 RIM, ISO
+    13606) through abstract constraint classes. The model enables archetype specialization
+    via differential pathways with explicit depth tracking and node redefinition,
+    composition through archetype slots (ARCHETYPE_SLOT) with assertion-based inclusion/exclusion
+    constraints evaluated against slot-filler archetypes, and primitive type constraints
+    (C_DATE with pattern/range/timezone constraints, C_TIME, C_STRING with regex patterns,
+    C_INTEGER/C_REAL with intervals, C_BOOLEAN, C_TERMINOLOGY_CODE with terminology
+    bindings to SNOMED CT/LOINC/ICD-10) ensuring data validity at acquisition. AOM''s
+    internal referencing mechanisms (ARCHETYPE_INTERNAL_REF for reusing constraint
+    structures within an archetype, CONSTRAINT_REF for referencing primitive constraint
+    definitions) support DRY principles, while first-order predicate logic assertions
+    (ASSERTION class with boolean expressions over archetype paths) enable cross-field
+    validation rules (e.g., systolic > diastolic in blood pressure archetypes). The
+    terminology integration section maps archetype node identifiers to external terminologies,
+    supporting multilingual natural language descriptions and enabling semantic interoperability
+    across clinical systems. AOM serves as the semantic foundation for archetype-enabled
+    EHR kernels, ADL parsers (including grammar validation and semantic checking),
+    archetype editors (clinical modeling tools like the openEHR Clinical Knowledge
+    Manager), template designers (constraining archetypes for local use cases), and
+    form generators (automatically rendering data entry interfaces from archetype
+    constraints). For AI and machine learning applications in healthcare, AOM-grounded
+    archetypes provide machine-readable semantic constraints that structure clinical
+    NLP pipelines: archetype metadata (data types, value ranges, terminology bindings,
+    multilingual descriptions) guide extraction targets and validation rules for entity
+    recognition, archetype-specific language models trained on archetype field descriptions
+    improve disambiguation of clinical narratives, and archetype paths serve as feature
+    hierarchies for structured representation learning. Archetype constraints enable
+    active learning workflows where models query users only when extracted values
+    violate archetype rules (e.g., impossible vital sign ranges), reducing annotation
+    burden. Archetype-driven data standardization pipelines map unstructured clinical
+    texts to archetype templates using NLP and rule-based mappers, creating FAIR-compliant
+    repositories suitable for federated learning and cross-institutional ML studies.
+    Clinical decision support systems query archetype-modeled data via AQL (Archetype
+    Query Language) to supply standardized facts to inference engines, and word embedding
+    models improve archetype retrieval and reuse by expanding search queries with
+    learned synonyms, ultimately enabling reproducible, interoperable, and semantically
+    rich AI workflows across heterogeneous EHR systems while preserving clinical meaning
+    and data quality through formal constraint models.'
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:79
   url: https://specifications.openehr.org/releases/AM/latest/AOM1.4.html
   has_application:
-  - id: B2AI_APP:45
+  - id: B2AI_APP:215
     category: B2AI:Application
-    name: Clinical Archetypes and Semantic Interoperability for AI
-    description: AOM14 (Archetype Object Model) is used in AI applications for defining
-      reusable clinical information models that enable semantic interoperability of
-      health data across systems and support consistent feature extraction for machine
-      learning. AI systems leverage archetypes to understand the clinical meaning
-      and constraints of health data elements, enabling models to learn from data
-      collected using openEHR archetypes across different implementations. The standardized
-      clinical models support AI applications that require portable feature definitions,
-      enable transfer learning across healthcare systems using archetypes, and ensure
-      that AI models interpret clinical concepts consistently regardless of underlying
-      database structures. Archetypes provide machine-readable clinical semantics
-      that improve AI model interpretability and facilitate automated validation of
-      model inputs.
+    name: Archetype-Driven NLP for Numeric Entity Extraction
+    description: 'A proof-of-concept system uses openEHR archetypes (AOM 1.4-grounded)
+      to drive machine learning for automated extraction of numerical values from
+      clinical narratives through archetype-specific language models and constraint-guided
+      mapping. The approach combines regex-based number detection with archetype metadata
+      (data types, value constraints, multilingual descriptions, term bindings, autogenerated
+      abbreviations) to identify extraction targets, and employs an active-learning
+      recurrent neural network classifier with fastText word/character embeddings
+      for ambiguous value-to-field assignments. Character embeddings handle synonyms,
+      hard abbreviations (T for temperature), sequence patterns (120/90 after blood
+      pressure title), and typos (Blod pressure). Evaluated on three openEHR archetypes
+      (blood pressure, body temperature, pulse) across 75 English and 75 German clinical
+      documents, the system achieved per-archetype precision up to 1.00 and recall
+      up to 1.00 (blood pressure English: precision 0.90, recall 1.00; German: precision
+      0.93, recall 1.00; body temperature English: precision 1.00, recall 0.96), demonstrating
+      how AOM semantic constraints simplify text mining and enable sharable archetype-driven
+      extraction models via openEHR Clinical Knowledge Manager.'
+    references:
+    - https://doi.org/10.3233/shti190820
+    used_in_bridge2ai: false
+  - id: B2AI_APP:216
+    category: B2AI:Application
+    name: Archetype-Grounded NLP Pipeline for Standardizing Unstructured Histories
+    description: 'An openEHR-based NLP pipeline (LingRep) extracts and standardizes
+      unstructured pediatric ICU admission histories into archetype-based structured
+      representations using pattern-based components and archetype-constrained mapping.
+      The pipeline uses a German expert dictionary (3,055 text marker entries, 132
+      text events, 66 regular expressions, 776-entry spell correction corpus) to extract
+      clinical snippets, then a mapping module assigns extracted content to specific
+      items within openEHR archetypes and templates, storing outputs via openEHR REST
+      API and verifying with AQL queries. The system reused 24 international openEHR
+      archetypes from Clinical Knowledge Manager as target information models and
+      implemented 123 mapping rules to transform NLP output into AOM-compliant representations.
+      In a pilot study on 50 manually annotated pediatric ICU medical histories from
+      Hannover Medical School, the prototype achieved 97% precision and 94% recall,
+      demonstrating that archetype-constrained targets facilitate accurate normalization
+      of free text for secondary research use and decision support through semantically
+      enriched, interoperable clinical repositories.'
+    references:
+    - https://doi.org/10.1055/s-0040-1716403
+    used_in_bridge2ai: false
+  - id: B2AI_APP:217
+    category: B2AI:Application
+    name: Archetype-Based Clinical Decision Support for Pediatric SIRS
+    description: 'A knowledge-based clinical decision support system (CDSS) for automated
+      early detection of pediatric systemic inflammatory response syndrome (SIRS)
+      leverages openEHR archetypes with LOINC terminology bindings and Archetype Query
+      Language (AQL) to retrieve standardized, unambiguous clinical facts from an
+      archetype-modeled repository (HaMSTR). The system uses internationally agreed-upon
+      openEHR archetypes to represent vital signs, laboratory results, and clinical
+      observations, with AQL enabling declarative queries over archetype paths to
+      supply dynamic facts to an inference engine implementing SIRS detection rules.
+      In a pilot study on real pediatric ICU data covering 16 randomly selected patients
+      across 129 patient-days, the CDSS achieved sensitivity 1.00, specificity 0.94,
+      and Cohen''s kappa 0.92 when compared to clinical expert assessments, demonstrating
+      how AOM-grounded data representation and archetype-driven retrieval support
+      robust, interoperable clinical inference engines in real clinical contexts with
+      high accuracy and agreement.'
+    references:
+    - https://doi.org/10.1016/j.artmed.2018.04.012
+    used_in_bridge2ai: false
+  - id: B2AI_APP:218
+    category: B2AI:Application
+    name: Word2Vec Query Expansion for Archetype Retrieval
+    description: 'To improve discoverability and reduce ambiguity in archetype/template
+      retrieval from openEHR repositories, a Word2Vec-based query expansion method
+      learns synonyms and substitute terms for user search queries, facilitating reuse
+      of AOM-grounded archetypes across medical professionals with varying terminology
+      preferences. The approach trains word embeddings on Chinese Wikipedia corpus
+      and applies learned semantic similarities to expand 120 original search terms,
+      generating 69,348 substitute terms for querying Chinese openEHR archetypes.
+      This corpus-driven embedding method contrasts with simple external dictionary
+      mapping by capturing contextual semantic relationships. Applied to archetype
+      retrieval tasks representing different medical professional expertise levels,
+      the query expansion improved average Precision@5 (P@5) by 0.767, with best-case
+      P@5 reaching 0.975, demonstrating how NLP/ML methods directly enhance archetype
+      discoverability, promote interoperability through improved archetype reuse,
+      and reduce semantic ambiguity in clinical modeling workflows.'
+    references:
+    - https://doi.org/10.1186/s12911-021-01554-2
     used_in_bridge2ai: false
 - id: B2AI_STANDARD:252
   category: B2AI_STANDARD:BiomedicalStandard
