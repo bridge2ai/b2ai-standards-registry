@@ -6038,9 +6038,39 @@ data_standardortools_collection:
   description: Markup Components for Describing Multiple Sequence Alignments
   is_open: true
   name: MSAML
-  purpose_detail: MSAML was formulated to make manipulation and extraction of multiple
-    sequence alignment information easier by logically defining the parts of an alignment
-    for use in an XML conformant application.
+  purpose_detail: 'MSAML (Multiple Sequence Alignment Markup Language) is an XML-based
+    standard designed to provide a structured, machine-readable representation of
+    multiple sequence alignments (MSAs) that facilitates manipulation, extraction,
+    and computational analysis of alignment information through logically defined
+    components. MSAML encodes essential alignment elements including sequence identifiers
+    and metadata (organism, gene name, accession numbers, database cross-references),
+    aligned sequence strings with explicit gap characters and position indexing, alignment
+    coordinates mapping aligned positions to original sequence coordinates, conservation
+    scores and quality metrics (percent identity, consensus sequences, position-specific
+    scoring matrices), secondary structure annotations, and phylogenetic tree relationships
+    among sequences. By structuring MSAs as hierarchical XML documents with well-defined
+    schemas, MSAML enables validation, transformation via XSLT stylesheets, querying
+    with XPath/XQuery, and integration with XML-native databases and web services,
+    overcoming limitations of legacy flat-file formats (FASTA, Clustal, Stockholm,
+    Phylip) that lack standardized parsers and semantic markup. The XML conformance
+    supports interoperability between alignment tools (Clustal Omega, MUSCLE, MAFFT,
+    T-Coffee), visualization software, and downstream analysis pipelines, allowing
+    automated extraction of alignment regions, sub-alignment generation for domain
+    analysis, and integration with ontologies (Gene Ontology, Sequence Ontology) for
+    functional annotation. For AI and machine learning applications in computational
+    biology, MSAML-encoded alignments provide structured training data for protein
+    structure prediction models (AlphaFold, RoseTTAFold, ESMFold consume MSA features
+    as evolutionary coupling signals), enable feature engineering where conservation
+    patterns, co-evolution scores, and gap distributions extracted from MSAML serve
+    as inputs for supervised learning of protein function, binding site prediction,
+    and mutation effect estimation, support transfer learning by facilitating alignment
+    dataset curation and augmentation (sampling homologous sequences at varying identity
+    thresholds, generating synthetic alignments), and enable meta-analysis across
+    MSA databases (Pfam, SMART, InterPro) where MSAML standardization allows aggregation
+    of alignment quality metrics, consensus annotation, and phylogenetic signal for
+    training foundation models on protein families, ultimately improving reproducibility
+    and automation in sequence-based AI workflows for functional genomics, evolutionary
+    biology, and therapeutic target identification.'
   requires_registration: false
   url: http://xml.coverpages.org/msaml-desc-dec.html
 - id: B2AI_STANDARD:190
