@@ -7839,28 +7839,143 @@ data_standardortools_collection:
   is_open: true
   name: OMOP CEM
   publication: doi:10.1007/s40264-014-0189-0
-  purpose_detail: An improved replacement to the previously reported LAERTES system.
-    One of the initial uses of CEM has been its use in generating lists of negative
-    control concepts to be used in empirical calibration.
+  purpose_detail: 'The Observational Medical Outcomes Partnership (OMOP) Common Evidence
+    Model (CEM) is a structured knowledge base developed by the Observational Health
+    Data Sciences and Informatics (OHDSI) consortium that aggregates, harmonizes,
+    and standardizes evidence about drug safety and effectiveness from multiple heterogeneous
+    sources including spontaneous adverse event reporting systems (FDA FAERS, EudraVigilance),
+    product labeling documents (FDA SPL, EMA product information), clinical trial
+    registries (ClinicalTrials.gov), and published biomedical literature (PubMed,
+    Medline). CEM normalizes terminologies using OMOP Vocabulary (RxNorm for drugs,
+    SNOMED CT for conditions/outcomes, MedDRA for adverse events) and represents evidence
+    as standardized relationships between exposure concepts (medications, procedures)
+    and outcome concepts (diseases, adverse events, clinical findings) with provenance
+    metadata capturing evidence source, publication date, study design characteristics,
+    and signal strength indicators. This harmonization enables programmatic querying
+    of cross-source evidence patterns via RESTful APIs (CemConnector package) that
+    return "evidence exists" indicators, co-occurrence frequencies, and evidence rankings
+    for concept sets expressed as SNOMED or RxNorm code combinations. CEM serves as
+    critical infrastructure for automated negative control selection in observational
+    studies: negative controls are exposure–outcome pairs known not to have causal
+    relationships (e.g., beta-blockers and fractures), identified by querying CEM
+    to find candidate pairs lacking evidence in product labels, literature, and spontaneous
+    reports, then validating absence through expert review or classifier-based prediction.
+    These algorithmically selected negative controls construct null distributions
+    of effect estimates under the assumption of no true effect, enabling empirical
+    calibration that adjusts p-values and confidence intervals to account for systematic
+    error in observational study designs (propensity score matching, self-controlled
+    cohort, case-control), substantially reducing false discovery rates (from ~60%
+    to ~7% in large-scale studies) while preserving sensitivity for true associations.
+    CEM supports high-throughput pharmacoepidemiologic workflows through integration
+    with OHDSI analytic tools: cohort generation (Atlas), effect estimation (CohortMethod,
+    SelfControlledCaseSeries packages), and large-scale evidence generation pipelines
+    (REWARD framework) that execute thousands of exposure–outcome analyses across
+    OMOP CDM-mapped claims databases with automated negative control selection, effect
+    calibration, and result aggregation. For AI and machine learning applications,
+    CEM enables automated workflows where ML classifiers predict unlikely exposure–outcome
+    pairs for negative control curation by learning from CEM-derived features (evidence
+    source counts, co-occurrence patterns, temporal relationships), programmatic APIs
+    allow ML pipelines to query CEM indicators as input features or filtering criteria
+    for training dataset assembly, evidence rankings support active learning strategies
+    prioritizing high-uncertainty pairs for expert annotation, and standardized evidence
+    representations facilitate meta-learning across pharmacovigilance signal detection
+    tasks by providing consistent feature encodings for transfer learning between
+    drug classes or therapeutic areas, ultimately enabling scalable, reproducible,
+    and transparent generation of real-world evidence for regulatory decision-making
+    (FDA Sentinel, EMA DARWIN EU), comparative effectiveness research, and clinical
+    guideline development.'
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:76
   url: https://github.com/OHDSI/CommonEvidenceModel/wiki/Postprocessing-Negative-Controls
   has_application:
-  - id: B2AI_APP:43
+  - id: B2AI_APP:211
     category: B2AI:Application
-    name: Causal Inference and Observational Study AI
-    description: OMOP Common Evidence Model is used in AI applications for standardizing
-      the representation of evidence from observational studies, enabling machine
-      learning models to learn causal relationships from real-world data and generate
-      reliable evidence for treatment effectiveness. AI systems leverage CEM's structured
-      representation of study designs, populations, exposures, and outcomes to train
-      models that estimate treatment effects from observational data, adjust for confounding
-      using propensity score methods, and validate predictions through negative controls.
-      The model enables AI applications in comparative effectiveness research, pharmacovigilance,
-      and evidence synthesis where distinguishing correlation from causation is critical.
-      Machine learning approaches use CEM to automate evidence quality assessment
-      and synthesize findings across heterogeneous observational studies.
+    name: Automated Negative Control Selection with ML Classification
+    description: 'CEM enables automated negative control selection for empirical calibration
+      in large-scale observational studies by aggregating evidence from spontaneous
+      reports, drug labels, clinical trials, and literature to identify and rank candidate
+      negative controls (exposure–outcome pairs unlikely to have causal relationships).
+      One strategy explicitly uses CEM-derived features (evidence source indicators,
+      co-occurrence frequencies, temporal patterns) within a machine learning classifier
+      to predict unlikely exposure–outcome pairs, supporting a human-in-the-loop curation
+      workflow. Applied within the REWARD framework across four US claims databases,
+      automated CEM-based selection generated thousands of controls per drug (3,522
+      for sertraline, 2,921 for diclofenac) and substantially reduced false discovery
+      rates after empirical calibration (mean FDR ~6.8% vs ~60.6% uncalibrated) while
+      maintaining comparable performance to manually curated controls. This application
+      demonstrates how CEM''s structured evidence representations enable ML-assisted
+      null distribution construction for bias correction in pharmacoepidemiologic
+      effect estimation at scale.'
+    references:
+    - https://www.ohdsi.org/wp-content/uploads/2021/09/78-james-gilbert-abstract.pdf
+    - https://www.ohdsi.org/wp-content/uploads/2019/09/ERICA-VOSS_Assessing-Negative-Control-Exposure-Outcome-Pair-Selection-Strategies-on-a-Replication-Study_2019Symposium.pdf
+    used_in_bridge2ai: false
+  - id: B2AI_APP:212
+    category: B2AI:Application
+    name: CemConnector Programmatic API for ML Pipeline Integration
+    description: 'CemConnector provides a RESTful API and R client library enabling
+      programmatic access to OMOP CEM for machine learning and automation pipelines.
+      The tool allows ML systems to query CEM and retrieve "evidence exists" indicators
+      for concept set expressions (SNOMED, RxNorm), rank candidate negative controls
+      based on co-occurrence frequencies in CDM-compliant databases, and access formal
+      selection criteria for robust empirical calibration. CemConnector supports high-throughput
+      workflows through a database interface suitable for large-scale queries and
+      includes an Evidence Explorer Shiny plugin for interactive exploration. By exposing
+      CEM data as consumable REST endpoints returning structured JSON, CemConnector
+      enables ML pipelines to use evidence indicators as features, filters, or ranking
+      signals in automated dataset assembly, feature engineering for pharmacovigilance
+      models, and active learning workflows where evidence patterns guide which exposure–outcome
+      pairs require expert annotation. The open-source R client (GitHub: OHDSI/CemConnector)
+      integrates with OHDSI analytic packages, making CEM a standard component of
+      reproducible, automated real-world evidence generation.'
+    references:
+    - https://www.ohdsi.org/wp-content/uploads/2021/09/63-james-gilbert-abstract.pdf
+    used_in_bridge2ai: false
+  - id: B2AI_APP:213
+    category: B2AI:Application
+    name: REWARD High-Throughput Algorithmic Effect Estimation Pipeline
+    description: 'REWARD (REal World Assessment and Research of Drugs) is an open-source,
+      fully automated OHDSI-based pipeline that integrates CEM for large-scale population-level
+      effect estimation across thousands of exposure–outcome pairs. The system programmatically
+      selects negative controls using CEM via CemConnector, executes self-controlled
+      cohort (SCC) analyses with automated outcome definitions (SNOMED-based), generates
+      observed effect estimates, and performs empirical calibration using CEM-derived
+      null distributions. Built on R targets workflow engine with R Shiny exploration
+      interfaces, REWARD executed 197,032,729 observed effect estimates across 3,384
+      exposures and 66,331 outcome definitions, demonstrating machine-driven evidence
+      generation at unprecedented scale. The pipeline centralizes aggregated results,
+      supports flexible automated execution, and provides cohort references for reproducibility.
+      REWARD exemplifies how CEM enables end-to-end algorithmic pharmacoepidemiology:
+      automated control selection → high-throughput effect estimation → systematic
+      bias correction → aggregated evidence synthesis, with complete GitHub availability
+      (OHDSI/REWARD) supporting reproducible, transparent AI-augmented observational
+      research workflows.'
+    references:
+    - https://www.ohdsi.org/wp-content/uploads/2022/10/15-Gilbert-REWARD-abstract.pdf
+    used_in_bridge2ai: false
+  - id: B2AI_APP:214
+    category: B2AI:Application
+    name: Large-Scale Comparator Recommendation via Cohort Similarity
+    description: 'An OMOP CDM-based empirical method uses cohort similarity scoring
+      to recommend and rank comparator drugs for pharmacoepidemiologic studies at
+      scale, with CEM facilitating identification of inactive comparators and negative
+      controls for validation. The algorithm computes cohort similarity scores by
+      averaging cosine similarities across five covariate domains (demographics, medical
+      history, prior medications, presentation, visit context) using prevalence vectors
+      from new-user cohorts (≥1,000 patients, ≥365 days prior observation). Applied
+      across multiple OMOP data sources, the method generated 487,578–922,761 cohort
+      pairs per database, with 90–95% of target cohorts having comparators with similarity
+      scores ≥0.950. An interactive web application (data.ohdsi.org/ComparatorSelectionExplorer)
+      and open-source code (GitHub: OHDSI/ComparatorSelectionExplorer) enable programmatic
+      use in automated evidence-generation workflows. While comparator ranking uses
+      covariate similarity rather than direct CEM signals, CEM provides supporting
+      infrastructure for validating recommendations through negative control identification,
+      demonstrating how CEM integrates with broader algorithmic evidence ecosystems
+      for scalable, data-driven treatment comparison identification aligned with subject-matter
+      knowledge.'
+    references:
+    - https://doi.org/10.1101/2023.02.14.23285755
     used_in_bridge2ai: false
 - id: B2AI_STANDARD:245
   category: B2AI_STANDARD:BiomedicalStandard
