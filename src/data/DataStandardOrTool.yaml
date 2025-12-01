@@ -14484,8 +14484,42 @@ data_standardortools_collection:
   is_open: true
   name: MOD
   publication: doi:10.1007/978-3-319-70863-8_17
-  purpose_detail: An OWL ontology and application profile to capture metadata information
-    for ontologies, vocabularies or semantic resources/artefacts in general.
+  purpose_detail: 'The Metadata for Ontology Description and Publication (MOD) is
+    an OWL-based ontology and application profile developed by the Semantic and Social
+    Web Technologies for Biomedical Research (SIFR) project to systematically capture,
+    represent, and publish comprehensive metadata about ontologies, controlled vocabularies,
+    and semantic resources. MOD addresses the critical need for standardized ontology
+    metadata by defining a rich set of properties describing provenance (authors,
+    contributors, organizations, funding sources), versioning (release dates, version
+    identifiers, change logs, deprecated versions), scope and coverage (domain, purpose,
+    competency questions, use cases), technical characteristics (serialization formats
+    like RDF/XML, OWL/Turtle, Manchester syntax; reasoner compatibility; expressivity
+    metrics using OWL 2 profiles such as EL, QL, RL), quality indicators (validation
+    status, review processes, testing methodologies, known issues), licensing and
+    reuse rights (Creative Commons, open-source licenses, attribution requirements),
+    relationships to other ontologies (imports, alignments, mappings, dependencies),
+    usage statistics (downloads, citations, implementation instances), and community
+    engagement (mailing lists, issue trackers, contribution guidelines). Built on
+    Dublin Core, DCAT (Data Catalog Vocabulary), PROV-O (provenance ontology), and
+    OMV (Ontology Metadata Vocabulary) foundations, MOD extends these standards with
+    biomedical and life sciences-specific requirements, enabling machine-readable
+    metadata suitable for automated ontology discovery, selection, integration, and
+    maintenance workflows. The ontology supports semantic queries over ontology registries
+    and repositories (BioPortal, Ontology Lookup Service, AberOWL), facilitating
+    questions such as "find all OBO Foundry ontologies covering protein functions
+    updated within the last year with Creative Commons licenses" or "identify ontologies
+    compatible with ELK reasoner that import the Gene Ontology." For AI and machine
+    learning applications, MOD metadata enables automated dataset annotation quality
+    assessment by tracking which ontology versions were used for feature encoding,
+    supports reproducible semantic embedding generation by documenting ontology preprocessing
+    steps and alignment methods, facilitates knowledge graph construction by providing
+    explicit import dependencies and modular decomposition information, enables meta-learning
+    across ontology-annotated corpora by standardizing domain scope descriptions,
+    and supports automated ontology recommendation systems that match dataset characteristics
+    to appropriate semantic resources based on coverage, granularity, and maintenance
+    activity, ultimately improving the discoverability, interoperability, and responsible
+    reuse of ontological knowledge in data-driven biomedical research and AI model
+    development.'
   requires_registration: false
   url: https://github.com/sifrproject/MOD-Ontology
 - id: B2AI_STANDARD:489
