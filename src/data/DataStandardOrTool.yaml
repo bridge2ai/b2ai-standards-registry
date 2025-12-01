@@ -3352,9 +3352,44 @@ data_standardortools_collection:
   is_open: true
   name: FAIR Cookbook
   publication: doi:10.5281/zenodo.7156792
-  purpose_detail: An online, open and live resource for the Life Sciences with recipes
-    that help you to make and keep data Findable, Accessible, Interoperable and Reusable;
-    in one word FAIR.
+  purpose_detail: 'The FAIR Cookbook is an open-access, community-driven, online resource
+    developed by the ELIXIR Europe consortium that provides practical, actionable
+    guidance for implementing FAIR (Findable, Accessible, Interoperable, Reusable)
+    data principles in life sciences research through structured "recipes"—step-by-step
+    tutorials addressing specific data management challenges across the research lifecycle.
+    Organized into thematic sections covering data management planning, metadata standards,
+    ontologies and terminologies, data deposition and licensing, interoperability
+    frameworks (semantic web technologies, APIs, linked data), reproducibility and
+    provenance tracking, and domain-specific implementations (genomics, proteomics,
+    metabolomics, imaging, clinical data), each recipe follows a standardized format
+    including objectives, intended audience, requirements, ingredients (tools, standards,
+    resources), step-by-step instructions with code snippets, worked examples, expected
+    outcomes, and references to relevant standards (schema.org, DCAT, Dublin Core,
+    ISA model, RO-Crate, Bioschemas, EDAM ontology) and infrastructure (repositories,
+    registries, validation tools). The cookbook addresses common barriers to FAIR
+    adoption—such as selecting appropriate metadata schemas, implementing persistent
+    identifiers (DOIs, ORCIDs, RRIDs), choosing open licenses (CC-BY, CC0), exposing
+    data through machine-readable APIs, and integrating semantic technologies—with
+    pragmatic solutions tailored to diverse stakeholder needs (wet-lab researchers,
+    bioinformaticians, data stewards, repository managers, funders, publishers). Hosted
+    on GitHub with Jupyter Book rendering, the FAIR Cookbook operates as a living
+    document with continuous community contributions, version control, peer review
+    via pull requests, and Zenodo DOI versioning for citability, embodying FAIR principles
+    in its own infrastructure (content licensed CC-BY 4.0, source code openly available,
+    machine-readable structured markup). For AI and machine learning workflows, the
+    cookbook provides critical guidance on making training datasets FAIR-compliant:
+    recipes cover automated metadata extraction and validation, semantic annotation
+    of features and labels using ontologies (enabling cross-dataset harmonization
+    and federated learning), implementing provenance standards (PROV-O, CWLProv) for
+    reproducible preprocessing pipelines, packaging models and data together in research
+    objects (RO-Crate with ML-specific profiles), exposing datasets through standardized
+    APIs for programmatic access (GraphQL, SPARQL endpoints, OpenAPI-compliant REST
+    services), and integrating with ML platforms (Hugging Face Datasets, TensorFlow
+    Datasets, PyTorch DataLoaders) that consume FAIR metadata for dataset discovery
+    and versioning, ultimately supporting the creation of well-documented, reusable,
+    and interoperable AI-ready data resources that accelerate model development, facilitate
+    external validation, and enable responsible AI practices through transparent data
+    lineage and governance.'
   requires_registration: false
   url: https://faircookbook.elixir-europe.org/
 - id: B2AI_STANDARD:109
