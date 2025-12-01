@@ -8625,11 +8625,46 @@ data_standardortools_collection:
   formal_specification: https://sbolstandard.org/#specifications
   is_open: true
   name: SBOL
-  purpose_detail: Standard for in silico representation of genetic designs. SBOL is
-    designed to allow synthetic biologists and genetic engineers to electronically
-    exchange designs . Send and receive genetic designs to and from biofabrication
-    centers. Facilitate storage of genetic designs in repositories Embed genetic designs
-    in publications.
+  purpose_detail: The Synthetic Biology Open Language (SBOL) is a data standard for
+    representing synthetic biology designs in a machine-readable format, enabling
+    the electronic exchange, storage, and computational manipulation of genetic constructs,
+    circuits, and engineered biological systems. SBOL provides a formal, structured
+    representation of DNA components, genetic parts (promoters, ribosome binding sites,
+    coding sequences, terminators), hierarchical assemblies, functional annotations,
+    and design constraints using XML or RDF serialization formats with precisely defined
+    semantics based on community ontologies. The standard supports description of
+    both natural and synthetic genetic elements with their sequences, functional roles,
+    interactions, and provenance metadata, facilitating communication between synthetic
+    biologists, genetic engineers, software tools, and biofabrication facilities.
+    SBOL enables key workflows including electronic submission of designs to DNA synthesis
+    providers and contract manufacturers, storage and versioning of genetic constructs
+    in biological design repositories, computational design space exploration and optimization,
+    model-based design linking genetic circuits to mathematical models (via integration
+    with SBML), and embedding machine-readable genetic designs in scientific publications
+    for reproducibility. The standard encompasses multiple levels of abstraction from
+    abstract functional specifications to detailed sequence-level implementations,
+    supporting combinatorial design where multiple variants are systematically generated,
+    modular composition of reusable genetic parts from standardized libraries (BioBricks,
+    iGEM Registry), and design-build-test-learn cycles common in synthetic biology
+    workflows. SBOL 3.0, the current major version, introduced significant enhancements
+    including representation of combinatorial designs with template-based assembly,
+    support for protein and chemical entities beyond nucleic acids, constraints and
+    design rules for automated validation, measures and parameters for quantitative
+    specifications, improved provenance tracking with activities and agents, and topological
+    descriptors for complex genetic architectures. Software ecosystem integration
+    includes design tools (Benchling, GenoCAD, Eugene, Cello for genetic circuit design),
+    simulation platforms coupling SBOL designs with dynamical models, repository systems
+    (SynBioHub for federated part repositories, iGEM Registry integration), and workflow
+    automation platforms connecting design, synthesis ordering, and experimental validation.
+    Applications span metabolic pathway engineering for biomanufacturing, genetic
+    circuit design for biosensors and diagnostics, genome-scale engineering projects,
+    cell-free synthetic biology systems, and educational synthetic biology where standardized
+    parts facilitate teaching and reproducible student projects. SBOL supports collaborative
+    research by enabling teams to share complex multi-level designs unambiguously,
+    computational design automation where genetic algorithms explore design spaces,
+    and quality control ensuring designs meet specifications before expensive synthesis
+    and testing, making it essential infrastructure for the reproducible, scalable
+    practice of modern synthetic biology.
   requires_registration: false
   url: https://sbolstandard.org/
 - id: B2AI_STANDARD:288
