@@ -13349,7 +13349,70 @@ data_standardortools_collection:
   - B2AI_ORG:96
   is_open: true
   name: GEO
-  purpose_detail: An ontology of geographical entities
+  purpose_detail: The Geographical Entity Ontology (GEO) is a domain ontology developed
+    by the University of Florida Biomedical Informatics group and aligned with OBO
+    Foundry principles to provide standardized, computationally tractable representations
+    of geographical entities, spatial relationships, and location-based concepts essential
+    for biomedical research, epidemiology, environmental health studies, and clinical
+    data integration where geographic context influences disease patterns, healthcare
+    access, and population health outcomes. GEO defines a hierarchical classification
+    of geographical entities ranging from large-scale political and administrative
+    units (countries, states, provinces, counties, municipalities) through natural
+    geographic features (mountains, rivers, lakes, coastlines, watersheds) to human-constructed
+    spatial divisions (postal codes, census tracts, health service areas, urban/rural
+    classifications) and institutional locations (hospitals, clinics, research facilities,
+    universities). The ontology encodes spatial relationships using formal logic and
+    topological predicates (part_of, located_in, adjacent_to, overlaps_with, contains)
+    that enable computational reasoning about geographic containment hierarchies,
+    proximity patterns, and spatial aggregations necessary for multi-level epidemiological
+    analyses and geospatial data integration. GEO integrates with the Basic Formal
+    Ontology (BFO) upper-level ontology and coordinates with complementary domain
+    ontologies including the Environment Ontology (ENVO) for environmental features,
+    the Population and Community Ontology (PCO) for population groups defined by
+    geography, and the Units of Measurement Ontology (UO) for representing spatial
+    dimensions, areas, and distances with standardized units. For public health surveillance
+    and disease tracking, GEO provides the semantic foundation for georeferencing
+    clinical observations, outbreak investigations, and environmental exposure assessments,
+    enabling queries that aggregate cases by administrative boundaries while accounting
+    for population denominators and adjusting for geographic mobility patterns. The
+    ontology supports One Health applications by linking human disease surveillance
+    with animal health monitoring, vector ecology, and environmental conditions across
+    shared geographic spaces, facilitating detection of zoonotic disease emergence,
+    vectorborne disease risk mapping, and foodborne outbreak source attribution that
+    require integration of human, veterinary, and environmental data streams referenced
+    to common geographic entities. In health disparities research and social determinants
+    of health studies, GEO enables standardized representation of neighborhood-level
+    contextual variables (socioeconomic status, built environment, food access, healthcare
+    facility distribution) linked to census geographies, supporting multilevel regression
+    models that quantify how place-based factors influence individual health outcomes
+    while properly accounting for geographic clustering and spatial autocorrelation.
+    Clinical trial site selection and patient recruitment benefit from GEO's representation
+    of healthcare facility catchment areas, travel time isochrones, and residential
+    locations, enabling optimization of site networks to ensure diverse geographic
+    representation and minimize patient travel burden while meeting enrollment targets.
+    For environmental health research examining air quality, water contamination,
+    climate exposures, or built environment features, GEO provides the semantic framework
+    for linking environmental measurements (monitoring station data, remote sensing
+    observations, land use classifications) to population exposures through spatial
+    joins and proximity analyses that account for geographic boundaries and mobility
+    patterns. GEO's computational tractability supports automated geocoding pipelines
+    that standardize free-text location descriptions into ontology terms, quality
+    control workflows that validate geographic coordinates fall within appropriate
+    administrative boundaries, and data harmonization processes that reconcile geographic
+    identifiers across datasets using different geographic classification schemes
+    (ZIP codes versus census tracts, health districts versus counties). The ontology
+    facilitates multi-site research collaborations and federated data networks by
+    providing common geographic reference terms that enable privacy-preserving spatial
+    analyses where exact addresses are obscured but coarse geographic regions (e.g.,
+    county, metropolitan area) are shared for population-level inference. Machine
+    learning applications in spatial epidemiology and disease prediction models leverage
+    GEO terms as features encoding geographic context, enabling models to learn associations
+    between location characteristics and health outcomes while generalizing across
+    geographic scales through the ontology's hierarchical structure. GEO is maintained
+    through community curation with updates reflecting changes in political boundaries,
+    new administrative divisions, evolving urban/rural classifications, and refinements
+    to spatial relationship definitions informed by use cases in biomedical research
+    and public health practice.
   requires_registration: false
   url: https://github.com/ufbmi/geographical-entity-ontology/
 - id: B2AI_STANDARD:459
