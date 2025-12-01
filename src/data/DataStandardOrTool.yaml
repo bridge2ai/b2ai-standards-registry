@@ -19464,7 +19464,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/leeper/csvy
   is_open: true
   name: CSVY
-  purpose_detail: CSVY is a file format combining CSV with a YAML header.
+  purpose_detail: CSVY is a lightweight file format that enhances comma-separated
+    values (CSV) files by embedding a YAML metadata header at the beginning of the
+    file, enabling self-describing tabular datasets that combine the simplicity and
+    ubiquity of CSV with structured metadata that documents data provenance, column
+    definitions, licenses, and processing history. The format consists of a YAML
+    front matter section delimited by triple-dash lines (---) followed by standard
+    CSV data, allowing a single file to carry both human-readable and machine-readable
+    documentation alongside the actual data values. The YAML header can specify field
+    names, data types, units of measurement, missing value codes, column descriptions,
+    dataset-level metadata like title, author, creation date, version, license terms,
+    and citations, making CSVY particularly valuable for open science, data repositories,
+    and reproducible research where data provenance and documentation are essential.
+    Unlike traditional CSV files that rely on external documentation or README files
+    to explain column meanings and data collection context, CSVY embeds this information
+    directly within the data file itself, reducing the risk of metadata loss when
+    files are shared, archived, or transferred between collaborators. The format maintains
+    full backward compatibility with CSV parsers when they ignore the YAML header,
+    while CSVY-aware tools can extract both the metadata and data, enabling applications
+    to automatically validate data types, apply unit conversions, handle missing values
+    according to documented conventions, and present contextual information to users.
+    CSVY has gained adoption in scientific computing, environmental monitoring, survey
+    research, and government open data initiatives where datasets require rich documentation
+    but must remain accessible to users with basic spreadsheet tools. Programming
+    libraries in R (csvy package), Python (pandas with yaml), and Julia provide native
+    CSVY support, allowing researchers to read metadata-annotated tabular data with
+    a single function call that populates data frames with appropriate column types
+    and preserves documentation in object attributes. The format addresses a common
+    pain point in data science workflows where CSV files are exchanged without adequate
+    context about variable definitions, measurement protocols, or quality flags, often
+    leading to misinterpretation or improper analysis. For machine learning applications,
+    CSVY enables self-documenting training datasets where the header can specify feature
+    engineering details, class labels, train/test splits, preprocessing steps, and
+    benchmark results, facilitating reproducibility and proper citation of datasets
+    used in published models. CSVY exemplifies the trend toward literate data formats
+    that integrate documentation with data representation, making tabular datasets
+    more FAIR (Findable, Accessible, Interoperable, Reusable) compliant while maintaining
+    the practical simplicity that has made CSV a universal data exchange format for
+    decades.
   requires_registration: false
   url: https://github.com/leeper/csvy
 - id: B2AI_STANDARD:885
