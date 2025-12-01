@@ -19978,8 +19978,50 @@ data_standardortools_collection:
   - B2AI_ORG:114
   is_open: true
   name: ASCII File Format Guidelines for Earth Science Data
-  purpose_detail: American Standard Code for Information Interchange (ASCII) file
-    format guidelines for NASA Earth science data.
+  purpose_detail: The ASCII File Format Guidelines for Earth Science Data is a NASA
+    Earth Science Data and Information System (ESDIS) standard (ESDS-RFC-027v1.1)
+    that establishes conventions for structuring plain-text ASCII files to store,
+    distribute, and archive Earth science measurements, model outputs, and derived
+    products in a human-readable, platform-independent format that remains accessible
+    across decades of data preservation while supporting automated ingestion into
+    scientific analysis workflows. Developed to address the proliferation of inconsistent
+    ASCII file formats across NASA missions and data centers, the guidelines specify
+    best practices for file organization including mandatory header sections containing
+    metadata (data provider, creation date, geographic coverage, temporal range, variable
+    definitions, units of measurement, missing value codes, quality flags), delimited
+    data records (comma-separated, tab-separated, or fixed-width columns), and documentation
+    of coordinate systems and datum references essential for geospatial data interpretation.
+    The standard emphasizes self-describing files where all information necessary
+    to interpret the data is embedded within the file itself, reducing dependency
+    on external documentation that can be lost or separated from data files during
+    long-term archival or inter-institutional data sharing. ASCII format conventions
+    include character encoding specifications (7-bit ASCII for maximum compatibility),
+    line terminator guidelines (handling platform differences between Unix, Windows,
+    Mac), numeric precision recommendations, date/time representation standards (ISO
+    8601 preferred), and strategies for representing hierarchical or multidimensional
+    data within the inherent flatness of text files. The guidelines address practical
+    considerations for Earth science data including representation of gridded datasets
+    (latitude/longitude arrays, satellite swath data, model output grids), time series
+    from ground stations and buoys, trajectory data from aircraft and autonomous vehicles,
+    and derived products like statistical summaries and aggregated climatologies.
+    While acknowledging that binary formats (NetCDF, HDF5, GeoTIFF) are more efficient
+    for large-scale scientific datasets, the ASCII guidelines serve critical use cases
+    including rapid prototyping and exploratory analysis, data exchange with legacy
+    systems and non-specialist users, archival copies for human readability and format
+    migration resilience, and compliance with data publication requirements from journals
+    and funding agencies mandating human-readable supplementary data files. For interdisciplinary
+    research connecting Earth science with biomedical and public health applications,
+    ASCII representations of environmental exposure variables (air quality indices,
+    temperature extremes, precipitation patterns, vegetation indices, land use changes)
+    enable integration with epidemiological datasets often stored in simple text or
+    CSV formats, supporting studies of climate-health relationships, environmental
+    justice assessments, and One Health research connecting human, animal, and ecosystem
+    health. The standard has influenced broader scientific data practices including
+    the design of CSV dialect specifications, contributed to development of metadata
+    standards for observational data, and serves as a reference for NASA Earth science
+    data producers preparing data for distribution through the Earthdata system and
+    long-term preservation in NASA's Earth Observing System Data and Information System
+    (EOSDIS) archive.
   requires_registration: false
   url: https://www.earthdata.nasa.gov/about/esdis/esco/standards-practices/ascii-file-format-guidelines-earth-science-data
   used_in_bridge2ai: true
