@@ -17190,8 +17190,39 @@ data_standardortools_collection:
   formal_specification: https://github.com/idekerlab/cdclixo
   is_open: true
   name: CD-CLiXO
-  purpose_detail: Builds a CDAPS compatible community detection Docker image using
-    CliXO.
+  purpose_detail: 'CD-CLiXO (Community Detection - Clique eXtraction using Overlap)
+    is a containerized implementation of the CliXO algorithm packaged as a Docker
+    image compatible with the Community Detection Analysis Pipeline System (CDAPS),
+    enabling scalable, reproducible hierarchical community detection in large-scale
+    biological and molecular networks. CliXO employs a parameter-free, ontology-based
+    approach to identify overlapping community structures by first detecting maximal
+    cliques (fully connected subgraphs) as seed communities, then merging cliques
+    based on shared membership and topological overlap to build a hierarchical organization
+    of nested communities at multiple scales. The algorithm produces a Directed Acyclic
+    Graph (DAG) representation where nodes represent communities, edges indicate parent-child
+    hierarchical relationships, and each community is annotated with statistical significance
+    scores, member identities, and functional enrichment results when integrated with
+    Gene Ontology, pathway databases, or disease ontologies. CD-CLiXO is particularly
+    effective for protein-protein interaction networks, gene co-expression networks,
+    metabolic networks, and disease-gene association networks where communities correspond
+    to functional modules, protein complexes, biological pathways, or disease mechanisms.
+    The CDAPS-compatible Docker containerization ensures computational reproducibility
+    by encapsulating all dependencies (Python libraries, network analysis tools, statistical
+    packages), enables cloud-based execution on AWS, Google Cloud, or HPC clusters
+    via Singularity, and facilitates integration into automated analysis pipelines
+    with standardized input/output formats (edge lists, node attributes, hierarchical
+    JSON/CX network exchange). For AI and machine learning applications, CD-CLiXO-derived
+    community structures serve as biologically informed features for supervised learning
+    tasks (predicting gene function, disease associations, drug targets), reduce dimensionality
+    of high-dimensional omics data by aggregating measurements at the community level
+    (module eigengene approaches), provide structured priors for graph neural networks
+    (GNNs) by encoding hierarchical inductive biases, enable transfer learning across
+    networks by aligning conserved community structures between species or experimental
+    conditions, support network-based interpretability by mapping deep learning predictions
+    to known functional modules, and facilitate active learning by prioritizing experimental
+    validation of genes in communities with high prediction uncertainty, ultimately
+    bridging data-driven network analysis with mechanistic biological knowledge in
+    systems biology and precision medicine workflows.'
   requires_registration: false
   url: https://github.com/idekerlab/cdclixo
 - id: B2AI_STANDARD:745
