@@ -10585,6 +10585,164 @@ data_standardortools_collection:
       features from EHR data, genomic variant annotations, and large-scale biobank
       datasets where query performance and storage efficiency are critical.
     used_in_bridge2ai: false
+  - id: B2AI_APP:188
+    category: B2AI:Application
+    name: Direct Training from Parquet via Petastorm for Healthcare ML
+    description: Apache Parquet serves as a direct training data format for machine
+      learning pipelines using Petastorm, a Python library enabling TensorFlow, PyTorch,
+      and PySpark to stream training data directly from Parquet files without intermediate
+      format conversion. In healthcare data engineering workflows with Flat FHIR datasets,
+      transforming bulk FHIR data to Parquet format enables training pipelines to
+      read directly from columnar storage with measured read latency of ~0.3 µs/record,
+      significantly faster than row-oriented JSON. Petastorm's integration allows
+      ML frameworks to load and stream untransformed Parquet data into training algorithms,
+      reducing preprocessing overhead and I/O bottlenecks during model training. Healthcare
+      organizations transform large-scale clinical datasets (immunization records,
+      patient observations, medication histories) into Parquet format to achieve superior
+      read/query performance while maintaining compatibility with cloud AI platforms
+      (Google Cloud AI) and major ML frameworks. Parquet's columnar layout with compression
+      (1.2 bytes/record for synthetic Flat-FHIR immunization data) and efficient
+      SQL query execution makes it particularly suitable for analytic and ML workloads
+      where training datasets are repeatedly accessed during hyperparameter tuning,
+      cross-validation, and model development. The approach enables cost savings (potentially
+      millions of dollars) on cloud-hosted ML training through improved storage efficiency
+      and query performance, while supporting direct data exchange between clinical
+      data warehouses and ML training environments without format conversion overhead.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/jamia/ocz207
+    - https://pmc.ncbi.nlm.nih.gov/articles/PMC7153160/pdf/3203152.pdf
+  - id: B2AI_APP:189
+    category: B2AI:Application
+    name: Delta Lake/Delta Parquet for ML Reproducibility and Feature Stores
+    description: Apache Parquet serves as the foundational columnar file format for
+      Delta Lake and Delta Parquet, adding ACID transactions, time-travel capabilities,
+      and versioning on top of Parquet's efficient storage and read performance. In
+      Spark and Databricks-centered ML workflows, Delta Parquet enables reproducible
+      machine learning operations through sophisticated time-travel features that
+      allow rollback to previous dataset versions, critical for experiment reproducibility,
+      model lineage tracking, and regulatory compliance in automotive and healthcare
+      applications. The format excels in feature store creation where training datasets
+      require frequent updates with transactional guarantees, supporting both micro-batch
+      and streaming ingestion patterns with ACID consistency. Delta's integration
+      with Apache Spark provides faster access to versioned data, schema enforcement,
+      and streamlined data governance for large training datasets and historical analytics.
+      ML practitioners leverage Delta Parquet for model training reproducibility,
+      enabling controlled experimentation where specific dataset versions can be referenced
+      for training, validation split repeatability across research teams. The time-travel
+      capabilities support continuous model training scenarios such as autonomous
+      vehicle perception systems where annotation datasets evolve with new labeled
+      images, allowing teams to train on specific annotation versions and compare
+      model performance across dataset evolution. Delta Parquet simplifies debugging
+      ML pipelines by providing snapshot isolation for training runs, supports regulatory-compliant
+      governance through immutable audit trails of dataset changes, and enables efficient
+      storage management through compaction and data skipping optimizations while
+      maintaining Parquet's columnar efficiency for read-intensive ML workloads.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.48550/arxiv.2508.13396
+    - https://doi.org/10.47363/jaicc/2023(2)e241
+  - id: B2AI_APP:190
+    category: B2AI:Application
+    name: Columnar Feature Filtering for Multimodal AI and NLP Pipelines
+    description: Apache Parquet's columnar storage architecture enables efficient
+      filtering and selection of specific features from large multimodal datasets,
+      significantly accelerating preprocessing pipelines for AI models that process
+      text, images, and sensor data. In sentiment analysis and NLP applications, Parquet
+      has been used to store and process millions of text samples with reported significant
+      reductions in data-retrieval time compared to CSV formats, enabling quicker
+      iterations during model training. The columnar layout allows AI pipelines to
+      load only relevant features needed for specific model architectures, lowering
+      memory consumption and speeding processing by avoiding full-record deserialization.
+      For multimodal healthcare AI applications handling diverse data types (clinical
+      text narratives, medical images, wearable sensor streams), standardizing data
+      into unified schemas using Parquet enables models to seamlessly access and process
+      heterogeneous data sources with consistent preprocessing. Parquet's standardized
+      metadata embedded in column headers supports reproducible preprocessing steps
+      (tokenization, lemmatization, normalization) across research teams, improving
+      collaboration in multi-institution NLP projects where consistent data handling
+      is critical. The format's schema evolution capabilities allow models to adapt
+      as feature sets expand with new clinical variables, imaging biomarkers, or sensor
+      modalities without requiring complete dataset reprocessing. In production ML
+      pipelines, Parquet's efficient column pruning enables real-time feature serving
+      where inference requests selectively load feature subsets for specific model
+      endpoints, reducing latency and compute costs compared to formats requiring
+      full-record reads. The combination of compression, selective column access,
+      and standardized metadata makes Parquet particularly effective for iterative
+      feature engineering workflows where data scientists experiment with different
+      feature combinations during model development.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.47363/jaicc/2023(2)e241
+  - id: B2AI_APP:191
+    category: B2AI:Application
+    name: Lakehouse Bronze Layer for Cost-Efficient ML Training Data Storage
+    description: Apache Parquet is recommended as the storage format for raw, immutable
+      "bronze" layers in modern data lakehouse architectures, serving as the cost-efficient,
+      read-optimized foundation for feature engineering and model training pipelines.
+      In hybrid lakehouse designs combining Parquet and Delta Lake, Parquet handles
+      stable, read-intensive analytical workloads and serves as "the backbone for
+      cross-engine compatibility—ideal for lightweight analytics and ML model training."
+      The format's unmatched cost efficiency for read-only analytics makes it particularly
+      suitable for archival training datasets that are written once and read repeatedly
+      during model development, hyperparameter tuning, and ensemble training. Parquet's
+      marginally higher write throughput compared to transactional formats enables
+      efficient bulk loading of large-scale training corpora from batch ETL processes,
+      though it requires manual version directories for maintaining multiple dataset
+      snapshots, adding complexity compared to native versioning in Delta/Iceberg.
+      For ML workflows, the bronze Parquet layer stores raw or minimally processed
+      data (e.g., deduplicated sensor readings, parsed clinical notes, normalized
+      imaging metadata) that feeds feature engineering pipelines producing curated
+      "silver" and "gold" datasets. The approach optimizes cloud storage costs by
+      using Parquet for high-volume, infrequently modified training data while reserving
+      more expensive transactional formats for actively updated feature tables and
+      serving layers. Parquet's cross-engine compatibility ensures training datasets
+      remain accessible to diverse ML frameworks (TensorFlow, PyTorch, scikit-learn,
+      XGBoost) and compute engines (Spark, Dask, Ray, Polars) without vendor lock-in,
+      enabling organizations to experiment with different ML stacks without data migration
+      overhead. The bronze layer pattern supports data lineage and reproducibility
+      by preserving immutable source datasets while allowing downstream curated datasets
+      to evolve independently, critical for regulated ML applications in healthcare
+      and finance requiring audit trails of training data provenance.
+    used_in_bridge2ai: false
+    references:
+    - https://irjernet.com/index.php/fecsit/article/view/237/196
+  - id: B2AI_APP:192
+    category: B2AI:Application
+    name: Cross-Framework ML Training Data Exchange and Cloud Cost Optimization
+    description: Apache Parquet serves as the standard interchange format for machine
+      learning training datasets across heterogeneous frameworks (TensorFlow, PyTorch,
+      PySpark) and cloud platforms (AWS, Google Cloud, Azure), enabling vendor-neutral
+      data pipelines and substantial cloud cost reductions through efficient storage
+      and query performance. Healthcare AI projects transforming Flat FHIR bulk data
+      to Parquet achieve storage efficiency (1.2 bytes/record for immunization data)
+      and fast query execution, with authors recommending Parquet for large-scale
+      analytic and ML projects where read-optimized access patterns dominate and cloud
+      storage costs significantly impact total cost of ownership. Parquet's compatibility
+      matrix with major ML platforms (TensorFlow Yes, PyTorch Yes, PySpark Yes, Google
+      Cloud AI Yes) ensures training datasets can be shared across research institutions,
+      clinical sites, and cloud environments without format conversion, reducing data
+      engineering overhead and enabling reproducible multi-site ML studies. The format's
+      columnar compression and predicate pushdown capabilities dramatically lower
+      data transfer costs in cloud environments where egress charges apply, as queries
+      retrieve only necessary columns rather than full records. For federated learning
+      initiatives spanning multiple hospitals or research centers, Parquet's cross-platform
+      implementations in Java, C++, Python, Go, and Rust through Apache Arrow enable
+      consistent data representation across diverse IT infrastructures without framework-specific
+      dependencies. In production ML systems, Parquet's integration with cloud-native
+      services (AWS S3 Select, BigQuery, Redshift Spectrum, Azure Synapse) enables
+      serverless SQL queries over training datasets for feature exploration, data
+      quality monitoring, and model performance analysis without provisioning compute
+      resources. The combination of high compression ratios (10x-100x), fast selective
+      reads, and broad ecosystem support positions Parquet as the de facto standard
+      for cost-efficient storage and exchange of large-scale ML training corpora,
+      particularly in biomedical domains where multi-modal datasets (genomics, imaging,
+      clinical records) require harmonization across institutions and platforms.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/jamia/ocz207
+    - https://pmc.ncbi.nlm.nih.gov/articles/PMC7153160/pdf/3203152.pdf
+    - https://doi.org/10.47363/jaicc/2023(2)e241
 - id: B2AI_STANDARD:360
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
