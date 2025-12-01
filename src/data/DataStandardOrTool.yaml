@@ -19395,7 +19395,41 @@ data_standardortools_collection:
   formal_specification: https://github.com/pydicom/pydicom
   is_open: true
   name: pydicom
-  purpose_detail: Pydicom is a Python package for working with DICOM images.
+  purpose_detail: Pydicom is a pure Python package that provides comprehensive tools
+    for reading, modifying, and writing DICOM (Digital Imaging and Communications
+    in Medicine) files, serving as the de facto standard library for medical imaging
+    data manipulation in the Python ecosystem. As a foundational dependency for medical
+    imaging AI research and clinical software development, pydicom implements the
+    complex DICOM standard (PS3.5-PS3.10) without requiring external C libraries,
+    making it portable across platforms and compatible with environments from laptops
+    to high-performance computing clusters. The library provides both high-level abstractions
+    for common workflows and low-level access to DICOM data elements, enabling researchers
+    to extract pixel arrays, access metadata tags, handle diverse transfer syntaxes
+    (including compressed formats like JPEG 2000, JPEG-LS, and RLE), and manipulate
+    DICOM data structures programmatically. Pydicom's Dataset class represents DICOM
+    information objects as Python dictionaries, allowing natural Pythonic access to
+    attributes like patient demographics, imaging parameters, and clinical context
+    using standard dictionary notation or attribute-style access with keyword lookups.
+    The library handles multi-frame images, color spaces, overlay data, and private
+    tags, while supporting both implicit and explicit value representations. For AI/ML
+    workflows, pydicom seamlessly integrates with NumPy to convert pixel data into
+    arrays suitable for deep learning frameworks, automatically applying rescale slopes,
+    intercepts, and window/level transformations. It forms the data loading foundation
+    for major medical imaging AI libraries including MONAI (Medical Open Network for
+    AI), TorchIO, and Cornerstone.js, and is extensively used in research pipelines
+    for tasks ranging from tumor segmentation to fracture detection to radiomics feature
+    extraction. Pydicom supports batch processing of large DICOM datasets through
+    memory-efficient streaming, enables conversion between DICOM and research formats
+    like NIfTI, and provides utilities for anonymization and de-identification critical
+    for privacy-compliant research. The library maintains compatibility with thousands
+    of DICOM implementations from medical device manufacturers, handles institution-specific
+    private tags, and supports DICOM-RT (radiotherapy) structures, DICOM-SR (structured
+    reports), and DICOM-SEG (segmentation) objects increasingly used in clinical AI
+    deployments. With over 1 million monthly downloads and adoption by virtually all
+    Python-based medical imaging projects, pydicom has become indispensable infrastructure
+    for translating medical images from clinical PACS systems into AI/ML pipelines
+    and returning model predictions in formats compatible with clinical workflows
+    and regulatory requirements.
   related_to:
   - B2AI_STANDARD:98
   requires_registration: false
