@@ -1244,9 +1244,58 @@ data_standardortools_collection:
   - B2AI_ORG:10
   is_open: true
   name: CMMN
-  purpose_detail: A common meta- model and notation for modeling and graphically expressing
-    a case as well as an interchange format for exchanging case models among different
-    tools.
+  purpose_detail: 'Case Management Model and Notation (CMMN) is an Object Management
+    Group (OMG) standard that defines a common meta-model, graphical notation, and
+    XML-based interchange format for modeling and expressing adaptive case management
+    processes, designed to complement BPMN by capturing work methods that involve
+    unpredictable activity sequences, knowledge worker decision-making, and event-driven
+    responses to evolving situations rather than rigidly structured process flows.
+    CMMN centers on the concept of a case as a living information container that aggregates
+    all relevant data, documents, and relationships for a particular matter (patient
+    treatment, legal case, insurance claim, research project), with a case file serving
+    as the central repository that evolves dynamically as the case progresses through
+    various stages and milestones. The notation provides graphical symbols for case
+    plan modeling including discretionary tasks that knowledge workers can choose
+    to perform based on their expertise, required tasks with mandatory completion,
+    event listeners that trigger activities when specific conditions occur, sentries
+    (entry and exit criteria) that guard stage transitions using boolean expressions,
+    case file items representing information assets with lifecycle states, milestones
+    marking significant achievement points, and human tasks requiring user interaction
+    with form-based data collection. CMMN supports the Adaptive Case Management paradigm
+    where humans remain "firmly in the driver''s seat" making contextualized decisions
+    while the system provides structure, suggestions, and automated responses to predictable
+    patterns, enabling flexibility for complex scenarios like clinical care coordination
+    where treatment paths depend on patient-specific factors, diagnostic results,
+    and expert clinical judgment rather than predetermined protocols. The standard
+    defines an XSD schema for serializing case models in XML format with complete
+    semantic preservation, enabling tool interoperability where case definitions created
+    in one CMMN-compliant platform can be exchanged, imported, and executed in another,
+    supporting collaborative process design across organizational boundaries. CMMN
+    integrates with the OMG "triple crown" of process improvement standards: BPMN
+    for structured predictable processes, CMMN for adaptive knowledge-intensive work,
+    and DMN (Decision Model and Notation) for explicit business rule specification,
+    allowing organizations to model hybrid workflows where standardized BPMN subprocesses
+    can be embedded within CMMN cases and decisions can be delegated to DMN decision
+    tables with inputs from the case file. In healthcare and biomedical research,
+    CMMN is particularly valuable for modeling patient care pathways where treatment
+    decisions depend on longitudinal observations and multidisciplinary consultation,
+    clinical trial management where protocol deviations require documented case-by-case
+    assessments, rare disease diagnosis workflows involving iterative testing and
+    specialist referrals, personalized medicine programs tailoring interventions to
+    genetic profiles and biomarker responses, and research data management where data
+    collection, quality control, and analysis activities adapt to preliminary findings
+    and emerging hypotheses. For AI and machine learning applications, CMMN provides
+    a framework where case file data can train predictive models to suggest next-best
+    actions (recommending diagnostic tests based on symptom patterns and prior case
+    outcomes), ML-generated risk scores and classification results can populate case
+    file items triggering sentries that automatically initiate appropriate response
+    protocols, natural language processing can extract structured information from
+    case notes and clinical narratives to enrich the case file, reinforcement learning
+    agents can optimize case routing and resource allocation by learning from historical
+    case resolution patterns, and human-in-the-loop ML systems can embed model predictions
+    as discretionary tasks where domain experts review AI suggestions before taking
+    action, creating audit trails documenting the interplay between automated intelligence
+    and human expertise throughout case lifecycles.'
   requires_registration: false
   url: https://www.omg.org/cmmn/
 - id: B2AI_STANDARD:39
