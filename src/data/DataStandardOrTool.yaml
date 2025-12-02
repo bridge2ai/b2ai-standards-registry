@@ -15313,8 +15313,59 @@ data_standardortools_collection:
   formal_specification: https://github.com/bio-tools/biotoolsregistry/
   is_open: true
   name: bio.tools
-  purpose_detail: Registry of software tools, databases and services for bioinformatics
-    and the life sciences.
+  purpose_detail: 'bio.tools is a comprehensive, community-driven registry and portal
+    for bioinformatics software tools, databases, and services developed under the
+    ELIXIR Tools Platform, providing standardized descriptions and metadata for over
+    27,000 resources spanning genomics, proteomics, structural biology, systems biology,
+    clinical informatics, and computational biology workflows. Each registered tool
+    entry follows the biotoolsSchema specification defining structured metadata fields
+    including tool name, description, homepage URL, version information, programming
+    language, operating system compatibility, license type, publication citations,
+    and crucially, semantic annotations using EDAM ontology (EDAM - ontology of bioinformatics
+    operations, data types, formats, and topics) terms that classify tools by their
+    function (e.g., "Sequence alignment", "Variant calling", "Phylogenetic tree generation"),
+    input/output data types (e.g., "Protein sequence", "Gene expression matrix", "Pathway
+    diagram"), supported file formats (e.g., "FASTA", "VCF", "BAM/SAM"), and scientific
+    application topics (e.g., "Transcriptomics", "Metagenomics", "Drug discovery"),
+    enabling precise semantic search and automated tool discovery. The registry provides
+    RESTful API access allowing programmatic queries to retrieve tool metadata, filter
+    by EDAM annotations, search by keywords or identifiers (biotools IDs, DOIs, PMIDs),
+    and integrate bio.tools data into external systems including workflow management
+    platforms (Galaxy, Nextflow, Snakemake), package managers (Bioconda, BioContainers),
+    and institutional tool catalogs. bio.tools implements quality metrics for entries
+    including information completeness scores, citation counts, version currency indicators,
+    and community ratings, with curation workflows supported by community moderators
+    who review submissions, validate metadata accuracy, resolve duplicate entries,
+    and maintain EDAM annotation consistency. The platform serves as the authoritative
+    tool registry for ELIXIR infrastructure connecting 23 European research organizations,
+    integrating with ELIXIR Core Data Resources (UniProt, ENA, PDB, EMBL-EBI services),
+    supporting findability through schema.org markup for search engine indexing, and
+    providing training materials and documentation for tool developers to register
+    and maintain their resources. bio.tools facilitates reproducibility in computational
+    biology by providing persistent identifiers (biotools IDs like biotools:blast)
+    for citing tools in publications and methods sections, versioning information
+    to document exact tool versions used in analyses, and links to containerized deployments
+    (Docker, Singularity) ensuring long-term availability. For AI and machine learning
+    applications in bioinformatics, bio.tools enables systematic tool landscape analysis
+    where researchers can use API queries and EDAM annotations to identify all available
+    tools for specific tasks (e.g., retrieving the 200+ tools annotated with "Machine
+    learning" operation, filtering by input data types to find ML tools accepting
+    gene expression matrices), supports automated workflow composition where workflow
+    engines can discover compatible tools by matching output data types of one tool
+    to input requirements of downstream tools using EDAM semantic relationships, facilitates
+    meta-research on bioinformatics software ecosystems through network analysis of
+    tool relationships (citation networks, input/output compatibility graphs, co-usage
+    patterns from workflow repositories), enables recommendation systems that suggest
+    relevant tools to users based on their data types and analysis objectives by learning
+    from historical tool usage patterns and EDAM ontology structure, supports benchmarking
+    studies comparing multiple tools for the same task where bio.tools metadata provides
+    the tool universe and EDAM annotations ensure fair comparisons across functionally
+    equivalent implementations, and allows training of natural language processing
+    models to automatically extract tool mentions from scientific literature and map
+    them to canonical bio.tools entries using the rich metadata and publication linkage,
+    creating comprehensive maps of which computational methods are actually used across
+    different research domains and facilitating evidence-based tool selection in automated
+    analysis pipelines.'
   requires_registration: false
   url: https://bio.tools/
 - id: B2AI_STANDARD:705
