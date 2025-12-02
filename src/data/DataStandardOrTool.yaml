@@ -1417,7 +1417,71 @@ data_standardortools_collection:
   formal_specification: https://evs.nci.nih.gov/ftp1/CDISC/ADaM/
   is_open: true
   name: CDISC ADaM
-  purpose_detail: Controlled terminology for data analysis and assessments.
+  purpose_detail: 'CDISC ADaM (Analysis Dataset Model) Controlled Terminology is a
+    comprehensive standardized vocabulary maintained by the NCI Enterprise Vocabulary
+    Services (EVS) that defines the semantic concepts, codes, and codelists required
+    for creating analysis-ready datasets in clinical trials following the CDISC ADaM
+    standard, enabling consistent representation of derived variables, analysis parameters,
+    statistical methodologies, and data derivation techniques used in regulatory submissions
+    to FDA, EMA, and other health authorities. The terminology encompasses multiple
+    codelist categories including Derivation Type (DTYPE) defining 30+ imputation
+    and data derivation methods (LOCF last observation carried forward, BOCF baseline
+    observation carried forward, AVERAGE, MAXIMUM, MINIMUM, INTERPOLATION, EXTRAPOLATION,
+    LLOQ lower limit of quantification, PHANTOM record creation for missing visits,
+    ML maximum likelihood), Date and Time Imputation Flags (DATEFL, TIMEFL) indicating
+    the level of imputation for partial dates (Y for year imputed, M for month-day
+    imputed, D for day imputed, H/M/S for time components), Parameter Type (PARAMTYP)
+    distinguishing derived parameters calculated from other parameters versus directly
+    observed measurements, Analysis Stratum (STRATA) defining subgroup variables like
+    age categories, race, sex, tobacco product use status for stratified analyses,
+    Subject Trial Status (SBJTSTAT) tracking completion/discontinuation/ongoing enrollment,
+    and Pool for Integration (POOLINT) identifying combined datasets across multiple
+    studies for integrated safety and efficacy analyses. ADaM terminology includes
+    extensive support for clinical assessment instruments with parameter codes and
+    names for validated scales: APACHE II (Acute Physiology and Chronic Health Evaluation
+    II) with 20+ clinical parameters and total acute physiology score calculations,
+    CHART-SF (Craig Handicap Assessment and Reporting Technique-Short Form) covering
+    physical independence, cognitive independence, mobility, occupation, social integration,
+    and economic self-sufficiency subscores across 19 questionnaire items, GAD-7 (Generalized
+    Anxiety Disorder-7) and GDS (Geriatric Depression Scale Short Form) for mental
+    health assessments, HAMD-17 (Hamilton Depression Rating Scale 17-item), and NEWS2
+    (National Early Warning Score 2) for clinical deterioration monitoring with trigger
+    thresholds. The terminology provides specialized codelists for tobacco regulatory
+    science including Tobacco Product Category Response (TPCATRS) distinguishing cigarettes,
+    cigars, electronic nicotine delivery systems (ENDS), heated tobacco products,
+    roll-your-own products, smokeless tobacco, pipe tobacco, and waterpipe products,
+    Tobacco Product Use Status Response (TPUSRS) classifying current/former/never
+    use states, Tobacco Use Transition Response (TBUTRS) capturing initiation, cessation,
+    relapse, and product switching behaviors, and Input Parameter (INPRM) terms for
+    population modeling including birth rate, mortality probability, net migration
+    rate, prevalence, transition probability for computational models of public health
+    interventions. Each terminology term is mapped to NCI Thesaurus concept codes
+    (C-codes) providing formal definitions, synonyms, and semantic relationships that
+    enable automated reasoning and cross-standard harmonization with other CDISC terminologies
+    (SDTM Study Data Tabulation Model, Protocol, CDASH Clinical Data Acquisition Standards
+    Harmonization). ADaM terminology is maintained as extensible codelists where sponsor
+    organizations can add study-specific terms for novel assessments or custom analyses
+    while preserving the core standard vocabulary, with updates released quarterly
+    incorporating new clinical scales, analysis methodologies, and regulatory requirements
+    as clinical trial practices evolve. For AI and machine learning applications in
+    clinical trial analytics, ADaM controlled terminology enables standardized feature
+    engineering where derivation type codes inform algorithm selection (choosing appropriate
+    imputation methods for missing data - ML models can learn which DTYPE values historically
+    produced most accurate predictions for specific endpoint patterns), automated quality
+    control by training classifiers to detect inconsistent terminology usage across
+    analysis datasets flagging non-standard codes that may indicate data processing
+    errors, meta-analysis and cross-study learning where standardized parameter codes
+    allow pooling of results across trials (ML models trained on CHART-SF or GAD-7
+    parameters from thousands of subjects across multiple studies to predict treatment
+    response patterns), natural language processing to extract analysis specifications
+    from statistical analysis plans and automatically generate corresponding ADaM
+    terminology codelists, reinforcement learning for adaptive clinical trial designs
+    where agents select optimal imputation strategies (LOCF vs BOCF vs ML estimation)
+    based on interim analysis results, and federated learning across pharmaceutical
+    companies where ADaM terminology provides the common semantic layer enabling collaborative
+    model training on pooled efficacy/safety data without exposing proprietary study
+    details, all while maintaining regulatory compliance through standardized documentation
+    of every analysis decision and derivation method applied to clinical trial data.'
   related_to:
   - B2AI_STANDARD:42
   - B2AI_STANDARD:43
