@@ -11194,10 +11194,188 @@ data_standardortools_collection:
   - B2AI_ORG:88
   is_open: true
   name: SDMX
-  purpose_detail: SDMX is an initiative to foster standards for the exchange of statistical
-    information.
+  purpose_detail: The Statistical Data and Metadata eXchange (SDMX) standard is an international initiative sponsored by major statistical organizations (IMF, OECD, Eurostat, World Bank, ECB, BIS, UN Statistics Division) providing ISO-standardized technical specifications (ISO 17369) for exchanging and sharing statistical data and metadata, enabling interoperable data flows among national statistical offices, international organizations, central banks, and research institutions through common information models, data structure definitions, and multiple serialization formats (SDMX-ML XML, SDMX-JSON, SDMX-CSV, SDMX-RDF). SDMX models statistical data as multidimensional cubes where observations are indexed by dimensions (time period, geographic area, indicator, sex, age group) and associated with measures (observed values, units, observation status) and attributes (confidentiality flags, estimation methods, data quality annotations), with Data Structure Definitions (DSDs) serving as schemas that specify allowed dimensions, their codelists (enumerated valid values), dimension cardinalities, and constraints, enabling automated validation and semantic interoperability where systems can interpret statistical series without manual codebook consultation. The standard encompasses an information model (conceptual entities: concepts, codelists, category schemes, data flows, organizational schemes defining data providers and recipients), structural metadata (DSDs defining cube structures, concept schemes providing semantic definitions, code lists enumerating dimension values with hierarchies), and reference metadata (methodological notes, collection procedures, quality indicators, revision policies) that together enable comprehensive statistical data documentation supporting reproducible research and informed reuse. SDMX Registry services provide centralized metadata repositories where organizations publish DSDs, codelists, and dataflow definitions with persistent identifiers, enabling consuming applications to discover available datasets, retrieve structural metadata to interpret data, and access reference metadata documenting quality and methodology, with SDMX web services (RESTful APIs and SOAP endpoints) supporting both metadata queries (retrieve DSDs for dataset X) and data queries (retrieve GDP series for OECD countries 2010-2020) with filtering by dimension values, time ranges, and aggregation levels. Common serialization formats include SDMX-ML (XML-based verbose format with full structural annotations), SDMX-JSON (lightweight format for web applications and JavaScript clients), SDMX-CSV (tabular format with embedded metadata headers for spreadsheet compatibility), and SDMX-RDF (linked data representation using W3C Data Cube vocabulary with sdmx-dimension, sdmx-measure, sdmx-attribute properties enabling SPARQL queries and integration into knowledge graphs), supporting diverse consumption patterns from web dashboards to statistical analysis tools to machine learning pipelines. Cross-domain exchange relies on SDMX Global Registry (maintained by SDMX consortia) hosting authoritative codelists (ISO 3166 country codes, ISO 4217 currency codes, ISO 639 language codes, SNA 2008 economic classifications) and cross-domain concepts (reference areas, time periods, frequencies, units of measure) enabling semantic alignment where GDP data from Eurostat, World Bank, and IMF use shared dimension definitions and codes, facilitating federated queries and comparative analysis across sources. The standard supports hierarchical and temporal codelists where dimension values nest (countries within regions, industries within sectors, months within quarters) enabling drill-down analysis and aggregation, with validity periods documenting when codes are active (e.g., currency codes before/after Euro adoption, country codes before/after political changes) ensuring correct temporal interpretation. SDMX adoption spans global statistical production with 80+ implementing organizations including all G20 statistical offices, over 150 published DSDs covering national accounts, labor statistics, prices, trade, finance, health, education, and environment domains, and thousands of registered dataflows with billions of observations exchanged annually via SDMX infrastructure, making it the de facto standard for official statistics dissemination. Machine learning and artificial intelligence applications leverage SDMX through natural language question answering systems that parse user queries and map linguistic elements to SDMX dimensions and codelists using Data Structure Definitions to identify relevant tables and dimensions, retrieve numeric values from SDMX web services, and generate responses explaining temporal trends or cross-country comparisons, with evaluation of dimension-value extraction accuracy, table ranking performance, and comparison/aggregation intent detection; programmatic dataset augmentation via SDMX APIs where ML pipelines in economics and finance (gingado library for Python/scikit-learn workflows) automatically retrieve official statistical series through SDMX protocol endpoints to enrich feature matrices with macroeconomic indicators (GDP growth, inflation, unemployment, trade balances) sourced from authoritative providers, supporting empirical testing of performance improvements when SDMX-derived features supplement domain datasets; semantic knowledge graph construction using SDMX vocabularies (sdmx-dimension, sdmx-measure, sdmx-attribute) combined with W3C Data Cube to generate RDF observations representing scientometric indicators, importing structured statistical metadata into graph databases (Neo4j) for graph analytics and explainable AI workflows that reason over semantically coherent indicator relationships; and graph neural network modeling over open statistics knowledge graphs that reuse SDMX-inspired concepts (sdmx:timePeriod for temporal dimensions, sdmx:refArea for geographic areas, sdmx:sex for demographic breakdowns) within linked data cubes, enabling GNN architectures (ChebNet, GCN, GraphSAGE) to predict outcomes (house prices) from spatiotemporal statistical patterns with explainability analysis (GNNExplainer, SHAP) identifying which SDMX-structured dimensions contribute most to predictions, demonstrating how SDMX semantic standardization facilitates AI interpretability on official statistics.
   requires_registration: false
   url: https://sdmx.org/
+  has_application:
+  - id: B2AI_APP:239
+    category: B2AI:Application
+    name: Natural Language Question Answering over SDMX Statistical Databases
+    description: A natural language question answering (QA) system built to interact
+      with SDMX-structured statistical databases enables users to query official statistics
+      in plain English by parsing natural language questions, mapping linguistic elements
+      to SDMX dimensions and codelists via Data Structure Definitions, identifying
+      comparison and aggregation intents, detecting temporal and geographic constraints,
+      ranking candidate SDMX datasets by query relevance, and retrieving numeric values
+      from SDMX web services to generate natural language responses. Implemented over
+      OECD's SDMX web service endpoints covering 12 statistical tables across 3 categories
+      (labor, education, health), the QA system performs module-level AI/NLP tasks
+      including question-type detection classifying queries as value requests or list
+      requests (evaluated on 100 queries), time and location extraction parsing FROM/TO/THAN
+      temporal expressions and geographic mentions (30 queries), comparison operator
+      identification detecting greater-than/less-than/equal relationships (35 queries),
+      aggregation intent recognition identifying count/min/max operations and item
+      enumeration requests (30 queries), topic and table identification selecting
+      relevant SDMX tables from query keywords with Top-1 accuracy 58% and Top-category
+      accuracy 94% (48 queries distinguishing known vs unknown SDMX topics), and dimension-value
+      extraction mapping query terms to specific SDMX dimension values such as SEX=FEMALE
+      or COUNTRY=FRANCE with 78% accuracy (40 queries across 10 tables). The system
+      leverages SDMX metadata structures where Data Structure Definitions list dimensions
+      and codelists (allowed values) enabling semantic matching between natural language
+      terms and standardized codes, and SDMX web services (SOAP/WSDL endpoints) provide
+      programmatic access to multidimensional statistical arrays with cells containing
+      numeric observations. Dataset ranking computes proximity scores based on keyword
+      overlap between user queries and SDMX table metadata (titles, descriptions,
+      dimension labels), presenting top-ranked candidates for user selection when
+      ambiguity persists. Limitations include linguistic pattern coverage restricted
+      to English templates, domain knowledge gaps requiring manual codelist mappings,
+      and difficulty handling multi-hop reasoning across related indicators, but the
+      system demonstrates concrete operational AI/NLP capabilities directly over SDMX
+      infrastructure, enabling non-technical users to access complex official statistics
+      through conversational interfaces without learning SDMX query syntax or navigating
+      multidimensional data catalogs.
+    used_in_bridge2ai: false
+    references:
+    - https://inria.hal.science/hal-03021075/document
+  - id: B2AI_APP:240
+    category: B2AI:Application
+    name: Gingado ML Dataset Augmentation via SDMX Protocol
+    description: Gingado is an open-source Python library for machine learning in
+      economics and finance that leverages the SDMX (Statistical Data and Metadata
+      eXchange) protocol to programmatically augment user-provided datasets with official
+      statistical series from authoritative sources (central banks, statistical offices,
+      international organizations), enabling empirical testing of whether SDMX-sourced
+      macroeconomic indicators improve model performance in prediction and classification
+      tasks. The library integrates with standard ML tooling including scikit-learn
+      workflows, providing utilities for data augmentation where users specify target
+      economic indicators (GDP growth, inflation rates, unemployment percentages,
+      trade balances, interest rates, exchange rates) and gingado automatically retrieves
+      corresponding time series from SDMX web service endpoints (IMF, OECD, Eurostat,
+      World Bank, BIS), aligns temporal frequencies (quarterly, monthly, annual) with
+      user data, handles missing values through forward-filling or interpolation,
+      and merges SDMX series into feature matrices maintaining temporal ordering for
+      supervised learning. SDMX protocol advantages for ML augmentation include standardized
+      dimension definitions ensuring consistent interpretation of time periods, geographic
+      areas, and indicator classifications across data providers; automated metadata
+      retrieval specifying units of measure, seasonal adjustment status, and revision
+      policies enabling appropriate preprocessing; and RESTful API access with filtering
+      by date ranges and country codes reducing manual data collection overhead. Gingado
+      supports benchmarking workflows where models trained on original features are
+      compared against models augmented with SDMX series using cross-validation, with
+      performance metrics (RMSE, MAE, R-squared for regression; accuracy, F1-score
+      for classification) quantifying the marginal contribution of official statistics
+      to predictive accuracy, addressing research questions such as "Do central bank
+      policy rate series improve corporate default prediction?" or "Does trade balance
+      data enhance exchange rate forecasting?" The library provides simulation capabilities
+      for generating synthetic economic scenarios and documentation features for reproducible
+      ML experiments, with SDMX-sourced provenance metadata (data provider, publication
+      date, methodology links) embedded in experiment logs supporting transparent
+      reporting of data sources in research publications and regulatory submissions.
+      Discussions with SDMX technical experts informed library design choices regarding
+      API endpoint selection, codelist mapping strategies, and handling of SDMX versioning
+      where structural definitions evolve over time, ensuring robust data ingestion
+      despite heterogeneity in SDMX implementations across international organizations.
+    used_in_bridge2ai: false
+    references:
+    - https://www.bis.org/publ/work1122.pdf
+  - id: B2AI_APP:241
+    category: B2AI:Application
+    name: SDMX Vocabularies for Scientometric Knowledge Graph Construction
+    description: A scientometric indicator modeling system employs SDMX vocabularies
+      (sdmx-attribute, sdmx-dimension, sdmx-measure) combined with W3C Data Cube
+      ontology to generate machine-readable RDF observations representing research
+      output metrics, enabling automated knowledge graph construction and graph-based
+      analytics suitable for AI and explainable ML workflows. The system extends sdmx-measure:obsValue
+      to represent numeric measures including publication counts, citation totals,
+      researcher headcounts, and postdoctoral researcher numbers, and extends sdmx-dimension:refPeriod
+      to represent temporal intervals (academic years, funding periods) by reusing
+      time interval instances from UK reference data servers, ensuring semantic interoperability
+      with other statistical datasets adhering to SDMX and Data Cube standards. Two
+      interactive Python notebooks (one for multidimensional indicators with multiple
+      grouping dimensions, one for unidimensional indicators with single time dimension)
+      programmatically unpivot CSV input files containing raw scientometric data,
+      generate SDMX-annotated RDF triples in Turtle serialization format, and produce
+      10 output RDF files representing complete observation sets with explicit dimension
+      values, measures, and attributes. Data Structure Definitions declare dimensions
+      (research institution, academic department, funding source, time period), attributes
+      (collection methodology, data quality flags, confidentiality levels), and measures
+      (publication output, citation impact, personnel counts), following SDMX modeling
+      patterns for official statistics but applied to research evaluation context.
+      The generated RDF observations are imported into a Neo4j graph database using
+      the n10s (Neosemantics) plugin via import.fetch commands, creating a property
+      graph representation of scientometric indicators where nodes represent institutions,
+      departments, and time periods connected by edges labeled with SDMX dimension
+      relationships and measure values, enabling CYPHER queries for cross-institutional
+      comparisons, temporal trend analysis, and correlation discovery among research
+      metrics. SKOS (Simple Knowledge Organization System) concept schemes organize
+      indicator taxonomies (publication types, citation impact classes, researcher
+      career stages) with hierarchical broader/narrower relationships, supporting
+      aggregation queries such as "total publications across all natural science departments"
+      by traversing SKOS hierarchies. While the system does not explicitly demonstrate
+      downstream AI/ML models in the documented work, the resulting SDMX-structured
+      knowledge graph provides foundational infrastructure commonly used for graph
+      neural networks, knowledge graph embeddings, link prediction, and explainable
+      AI systems that require semantically consistent, machine-readable statistical
+      observations with explicit provenance and quality metadata, illustrating how
+      SDMX vocabularies extend beyond economic statistics to support AI-ready knowledge
+      graphs in scientometrics and research evaluation domains.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/s40537-022-00562-x
+  - id: B2AI_APP:242
+    category: B2AI:Application
+    name: Graph Neural Networks on SDMX-Inspired Open Statistics Knowledge Graphs
+    description: Graph Neural Network (GNN) models for predictive analytics over open
+      government statistics leverage SDMX-inspired concepts (sdmx:timePeriod for temporal
+      dimensions, sdmx:refArea for geographic regions, sdmx:sex for demographic breakdowns)
+      within linked data cubes constructed using W3C Data Cube vocabulary, demonstrating
+      how SDMX semantic standardization facilitates explainable AI on spatiotemporal
+      official statistics. A house price estimation system for Scotland constructs
+      an open statistics knowledge graph by integrating multiple linked data sources
+      (Scottish Statistics census indicators, geographic boundary datasets, temporal
+      reference series) where observations are structured as RDF triples following
+      Data Cube patterns with dimensions borrowed from UK Government Linked Data Working
+      Group definitions that draw inspiration from SDMX guidelines, ensuring consistent
+      semantic annotation of statistical dimensions across datasets. The knowledge
+      graph is queried via SPARQL to extract feature vectors for machine learning,
+      with each house sale record linked to spatiotemporal context through SDMX-style
+      dimensions (sdmx:timePeriod connecting sales to quarterly or monthly time slices,
+      sdmx:refArea linking properties to census output areas and administrative regions,
+      demographic dimensions capturing population characteristics, age distributions,
+      employment statistics, and deprivation indices at multiple geographic granularities).
+      Three GNN architectures are evaluated Chebyshev Spectral Graph Convolution (ChebNet)
+      using polynomial filters for localized spatial feature aggregation, Graph Convolutional
+      Network (GCN) applying first-order approximations for efficient neighborhood
+      aggregation, and GraphSAGE sampling fixed-size neighborhoods to enable scalable
+      inductive learning on large graphs—each trained to predict house prices by learning
+      representations that encode both property-specific features and graph-structured
+      relationships among geographic areas, temporal periods, and demographic indicators.
+      Explainability analysis via GNNExplainer identifies which SDMX-aligned dimensions
+      (time periods with specific economic conditions, geographic areas with characteristic
+      demographics, interactions between temporal trends and spatial patterns) contribute
+      most to price predictions for individual properties, with SHAP (SHapley Additive
+      exPlanations) values quantifying marginal contributions of each dimension to
+      model outputs, enabling interpretable insights such as "price increase driven
+      primarily by temporal dimension indicating post-recession recovery period combined
+      with refArea indicating proximity to urban employment centers." The SDMX-inspired
+      semantic structure ensures that explanations reference standardized dimension
+      concepts (time, geography, demographics) with clear definitions and hierarchical
+      relationships (neighborhoods within districts, months within years), supporting
+      transparent communication of model reasoning to non-technical stakeholders including
+      policymakers, real estate professionals, and regulatory auditors. While the
+      system reuses SDMX-inspired concepts rather than directly consuming SDMX APIs
+      or official SDMX-ML/SDMX-JSON data streams, it demonstrates operational benefits
+      of SDMX semantic modeling for AI workflows shared dimension vocabularies enable
+      seamless integration of heterogeneous statistical sources, hierarchical codelists
+      support multi-resolution spatial and temporal aggregation, and standardized
+      metadata facilitate automated feature engineering where GNN input graphs are
+      constructed programmatically from SPARQL queries over Data Cube observations
+      without manual schema mapping, collectively illustrating how SDMX-aligned linked
+      data infrastructure enhances reproducibility, interoperability, and explainability
+      in statistical machine learning applications.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3390/technologies12080128
 - id: B2AI_STANDARD:381
   category: B2AI_STANDARD:DataStandard
   collection:
