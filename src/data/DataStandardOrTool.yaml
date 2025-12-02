@@ -1310,9 +1310,68 @@ data_standardortools_collection:
   description: Case Report guidelines
   is_open: true
   name: CARE
-  purpose_detail: The CARE guidelines provide a framework that supports transparency
-    and accuracy in the publication of case reports and the reporting of information
-    from patient encounters.
+  purpose_detail: 'The CARE (CAse REport) guidelines are internationally developed
+    reporting standards created by an expert group to improve the accuracy, transparency,
+    and usefulness of medical case reports by providing a structured checklist and
+    framework for documenting individual patient encounters, clinical observations,
+    and treatment outcomes with explicit focus on why particular observations are
+    important in the context of existing knowledge. The CARE checklist comprises 13
+    items organized across four main sections: Title (indicating case report with
+    key identifying information), Keywords (2-5 words identifying topics), Abstract
+    (structured summary with Introduction, Patient Information, Clinical Findings,
+    Timeline, Diagnostic Assessment, Therapeutic Interventions, Follow-up and Outcomes,
+    Discussion including takeaway lessons, Patient Perspective), and comprehensive
+    Main Text sections including Introduction (brief background and context with literature
+    review), Patient Information (de-identified demographic and clinical characteristics,
+    chief complaints, relevant medical/family/psychosocial history), Clinical Findings
+    (diagnostic tests, assessment methods, imaging, laboratory results), Timeline
+    (chronological table of key dates and events from symptom onset through treatment
+    and follow-up), Diagnostic Assessment (diagnostic reasoning including differential
+    diagnoses, challenges, prognostic characteristics), Therapeutic Intervention (types
+    of intervention with dosages/durations/administration details, changes to interventions
+    with rationales), Follow-up and Outcomes (clinician- and patient-assessed outcomes
+    including adverse events, test results, treatment adherence, tolerability), Discussion
+    (strengths/limitations, relevant medical literature, rationale for conclusions,
+    takeaway lessons including clinical significance), Patient Perspective (when possible,
+    patient''s own account of symptoms, diagnosis, treatment experiences), and Informed
+    Consent (documentation of patient consent for publication). The guidelines support
+    the EQUATOR Network''s mission to improve health research reporting by helping
+    authors reduce bias risk through systematic documentation requirements, increase
+    transparency through explicit reporting of timeline and decision-making processes,
+    and provide early signals about what interventions work for which patients under
+    which circumstances, particularly valuable for rare conditions, novel treatments,
+    unexpected adverse events, and unusual disease presentations where randomized
+    controlled trials are impractical. CARE guidelines have been endorsed by multiple
+    medical journals and publishers (BMJ Case Reports, Journal of Medical Case Reports,
+    JAMA, Lancet, BMC), translated into multiple languages (Spanish, Portuguese, German,
+    Japanese, Korean, Chinese, Turkish), and integrated into online tools like CARE-writer
+    (an application for organizing, formatting, and writing systematic case reports
+    as preprints or journal submissions). The guidelines benefit multiple healthcare
+    stakeholders: patients reviewing and comparing therapeutic options through transparent
+    outcome reporting, clinicians engaging in peer-to-peer communication at conferences
+    and in communities of practice, researchers developing testable hypotheses from
+    clinical settings (for example, case reports of Zika-associated microcephaly in
+    2016 led to rapid hypothesis generation and public health responses), educators
+    using real-world systematic case reports for case-based learning curricula, authors
+    simplifying the case report writing process through structured guidance, and journal
+    editors implementing standardized peer review criteria. For AI and machine learning
+    applications, CARE-compliant case reports provide high-quality structured training
+    data where the standardized format enables automated extraction of clinical variables
+    (demographics, symptoms, test results, interventions, outcomes) for populating
+    electronic health record databases and clinical data warehouses, natural language
+    processing models can be trained on the consistent narrative structure to identify
+    entities (diseases, drugs, procedures) and relationships (causal links between
+    interventions and outcomes, temporal sequences from timeline sections), case-based
+    reasoning systems can retrieve similar historical cases for differential diagnosis
+    support by comparing structured patient information and clinical findings across
+    repositories, machine learning classifiers can predict treatment success likelihood
+    by learning patterns from follow-up outcome sections across aggregated case reports,
+    phenotype extraction algorithms can identify rare disease characteristics and novel
+    symptom clusters from standardized clinical findings descriptions, and federated
+    learning approaches can train models across distributed case report databases without
+    pooling sensitive patient data by leveraging the common CARE structure for consistent
+    feature representation, enabling meta-analysis of rare events and personalized
+    medicine insights that would be impossible with traditional aggregate study designs.'
   requires_registration: false
   url: https://www.care-statement.org/
 - id: B2AI_STANDARD:40
