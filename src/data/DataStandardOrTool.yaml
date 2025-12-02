@@ -12501,29 +12501,320 @@ data_standardortools_collection:
   - B2AI_ORG:116
   is_open: true
   name: EVI
-  purpose_detail: The Evidence Graph Ontology (EVI) extends core concepts from the
-    W3C Provenance Ontology [PROV-O] to describe evidence for correctness of findings
-    in biomedical publications. The semantic data model in EVI is expressed using
-    OWL2 Web Ontology Language.
+  purpose_detail: "The Evidence Graph Ontology (EVI) extends core concepts from the W3C Provenance Ontology (PROV-O) to provide a formal semantic framework for representing evidence, provenance, and computational reproducibility in biomedical research, specifically designed to support AI-readiness requirements including explainability, auditability, training-data lineage, and transparent model development workflows. Developed within the FAIR (Findable, Accessible, Interoperable, Reusable) data ecosystem and extensively deployed in Bridge2AI projects, EVI enables machine-readable representation of complete evidence chains connecting computational results to their originating datasets, software versions, runtime parameters, execution environments, and responsible personnel, addressing the critical gap between textual descriptions of methods and formal, verifiable records of computational provenance essential for reproducible science and regulatory compliance. The ontology defines classes and properties for modeling Computations (executable processes with specific runtime configurations), Software (versioned code with persistent identifiers), Datasets (input and output data objects with checksums and format specifications), Evidence Graphs (structured provenance networks capturing relationships among these entities via predicates like uses, usedBy, generates, and wasGeneratedBy), and Evidence Objects (nodes in provenance graphs representing specific computational artifacts or data transformations). EVI supports inferential reasoning over evidence graphs through OWL2 semantics, enabling automated queries such as 'trace all datasets contributing to this machine learning model's training set,' 'identify which software versions were used to generate features for classifier X,' or 'verify that all transformation steps from raw clinical data to analysis-ready datasets are documented with checksums and responsible parties.' The ontology is serialized as JSON-LD for web compatibility and embedded within RO-Crate (Research Object Crate) metadata packages, where EVI graphs coexist with Schema.org and DataCite vocabularies to provide comprehensive dataset documentation combining human-readable descriptions with machine-interpretable provenance. EVI's integration with persistent identifier systems (Archival Resource Keys/ARKs, Digital Object Identifiers/DOIs) ensures that every node in an evidence graph—whether representing a dataset, software release, computation run, or derived result—can be assigned a globally unique, resolvable identifier, enabling long-term auditability and cross-repository citation of computational artifacts. Applications span FAIRSCAPE (Framework for FAIR and Scalable Computation and Analytics Processing Engine), a production biomedical analytics platform that creates complete EVI evidence graphs for every computational result (Spark jobs, scripts, workflows, containers) with root graph URIs embedded in result metadata and all objects (datasets, software, computations) assigned persistent IDs resolvable to execution details, supporting machine-interpretable provenance and reproducibility; FAIRSCAPE's AI-readiness extensions that embed EVI provenance graphs within RO-Crate JSON-LD packages alongside data dictionaries, schema definitions, and feature-validation results, with ARK PIDs automatically assigned to RO-Crates, software components, datasets, and computation objects, enabling automated generation of human-readable datasheets from machine-readable provenance to support pre-model explainability (XAI) and training-data readiness assessments; Bridge2AI project guidelines that explicitly recommend EVI (or PROV-O) for machine-readable provenance to trace datasets back to ground-truth sources, document data transformation steps with links to versioned software, identify people and organizations responsible for data collection and processing, and attach checksums for verifiability—practices fundamental to explainable ML, model auditability, and dataset integrity validation; CM4AI (Center for Multi-modal AI) and other Bridge2AI generating consortia that integrate EVI into RO-Crate metadata to connect data files to specific sample identifiers, experiment protocols, and archived software versions (with Zenodo DOIs), enabling reproducible dataset assembly, sample-level provenance tracking, and cross-tool interoperability within ML pipelines; and ML-Ops integration frameworks where EVI evidence graphs are incorporated into ML workflow templates to support defeasible reasoning (reasoning with contestable or revisable claims about data quality and method appropriateness), automated metadata generation from computational logs to populate XAI documentation, and scalable audit trails for model development, training, evaluation, and deployment phases. EVI's defeasible reasoning capabilities—distinguishing between conclusive evidence and evidence subject to revision or reinterpretation—are particularly valuable for AI/ML contexts where data quality assessments, feature engineering decisions, and model performance evaluations may need to be updated as new validation results or bias analyses become available, with the evidence graph maintaining a complete historical record of all revisions and their justifications. The ontology addresses practical AI/ML workflow requirements: training-data lineage tracing ensures that every feature in a training matrix can be traced through transformation pipelines back to raw instrument readings or clinical observations with documented provenance at each step; transformation tracking links each preprocessing operation (normalization, imputation, feature extraction, data augmentation) to specific software versions, parameter settings, and validation results, enabling reproducibility and error diagnosis; integrity verification embeds checksums, file formats, and validation reports in evidence graphs, supporting automated checks that training data matches expected schemas and quality thresholds before model training commences; and actor attribution records which individuals, teams, or automated processes performed each operation, supporting accountability, credit assignment, and regulatory audits. EVI enables pre-model explainability by documenting dataset characteristics, feature distributions, bias assessments, and data-quality metrics in structured provenance graphs that can be queried to answer questions like 'What geographic regions are represented in the training data?' or 'Which data transformation introduced missing values in feature X?'—information essential for interpreting model predictions and identifying potential biases before models are trained. Integration with validation frameworks (Frictionless Data for schema validation, Great Expectations for data quality assertions) allows EVI graphs to incorporate validation results as evidence nodes, linking features to pass/fail status on distributional checks, outlier detection, or fairness metrics, and enabling automated gatekeeping where ML pipelines halt if provenance graphs indicate critical validation failures. The ontology's RO-Crate packaging ensures that EVI provenance travels with datasets across repositories, compute environments, and organizational boundaries, supporting federated learning scenarios where multiple institutions contribute training data and the combined evidence graph documents data sources, harmonization procedures, privacy-preserving transformations, and institutional data use agreements, all resolvable via persistent identifiers without exposing underlying sensitive records. EVI's adoption within Bridge2AI reflects its alignment with FAIR principles and AI-readiness criteria: Findable through persistent identifiers and searchable metadata repositories, Accessible via resolvable URIs and standard APIs, Interoperable through OWL2/RDF semantics and JSON-LD serialization compatible with web frameworks, and Reusable through explicit licensing, detailed provenance, and validation records that enable confident reuse of datasets and computational workflows across projects and institutions."
   requires_registration: false
   url: https://evidencegraph.github.io/EVI/index.html
   used_in_bridge2ai: true
   has_application:
-  - id: B2AI_APP:60
+  - id: B2AI_APP:232
     category: B2AI:Application
-    name: Evidence-Based Biomedical Inference and Literature Mining
-    description: EVI (Evidence Graph) ontology is used in AI applications for representing
-      and reasoning over biomedical evidence from scientific literature, enabling
-      automated hypothesis generation, evidence synthesis, and knowledge graph construction.
-      Machine learning models leverage EVI's formal representation of claims, evidence
-      types, and epistemic confidence to train systems that extract evidence-based
-      relationships from publications, assess the quality and reliability of scientific
-      findings, and generate evidence-weighted knowledge graphs. AI applications include
-      automated systematic review, drug repurposing through evidence integration,
-      and training of large language models that can cite and reason about scientific
-      evidence with appropriate confidence levels. EVI enables AI systems to distinguish
-      between different types of evidence and perform meta-analytic reasoning.
+    name: FAIRSCAPE Computation-Level Provenance and Evidence Graphs
+    description: FAIRSCAPE (Framework for FAIR and Scalable Computation and Analytics
+      Processing Engine) implements the Evidence Graph Ontology (EVI) to create complete,
+      machine-interpretable provenance graphs for every computational result in biomedical
+      analytics workflows, embedding root evidence graph URIs in result metadata and
+      assigning persistent identifiers (PIDs) to all software, datasets, and computation
+      objects for long-term auditability and reproducibility. The framework generates
+      EVI-compliant evidence graphs that link computations to the specific software
+      versions, input datasets, runtime parameters, execution environments (operating
+      system, library versions, container images), and personnel (researchers, data
+      analysts, PIs) involved in producing each result, with all objects assigned
+      globally unique persistent identifiers resolvable to detailed metadata including
+      checksums, timestamps, licenses, and provenance relationships. FAIRSCAPE can
+      execute Apache Spark jobs, Python/R scripts, workflow orchestration systems
+      (Nextflow, Snakemake, CWL), or user-supplied Docker/Singularity containers,
+      preserving complete provenance across heterogeneous execution modes and recording
+      evidence graphs that capture computation-uses-software, computation-uses-input-dataset,
+      computation-generates-output-dataset relationships following EVI's formal semantics.
+      The evidence graph model supports inferential reasoning over provenance, enabling
+      automated queries such as "retrieve all datasets derived from raw instrument
+      file X," "identify which software versions contributed to result Y," or "verify
+      that analysis Z used validated, quality-controlled input data," which are essential
+      for AI/ML workflows requiring training-data lineage, reproducible feature engineering,
+      and audit trails for regulatory submissions. All results are annotated with
+      FAIR metadata using the EVI evidence graph model, ensuring that archived data
+      and software remain accessible, validatable, reproducible, and reusable across
+      projects and institutions, directly supporting explainable AI requirements where
+      model predictions must be traceable to documented data sources and computational
+      methods with verifiable provenance chains.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1007/s12021-021-09529-4
+  - id: B2AI_APP:233
+    category: B2AI:Application
+    name: FAIRSCAPE AI-Readiness Extensions with Pre-Model Explainability
+    description: FAIRSCAPE's AI-readiness extensions operationalize the Evidence Graph
+      Ontology (EVI) to embed deep provenance graphs, data dictionaries, schema definitions,
+      and feature-validation results within RO-Crate JSON-LD packages, supporting
+      pre-model explainability (XAI), training-data readiness assessments, and automated
+      dataset documentation for machine learning workflows. EVI-based provenance captures
+      detailed relationships among computations, software, inputs, and outputs (modeled
+      as "Computation uses Software and Input, usedBy Computation generates Output")
+      and is serialized as JSON-LD for inclusion in RO-Crate metadata files that
+      accompany datasets through packaging, storage, sharing, and reuse across repositories
+      and compute environments. The FAIRSCAPE server assigns Archival Resource Key
+      (ARK) persistent identifiers to every RO-Crate package, software component,
+      dataset, and computation object, creating resolvable evidence chains where each
+      node in the provenance graph can be dereferenced to access detailed metadata,
+      software repositories (Zenodo archives with DOIs), data dictionaries defining
+      feature semantics and measurement units, and validation reports documenting
+      data quality checks (via Frictionless Data JSON Schema generation and Great
+      Expectations rule evaluation). Human-readable datasheets are automatically generated
+      from machine-readable JSON-LD provenance graphs, providing AI/ML practitioners
+      with comprehensive dataset documentation including data sources, transformation
+      steps, responsible parties, quality metrics, known limitations, and intended
+      use cases—information required for informed model development, bias identification,
+      and regulatory compliance. Integration with validation tooling ensures that
+      EVI graphs incorporate feature-level validation results as evidence nodes, linking
+      each feature to pass/fail status on distributional checks (normality tests,
+      outlier detection, range constraints) and enabling automated gatekeeping where
+      ML pipelines halt training if provenance indicates critical validation failures
+      or incomplete data lineage. The combined RO-Crate-plus-EVI approach supports
+      pre-model explainability by documenting dataset characteristics, sample demographics,
+      temporal coverage, missing-data patterns, and known biases before models are
+      trained, enabling practitioners to assess fitness-for-purpose, identify potential
+      fairness issues, and make informed decisions about data preprocessing, feature
+      engineering, and model architecture choices based on documented evidence rather
+      than assumptions.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1101/2024.12.23.629818
+  - id: B2AI_APP:234
+    category: B2AI:Application
+    name: Bridge2AI Training-Data Lineage and Transformation Tracking
+    description: Bridge2AI AI-readiness recommendations explicitly specify using the
+      Evidence Graph Ontology (EVI) or W3C PROV-O for machine-readable provenance
+      to trace datasets back to ground-truth sources, document data transformation
+      steps with links to versioned software, identify responsible people and organizations,
+      and attach verifiability measures (checksums, validation reports) that support
+      explainable ML, model auditability, and dataset integrity validation across
+      collaborative biomedical research projects. The guidelines recommend encoding
+      complete data lineage showing how analysis-ready training datasets derive from
+      raw clinical observations, instrument readings, imaging studies, or omics assays,
+      with each transformation step (quality filtering, normalization, feature extraction,
+      imputation, harmonization across sites) linked to specific software releases
+      archived in sustainable repositories (Zenodo, Software Heritage) with persistent
+      identifiers (DOIs, SWHIDs) and documented parameter settings, enabling reproducibility
+      and error diagnosis when model performance deviates from expectations. Machine-readable
+      provenance formats like EVI enable automated queries over provenance graphs
+      to answer critical questions for AI/ML workflows such as "Which preprocessing
+      operations were applied to this feature?", "What software version performed
+      the data harmonization?", "Which institution contributed samples with characteristic
+      X?", and "Are all transformation steps validated and checksummed?", supporting
+      training-data readiness assessments, model explainability analyses, and regulatory
+      audits. Identification of responsible actors (data collectors, curators, analysts,
+      PIs, institutional data stewards) within provenance graphs supports accountability,
+      credit assignment via scholarly citation of datasets and software, and compliance
+      with data governance policies requiring documentation of who accessed or modified
+      data at each processing stage. Verifiability measures embedded in EVI graphs—including
+      cryptographic checksums (SHA-256) for raw and processed data files, validation
+      reports from schema checkers (Frictionless Data) and quality frameworks (Great
+      Expectations), and data quality metrics (completeness percentages, outlier counts,
+      distributional statistics)—enable automated integrity checks where ML pipelines
+      verify that input data matches expected characteristics before commencing training,
+      and audit systems detect unauthorized modifications or data corruption by comparing
+      current checksums to provenance-recorded values. The integration of EVI-based
+      provenance with dataset documentation standards (Datasheets for Datasets, Healthsheets,
+      Data Cards) ensures that training data for AI models arrives with comprehensive
+      metadata covering data sources, collection methods, preprocessing steps, known
+      limitations, potential biases, privacy protections, and intended use cases—information
+      essential for responsible AI development, fairness assessments, and transparent
+      reporting of model development to regulators, ethics boards, and end-users.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1101/2024.10.23.619844
+  - id: B2AI_APP:235
+    category: B2AI:Application
+    name: CM4AI Dataset Packaging with Sample-Level Provenance and Archived Software
+    description: The Center for Multi-modal AI (CM4AI) functional genomics generating
+      consortium integrates the Evidence Graph Ontology (EVI) into RO-Crate JSON-LD
+      metadata packages alongside Schema.org and DataCite vocabularies to provide
+      sample-level provenance linking data files to specific experiment identifiers,
+      biological sample IDs, and archived software versions with DOIs, enabling reproducible
+      dataset assembly, traceable sample-to-data relationships, and cross-tool interoperability
+      within ML pipelines for genomic analysis. FAIRSCAPE clients employed by CM4AI
+      researchers generate RO-Crate packages that embed dataset schemas (defining
+      features, data types, measurement units, controlled vocabularies), data dictionaries
+      (mapping column names to biological concepts and ontology terms), and EVI-modeled
+      provenance graphs capturing the complete computational lineage of processed
+      datasets from raw sequencing reads or imaging data through quality control,
+      alignment, feature extraction, and normalization steps to analysis-ready matrices
+      suitable for machine learning. Provenance graphs explicitly connect data files
+      to specific biological context—for example, linking chromatin accessibility
+      peak files to the cell line sample IDs (ENCODE accessions, Cellosaurus IDs),
+      experimental protocols (ATAC-seq, ChIP-seq with specific antibody targets),
+      and sequencing platforms used to generate the data—enabling queries such as
+      "retrieve all datasets from HepG2 cells treated with compound X" or "identify
+      replicates with consistent quality metrics across batch Y." Software components
+      used in data processing workflows are archived to Zenodo to obtain Digital Object
+      Identifiers and DataCite metadata records, with ARK persistent identifiers assigned
+      by the FAIRSCAPE server linking provenance graph nodes to specific Zenodo-archived
+      software releases (tagged versions with release notes, documentation, and test
+      datasets), ensuring that every computational step in a dataset's lineage is
+      traceable to a citable, versioned, archived software artifact accessible for
+      inspection, reuse, or validation. The combined EVI-RO-Crate-DataCite approach
+      supports reproducible dataset assembly for ML model development by documenting
+      exactly which samples contributed to training, validation, and test partitions;
+      which preprocessing pipelines and parameter settings were applied to each partition;
+      and which software versions generated derived features or predicted labels,
+      enabling transparent reporting of dataset provenance in publications, regulatory
+      submissions, and data-sharing agreements while facilitating cross-tool interoperability
+      where downstream ML frameworks (scikit-learn, PyTorch, TensorFlow) can parse
+      RO-Crate metadata to automatically configure data loaders, validate feature
+      schemas, and log dataset provenance in experiment tracking systems (MLflow,
+      Weights & Biases).
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.48550/arxiv.2509.10432
+  - id: B2AI_APP:236
+    category: B2AI:Application
+    name: ML-Ops Integration with Automated Metadata and Defeasible Reasoning
+    description: Bridge2AI standards and ML-Ops frameworks integrate the Evidence
+      Graph Ontology (EVI) into machine learning operations pipelines to support defeasible
+      reasoning (reasoning with contestable or revisable evidence about data quality,
+      method appropriateness, and model performance), automated metadata generation
+      from computational logs, and scalable audit trails linking model development,
+      training, evaluation, and deployment phases to documented datasets, software,
+      and responsible parties. EVI's support for defeasible reasoning enables encoding
+      of provisional or contested claims about data and methods—for example, marking
+      a feature as "likely biased based on preliminary fairness analysis, pending
+      expert review" or documenting that "model performance on subgroup X is acceptable
+      under assumption A but requires validation under alternative assumption B"—with
+      evidence graphs maintaining complete revision histories showing when assessments
+      were updated, which evidence prompted revisions, and who authorized changes,
+      supporting transparent documentation of model development decisions and enabling
+      retrospective audits of how data quality concerns or bias findings influenced
+      final model specifications. Integration with ML-Ops templates (MLflow Projects,
+      TensorFlow Extended pipelines, Kubeflow workflows) allows EVI evidence graphs
+      to be automatically generated from execution logs, with nodes representing data
+      ingestion steps, preprocessing operations, hyperparameter tuning runs, training
+      epochs, evaluation metrics, and deployment configurations, and edges capturing
+      dependencies and data flow among these pipeline stages, providing a complete
+      audit trail of the ML development lifecycle without requiring manual documentation
+      by data scientists. Automated metadata generation leverages EVI's structured
+      provenance model to parse workflow logs and extract key information—software
+      versions, dataset identifiers with checksums, hyperparameter settings, compute
+      resources used, training duration, convergence metrics, validation set performance—and
+      populate human-readable datasheets, model cards, and XAI documentation templates
+      that can be automatically updated whenever pipelines are rerun with new data
+      or modified configurations, reducing documentation burden and ensuring that provenance
+      records remain synchronized with actual computational artifacts. The combination
+      of EVI provenance with ML-Ops experiment tracking systems enables queries across
+      development iterations such as "compare validation accuracy across all runs
+      using dataset version 2.1 versus 2.2," "identify which preprocessing variant
+      introduced the feature distribution shift detected in model M," or "trace model
+      N back to the specific training samples that contributed most to its decision
+      boundary," supporting systematic optimization of ML pipelines, root-cause analysis
+      of performance regressions, and evidence-based justification of modeling choices
+      in regulatory submissions or peer-reviewed publications.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.48550/arxiv.2509.10432
+  - id: B2AI_APP:237
+    category: B2AI:Application
+    name: Clinical Metadata Provenance for AI-Ready Health Data
+    description: Clinical and health data applications of the Evidence Graph Ontology
+      (EVI) within Bridge2AI projects focus on capturing protocol-level provenance,
+      linking clinical measurements to controlled terminologies and common data models,
+      and establishing governance-compliant audit trails that support AI-readiness
+      requirements for explainability, computability, and bias identification in multi-site
+      clinical datasets. EVI-based provenance records document measurement protocols
+      (sample collection procedures, assay platforms, instrument calibration records,
+      software versions for clinical analyzers), diagnostic criteria (ICD-10/SNOMED-CT
+      codes with version timestamps), and medication coding (RxNorm identifiers with
+      dosage, frequency, and administration route), linking each recorded observation
+      to the specific protocol, code system version, and responsible clinician or
+      laboratory that generated the data, enabling downstream AI applications to account
+      for measurement heterogeneity across sites, temporal changes in diagnostic criteria
+      (e.g., DSM-5 versus DSM-5-TR), and differences in medication formulations when
+      training models on aggregated clinical data. Integration with common data models
+      (OMOP CDM, FHIR) and controlled terminologies (LOINC for lab tests, SNOMED-CT
+      for diagnoses, RxNorm for medications) is documented in EVI provenance graphs
+      showing which terminology mapping pipelines and concept-set definitions were
+      applied to harmonize heterogeneous source data into standardized representations,
+      supporting reproducible queries across institutions and transparent reporting
+      of cohort definitions, inclusion/exclusion criteria, and feature engineering
+      steps in multi-site ML studies. Governance features enabled by EVI provenance—including
+      audit trails documenting who accessed or modified records (with timestamps and
+      justifications), anomaly monitoring detecting unexpected changes in data distributions
+      or missingness patterns that might indicate quality issues or unauthorized modifications,
+      and version-controlled documentation of data use agreements, institutional review
+      board approvals, and informed consent procedures—support compliance with HIPAA,
+      GDPR, and institutional data governance policies while enabling retrospective
+      analysis of how dataset composition or processing decisions affected model performance
+      or fairness across demographic subgroups. Privacy-preserving practices documented
+      in EVI provenance graphs—such as tiered access controls limiting sensitive fields
+      to authorized researchers, geographic generalization replacing precise locations
+      with census tracts or zip code prefixes, and date shifting applying consistent
+      random offsets to preserve temporal relationships while preventing re-identification—are
+      explicitly recorded as transformation steps with links to responsible data custodians
+      and institutional policies, enabling AI model developers to understand which
+      privacy protections are in effect, assess their impact on model performance
+      (e.g., does date shifting affect longitudinal disease progression models?),
+      and document privacy-preserving data handling in ethics applications and regulatory
+      submissions. Common data quality risks in clinical datasets—including incorrect
+      timestamps from timezone inconsistencies or daylight saving transitions, inconsistent
+      units mixing metric and imperial measurements, and duplicate records from multiple
+      data feeds—are detected through automated quality checks (Great Expectations
+      rules, Frictionless Data schema validation) with results embedded as evidence
+      nodes in EVI graphs, enabling gating mechanisms where ML pipelines refuse to
+      train on data failing critical quality thresholds and alerting data curators
+      to issues requiring manual review or systematic correction across the data warehouse.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.48550/arxiv.2509.10432
+  - id: B2AI_APP:238
+    category: B2AI:Application
+    name: Evidence Graph Structures for Scientific Claim Verification and LLM Augmentation
+    description: Graph-based evidence representations inspired by the Evidence Graph
+      paradigm are applied to scientific claim verification tasks, where sentence-level
+      evidence graphs structure rationales, capture stance relationships, and support
+      retrieval-augmented generation (RAG) pipelines that improve large language model
+      (LLM) reasoning by providing explicit, pruned evidence chains linking claims
+      to supporting or refuting sentences from scientific literature. In claim verification
+      workflows, evidence graphs are constructed with nodes representing sentences
+      extracted from scientific abstracts or full-text articles and edges capturing
+      contextual relationships (same paragraph, same section, citation links), hierarchical
+      document structure (sentence within section within article), or learned semantic
+      similarity (embedding-based nearest neighbors in evidence space), enabling graph-based
+      retrieval (GraphRAG) that selectively retrieves multi-hop evidence paths more
+      effectively than flat vector similarity search by leveraging document structure
+      and inter-sentence dependencies. The verification pipeline operates in three
+      stages enhanced by evidence graph representations first, evidence-paragraph
+      retrieval uses BM25 or dense retrieval to identify candidate documents containing
+      relevant information; second, rationale-sentence selection employs graph-updated
+      sentence embeddings (where node representations are refined via graph neural
+      networks incorporating edge information from the evidence graph) to identify
+      the most salient sentences supporting or refuting the claim; third, stance classification
+      predicts whether each rationale supports, refutes, or provides neutral evidence
+      for the claim, with graph structure enabling multi-rationale aggregation where
+      multiple supporting sentences collectively determine overall stance. Pruning
+      strategies address the risk that fully connected evidence graphs introduce noise
+      and fail to reflect meaningful document structure by retaining only high-confidence
+      edges (sentence pairs with cosine similarity above threshold, adjacent sentences
+      in key sections, citation-linked sentences across papers) and removing spurious
+      connections, resulting in sparser graphs that improve downstream model accuracy
+      by focusing attention on relevant evidence while filtering distractors. Evidence
+      graphs serve as external structured knowledge to augment LLMs through two mechanisms
+      in retrieval-augmented generation (RAG), relevant subgraphs (paths from claim
+      node to evidence nodes with annotated stances) are serialized and inserted into
+      LLM prompts, providing explicit rationale chains that improve reasoning accuracy
+      and enable citation of specific supporting sentences; in fine-tuning or in-context
+      learning, evidence graphs provide training supervision where models learn to
+      follow graph-structured reasoning paths rather than relying solely on semantic
+      encoding in pretrained weights, improving performance on domain-specific scientific
+      verification tasks (SciFact dataset) where specialized knowledge and explicit
+      reasoning chains outperform pure retrieval or generation approaches. The graph-structured
+      rationale approach enhances explainability and auditability by providing interpretable
+      traces for model decisions—each predicted stance can be traced to specific sentence
+      nodes in the evidence graph, which in turn link to source documents with section
+      and paragraph provenance—enabling human reviewers to verify whether model predictions
+      align with cited evidence, identify when models misinterpret context or miss
+      key counterevidence, and assess whether training data contained biased or incomplete
+      evidence graphs that might propagate systematic errors into model predictions.
     used_in_bridge2ai: false
+    references:
+    - https://openreview.net/pdf?id=cYAFwjY2bY
 - id: B2AI_STANDARD:445
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
