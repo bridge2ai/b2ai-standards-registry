@@ -13743,9 +13743,232 @@ data_standardortools_collection:
   - B2AI_ORG:74
   is_open: true
   name: NCBITAXON
-  purpose_detail: An ontology representation of the NCBI organismal taxonomy.
+  purpose_detail: The NCBI Taxonomy Database (NCBITAXON) provides a comprehensive hierarchical classification of over 2 million organisms spanning all domains of life (Bacteria, Archaea, Eukarya, Viruses), maintained by the National Center for Biotechnology Information as the authoritative taxonomic backbone for GenBank, RefSeq, and all NCBI molecular sequence databases, with each taxon assigned a unique stable numerical identifier (NCBI Taxonomy ID) enabling consistent cross-referencing across genomic, proteomic, and literature resources worldwide. Originally developed in the 1990s to organize nucleotide sequence submissions, NCBI Taxonomy has evolved into the de facto standard for organismal classification in bioinformatics, with taxonomic IDs embedded in FASTA headers (e.g., "gi|123456|ref|NP_001234.1| protein [Homo sapiens]" implicitly links to taxid:9606), sequence records (organism field), GenBank features (db_xref="taxon:9606"), UniProt entries (OX line with NCBI taxid), and publication metadata in PubMed Central, creating a universal identifier system that links molecular data to organismal context across millions of database records. The taxonomy encompasses named ranks following Linnaean hierarchy (superkingdom, kingdom, phylum, class, order, family, genus, species) plus unranked intermediate nodes ("clade", "no rank") to capture phylogenetic relationships not fitting classical ranks, with each taxon record including scientific name (binomial nomenclature for species following ICZN/ICBN rules), authority (author and year), common names in multiple languages, synonyms capturing nomenclatural changes, genetic code specifications (nuclear and mitochondrial translation tables essential for correct ORF prediction), lineage strings showing complete paths from root to taxon, and cross-references to external databases (ITIS, GBIF, WoRMS, Index Fungorum). Updates occur continuously as new species are described in literature, taxonomic revisions are published (e.g., bacterial taxonomy shifts from Cavalier-Smith to GTDB-informed classifications), and sequences are deposited for previously unsequenced organisms, with monthly public releases ensuring synchronization across the bioinformatics ecosystem. The OBO Foundry NCBITAXON ontology represents this database in OWL/OBO formats with taxon IDs as URIs (NCBITaxon:9606 for Homo sapiens), taxonomic ranks as relationship types (rdfs:subClassOf chains encoding "is_a" relationships from species through genus/family/order up to superkingdom), and semantic annotations enabling reasoning, SPARQL queries, and integration with other OBO ontologies (Gene Ontology, Uberon anatomy, Environment Ontology). NCBI Taxonomy's scale and coverage present unique challenges: the database includes organisms with minimal molecular data (single barcode sequences), extinct species when historical sequences exist, environmental samples and metagenome-assembled genomes (MAGs) with placeholder taxonomic assignments (e.g., "uncultured bacterium", "environmental samples" subtree with taxid:12908), hybrid organisms, and viral/phage taxonomy reflecting Baltimore classification alongside host relationships, requiring disambiguation strategies in downstream applications. Critical applications span genomics databases (Ensembl, UCSC Genome Browser, NCBI Genome using taxids to organize genome assemblies and enable taxon-specific BLAST), biodiversity informatics platforms (GBIF, iNaturalist, Encyclopedia of Life, Catalogue of Life using NCBI Taxonomy as reconciliation backbone or primary classification source), metagenomics and microbiome studies (QIIME2, mothur, Kraken2, MetaPhlAn assigning amplicon sequence variants and shotgun reads to NCBI taxa and reporting community composition as taxid frequency tables), phylogenetic databases (TimeTree, Open Tree of Life, TreeBASE mapping phylogenetic trees to NCBI taxa for comparative analyses), and literature mining systems (Europe PMC, PubTator Central extracting and normalizing species mentions to NCBI taxids enabling queries like "find all papers mentioning Mycobacterium tuberculosis taxid:1773 and gene BCG_0001"). The taxonomy enables comparative genomics workflows identifying orthologous gene families across taxa, synteny analyses within defined clades, horizontal gene transfer detection requiring taxonomic context to identify donor-recipient relationships, and evolutionary rate calculations dependent on accurate phylogenetic distances encoded in taxonomic hierarchy. Machine learning and artificial intelligence applications leverage NCBI Taxonomy's identifiers, names, and hierarchical structure across natural language processing for species entity recognition and normalization (biomedical NER systems using NCBI taxids as canonical concept identifiers with neural re-ranking models selecting correct taxids from candidate lists generated via NCBI name dictionaries, improving linking accuracy on standard corpora like LINNAEUS and S800), species-to-gene assignment in literature mining (sequence-labeling models using NCBI taxids as structured labels to assign correct species to each gene mention, raising assignment accuracy from 65.8% to 81.3% compared to rule-based baselines, and addressing challenges of 16+ million species names in NCBI Taxonomy scale), metagenomics and microbiome analysis with deep learning classifiers for taxonomic profiling (convolutional and recurrent neural networks trained on 16S rRNA reads using species and genus labels derived from NCBI-aligned reference databases, achieving near-perfect read-level species classification and robust genus assignments for held-out species compared to k-mer alignment and binning baselines, trained on over 13,000 species with taxonomic labels as core supervision), machine learning classification of metagenome-assembled genomes (alignment-free k-mer classifiers outputting complete or partial taxonomic paths with rank-specific confidences, using NCBI taxonomy attached to public genomes as hierarchical labels for training and evaluation, enabling interpretable partial classifications when full species assignment is uncertain), deep learning read and contig classifiers (end-to-end neural networks trained to assign sequencing reads and assembled contigs to NCBI taxonomic references, reporting high species and genus performance with taxonomy providing label backbone and evaluation framework), taxonomy-aware neural network architectures and training objectives (hierarchical softmax models structured by phylogenetic and taxonomic trees using NCBI hierarchy to define output layer clusters, yielding order-of-magnitude training speedups and accuracy improvements on large-class datasets with approximately 5,000 taxonomic classes, contrasting with frequency-based hierarchical softmax approaches), taxonomic entity linking and normalization in ecological and evolutionary literature (dictionary-based NER systems built from NCBI Taxonomy databases enabling entity normalization to canonical names and identifiers, providing high precision but limited recall for vernacular names and newly described taxa, motivating hybrid machine learning augmentation), and taxonomy-informed embeddings and multiple instance learning for microbiome analysis (binning reads by species using NCBI taxonomy to create taxon-level embeddings via methods like GloVe, treating metagenome samples as bags of taxon embeddings for multiple instance learning classifiers including DeepSets and Set Transformers, using amplicon sequence variants aligned to NCBI taxa as embedding matrix rows, and injecting taxonomy trees into neural architectures and loss functions for hierarchical classification with evolutionary context).
   requires_registration: false
   url: http://www.ncbi.nlm.nih.gov/taxonomy
+  has_relevant_application:
+  - id: B2AI_APP:224
+    category: B2AI:Application
+    name: Neural Species Normalization with NCBI Taxonomy as Target Ontology
+    description: A bi-encoder species normalization pipeline uses NCBI Taxonomy as
+      the canonical target ontology for linking species mentions in biomedical text
+      to standardized taxon identifiers. The system constructs a comprehensive dictionary
+      from NCBI Taxonomy names (scientific names, synonyms, common names) and employs
+      BM25 lexical retrieval to generate top-10 candidate NCBI Taxonomy IDs for each
+      detected species mention, addressing the challenge of matching ambiguous or
+      variant textual mentions to over 2 million unique species and 16+ million species
+      names in the NCBI database. A BERT-based neural re-ranker (using bert-base-uncased
+      and BioBERT variants) scores and ranks the candidate taxonomy IDs, with the
+      highest-scoring candidate selected as the normalized entity link. Evaluation
+      on standard species NER corpora (LINNAEUS and S800) demonstrates that BM25+BioBERT
+      achieves superior accuracy compared to BM25 alone and baseline tools (OrganismTagger,
+      ORGANISMS), with the re-ranker correcting semantic and lexical mismatches (e.g.,
+      disambiguating "children" to Homo sapiens taxid:9606 rather than bacterial
+      genus Childrena taxid:525814 based on context). Performance is constrained
+      by candidate generation coverage, as only mentions with at least one correct
+      candidate in the BM25 top-10 can be correctly linked, highlighting NCBI Taxonomy's
+      role as both the source corpus for candidate generation and the structured label
+      space for supervised training and evaluation of neural normalization models.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.48550/arxiv.2310.14366
+  - id: B2AI_APP:225
+    category: B2AI:Application
+    name: Species-to-Gene Assignment via Sequence Labeling with NCBI Taxon IDs
+    description: A hybrid dictionary and machine learning system assigns species information
+      to gene mentions in biomedical literature by treating NCBI Taxonomy IDs as
+      explicit structured labels for sequence-labeling models. The pipeline first
+      performs species named entity recognition using a dictionary-based tagger that
+      maps textual mentions to NCBI Taxonomy IDs (achieving 94.3% F-measure), producing
+      concept identifiers that serve as training and evaluation targets. The species-to-gene
+      assignment task is then framed as sequence labeling rather than pairwise binary
+      classification, reducing computational complexity (avoiding quadratic candidate
+      pairs) while improving accuracy from 65.8% to 81.3% by applying biomedical
+      pre-trained language models (PubMedBERT, Bioformer) that predict which NCBI
+      taxon ID should be assigned to each gene mention based on surrounding context.
+      The approach addresses the scale challenge of NCBI Taxonomy (more than 2 million
+      unique species with over 16 million species names) by combining high-coverage
+      dictionary-based recognition with contextual ML models that resolve ambiguity
+      when multiple species are mentioned in the same sentence or paragraph. The system
+      integrates with gene normalization pipelines (GNormPlus) by embedding species-assignment
+      rules (SR4GN), using NCBI taxids to link genes to their organism of origin
+      and enable organism-specific database queries, demonstrating NCBI Taxonomy as
+      a critical semantic layer connecting biomedical entities across literature mining
+      workflows.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.48550/arxiv.2205.03853
+  - id: B2AI_APP:226
+    category: B2AI:Application
+    name: Dictionary-Based Taxonomic NER with NCBI Taxonomy Gazetteers
+    description: Taxonomic named entity recognition (NER) systems for ecological and
+      evolutionary literature commonly employ dictionary-based approaches built from
+      NCBI Taxonomy and other taxonomic databases to detect and normalize organism
+      mentions to canonical identifiers. NCBI Taxonomy serves as a primary source
+      for constructing gazetteers that map textual mentions (scientific binomials,
+      vernacular names, synonyms) to standardized taxon IDs and hierarchical classifications,
+      enabling entity normalization that links recognized mentions to formal nomenclature,
+      phylogenetic context, and cross-referenced molecular data. Dictionary-based
+      systems leveraging NCBI resources (such as those described by Gerner et al.
+      2010 and Pafilis et al. 2013) provide high precision and straightforward mapping
+      to canonical names, IDs, and taxonomic ranks, but face recall limitations when
+      encountering newly described taxa not yet in NCBI Taxonomy, vernacular or regional
+      common names absent from NCBI synonym lists, and historical nomenclature predating
+      current taxonomic conventions. These coverage gaps motivate hybrid approaches
+      augmenting dictionary matching with machine learning classifiers (such as TaxoNERD's
+      deep neural models) that can generalize beyond exact dictionary entries while
+      still grounding predictions in NCBI Taxonomy structure. The integration of NCBI
+      Taxonomy dictionaries with ML-based sequence labeling or contextual embedding
+      models enables robust taxonomic entity extraction across diverse text sources,
+      balancing the precision and standardization of curated taxonomic resources with
+      the flexibility and recall of learned pattern recognition.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1111/2041-210x.13778
+  - id: B2AI_APP:227
+    category: B2AI:Application
+    name: Deep Neural Networks for 16S rRNA Taxonomic Classification
+    description: A deep learning approach to pattern recognition for short DNA sequences
+      applies convolutional and recurrent neural networks to predict species and genus
+      labels directly from 16S ribosomal RNA reads, using taxonomic assignments derived
+      from NCBI-aligned reference databases as supervised training labels. The models
+      are trained on 16S sequences spanning over 13,000 distinct species, with each
+      read labeled at species and genus ranks according to reference database taxonomy
+      that follows NCBI Taxonomy conventions for organismal classification. The deep
+      neural network achieves near-perfect read-level species classification accuracy
+      on held-in species and produces more accurate genus-level assignments for reads
+      from held-out species compared to traditional k-mer, alignment-based, and taxonomic
+      binning baselines (including tools like Kraken). Taxonomic labels serve multiple
+      roles in this workflow as per-read supervision for end-to-end training, as hierarchical
+      evaluation targets enabling separate assessment at species versus genus levels,
+      as ground-truth derived from curated sequence-taxonomy mappings in reference
+      databases, and as the basis for robustness testing via held-out species evaluation
+      that mimics real-world scenarios where query organisms are not represented in
+      training data. The work demonstrates that supervised deep learning on taxonomically
+      labeled amplicon sequences can match or exceed the performance of established
+      reference-based taxonomic assignment methods, with NCBI-style taxonomy providing
+      the structured label space and hierarchical evaluation framework essential for
+      training and validating neural taxonomic classifiers.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/353474
+  - id: B2AI_APP:228
+    category: B2AI:Application
+    name: MT-MAG Machine Learning for Hierarchical Genome Taxonomic Assignment
+    description: MT-MAG (Machine learning-based Taxonomic assignment of Metagenome-Assembled
+      Genomes) employs alignment-free k-mer frequency features (k=7) and machine learning
+      classifiers to provide complete or partial hierarchical taxonomic classifications
+      with rank-specific confidence scores for MAGs and isolate genomes. The tool
+      leverages NCBI Taxonomy as a primary source of hierarchical labels attached
+      to public reference genomes, using these taxonomic paths (from species through
+      genus, family, order, class, phylum to domain) as ground-truth for training
+      multi-rank classifiers and as evaluation targets for assessing classification
+      accuracy at each taxonomic level. MT-MAG is positioned within the broader landscape
+      of genome taxonomic assignment tools that rely on NCBI Taxonomy or alternative
+      systems like GTDB (Genome Taxonomy Database), with the paper noting that many
+      public genomes carry "attached National Center for Biotechnology Information
+      (NCBI) taxonomy" and contrasting alignment-based tools (GTDB-Tk) with marker-based
+      (IDTAXA) and ML-based approaches (Kraken2, BERTax). NCBI taxonomic ranks structure
+      the model's output space, enabling interpretable partial classifications that
+      report "confident down to family level" when species or genus assignment is
+      uncertain, and confidence scores at all ranks guide users in determining classification
+      reliability. The explicit use of hierarchical NCBI taxonomy as training labels
+      and evaluation criteria demonstrates how standardized taxonomic resources enable
+      supervised learning for genome classification tasks, providing the semantic
+      framework for multi-level predictions and facilitating comparison of ML-based
+      assignments against curated reference taxonomies.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1371/journal.pone.0283536
+  - id: B2AI_APP:229
+    category: B2AI:Application
+    name: Deep Learning Read Classifiers with NCBI Taxonomy Label Backbone
+    description: Deep learning-based taxonomic assignment classifiers for metagenomic
+      reads and contigs (such as DL-TODA and related architectures) are trained to
+      classify sequencing data against reference databases organized by NCBI Taxonomy,
+      using taxon identifiers and hierarchical relationships as the structured label
+      space for end-to-end neural network models. These classifiers learn to map DNA
+      sequence k-mer patterns, nucleotide composition features, and sequence embeddings
+      to NCBI taxonomic categories at multiple ranks (species, genus, family), with
+      NCBI Taxonomy providing the canonical reference framework that defines output
+      classes, training targets, and evaluation metrics. Models report high accuracy
+      at species and genus levels on benchmark datasets where ground-truth labels
+      are derived from known NCBI taxonomic assignments of reference genomes, and
+      taxonomic hierarchy embedded in NCBI classifications enables error analysis
+      distinguishing between closely related taxa (e.g., misclassifications within
+      the same genus or family) versus distant taxa. The use of NCBI Taxonomy as the
+      label backbone ensures compatibility with standard bioinformatics pipelines
+      (QIIME2, mothur, Kraken2) that report community composition as NCBI taxon ID
+      frequency tables, facilitates integration with genomic databases indexed by
+      taxids, and enables direct comparison of deep learning classifier predictions
+      against established alignment-based and k-mer-based taxonomic profiling methods
+      that also use NCBI Taxonomy as the reference classification system, demonstrating
+      how standardized taxonomic resources serve as essential infrastructure for supervised
+      learning in metagenomics.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2023.01.27.525929
+  - id: B2AI_APP:230
+    category: B2AI:Application
+    name: Phylogenetic Hierarchical Softmax for Scalable Taxonomic Classification
+    description: Phylo-HS (Phylogenetic Hierarchical Softmax) addresses the computational
+      bottleneck of large-output softmax layers in neural network taxonomic classifiers
+      by structuring the output layer according to the phylogenetic and taxonomic
+      tree derived from NCBI Taxonomy, decomposing single-step classification over
+      thousands of taxa into a series of hierarchical binary decisions that follow
+      the taxonomic hierarchy. Traditional hierarchical softmax methods group classes
+      by frequency or learned similarity, but Phylo-HS explicitly uses the NCBI taxonomic
+      tree (reflecting evolutionary relationships and Linnaean ranks) to define hierarchical
+      clusters, predicting first at higher taxonomic ranks (e.g., phylum, class) before
+      refining predictions to lower ranks (genus, species). On metagenomic read classification
+      tasks with approximately 5,000 taxonomic classes, Phylo-HS achieves roughly
+      10-fold training speedup and improved accuracy compared to frequency-based hierarchical
+      softmax baselines, demonstrating that taxonomy-aware output structure enhances
+      both computational efficiency and predictive performance. The approach leverages
+      NCBI Taxonomy's hierarchical organization (superkingdom, phylum, class, order,
+      family, genus, species) as an inductive bias that aligns with the true structure
+      of biological diversity, enabling gradient flow and parameter sharing across
+      related taxa during training and providing interpretable intermediate predictions
+      at multiple taxonomic ranks. This application exemplifies how NCBI Taxonomy
+      serves not only as a label space but as an architectural prior that can be embedded
+      directly into neural network training objectives and loss functions to improve
+      scalability and accuracy in large-class taxonomic classification problems.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2025.01.27.634943
+  - id: B2AI_APP:231
+    category: B2AI:Application
+    name: Taxonomy-Informed Embeddings and Multiple Instance Learning for Microbiomes
+    description: Metagenomic deep learning workflows leverage NCBI Taxonomy to structure
+      sample-level representations through taxonomy-aligned embeddings and multiple
+      instance learning (MIL) frameworks that treat microbiome samples as bags of
+      taxonomic units. Methods such as GMEmbeddings align amplicon sequence variants
+      (ASVs) or operational taxonomic units (OTUs) to NCBI taxonomic references and
+      construct pretrained embedding matrices (using techniques like GloVe) where
+      each row corresponds to an NCBI taxon and learned vectors capture co-occurrence
+      patterns and ecological relationships across samples, enabling transfer learning
+      and dimensionality reduction for downstream classification tasks. Metagenome2Vec
+      bins metagenomic reads to species-level taxonomic assignments using NCBI Taxonomy
+      (via tools like fastDNA) and represents each sample as a bag of taxon embeddings,
+      applying multiple instance learning models (DeepSets, Set Transformer, MIL-VAE)
+      that aggregate taxon-level features into sample-level predictions for phenotype
+      classification (e.g., disease status, environmental conditions). IDMIL and related
+      approaches extend this paradigm by treating taxonomic composition vectors (where
+      each dimension corresponds to an NCBI taxid and values represent read counts
+      or relative abundances) as input to set-based neural architectures that are
+      permutation-invariant with respect to taxon ordering. Taxonomy-aware learning
+      methods inject NCBI hierarchical structure into neural network architectures
+      by incorporating taxonomy trees as graph neural network scaffolds, hierarchical
+      attention mechanisms that weight closely related taxa similarly, and taxonomy-guided
+      regularization losses that penalize misclassifications of phylogenetically distant
+      taxa more heavily than closely related taxa. These approaches demonstrate how
+      NCBI Taxonomy serves as a semantic framework for constructing biologically meaningful
+      feature representations, enabling models to leverage evolutionary relationships
+      and taxonomic structure to improve generalization, interpretability, and data
+      efficiency in machine learning applied to microbiome and metagenomic datasets.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1099/mgen.0.001231
 - id: B2AI_STANDARD:501
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
