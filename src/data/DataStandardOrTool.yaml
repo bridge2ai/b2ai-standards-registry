@@ -1214,6 +1214,137 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:119
   url: https://genome.ucsc.edu/FAQ/FAQformat.html#format1
+  has_application:
+  - id: B2AI_APP:219
+    category: B2AI:Application
+    name: StratoMod Variant-Calling Error Prediction with Interpretable ML
+    description: StratoMod employs Explainable Boosting Machine (EBM) classifiers to
+      predict sequencing and variant-calling errors (true positives, false positives,
+      false negatives) using BED files as the primary data structure throughout the
+      workflow. VCF-derived variant labels are converted to 0-based BED format with
+      coordinate shifts (start position reduced by 1) to enable accurate intersection
+      with genomic context features, and SNV/INDEL label BED files are merged using
+      bedtools -loj to produce per-variant binary labels (TP/FP/FN mapped to 0/1)
+      for precision and recall models. Assembly-based benchmark regions from DeFrABB/dipcall
+      defining 1:1 haplotype alignments (excluding gaps and large repeats) are represented
+      as BED intervals delimiting evaluation zones where variants are considered for
+      benchmarking. Numerous genomic-context feature tracks including GEM-based low-mappability
+      regions (low-mappabilityall.bed.gz), nonunique mappability intervals (nonunique_l250_*.bed.gz),
+      and SINE/LTR repeat annotations are provided as BED files, converted to binary
+      features by setting interval lengths to 1 or appending a column indicating membership
+      (e.g., "in hard-to-map region"), and intersected with variant positions using
+      bedtools intersect -loj to derive feature values for model training. Missing
+      values from non-overlapping intervals are filled with -1 or 0 depending on feature
+      semantics, and the trained EBM model achieves interpretable predictions explaining
+      technology-specific and callset-specific differences in false negative rates,
+      demonstrating BED as the canonical format for labels, evaluation strata, and
+      feature engineering in genomic ML pipelines.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.21203/rs.3.rs-2613736/v1
+  - id: B2AI_APP:220
+    category: B2AI:Application
+    name: Deep Learning Epigenomic Profile Prediction with Peak-Centered Datasets
+    description: A comprehensive evaluation framework for deep learning models predicting
+      chromatin accessibility and epigenomic profiles from DNA sequence (including
+      BPNet, Basenji, and other CNN/RNN architectures) uses BED-format IDR (Irreproducible
+      Discovery Rate) peak files from ENCODE as binary classification labels and to
+      construct peak-centered training and evaluation datasets. IDR peak BED files
+      are selected per ATAC-seq experiment, merged across cell lines to create unified
+      peak sets, and used to extract fixed-size sequence windows (e.g., 2 kb) centered
+      on peak summits, ensuring each training sequence contains at least one peak
+      across all cell lines being modeled. This peak-centered dataset construction
+      contrasts with coverage-threshold approaches using bigWig files, enabling systematic
+      comparison between binary peak-based modeling (where BED peaks serve as targets)
+      and quantitative signal regression. Replicate 1 peak BEDs are used to build
+      train/validation/test partitions while replicate 2 provides an experimental
+      performance ceiling, and the resulting models are evaluated on downstream tasks
+      including variant effect prediction and model interpretability analysis using
+      the GOPHER framework, demonstrating BED as the standard format for defining
+      regulatory element locations as binary labels in sequence-to-function deep learning.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s42256-022-00570-9
+  - id: B2AI_APP:221
+    category: B2AI:Application
+    name: Pybedtools ML Feature Engineering and Interval Operations
+    description: Pybedtools, a Python wrapper for BEDTools, provides essential genomic
+      interval manipulation capabilities that serve as preprocessing and feature engineering
+      infrastructure for machine learning pipelines operating on BED-format data.
+      The library enables set algebra operations (intersection, subtraction, addition)
+      to extract unique or overlapping genomic features across multiple BED files,
+      facilitating construction of positive/negative training sets by identifying
+      variants overlapping functional annotations versus background regions. The closestBed
+      -d functionality computes distances from query intervals (e.g., SNPs stored
+      as BED) to nearest target features (e.g., gene boundaries from BED annotations),
+      appending distance values as numeric columns that can serve as continuous features
+      or distance-based targets for regression models. Interval objects expose elements
+      by integer index (e.g., [-1] to retrieve appended distance field) and by named
+      core attributes (chromosome, start, end, name, strand), enabling efficient feature
+      extraction and label assignment within Python-based ML workflows. The stream=True
+      option yields Python iterable Interval objects without writing intermediate
+      files, reducing disk I/O and enabling scalable batch processing for large training/evaluation
+      datasets, making pybedtools a foundational utility for genomic ML preprocessing
+      where BED intervals represent labeled regions, feature annotations, or evaluation
+      zones.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/bioinformatics/btr539
+  - id: B2AI_APP:222
+    category: B2AI:Application
+    name: LanceOtron Deep Learning Peak Caller with BED-Based Labeling
+    description: LanceOtron is a deep learning peak caller for ATAC-seq, ChIP-seq,
+      and DNase-seq that uses convolutional neural networks with enrichment scoring,
+      employing BED format throughout the supervised learning pipeline for candidate
+      peak generation, manual labeling, and model output. Putative peak regions are
+      generated by three methods (MACS2 and two mean-based enrichment approaches)
+      and aggregated within randomly selected 1 Mb windows for labeling, with overlapping
+      candidate peaks from multiple calling permutations resolved using pybedtools
+      (Python implementation of BEDTools) by randomly selecting one overlapping region
+      per cluster for manual visual inspection. Regions sized 50 bp to 2 kb are visually
+      labeled as 'peak' or 'noise' based on clear signal patterns, producing a labeled
+      training set of 736,753 regions (5,016 peaks, 731,737 noise) covering 499 Mb,
+      with region coordinates maintained in BED-compatible interval format. An algorithmic
+      labeling pipeline supplements manual labels by smoothing coverage signals with
+      a 400 bp rolling mean, marking coordinates exceeding 4-fold the chromosome mean
+      as enriched, merging adjacent enriched coordinates, and retaining candidate
+      peaks within the 50 bp–2 kb size range (recursively adjusting thresholds for
+      larger regions). The trained deep neural network produces predicted peak coordinates
+      exported as BED files, enabling direct integration with downstream genomic analysis
+      workflows and genome browsers, demonstrating BED as both the labeled training
+      data format and the standard model output format for supervised learning-based
+      peak calling.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2021.01.25.428108
+  - id: B2AI_APP:223
+    category: B2AI:Application
+    name: Tumor-Only Somatic Variant Classification with TabNet and BED-Based Preprocessing
+    description: An attentive deep learning tumor-only somatic mutation classifier
+      using TabNet, LightGBM, and XGBoost models to distinguish somatic from germline
+      variants employs BED files for capture kit target definition, genomic blacklist
+      filtering, and tumor mutational burden (TMB) normalization. Exon target BED
+      files for three capture kits (Agilent SureSelect Human All Exon V6, IDT xGen
+      Exome Research Panel V2, Illumina TruSeq Exome) were obtained from manufacturer
+      websites in hg19 coordinates and converted to hg38 using UCSC liftOver tool
+      to ensure consistent coordinate systems across datasets, with resulting target
+      footprints of 33.0, 37.3, and 63.5 megabases computed from the lifted BED intervals.
+      A BED-format genomic blacklist (hg38_simple_repeats.bed from UCSC) is applied
+      as a snpblacklist filter to exclude SNPs in tandem repeat regions that are prone
+      to sequencing errors and alignment artifacts. Target footprint sizes derived
+      from capture kit BED files are used to normalize TMB estimates, computing a
+      patient-weighted average target size of 41 Mb across cohorts to enable fair
+      comparisons of mutation burden between samples sequenced with different capture
+      kits. The TabNet attention-based neural network and gradient boosting models
+      (LightGBM, XGBoost) are trained on variant features to predict somatic versus
+      germline status, achieving high accuracy agnostic of tissue type and capture
+      kit by incorporating BED-based preprocessing that standardizes genomic coordinates,
+      filters problematic regions, and normalizes coverage-dependent features, illustrating
+      BED as essential infrastructure for coordinate system management and quality
+      control in clinical genomic ML applications.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2021.12.07.471513
 - id: B2AI_STANDARD:37
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
