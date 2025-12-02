@@ -18344,24 +18344,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:109
   url: https://build.fhir.org/ig/HL7/US-Core/index.html
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:82
-    category: B2AI:Application
-    name: US-Specific Clinical AI and Regulatory Compliance
-    description: FHIR US Core Implementation Guide is used in AI applications that
-      require compliance with US healthcare regulations and interoperability requirements,
-      enabling standardized data extraction from US-based EHR systems for training
-      clinical prediction models. AI systems leverage US Core's profiles for patient
-      demographics, vital signs, laboratory results, medications, and conditions to
-      build models that meet ONC certification requirements and support CMS quality
-      measures. The implementation guide ensures AI applications can reliably access
-      structured clinical data across diverse US healthcare systems, supporting use
-      cases in risk adjustment, quality metric prediction, social determinants of
-      health analysis, and value-based care optimization. US Core's mandatory data
-      elements provide a consistent feature set for federated learning across US hospitals.
-    used_in_bridge2ai: false
-    references:
-    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi
 - id: B2AI_STANDARD:852
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -18392,24 +18374,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:851
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:83
-    category: B2AI:Application
-    name: Standardized Data Element Mapping for Healthcare AI
-    description: FHIR USCDI (US Core Data for Interoperability) implementation is
-      used in AI applications to ensure consistent access to core clinical data elements
-      required by federal regulations, enabling interoperable AI systems across US
-      healthcare. Machine learning models leverage USCDI-compliant data elements including
-      allergies, procedures, immunizations, lab results, and clinical notes to train
-      on standardized features that are guaranteed to be available across certified
-      EHR systems. This standardization is critical for AI applications that need
-      to be deployed broadly across healthcare organizations, ensuring model portability
-      and consistent performance. USCDI compliance enables AI researchers to develop
-      models that align with national interoperability goals and can participate in
-      health information exchange networks.
-    used_in_bridge2ai: false
-    references:
-    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi
 - id: B2AI_STANDARD:853
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -18442,24 +18406,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:852
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:84
-    category: B2AI:Application
-    name: Foundation Models on Core Clinical Data Elements
-    description: FHIR USCDI v1 provides the baseline data elements for AI applications
-      requiring backward compatibility and stable data definitions for longitudinal
-      model training. AI systems developed against USCDI v1 can reliably access essential
-      clinical information including patient demographics, problems, medications,
-      allergies, lab results, vital signs, and procedures across time, enabling training
-      of models on historical data and ensuring consistency in production deployments.
-      This version stability is crucial for validating AI models in clinical trials,
-      meeting regulatory requirements for locked algorithms, and maintaining model
-      performance monitoring over multi-year periods. USCDI v1 compliance ensures
-      AI applications can function across healthcare systems at different stages of
-      EHR modernization.
-    used_in_bridge2ai: false
-    references:
-    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi-v1
 - id: B2AI_STANDARD:854
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -18492,24 +18438,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:852
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:85
-    category: B2AI:Application
-    name: Advanced Clinical AI with Expanded Data Elements
-    description: FHIR USCDI v4 enables next-generation AI applications with access
-      to expanded data elements including social determinants of health, mental health
-      assessments, substance use information, and care team details. Machine learning
-      models leverage these additional data classes to develop more comprehensive
-      prediction models that account for social, behavioral, and environmental factors
-      affecting health outcomes. AI systems benefit from USCDI v4's enhanced data
-      elements for health equity research, population health modeling, and holistic
-      patient risk assessment that goes beyond traditional clinical variables. The
-      expanded scope supports AI applications in addressing health disparities, improving
-      care coordination, and developing interventions that consider the full spectrum
-      of factors influencing patient health.
-    used_in_bridge2ai: false
-    references:
-    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi-v4
 - id: B2AI_STANDARD:855
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -18523,8 +18451,49 @@ data_standardortools_collection:
   description: Dedoose app
   is_open: false
   name: Dedoose
-  purpose_detail: A cross-platform app for analyzing qualitative and mixed methods
-    research
+  purpose_detail: 'Dedoose is a cloud-based, cross-platform application specifically
+    designed for analyzing qualitative and mixed methods research data, developed
+    by social scientists with expertise spanning education, psychology, anthropology,
+    and marketing to address the practical needs of researchers across diverse disciplines.
+    The platform supports nearly any type of qualitative data including interview
+    transcripts, focus group recordings, open-ended survey responses, field notes,
+    documents (PDFs, Word files), multimedia content (video, audio, images), social
+    media posts, and website content, enabling comprehensive mixed methods analysis
+    that integrates both qualitative coding and quantitative metrics within a unified
+    workspace. Dedoose provides a hierarchical coding system where researchers create
+    code trees with parent and child codes, apply codes to excerpts of text or segments
+    of media, attach descriptors and demographic variables to documents and participants,
+    and conduct inter-rater reliability testing with pooled Cohen''s kappa and other
+    statistics to validate coding consistency across multiple analysts. The platform''s
+    real-time collaboration capabilities allow distributed research teams to work
+    simultaneously on the same project at no additional cost, with version control,
+    audit trails tracking all coding decisions, user permissions managing access levels,
+    and synchronized updates ensuring all team members see changes instantly. Dedoose
+    generates dozens of interactive visualizations including code frequency charts
+    showing prevalence across documents or demographic groups, code co-occurrence
+    matrices revealing relationships between themes, word clouds emphasizing prominent
+    terms, heat maps displaying patterns across cases, timeline visualizations for
+    longitudinal data, and customizable charts that can be filtered dynamically by
+    descriptor variables to explore subgroup differences. The platform operates entirely
+    through web browsers on Mac, PC, and Linux systems without requiring software
+    installation, stores all data on secure servers with enterprise-grade encryption,
+    complies with data protection standards, provides automatic backups, and ensures
+    researchers maintain full control over project data with export options in multiple
+    formats (Excel, CSV, PDF reports, coded excerpts). Dedoose is widely used across
+    healthcare research for analyzing patient interviews and clinical qualitative
+    data, education research for evaluating teaching methods and student feedback,
+    market and user experience research for synthesizing customer insights and usability
+    testing results, program evaluation for assessing intervention effectiveness through
+    mixed methods frameworks, social science research for thematic analysis of ethnographic
+    data, and policy research for analyzing stakeholder perspectives and public comments.
+    The platform''s mixed methods integration is particularly valuable for AI and
+    machine learning applications where qualitative coding can inform feature engineering,
+    coded themes can serve as training labels for natural language processing models,
+    researcher annotations can validate AI-generated classifications, descriptive
+    statistics from Dedoose can be incorporated into predictive models, and iterative
+    human-in-the-loop workflows can combine automated text analysis with expert qualitative
+    interpretation to refine algorithms and improve classification accuracy on nuanced
+    social science constructs.'
   requires_registration: true
   url: https://www.dedoose.com/
 - id: B2AI_STANDARD:856
