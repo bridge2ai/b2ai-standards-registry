@@ -987,8 +987,56 @@ data_standardortools_collection:
   is_open: true
   name: BioXSD
   publication: doi:10.1093/bioinformatics/btq391
-  purpose_detail: Data model and exchange formats for basic bioinformatics types of
-    data - sequences, alignments, feature records with associated data and metadata.
+  purpose_detail: 'BioXSD is a unified data model and family of interoperable exchange
+    formats (XML, JSON, YAML, and binary serializations) designed to represent basic
+    bioinformatics data types including biological sequences (DNA, RNA, protein),
+    multiple sequence alignments, annotated feature records with genomic coordinates
+    and associated metadata, database cross-references with accession identifiers,
+    and provenance metadata aligned with the W3C PROV standard for tracking data
+    origins and transformations. The data model is expressed as an XML Schema (currently
+    version 1.1) defining a hierarchical namespace (http://bioxsd.org/BioXSD-1.1)
+    with complex types for sequence records containing raw sequence strings with quality
+    scores, feature annotations with start/end positions and strand information, alignment
+    objects with gap representations and consensus sequences, and rich metadata fields
+    for database identifiers, organism taxonomy, publication references, and analysis
+    provenance. BioXSD is designed to fill the gap between specialized domain-specific
+    XML formats (SBML for systems biology, MAGE-ML for microarrays, PDBML for protein
+    structures, PhyloXML for phylogenetics) by providing a canonical intermediate
+    exchange format that is sufficiently rich to enable lossless conversions among
+    diverse bioinformatics file formats (FASTA, GenBank, EMBL, UniProt, GFF, BED)
+    while remaining simple enough for straightforward implementation across multiple
+    programming languages and web service architectures. The format has been developed
+    through a "blue-collar" community-driven approach initiated by the EMBRACE project
+    and 1st DBCLS BioHackathon participants, with data-type definitions semantically
+    annotated using EDAM ontology terms to provide globally defined controlled vocabularies
+    for tool interfaces and service descriptions. BioXSD supports both RESTful HTTP
+    web services and WS-I compliant SOAP web services, interoperating with standard
+    HTTP, SOAP, and XML libraries in common programming languages (Python, Java, Perl,
+    R) without requiring additional infrastructure beyond standard HTTP and XML parsers.
+    The BioXSD|GTrack family developed by ELIXIR Norway offers multiple serialization
+    options with lossless interconversion: tree-structured formats (BioXSD XML, BioJSON,
+    BioYAML) for hierarchical data and web service APIs, tabular GTrack for genome
+    features compatible with tools expecting columnar input, binary BTrack for efficient
+    storage and processing, and GSuite for integrative multi-track analyses, all sharing
+    a common data model with consistent semantics across serializations. BioXSD has
+    been adopted by multiple bioinformatics service providers including CBS Denmark
+    (MaxAlign, ProP, NetNES), University of Bergen Norway (BLAST), IBCP France (ClustalW,
+    GorIV), and TU Munich Germany (FreeContact protein contact prediction), demonstrating
+    practical deployment in production web service infrastructures. The format is
+    particularly valuable for machine learning and computational biology workflows
+    where BioXSD serves as the standardized exchange format for ML tool outputs (FreeContact
+    uses BioXSD for residue-residue contact predictions from mean-field Direct Coupling
+    Analysis and PSICOV sparse inverse covariance methods), enables construction of
+    datatype ontologies for annotating ML dataset repositories and assembling data
+    mining workflows (OntoDT uses BioXSD to improve representation of bioinformatics
+    datatypes for querying algorithm repositories), facilitates integration of diverse
+    tools into automated analysis pipelines through consistent data serialization,
+    supports reproducible computational research by encoding complete provenance chains
+    documenting data transformations and parameter settings, and enables federated
+    data sharing where BioXSD''s semantic annotations allow automated discovery and
+    composition of compatible services without requiring custom format converters
+    for each tool pair, thereby reducing the N-squared integration problem to N conversions
+    between native formats and the canonical BioXSD representation.'
   requires_registration: false
   url: http://bioxsd.org/
   has_application:
