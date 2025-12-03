@@ -2571,6 +2571,44 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Current Procedural Terminology
   formal_specification: https://www.cms.gov/Medicare/Fraud-and-Abuse/PhysicianSelfReferral
+  has_application:
+  - id: B2AI_APP:263
+    category: B2AI:Application
+    name: Anesthesiology CPT auto-coding from EHR
+    description: Machine learning models for automated prediction of anesthesia Current Procedural Terminology (CPT) codes from perioperative electronic health record data using support vector machines and label-embedding attentive neural networks trained on 1,164,343 procedures from 16 hospitals. Procedure text extracted from EHR served as the most informative input with actual submitted claim data from billing specialists as reference standard. Achieved 87.9% single-best accuracy and 96.8% top-3 accuracy on test set with strong external holdout validation performance. Using tunable confidence threshold, SVM reached 96.4% accuracy for 47.0% of cases and label-embedding model achieved 94.4% accuracy for 62.2% of cases. Demonstrates automated coding value for quality improvement, research, reimbursement, and cost reduction given high manual billing costs ($170-$215 per case) and observed CPT error rates (up to 38%). Supports scalable code assignment reducing administrative burden while improving accuracy and consistency compared to manual specialist coding.
+    references:
+    - https://doi.org/10.1097/aln.0000000000003150
+  - id: B2AI_APP:264
+    category: B2AI:Application
+    name: Pathology report CPT prediction with NLP
+    description: Natural language processing and machine learning pipeline predicting primary CPT codes (88302, 88304, 88305, 88307, 88309) and 38 ancillary CPT codes from pathology reports using corpus of 93,039 reports. Compared XGBoost, support vector machines, and BERT models with advanced topic modeling (20 topics) preprocessing on diagnostic text alone versus all report subfields (gross description, microscopic description, additional comments). XGBoost outperformed BERT when using all report subfields, achieving higher accuracy than prior published work. Model errors tended to occur between CPT codes of similar complexity. Applied model explanation techniques to identify informative report subcomponents. Applications extend beyond auto-coding to detecting mis-billing and fraud/waste, standardizing pathology report text, and estimating physician productivity metrics tied to relative value units (RVUs) for workload assessment and resource allocation.
+    references:
+    - https://doi.org/10.4103/jpi.jpi_52_21
+  - id: B2AI_APP:265
+    category: B2AI:Application
+    name: Operative note CPT auto-coding comparison
+    description: Comparative evaluation of classical machine learning and deep learning approaches for automated CPT code generation from operative note dictations in spine surgery setting. Random Forest model achieved AUC 0.94 and AUPRC 0.85 for CPT prediction and outperformed LSTM deep model (Random Forest ~87% weighted accuracy), demonstrating that classical supervised approaches can be competitive with neural networks given structured operative note text. Systematic evaluation across musculoskeletal operative notes corpus (~126,789 notes) found TF-IDF and classical machine learning methods often outperformed BERT-family transformer models on common CPT codes while offering better interpretability for clinical adoption. Highlights importance of feature engineering and model selection tailored to CPT prediction task characteristics, dataset size, and deployment requirements balancing accuracy with explainability for billing and compliance workflows.
+    references:
+    - https://doi.org/10.1177/21925682211062831
+    - https://doi.org/10.1101/2022.10.10.22280852
+  - id: B2AI_APP:266
+    category: B2AI:Application
+    name: Cloud-based end-to-end CPT/ICD auto-coding pipeline
+    description: Commercial deep learning NLP system for automated medical coding mapping clinical text in electronic health records to standard procedure codes (CPT-4) and diagnosis codes (ICD-10-CM) with cloud-based claim submission, validation, and auditing infrastructure. Pipeline uses trained deep learning models on annotated EHRs with multiple NLP stages for entity recognition, context disambiguation, and code mapping supporting automatic CPT assignment from clinical notes with point-of-care coding suggestions. Real-time claim validation, auditing, and feedback loops leverage cloud infrastructure for HIPAA-compliant deployment. Vendor-reported outcomes include approximately 70% reduction in claim processing time and 23% improvement in coding accuracy at aggregate system level, though per-code performance metrics not publicly disclosed. Demonstrates emerging commercial deployment patterns for AI-driven revenue cycle automation integrating CPT/HCPCS coding with downstream billing workflows and fraud detection capabilities.
+    references:
+    - https://doi.org/10.63282/3050-922x.ijeret-v4i4p104
+  - id: B2AI_APP:267
+    category: B2AI:Application
+    name: Unsupervised fraud detection on CPT billing patterns
+    description: Unsupervised machine learning pipeline applied to Medicare, Medicaid, and outpatient claims data for detecting billing anomalies, CPT code mismatches, and fraudulent procedure coding patterns addressing estimated >$60B annual Medicare/Medicaid losses. Models analyze CPT/HCPCS usage patterns to flag aberrant billing behaviors without labeled fraud examples using anomaly detection on procedure code sequences, frequency distributions, and temporal patterns. Reported substantial improvements in fraud detection rates and significant reduction in manual audit efforts enabling automated prioritization of high-risk claims for investigation. Addresses challenges of data standardization across heterogeneous claims systems, inconsistent terminologies hindering model generalizability, and regulatory compliance requirements (HIPAA, GDPR) for deploying AI in healthcare fraud detection. Emphasizes need for transparency, routine audits for bias, and alignment with CMS program integrity goals ensuring AI-driven fraud detection augments rather than replaces human expertise in complex billing integrity assessments.
+    references:
+    - https://al-kindipublishers.org/index.php/jcsts/article/download/11010/9926
+  - id: B2AI_APP:268
+    category: B2AI:Application
+    name: CPT AI Taxonomy for coding AI-enabled services
+    description: American Medical Association CPT AI Taxonomy framework (Appendix S, effective January 1, 2022) establishing standardized coding methodology for AI-enabled clinical services by categorizing machine work as Assistive (AI assists physician decision-making), Augmentative (AI enhances physician work), or Autonomous (AI performs clinical task independently). Framework provides language describing work performed by machines relative to physician work, requires CPT descriptors align with device technological features and output, characterizes device-physician interaction, and ensures codes are discrete and differentiable supporting correct valuation, coverage determination, and payment policy. Applies to both Category I (established procedures) and Category III (emerging technology) CPT codes with guidance for code change applications including technical specifications justifying taxonomy placement. Example implementation includes autonomous point-of-care diabetic retinal examination (CPT 92229) transitioning descriptor from "automated" to "autonomous" reflecting independent AI capability. Addresses regulatory context where FDA has reviewed/authorized numerous Software as Medical Device (SaMD) products requiring consistent coding framework enabling integration of AI services into healthcare coverage and reimbursement systems, supporting transparent valuation of machine-performed clinical work.
+    references:
+    - https://doi.org/10.1038/s41746-022-00723-5
   is_open: false
   name: CPT
   purpose_detail: Code set used to bill outpatient & office procedures.
