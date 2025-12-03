@@ -2,9 +2,7 @@
 
 This directory contains utility scripts for the Bridge2AI Standards Registry project.
 
-## B2AI Documentation Generation Scripts
-
-The documentation generation scripts create individual pages for B2AI resources with intelligent cross-reference linking.
+## Documentation Generation Scripts
 
 ### Shared ID Linking Module (`id_linking.py`)
 
