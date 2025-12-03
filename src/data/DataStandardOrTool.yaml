@@ -3545,6 +3545,31 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: European Data Format
+  has_application:
+  - id: B2AI_APP:258
+    category: B2AI:Application
+    name: Sleep-EDF 1D-CNN sleep staging
+    description: Automated sleep stage classification using one-dimensional convolutional neural networks (1D-CNN) trained on raw polysomnography (EEG and EOG) signals from Sleep-EDF and Sleep-EDFX databases achieving high multi-class accuracy for 2-6 stage classification. The 1D-CNN architecture processes raw PSG time-series without manual feature engineering, learning characteristic sleep waveforms directly from EDF-formatted recordings. Reported accuracies on Sleep-EDF were 98.06% (2-class), 94.64% (3-class), 92.36% (4-class), 91.22% (5-class), and 91.00% (6-class); on Sleep-EDFX 97.62%, 94.34%, 92.33%, 90.98%, and 89.54% respectively, demonstrating that deep learning on EDF biosignal files achieves near-human performance for automated sleep staging supporting large-scale sleep disorder screening and research.
+    references:
+    - https://doi.org/10.3390/ijerph16040599
+  - id: B2AI_APP:259
+    category: B2AI:Application
+    name: Sleep-EDF weighted Random Forest + HMM staging
+    description: Automated sleep staging using improved weighted Random Forest (WRF) with continuous wavelet packet transform (WPT) features combined with Hidden Markov Model (HMM) temporal smoothing on Sleep-EDF and Sleep-EDF Expanded double-channel EEG (Fpz-Cz and Pz-Oz). Recordings segmented into 30-second epochs then 29 overlapping 2-second subepochs for frequency-domain and statistical feature extraction, with feature selection removing low-variance features and class weighting addressing imbalance, followed by HMM exploiting temporal dependencies between adjacent sleep stages. Achieved subject-non-independent accuracy 93.20% and Cohen's kappa 0.890; subject-independent accuracy 91.97% and kappa 0.874; best double-channel performance 94.34% accuracy and kappa 0.886; best single-subject 96.3% accuracy and kappa 0.912. Demonstrates effective classical ML approach on EDF-formatted PSG with improved N1 stage recognition, providing interpretable feature-based alternative to end-to-end deep learning for clinical sleep medicine.
+    references:
+    - https://doi.org/10.32604/cmes.2020.08731
+  - id: B2AI_APP:260
+    category: B2AI:Application
+    name: SeizeIT2 wearable EDF seizure detection benchmark
+    description: Wearable epilepsy dataset providing behind-the-ear EEG, ECG, EMG, accelerometer, and gyroscope data in EDF format with annotations in JSON/TSV for standardized seizure detection algorithm development. Dataset includes 125 patients with focal epilepsy (80% training split sub-001 to sub-096 with 704 seizures, 20% validation split sub-097 to sub-125 with 182 seizures), recordings aligned with full-scalp video-EEG monitoring, corrupted flat-line segments removed. Provides two baseline pipelines: feature-based ML using SVM (1-25 Hz Butterworth band-pass, 2-second windows 50% overlap, RMS thresholding 13-150 µV, 42 features from 2-channel behind-the-ear EEG, 5x background undersampling) and deep learning ChronoNet (convolutional + recurrent layers, 250 Hz resampling, 2-second segments 75% overlap seizures/50% background). Annotations document onset, duration, lateralization, localization, vigilance state, and per-channel visibility. Enables reproducible comparison of wearable seizure detection algorithms on standardized EDF-formatted biosignals supporting ambulatory epilepsy monitoring and closed-loop intervention systems.
+    references:
+    - https://doi.org/10.1038/s41597-025-05580-x
+  - id: B2AI_APP:261
+    category: B2AI:Application
+    name: EDF-based EEG deep learning survey benchmarks
+    description: Comprehensive survey documenting widespread use of EDF-formatted EEG datasets (Sleep-EDF, CHB-MIT pediatric epilepsy with ~969 hours and 173 seizures, TUH EEG Corpus with 60,000+ recordings) underpinning deep learning research for sleep staging, seizure detection, and EEG abnormality detection. Sleep-EDF typical 5-stage classification accuracies reported at 82-88% overall with advanced models (deep CNNs, CNN+BiLSTM, U-Net variants U-Time, temporal convolutional networks, Transformer hybrids, self-supervised pretraining) achieving 87-89% accuracy and Cohen's kappa 0.75-0.82 by learning characteristic sleep waveforms from 30-second epochs. Cascaded RNN pipelines report ~95% on 6-class CAP Sleep. CHB-MIT continuous scalp EEG and TUH/TUSZ corpora enable training CNN, CNN+RNN, and image-based CNN architectures for clinical seizure detection and abnormality identification. Survey highlights that EDF standardization enables comparative evaluation across laboratories, reproducible benchmarking, and transfer learning from public datasets to clinical applications, with deep learning architectures approaching or exceeding human expert performance on EDF-standardized biosignal corpora.
+    references:
+    - https://doi.org/10.56578/ataiml040304
   is_open: true
   name: EDF
   purpose_detail: The European Data Format (EDF) is a simple and flexible format for
@@ -20699,6 +20724,13 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: European Data Format Plus
+  has_application:
+  - id: B2AI_APP:262
+    category: B2AI:Application
+    name: I-CARE EDF+ coma EEG ML prognostication resource
+    description: Large-scale harmonized clinical continuous EEG resource for machine learning-based prognostication in comatose post-cardiac arrest patients, with original EEG explicitly converted to de-identified EDF+ files supporting annotations, events, and interrupted recordings. The I-CARE (International Cardiac Arrest Research) consortium dataset comprises 56,676 hours of continuous EEG from 1,020 patients across multiple centers, standardized to EDF+ format to enable interoperable ML analytics pipelines. EDF+ capabilities for storing annotations alongside signal data facilitate labeling of seizures, burst suppression, periodic discharges, and outcome markers; interrupted recording support accommodates clinical gaps in monitoring without file fragmentation; and event annotations document stimuli, medication administration, and clinical interventions. This EDF+-based resource enables training and validation of deep learning models (CNNs on raw EEG spectrograms, LSTMs on time-series features, transformers on multi-channel sequences) for automated outcome prediction, seizure detection, and quantitative EEG biomarker extraction in critically ill patients, supporting development of clinical decision support systems for neurological prognostication after cardiac arrest where timely, accurate predictions can guide withdrawal of life-sustaining therapy decisions.
+    references:
+    - https://doi.org/10.1038/s41597-023-02810-8
   has_relevant_organization:
   - B2AI_ORG:115
   is_open: true
