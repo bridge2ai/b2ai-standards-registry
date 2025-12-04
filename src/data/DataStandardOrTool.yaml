@@ -17741,11 +17741,149 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Sequence types and features ontology
   formal_specification: https://github.com/The-Sequence-Ontology/SO-Ontologies
+  has_application:
+  - category: B2AI:Application
+    description: The Sequence Ontology (SO) provides standardized terminology for
+      variant consequence prediction tools including Ensembl Variant Effect Predictor
+      (VEP), SnpEff, and Annovar, which annotate genetic variants with SO terms (e.g.,
+      missense_variant, stop_gained, splice_donor_variant, intron_variant, upstream_gene_variant)
+      that serve as categorical features for machine learning models predicting variant
+      pathogenicity and clinical significance. Deep learning models for variant effect
+      prediction consume SO-annotated VCF files where consequence terms are parsed
+      and encoded as one-hot vectors or learned embeddings, enabling neural networks
+      to learn associations between specific consequence types and disease phenotypes
+      across large training cohorts. Variant prioritization pipelines employ SO annotations
+      as filtering criteria and feature inputs, with models learning that protein-truncating
+      variants (SO terms including frameshift_variant, nonsense_mediated_decay_transcript_variant,
+      stop_lost, start_lost) have higher pathogenicity priors than synonymous or
+      intronic variants for Mendelian disease diagnosis. Multi-task learning architectures
+      predict both variant deleteriousness scores (continuous outputs) and SO consequence
+      categories (discrete classification) jointly, leveraging the hierarchical structure
+      of SO where specific terms like missense_variant are subtypes of sequence_variant,
+      enabling models to share learned representations across related consequence
+      types and improve data efficiency when training on imbalanced datasets. Natural
+      language processing models extract variant-phenotype associations from biomedical
+      literature by identifying SO terms in text (e.g., "nonsense mutation" mapped
+      to stop_gained SO:0001587, "splice site variant" to splice_region_variant SO:0001630),
+      enabling automated knowledge base construction linking genetic variants to disease
+      mechanisms. Explainable AI systems for clinical genomics use SO annotations
+      as interpretable features in decision trees or attention mechanisms, where clinicians
+      can inspect which consequence types (e.g., splice_acceptor_variant, stop_gained)
+      drove model predictions for variant classification according to ACMG/AMP guidelines,
+      providing transparency in automated variant interpretation workflows. Transfer
+      learning approaches pretrain variant effect prediction models on large-scale
+      population genomics datasets (gnomAD, UK Biobank) with SO-annotated variants,
+      then fine-tune on smaller disease-specific cohorts, leveraging SO's standardized
+      vocabulary to enable knowledge transfer across datasets and phenotypes. Ensemble
+      methods combine predictions from multiple variant effect predictors (SIFT, PolyPhen-2,
+      CADD, REVEL) that use SO annotations as inputs, with meta-learners trained
+      to weight individual predictors based on variant consequence type, improving
+      overall prediction accuracy by exploiting complementary strengths of different
+      tools for specific SO categories. Graph neural networks model molecular interaction
+      networks where variants are nodes annotated with SO consequences and edges represent
+      functional relationships (protein-protein interactions, regulatory connections,
+      pathway memberships), enabling message-passing algorithms to propagate variant
+      effects through biological networks and predict phenotypic impacts beyond single-gene
+      contexts. Active learning strategies for clinical variant curation prioritize
+      uncertain variants for manual review by sampling cases where SO annotations
+      suggest potential pathogenicity (loss-of-function consequences, splice disruptions)
+      but existing in silico predictors provide conflicting evidence, optimizing
+      expert curator effort. Federated learning across multiple clinical genomics
+      centers trains shared variant interpretation models while keeping patient data
+      local, with SO providing the common semantic layer enabling model aggregation
+      across institutions using consistent consequence terminology. Time-series analysis
+      of genomic databases tracks accumulation of variants across SO consequence
+      categories over time, with forecasting models predicting future variant discovery
+      rates and guiding research priorities based on underrepresented consequence
+      types. Reinforcement learning agents for automated variant interpretation learn
+      policies that sequence evidence gathering steps (request functional assays,
+      query population databases, review segregation data) conditioned on SO consequence
+      annotations, optimizing decision pathways for efficient and accurate variant
+      classification.
+    id: APP:279
+    name: Sequence Ontology terms for variant consequence annotation in machine learning
+      pathogenicity prediction and clinical variant interpretation
+    references:
+    - https://doi.org/10.1093/bioinformatics/btaa116
+    - https://doi.org/10.1038/nbt.4235
+    - https://doi.org/10.1038/s41587-021-01108-x
+    used_in_bridge2ai: false
   is_open: true
   name: SO
   publication: doi:10.1016/j.jbi.2010.03.002
-  purpose_detail: A structured controlled vocabulary for sequence annotation, for
-    the exchange of annotation data and for the description of sequence objects.
+  purpose_detail: "The Sequence Ontology (SO) is a collaborative structured controlled
+    vocabulary and ontology for the definition of sequence features and attributes
+    used in biological sequence annotation, initially developed by the Gene Ontology
+    Consortium and maintained as a founding member of the Open Biomedical Ontologies
+    (OBO) Foundry. SO provides standardized terms and hierarchical relationships
+    for describing genomic, transcriptomic, and protein sequence elements including
+    genes (SO:0000704), transcripts (SO:0000673), exons (SO:0000147), introns (SO:0000188),
+    regulatory regions (promoters SO:0000167, enhancers SO:0000165, silencers SO:0000625),
+    binding sites (SO:0000409), repeat regions (SO:0000657), and transposable elements
+    (SO:0000101), along with molecular attributes such as polycistronic (SO:0000170)
+    and maternally_imprinted (SO:0000945). The ontology encompasses over 2,400 terms
+    organized in a directed acyclic graph structure with is_a (subsumption), part_of
+    (mereological), and derives_from (transformational) relationships, enabling computational
+    reasoning about sequence feature hierarchies where specific terms like missense_variant
+    (SO:0001583) inherit properties from parent classes sequence_variant (SO:0001060)
+    and coding_sequence_variant (SO:0001580). SO defines three major categories of
+    features including biological features (defined by disposition to participate
+    in biological processes, e.g., splice_donor_site SO:0000163, transcription_start_site
+    SO:0000315), biomaterial features (intended for experimental use, e.g., PCR_product
+    SO:0000006, primer_binding_site SO:0005850), and experimental features (results
+    of experiments, e.g., read SO:0000150, consensus_region SO:0000845). The ontology
+    provides comprehensive vocabulary for genetic variation annotation with over
+    500 variant consequence terms spanning sequence alterations (substitution SO:1000002,
+    insertion SO:0000667, deletion SO:0000159), coding sequence effects (synonymous_variant
+    SO:0001819, missense_variant SO:0001583, frameshift_variant SO:0001589, stop_gained
+    SO:0001587, stop_lost SO:0001578, start_lost SO:0002012), transcript effects
+    (splice_acceptor_variant SO:0001574, splice_donor_variant SO:0001575, splice_region_variant
+    SO:0001630, intron_variant SO:0001627), regulatory impacts (5_prime_UTR_variant
+    SO:0001623, 3_prime_UTR_variant SO:0001624, upstream_gene_variant SO:0001631,
+    downstream_gene_variant SO:0001632), and structural variations (copy_number_variation
+    SO:0001019, chromosomal_translocation SO:1000044, inversion SO:1000036). SO
+    is distributed in multiple formats including OBO (native format edited in Protégé
+    ontology editor), OWL (Web Ontology Language for semantic web applications),
+    JSON (JavaScript Object Notation for web APIs), and OBO-JSON (hybrid format),
+    with files generated via OWLTools Ontology Release Tool (OORT) from the canonical
+    so-edit.obo source, and migrating to Ontology Development Kit (ODK) workflow.
+    The ontology is accessible through multiple browsers including MISO (Sequence
+    Ontology's custom browser at sequenceontology.org/browser), Ontology Lookup
+    Service (OLS at EMBL-EBI), Ontobee, and BioPortal, enabling web-based term search,
+    visualization of hierarchical relationships, and programmatic API access for
+    computational integration. SO terms are extensively used in genome annotation
+    pipelines and standards including GFF3 (Generic Feature Format version 3) where
+    feature types (column 3) are restricted to SO terms or accessions (e.g., gene,
+    mRNA, exon, CDS with SO IDs), GVF (Genome Variation Format) for variant annotation
+    with Variant_effect attributes specifying SO consequence terms and sequence_variant
+    accessions, and by annotation databases including Ensembl, NCBI RefSeq, WormBase,
+    FlyBase, and Mouse Genome Informatics. The ontology integrates with complementary
+    biomedical ontologies including Gene Ontology (GO) for molecular functions and
+    biological processes, Uberon for anatomical structures, Cell Ontology (CL) for
+    cell types, and NCBI Taxonomy for organism classification, enabling cross-domain
+    queries such as "transcripts expressed in liver cells that undergo alternative
+    splicing in Homo sapiens" by linking SO splice variant terms with anatomical
+    and species ontologies. SO development follows OBO Foundry principles including
+    open license (Creative Commons Attribution-ShareAlike 4.0), unique persistent
+    identifiers (SO: prefix with seven-digit numbers like SO:0000001), textual definitions
+    with citations, term deprecation policies, and collaborative governance with
+    contributions from GMOD (Generic Model Organism Database) community, model organism
+    databases (WormBase, FlyBase, Saccharomyces Genome Database), genome centers
+    (Sanger Institute, EMBL-EBI, NCBI), and clinical genomics consortia (ClinGen,
+    ClinVar). The ontology supports use cases including primary sequence annotation
+    in DAS (Distributed Annotation System) servers, structured database representations
+    in Chado (modular database schema for model organism data), standardized mutation
+    descriptions in clinical genomics databases connecting genotypes to phenotypes,
+    and interoperability in multi-omics data integration where transcriptomic, proteomic,
+    and epigenomic features are annotated with consistent SO terminology enabling
+    federated queries across heterogeneous biological databases. SO maintenance involves
+    GitHub-based collaborative development (github.com/The-Sequence-Ontology/SO-Ontologies)
+    with issue tracking for new term requests, pull requests for community contributions,
+    automated continuous integration testing, and regular releases (currently version
+    3.1 released February 2018 with ongoing updates), supported by ID ranges assigned
+    to contributing groups to prevent identifier conflicts and ensuring sustainability
+    through institutional commitments and community engagement with regular workshops
+    and training materials for ontology editors and users."
   requires_registration: false
   url: http://www.sequenceontology.org/
 - id: B2AI_STANDARD:548
@@ -24994,8 +25132,6 @@ data_standardortools_collection:
   url: https://www.youtube.com/watch?v=H69dC7f-edQ
 - id: B2AI_STANDARD:907
   category: B2AI_STANDARD:SoftwareOrTool
-  collection:
-  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:37
   contributor_github_name: caufieldjh
@@ -25062,7 +25198,7 @@ data_standardortools_collection:
       assessment in both clinical settings and population-level screening programs,
       with implications for pandemic preparedness (COVID-19 acoustic screening) and
       management of chronic respiratory conditions through continuous remote monitoring.
-    id: APP:278
+    id: B2AI_APP:278
     name: YAMNet audio embeddings for respiratory disease classification in Bridge2AI
       Voice Biobank
     references:
@@ -25071,10 +25207,10 @@ data_standardortools_collection:
     - https://github.com/tensorflow/models/tree/master/research/audioset/yamnet
     used_in_bridge2ai: true
   has_relevant_organization:
-  - B2AI_ORG:117
+  - B2AI_ORG:37
   is_open: true
   name: YAMNet
-  purpose_detail: YAMNet (Yet Another Mobile Network) is a pretrained deep neural
+  purpose_detail: "YAMNet (Yet Another Mobile Network) is a pretrained deep neural
     network for audio event classification developed by Google Research and distributed
     via TensorFlow Hub, predicting 521 audio event classes from the AudioSet ontology
     based on training on Google's AudioSet-YouTube corpus containing over 2 million
@@ -25141,7 +25277,7 @@ data_standardortools_collection:
     TensorFlow.js for in-browser inference) have established YAMNet as a standard
     baseline for audio classification research and a practical tool for productionizing
     audio AI applications, particularly in scenarios requiring general audio understanding
-    without extensive task-specific training data.
+    without extensive task-specific training data."
   requires_registration: false
   url: https://tfhub.dev/google/yamnet/1
   used_in_bridge2ai: true
