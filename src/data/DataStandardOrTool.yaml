@@ -7034,8 +7034,141 @@ data_standardortools_collection:
   description: Minimum Information About a Proteomics Experiment
   is_open: true
   name: MIAPE
-  purpose_detail: Information from whole proteomics experiments; where samples came
-    from, and how analyses of them were performed.
+  purpose_detail: Minimum Information About a Proteomics Experiment (MIAPE) is a comprehensive
+    suite of modular reporting guidelines developed by the HUPO Proteomics Standards
+    Initiative (HUPO-PSI) to define the minimum set of metadata and experimental
+    details required for public proteomics data repositories, ensuring that proteomics
+    experiments can be evaluated, interpreted, and reproduced by the scientific community
+    while addressing the context-sensitive nature of proteome data that necessitates
+    capturing richer metadata than basic genetic sequence information alone. Published
+    as the foundational MIAPE Principles document in Nature Biotechnology (2007,
+    doi:10.1038/nbt1329), the framework recognizes that paper citations serve as
+    inadequate proxies for actual experimental metadata, hindering data reassessment
+    and obstructing non-standard searching (e.g., querying by liquid chromatography
+    column coupling order), while varying journal requirements result in inconsistent
+    reporting where critical details may be lacking or presented in esoteric formats,
+    necessitating explicit documentation of both sample provenance (where samples
+    came from including biological source, tissue type, growth conditions, disease
+    state, treatment history) and analytical workflows (how analyses were performed
+    encompassing separation methods, mass spectrometry parameters, data processing
+    algorithms, statistical validation criteria). MIAPE comprises multiple modular
+    components addressing different experimental stages and technologies where MIAPE-MS
+    (Mass Spectrometry, v2.98) specifies reporting requirements for mass spectrometry
+    instrumentation including ion source type (electrospray ionization ESI, matrix-assisted
+    laser desorption/ionization MALDI, atmospheric pressure chemical ionization APCI),
+    mass analyzer configuration (time-of-flight TOF, quadrupole, ion trap, Orbitrap,
+    Fourier transform ion cyclotron resonance FT-ICR), fragmentation methods (collision-induced
+    dissociation CID, higher-energy collisional dissociation HCD, electron-transfer
+    dissociation ETD), mass accuracy and resolution specifications, scan parameters
+    (m/z range, scan rate, dynamic exclusion settings), and instrument calibration
+    procedures; MIAPE-MSI (Mass Spectrometry Informatics, v1.1) addresses computational
+    analysis workflows documenting database searching algorithms (Mascot, SEQUEST,
+    X!Tandem, Andromeda), protein sequence databases searched (UniProt, RefSeq, Ensembl
+    with version and taxonomy specification), search parameters (precursor and fragment
+    mass tolerances, enzyme specificity, fixed and variable modifications including
+    oxidation, phosphorylation, acetylation, ubiquitination), false discovery rate
+    (FDR) control methods (target-decoy approach, posterior error probability), protein
+    inference algorithms handling degenerate peptide-to-protein mappings, and spectral
+    library generation; MIAPE-Quant (Quantification, v1.0) covers quantitative proteomics
+    approaches specifying label-free methods (spectral counting, extracted ion chromatogram
+    XIC intensity-based quantification with retention time alignment and normalization
+    strategies), stable isotope labeling techniques (SILAC incorporating heavy amino
+    acids, iTRAQ/TMT isobaric tagging for multiplexed quantification, dimethyl labeling,
+    metabolic labeling), quantification software tools (MaxQuant, Skyline, OpenMS,
+    Proteome Discoverer), statistical testing for differential expression (t-tests,
+    ANOVA, limma, empirical Bayes moderation), multiple testing correction (Benjamini-Hochberg
+    FDR, Bonferroni), and normalization methods (median normalization, quantile normalization,
+    variance stabilization transformation VST); MIAPE-GE (Gel Electrophoresis, v1.4)
+    documents gel-based separation methods including 1D and 2D polyacrylamide gel
+    electrophoresis (PAGE) with gel composition specifications (acrylamide percentage,
+    pH gradient for isoelectric focusing IEF), running conditions (voltage, current,
+    duration), staining methods (Coomassie blue, silver stain, fluorescent dyes SYPRO
+    Ruby/Cy dyes), and gel imaging parameters (scanner type, pixel resolution, dynamic
+    range); MIAPE-GI (Gel Informatics, v1) addresses computational analysis of gel
+    images documenting spot detection algorithms, background subtraction methods,
+    spot matching across gel replicates, normalization strategies (total spot volume,
+    housekeeping protein normalization), statistical analysis identifying differentially
+    abundant spots, and software tools (PDQuest, Progenesis, DeCyder); MIAPE-CC (Column
+    Chromatography, v1.1) specifies liquid chromatography separation parameters including
+    column dimensions (length, inner diameter), stationary phase chemistry (C18 reversed-phase,
+    C8, strong cation exchange SCX, hydrophilic interaction HILIC, size exclusion),
+    mobile phase composition (organic solvents, pH, buffer additives), gradient profiles
+    (flow rate, gradient slope, column temperature), and injection volumes; MIAPE-CE
+    (Capillary Electrophoresis, v0.9.3) covers capillary electrophoresis separation
+    documenting capillary dimensions, buffer composition, voltage settings, temperature
+    control, and detection methods; and MIMIx (Molecular Interactions, v1-1-2) addresses
+    protein-protein interaction experiments specifying interaction detection methods
+    (yeast two-hybrid, co-immunoprecipitation, affinity purification followed by
+    mass spectrometry AP-MS, surface plasmon resonance SPR), experimental conditions
+    (buffer pH, salt concentration, temperature), and confidence scores for interaction
+    assignment. MIAPE integration with proteomics data repositories positions these
+    guidelines as foundational standards for major public databases where PRIDE (PRoteomics
+    IDEntifications database) hosted by EMBL-EBI serves as primary repository for
+    mass spectrometry-based proteomics data requiring MIAPE-compliant metadata submission,
+    ProteomeXchange Consortium coordinates data submission across multiple repositories
+    (PRIDE, PeptideAtlas, MassIVE, jPOST, iProX) with MIAPE metadata ensuring interoperability,
+    PeptideAtlas provides validated peptide and protein identifications with MIAPE-documented
+    search parameters enabling reproducible analysis, and PhosphoSitePlus curates
+    post-translational modifications with MIAPE-standardized mass spectrometry evidence
+    supporting site localization confidence. MIAPE-compliant reporting supports diverse
+    proteomics applications where biomarker discovery studies documenting clinical
+    sample metadata (patient demographics, disease stage, treatment response) alongside
+    MIAPE-specified analytical workflows enable cross-cohort validation and meta-analyses
+    aggregating candidate biomarkers across independent studies, clinical proteomics
+    implementing standardized reporting in FDA-cleared or CLIA-certified laboratory
+    workflows supports regulatory compliance and quality assurance programs, multi-omics
+    integration combining MIAPE-documented proteomics with transcriptomics (RNA-seq),
+    metabolomics, and genomics data enables systems biology modeling where consistent
+    metadata annotation facilitates cross-platform correlation analyses, and machine
+    learning applications training on MIAPE-compliant datasets including supervised
+    classification models predicting disease subtypes or treatment response from protein
+    abundance profiles (support vector machines, random forests, neural networks
+    on log-transformed abundance matrices with batch effect correction), deep learning
+    architectures for spectrum identification (DeepNovo de novo sequencing, Prosit
+    predicting fragment ion intensities for spectral library generation, MS2DeepScore
+    calculating spectral similarity for unknown compound identification), transfer
+    learning adapting models trained on well-characterized samples to novel biological
+    contexts or rare diseases with limited training data, unsupervised clustering
+    (hierarchical clustering, k-means, UMAP/t-SNE dimensionality reduction) discovering
+    proteomic subtypes and patient stratification, pathway enrichment analysis (GSEA,
+    over-representation analysis) mapping differentially abundant proteins to biological
+    processes and signaling networks (Reactome, KEGG, WikiPathways), causal inference
+    methods integrating perturbation proteomics (CRISPR screens, drug treatments)
+    with observational data to distinguish causal drivers from correlation, federated
+    learning enabling multi-institutional model training on sensitive patient proteomics
+    data without sharing raw mass spectra or protein identifications, and synthetic
+    data generation (GANs, VAEs creating realistic proteomic profiles for algorithm
+    benchmarking, privacy-preserving data sharing, and augmenting small sample size
+    studies). Integration with computational proteomics tools positions MIAPE as
+    foundational metadata standard where search engines (Mascot, SEQUEST, Andromeda,
+    Comet, MS-GF+) implement MIAPE-MSI specifications producing standardized output
+    formats (mzIdentML, pepXML, protXML), quantification platforms (MaxQuant, Skyline,
+    OpenMS, Proteome Discoverer) support MIAPE-Quant metadata annotation enabling
+    reproducible quantitative workflows, spectral library tools (SpectraST, NIST,
+    Prosit) incorporate MIAPE-documented acquisition parameters ensuring library applicability
+    across instruments and laboratories, and quality control software (PTXQC, QuaMeter,
+    iMonDB) evaluate MIAPE-specified metrics (peptide identifications per MS run,
+    mass accuracy distributions, chromatographic peak widths) detecting technical
+    issues and monitoring longitudinal instrument performance. MIAPE registration
+    with the MIBBI Project (Minimum Information for Biological and Biomedical Investigations)
+    aligns proteomics reporting standards with broader biological data standardization
+    initiatives spanning genomics (MIAME for microarrays, MINSEQE for sequencing),
+    metabolomics (MSI minimum reporting standards), flow cytometry (MIFlowCyt), and
+    imaging (MIACME for correlative microscopy), facilitating multi-omics data integration
+    and cross-platform meta-analyses where consistent metadata schemas enable federated
+    queries and harmonized data models. Implementation by journals and funding agencies
+    where Nature Biotechnology, Journal of Proteomics, and Molecular & Cellular Proteomics
+    require MIAPE compliance for data deposition in public repositories prior to
+    publication, NIH and European research councils mandate MIAPE-documented data
+    sharing for proteomics grants supporting reproducibility and open science initiatives,
+    and pharmaceutical industry adopts MIAPE standards for internal proteomics workflows
+    ensuring consistency across contract research organizations (CROs) and enabling
+    regulatory submissions with well-documented analytical methods, collectively
+    positions MIAPE as essential infrastructure for reproducible, FAIR (Findable,
+    Accessible, Interoperable, Reusable) proteomics data supporting biomedical discovery,
+    clinical translation, and precision medicine applications spanning cancer biology,
+    neurodegenerative diseases, infectious diseases, cardiovascular disorders, and
+    drug development.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:41
