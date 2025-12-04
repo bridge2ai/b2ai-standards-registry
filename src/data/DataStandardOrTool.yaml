@@ -7554,6 +7554,76 @@ data_standardortools_collection:
   - B2AI_STANDARD:339
   requires_registration: false
   url: https://doi.org/10.1074/mcp.O111.011379
+  has_application:
+  - id: B2AI_APP:269
+    category: B2AI:Application
+    name: PulsPhos phosphoproteomics ML workflow with mz5
+    description: "Phosphoproteomics dynamics prediction workflow converting Thermo
+      .RAW files to .MZ5 format using ProteoWizard, importing .MZ5 files with custom
+      Julia script to extract all raw MS1 spectra, transforming mass differences
+      to absolute masses, computing intensity-weighted peak centers, applying Gaussian-shape
+      filtering, generating theoretical isotopic distributions (n=0...7 Poisson model),
+      filtering with 4 ppm mass and 0.75 s retention-time windows, fitting metabolic-labeling
+      models with equations L(t)=1+(τp exp(-t/τp)-τ exp(-t/τ))/(τ-τp) and An(t)=∑
+      pi(t) I_{n-2i}, curating 4,058 phosphosites, engineering 945 features including
+      MS evidence (number of independent detections and peaks), AlphaFold2-derived
+      structure features (pLDDT, RSA, DSSP v3.0.0), codon GC/content, and turnover
+      rates, training gradient boosting (XGBoost v1.5.2) models on log10-transformed
+      response excluding long-lived sites above 10^3.7 minutes (~83.53 hours), clustering/splitting
+      with MMseqs2 (30% identity) into 90/10 train/test sets, and discarding fits
+      with negative R² where R²=1-(vardata). Demonstrates direct use of mz5 as the
+      working raw-data container in end-to-end machine learning pipeline for predicting
+      phosphosite lifetimes from mass spectrometry data integrated with structural
+      and sequence features."
+    references:
+    - https://doi.org/10.1101/2024.07.23.604744
+  - id: B2AI_APP:270
+    category: B2AI:Application
+    name: Toffee DIA-MS deep learning with mz5 conversion
+    description: "Data-independent acquisition mass spectrometry (DIA-MS) workflow
+      using mz5 format in conversion pipeline alongside deep learning proof-of-concept
+      for peptide localization. Converted vendor WIFF files to multiple formats including
+      mz5 via msconvert (Dockerised pwiz-skyline-i-agree-to-the-vendor-licenses:3.0.19073-85be8464136)
+      with command 'wine msconvert -z --mz5 --outfile ${mz5_fname} ${wiff_fname}',
+      applied OpenMS/OpenSWATH (OpenMSToffee wrapper) for DIA analysis, developed
+      HDF5-based toffee format representing DIA data as triplets on Cartesian grid
+      and 2D image-like slices with mass accuracy loss <5 ppm, trained single-shot
+      detector (SSD) with ResNet50 backbone on Amazon SageMaker using OpenSWATH-labelled
+      data for computer vision-based deep learning inference of peptide location,
+      processed more than 1,200 technical replicates using analytic model G(σt,σm,t0,→m0,a,c)=∑Gj
+      where Gj=Fj(σt,σm,t0,m0,j,aj,cj)-Ij with retention time t, m/z m, spreads σt/σm,
+      peak locations t0/m0, amplitudes →a, and chemical noise →c, demonstrating improved
+      replicate correlation via outlier removal using σt, σm, t0, m0 parameters.
+      Shows mz5 co-use in data conversion workflows integrating machine learning
+      components with HDF5-backed formats, MIT-licensed code using h5py for tensor
+      operations enabling deep learning on mass spectrometry data."
+    references:
+    - https://doi.org/10.1038/s41598-020-65015-y
+  - id: B2AI_APP:271
+    category: B2AI:Application
+    name: Universal bacterial detection metabolomics with mz5
+    description: "Untargeted metabolomics workflow for universal bacterial detection
+      in tissues converting Thermo .raw files to .mz5 format using ProteoWizard msconvert,
+      building spectral metabolic library of 233 bacterial species (n=597 bacterial
+      profiles), applying univariate statistical analysis to identify 359 taxon-specific
+      markers (TSMs) occurring in >90% of samples with criteria p<0.05, TPR≥0.80,
+      FPR≤0.10, ≥3 observations, extracting peak intensities with ±15 ppm mass tolerance
+      (internal) or ±50 ppm (external) normalized to 200-1000 m/z range, validating
+      on internal set of 2,677 bacterial profiles and external set of 564 spectral
+      profiles achieving median AUCs 0.997 (IQR 0.047) internal and 0.985 (IQR 0.071)
+      external for classification across taxonomic levels (phylum AUC=1.0, Gram AUC=0.8),
+      performing PCA on log10-transformed total-intensity normalized data (PC1=14.8%),
+      detecting bacteria in 97.7% of 44 colorectal tissue samples via DESI-MS imaging,
+      comparing LC-MS (107 TSMs) and DESI-MSI (143 TSMs) with 77 marker overlap and
+      correlation 0.70 (p<0.001), tentatively identifying 177 of 359 variables, and
+      providing GitHub code (https://github.com/jsmckenzie/bacterialTSM) with worked
+      examples. Demonstrates mz5 use in modern ML-adjacent statistical biomarker discovery
+      pipeline with method-agnostic detection framework supporting downstream classification
+      tasks across multiple MS modalities and clinical tissue types addressing challenges
+      of pathogen diversity (~1,400 pathogenic species), marker specificity, variable
+      bacterial cell numbers, and non-sterile specimen commensals."
+    references:
+    - https://doi.org/10.1038/s41467-024-55457-7
 - id: B2AI_STANDARD:219
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
