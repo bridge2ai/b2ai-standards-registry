@@ -23354,7 +23354,85 @@ data_standardortools_collection:
   - B2AI_ORG:117
   is_open: true
   name: openSMILE
-  purpose_detail: openSMILE is an open-source audio feature extraction toolkit.
+  purpose_detail: openSMILE (open-source Speech and Music Interpretation by Large-space
+    Extraction) is a comprehensive open-source toolkit for audio feature extraction,
+    processing, and classification specifically designed for speech and music signal
+    analysis, widely applied in affective computing for automatic emotion recognition,
+    speaker identification, automatic speech recognition, paralinguistic analysis,
+    beat tracking, and audio scene classification. Originally developed in 2008 at
+    Technische Universität München within the EU-funded SEMAINE project by Dr. Florian
+    Eyben, Martin Wöllmer, and Prof. Björn Schuller as a real-time speech and emotion
+    analysis component for a virtual agent with affective skills, the toolkit has
+    been owned and maintained since 2013 by audEERING GmbH while remaining freely
+    available for academic, research, and educational use, accumulating over 150,000
+    downloads and 2,650+ citations in scientific publications. Written purely in C++
+    for performance efficiency, openSMILE provides a modular, configurable architecture
+    running on desktop (Linux, Windows, macOS), mobile (Android, iOS), and embedded
+    platforms (Raspberry Pi), with version 3.0 introducing major improvements including
+    a standalone opensmile-python package with easy-to-use Python API, new C API
+    with Python/.NET wrappers, modern CMake build system, enhanced iOS support, updated
+    Android integration, and FFmpeg audio source component. Core capabilities span
+    signal processing (FFT, mel-scale filterbank, voice activity detection, pitch
+    tracking, formant estimation), speech-related features (mel-frequency cepstral
+    coefficients MFCC for speech recognition, linear predictive coding LPC and perceptual
+    linear prediction PLP, fundamental frequency F0 and voicing for prosody, jitter/shimmer
+    voice quality measures, harmonics-to-noise ratio, spectral flux/rolloff, formants
+    F1-F4 for vowel characterization), music-related features (chroma vectors for
+    chord recognition, beat tracking and tempo estimation, onset detection, spectral
+    centroid and bandwidth for timbre), extensive statistical functionals over time
+    windows (mean, standard deviation, percentiles, regression coefficients capturing
+    trends, skewness and kurtosis), and data processing utilities (delta coefficients
+    for feature dynamics, normalization including cepstral mean subtraction removing
+    channel effects, resampling). Pre-configured feature sets enable rapid prototyping
+    where ComParE (Computational Paralinguistics Challenge) extracts 6,373 acoustic
+    features widely used as emotion recognition baseline, eGeMAPS (extended Geneva
+    Minimalistic Acoustic Parameter Set) provides 88 carefully selected features balancing
+    theoretical significance and automatic extractability for affective computing
+    and clinical voice analysis, and INTERSPEECH IS09-IS13 feature sets from annual
+    challenges capture progressive refinements for paralinguistic tasks. Applications
+    position openSMILE as de facto standard feature extractor where emotion recognition
+    systems classify discrete emotions (happiness, anger, sadness, fear) or dimensional
+    affect (arousal, valence) from speech acoustics using machine learning models
+    (SVMs, random forests, neural networks) trained on databases like IEMOCAP, speaker
+    recognition extracts voice biometrics for authentication, automatic speech recognition
+    pipelines use MFCCs or PLP as front-end acoustic representations, clinical voice
+    analysis assesses pathological speech in Parkinson's disease and dysarthria using
+    perturbation measures, depression and mental health screening leverages paralinguistic
+    cues (reduced pitch variability, slower speech rate), call center analytics performs
+    sentiment analysis and customer satisfaction prediction, music information retrieval
+    applications including genre classification and mood detection use chroma and
+    spectral features, and audio scene classification distinguishes acoustic environments
+    supporting context-aware systems. Machine learning integration where openSMILE
+    serves as feature extraction front-end for diverse architectures including classical
+    ML (SVMs, random forests, gradient boosting XGBoost/LightGBM, Gaussian mixture
+    models), deep neural networks (CNNs for spectrogram-like representations, RNNs/LSTMs
+    capturing temporal dependencies, attention mechanisms and Transformers, hybrid
+    architectures combining openSMILE features with end-to-end learned representations
+    from wav2vec 2.0 or HuBERT), transfer learning adapting pre-trained models to
+    specific tasks, multi-task learning jointly optimizing emotion/gender/age recognition,
+    and ensemble methods combining feature-based and spectrogram-based models. Research
+    applications across computational paralinguistics where annual INTERSPEECH ComParE
+    challenges (2009-present) use openSMILE as official baseline feature extractor
+    for emotion recognition, speaker traits estimation, breathing/heart sounds, COVID-19
+    cough detection, AVEC challenges for multimodal emotion recognition combining
+    audio with facial expression and physiological signals, cross-corpus emotion recognition
+    evaluating generalization across languages and conditions, continuous dimensional
+    emotion recognition predicting time-varying arousal/valence trajectories, depression
+    severity estimation from clinical interviews, Parkinson's disease detection from
+    sustained phonations, and autism spectrum disorder screening from atypical prosody.
+    Dual licensing where openSMILE is freely available under audEERING Research License
+    for private, research, and educational use enabling widespread academic adoption,
+    but commercial products require purchasing commercial license from audEERING GmbH.
+    Integration with broader ecosystem where opensmile-python provides Pythonic interface
+    with NumPy/Pandas, compatibility with scikit-learn pipelines enables seamless
+    ML workflows (feature scaling, cross-validation), audformat/audb libraries facilitate
+    dataset management with feature caching, and extensive documentation at audeering.github.io/opensmile/
+    with active GitHub community (748 stars, 96 forks) ensures openSMILE remains
+    the most widely adopted open-source toolkit for acoustic feature extraction in
+    speech and affective computing research, serving as essential infrastructure for
+    reproducible computational paralinguistics, supporting Bridge2AI voice biomarker
+    projects, and enabling clinical translation of speech-based digital phenotyping
+    for neurological, psychiatric, and respiratory conditions.
   requires_registration: false
   url: https://www.audeering.com/research/opensmile/
   used_in_bridge2ai: true
