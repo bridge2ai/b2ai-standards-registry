@@ -14388,8 +14388,88 @@ data_standardortools_collection:
   is_open: true
   name: CDAO
   publication: doi:10.4137/EBO.S2320
-  purpose_detail: A formalization of concepts and relations relevant to evolutionary
-    comparative analysis.
+  purpose_detail: The Comparative Data Analysis Ontology (CDAO) is an OBO Foundry-aligned
+    ontology formalized in Web Ontology Language (OWL 1.1) that provides standardized,
+    computable representations of concepts and relations essential for evolutionary
+    comparative analysis, developed by the National Evolutionary Synthesis Center
+    (NESCent) Evolutionary Informatics working group to lower technical barriers
+    for applying phylogenetic methods to biological data integration. CDAO addresses
+    the core problem of phylogenetic character history inference by formalizing key
+    concepts including Operational Taxonomic Units (OTUs) representing entities under
+    comparison (species, genes, proteins), character-state data matrices encoding
+    observations as Entity-Attribute-Value models where rows represent OTUs and columns
+    represent characters with discrete or continuous states, phylogenetic trees and
+    networks representing historical paths of descent-with-modification with nodes
+    (terminal OTUs and internal ancestors including Most Recent Common Ancestor MRCA)
+    and edges (branches with DirectedEdge for rooted trees, UndirectedEdge for unrooted
+    trees), and evolutionary transitions representing inferred character-state changes
+    along branches accounting for observed distributions through parsimony or probabilistic
+    models. The ontology implements fine-grained class hierarchies with 122 concepts,
+    67 object properties linking instances, and 10 data properties for primitive
+    types, supporting diverse character types including CategoricalCharacter (nucleotide
+    residues in sequence alignments with AminoAcidResidueCharacter subclass, morphological
+    traits with discrete states, presence/absence binary characters), ContinuousCharacter
+    (chemical inhibitor response IC50 values, expression levels), MolecularCharacter
+    (DNA/RNA/protein sequences with coordinate systems), and CompoundCharacter (codons
+    combining three nucleotide positions). CDAO's character-state data model represents
+    CharacterStateDataMatrix with has_Character and has_TU properties linking to
+    Characters and TUs, with CharacterStateDatum cells belonging_to specific TU-Character
+    pairs and having states drawn from appropriate CharacterStateDomain (e.g., AminoAcidResidue
+    domain with 20 canonical amino acids imported from external amino acid ontology,
+    nucleotide domain with A/T/G/C states, GO term domain for cellular location characters).
+    Phylogenetic tree representation uses Tree class with subclasses RootedTree (with
+    has_Root property identifying root Node and DirectedEdges using has_Parent_Node/has_Child_Node
+    properties), UnrootedTree (with UndirectedEdges using has_Left_Node/has_Right_Node),
+    BifurcatingTree (all nodes have zero or two children), and UnresolvedTree (allowing
+    polytomies), supporting network structures with Node concepts including TerminalNode
+    (representing observable OTUs), InternalNode (ancestors), and MRCANode (most
+    recent common ancestor of SetOfNodes collections). Evolutionary transitions are
+    encoded as EdgeTransition annotations (subclass of EdgeAnnotation and CDAOAnnotation)
+    linked to Characters via transition_of property and specifying state changes with
+    has_Left_State/has_Right_State properties referencing CharacterStateDomain values,
+    enabling representation of parsimony reconstructions, maximum likelihood ancestral
+    state estimates, and Bayesian posterior state probabilities. The ontology supports
+    metadata and provenance through CDAOAnnotation hierarchies including ModelDescription
+    (specifying evolutionary models like GTR+Gamma for nucleotides, JTT for proteins),
+    TreeAnnotation (bootstrap support, posterior probabilities, branch lengths via
+    EdgeLength subclass), CharacterStateDataMatrixAnnotation, TUAnnotation with TaxonomicLink
+    subclass linking OTUs to external species taxonomies (NCBI Taxonomy), and CoordinateSystem
+    skeleton for ordered characters like sequences referencing external databases
+    (NCBI accessions, UniProt IDs). CDAO enables semantic data transformation and
+    interoperability by translating legacy formats (NEXUS character matrices and
+    trees, NeXML) into RDF/XML instances of CDAO classes expressible as subject-property-object
+    triples, supporting SPARQL queries for extracting information (finding TUs with
+    alignment gaps, identifying subtrees defined by node sets, retrieving character
+    states for specific OTUs) and enabling reasoning via description logic engines
+    (Pellet, FaCT++, Racer) that infer relationships using OWL 1.1 features including
+    transitive properties (has_Ancestor/has_Descendant via transitive closure of
+    has_Parent), inverse properties, and property chaining. The ontology facilitates
+    integration with existing biological ontologies by importing domain-specific knowledge
+    rather than redefining it, exemplified by equating CDAO's AminoAcidResidue class
+    with the imported AminoAcid class providing 20 canonical residues and quality
+    hierarchies (ChargedAminoAcid, PolarAminoAcid), with future integration opportunities
+    for Sequence Ontology (SO) sequence features, ChEBI chemical entities (L-Alanyl
+    moiety CHEBI:32433 in polypeptides), Gene Ontology (GO) functional annotations
+    as character states, and Phenotype and Trait Ontology (PATO) for morphological
+    characters. Available under Creative Commons CC0 public domain waiver from GitHub
+    repository (github.com/evoinfo/cdao) and OBO Library persistent URL (purl.obolibrary.org/obo/cdao.owl),
+    CDAO supports use cases across evolutionary biology including sequence alignment
+    homology assignment, phylogeny inference for classification, ancestral state reconstruction,
+    biological function inference via phylogenomics (protein function assignment balancing
+    similarity and phylogenetic context), gene tree/species tree reconciliation for
+    duplication/loss events, codon evolution analysis, and comparative genomics integrating
+    diverse data types (sequences, expression patterns, morphology, behavior). The
+    ontology enables workflow automation by providing semantic layer for assembling
+    web services (myGrid, BioMoby) into phylogenetic analysis pipelines, validating
+    data consistency through ontology-based constraints, facilitating cross-database
+    queries via shared semantics, and supporting machine learning applications where
+    CDAO-structured phylogenetic features (tree topology, branch lengths, character
+    state distributions, transition patterns) serve as inputs for supervised classification
+    (species identification, function prediction), unsupervised clustering (gene family
+    discovery), and evolutionary model parameter estimation, ultimately advancing
+    reproducible, transparent, and integrative comparative analysis across molecular,
+    morphological, and ecological data domains by formalizing the conceptual framework
+    underlying evolutionary inference.
   requires_registration: false
   url: https://github.com/evoinfo/cdao
 - id: B2AI_STANDARD:427
