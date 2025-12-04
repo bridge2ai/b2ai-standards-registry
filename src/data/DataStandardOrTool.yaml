@@ -11369,12 +11369,52 @@ data_standardortools_collection:
   is_open: true
   name: CellML
   publication: doi:10.1186/1471-2105-11-178
-  purpose_detail: CellML language is an open standard based on the XML markup language.
-    CellML is being developed by the Auckland Bioengineering Institute at the University
-    of Auckland and affiliated research groups. The purpose of CellML is to store
-    and exchange computer-based mathematical models. CellML allows scientists to share
-    models even if they are using different model-building software. It also enables
-    them to reuse components from one model in another, thus accelerating model building.
+  purpose_detail: 'CellML is an open XML-based markup language standard for encoding
+    and exchanging computer-based mathematical models of biological systems, developed
+    by the Auckland Bioengineering Institute at the University of Auckland with development
+    now led by the CellML Editorial Board. The standard originated in 2001 as part
+    of the IUPS Physiome Project with the goal of enabling scientists to share computational
+    models across different modeling tools and reuse model components to accelerate
+    development. CellML has evolved through multiple specification versions: CellML
+    1.0 (initial release), CellML 1.1 (with improvements and errata), and CellML
+    2.0 (current specification), each maintaining backward compatibility while adding
+    features. The language scope is deliberately focused on model structure and organization:
+    (1) description of organizational scheme defining how models are decomposed into
+    components and how components connect to create complete models, primarily for
+    computational processing; (2) metadata describing models and parts for categorization,
+    organization, and retrieval by both programs and human users. CellML uses MathML
+    for mathematical equations, enabling representation of ordinary differential equations,
+    algebraic equations, and discrete equations that describe biological system dynamics.
+    The standard supports modular model construction where components can be imported,
+    combined, and reused across different models, with each component encapsulating
+    variables, mathematics, and connections to other components. CellML metadata specifications
+    follow Dublin Core RDF for basic metadata plus CellML-specific schemas for biological
+    annotations. The registered MIME type application/cellml+xml is defined via the
+    CellML Umbrella Specification. The Physiome Model Repository (https://models.physiomeproject.org/)
+    serves as the primary model repository containing thousands of curated CellML
+    models organized by biological domain: electrophysiology (cardiac action potential
+    models including ventricular, atrial, sinoatrial node, Purkinje fiber models;
+    neuronal models; ion channel models), cardiovascular circulation (Guyton comprehensive
+    cardiovascular model modules, cardiac mechanics, vascular dynamics), calcium dynamics
+    (calcium-induced calcium release, store-operated calcium entry, mitochondrial
+    calcium handling), cell cycle, circadian rhythms, excitation-contraction coupling,
+    gene regulation, immunology, metabolism, myofilament mechanics, neurobiology,
+    signal transduction, and synthetic biology. Notable model families include Hodgkin-Huxley
+    formulations and descendants, Luo-Rudy ventricular models, Noble cardiac models,
+    O''Hara-Rudy CiPA models for drug cardiotoxicity assessment, and Courtemanche-Ramirez-Nattel
+    atrial models. The CellML community provides freely available tools including
+    OpenCOR (integrated modeling environment), libCellML (C++ and Python API for processing
+    CellML 2.0), CellML API (for CellML 1.0/1.1), and language-specific libraries.
+    Models are typically used in computational physiology research to simulate biological
+    processes, test hypotheses about mechanisms, predict system behavior under perturbations,
+    and guide experimental design. CellML integrates with Simulation Experiment Description
+    Markup Language (SED-ML) for specifying simulation protocols, enabling reproducible
+    computational experiments. The standard''s modular architecture and XML foundation
+    enable version control, collaborative model development, and integration with
+    workflow systems. Annual CellML Workshops and participation in COMBINE (Computational
+    Modeling in Biology Network) and HARMONY meetings support community coordination
+    and standards harmonization with related formats like SBML (Systems Biology Markup
+    Language).'
   requires_registration: false
   url: https://www.cellml.org/
 - id: B2AI_STANDARD:319
