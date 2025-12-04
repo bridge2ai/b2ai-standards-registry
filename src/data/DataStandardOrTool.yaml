@@ -23815,9 +23815,84 @@ data_standardortools_collection:
   formal_specification: https://github.com/great-expectations/great_expectations
   is_open: true
   name: GX
-  purpose_detail: A platform for organizing, testing, and validating data.
+  purpose_detail: 'Great Expectations (GX) is an open-source Python-based data quality
+    framework designed to help data teams validate, document, and monitor data throughout
+    the data lifecycle. At its core, GX introduces the concept of Expectations: declarative,
+    human-readable assertions about data that serve as unit tests for datasets. These
+    Expectations can validate data structure (column existence, data types), content
+    (value ranges, pattern matching, uniqueness), relationships (foreign key constraints,
+    cross-table consistency), statistical properties (distributions, outliers, drift
+    detection), and custom business logic. GX operates through a workflow of profiling
+    data to automatically generate Expectations, creating Validation Definitions that
+    apply Expectations to specific data assets, executing validations via Checkpoints
+    that can be integrated into data pipelines or CI/CD workflows, and generating
+    Data Docs—automatically-compiled HTML documentation providing human-readable validation
+    results with pass/fail statistics, unexpected value samples, and historical trends.
+    The framework integrates with diverse data sources including SQL databases (PostgreSQL,
+    MySQL, SQLite, Snowflake, BigQuery, Redshift), cloud data warehouses, Spark (local,
+    Databricks, EMR), pandas DataFrames, and file formats (CSV, Parquet, JSON). GX
+    supports deployment through GX Core (self-hosted open-source library for local/HPC/cloud
+    environments) and GX Cloud (fully-managed SaaS with enhanced collaboration features,
+    real-time monitoring dashboards, and ExpectAI for AI-assisted Expectation generation).
+    Key features for production data pipelines include Actions for automated alerting
+    (Slack, email, PagerDuty, webhooks), Validation Operators for orchestrating complex
+    validation sequences, Metric Stores for persisting validation results to databases
+    enabling historical analysis, and integration with orchestration platforms like
+    Airflow, Prefect, Dagster, and Kedro. GX is widely used for data pipeline testing,
+    ML model input validation (detecting data drift, schema changes, distribution
+    shifts), data governance and regulatory compliance (audit trails, data lineage
+    documentation), automated data profiling and anomaly detection, and ensuring data
+    quality in ELT/ETL workflows before downstream consumption.'
   requires_registration: false
   url: https://greatexpectations.io/
+  has_application:
+  - id: B2AI_APP:295
+    category: B2AI:Application
+    name: ML Training Data Quality Validation and Drift Detection
+    description: Great Expectations is extensively used to validate data quality in
+      machine learning pipelines, ensuring training and inference data meet expected
+      distributions before model consumption. ML teams use GX to define Expectations
+      on feature distributions (numeric ranges, categorical value sets, null frequencies),
+      detect data drift by comparing validation metrics across time windows or between
+      training and production data, validate schema consistency preventing breaking
+      changes in upstream data sources, and monitor for anomalies like unexpected
+      missing values, outliers, or violated correlations between features. GX integrations
+      with MLflow, Kubeflow, and SageMaker enable automated validation checkpoints
+      in model training pipelines, with Actions triggering alerts when data quality
+      degradation is detected. The Avanade case study demonstrates GX detecting upstream
+      model changes and data drift in production ML systems, preventing model performance
+      degradation by catching input data anomalies before inference. This approach
+      is critical for maintaining ML model reliability in production, particularly
+      for high-stakes applications where data quality directly impacts prediction
+      accuracy and business outcomes.
+    used_in_bridge2ai: false
+    references:
+    - https://greatexpectations.io/case-studies/how-avanade-uses-gx-to-detect-data-drift-from-upstream-model-changes-in/
+    - https://docs.greatexpectations.io/
+  - id: B2AI_APP:296
+    category: B2AI:Application
+    name: Healthcare Data Pipeline Quality Assurance and Compliance
+    description: Great Expectations is deployed in healthcare organizations to validate
+      clinical data pipelines, ensuring data quality and regulatory compliance for
+      patient records, EHR integrations, and health analytics systems. Healthcare
+      implementations use GX to validate FHIR/HL7 message formats and completeness,
+      ensure patient identifier consistency across systems, detect anomalies in clinical
+      measurements (vitals, lab results, medication dosages), verify temporal consistency
+      in longitudinal patient records, and maintain audit trails for regulatory compliance
+      (HIPAA, GDPR). LOGEX uses GX to safeguard healthcare data quality through automated
+      validation of claims processing and patient data transformations, while THINKMD
+      leverages GX Cloud to improve frontline patient care by validating diagnostic
+      decision support data and mobile health application inputs. Komodo Health employs
+      GX to safeguard their real-world evidence data pipelines with quality checks
+      and user acceptance testing verification for healthcare analytics. These implementations
+      demonstrate GX's critical role in maintaining data integrity for clinical decision
+      support systems, population health analytics, and value-based care reporting
+      where data quality errors can have direct patient safety implications.
+    used_in_bridge2ai: false
+    references:
+    - https://greatexpectations.io/case-studies/how-logex-safeguards-healthcare-data-with-gx/
+    - https://greatexpectations.io/case-studies/how-thinkmd-improves-frontline-patient-care-with-gx-cloud/
+    - https://greatexpectations.io/case-studies/how-komodo-health-uses-gx-to-safeguard-their-data-pipelines-with-quality/
 - id: B2AI_STANDARD:871
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
