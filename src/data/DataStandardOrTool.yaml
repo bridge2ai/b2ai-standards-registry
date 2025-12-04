@@ -23669,6 +23669,194 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Praat software
   formal_specification: https://github.com/praat/praat
+  has_application:
+  - category: B2AI:Application
+    description: Praat was used to extract voice quality and prosodic features (pitch
+      statistics including mean/median/standard deviation, multiple jitter variants
+      including Local/RAP/PPQ5/DDP, multiple shimmer variants including Local/LocaldB/APQ3/APQ5/APQ11/DDA,
+      and Harmonic-to-Noise Ratio HNR) from online running-speech task recordings
+      in a web-based dataset of 726 participants (262 with Parkinson's disease, 464
+      non-PD controls) with class imbalance ratio approximately 1.8:1. These Praat-extracted
+      acoustic features, combined with Mel-frequency cepstral coefficients (MFCCs)
+      and other features, were used to train gradient-boosted tree classifiers (XGBoost
+      implementation) and additional machine learning models for binary classification
+      of PD versus non-PD. The authors evaluated models using area under the ROC
+      curve (AUC) as the preferred metric given dataset imbalance, reporting approximately
+      10% improvement in binary accuracy over a naive always-predict-non-PD baseline
+      classifier. Both unified gender-combined models and stratified gender-specific
+      models (male-only, female-only) were trained and evaluated, with similar performance
+      observed between unified and stratified approaches. The study demonstrates Praat's
+      role as a standardized feature extractor for clinically meaningful voice biomarkers
+      (jitter, shimmer, pitch variability, harmonic structure) that serve as informative
+      inputs to machine learning pipelines for remote Parkinson's disease screening
+      from naturalistic speech tasks. Forced alignment for phonetic segmentation
+      was performed using Penn Phonetics Lab Forced Aligner (P2FA) rather than Praat.
+      The authors acknowledge dataset limitations including class imbalance and plan
+      future work to collect additional PD samples and apply deconfounding techniques
+      and resampling methods to address imbalance.
+    id: APP:272
+    name: Parkinson's disease detection from online running-speech task using Praat
+      voice features and gradient-boosted trees
+    references:
+    - https://doi.org/10.48550/arxiv.2009.01231
+    used_in_bridge2ai: false
+  - category: B2AI:Application
+    description: Praat version 6.4 was used to extract long-term acoustic biomarkers
+      from sustained vowel (/a/) recordings (8 kHz sampling, 16-bit resolution) for
+      early non-invasive detection of Parkinson's disease. Voice recordings were
+      preprocessed with Audacity noise reduction and amplitude-based filtering before
+      feature extraction. Praat specifically extracted shimmer (amplitude perturbation
+      quantifying cycle-to-cycle variability), jitter (frequency perturbation), and
+      Harmonic-to-Noise Ratio (HNR, measuring voice quality and periodicity) as long-term
+      vocal tract features. The broader feature set also included fundamental frequency
+      (F0), formants (vocal tract resonances), Cepstral Peak Prominence Smoothed
+      (CPPS, long-term measure of voice quality), Mel-frequency cepstral coefficients
+      (MFCCs extracted using Librosa for short-term spectral representation), and
+      non-standard measures including Pitch Period Entropy (PPE) and Recurrence Period
+      Density Entropy (RPDE, capturing voice signal complexity). All extracted features
+      were combined into a CSV dataset, preprocessed and normalized using Scikit-learn
+      StandardScaler, and partitioned with train-test split. Six machine learning
+      classifiers were trained and evaluated under k-fold/5-fold cross-validation
+      to mitigate overfitting, including Random Forest (RF), Support Vector Machine
+      (SVM), Logistic Regression (LR), Naive Bayes (NB), Decision Tree (DT), and
+      K-Nearest Neighbors (KNN). Model evaluation employed multiple metrics including
+      accuracy, recall (sensitivity), precision, F1-score, and ROC-AUC for comprehensive
+      performance assessment. Random Forest achieved the best overall performance
+      with ROC-AUC approximately 89.65%, while SVM demonstrated ROC-AUC approximately
+      82.6% and Naive Bayes achieved the highest recall (82.50%) but lower overall
+      accuracy. Hyperparameter tuning was performed using grid search to optimize
+      classifier configurations. Feature importance analyses were conducted to identify
+      the most discriminative vocal parameters for Parkinson's disease classification.
+      The authors note they used Praat directly rather than the Parselmouth Python
+      wrapper "to minimize discrepancies" in feature extraction, ensuring consistency
+      with Praat's canonical algorithms. The study demonstrates Praat's role in supplying
+      standardized long-term voice biomarkers (shimmer/jitter/HNR capturing vocal
+      fold vibration irregularities and breathiness) that feed traditional supervised
+      learning classifiers for disease diagnosis, within a validated cross-validation
+      framework for robust generalization assessment.
+    id: APP:273
+    name: Early Parkinson's disease prediction from sustained vowels using Praat
+      long-term acoustic features and Random Forest classifier
+    references:
+    - https://doi.org/10.3390/brainsci15070739
+    used_in_bridge2ai: false
+  - category: B2AI:Application
+    description: Praat was used alongside openSMILE to extract paralinguistic and
+      acoustic features from short (approximately 5 minutes total) online-collected
+      speech samples for multi-diagnostic classification of psychiatric conditions
+      including schizophrenia, bipolar disorder, psychosis vulnerability, and major
+      depressive disorder (MDD). Speech data were collected remotely via structured
+      tasks including dream recall, picture description, free speech, neutral text
+      reading, and emotional text reading. Audio preprocessing included converting
+      stereo WAV files to mono and removing filler words before automatic speech
+      recognition (ASR) using Amazon's ASR system. Praat extracted 116 paralinguistic
+      parameters at both the task level (aggregated over entire task duration) and
+      in 10-second frames with 5-second overlap for temporal dynamics capture. Extracted
+      acoustic feature types included temporal features (syllable rates, pause ratios,
+      speech timing), prosodic features (glottal pulse period measures, jitter quantifying
+      pitch perturbation, shimmer quantifying amplitude perturbation, voice quality
+      indices), frequency features (F1 first formant mean capturing vowel articulation),
+      spectral features (Mel-frequency cepstral coefficients MFCCs representing short-term
+      spectral envelope), and amplitude features (loudness and intensity measures).
+      Extracted acoustic features were combined with natural language processing
+      (NLP) features derived from ASR transcripts including semantic, morphological,
+      and syntactic linguistic features. Fused acoustic-linguistic feature sets were
+      fed into four classical tree-based machine learning algorithms including Random
+      Forest, XGBoost (gradient-boosted trees), CatBoost (categorical boosting), and
+      Extra Trees (extremely randomized trees) for multi-class psychiatric diagnosis
+      classification. Model evaluation employed accuracy and balanced accuracy as
+      primary performance metrics to account for potential class imbalance across
+      diagnostic categories. The study demonstrates feasibility of using Praat-extracted
+      paralinguistic features (prosody, voice quality, temporal dynamics) combined
+      with spectral and linguistic features to classify multiple psychiatric conditions
+      from brief, remotely collected speech samples using ensemble tree classifiers.
+      The multi-task structured speech paradigm (dream recall, picture description,
+      emotional reading) provides diverse vocal behaviors for comprehensive paralinguistic
+      profiling relevant to psychiatric symptomatology.
+    id: APP:274
+    name: Multi-diagnostic psychiatric disorder classification from brief online speech
+      using Praat paralinguistic features and tree ensemble classifiers
+    references:
+    - https://doi.org/10.13140/rg.2.2.11310.73280
+    used_in_bridge2ai: false
+  - category: B2AI:Application
+    description: Voice recordings collected via mobile devices from post-stroke patients
+      were analyzed using Praat-type acoustic measures to classify risk for tube
+      feeding requirement and respiratory complications including aspiration. The
+      machine learning pipeline extracted multiple acoustic voice features including
+      APQ11Shimmer (11-point Amplitude Perturbation Quotient quantifying long-term
+      amplitude variability), RAP (Relative Average Perturbation, a jitter measure
+      quantifying short-term frequency perturbation), Harmonic-to-Noise Ratio (HNR,
+      measuring voice periodicity and quality), and fundamental frequency (F0, reflecting
+      pitch). Cepstral Peak Prominence (CPP, a long-term voice quality measure) was
+      initially measured but excluded from machine learning models due to high Variance
+      Inflation Factor (VIF) values indicating multicollinearity with other acoustic
+      predictors. Six machine learning algorithms were evaluated including Logistic
+      Regression (LR), Decision Tree (DT), Random Forest (RF), Support Vector Machine
+      (SVM), Gaussian Mixture Model (GMM), and XGBoost (gradient-boosted trees).
+      XGBoost achieved the highest area under the ROC curve (AUC), with voice-only
+      models reaching AUC approximately 0.81 for predicting clinical outcomes and
+      combined voice-plus-clinical-variable models reaching AUC approximately 0.87,
+      demonstrating substantial predictive value of acoustic features alone and incremental
+      benefit when combined with clinical covariates. Feature importance analysis
+      using XGBoost's built-in attribution methods identified APQ11Shimmer and RAP
+      as the dominant acoustic predictors of post-stroke respiratory risk, even after
+      incorporating clinical variables such as age, stroke severity scores, and comorbidities.
+      The voice recording protocol was designed for safety and convenience, utilizing
+      mobile devices without requiring additional bolus administration or invasive
+      sensors, enabling non-invasive screening for dysphagia and aspiration risk
+      in stroke populations. The study demonstrates that Praat-extracted acoustic
+      perturbation measures (shimmer and jitter variants) capturing vocal fold vibration
+      irregularities and breathiness serve as strong predictive biomarkers for post-stroke
+      swallowing and respiratory complications when used as inputs to gradient-boosted
+      tree classifiers, with potential for mobile-based risk stratification tools
+      in clinical stroke management.
+    id: APP:275
+    name: Post-stroke dysphagia and respiratory complication risk prediction from
+      mobile voice recordings using Praat acoustic features and XGBoost
+    references:
+    - https://doi.org/10.1038/s41598-022-20348-8
+    used_in_bridge2ai: false
+  - category: B2AI:Application
+    description: Praat was used within a deep learning pipeline to enable emotion-robust
+      speaker identification across different emotional states (neutral and various
+      emotions) and languages (Arabic and English). The preprocessing pipeline used
+      Praat to generate spectrograms from audio recordings after removing silence
+      and unvoiced frames based on pitch detection, ensuring only voiced speech segments
+      were analyzed. Praat's pitch analysis identified and excluded non-speech regions,
+      and remaining voiced frames were converted to spectrograms via short-time Fast
+      Fourier Transform (FFT). Each spectrogram was segmented into fixed-size inputs
+      with 512 frequency bins (Ss × 512 shape, where Ss is the number of time-step
+      segments), representing time-frequency energy distributions suitable for convolutional
+      processing. These Praat-generated spectrogram segments served as inputs to
+      a Convolutional Recurrent Neural Network (CRNN) implemented in TensorFlow/Keras
+      for speaker identification. The CRNN architecture consisted of three convolutional
+      layers (Conv1 with 16 kernels of size 12×16, Conv2 with 24 kernels of size
+      8×12, Conv3 with 32 kernels of size 5×7) using Exponential Linear Unit (ELU)
+      activations and max-pooling for hierarchical feature extraction from spectrograms,
+      followed by a bidirectional Long Short-Term Memory (LSTM) layer to capture
+      temporal dependencies across spectrogram frames, a dropout layer (40% dropout
+      rate) for regularization, a fully connected (FC) dense layer, and a softmax
+      output layer for speaker classification. Training used the Adam optimizer (learning
+      rate 0.001), batch size 128, up to 200 epochs, and was repeated over 10 independent
+      runs on an NVIDIA GeForce RTX 2080 Ti GPU. Data were partitioned 80/20 by audio
+      file for training and validation. Predictions were computed using mean prediction-based
+      reasoning, aggregating segment-level predictions to compute both segment-level
+      and file-level speaker identification accuracies. The study evaluated cross-language
+      speaker identification (Arabic-to-English and English-to-Arabic transfer) and
+      cross-emotional robustness (training on neutral speech, testing on emotional
+      speech, and vice versa). While specific numeric accuracy results are not provided
+      in the excerpt, the documented methodology demonstrates Praat's concrete role
+      in automated spectrogram extraction and pitch-based silence removal for preprocessing
+      speech inputs to deep learning models, enabling emotion-robust and cross-linguistic
+      speaker recognition via CRNN architectures that combine convolutional spatial
+      feature learning with recurrent temporal modeling.
+    id: APP:276
+    name: Emotion-robust and cross-linguistic speaker identification using Praat-generated
+      spectrograms and Convolutional Recurrent Neural Networks
+    references:
+    - https://doi.org/10.1109/access.2020.2983029
+    used_in_bridge2ai: false
   has_relevant_organization:
   - B2AI_ORG:117
   is_open: true
@@ -23739,6 +23927,54 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Parselmouth software
   formal_specification: https://github.com/YannickJadoul/Parselmouth
+  has_application:
+  - category: B2AI:Application
+    description: Parselmouth, the Python wrapper for Praat, was used to build a reproducible
+      Python-based feature extraction pipeline for Parkinson's disease (PD) diagnosis
+      from voice recordings. The implementation demonstrates Parselmouth's integration
+      into AI/ML workflows by providing a concrete extract_voice_features function
+      that converts audio files (preferably .wav format, with support for .zip archives
+      containing multiple audio files) into parselmouth.Sound objects and applies
+      Praat's canonical algorithms via Python API calls. The extraction function
+      invokes Praat's "To Pitch" method to compute pitch statistics including mean
+      pitch (average fundamental frequency F0 reflecting vocal fold vibration rate),
+      minimum pitch, and maximum pitch over the utterance duration. Jitter (local
+      pitch perturbation quantifying cycle-to-cycle frequency variability as a percentage)
+      is computed via Praat's point process and "Get Jitter (local)" method, capturing
+      vocal fold irregularities associated with neurological voice disorders. Shimmer
+      (local amplitude perturbation quantifying cycle-to-cycle amplitude variability)
+      is computed via "Get Shimmer (local)" method, reflecting variations in vocal
+      fold vibration amplitude and breathiness. Mean Harmonic-to-Noise Ratio (HNR)
+      is computed using Praat's harmonicity analysis, measuring the ratio of periodic
+      (harmonic) to aperiodic (noise) components in the voice signal as an indicator
+      of voice quality and vocal fold closure. These Parselmouth-extracted acoustic
+      features (pitch statistics, jitter, shimmer, HNR) serve as inputs to AI classifiers
+      for PD versus non-PD classification, though the specific machine learning model
+      architecture is not detailed in the provided excerpt. The pipeline emphasizes
+      explainable AI by generating graphical visualizations derived from extracted
+      features including spectrograms (time-frequency representations showing formant
+      structures and harmonic patterns), violin plots (comparing feature distributions
+      between PD and control groups), box plots (showing feature quartiles and outliers),
+      histograms (illustrating feature value distributions), and scatter plots (exploring
+      relationships between acoustic features). These visualizations were used for
+      model refinement during development and to inform clinicians about voice biomarker
+      patterns, though they were not directly fed into the classification model. The
+      Parselmouth-based approach provides end-to-end reproducibility by packaging
+      Praat's established acoustic analysis algorithms within a standard Python ML
+      workflow, eliminating the need for manual Praat GUI operations or external
+      script invocations. This enables seamless integration with Python data science
+      ecosystems including NumPy/Pandas for data manipulation, Scikit-learn for preprocessing
+      and modeling, Matplotlib/Seaborn for visualization, and Jupyter notebooks for
+      interactive analysis. The study demonstrates Parselmouth's role in making Praat's
+      voice analysis capabilities accessible to Python-based AI research and clinical
+      decision support systems for neurodegenerative disease screening from voice
+      biomarkers.
+    id: APP:277
+    name: Parselmouth-based reproducible Python pipeline for Parkinson's disease
+      voice feature extraction and explainable AI classifier development
+    references:
+    - https://doi.org/10.1101/2024.09.29.24314580
+    used_in_bridge2ai: false
   has_relevant_organization:
   - B2AI_ORG:117
   is_open: true
