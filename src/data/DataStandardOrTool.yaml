@@ -23522,8 +23522,55 @@ data_standardortools_collection:
   - B2AI_ORG:117
   is_open: true
   name: Praat
-  purpose_detail: Praat is software for working with voice data, including speech
-    analysis, segmentation, and synthesis.
+  purpose_detail: Praat is open-source software for phonetic analysis and speech
+    research, developed by Paul Boersma and David Weenink at the University of Amsterdam's
+    Institute of Phonetic Sciences. Since its initial release in 1992, Praat has
+    become the standard tool for doing phonetics by computer, enabling researchers
+    to analyze, synthesize, manipulate, and annotate speech with high-quality publication-ready
+    graphics. The software is cross-platform with binaries available for Windows
+    (Intel64/Intel32/ARM64), macOS (universal Intel/Apple Silicon), Linux (Intel64/ARM64/s390x),
+    Chromebook, and Raspberry Pi, distributed under GNU General Public License v3
+    or later with source code written in C (67.4%) and C++ (29.9%). Praat provides
+    comprehensive speech analysis capabilities including spectral analysis with spectrograms
+    and cochleagrams (simulating inner ear sound reception), pitch analysis with
+    fundamental frequency (F0) extraction, formant analysis identifying vocal tract
+    resonances F1-F4, intensity analysis measuring sound pressure levels, and voice
+    quality metrics including jitter (frequency perturbation), shimmer (amplitude
+    perturbation), and voice breaks for clinical voice assessment. The software enables
+    speech synthesis through multiple methods including acoustic synthesis from user-created
+    pitch curves and filters, articulatory synthesis from simulated muscle activities
+    modeling the vocal tract, and Klatt synthesis. Speech manipulation features allow
+    modification of pitch contours, intensity envelopes, and duration patterns in
+    existing utterances via PSOLA (pitch-synchronous overlap-add) and filtering techniques.
+    Labeling and segmentation tools support annotation using the International Phonetic
+    Alphabet (IPA) with multi-tier TextGrid files enabling time-aligned transcription,
+    word segmentation, phoneme boundaries, and prosodic marking, handling sound files
+    up to 2 gigabytes (~3 hours), with multi-language text-to-speech facilities for
+    automatic segmentation. Praat includes learning algorithms for computational
+    modeling including feedforward neural networks with backpropagation, discrete
+    Optimality Theory constraint ranking, Harmonic Grammar weighted constraints,
+    and stochastic grammar learning. Statistical analysis modules support multidimensional
+    scaling (MDS) for visualizing similarity structures, principal component analysis
+    (PCA) for dimensionality reduction, and discriminant analysis for classification
+    tasks common in phonetic research. The programmable scripting language enables
+    automation of repetitive analyses, batch processing, custom experiments, and
+    extensibility, with scripts using Python-like syntax supporting loops, conditionals,
+    arrays, and procedure definitions. Inter-process communication is facilitated
+    through the sendpraat utility enabling external programs to send commands to
+    running Praat instances. Graphics capabilities produce publication-quality outputs
+    exportable as PDF, PNG, or EPS with integrated phonetic symbols (IPA), mathematical
+    notation, and customizable fonts for professional presentations and manuscripts.
+    Praat supports diverse file format I/O including WAV, AIFF, AIFC, FLAC, MP3
+    (reading), and proprietary formats, with machine-independent binary files ensuring
+    cross-platform compatibility. The software facilitates listening experiments
+    for perceptual phonetics including identification tests (categorical perception)
+    and discrimination tests (same-different, AX, ABX paradigms) with stimulus presentation
+    and response collection. With 1.8k GitHub stars, 270 forks, 546 releases (latest
+    v6.4.47 November 2025), and extensive documentation including integrated tutorials
+    and searchable manuals accessible via Help menus, Praat remains the most widely
+    adopted tool in phonetic sciences supporting research in speech production, perception,
+    prosody, sociophonetics, clinical voice analysis, language documentation, and
+    computational phonology.
   related_to:
   - B2AI_STANDARD:887
   requires_registration: false
