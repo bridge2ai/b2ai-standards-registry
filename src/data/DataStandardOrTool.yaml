@@ -11446,9 +11446,124 @@ data_standardortools_collection:
   is_open: true
   name: CWL
   publication: doi:10.48550/arXiv.2105.07028
-  purpose_detail: specification for describing data analysis workflows and tools
+  purpose_detail: 'Common Workflow Language (CWL) is an open, free standard specification
+    for describing command-line tool-based computational workflows with human-readable
+    and machine-executable syntax, designed to enable portability and scalability
+    across diverse computing environments from workstations to cluster, cloud, and
+    high-performance computing (HPC) systems. Developed by a multi-vendor working
+    group following Open-Stand.org principles for collaborative open standards development
+    and maintained as a member project of Software Freedom Conservancy with elected
+    CWL leadership team and community-driven decision-making open to all participants,
+    CWL addresses critical challenges in computational research: vendor lock-in limiting
+    workflow transfer between systems, lack of portability hindering workflow reuse
+    across projects and settings, and difficulty expressing complex analysis patterns
+    in polylingual workflows combining tools written in different programming languages
+    by third parties. The specification provides declarative syntax using YAML and
+    JSON-LD for data modeling, defining two primary document types: CommandLineTool
+    descriptions specifying inputs (typed parameters with formats like File, string,
+    int, array), outputs (files and values with glob patterns for capture), runtime
+    requirements (memory, CPU cores, disk space, environment variables), and containerization
+    (Docker/Singularity for reproducible execution environments), and Workflow descriptions
+    orchestrating multiple tools where outputs of one step connect to inputs of subsequent
+    steps, supporting common patterns like scatter (parallel execution over arrays),
+    gather (collecting parallel results), conditional execution, and nested sub-workflows.
+    CWL v1.0 (2016, doi:10.6084/m9.figshare.3115156.v2) established core abstractions,
+    with subsequent versions v1.1 and v1.2 adding enhanced features while maintaining
+    backward compatibility. The language enables advanced optimization without additional
+    workflow author input through explicit runtime environment specification and software
+    container declarations, allowing execution engines to perform intelligent scheduling,
+    caching of intermediate results, and parallelization. Being declarative rather
+    than imperative, CWL separates workflow logic from execution details, allowing
+    the same workflow description to run on local machines, SLURM/PBS/SGE clusters,
+    cloud platforms (AWS, Google Cloud, Azure), and HPC systems through diverse implementations
+    including cwltool (reference implementation), Toil, Cromwell, Arvados, StreamFlow,
+    Galaxy, and others. CWL supports reproducible science through precise specification
+    of software versions in containers, explicit input/output typing preventing format
+    mismatches, and integration with Research Object Crate (RO-Crate) for comprehensive
+    workflow packaging with metadata and provenance. The ecosystem includes editor
+    support (Rabix Composer visual editor, VS Code extensions), workflow registries
+    (WorkflowHub for discovery and sharing), testing frameworks (Workflow Testing
+    RO-Crate profiles with LifeMonitor integration for automated validation), and
+    conversion utilities enabling migration from other workflow languages. CWL has
+    been widely adopted in bioinformatics (genomic variant calling pipelines, RNA-seq
+    analysis, genome assembly workflows), medical imaging (radiomics feature extraction,
+    image segmentation pipelines), radio astronomy data processing, and other data-intensive
+    sciences requiring computational reproducibility and collaborative workflow development.
+    The standard enables regulatory compliance through complete audit trails of analysis
+    provenance, facilitates scholarly publication of computational methods as citable
+    workflow objects, and reduces implementation costs by enabling workflow reuse
+    across academic research and industry collaborations. Integration with GA4GH Workflow
+    Execution Service (WES) API provides platform-agnostic workflow submission and
+    monitoring, while JSON-LD semantic annotations support automated reasoning about
+    workflow capabilities and compatibility.'
   requires_registration: false
   url: https://www.commonwl.org/
+  has_application:
+  - id: B2AI_APP:291
+    category: B2AI:Application
+    name: Portable ML Pipeline Packaging with Workflow RO-Crate
+    description: CWL workflows packaged as Workflow RO-Crate archives enable portable,
+      reproducible machine learning pipelines that can be executed across heterogeneous
+      computing environments without modification. The Workflow RO-Crate profile standardizes
+      packaging of multi-file CWL workflows into single ZIP archives with formal metadata
+      following Schema.org and Bioschemas conventions, documenting workflow structure
+      (main files, subworkflows, tool dependencies), input/output specifications with
+      types and formats, software dependencies with precise versions, and authorship/licensing
+      information. Workflow Testing RO-Crate extensions integrate with LifeMonitor
+      for automated validation through test instances (example inputs with expected
+      outputs), health checks (periodic execution to verify functionality), and continuous
+      integration workflows, ensuring ML pipelines maintain correctness as underlying
+      tools evolve. This packaging approach is leveraged by WorkflowHub for workflow
+      discovery, Galaxy for workflow import, and various biomedical research platforms
+      for sharing reproducible ML analysis pipelines including genomic variant classification,
+      medical image segmentation, and multi-omics data integration workflows where
+      reproducibility and regulatory compliance are critical.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1109/works56498.2022.00006
+  - id: B2AI_APP:292
+    category: B2AI:Application
+    name: HPC Provenance Tracking for Large-Scale ML Training Workflows
+    description: CWL's integration with provenance tracking systems enables comprehensive
+      capture of data lineage and computational provenance in high-performance computing
+      environments running large-scale machine learning training workflows. CWL workflows
+      executing on HPC clusters automatically generate detailed provenance records
+      documenting input datasets used, software tool versions and parameters, intermediate
+      data transformations, computational resources consumed (CPU hours, memory, GPU
+      utilization), and output model artifacts produced. This provenance infrastructure
+      supports ML-at-scale applications including population-scale genomic association
+      studies, large-cohort medical imaging analyses, and distributed model training
+      across multiple compute nodes, where tracking exact computational steps is essential
+      for reproducibility, debugging failed runs, optimizing resource allocation,
+      and meeting regulatory requirements for clinical AI systems. The combination
+      of CWL's explicit workflow specification with HPC execution platforms enables
+      automated generation of computational notebooks documenting complete ML experiment
+      lifecycles from raw data through trained models.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1109/works56498.2022.00006
+  - id: B2AI_APP:293
+    category: B2AI:Application
+    name: Biomedical Workflow Orchestration for ML Data Preprocessing
+    description: CWL is extensively used in biomedical research for orchestrating complex
+      multi-step data preprocessing pipelines that prepare raw clinical, genomic,
+      and imaging data for machine learning model training. Typical CWL-based ML preprocessing
+      workflows include genomic variant calling pipelines (FASTQ quality control,
+      alignment to reference genome, variant calling, annotation) generating training
+      data for variant pathogenicity prediction models; medical imaging pipelines
+      (DICOM conversion, skull stripping, registration, normalization) preparing datasets
+      for deep learning segmentation and classification; and electronic health record
+      ETL workflows (standardization to OMOP CDM, feature extraction, cohort definition)
+      assembling ML-ready clinical datasets. CWL's scatter-gather parallelization
+      enables efficient processing of large cohorts across HPC and cloud infrastructure,
+      while Docker/Singularity containerization ensures consistent preprocessing across
+      institutional sites in multi-center ML studies. Integration with workflow execution
+      services (Cromwell, Toil) and cloud platforms (Terra, DNAnexus, Seven Bridges)
+      enables scalable biomedical ML data preparation from single workstations to
+      population-scale analyses.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.48550/arXiv.2105.07028
 - id: B2AI_STANDARD:321
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
