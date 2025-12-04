@@ -11316,8 +11316,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/capnproto/capnproto
   is_open: true
   name: Cap'n'Proto
-  purpose_detail: Cap’n Proto is an insanely fast data interchange format and capability-based
-    RPC system. Think JSON, except binary. Or think Protocol Buffers, except faster.
+  purpose_detail: 'Cap''n Proto is an extremely fast data interchange format and capability-based
+    RPC system developed by Kenton Varda (primary author of Protocol Buffers version
+    2 at Google), open-sourced at https://github.com/capnproto/capnproto with implementations
+    in C++, Rust, Go, JavaScript, Python, and other languages. The format achieves
+    "infinity times faster" encoding/decoding compared to Protocol Buffers by eliminating
+    serialization entirely—Cap''n Proto encoding serves simultaneously as wire format
+    and in-memory representation, enabling zero-copy architecture where messages are
+    written straight to disk/network without encoding overhead. Platform-independent
+    byte-for-byte encoding uses little-endian integers, fixed-width fields with proper
+    alignment, and offset-based pointers for position-independence. Schema definition
+    uses .capnp IDL files specifying strongly-typed messages with structs, unions,
+    enums, interfaces (supporting inheritance for RPC), generic types (like Map(Key,
+    Value)), built-in types (Void/Bool/integers/floats/Text/Data/List), and unique
+    64-bit IDs preventing name collision. Backward compatibility allows adding fields/methods
+    with higher numbers, renaming types preserving IDs, and moving fields into groups/unions.
+    Messages organized as object trees with struct roots, split into segments for
+    flexible memory allocation. Object encoding uses 64-bit words with structs (data
+    section + pointer section), lists (flat arrays with composite struct support),
+    far pointers for inter-segment references, and capability pointers for RPC. Default
+    values are all-zeros with fields XOR''d enabling fast initialization. Security
+    features include pointer validation, traversal limits (64MB default) preventing
+    amplification attacks, and recursion depth tracking (64 pointers) preventing stack
+    overflow. Packing compression uses tag bytes indicating zero bytes with special
+    0x00/0xff tags achieving similar compression to protobuf while faster. RPC system
+    implements promise pipelining ("time-traveling RPC") and capability-based security
+    where references inherently represent access permissions. Production deployment
+    in Sandstorm.io and Cloudflare Workers demonstrates security maturity. Advantages
+    include: incremental reads, random field access, mmap support, efficient inter-language/inter-process
+    communication, arena allocation, tiny generated code (order of magnitude smaller
+    than protobuf), and small runtime library. In biomedical contexts, while not extensively
+    documented in published AI/ML literature compared to Protocol Buffers/HDF5/Parquet/Zarr,
+    its zero-copy architecture and capability-based security position it for potential
+    applications in: ultra-low-latency inter-process communication for real-time clinical
+    decision support, zero-copy data sharing in ML training pipelines, memory-mapped
+    access to large biomedical datasets, efficient RPC for healthcare microservices
+    with HIPAA-aligned access control, and cross-language interoperability in bioinformatics
+    pipelines, though adoption remains limited compared to established formats with
+    richer scientific computing ecosystems.'
   requires_registration: false
   url: https://capnproto.org/
 - id: B2AI_STANDARD:318
