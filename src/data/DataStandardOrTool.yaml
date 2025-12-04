@@ -13712,10 +13712,302 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:51
   is_open: true
   name: Zarr
-  purpose_detail: A format for storage of large N-dimensional typed arrays. Has implementations
-    in multiple programming languages.
+  purpose_detail: Zarr is an open-source format and Python package for storage of
+    chunked, compressed N-dimensional typed arrays (tensors), designed specifically
+    to support high-throughput distributed I/O for parallel computing applications
+    and cloud object storage systems. Motivated by the need for a simple, transparent,
+    open, and community-driven format that enables efficient access to massive scientific
+    datasets, Zarr addresses limitations of traditional array formats (HDF5, NetCDF)
+    that struggle with cloud storage architectures and concurrent access patterns
+    common in modern machine learning and scientific computing workflows. The format's
+    core innovation is its chunked storage model where N-dimensional arrays are divided
+    into regular grid chunks that can be independently compressed, stored, and accessed,
+    enabling selective retrieval of array subsets without reading entire datasets,
+    critical for memory-efficient processing of petabyte-scale data that exceeds available
+    RAM. Zarr data can be stored in any key-value store representation including POSIX
+    file systems, cloud object storage (Amazon S3, Google Cloud Storage, Azure Blob
+    Storage), zip archives, and relational or document databases, with each chunk
+    stored as a separate object enabling massively parallel read and write operations
+    from distributed computing clusters. The specification supports arbitrary NumPy
+    dtypes for array elements, configurable chunk shapes optimizing access patterns
+    (e.g., time-series chunks for temporal data, spatial chunks for image volumes),
+    and pluggable compression codecs from the Numcodecs library including Blosc, LZ4,
+    Zstd, and domain-specific compressors achieving 10x-100x compression ratios while
+    maintaining decompression speeds suitable for real-time data loading during model
+    training. Zarr organizes arrays into hierarchical groups analogous to file system
+    directories, with JSON-encoded metadata (. zarray for array schemas, .zgroup for
+    group hierarchies, .zattrs for user attributes) stored alongside chunk data, enabling
+    self-describing datasets where structural information travels with the data. The
+    format supports concurrent read access from unlimited threads or processes without
+    locks, and concurrent writes through optional process-level or distributed locking
+    mechanisms (zarr.ProcessSynchronizer, zarr.ThreadSynchronizer) ensuring data consistency
+    during parallel updates common in distributed training scenarios. Version 2 of
+    the Zarr specification (widely adopted) uses a directory-based storage model with
+    chunk files named by dimension indices, while Version 3 (under development) introduces
+    sharding where multiple chunks are stored within larger shard files to reduce
+    object count on cloud storage systems, addressing performance penalties from S3/GCS
+    rate limits and improving cost efficiency for datasets with millions of small
+    chunks. OME-Zarr extends the format for multi-dimensional bioimaging with standardized
+    multiscale representations (image pyramids) enabling progressive loading from
+    low-resolution overviews to full-resolution details, coordinate system transformations
+    for spatial registration, and rich metadata following Open Microscopy Environment
+    conventions. The format integrates seamlessly with scientific Python ecosystem
+    including NumPy for array operations, Dask for parallel and out-of-core computation
+    enabling lazy evaluation and distributed processing, xarray for labeled multi-dimensional
+    arrays with dimension names and coordinates, and Pandas for integration with tabular
+    data. Cloud-optimized access leverages fsspec (Filesystem Spec) abstraction providing
+    uniform interface to diverse storage backends (s3fs for S3, gcsfs for Google Cloud,
+    adlfs for Azure) with configurable caching, connection pooling, and retry logic
+    for robust cloud I/O. Zarr's adoption spans genomics (storing sparse single-cell
+    RNA-seq count matrices, variant call datasets), climate science (ERA5 reanalysis
+    data, high-resolution weather simulations on HEALPix grids), neuroscience (whole-brain
+    imaging volumes, calcium imaging time series), medical imaging (3D CT/MRI volumes,
+    pathology whole slide images), and satellite earth observation (multi-temporal
+    Landsat/Sentinel imagery). Machine learning applications leverage Zarr for training
+    data storage where datasets exceed memory (ImageNet-scale computer vision, genome-wide
+    association studies), model checkpoint persistence in distributed training (sharded
+    weights across tensor-parallel ranks), learned embedding storage (CLIP image embeddings,
+    protein language model representations), and inference-time feature serving (pre-computed
+    features for real-time prediction). The format is a NumFOCUS Sponsored Project
+    ensuring long-term sustainability, with active development community maintaining
+    implementations in Python (zarr-python), C++ (z5), Julia (Zarr.jl), Java (N5),
+    JavaScript, Rust, and other languages enabling cross-platform data exchange. Zarr
+    competes with and complements HDF5 by providing simpler specification, native
+    cloud storage support without complex drivers, and more flexible parallel I/O
+    semantics, making it increasingly preferred for new scientific datasets requiring
+    cloud-native access patterns and distributed computing integration.
   requires_registration: false
   url: https://zarr.dev/
+  has_application:
+  - id: B2AI_APP:286
+    category: B2AI:Application
+    name: Computer Vision for Cellular Phenotyping and Virtual Staining
+    description: VisCy, developed by the Chan Zuckerberg Biohub, uses Zarr as the
+      primary data format for storing and accessing large-scale microscopy images
+      during deep learning training for virtual staining and cellular phenotyping.
+      The system employs OME-Zarr (Open Microscopy Environment Zarr) format to store
+      multi-dimensional 5D imaging data organized as T×C×Z×Y×X (time, channel, z-stack,
+      height, width), enabling efficient training of U-Net architectures for virtual
+      staining of cellular structures without fluorescent labeling. OME-Zarr's chunked
+      storage enables cloud-optimized I/O where specific fields of view (FOVs) and
+      time points can be randomly accessed without loading entire datasets into memory,
+      critical for training on datasets with hundreds of gigabytes to terabytes of
+      microscopy data. The multiscale pyramid representation in OME-Zarr allows progressive
+      loading during training, starting with low-resolution overviews for efficient
+      data exploration before accessing full-resolution tiles for model training.
+      Zarr's parallel data loading capabilities enable multiple worker processes to
+      efficiently read different chunks simultaneously, fully saturating GPU utilization
+      during training. The framework integrates seamlessly with PyTorch Lightning
+      dataloaders with configurable batch sizes and worker counts, supporting training
+      of DynaCLR contrastive learning models for self-supervised cell representation
+      learning, video prediction models processing 12-frame temporal sequences for
+      cell dynamics forecasting, and virtual staining networks that predict fluorescent
+      protein localization from transmitted light microscopy. The system demonstrates
+      robust virtual staining of cellular landmarks including nuclei, plasma membranes,
+      and organelles, enabling label-free high-content screening applications in drug
+      discovery and cell biology research. Zarr's metadata capabilities store experimental
+      annotations (cell line, treatment conditions, imaging parameters) alongside
+      image arrays, supporting reproducible analysis and dataset versioning. The OME-Zarr
+      format's standardization enables interoperability with visualization tools (Napari,
+      neuroglancer) and cloud-based image analysis platforms, facilitating collaborative
+      research across institutions with shared access to centralized S3/GCS-hosted
+      datasets.
+    references:
+    - https://github.com/mehta-lab/VisCy
+    - https://doi.org/10.1101/2024.05.31.596901
+    used_in_bridge2ai: false
+  - id: B2AI_APP:287
+    category: B2AI:Application
+    name: Large Language Model Distributed Checkpoint Storage
+    description: NVIDIA's Megatron-LM framework implements Zarr-based distributed
+      checkpoint storage for training large language models with billions of parameters
+      using model parallelism strategies including tensor parallelism, pipeline parallelism,
+      and expert parallelism. The system's ZarrSaveShardedStrategy and ZarrLoadShardedStrategy
+      classes implement parallel checkpoint I/O where each rank in a distributed training
+      job saves only its local model shard, enabling checkpoint of models too large
+      for single-node memory (e.g., 175B parameter GPT-3 models, LLaMA, Mistral families).
+      Zarr's chunked storage model allows each GPU rank to write its optimizer states,
+      model weights, and gradients as independent Zarr arrays without coordinating
+      file offsets or managing complex file locking, with zarr.ProcessSynchronizer
+      handling coordinated multi-process writes to shared arrays when needed. The
+      implementation preserves dtype precision (bfloat16, float16, float32) critical
+      for numerical stability in mixed-precision training, with proper handling of
+      non-standard floating-point formats during serialization. Checkpoint sharding
+      across parallelism dimensions enables flexible model reconfiguration where checkpoints
+      saved with one parallelism strategy (e.g., 8-way tensor parallel, 4-way pipeline
+      parallel) can be loaded with different configurations (e.g., 16-way tensor parallel,
+      2-way pipeline parallel) through resharding logic that redistributes model parameters
+      across ranks. Zarr's directory-based storage model with separate chunk files
+      enables efficient partial checkpoint loading where only specific model layers
+      or parameter groups are restored, supporting techniques like layer-wise learning
+      rate scheduling and progressive layer unfreezing during fine-tuning. The format's
+      cloud storage compatibility via s3fs/gcsfs allows direct checkpoint writing
+      to S3/GCS without local staging, reducing I/O overhead and enabling checkpoint
+      storage for training jobs on cloud GPU clusters where local disk capacity is
+      limited. Distributed training synchronization uses torch.distributed.barrier()
+      after checkpoint writing to ensure all ranks complete their shard writes before
+      proceeding, preventing race conditions during checkpoint validation. The system
+      supports checkpoint conversion utilities that transform Megatron-LM Zarr checkpoints
+      to Hugging Face transformers format or ONNX for inference deployment, enabling
+      trained models to be shared with broader ML community. While recent Megatron-LM
+      versions have deprecated Zarr backend in favor of PyTorch Distributed checkpoint
+      format, the implementation demonstrates production-scale patterns for using
+      Zarr in distributed deep learning with sophisticated sharding, synchronization,
+      and format conversion requirements.
+    references:
+    - https://github.com/NVIDIA/Megatron-LM
+    used_in_bridge2ai: false
+  - id: B2AI_APP:288
+    category: B2AI:Application
+    name: Climate Modeling with Diffusion Models and Temporal Chunking
+    description: NVIDIA's cBottle (Climate in a Bottle) project uses Zarr for storing
+      and processing massive climate datasets on HEALPix spherical grids at kilometer
+      resolution, training diffusion models for weather generation, video prediction,
+      and super-resolution. The system stores ERA5 reanalysis data (96,480 timesteps
+      × 12,582,912 HEALPix cells per atmospheric level) and high-resolution ICON simulation
+      data with 8 vertical pressure levels covering multiple atmospheric variables
+      (temperature, wind U/V components, geopotential height, specific humidity, precipitation,
+      radiation). Zarr's asynchronous data loading implementation using Python asyncio
+      enables parallel chunk fetching from cloud storage, with ZarrLoader class methods
+      that concurrently load multiple time steps and vertical levels using asyncio.gather()
+      to minimize I/O latency during model training. The system employs temporal chunking
+      where climate data is divided into 48-hour blocks, optimizing sequential access
+      patterns common in video prediction models processing 12-frame temporal sequences
+      for weather forecasting. HEALPix spatial chunking discretizes the sphere into
+      equal-area cells enabling efficient partial-globe loading, supporting regional
+      climate model training without reading global datasets. Cloud storage integration
+      via fsspec allows direct S3/GCS access without local data copies, critical for
+      petabyte-scale climate archives that exceed local disk capacity of training
+      clusters. The framework trains diffusion models including denoising diffusion
+      probabilistic models (DDPMs) for coarse 3D atmosphere generation, and cascaded
+      super-resolution networks that progressively refine predictions from 200km →
+      50km → 12.5km → 3km resolution. The ERA5-to-ICON translation task learns to
+      transform reanalysis data to high-resolution simulation quality, enabling downscaling
+      of historical climate data to kilometer scales suitable for impact assessment.
+      Zarr metadata stores data provenance (source, processing pipeline version, quality
+      flags) and coordinate reference systems (HEALPix parameters, pressure level
+      definitions) alongside numerical arrays, supporting reproducible climate model
+      evaluation. The multiscale nature of climate data aligns with Zarr's chunking
+      model where different variables (surface 2D vs. upper-air 3D) have optimized
+      chunk configurations matching access patterns. Training workflows leverage Dask
+      for parallel preprocessing (computing derivatives, statistical normalization)
+      distributed across compute clusters, with lazy evaluation minimizing memory
+      footprint. Model checkpoints stored in Zarr format preserve learned diffusion
+      model parameters, enabling checkpoint averaging across training epochs and ensemble
+      model creation. The project demonstrates Zarr's suitability for extreme-scale
+      scientific machine learning where data volumes, temporal dependencies, and distributed
+      training requirements challenge traditional formats.
+    references:
+    - https://github.com/NVlabs/cBottle
+    - https://doi.org/10.48550/arXiv.2505.06474
+    - https://catalog.ngc.nvidia.com/orgs/nvidia/teams/earth-2/models/cbottle
+    used_in_bridge2ai: false
+  - id: B2AI_APP:289
+    category: B2AI:Application
+    name: Genomics Single-Cell Analysis and Neural Network Training
+    description: Zarr format is widely adopted in computational genomics for storing
+      large-scale single-cell RNA sequencing (scRNA-seq) data, learned embeddings
+      from neural network models, and multi-modal genomic assays, with implementations
+      in tools including EUGENe (ML4GLand), scarf, and openproblems-bio benchmarking
+      framework. Single-cell datasets commonly contain millions of cells × tens of
+      thousands of genes, with sparse count matrices where most entries are zero due
+      to technical dropout and biological expression patterns. Zarr's chunked storage
+      efficiently represents sparse data through specialized compression codecs and
+      chunking strategies that group non-zero counts, achieving superior compression
+      ratios compared to dense array formats. EUGENe uses Zarr for storing sequence
+      embeddings generated by neural networks trained on regulatory genomic elements,
+      enabling efficient training of convolutional and transformer models predicting
+      transcription factor binding sites, chromatin accessibility, and gene expression
+      from DNA sequences. The system stores multi-track genomic signals (ATAC-seq,
+      ChIP-seq, DNase-seq) as chunked arrays indexed by genomic coordinates, supporting
+      batch loading during model training with configurable context windows (e.g.,
+      2kb flanking regions around transcription start sites). Scarf implements Zarr-backed
+      data stores for single-cell analysis pipelines including dimensionality reduction
+      (PCA, UMAP, t-SNE), cell type annotation with deep learning classifiers, trajectory
+      inference for developmental lineages, and pseudotime analysis. The zarr-backed
+      mapping_datastore module enables incremental updates to embedding matrices as
+      new cells are added to growing datasets, supporting continual learning scenarios
+      where models are updated without reprocessing entire cohorts. Hierarchical Zarr
+      group organization stores raw counts, normalized data, low-dimensional embeddings,
+      cluster assignments, and metadata (cell barcodes, sample provenance, quality
+      control metrics) in unified structures compatible with AnnData h5ad format,
+      the standard for single-cell Python ecosystem (scanpy, scvi-tools). Openproblems-bio
+      uses Zarr for standardized dataset distribution in single-cell genomics benchmarking,
+      hosting reference datasets with ground-truth cell type labels, batch effect
+      information, and experimental annotations enabling reproducible evaluation of
+      cell type annotation algorithms, batch correction methods, and trajectory inference
+      approaches. Multi-modal integration stores paired RNA + ATAC, RNA + protein
+      (CITE-seq), or RNA + spatial location data in synchronized Zarr arrays where
+      chunk boundaries align across modalities, facilitating joint embedding models
+      that learn unified cell representations from complementary measurements. Zarr's
+      cloud storage compatibility enables collaborative genomics projects where research
+      institutions share access to centralized S3/GCS datasets without data duplication,
+      critical for large-scale consortia (Human Cell Atlas, UK Biobank) generating
+      petabyte-scale single-cell atlases. Partial array loading allows genome-wide
+      association study (GWAS) models to selectively load genomic regions (e.g., chromosome
+      22 only) during distributed training, reducing memory footprint and enabling
+      fine-grained parallelism across genomic coordinates. Integration with Galaxy
+      bioinformatics platform provides workflow tools that read/write Zarr arrays,
+      enabling reproducible genomics pipelines combining alignment, quality control,
+      normalization, and machine learning prediction in cloud-native workflows.
+    references:
+    - https://github.com/ML4GLand/EUGENe
+    - https://eugene-tools.readthedocs.io/
+    - https://github.com/openproblems-bio/openproblems
+    used_in_bridge2ai: false
+  - id: B2AI_APP:290
+    category: B2AI:Application
+    name: Robotics Manipulation Demonstration Data and Learned Embeddings
+    description: Robotics research uses Zarr for storing large-scale robot demonstration
+      datasets including image sequences, robot proprioceptive states, and learned
+      embeddings from vision-language models, with production usage demonstrated in
+      Stanford's diffusion-policy framework and scalingup project presented at CoRL
+      2023. Robot manipulation datasets contain synchronized multi-modal data streams
+      including RGB images (multiple camera views at 30-60 Hz), depth maps, robot
+      joint positions and velocities (proprioception sampled at 100-1000 Hz), end-effector
+      poses, gripper states, and commanded actions, organized into episodes representing
+      individual task demonstrations (e.g., pick-and-place, drawer opening, assembly).
+      Zarr's chunked storage aligns with episode boundaries enabling efficient trajectory
+      sampling during behavior cloning model training, where chunks correspond to
+      complete demonstrations and can be loaded independently without reading entire
+      datasets. The format stores pre-computed embeddings from vision-language models
+      (CLIP image encodings, DINO features, R3M representations) as cached arrays,
+      eliminating redundant forward passes through large vision models during policy
+      training and accelerating training by 10-100x compared to online encoding. Temporal
+      coherence is maintained through chunk alignment where consecutive frames within
+      episodes are co-located in storage, optimizing access for recurrent policies
+      (LSTMs, Transformers) processing sequential observations. Diffusion policy training
+      uses Zarr to store noise schedules, denoised trajectories at intermediate diffusion
+      steps, and sampled action sequences, enabling analysis of learned distributions
+      and debugging of policy behavior. Multi-camera data is organized with spatial
+      chunking where each camera view is stored in separate arrays with synchronized
+      timestamps, supporting view-specific augmentation during training (random crops,
+      color jittering) applied independently per camera. Robot state representations
+      including joint angles encoded as continuous values or discretized into bins
+      are stored with appropriate dtypes (float32 for continuous, uint8 for discretized),
+      with metadata documenting robot models, coordinate frames, and actuator limits.
+      The scalingup project demonstrates Zarr usage for manipulation datasets with
+      thousands of demonstrations, storing both raw sensory data and processed features
+      (object poses from perception pipelines, grasp quality scores from learned models)
+      in hierarchical groups. Cloud deployment scenarios use Zarr with S3 backends
+      enabling robot fleets to upload demonstration data to centralized storage, with
+      aggregation pipelines that merge multi-robot datasets for large-scale policy
+      training leveraging diverse robot morphologies and task variations. Real-time
+      policy inference accesses Zarr-backed embeddings with low-latency chunk retrieval
+      during closed-loop control, where learned policies query pre-computed scene
+      embeddings matching current observations to demonstration database for nearest-neighbor
+      retrieval or kernel-based interpolation. Dataset versioning through Zarr metadata
+      tracks data collection sessions, annotator labels for success/failure, and dataset
+      splits (train/validation/test) supporting reproducible reinforcement learning
+      benchmarks. Integration with simulation frameworks (Isaac Gym, MuJoCo, PyBullet)
+      stores synthetic demonstration data in identical Zarr format as real robot data,
+      enabling sim-to-real transfer learning where policies pre-trained on simulated
+      demonstrations are fine-tuned with real-world data through incremental Zarr
+      array updates.
+    references:
+    - https://github.com/real-stanford/scalingup
+    - https://github.com/real-stanford/diffusion_policy
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:395
   category: B2AI_STANDARD:DataStandard
   collection:
