@@ -25080,6 +25080,217 @@ data_standardortools_collection:
       adoption makes it valuable for web-scale biomedical data mining and federated
       search applications.
     used_in_bridge2ai: false
+  - id: B2AI_APP:280
+    category: B2AI:Application
+    name: E-commerce Product Matching and Entity Resolution with Deep Learning
+    description: Public web Schema.org/Product annotations with structured identifiers
+      (GTIN, MPN, SKU) are leveraged as distant supervision to train deep learning
+      models for product matching and entity resolution without manual labeling. The
+      Web Data Commons project finds approximately 850,000 pay-level domains using
+      Schema.org markup, with 30.5% annotating product identifiers. Researchers extract
+      these annotations to create training corpora, using identifier clustering to
+      generate match/non-match training pairs. After cleansing by Schema.org rules,
+      26 million product offers from 79,000 e-commerce sites yield 18.5 million distinct
+      identifier values organized into 16.3 million ID-clusters, with manual inspection
+      confirming 94% true matches. End-to-end recurrent neural network (RNN) architectures
+      using these Schema.org-derived training labels achieve F1 scores between 0.92
+      and 0.95 across product categories (Computers, Watches, Shoes), demonstrating
+      that Schema.org annotations alone can replace the need for over 100,000 manually
+      labeled offer pairs previously required to exceed 90% F1. The Deepmatcher end-to-end
+      model with pre-trained fastText embeddings achieves F1 scores of 95.46 (Computers),
+      95.72 (Watches), 94.67 (Shoes), and 92.30 (All categories). Larger training
+      sets constructed from Schema.org annotations boost word co-occurrence baseline
+      performance by approximately 3% F1 and deep learning models by approximately
+      10% F1. This approach demonstrates robustness to annotation noise and enables
+      continuous model maintenance as new Schema.org-annotated products appear on
+      the web, providing a scalable alternative to manual curation for training product
+      matching systems across diverse e-commerce categories.
+    references:
+    - https://doi.org/10.1145/3405962.3405964
+    used_in_bridge2ai: false
+  - id: B2AI_APP:281
+    category: B2AI:Application
+    name: Web-Scale Classification and Information Extraction
+    description: The Web Data Commons (WDC) Schema.org dataset series provides large-scale
+      training resources for supervised classification and information extraction
+      tasks by extracting Schema.org annotations from billions of web pages crawled
+      via Common Crawl. These corpora enable training and benchmarking at web scale
+      across multiple domains. For product categorization, Schema.org/Product annotations
+      with category values are used as features for classifiers learning mappings
+      into standardized hierarchies such as GS1 Global Product Classification (GPC).
+      Meusel et al. used annotated category values as classifier features, while Brinkmann
+      and Bizer pre-trained RoBERTa transformer models on Schema.org title, description,
+      and category fields to improve hierarchical product classification performance.
+      For job categorization, Schema.org/JobPosting annotations are extracted to train
+      classifiers, with the occupationalCategory field providing mappings to human
+      resources taxonomies including O*NET (Occupational Information Network) and
+      ISCO (International Standard Classification of Occupations). For event information
+      extraction, Schema.org/Event annotations with fields including name, startDate,
+      and location are used to train extractors, with Foley et al. training models
+      on these fields to collect local event information at scale. Property coverage
+      statistics demonstrate widespread adoption, with event properties startDate
+      and name appearing on approximately 97% of pay-level domains, ensuring sufficient
+      training signal. The WDC Product Data Corpus and Gold Standard provide benchmark
+      datasets with Schema.org-derived training pairs to train and test matchers,
+      enabling reproducible evaluation. Quality control methods have been developed,
+      with Alrashed et al. proposing a classifier to detect low-quality Schema.org/Dataset
+      annotations, finding that 61% of hosts in a Google crawl provide dataset annotations
+      that do not actually describe datasets. These applications demonstrate Schema.org's
+      value as a publicly available, continuously updated source of labeled training
+      data spanning millions of websites and billions of structured annotations across
+      diverse domains.
+    references:
+    - https://doi.org/10.1145/3543873.3587331
+    used_in_bridge2ai: false
+  - id: B2AI_APP:282
+    category: B2AI:Application
+    name: Table Representation Learning and Data Integration
+    description: The Web Data Commons Schema.org Table Corpora provide large-scale
+      relational table datasets organized by shared Schema.org vocabulary for training
+      and evaluating machine learning models for table representation learning, table
+      retrieval, and data integration tasks. The corpora contain between 4.2 and 5
+      million relational tables representing approximately 653 million rows extracted
+      from web pages with Schema.org Microdata annotations. Tables are organized by
+      shared Schema.org types and attributes, enabling focused learning on specific
+      entity types and their properties. This organization leverages Schema.org's
+      unified vocabulary to provide consistent schema across tables, facilitating
+      representation learning models that can capture semantic similarities between
+      tables describing the same types of entities. Top Microdata types in the corpus
+      include gd:Breadcrumb (18.5 million instances), schema:VideoObject (10.8 million),
+      schema:Offer (6.6 million), schema:PostalAddress (5.7 million), schema:Product
+      (1.8 million), and schema:Person (1.7 million instances). Analysis shows overwhelming
+      prevalence of Schema.org namespace types, with only two of the 100 most frequently
+      occurring types outside this namespace. The most frequent content areas include
+      Website Structure (23-29% of tables), Products/Reviews (19-10%), Media (11-15%),
+      and Geodata (approximately 2%), with approximately 200 significant types having
+      more than 1,000 instances. The corpus has grown substantially as structured
+      data adoption increased, with structured-data pages rising from 6% in 2010 to
+      12% in 2012. The standardized Schema.org vocabulary enables training of neural
+      table representation models (e.g., transformer-based architectures adapted for
+      tabular data) that learn to encode table semantics, column relationships, and
+      entity properties. These learned representations support downstream tasks including
+      table search and retrieval, schema matching, column type prediction, entity
+      linking, and table union operations. The scale and vocabulary standardization
+      make the corpus particularly valuable for pre-training foundation models for
+      tabular data and for benchmarking table understanding methods across diverse
+      domains and table structures.
+    references:
+    - https://doi.org/10.1145/3589335.3651441
+    used_in_bridge2ai: false
+  - id: B2AI_APP:283
+    category: B2AI:Application
+    name: Intent Generation and Natural Language Understanding for Dialogue Systems
+    description: Schema.org Action annotations are leveraged to automatically generate
+      domain intents, slot definitions, and seed training sentences for natural language
+      understanding (NLU) components in goal-oriented dialogue systems, enabling rapid
+      adaptation to new APIs and domains with minimal manual annotation effort. Schema.org
+      is treated as a de facto standard vocabulary supported by major search engines
+      (Bing, Google, Yahoo!, Yandex), making Schema.org-annotated web APIs a rich
+      source of structured domain knowledge. Schema.org Actions, introduced in 2014,
+      formalize potential actions as tuples α=(ta,To,Tr,Pi,Po) where ta is the action
+      type, To and Tr are object and result types, and Pi and Po are input and output
+      parameters. Web APIs annotated with schema:potentialAction properties describe
+      available operations with parameter mappings using <property name>-input and
+      <property name>-output conventions. For example, a hotel search API in the Feratel
+      system can be annotated with Schema.org Actions describing search parameters
+      (location, dates) and expected results. From these annotations, researchers
+      extract intents corresponding to action types and slots corresponding to required
+      parameters, then generate seed training sentences by instantiating templates
+      from the knowledge graph. The NLU task is treated as multi-class classification,
+      with automatically generated training data used to bootstrap models that classify
+      user utterances into intents and extract slot values. Example generated queries
+      include "What are the events in Innsbruck?" derived from Schema.org Event search
+      actions. This approach addresses a major bottleneck in dialogue system development
+      where traditionally developers must manually define intents, slots, and training
+      examples for each new domain or API. By mining Schema.org annotations, the method
+      provides a semi-automated pipeline that extracts structured representations
+      of API capabilities and generates initial training data, significantly reducing
+      the manual effort required for NLU adaptation. The authors note that while Schema.org
+      does not have strong formal semantics, its widespread adoption and standardized
+      vocabulary make it practical for bootstrapping intent recognition systems across
+      diverse domains.
+    references:
+    - https://doi.org/10.48550/arxiv.1807.01292
+    used_in_bridge2ai: false
+  - id: B2AI_APP:284
+    category: B2AI:Application
+    name: Machine Learning Dataset Metadata and Responsible AI Documentation
+    description: "The Croissant metadata format builds on Schema.org and the Data Catalog
+      Vocabulary (DCAT) to provide standardized, machine-readable metadata that makes
+      datasets 'ML-ready' by enabling automated discovery, documentation of responsible
+      AI attributes, and direct loading into machine learning frameworks. Schema.org
+      serves as the de facto standard for metadata that helps search engines discover
+      and index published web content, including datasets, thereby enhancing dataset
+      accessibility and understandability. Croissant extends Schema.org with ML-specific
+      metadata describing dataset structure, record formats, field types, data distributions,
+      and responsible AI considerations (fairness, bias, intended use) while maintaining
+      backward compatibility. The format reuses core Schema.org properties including
+      sc:name (dataset name), sc:url (access URL), sc:inLanguage (language), and sc:license
+      (usage terms), and references Schema.org types such as schema:Text and schema:Date
+      for field type definitions. Croissant metadata enables programmatic dataset
+      loading into popular ML frameworks (TensorFlow, PyTorch, Hugging Face) without
+      custom parsing code, supporting reproducible ML research. The format has been
+      adopted by repositories spanning hundreds of thousands of datasets and is recommended
+      in the NeurIPS datasets and benchmarks track, demonstrating community acceptance.
+      Human evaluation studies demonstrate metadata quality and usability, with users
+      reporting greater than 75% 'very confident' ratings for understanding Croissant-described
+      datasets and approximately 80% rating dataset understanding as 4-5 out of 5.
+      Inter-annotator agreement measured by BLEU scores shows higher consistency for
+      Croissant attributes (average BLEU 0.55) compared to Croissant-RAI responsible
+      AI extensions (0.41), with predefined values showing highest agreement (BLEU
+      0.59, particularly for sc:license at the top). Text attributes average BLEU
+      0.4 and date attributes 0.47. The standardization on Schema.org enables federated
+      search across dataset repositories, automated extraction of dataset cards for
+      ML model documentation, and integration with dataset versioning and provenance
+      tracking systems. By leveraging Schema.org's established vocabulary and tooling
+      ecosystem, Croissant reduces the barrier to dataset publication and promotes
+      best practices for dataset documentation in ML research, addressing concerns
+      about dataset reproducibility, bias transparency, and appropriate use that are
+      critical for responsible AI development."
+    references:
+    - https://doi.org/10.1145/3650203.3663326
+    used_in_bridge2ai: false
+  - id: B2AI_APP:285
+    category: B2AI:Application
+    name: Knowledge Graph Augmentation with Microdata Extraction and Large Language
+      Models
+    description: Schema.org microdata embedded in web pages is extracted and leveraged
+      in conjunction with large language model (LLM) pipelines to augment and populate
+      knowledge graphs, demonstrated in tourism domain applications enriching Wikidata
+      with web-derived structured data. Web pages often contain rich structured information
+      encoded using Schema.org vocabularies embedded as microdata, RDFa, or JSON-LD,
+      providing machine-readable descriptions of entities such as hotels, restaurants,
+      events, and attractions. These annotations can be extracted at scale and used
+      to complement existing knowledge graph content, filling gaps where structured
+      information is incomplete or unavailable. The pipeline involves multiple stages,
+      first extracting Schema.org microdata from web pages using standard parsers,
+      then performing entity matching to link extracted entities to existing knowledge
+      graph nodes (e.g., matching a hotel mentioned in web microdata to its corresponding
+      Wikidata entity), and finally using large language models to augment or generate
+      additional annotations when Schema.org markup is incomplete or requires interpretation.
+      LLMs can process semi-structured content alongside Schema.org annotations to
+      extract additional attributes, normalize inconsistent formatting, resolve ambiguities,
+      and generate natural language descriptions from structured properties. The feasibility
+      of this approach has been demonstrated in tourism knowledge graph construction,
+      where Schema.org microdata provides foundational structured data about accommodations,
+      points of interest, and events, while LLM-based processing enhances coverage
+      and quality. Results indicate that microdata complements knowledge graph content
+      effectively, with LLMs capable of aiding annotation generation, though coverage
+      and quality vary depending on domain-specific factors and the comprehensiveness
+      of Schema.org markup on source websites. Effectiveness is influenced by attribute
+      coverage in the Schema.org vocabulary, the prevalence of markup adoption in
+      the target domain, and the capability of LLMs to accurately interpret and augment
+      partial or noisy structured data. This hybrid approach combining Schema.org
+      standardized vocabulary with LLM-based extraction and augmentation represents
+      a practical strategy for large-scale knowledge graph construction and maintenance,
+      leveraging the widespread adoption of Schema.org on the web while using modern
+      AI techniques to handle the inherent heterogeneity and incompleteness of web
+      data. The method demonstrates how established semantic web standards can be
+      integrated with contemporary neural language models to improve knowledge graph
+      completeness and quality across diverse domains.
+    references:
+    - https://doi.org/10.1108/el-06-2023-0160
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:905
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
