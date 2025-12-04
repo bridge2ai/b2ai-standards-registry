@@ -11165,8 +11165,84 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:49
   is_open: true
   name: AIFF
-  purpose_detail: File format for sound that wraps various sound bitstreams, ranging
-    from uncompressed waveform to MIDI.
+  purpose_detail: 'Audio Interchange File Format (AIFF) is an audio file format standard
+    developed by Apple Inc. in January 1988 for storing sound data on personal computers
+    and electronic audio devices, based on Electronic Arts'' Interchange File Format
+    (IFF) widely used on Amiga systems and most commonly used on Apple Macintosh computer
+    systems. AIFF primarily wraps uncompressed pulse-code modulation (PCM) audio data
+    in big-endian byte order, providing high-fidelity lossless audio storage at the
+    cost of larger file sizes compared to compressed formats—approximately 10 MB per
+    minute of stereo audio at 44.1 kHz sample rate and 16-bit depth, similar to WAV
+    which serves as the functionally equivalent little-endian Windows-based format.
+    The format employs chunk-based architecture inherited from IFF where files are
+    divided into multiple chunks each identified by a FourCC (four-character code)
+    beginning with magic number FORM (hex 46 4F 52 4D 00) in the file header. Required
+    chunks include the Common Chunk (COMM) specifying sample rate, bit depth, number
+    of channels (mono, stereo, 3-channel, quad, or 4/6-channel surround sound), and
+    number of sample frames, and the Sound Data Chunk (SSND) containing actual audio
+    sample data. Optional chunks support rich metadata and functionality including
+    Marker Chunk for cue points, Instrument Chunk for MIDI note and loop data used
+    by hardware samplers, Comment/Name/Author/Copyright/Annotation Chunks for descriptive
+    metadata, Audio Recording Chunk for recording metadata, MIDI Data Chunk for embedded
+    MIDI sequences, Application Chunk for application-specific data including Extensible
+    Metadata Platform (XMP), and ID3v2 Tag Chunk for ID3 metadata tags. AIFF Version
+    1.3 (January 1989) established the core specification with fully documented open
+    format available from Apple (though no longer hosted on Apple''s website) and
+    archived by third parties including McGill University and Library of Congress
+    digital preservation initiative. The AIFF-C (AIFC) compressed variant introduced
+    in August 1991 extends AIFF to support various audio compression codecs specified
+    in the COMM chunk compression type field, with common types including NONE (uncompressed
+    PCM big-endian), sowt (pseudo-compression for little-endian byte order used as
+    macOS standard creating functionally equivalent but byte-swapped variant), fl32/fl64
+    (IEEE 32-bit/64-bit floating point), alaw/ulaw (ITU-T G.711 A-law and μ-law 8-bit
+    logarithmic compression achieving 2:1 ratios), ima4 (IMA ADPCM 4:1), MAC3/MAC6
+    (MACE 3-to-1 and 6-to-1), and various legacy codecs (ACE, Qualcomm PureVoice,
+    QDesign Music). macOS operating system created little-endian AIFF-C/sowt as its
+    standard audio format where iTunes import/export and audio CD drag-to-Desktop
+    operations produce AIFF-C/sowt files with .aiff extension referred to simply as
+    "AIFF" with identical sound quality to standard big-endian AIFF and lossless bidirectional
+    conversion, though older audio applications may fail to play or prompt format
+    conversion displaying static. Apple Loops extension used by GarageBand and Logic
+    Pro allows pitch and tempo shifting metadata in one variety and MIDI sequence
+    data with instrument references in another variety, using .aiff, .aif, or .caf
+    extensions. AIFF''s transparency as a wrapper format combined with uncompressed
+    PCM encoding makes it suitable for professional audio work including master format
+    for digitally captured or reformatted analog audio (Harvard University Library
+    Digital Initiative uses AIFF with LPCM as audio reformatting master format), with
+    wide adoption among Apple users in professional audio production though most Windows
+    users select functionally equivalent WAV format. Metadata self-documentation through
+    chunk headers providing technical information and IFF-defined text chunks (name,
+    author, copyright, annotation) supports archival applications. Library of Congress
+    Sustainability of Digital Formats initiative documents AIFF as fdd000005 with
+    PRONOM identifiers fmt/414 (version 1.2), x-fmt/135 (version 1.3 uncompressed),
+    and x-fmt/136 (compressed AIFF-C), NARA File Format Preservation Plan ID NF00115,
+    and Wikidata Q758853. The format is fully disclosed with no licensing restrictions
+    or patents, no external dependencies, and no known technical protection considerations,
+    demonstrating excellent to good audio fidelity depending on encoding parameters
+    with support for multi-channel configurations and user-defined sounds for samplers.
+    Internet media types include audio/aiff, audio/x-aiff, sound/aiff with encoding-specific
+    variants (audio/x-gsm, audio/x-midi, audio/vnd.qcelp), and file extensions .aif
+    (most common), .aiff, and .ief. In biomedical and clinical audio contexts, while
+    AIFF is not as extensively documented in research literature as WAV, the format''s
+    high-fidelity uncompressed PCM audio preservation makes it suitable for applications
+    requiring lossless storage of acoustic signals including voice analysis, speech
+    pathology assessment, respiratory sound analysis, and cardiac auscultation where
+    preservation of full frequency spectrum and amplitude dynamics is critical for
+    diagnostic accuracy and machine learning feature extraction. Audio processing
+    tools supporting AIFF include Praat (speech analysis software with comprehensive
+    voice quality metrics for clinical voice assessment supporting WAV, AIFF, AIFC,
+    FLAC, MP3 I/O), torchaudio (PyTorch audio processing library for biomedical audio
+    ML including speech patterns for neurological assessment, respiratory sounds for
+    pulmonary diagnosis, cardiac auscultation for heart disease detection, cough sounds
+    for COVID-19 screening, voice characteristics for Parkinson''s detection), and
+    Kaldi (automatic speech recognition toolkit for clinical conversation transcription
+    and voice biomarker extraction for neurological disease monitoring). The format''s
+    role in biomedical contexts is primarily as an interchange and archival format
+    for high-fidelity audio data collected on macOS-based systems in research and
+    clinical settings, with data typically converted to more widely supported formats
+    (WAV, FLAC) for cross-platform machine learning pipeline compatibility, though
+    AIFF''s structural equivalence to WAV ensures that audio content can be processed
+    identically once byte-order differences are accounted for in audio loading libraries.'
   requires_registration: false
   url: https://www.loc.gov/preservation/digital/formats/fdd/fdd000005.shtml
 - id: B2AI_STANDARD:315
