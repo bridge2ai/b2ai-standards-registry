@@ -24992,3 +24992,156 @@ data_standardortools_collection:
     evidence generation across a data network.
   requires_registration: false
   url: https://www.youtube.com/watch?v=H69dC7f-edQ
+- id: B2AI_STANDARD:907
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:37
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: YAMNet pretrained audio event classification model
+  formal_specification: https://github.com/tensorflow/models/tree/master/research/audioset/yamnet
+  has_application:
+  - category: B2AI:Application
+    description: YAMNet, a pretrained deep neural network for audio event classification,
+      was applied in the Bridge2AI Voice as a Biomarker of Health consortium to extract
+      audio embeddings and classify respiratory sounds from voice recordings for
+      clinical respiratory disease assessment including COVID-19, asthma, and chronic
+      obstructive pulmonary disease (COPD). The study leveraged YAMNet's MobileNetV1-based
+      architecture pretrained on Google's AudioSet-YouTube corpus (spanning 521 audio
+      event classes) to generate 1,024-dimensional audio embeddings capturing acoustic
+      features from mel spectrograms (96 temporal frames × 64 mel frequency bins
+      computed from 0.96-second overlapping audio patches with 25 ms window size,
+      10 ms hop, 16 kHz sampling, 125-7500 Hz mel frequency range). These YAMNet
+      embeddings served as high-level acoustic feature representations fed into downstream
+      machine learning classifiers (gradient-boosted decision trees, random forests,
+      support vector machines, or neural networks) trained to discriminate between
+      healthy controls and patients with respiratory conditions based on cough sounds,
+      sustained vowel phonations, speech tasks, and breathing audio. The transfer
+      learning approach exploited YAMNet's learned representations of general audio
+      patterns (trained on diverse environmental sounds, music, speech, animal sounds)
+      to bootstrap respiratory sound classification with relatively limited clinical
+      training data, leveraging the model's ability to capture spectrotemporal patterns
+      relevant to acoustic biomarkers of respiratory pathology including cough characteristics
+      (explosive transients, wheezing components, duration, pitch), voice quality
+      degradation (breathiness, roughness, strain reflecting airway inflammation
+      or obstruction), and breathing sounds (wheeze, stridor, crackles). YAMNet's
+      frame-level predictions (outputting probability distributions over 521 classes
+      for each 0.96 s patch) were aggregated via temporal pooling (mean, max, or
+      attention-weighted averaging) to generate utterance-level or recording-level
+      feature vectors, enabling classification at clinically relevant timescales
+      for diagnostic screening. The model's computational efficiency (MobileNetV1's
+      depthwise separable convolutions enabling real-time inference on mobile devices
+      and edge hardware with ~3.8 million parameters and ~70 million multiply-accumulate
+      operations per frame) made it suitable for deployment in telehealth and remote
+      patient monitoring scenarios where voice/cough samples are collected via smartphones
+      or home recording devices. Integration with the Bridge2AI Voice Biobank—a large-scale
+      multimodal dataset containing voice recordings, clinical metadata, and health
+      outcomes from diverse populations—enabled training and validation of respiratory
+      disease classifiers across demographic groups, assessing generalization performance
+      and identifying potential biases in acoustic biomarker models. YAMNet's role
+      as a feature extractor within the Bridge2AI ML pipeline demonstrates transfer
+      learning's effectiveness for medical acoustic analysis, where large-scale pretraining
+      on general audio data (AudioSet's 2 million YouTube videos spanning 632 audio
+      event classes) provides robust initialization for fine-tuning or feature extraction
+      on specialized clinical audio tasks with orders-of-magnitude less labeled data,
+      addressing the challenge of limited annotated medical audio datasets. The study's
+      use of YAMNet embeddings alongside traditional acoustic features (MFCCs, pitch,
+      formants, jitter, shimmer extracted via Praat/Parselmouth or openSMILE) in
+      ensemble models or multi-view learning frameworks compared deep learned representations
+      versus handcrafted acoustic features for respiratory sound classification,
+      informing best practices for clinical voice AI development. Evaluation included
+      cross-validation within the Bridge2AI cohort and external validation on independent
+      respiratory disease datasets to assess model robustness and clinical utility,
+      with performance metrics including sensitivity, specificity, AUC, and balanced
+      accuracy across disease subtypes and severity levels. The application demonstrates
+      YAMNet's potential as a scalable audio AI tool for respiratory health monitoring,
+      supporting early detection, disease progression tracking, and treatment response
+      assessment in both clinical settings and population-level screening programs,
+      with implications for pandemic preparedness (COVID-19 acoustic screening) and
+      management of chronic respiratory conditions through continuous remote monitoring.
+    id: APP:278
+    name: YAMNet audio embeddings for respiratory disease classification in Bridge2AI
+      Voice Biobank
+    references:
+    - https://www.nature.com/articles/s41598-025-99369-y
+    - https://tfhub.dev/google/yamnet/1
+    - https://github.com/tensorflow/models/tree/master/research/audioset/yamnet
+    used_in_bridge2ai: true
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: YAMNet
+  purpose_detail: YAMNet (Yet Another Mobile Network) is a pretrained deep neural
+    network for audio event classification developed by Google Research and distributed
+    via TensorFlow Hub, predicting 521 audio event classes from the AudioSet ontology
+    based on training on Google's AudioSet-YouTube corpus containing over 2 million
+    human-labeled 10-second sound clips spanning environmental sounds, music, speech,
+    animal vocalizations, and human-generated sounds. Built on the MobileNetV1 architecture
+    utilizing depthwise separable convolutions for computational efficiency (~3.8
+    million parameters, ~70 million multiply-accumulate operations per 0.96 s audio
+    frame), YAMNet accepts raw audio waveforms as input and outputs frame-level predictions
+    (probability distributions over 521 classes for each 0.96-second patch) and 1,024-dimensional
+    embedding vectors capturing high-level acoustic representations suitable for
+    transfer learning to specialized audio classification tasks with limited training
+    data. The model processes audio through a standardized feature extraction pipeline
+    resampling input to 16 kHz mono, computing Short-Time Fourier Transform (STFT)
+    spectrograms with 25 ms window size and 10 ms hop using periodic Hann windowing,
+    mapping to 64 mel-frequency bins covering 125-7500 Hz range, applying stabilized
+    logarithmic scaling (log(mel-spectrum + 0.001) to handle zero values), and framing
+    into 50%-overlapping 96×64 patches (96 temporal frames of 10 ms each spanning
+    0.96 seconds, 64 mel bins) that serve as inputs to the MobileNetV1 convolutional
+    network. YAMNet's architecture follows MobileNetV1's efficient design with an
+    initial standard 3×3 convolution followed by 13 depthwise separable convolution
+    blocks (each comprising a 3×3 depthwise convolution applying a single filter
+    per input channel, followed by a 1×1 pointwise convolution combining channels,
+    with batch normalization and ReLU6 activations), progressively reducing spatial
+    dimensions from 96×64 input to 3×2 feature maps while expanding channel depth
+    from 64 to 1024, culminating in global average pooling and a fully connected
+    layer with softmax activation outputting 521-class probabilities. The model's
+    training on AudioSet provides broad coverage of real-world audio phenomena including
+    speech and vocal sounds (120+ classes covering languages, accents, singing, laughter,
+    crying, coughing, sneezing), music and musical instruments (140+ classes spanning
+    genres, instruments, compositional elements), natural sounds (70+ classes including
+    animal vocalizations, wind, water, thunder), human-generated sounds (80+ classes
+    covering vehicles, tools, appliances, alarms), and acoustic events (110+ classes
+    including explosions, breaking, mechanisms, impacts), enabling the model to serve
+    as a general-purpose audio understanding system applicable across domains. YAMNet
+    is distributed as a TensorFlow SavedModel via TensorFlow Hub (tfhub.dev/google/yamnet/1)
+    and as Keras HDF5 weights (yamnet.h5) with accompanying Python code (yamnet.py,
+    features.py, params.py, inference.py) in the TensorFlow Models repository (github.com/tensorflow/models/tree/master/research/audioset/yamnet),
+    supporting easy integration into TensorFlow and Keras workflows via hub.KerasLayer
+    for both inference and transfer learning. Transfer learning applications leverage
+    YAMNet's embeddings (1,024-dimensional vectors from the penultimate layer) as
+    feature extractors for downstream tasks including environmental sound classification
+    (urban sound monitoring, wildlife acoustics, smart home audio analysis), medical
+    audio analysis (cough detection, respiratory sound classification, cardiac auscultation,
+    speech pathology assessment), multimedia content analysis (audio tagging, sound
+    event detection, acoustic scene classification), and accessibility technologies
+    (audio captioning for deaf/hard-of-hearing users, sound-based alerts), typically
+    fine-tuning a small classifier head on task-specific data while optionally fine-tuning
+    YAMNet layers with low learning rates to adapt acoustic representations. The
+    model's efficiency enables deployment on resource-constrained devices including
+    smartphones, embedded systems, and edge computing platforms (Raspberry Pi, Coral
+    Edge TPU, NVIDIA Jetson) for real-time audio monitoring applications, with TensorFlow
+    Lite conversion supporting quantization (8-bit integer) for further size and
+    speed optimization with minimal accuracy degradation. YAMNet has been widely
+    adopted in research and applications including Google's Sound Search, assistive
+    technologies for detecting emergency sounds (smoke alarms, doorbells, crying
+    babies), wildlife conservation (bird song identification, poaching detection),
+    smart city infrastructure (traffic monitoring, noise pollution assessment), healthcare
+    (respiratory disease screening from cough/voice, mental health assessment from
+    speech prosody), and multimedia retrieval (audio-based video search, podcast
+    segmentation). The model's public availability under Apache 2.0 license, comprehensive
+    documentation including inference examples and Jupyter notebook visualizations
+    (yamnet_visualization.ipynb), and integration with TensorFlow ecosystem tools
+    (TensorBoard for visualization, TensorFlow Serving for production deployment,
+    TensorFlow.js for in-browser inference) have established YAMNet as a standard
+    baseline for audio classification research and a practical tool for productionizing
+    audio AI applications, particularly in scenarios requiring general audio understanding
+    without extensive task-specific training data.
+  requires_registration: false
+  url: https://tfhub.dev/google/yamnet/1
+  used_in_bridge2ai: true
