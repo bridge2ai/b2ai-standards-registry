@@ -7127,9 +7127,138 @@ data_standardortools_collection:
   is_open: true
   name: MIASM
   publication: doi:10.1002/humu.20832
-  purpose_detail: MIASM was developed for the collection of somatic variations to
-    promote standards for annotations of somatic variation data, and to promote data
-    integration with other data resources.
+  purpose_detail: Minimum Information About Somatic Mutation (MIASM) is a comprehensive
+    reporting standard framework developed to ensure complete and consistent annotation
+    of somatic variation data in cancer research, addressing the critical need for
+    standardized collection and documentation of cancer-specific genetic variations
+    to enable data integration across databases, facilitate meta-analyses, support
+    clinical interpretation, and promote reproducible cancer genomics research. Originally
+    published by Olivier et al. (2009) and subsequently updated by the original authors,
+    MIASM provides structured guidelines targeted to diverse stakeholders including
+    researchers conducting cancer mutation discovery studies, clinicians interpreting
+    tumor sequencing results for patient care, epidemiologists investigating cancer
+    genetics across populations, database curators managing mutation repositories
+    (COSMIC, TCGA, ICGC), bioinformaticians developing variant annotation pipelines,
+    journal editors establishing submission requirements, and funding bodies setting
+    data sharing policies. The framework recognizes that correct interpretation of
+    cancer-specific variation patterns requires a minimum set of information spanning
+    three critical dimensions where the variation itself (genetic alteration details),
+    the method of detection (technical validation and quality control), and the tumor
+    sample (clinical and pathological context) must all be documented to enable meaningful
+    biological and clinical insights, with this basic information mandated for inclusion
+    in any report on cancer-related variations whether published manuscripts, database
+    submissions, clinical reports, or regulatory filings. MIASM specifies required
+    components including gene name (HUGO approved nomenclature ensuring unambiguous
+    gene identification across studies and databases), reference sequence (NCBI accession
+    number or GI number defining the genomic or transcript coordinate system used
+    for variant calling), published/unpublished nature of data (citation or data
+    source enabling provenance tracking and literature integration), study design
+    (consecutive series, case-control, prospective cohort, clinical trial design
+    affecting interpretation of variant frequency and associations), nature and number
+    of tumor samples analyzed (sample size and tumor type composition determining
+    statistical power and generalizability), geographic location or hospital names
+    where samples obtained (addressing population stratification and enabling multi-center
+    validation), variation detection method (Sanger sequencing, targeted NGS panels,
+    whole-exome sequencing, whole-genome sequencing with depth and quality metrics
+    affecting sensitivity for detecting low-frequency variants and distinguishing
+    true mutations from technical artifacts), gene portion screened for variations
+    (exons, intronic regions, regulatory elements defining the mutational landscape
+    resolution and potential for missing mutations in unscreened regions), quality
+    control procedure (requirement that variations must be confirmed by repeating
+    sequencing on independent PCR product or orthogonal technology reducing false
+    positive rate from PCR errors, sequencing artifacts, or contamination), assessment
+    of somatic origin (documentation whether variation searched in matched blood
+    or normal tissue confirming somatic vs germline status essential for distinguishing
+    driver mutations from inherited variants and avoiding misinterpretation of germline
+    polymorphisms as tumor-specific alterations), variation description (DNA or RNA
+    position and nucleotide change with nomenclature compliant with HGVS standards
+    ensuring consistent variant representation enabling database queries, literature
+    searches, and automated annotation pipelines to accurately identify identical
+    mutations reported across studies), sample topography (anatomical site ICD-O
+    codes), morphology (histological classification), nature (fresh-frozen, FFPE,
+    circulating tumor DNA affecting DNA quality and detection sensitivity), and source
+    (surgical resection, biopsy, liquid biopsy determining tumor purity and cellularity),
+    and patient information (country of hospital admission capturing population ancestry
+    and environmental exposures relevant for mutation etiology and therapeutic response
+    prediction). The MIASM criteria enable integration with established standards
+    and nomenclatures including HGVS variant nomenclature (Human Genome Variation
+    Society standards for unambiguous mutation description at DNA, RNA, and protein
+    levels using sequence-based coordinates and standardized abbreviations for substitutions,
+    deletions, insertions, duplications, inversions, and complex rearrangements),
+    HUGO Gene Nomenclature Committee approved gene symbols (avoiding ambiguity from
+    gene aliases, synonyms, or outdated nomenclature), ICD-O topography and morphology
+    codes (International Classification of Diseases for Oncology providing hierarchical
+    classification of tumor anatomical sites and histological types), NCBI Reference
+    Sequences (RefSeq accessions defining genomic and transcript contexts with version
+    tracking for coordinate lifting between genome builds GRCh37/hg19 and GRCh38/hg38),
+    and clinical trial design terminology (consistent description of study types
+    enabling appropriate interpretation of mutation frequency estimates and association
+    statistics). Advanced data mining annotations recommended beyond core MIASM criteria
+    include functional impact predictions (in silico tools SIFT, PolyPhen-2, CADD,
+    REVEL scoring missense variants for deleteriousness), population allele frequencies
+    (gnomAD, 1000 Genomes, ExAC distinguishing rare somatic mutations from common
+    germline polymorphisms), mutation signatures (SBS, DBS, ID signatures from COSMIC
+    reflecting underlying mutational processes like UV exposure, smoking, APOBEC
+    activity, mismatch repair deficiency, POLE exonuclease domain mutations), clonality
+    assessment (variant allele frequency, copy number state, phylogenetic reconstruction
+    distinguishing clonal founder mutations from subclonal late events), therapeutic
+    actionability (FDA-approved targeted therapies, clinical trial eligibility, resistance
+    mechanisms documented in CIViC, OncoKB, ClinVar databases), pathway annotations
+    (KEGG, Reactome, WikiPathways enrichment identifying perturbed biological processes),
+    protein domain disruption (Pfam, InterPro mapping variants to functional domains
+    and post-translational modification sites), 3D structure context (PDB coordinates,
+    AlphaFold predictions visualizing spatial clustering of mutations in protein
+    structures), evolutionary conservation (PhyloP, PhastCons, GERP scores indicating
+    purifying selection at mutated positions), splicing predictions (MaxEntScan,
+    SpliceAI identifying variants affecting splice sites or creating cryptic splice
+    sites), and epigenetic context (chromatin state, histone modifications, DNA methylation
+    from ENCODE, Roadmap Epigenomics characterizing regulatory regions where non-coding
+    mutations may affect gene expression). MIASM-compliant reporting supports diverse
+    applications in cancer genomics research where comprehensive mutation databases
+    (COSMIC Catalogue of Somatic Mutations in Cancer aggregating MIASM-documented
+    variations from publications and genome-wide screens, TCGA The Cancer Genome
+    Atlas providing open-access multi-platform molecular profiling across 33 cancer
+    types, ICGC International Cancer Genome Consortium harmonizing somatic mutation
+    data from global sequencing projects) rely on standardized annotations enabling
+    federated queries and cross-cohort analyses, clinical sequencing interpretation
+    pipelines integrate MIASM-documented variants with knowledge bases (CIViC Clinical
+    Interpretation of Variants in Cancer, OncoKB Precision Oncology Knowledge Base,
+    ClinGen/ClinVar somatic variant curation) supporting molecular tumor boards and
+    precision oncology treatment selection, cancer surveillance and epidemiology
+    studies leverage MIASM-standardized population-based mutation data to identify
+    environmental risk factors, gene-environment interactions, and disparities in
+    mutation burden across demographic groups, biomarker discovery for early detection,
+    prognosis, and therapeutic response prediction, and machine learning applications
+    training on MIASM-compliant datasets including supervised models predicting driver
+    vs passenger mutations (integrating sequence context, evolutionary conservation,
+    protein structure, and pathway enrichment features), deep learning architectures
+    (CNNs on sequence context, GNNs on protein-protein interaction networks, transformers
+    on multi-omics profiles) classifying tumor subtypes from mutation signatures,
+    transfer learning adapting models trained on well-studied cancer types (breast,
+    lung, colon) to rare cancers with limited data, federated learning enabling multi-institutional
+    model training on sensitive patient data without sharing raw genomic information,
+    causal inference methods distinguishing driver mutations causally contributing
+    to oncogenesis from passenger mutations accumulated during tumor evolution using
+    dN/dS ratios, mutual exclusivity patterns, and experimental validation data,
+    mutational signature deconvolution (NMF, topic modeling, Bayesian inference extracting
+    COSMIC signatures from tumor mutation catalogs and attributing etiology to DNA
+    repair defects, carcinogen exposures, or aging), synthetic data generation (GANs,
+    VAEs creating realistic tumor mutation profiles for algorithm development, benchmarking,
+    and privacy-preserving data sharing), and precision medicine recommender systems
+    matching patients to clinical trials and targeted therapies based on actionable
+    mutations with supporting evidence from MIASM-documented case reports and cohort
+    studies. Integration with clinical workflows positions MIASM as foundational
+    standard for molecular tumor profiling where standardized reporting enables interoperability
+    between laboratory information systems (LIS), electronic health records (EHR),
+    and genomic databases, supports regulatory submissions for companion diagnostics
+    and targeted therapies requiring consistent variant nomenclature and validation
+    criteria, facilitates quality assurance programs and proficiency testing for
+    clinical genomics laboratories through standardized benchmarking datasets, enables
+    longitudinal monitoring of tumor evolution, minimal residual disease, and acquired
+    resistance mutations with consistent variant tracking across timepoints, and
+    promotes equitable access to precision oncology by ensuring mutation data from
+    diverse populations and healthcare settings adheres to common standards enabling
+    knowledge transfer and reducing disparities in genomic medicine implementation.
   requires_registration: false
   url: http://structure.bmc.lu.se/MIASM/miasm.html
 - id: B2AI_STANDARD:212
