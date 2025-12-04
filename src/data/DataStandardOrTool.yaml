@@ -13858,6 +13858,28 @@ data_standardortools_collection:
     any other sort of user, WDL should be accessible and understandable.
   requires_registration: false
   url: https://openwdl.org/
+  has_application:
+  - id: B2AI_APP:294
+    category: B2AI:Application
+    name: Terra and Cromwell Execution for Genomic Analysis Workflows
+    description: WDL is the primary workflow language for Terra, a cloud-based genomics
+      analysis platform, and Cromwell, a widely-adopted workflow execution engine
+      supporting local, HPC, and cloud environments. WDL workflows on Terra/Cromwell
+      orchestrate complex genomic analyses including GATK Best Practices pipelines
+      for variant calling, RNA-seq quantification, and somatic mutation detection
+      across large cohorts. These platforms enable scalable execution of WDL workflows
+      on Google Cloud Platform, AWS, Azure, and HPC clusters with SLURM, PBS, LSF,
+      and other schedulers. Cromwell provides sophisticated features including call
+      caching for workflow resumption, sub-workflow composition, and scatter-gather
+      parallelization enabling efficient processing of population-scale genomic datasets.
+      Terra integrates WDL execution with data management, providing secure collaborative
+      workspaces for multi-institutional biomedical research projects including AnVIL,
+      BioData Catalyst, and the Human Cell Atlas, making WDL workflows accessible
+      to researchers without requiring infrastructure management expertise.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/nbt.4096
+    - https://cromwell.readthedocs.io/
 - id: B2AI_STANDARD:390
   category: B2AI_STANDARD:DataStandard
   collection:
