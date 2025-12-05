@@ -18878,10 +18878,144 @@ data_standardortools_collection:
   formal_specification: https://github.com/obophenotype/upheno
   is_open: true
   name: UPHENO
-  purpose_detail: Integrates multiple phenotype ontologies into a unified cross-species
-    phenotype ontology.
+  publication: doi:10.1093/genetics/iyaf027
+  purpose_detail: The Unified Phenotype Ontology (uPheno) is a comprehensive framework
+    for cross-species integrative phenomics that provides a unified logical representation
+    of phenotype data across multiple organisms. uPheno integrates 12 species-specific
+    phenotype ontologies including the Human Phenotype Ontology (HPO, 18,987 terms),
+    Mammalian Phenotype Ontology (MP, 14,206 terms), Zebrafish Phenotype Ontology
+    (ZP, 47,443 terms), Xenopus Phenotype Ontology (XPO, 20,340 terms), C. elegans
+    Phenotype Ontology (WBPhenotype, 2,649 terms), Drosophila Phenotype Ontology
+    (DPO, 253 terms), Fission Yeast Phenotype Ontology (FYPO, 8,056 terms), and others,
+    leveraging the Uberon cross-species anatomy ontology and Gene Ontology biological
+    process hierarchies. The framework enables computational cross-species phenotype
+    comparison and inference through three core components - a library of 262 computational
+    phenotype design patterns using the Dead Simple OWL Design Patterns (DOSDP) templating
+    system, a hierarchical vocabulary of 35,782 species-neutral phenotype terms under
+    which species-specific counterparts are automatically classified, and standardized
+    mapping tables connecting phenotype terms across species. uPheno employs the Entity-Quality
+    (EQ) modeling framework to define phenotypes computationally, using logical axioms
+    that relate affected entities (anatomical structures from Uberon, biological processes
+    from GO, cellular components, chemical entities from ChEBI, etc.) to their observable
+    qualities or characteristics (from the Phenotype and Trait Ontology, PATO). For
+    example, the phenotype 'increased size of the heart' is automatically generated
+    and classified by instantiating a design pattern template with Uberon's 'heart'
+    class. Automated reasoning using the ELK reasoner classifies all but seven manually
+    defined terms based on the hierarchical structure of reference ontologies, ensuring
+    consistent organization - for instance, 'increased thickness of the aortic valve
+    leaflet' is automatically classified as a 'heart morphology phenotype' because
+    thickness is a subclass of morphology in PATO and the aortic valve is part of
+    the heart in Uberon. The framework maintains two versions - uPheno 1 (inactive,
+    file upheno.owl) which is no longer maintained, and uPheno 2 (Beta, file upheno/v2/upheno.owl)
+    which is actively maintained with species-independent phenotypes and additional
+    phenotype relations. The community-driven Phenotype Ontology Reconciliation Effort
+    (POTATO workshops) coordinates the development and implementation of phenotype
+    patterns across participating ontology teams, with contributors from over 23 researchers
+    signing off on approved patterns using their ORCID identifiers. Cross-species
+    mappings are published in Simple Standard for Sharing Ontological Mappings (SSSOM)
+    format, specifying precise mapping relations such as crossSpeciesExactMatch to
+    signify identical phenotypic characteristics of homologous anatomical structures,
+    with metadata distinguishing manual curation, lexical matching, and automated
+    logical reasoning approaches. Semantic similarity tables enable computational
+    identification of similar phenotypes across species using measures like Jaccard
+    similarity and the PhenoDigm score, which normalizes against Information Content
+    to identify more informative phenotypes positioned lower in the ontology hierarchy.
+    uPheno is maintained as part of the OBO Foundry with a CC0 1.0 public domain
+    license, developed using the Ontology Development Kit (ODK) for reproducible,
+    platform-agnostic workflows, and browsable through multiple interfaces including
+    the Ontology Lookup Service at EMBL-EBI, BioPortal, and the Monarch Initiative
+    application. The framework supports critical use cases in computational disease
+    modeling, variant prioritization for rare disease diagnosis, cross-species inference
+    connecting phenotypes to genotypes, bootstrapping of species-specific phenotype
+    ontologies (e.g., Xenopus Phenotype Ontology and Planarian Phenotype Ontology),
+    veterinary and agricultural applications through OMIA, and integration into knowledge
+    graphs like the Monarch Initiative that link phenotypes, diseases, and genetic
+    underpinnings across species.
   requires_registration: false
   url: https://github.com/obophenotype/upheno
+  has_application:
+  - id: B2AI_APP:303
+    category: B2AI:Application
+    name: Monarch Initiative cross-species phenotype-genotype integration
+    description: The Monarch Initiative employs uPheno as the foundational framework
+      for cross-species inference connecting phenotypes to genotypes across diverse
+      organisms to accelerate disease gene discovery and improve rare disease diagnosis.
+      Monarch's knowledge graph integrates phenotype data from human patients (HPO),
+      mouse models (MP), zebrafish (ZP), fruit flies (DPO), C. elegans (WBPhenotype),
+      and other model organisms, using uPheno's unified logical representation to
+      enable computational identification of phenotypically similar conditions across
+      evolutionary distances. By grouping species-specific phenotypes under common
+      species-neutral terms, the framework allows researchers to query for all genes
+      affecting specific biological systems regardless of source organism. Computational
+      tools like Exomiser leverage uPheno's semantic similarity scores (Jaccard similarity
+      and PhenoDigm scoring) to rank candidate variants in whole-exome or whole-genome
+      sequencing data by comparing patient phenotypes to known gene-disease-phenotype
+      associations from model organisms. In a cohort of pediatric patients with diverse
+      presentations including global developmental delay, seizures, and hypotonia,
+      Exomiser achieved a 36% molecular diagnostic rate through cross-species phenotype
+      matching. The Monarch Initiative's integration of uPheno with tools like InpherNet
+      (machine learning for monogenic disease diagnosis), EvORanker, and EmbedPVP
+      (variant prioritization) extends this approach to accelerate candidate gene
+      discovery, predict disease models in experimentally tractable organisms, and
+      uncover factors influencing disease penetrance and severity across genetic backgrounds
+      and environments.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/nar/gkad1082
+    - https://doi.org/10.1093/genetics/iyaf027
+  - id: B2AI_APP:304
+    category: B2AI:Application
+    name: Machine learning and transfer learning for computational disease modeling
+    description: uPheno's unified logical representation of phenotypes across species
+      provides a critical foundation for machine learning and computational approaches
+      to disease modeling, enabling training data augmentation and transfer learning
+      from data-rich model organisms to human diseases where patient cohorts are limited.
+      The framework's standardized species-neutral vocabulary and automated classification
+      hierarchy create structured, high-quality training data for machine learning
+      algorithms by ensuring consistent phenotype representation regardless of source
+      organism. Tools like InpherNet implement machine learning approaches for monogenic
+      disease diagnosis by analyzing patient candidate genes' neighbors in networks
+      built from uPheno-integrated cross-species phenotype data. Embedding-based approaches
+      like EmbedPVP leverage uPheno's semantic structure to create phenotype embeddings
+      using neuro-symbolic knowledge-enhanced learning, enabling variant prioritization
+      through vector representations that capture relationships in the ontology hierarchy
+      and cross-species mappings. The framework supports graph-based machine learning
+      where phenotypes, genes, diseases, and organisms form a heterogeneous knowledge
+      graph, with algorithms performing link prediction, node classification, or subgraph
+      pattern mining to discover novel gene-disease associations. Natural language
+      processing applications benefit from uPheno's structured logical definitions,
+      with tools like OntoGPT extracting phenotype terms from unstructured text and
+      CurateGPT leveraging the ontology structure for AI-assisted curation and quality
+      control of phenotype annotations.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/genetics/iyaf027
+  - id: B2AI_APP:305
+    category: B2AI:Application
+    name: Standardized phenotype ontology development using uPheno design patterns
+    description: uPheno provides a transformative framework for rapid development
+      and standardization of phenotype ontologies for new species and application
+      domains through its library of 262 reusable design pattern templates implemented
+      in the Dead Simple OWL Design Patterns (DOSDP) format. Rather than manually
+      creating each phenotype term, ontology developers can instantiate pattern templates
+      by providing species-appropriate entity terms (anatomy, processes, chemicals),
+      with the framework automatically generating consistent term labels, definitions,
+      and logical axioms. This pattern-based approach has successfully bootstrapped
+      complete phenotype ontologies including the Xenopus Phenotype Ontology (XPO,
+      20,340 terms) and Planarian Phenotype Ontology (PLANP, 647 terms), dramatically
+      reducing the time required from months of manual work to weeks of semi-automated
+      generation. The Phenotype Ontology Reconciliation Effort (POTATO workshops)
+      coordinates community consensus on pattern design, with participating ontology
+      editors from HPO, MP, ZP, XPO, FYPO, WBPhenotype, DPO, and DDPHENO reviewing
+      proposed templates and committing to implement approved patterns in their respective
+      ontologies. The Online Mendelian Inheritance in Animals (OMIA) database has
+      adopted uPheno's species-neutral vocabulary to represent phenotypes, clinical
+      signs, and pathological features across domestic and agricultural animals, enhancing
+      computational analysis and interoperability of veterinary genetic data.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/s12859-022-04636-8
+    - https://doi.org/10.1093/genetics/iyaf027
 - id: B2AI_STANDARD:566
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
