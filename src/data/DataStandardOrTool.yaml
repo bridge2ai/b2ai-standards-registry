@@ -26149,3 +26149,379 @@ data_standardortools_collection:
   requires_registration: false
   url: https://tfhub.dev/google/yamnet/1
   used_in_bridge2ai: true
+- id: B2AI_STANDARD:908
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Cloud-based data platform for connecting lab instruments, ELN/LIMS,
+    and analytical applications to enable automated data capture, processing, and
+    AI-powered analysis in biotech laboratories
+  formal_specification: https://docs.ganymede.bio/
+  has_application:
+  - category: B2AI:Application
+    description: Ganymede's Modular Analysis chromatography module leverages AI-powered
+      peak finding to automate analytical chemistry workflows, delivering automated
+      peak identification, quantification, and data processing for liquid chromatography
+      (LC), gas chromatography (GC), high-performance liquid chromatography (HPLC),
+      and ultra-performance liquid chromatography (UPLC) across pharmaceutical development,
+      bioprocess analytics, and diagnostic assay workflows. The AI peak finding system
+      eliminates manual baseline correction, integration window selection, and peak
+      boundary determination that traditionally consume hours of analyst time per
+      batch, automatically detecting peaks in chromatographic traces by analyzing
+      signal patterns, retention times, peak shapes (Gaussian, tailed, fronting),
+      and baseline drift characteristics using machine learning models trained on
+      diverse chromatography datasets spanning multiple instruments, matrices, and
+      analyte classes. Ganymede's approach addresses key challenges in chromatographic
+      data analysis including co-eluting peaks (overlapping signals requiring deconvolution),
+      noisy baselines (instrument drift, matrix effects, mobile phase contaminants),
+      retention time variability (temperature fluctuations, column aging, gradient
+      reproducibility), and low-abundance analytes (signal-to-noise ratio challenges
+      near detection limits), applying algorithms that adapt to changing chromatographic
+      conditions without requiring method-specific parameter tuning. The system integrates
+      directly with Waters Empower, Agilent ChemStation/OpenLab, Thermo Chromeleon,
+      Shimadzu LabSolutions, and other chromatography data systems (CDS) via Ganymede
+      Agents that capture raw instrument files (.raw, .D, .arw formats) and processed
+      data tables from local PCs, streaming data to Ganymede's cloud environment
+      where AI models execute peak detection and integration in Flows (Python/SQL
+      pipelines with versioned runtimes ensuring reproducible analysis), outputting
+      peak areas, heights, retention times, asymmetry factors, theoretical plates,
+      and resolution metrics alongside quality control flags (baseline quality, peak
+      purity, retention time drift) that inform acceptance criteria for pharmaceutical
+      release testing and quality assurance. Quantitative results are automatically
+      written back to electronic lab notebooks (Benchling, LabArchives, SciNote)
+      and laboratory information management systems (LIMS) via API integrations or
+      file drops, eliminating manual transcription errors and enabling real-time
+      process monitoring. Operational insights capabilities extend beyond individual
+      sample analysis to cross-batch modeling, tracking column performance degradation
+      (retention time shifts, peak shape deterioration, backpressure increases indicating
+      column fouling), identifying instrument maintenance needs (detector lamp intensity
+      decay, pump seal wear, autosampler precision drift), and optimizing laboratory
+      resource utilization by analyzing batch processing times, instrument uptime,
+      and method cycle times. One analytical chemistry team deploying Ganymede's
+      AI peak finding achieved 2,500 hours saved annually by automating peak integration
+      across high-throughput stability studies, pharmaceutical impurity profiling,
+      and bioprocess monitoring applications that previously required manual review
+      of every chromatogram, enabling analysts to focus on method development, troubleshooting
+      out-of-specification results, and scientific interpretation rather than repetitive
+      data processing tasks. The platform's control chart functionality automatically
+      generates trending dashboards for system suitability parameters (retention
+      time, resolution, tailing factor, theoretical plates), quality control samples
+      (spike recoveries, precision, accuracy), and process analytical technology
+      (PAT) monitoring (intermediate purity, reaction conversion, chiral enantiomer
+      ratios), supporting statistical process control with automatic outlier detection
+      using Shewhart, CUSUM, or EWMA rules that trigger alerts when analytical performance
+      deviates from historical norms. Integration with Ganymede's Data Explorer enables
+      SQL-based queries across chromatography datasets to identify batch-to-batch
+      trends, correlate analytical results with upstream process parameters (fermentation
+      conditions, purification yields, formulation attributes), and support root
+      cause investigations for quality deviations. The system maintains comprehensive
+      audit trails capturing peak integration parameters, reprocessing events, user
+      actions, and software versions to satisfy 21 CFR Part 11 electronic record
+      requirements for FDA-regulated pharmaceutical and biotech manufacturing, providing
+      traceable documentation for regulatory inspections and quality audits. Ganymede's
+      approach transforms chromatography from a bottleneck in pharmaceutical development
+      and manufacturing workflows into a data-rich, automated process that accelerates
+      decision-making, improves data quality consistency, and enables analytical
+      scientists to scale high-throughput screening, stability studies, and process
+      characterization without proportional increases in analyst headcount or instrument
+      capital expenditure.
+    id: B2AI_APP:297
+    name: AI-powered chromatography peak finding and analytical chemistry automation
+      for pharmaceutical development
+    references:
+    - https://www.ganymede.bio/
+    - https://www.ganymede.bio/products/modular-analysis
+    - https://docs.ganymede.bio/
+  - category: B2AI:Application
+    description: Ganymede's Modular Analysis bioprocess module deploys machine learning
+      models for bioprocess optimization, growth kinetics prediction, and process
+      parameter impact analysis in cell culture development for biopharmaceutical
+      manufacturing including monoclonal antibodies (mAbs), recombinant proteins,
+      cell therapies, and gene therapies, integrating online bioreactor data with
+      offline benchtop analyzer measurements to enable data-driven process understanding
+      and scale-up acceleration. The platform's bioprocess modeling capabilities
+      address critical challenges in cell culture development where complex interactions
+      between process parameters (temperature, pH, dissolved oxygen, agitation, feeding
+      strategy, gas composition) and cell physiology (growth rate, viability, metabolism,
+      productivity, glycosylation, aggregation) create high-dimensional optimization
+      landscapes that are expensive and time-consuming to explore experimentally
+      using traditional one-factor-at-a-time (OFAT) approaches. Ganymede's ML models
+      learn relationships between process inputs and outputs from historical bioreactor
+      runs captured via direct integration with distributed control systems (DCS)
+      including Sartorius BioPAT MFCS/DCU, Eppendorf DASware, Thermo Fisher iCELLis,
+      GE Biosciences Xcellerex, and ambr automated micro-bioreactors, streaming real-time
+      process trajectories (temperature, pH, DO, agitation, gas flow rates, feeding
+      pump speeds, vessel weight) alongside offline analytics from Roche Cedex BioHT
+      analyzers (viable cell density, viability, glucose, lactate, glutamine, glutamate,
+      ammonia, lactate dehydrogenase), Nova BioProfile analyzers (metabolites, blood
+      gases, electrolytes), Octet BLI (product titer quantification), and Multigauge
+      osmometers to Ganymede's cloud database where time-series data is automatically
+      aligned, quality-checked, and formatted for ML modeling. Growth kinetics modeling
+      fits cell density trajectories to Monod, Contois, or logistic growth equations,
+      estimates specific growth rates (μ), death rates (kd), and lag phase durations
+      from exponential growth curves, predicts peak viable cell density (PVCD) and
+      culture longevity based on metabolic indicators (glucose depletion, lactate
+      accumulation, ammonia toxicity), and identifies process deviations (slow growth,
+      early decline, metabolic shifts) that impact productivity and product quality.
+      Process parameter impact modeling using random forests, gradient boosting,
+      or neural networks quantifies how temperature shifts, pH setpoint adjustments,
+      dissolved oxygen control strategies, and feeding regimens affect cell growth,
+      productivity (specific productivity qP in picograms/cell/day), and critical
+      quality attributes (CQAs) including N-glycosylation patterns, charge variant
+      distributions, aggregate levels, and host cell protein (HCP) contamination,
+      enabling process engineers to optimize conditions in silico before executing
+      expensive Design of Experiments (DOE) studies in bioreactors. Ganymede's platform
+      unifies data from parallel scale-down models (ambr 15, ambr 250) with pilot-scale
+      (50-200L) and manufacturing-scale (2,000-20,000L) bioreactors, enabling ML
+      models to learn scale-dependent phenomena (mixing limitations, oxygen transfer
+      constraints, shear stress effects) and predict scale-up performance from small-scale
+      data, reducing the number of pilot batches required to establish commercial
+      processes. One client developing a bioprocess for cell therapies achieved 2
+      months faster scale-up using Ganymede's ML-driven process characterization
+      compared to traditional empirical optimization, accelerating clinical trial
+      timelines and reducing R&D costs by minimizing bioreactor runs and raw material
+      consumption. The platform's DOE integration capabilities support Response Surface
+      Methodology (RSM), Plackett-Burman screening designs, Box-Behnken and central
+      composite designs by automatically organizing experimental designs, randomizing
+      run orders, capturing results from automated workflows, fitting response surface
+      models (polynomial regressions, kriging, Gaussian process models), and visualizing
+      design space via contour plots and optimization traces that identify robust
+      operating regions meeting target criteria (productivity > X pg/cell/day, viability
+      > 80%, HCP < Y ppm, aggregate < Z%). Process Analytical Technology (PAT) implementations
+      leverage Ganymede's real-time data integration to build soft sensors (multivariate
+      models predicting difficult-to-measure variables like product titer or glycan
+      profiles from readily available online signals), enabling continuous bioprocess
+      verification and model predictive control strategies that adjust feeding or
+      aeration in response to predicted deviations from target trajectories. Ganymede's
+      Flows enable custom ML implementations using scikit-learn, TensorFlow, PyTorch,
+      or domain-specific packages (BioSTEAM for techno-economic modeling, Tellurium
+      for systems biology simulations, COPASI for kinetic modeling) while maintaining
+      versioned execution environments ensuring reproducibility across process development
+      teams in different sites. Dashboards provide real-time visualization of batch
+      progress against historical performance envelopes, alert process engineers
+      to anomalies requiring intervention (unexpected pH drift, oxygen limitation,
+      premature cell death), and track campaign-level metrics (batch success rates,
+      average productivity, resource utilization) supporting continuous improvement
+      initiatives. Integration with Ganymede's Processes and Unit Operations modules
+      links bioprocess data to upstream (media prep, inoculum expansion, seed train)
+      and downstream (harvest, purification, formulation) operations, enabling end-to-end
+      process understanding and identification of bottlenecks impacting overall manufacturing
+      efficiency and product quality. The platform's comprehensive data infrastructure
+      creates a FAIR (Findable, Accessible, Interoperable, Reusable) foundation for
+      training advanced AI models on multimodal bioprocessing datasets (time-series
+      bioreactor data, omics measurements, imaging, process interventions, quality
+      outcomes), supporting development of digital twins, reinforcement learning
+      control policies, and foundation models for bioprocess engineering that generalize
+      across product modalities and cell line platforms.
+    id: B2AI_APP:298
+    name: Bioprocess machine learning for cell culture optimization and scale-up
+      acceleration in biopharmaceutical manufacturing
+    references:
+    - https://www.ganymede.bio/
+    - https://www.ganymede.bio/products/modular-analysis
+    - https://docs.ganymede.bio/
+  - category: B2AI:Application
+    description: Ganymede's Modular Analysis platform for plate-based assays deploys
+      AI-native curve fitting models to automate dose-response analysis, ligand-binding
+      assays, enzyme kinetics assays, cell-based potency assays, and immunoassays
+      (ELISA, Luminex, MSD) used extensively in drug discovery screening, antibody
+      characterization, biomarker quantification, and diagnostic test development,
+      delivering automated data processing that reduces manual analysis time and
+      improves measurement reproducibility across pharmaceutical and diagnostic organizations.
+      Plate-based assay workflows generate large volumes of microplate reader data
+      (absorbance, fluorescence, luminescence, time-resolved fluorescence) requiring
+      curve fitting to standard curves or dose-response functions to interpolate
+      unknown sample concentrations or calculate pharmacological parameters (IC50,
+      EC50, Ki, Kd), traditionally performed manually using instrument software (SoftMax
+      Pro, Gen5, Magellan) or spreadsheet templates susceptible to transcription
+      errors, inconsistent curve fitting algorithm selection, and lack of traceable
+      audit trails. Ganymede automates this pipeline by capturing raw microplate
+      reader files directly from Molecular Devices SpectraMax, BioTek Synergy, PerkinElmer
+      EnVision/Victor, BMG Labtech CLARIOstar/PHERAstar, Tecan Infinite/Spark platforms
+      via Ganymede Agents installed on instrument PCs, transferring data to cloud
+      Flows where AI-powered curve fitting algorithms automatically identify plate
+      layouts (standards, controls, unknowns, blanks), apply appropriate calibration
+      models (linear, quadratic, cubic, 4-parameter logistic/4PL, 5-parameter logistic/5PL,
+      logarithmic, exponential), detect outliers using statistical criteria (Grubbs'
+      test, ROUT), calculate sample concentrations with confidence intervals accounting
+      for standard curve uncertainty propagation, and generate quality control metrics
+      (R², coefficient of variation for replicates, percent recovery for spike controls,
+      parallelism assessment for dilution linearity). Ganymede's AI-native curve
+      fitting leverages machine learning models trained on diverse assay datasets
+      to automatically select optimal fitting functions without requiring user-specified
+      parameters, adapting to varying signal-to-noise ratios, heteroscedastic variance
+      structures (constant, proportional, or Poisson error models), and asymmetric
+      dose-response curves (Hill slopes ≠ 1, variable baseline/plateau parameters).
+      The platform's open-source curve fitting library (github.com/Ganymede-Bio/bio-curve-fit)
+      implements 4PL, 5PL, and custom biochemical models in Python with comprehensive
+      documentation, enabling assay scientists to validate algorithm performance,
+      adapt models to specialized applications (competitive binding assays, agonist/antagonist
+      profiling, neutralizing antibody titers), and contribute domain-specific extensions
+      while maintaining version-controlled, auditable analysis pipelines. One diagnostics
+      client achieved +60% throughput improvement for plate-based assays by implementing
+      Ganymede's automated curve fitting, eliminating the bottleneck of manual data
+      review and accelerating reporting of clinical test results for infectious disease
+      serology, therapeutic drug monitoring, and autoimmune diagnostics where rapid
+      turnaround times impact patient care decisions. Ganymede's plate visualization
+      interfaces provide interactive heatmaps separating layers of standards, quality
+      controls, and unknown samples with color-coded flags for outliers, rerun recommendations,
+      and acceptance criteria failures (standard curve R² < 0.98, QC recovery outside
+      80-120%, replicate CV > 20%), enabling quality assurance reviewers to efficiently
+      audit large batches of assay plates and trace data lineage from raw absorbance
+      values through curve fitting to final reported concentrations. Automated data
+      flow to electronic lab notebooks (ELN) and laboratory information management
+      systems (LIMS) eliminates manual transcription steps that introduce errors
+      and delays, with Ganymede's API integrations supporting Benchling, LabVantage,
+      STARLIMS, LabWare, and custom in-house systems via REST APIs, CSV file drops,
+      or database connections. Cross-plate normalization and meta-analysis capabilities
+      aggregate results across experimental batches to assess assay performance trends
+      (signal window drift, background creep, inter-assay variability), support bridging
+      studies when assay reagent lots change, and enable large-scale screening campaign
+      analysis where hit rates, activity distributions, and structure-activity relationships
+      (SAR) are derived from millions of compound-dose combinations. Ganymede's platform
+      supports GxP compliance for regulated bioanalytical assays used in pharmacokinetic
+      (PK) studies, bioequivalence testing, and immunogenicity assessments, maintaining
+      electronic signatures, audit trails capturing all reprocessing events and user
+      actions, system validation documentation (IQ/OQ/PQ), and 21 CFR Part 11 compliant
+      data integrity controls required for submissions to FDA, EMA, and other regulatory
+      authorities. Integration with Ganymede's Virtualization product allows systematic
+      capture of manual pipetting steps, plate handling operations, and instrument
+      setup procedures that occur between automated liquid handler runs, providing
+      comprehensive documentation of hybrid automation workflows in early-stage assay
+      development where full walk-away automation is not yet implemented. The platform's
+      data infrastructure creates structured datasets linking plate reader measurements
+      to upstream sample preparation (dilution schemes, reagent lot numbers, incubation
+      conditions), enabling retrospective analysis of experimental factors impacting
+      assay performance and supporting machine learning applications for assay optimization,
+      predictive quality control, and digital twin development where virtual plate
+      simulations accelerate assay design cycles. By standardizing plate-based assay
+      data processing across discovery, development, and manufacturing organizations,
+      Ganymede enables cross-functional collaboration, data sharing between sites,
+      and institutional knowledge capture that reduces assay redevelopment when scientists
+      transition between projects or organizations, creating a FAIR data ecosystem
+      for high-throughput biochemical and cell-based screening that accelerates therapeutic
+      development and diagnostic innovation.
+    id: B2AI_APP:299
+    name: AI-native curve fitting for plate-based assay automation in drug discovery
+      and diagnostic development
+    references:
+    - https://www.ganymede.bio/products/modular-analysis
+    - https://github.com/Ganymede-Bio/bio-curve-fit
+    - https://www.ganymede.bio/
+    - https://docs.ganymede.bio/
+  is_open: true
+  name: Ganymede
+  purpose_detail: "Ganymede is a cloud-based data platform engineered to streamline
+    the capture, processing, and analysis of laboratory data from biotech and pharmaceutical
+    research and manufacturing environments, connecting lab instruments, electronic
+    lab notebooks (ELN), laboratory information management systems (LIMS), and analytical
+    applications to cloud infrastructure without requiring organizations to build
+    and maintain bespoke data engineering systems. The platform addresses fundamental
+    challenges in laboratory informatics where data silos, incompatible file formats,
+    manual data transcription, lack of process reproducibility, and difficulty integrating
+    AI/ML tools impede scientific productivity, regulatory compliance, and data-driven
+    decision-making across drug discovery, bioprocess development, analytical chemistry,
+    quality control, and diagnostic assay development workflows. Ganymede's architecture
+    centers on three core components working in concert: Agents (lightweight executables
+    installed locally on instrument PCs or laboratory workstations that automatically
+    capture files, database queries, or API responses and transfer data to Ganymede
+    cloud with configurable triggering based on file creation, scheduled intervals,
+    or manual initiation), Flows (Python/SQL development environment with version-controlled
+    code repositories, isolated execution runtimes ensuring reproducible data processing,
+    and editor notebooks enabling interactive debugging and prototyping before production
+    deployment), and Modular Analysis (interactive web applications built in Python
+    Jupyter notebooks and deployed as user-facing dashboards providing domain-specific
+    analysis tools for chromatography, bioprocess monitoring, plate-based assays,
+    flow cytometry, PCR/qPCR, and custom analytical workflows). Additional platform
+    modules extend functionality: Processes and Unit Operations model laboratory
+    workflows as directed acyclic graphs (DAGs) linking data capture events to specific
+    experimental steps, enabling process tracking and data lineage documentation;
+    File Browser provides Tag-based organization and advanced search/filtering of
+    captured files across Agents, Flows, and Processes; Data Explorer offers SQL
+    query interface to tabular data with support for joins, aggregations, and time-series
+    analysis; Dashboards deliver no-code data visualization updated in real-time
+    as new data streams from instruments; Virtualization inserts manual processing
+    steps into automated workflows via purpose-built Windows virtual desktop sessions
+    that systematically capture user interactions, screenshots, and file modifications,
+    bridging gaps in laboratory automation while maintaining audit trails; Environment
+    Administration centralizes user access control, credentials management, and system
+    configuration across an organization's Ganymede deployment. Ganymede's Lab-as-Code
+    methodology treats laboratory data processing pipelines as software development
+    projects with version control (Git integration tracking code changes, rollback
+    capabilities, branch-based development for testing new analysis methods), continuous
+    integration/continuous deployment (CI/CD) practices enabling automated testing
+    and gradual rollout of pipeline updates, and infrastructure-as-code principles
+    where data workflows are defined declaratively in Python/SQL scripts rather than
+    manual point-and-click configurations susceptible to drift and undocumented modifications.
+    Versioned runtimes ensure processing stability by pinning Python package versions,
+    system libraries, and execution environments for each Flow, guaranteeing that
+    analyses remain reproducible over years despite evolving software dependencies,
+    critical for regulated environments where reanalysis of historical data must
+    yield identical results for regulatory audits and product quality investigations.
+    Integration breadth spans hundreds of laboratory instruments and software systems
+    via native connectors (Waters Empower, Agilent OpenLab, Thermo Chromeleon, SCIEX
+    Analyst for chromatography/mass spectrometry; Sartorius BioPAT, Eppendorf DASware,
+    Cytiva Unicorn for bioprocess equipment; Molecular Devices SoftMax Pro, BioTek
+    Gen5, PerkinElmer EnVision for microplate readers; BD FACSDiva, Beckman Coulter
+    CytExpert for flow cytometry; Benchling, LabArchives, SciNote for ELN; LabVantage,
+    STARLIMS, LabWare for LIMS) and flexible APIs supporting custom integrations
+    with OPC-UA industrial automation protocols, MQTT IoT messaging, REST/GraphQL
+    web services, and direct database connections (PostgreSQL, MySQL, Oracle, SQL
+    Server, Snowflake, BigQuery). Deployment as a fully-managed cloud service eliminates
+    capital expenditure on data infrastructure, reduces IT burden for scientific
+    organizations lacking in-house software engineering teams, and enables rapid
+    scaling as laboratory throughput and data volumes grow, with enterprise features
+    including SOC 2 Type II compliance, HIPAA-eligible configurations for clinical
+    data, role-based access control (RBAC) with integration to identity providers
+    (Okta, Azure AD, Google Workspace), audit logging of all data access and modifications,
+    and data residency options for organizations with geographical compliance requirements.
+    AI and machine learning integration is central to Ganymede's value proposition,
+    with Modular Analysis modules providing pre-built AI capabilities for common
+    laboratory tasks (AI-powered peak finding for chromatography reducing manual
+    integration time by thousands of hours annually, AI-native curve fitting for
+    plate-based assays eliminating manual standard curve analysis, bioprocess modeling
+    with ML for growth kinetics prediction and process parameter optimization accelerating
+    scale-up by months) while enabling custom ML development in Flows using scikit-learn,
+    TensorFlow, PyTorch, or domain-specific packages with GPU acceleration support
+    for computationally intensive deep learning training. The platform's comprehensive
+    data unification creates a FAIR (Findable, Accessible, Interoperable, Reusable)
+    data foundation where laboratory measurements, experimental metadata, process
+    conditions, quality control results, and instrument configurations are standardized,
+    contextualized, and readily queryable, enabling advanced analytics, cross-experiment
+    correlations, and training of generalizable AI models that leverage institutional
+    knowledge across projects, sites, and therapeutic programs. Use cases span bioprocess
+    development and manufacturing (connecting bioreactors, analyzers, and historians
+    to enable real-time process monitoring, adaptive feeding control, and predictive
+    quality modeling), analytical chemistry and quality control (automating HPLC/GC/MS
+    data processing, generating control charts, tracking instrument performance,
+    supporting regulatory submissions with 21 CFR Part 11 compliant audit trails),
+    high-throughput screening and assay development (processing plate reader data,
+    managing dose-response curves, integrating liquid handlers and compound management
+    systems), research and discovery laboratories (capturing instrument data from
+    diverse platforms, organizing experimental results, enabling data sharing and
+    reproducibility), and diagnostic test development (validating assay performance,
+    tracking reagent lot-to-lot variability, automating quality control analysis).
+    Customer impact metrics demonstrate substantial operational improvements: 2 months
+    faster scale-up for cell therapy bioprocess development by leveraging ML-driven
+    process characterization and DOE optimization, 2,500 hours saved annually in
+    analytical chemistry by automating chromatography peak finding with AI eliminating
+    manual integration labor, +60% throughput increase for plate-based diagnostic
+    assays through error reduction and accelerated data analysis, and 10x sample
+    throughput improvement for process chemistry and analytics workflows (Solugen
+    testimonial) through comprehensive data integration and workflow automation.
+    Ganymede's strategic positioning emphasizes connecting instruments to power clean
+    data, analysis, and AI, recognizing that modern laboratory innovation increasingly
+    depends on rapid experimentation cycles, data-driven optimization, and AI-enabled
+    insights that are only achievable when laboratory data infrastructure is purpose-built
+    for scientific workflows rather than adapted from generic enterprise IT systems.
+    The platform's modular architecture (\"Build Your Lab Of The Future—One Module
+    At A Time\") allows organizations to incrementally adopt capabilities starting
+    with simple data capture and visualization before progressing to advanced automation,
+    AI integration, and cross-laboratory data federation, reducing implementation
+    risk and enabling continuous value realization throughout digital transformation
+    initiatives in life sciences R&D and manufacturing."
+  requires_registration: true
+  url: https://www.ganymede.bio/
