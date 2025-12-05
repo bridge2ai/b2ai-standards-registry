@@ -26523,3 +26523,469 @@ data_standardortools_collection:
     initiatives in life sciences R&D and manufacturing."
   requires_registration: true
   url: https://www.ganymede.bio/
+- id: B2AI_STANDARD:909
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  - B2AI_TOPIC:6
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Unified open-source metadata platform for data discovery, data quality,
+    observability, governance, and collaboration powered by a central metadata repository
+    and column-level lineage
+  formal_specification: https://docs.open-metadata.org/latest/main-concepts/metadata-standard/schemas
+  has_application:
+  - category: B2AI:Application
+    description: OpenMetadata's ML Model connectors and metadata management capabilities
+      enable comprehensive governance and reproducibility tracking for machine learning
+      pipelines in biomedical AI applications including clinical decision support,
+      medical imaging analysis, genomics prediction, drug discovery, and precision
+      medicine. The platform ingests metadata from MLflow (experiment tracking, model
+      registry, model versioning) and Amazon SageMaker (managed ML service for training/deployment)
+      via native connectors capturing model artifacts, training runs, hyperparameters,
+      performance metrics, feature engineering pipelines, and deployment configurations,
+      creating a unified catalog of ML models alongside source training datasets,
+      feature stores, and downstream applications consuming model predictions. OpenMetadata's
+      Unified Metadata Graph establishes bidirectional lineage connecting ML models
+      to upstream data sources (clinical data warehouses with patient records, genomic
+      databases with variant calls, medical imaging repositories with DICOM studies,
+      electronic health record systems with longitudinal patient histories, public
+      biomedical datasets from TCGA/UK Biobank/All of Us), tracking how changes in
+      source data quality, schema evolution, or patient cohort composition impact
+      model training reproducibility and prediction reliability across model versions.
+      Column-level lineage traces individual features through complex data transformations
+      including missing value imputation strategies for incomplete clinical records,
+      normalization procedures for laboratory test results across different reference
+      ranges, encoding schemes for categorical clinical variables (ICD diagnosis codes,
+      medication classifications, procedure terminologies), dimensionality reduction
+      techniques applied to high-dimensional omics data (gene expression microarrays,
+      RNA-seq count matrices, proteomic mass spectrometry profiles), and feature
+      engineering workflows constructing derived variables from raw EHR data (medication
+      adherence metrics, temporal progression indicators, comorbidity indices, social
+      determinants of health proxies). Data quality monitoring integration enables
+      continuous validation of model input data against expected distributions, detecting
+      data drift (covariate shift between training and production populations, temporal
+      trends in patient demographics or clinical practice patterns), schema changes
+      (new diagnosis codes, modified laboratory test panels, retired medication formulations),
+      and quality degradation (increased missing values, out-of-range measurements,
+      coding errors) that compromise model performance, automatically triggering alerts
+      to model owners and data science teams when input data quality thresholds are
+      violated. Collaboration features facilitate cross-functional communication between
+      clinical domain experts providing medical context for feature interpretation,
+      data engineers maintaining upstream data pipelines, ML engineers optimizing
+      model architectures and training procedures, regulatory compliance officers
+      reviewing model documentation for FDA submissions or HIPAA audits, and clinical
+      end-users deploying models in care delivery settings, with conversation threads,
+      task assignments, and announcement capabilities enabling shared responsibility
+      for model governance. Model documentation capabilities capture critical metadata
+      for regulatory compliance and clinical validation including intended use statements
+      (target patient population, clinical indication, decision support vs autonomous
+      prediction), performance metrics stratified by demographic subgroups (age, sex,
+      race/ethnicity) to assess algorithmic fairness and bias, feature importance
+      explanations mapping model predictions to clinical risk factors, validation
+      studies demonstrating generalization across institutions and patient cohorts,
+      known limitations and failure modes, and monitoring procedures for post-deployment
+      surveillance. Data governance policies ensure appropriate access control for
+      sensitive patient data used in model training, with role-based permissions restricting
+      visibility of protected health information to authorized personnel, audit trails
+      documenting all data access for HIPAA compliance, and metadata tagging classifying
+      data sensitivity levels (de-identified research data, limited datasets with
+      dates/ZIP codes, fully identified clinical records). Integration with data observability
+      features monitors model prediction quality in production, tracking prediction
+      latency, error rates, confidence score distributions, and outcome feedback when
+      available (actual patient outcomes compared to model predictions for sepsis
+      risk, readmission likelihood, treatment response probability), enabling continuous
+      model performance assessment and triggering retraining workflows when performance
+      degrades below acceptable thresholds. For biomedical research applications,
+      OpenMetadata catalogs models predicting disease risk from genomic variants
+      (polygenic risk scores for cancer susceptibility, Alzheimer's disease, cardiovascular
+      conditions), classifying medical images (deep learning models for radiology
+      abnormality detection, pathology slide analysis for cancer diagnosis, retinal
+      imaging for diabetic retinopathy screening), forecasting patient trajectories
+      (survival analysis models, disease progression prediction, treatment response
+      estimation), discovering drug candidates (molecular property prediction, protein-ligand
+      binding affinity, toxicity risk assessment), and optimizing clinical trial design
+      (patient stratification for targeted enrollment, endpoint prediction for adaptive
+      trials, adverse event forecasting). The platform supports FAIR (Findable, Accessible,
+      Interoperable, Reusable) principles for ML models by providing structured metadata
+      making models discoverable through keyword search and faceted filtering, accessible
+      through documented APIs and integration with model serving infrastructure, interoperable
+      through standardized metadata schemas enabling cross-platform model sharing,
+      and reusable through comprehensive documentation of training procedures, data
+      requirements, and deployment configurations enabling model adaptation to new
+      contexts. OpenMetadata's API-first architecture enables integration with MLOps
+      tools including Airflow/Prefect/Kubeflow for ML pipeline orchestration, DVC/MLflow
+      for experiment tracking, Feast/Tecton for feature store management, Seldon/KServe
+      for model serving, Evidently/WhyLabs for ML observability, and Great Expectations
+      for data quality validation, creating unified metadata fabric connecting all
+      components of biomedical ML infrastructure and enabling end-to-end visibility
+      from raw patient data to clinical decision support applications deployed at
+      the point of care.
+    id: B2AI_APP:300
+    name: ML model governance and reproducibility for biomedical AI applications
+    references:
+    - https://docs.open-metadata.org/latest/connectors/ml-model
+    - https://docs.open-metadata.org/latest/how-to-guides/data-lineage
+    - https://open-metadata.org/
+  - category: B2AI:Application
+    description: OpenMetadata's comprehensive data quality and observability capabilities
+      address critical data governance challenges in healthcare and life sciences
+      organizations managing patient clinical data, genomic datasets, medical imaging
+      repositories, biobank samples, and multi-omics research collections where data
+      quality directly impacts patient safety, regulatory compliance, and scientific
+      reproducibility. The platform provides no-code test creation enabling clinical
+      data stewards and bioinformaticians without programming expertise to define
+      validation rules including schema conformance (required fields present, correct
+      data types, value domains for coded clinical terminologies like ICD-10, LOINC,
+      SNOMED CT), completeness checks (missing value thresholds for critical clinical
+      variables, required documentation for regulatory submissions, minimum follow-up
+      duration for longitudinal studies), consistency validation (temporal logic constraints
+      ensuring diagnosis dates precede treatment dates, medication start/stop times
+      logical, age-appropriate procedures), referential integrity (patient identifiers
+      linking across EHR tables, specimen IDs matching between biobank inventory
+      and assay results, cross-references between genomic variants and clinical phenotypes),
+      range validations (physiological plausibility for vital signs, laboratory test
+      results within biologically feasible ranges accounting for extreme values in
+      critical illness, age/sex-specific reference ranges), statistical distribution
+      checks (expected frequencies for diagnosis codes, medication prescriptions,
+      procedure utilization), and custom business logic (institutional policies for
+      data recording, study-specific inclusion/exclusion criteria, protocol adherence
+      monitoring). Test suites organize validation rules by clinical domain (cardiology
+      data quality, oncology registry completeness, genomics variant calling QC,
+      imaging metadata consistency), data source (specific EHR systems, laboratory
+      information systems, research data capture platforms), or regulatory framework
+      (21 CFR Part 11 compliance for FDA submissions, CLIA laboratory standards,
+      GCP good clinical practice for clinical trials), with scheduled execution daily/weekly/monthly
+      to monitor ongoing data quality and detect degradation trends. Interactive dashboards
+      visualize test results with pass/fail statistics, historical trends showing
+      quality improvements or deteriorations, drill-down capabilities to investigate
+      failing records and root causes, and configurable alerts triggering notifications
+      to data stewards, principal investigators, or compliance officers when quality
+      thresholds are breached. Incident management workflows enable structured triage
+      of data quality issues with severity classification (critical errors blocking
+      patient care or regulatory submissions, moderate issues requiring correction
+      before analysis, minor inconsistencies flagged for future cleanup), assignment
+      to responsible teams (clinical documentation improvement specialists, laboratory
+      information managers, research coordinators), tracking of remediation efforts,
+      and closure verification ensuring corrections are validated. Data profiling
+      capabilities automatically analyze table contents generating statistical summaries
+      (column value distributions, null percentages, unique value counts, min/max/mean/median
+      for numeric columns), identifying potential quality issues (unexpected null
+      patterns suggesting missing data problems, outlier detection for laboratory
+      results or vital signs, duplicate record identification), and suggesting validation
+      rules based on observed data patterns. For clinical data warehouses, OpenMetadata
+      monitors patient demographic completeness (race/ethnicity recording rates important
+      for health equity research, social determinants of health data capture, preferred
+      language and interpreter needs), diagnosis coding quality (specificity of ICD-10
+      codes avoiding non-specific "unspecified" codes, coding consistency across
+      encounters, appropriate use of combination codes), medication reconciliation
+      accuracy (complete medication lists at admission/discharge, allergy documentation,
+      dose/frequency validation against formulary), laboratory test result validation
+      (critical value flagging, delta checks comparing sequential results, correlation
+      checks between related tests like potassium and renal function), and imaging
+      study metadata completeness (clinical indications documented, radiation dose
+      recorded for CT scans, structured reporting adoption rates). For genomic data
+      quality, the platform validates variant calling pipelines monitoring sequencing
+      depth coverage across target regions, variant quality scores (QUAL, GQ) meeting
+      analysis thresholds, transition/transversion ratios indicating library quality,
+      Hardy-Weinberg equilibrium for population studies, Mendelian inheritance consistency
+      in family trios, ancestry inference matching self-reported ethnicity, sex chromosome
+      concordance with reported sex, and contamination detection through allele frequency
+      distributions. Multi-omics data integration quality checks verify sample matching
+      across platforms (same patient specimens profiled by genomics, transcriptomics,
+      proteomics, metabolomics), timepoint consistency in longitudinal studies (pre-treatment/post-treatment
+      samples correctly paired, disease progression monitoring intervals maintained),
+      batch effect assessment across technical replicates, and cross-platform validation
+      where orthogonal technologies measure overlapping features (RNA-seq gene expression
+      correlated with protein abundance, genomic variants confirmed by Sanger sequencing).
+      Biobank sample quality monitoring tracks specimen inventory completeness (all
+      aliquots accounted for, freeze-thaw cycle documentation, storage location accuracy),
+      pre-analytical variables affecting specimen quality (time to processing, processing
+      protocols followed, quality control metrics like RNA integrity numbers for RNA
+      samples, DNA concentration/purity ratios), and linkage to clinical phenotype
+      data enabling research use. Root cause analysis features (Collate commercial
+      offering) trace data quality failures through lineage graphs identifying upstream
+      data sources, transformation pipelines, or manual data entry processes responsible
+      for errors, enabling systematic process improvements rather than reactive error
+      correction. Integration with external data quality tools including Great Expectations,
+      dbt tests, and custom validation frameworks ensures OpenMetadata serves as
+      unified quality monitoring hub aggregating results from distributed validation
+      systems. For regulatory compliance, OpenMetadata provides audit trails documenting
+      all data quality assessments, validation rule definitions, test execution histories,
+      and remediation actions supporting FDA inspections, IRB continuing reviews,
+      data safety monitoring board audits, and data sharing agreements requiring quality
+      documentation. The platform's role-based access control ensures appropriate
+      oversight where clinical data quality teams monitor patient safety critical
+      elements, research teams focus on scientific validity of analysis datasets,
+      and compliance officers review adherence to regulatory standards, with notifications
+      routing quality issues to responsible stakeholders based on severity and data
+      domain. By establishing continuous data quality monitoring across healthcare
+      and life sciences data ecosystems, OpenMetadata enables proactive quality management,
+      reduces time spent investigating data anomalies, improves confidence in analytical
+      results, supports regulatory compliance, and enhances patient safety through
+      early detection of data integrity issues that could impact clinical care or
+      research conclusions.
+    id: B2AI_APP:301
+    name: Healthcare and genomics data quality governance for patient safety and
+      regulatory compliance
+    references:
+    - https://docs.open-metadata.org/latest/how-to-guides/data-quality-observability
+    - https://docs.open-metadata.org/latest/how-to-guides/data-quality-observability/quality
+    - https://open-metadata.org/
+  - category: B2AI:Application
+    description: OpenMetadata's unified metadata platform enables comprehensive data
+      governance for biomedical research consortia, pharmaceutical R&D organizations,
+      and healthcare systems implementing FAIR (Findable, Accessible, Interoperable,
+      Reusable) data principles for diverse biomedical data assets including clinical
+      trial datasets, translational research cohorts, real-world evidence collections,
+      biobank repositories, and multi-institutional collaborative studies. The platform's
+      centralized metadata repository catalogs heterogeneous data sources spanning
+      structured clinical data (EHR-derived research databases following OMOP CDM
+      or PCORnet CDM, claims databases, disease registries), high-throughput molecular
+      data (whole genome sequencing, RNA-seq, proteomics mass spectrometry, metabolomics),
+      medical imaging archives (PACS systems storing radiology DICOM studies, digital
+      pathology whole slide images), wearable device data (continuous glucose monitors,
+      cardiac rhythm monitors, activity trackers), patient-reported outcomes, and
+      derived analytical datasets, creating unified discovery layer where researchers
+      can search across organizational silos using keyword queries, faceted filtering
+      by disease area/data type/patient population, and semantic search leveraging
+      medical ontologies (SNOMED CT for clinical concepts, Human Phenotype Ontology
+      for rare diseases, Gene Ontology for molecular functions). Column-level lineage
+      tracking provides essential documentation for understanding data provenance
+      critical to scientific reproducibility and regulatory submissions, tracing raw
+      source data (patient encounters, laboratory orders, genomic sequencing runs,
+      imaging acquisitions) through complex transformation pipelines including data
+      cleaning workflows (outlier removal, missing value imputation, duplicate record
+      resolution), standardization procedures (mapping local clinical codes to standard
+      terminologies, unit conversions for laboratory tests, date format harmonization),
+      cohort selection logic (inclusion/exclusion criteria for study populations,
+      censoring rules for time-to-event analyses, matching algorithms for case-control
+      studies), feature engineering computations (biomarker calculations, disease
+      severity scores, medication exposure summaries, comorbidity indices), and multi-source
+      data integration (linking genomic variants to clinical phenotypes, correlating
+      imaging features with molecular subtypes, integrating external reference databases
+      like ClinVar, dbSNP, gnomAD). Data governance capabilities enable organizations
+      to implement access control policies reflecting data use agreements, informed
+      consent restrictions, and regulatory requirements, with role-based permissions
+      controlling visibility of sensitive datasets (identified patient data restricted
+      to IRB-approved studies, commercially sensitive pharmaceutical compound structures
+      limited to internal R&D teams, embargoed clinical trial results pre-publication),
+      data classification tags indicating sensitivity levels (de-identified research
+      data, limited datasets retaining dates/ZIP codes, fully identified protected
+      health information, commercially confidential), and policy enforcement ensuring
+      compliance with HIPAA privacy rules, GDPR data protection requirements, NIH
+      data sharing policies, and institutional data governance frameworks. Domain
+      and data product organization enables logical grouping of related datasets reflecting
+      organizational structure (clinical domains for cardiology/oncology/neurology,
+      research programs for specific diseases, platform datasets shared across studies)
+      with assigned ownership and stewardship roles clarifying responsibility for
+      data quality maintenance, documentation updates, and access request review.
+      Glossary management provides controlled vocabulary definitions ensuring consistent
+      interpretation of clinical concepts, biomarker measurements, and study variables
+      across research teams, with term hierarchies, synonyms, and relationships encoded
+      in medical ontologies (SNOMED CT, LOINC, RxNorm) enabling semantic interoperability.
+      Automated classification leverages machine learning to tag datasets with relevant
+      medical subject headings, data types, and sensitivity labels based on content
+      analysis, accelerating metadata curation for large-scale data collections.
+      Collaboration features enable distributed research teams to communicate about
+      data assets through conversation threads discussing data quality issues, methodology
+      questions, or analysis findings, task management for coordinating data preparation
+      activities, announcements for dataset updates or policy changes, and version
+      tracking for evolving analysis cohorts and data dictionaries. Data documentation
+      capabilities support rich text descriptions with embedded images, analysis code
+      snippets, statistical tables, and external references (publications, protocols,
+      clinical trial registrations), creating comprehensive data dictionaries and
+      study documentation accessible to current research team members and future secondary
+      data users. Integration with workflow orchestration tools (Airflow, Prefect,
+      Dagster) captures metadata about scheduled data refresh pipelines, ETL jobs
+      maintaining analysis databases, and automated quality monitoring workflows,
+      providing visibility into data freshness and processing status. For pharmaceutical
+      organizations, OpenMetadata catalogs preclinical study data (in vitro assays,
+      animal pharmacology/toxicology studies), clinical trial datasets across development
+      phases (Phase I safety, Phase II efficacy, Phase III pivotal trials, Phase
+      IV post-market surveillance), regulatory submission packages (CTD/eCTD structured
+      documentation), real-world evidence analyses (claims, EHR, registry linkages),
+      and drug safety monitoring (adverse event reporting, pharmacovigilance signal
+      detection), with lineage documentation supporting FDA/EMA regulatory review
+      and enabling study result reproducibility for publication. For biomedical research
+      consortia (Bridge2AI, All of Us, UK Biobank, TCGA, Human Cell Atlas), the platform
+      enables federated metadata search across institutional boundaries while respecting
+      data sovereignty and access restrictions, with standardized metadata schemas
+      facilitating harmonization across sites using different clinical data models,
+      phenotyping algorithms, or laboratory protocols. Integration with data sharing
+      repositories (NIH dbGaP for genomics, NCBI GEO for gene expression, TCIA for
+      medical imaging, ClinicalTrials.gov for study results) automates metadata export
+      complying with repository-specific requirements and bidirectional synchronization
+      tracking dataset citations and usage metrics. Data observability features monitor
+      dataset usage patterns identifying frequently accessed resources valuable for
+      research, underutilized collections requiring promotion or sunsetting, and access
+      bottlenecks where restrictive policies may unnecessarily limit scientific impact.
+      By implementing comprehensive metadata management with OpenMetadata, biomedical
+      organizations maximize research dataset value through improved discoverability,
+      ensure regulatory compliance through auditable governance processes, accelerate
+      scientific discovery through FAIR data practices, reduce redundant data collection
+      through institutional knowledge sharing, and enhance reproducibility through
+      transparent documentation of data provenance and transformation logic.
+    id: B2AI_APP:302
+    name: FAIR biomedical data governance for research consortia and pharmaceutical
+      R&D
+    references:
+    - https://docs.open-metadata.org/latest/how-to-guides/data-governance
+    - https://docs.open-metadata.org/latest/how-to-guides/data-discovery
+    - https://open-metadata.org/
+    - https://docs.open-metadata.org/
+  has_relevant_organization: []
+  is_open: true
+  name: OpenMetadata
+  purpose_detail: "OpenMetadata is a unified open-source metadata platform for end-to-end
+    metadata management encompassing data discovery, data observability, data quality
+    monitoring, data governance, and cross-functional collaboration, built on an
+    API-first, schema-driven architecture centered on a Unified Metadata Graph that
+    connects data assets, pipeline workflows, machine learning models, dashboards,
+    and organizational stakeholders in a single comprehensive knowledge base addressing
+    fragmentation, inconsistency, and inaccessibility of metadata across modern data
+    ecosystems where data teams struggle to answer fundamental questions about data
+    location, quality, lineage, ownership, and appropriate usage. Developed through
+    open-source collaboration led by Collate (founded by creators of Apache Hadoop,
+    Apache Atlas, and Uber's Databook) with contributions from 370+ developers and
+    adoption by 3,000+ enterprise deployments managing 2+ million data assets at
+    large organizations, OpenMetadata provides turnkey integration with 100+ data
+    services via native connectors supporting databases (PostgreSQL, MySQL, Oracle,
+    SQL Server, MongoDB, Cassandra, Snowflake, BigQuery, Redshift, Databricks, Synapse),
+    data lakes (AWS S3, Azure Data Lake, Google Cloud Storage, Delta Lake, Iceberg),
+    pipeline orchestration platforms (Airflow, Prefect, Dagster, dbt, Fivetran, Airbyte),
+    business intelligence tools (Tableau, Looker, Power BI, Metabase, Superset),
+    messaging systems (Kafka, Pulsar, RabbitMQ, Kinesis), machine learning platforms
+    (MLflow, SageMaker, Kubeflow), and metadata systems (Amundsen, Atlas, Alation),
+    with pluggable ingestion framework enabling custom connector development for
+    proprietary or niche data systems. The platform's streamlined architecture comprises
+    four core system components simplifying deployment and operations: OpenMetadata
+    Server (Java-based REST API implementing metadata schemas and business logic),
+    Metadata Store (backing database storing Unified Metadata Graph, supporting MySQL,
+    PostgreSQL, or external stores), Search Engine (Elasticsearch or OpenSearch powering
+    full-text search and faceted filtering across metadata), and Ingestion Framework
+    (Python-based connector execution environment with scheduling, monitoring, error
+    handling), contrasting with complex multi-tier architectures of commercial data
+    catalog solutions requiring extensive infrastructure provisioning and specialized
+    expertise to maintain. OpenMetadata's metadata management capabilities provide
+    comprehensive data discovery where users search across tables, dashboards, pipelines,
+    topics, and ML models using natural language queries, filter results by tags,
+    owners, tiers, domains, or glossary terms, preview data samples inline, and explore
+    relationships between assets through interactive graph visualizations, with relevance
+    ranking surfacing frequently accessed and highly documented assets matching search
+    intent. Column-level lineage tracking—a distinguishing feature providing granularity
+    beyond typical table-level lineage—traces individual columns through complex
+    SQL transformations including joins, aggregations, window functions, and CTEs,
+    revealing precise data flow from source systems through staging/intermediate
+    tables to final analytical datasets and dashboard visualizations, automatically
+    parsed from SQL dialects (ANSI SQL, T-SQL, PL/SQL, Spark SQL, Presto, BigQuery
+    Standard SQL) executed in data transformation pipelines or extracted from BI
+    tool query logs, with manual lineage editing via no-code graph interface accommodating
+    undocumented transformations or non-SQL processing (Python pandas operations,
+    Apache Spark DataFrames, custom applications). Data quality implementation provides
+    no-code test creation interface enabling users without programming expertise
+    to define validation rules from test templates covering schema validation (column
+    existence, data types, nullable constraints), completeness checks (null percentage
+    thresholds, required field validation), uniqueness constraints (primary key validation,
+    duplicate detection), numeric range checks (min/max bounds, statistical outlier
+    detection), string pattern matching (regex validation for email/phone formats,
+    value set membership), referential integrity (foreign key validation across tables),
+    freshness validation (last update timestamp monitoring), volume anomaly detection
+    (row count thresholds, growth rate monitoring), and custom SQL-based tests for
+    domain-specific business logic, organized into test suites scheduled for execution
+    with configurable alerting thresholds, historical trend visualization, and incident
+    management workflows enabling root cause investigation and remediation tracking.
+    Data profiling capabilities automatically analyze table contents during ingestion
+    generating statistical summaries (row counts, column null percentages, unique
+    value distributions, min/max/mean/median for numeric columns, value frequency
+    histograms for categorical columns, data type inference), with profiler sampling
+    strategies (full table scans for small datasets, random sampling for large tables,
+    partition-aware sampling for date-partitioned tables) balancing metadata richness
+    against computational cost, and profile storage enabling temporal comparison detecting
+    schema drift, data distribution shifts, or volume anomalies indicative of upstream
+    data quality degradation. Collaboration features facilitate cross-functional
+    teamwork between data producers and consumers through conversation threads enabling
+    asynchronous discussion on data assets (clarifying business definitions, reporting
+    data quality issues, sharing analysis insights), task management for assigning
+    and tracking data documentation work, ownership information, and glossary maintenance,
+    announcement capabilities broadcasting dataset updates or policy changes to relevant
+    stakeholders, and activity feeds providing visibility into metadata changes, new
+    data assets, and quality test failures across domains. Governance capabilities
+    implement role-based access control with fine-grained permissions controlling
+    visibility and edit rights for metadata entities, supporting integration with
+    enterprise identity providers (Okta, Azure AD, Google Workspace, LDAP, SAML SSO)
+    for authentication and user provisioning, with organizational hierarchy management
+    defining teams, departments, and reporting structures reflected in ownership
+    and stewardship assignments. Domain and data product organization enables logical
+    grouping of related data assets aligning metadata structure with organizational
+    boundaries (business units, functional areas, product lines) or analytical use
+    cases (customer 360 views, financial reporting, operational dashboards), with
+    domain owners responsible for data quality standards, access policies, and glossary
+    terms within their purview. Glossary management provides controlled vocabulary
+    for business terms, metrics definitions, and data concepts, with term hierarchies
+    modeling taxonomic relationships (parent-child term structures, synonym mappings,
+    related term associations), rich text definitions with embedded documentation
+    links, ownership and reviewer assignments, approval workflows for term creation
+    and modification, and bidirectional linkage between glossary terms and data assets
+    annotating tables/columns with standardized business definitions ensuring consistent
+    interpretation across organization. Automated classification leverages machine
+    learning models to tag data assets with inferred classifications including data
+    types (PII personal identifiable information, PHI protected health information,
+    PCI payment card data, confidential business data), data domains (customer data,
+    product data, financial data, operational metrics), and quality tiers (gold/silver/bronze
+    reflecting production-readiness, documentation completeness, quality validation
+    coverage), with configurable classification policies propagating tags through
+    lineage graphs ensuring downstream derived datasets inherit sensitivity labels
+    from source data for regulatory compliance (GDPR, HIPAA, CCPA) and data loss
+    prevention. Data observability features provide real-time monitoring of data
+    asset health with alerting and notification capabilities routing quality test
+    failures, schema changes, pipeline failures, or SLA breaches to responsible teams
+    via Slack, Microsoft Teams, email, PagerDuty, or webhooks, with alert policies
+    supporting complex routing logic (severity-based escalation, team-based assignment,
+    business hours vs after-hours routing) and notification batching preventing alert
+    fatigue from high-frequency transient issues. Incident management workflows (enhanced
+    in Collate commercial offering with root cause analysis) enable structured response
+    to data quality incidents with severity classification, assignment to remediation
+    teams, status tracking (open, investigating, resolved, closed), resolution documentation
+    for knowledge base building, and automated closure verification re-executing
+    failed quality tests confirming issue resolution before incident closure. Data
+    insights dashboard provides leadership visibility into metadata management program
+    maturity through KPI tracking including documentation coverage (percentage of
+    tables with descriptions, glossary term annotations, owner assignments), data
+    quality metrics (test pass rates, incident resolution times, mean time to detection/resolution),
+    domain adoption (active users, search queries, asset views), and governance compliance
+    (percentage of sensitive data tagged, access review completion rates, policy
+    violation counts), with goal-setting capabilities enabling organizations to establish
+    target metrics and track progress toward data culture improvement objectives.
+    OpenMetadata's API-first architecture exposes comprehensive REST APIs and GraphQL
+    endpoints documented via OpenAPI/Swagger specifications enabling programmatic
+    metadata operations (asset creation, annotation, quality test definition, lineage
+    updates) supporting infrastructure-as-code workflows where metadata definitions
+    are version-controlled in Git repositories and deployed via CI/CD pipelines,
+    with official SDKs (Python, Java) simplifying custom integration development
+    and metadata automation. Schema-first design based on JSON Schema definitions
+    for all metadata entities (tables, pipelines, dashboards, ML models, users, teams,
+    glossary terms) provides extensibility through custom properties and types tailored
+    to organization-specific metadata requirements without requiring core platform
+    modification, with schema evolution mechanisms ensuring backward compatibility
+    as metadata models expand accommodating emerging data technologies and governance
+    requirements. Deployment flexibility supports multiple hosting options including
+    local Docker Compose for development/testing, Kubernetes deployments on any cloud
+    (AWS EKS, Azure AKS, Google GKE) or on-premises for production at scale, and
+    managed SaaS offering from Collate providing fully-hosted OpenMetadata with zero
+    infrastructure management burden, enterprise support SLAs, and enhanced features
+    (advanced root cause analysis, custom connectors, dedicated account management),
+    with consistent feature parity across deployment models ensuring organizations
+    can start with lightweight deployments and scale to enterprise requirements without
+    migration disruption. OpenMetadata's open-source model under Apache 2.0 license
+    provides transparency enabling security audits and customization, avoids vendor
+    lock-in concerns common with proprietary catalog solutions, and benefits from
+    vibrant community contributions accelerating connector development, feature enhancement,
+    and bug fixes, with active Slack community (11,000+ members), GitHub repository
+    (8,000+ stars), and regular release cadence (monthly minor releases, quarterly
+    major releases) ensuring platform evolution keeps pace with rapidly changing
+    data technology landscape and emerging governance requirements across industries
+    including healthcare, financial services, retail, telecommunications, and manufacturing."
+  requires_registration: false
+  url: https://open-metadata.org/
