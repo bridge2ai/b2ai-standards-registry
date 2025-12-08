@@ -12058,12 +12058,28 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: GA4GH serviceinfo
+  formal_specification: https://raw.githubusercontent.com/ga4gh-discovery/ga4gh-service-info/develop/service-info.yaml
   has_relevant_organization:
   - B2AI_ORG:34
   is_open: true
   name: serviceinfo
-  purpose_detail: Provides a way for an API to expose a set of metadata to help discovery
-    and aggregation of services via computational methods.
+  purpose_detail: GA4GH service-info is an OpenAPI 3.0 specification providing standardized
+    metadata exposure for programmatic service discovery and aggregation across distributed
+    computational infrastructures. The specification defines a required /service-info
+    endpoint returning JSON describing service identity (unique ID with reverse domain
+    notation), human-readable name and description, service type (group/artifact/version
+    triple following semantic versioning), responsible organization with contact information,
+    deployment environment (production/test/dev/staging), version history timestamps,
+    and optional documentation/contact URLs. Designed as a composable building block,
+    service-info is incorporated into other GA4GH specifications including Workflow
+    Execution Service (WES), Task Execution Service (TES), Data Repository Service
+    (DRS), and RNAget to enable federated genomic workflows, multicloud task execution,
+    and secure data access across jurisdictional boundaries. The specification supports
+    OAuth 2.0 bearer token authentication, custom service type namespaces for non-GA4GH
+    implementations, and extensible metadata via OpenAPI allOf constructs. Service-info
+    enables automated service registries, capability-based service selection, and interoperable
+    tool discovery without hard-coded endpoint configuration, facilitating computational
+    reproducibility and workflow portability in large-scale genomic data analysis.
   requires_registration: false
   url: https://github.com/ga4gh-discovery/ga4gh-service-info
 - id: B2AI_STANDARD:334
