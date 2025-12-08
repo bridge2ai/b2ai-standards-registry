@@ -23351,32 +23351,20 @@ data_standardortools_collection:
   is_open: true
   name: Relexi
   publication: doi:10.1016/j.simpa.2022.100422
-  purpose_detail: Relexi is an open source reinforcement learning (RL) framework written
-    in Python and based on TensorFlow's RL library TF-Agents. Relexi allows to employ
-    RL for environments that require computationally intensive simulations like applications
-    in computational fluid dynamics. For this, Relexi couples legacy simulation codes
-    with the RL library TF-Agents at scale on modern high-performance computing (HPC)
-    hardware using the SmartSim library. Relexi thus provides an easy way to explore
-    the potential of RL for HPC applications.
+  purpose_detail: Relexi is an open-source reinforcement learning framework developed
+    for high-performance computing applications in computational fluid dynamics, built
+    on TensorFlow's TF-Agents library with SmartSim for HPC scalability. Designed
+    primarily for the high-order CFD solver FLEXI but extensible to other HPC solvers,
+    Relexi enables efficient training of RL agents for computationally intensive physics
+    simulations by managing parallel simulation environments, orchestrating data exchange
+    through SmartRedis clients, and scaling across distributed HPC systems. The framework
+    supports applications in turbulence modeling for large eddy simulations, active
+    flow control using graph neural networks, and development of discretization-consistent
+    closure schemes, providing researchers with tools to explore reinforcement learning
+    for scientific computing tasks that require coupling machine learning algorithms
+    with legacy simulation codes at scale.
   requires_registration: false
   url: https://github.com/flexi-framework/relexi
-  has_application:
-  - id: B2AI_APP:77
-    category: B2AI:Application
-    name: Explainable Reinforcement Learning for Clinical Decision Support
-    description: Relexi is used in biomedical AI for developing interpretable reinforcement
-      learning systems that can explain their decision-making process, crucial for
-      clinical applications where treatment recommendations must be understandable
-      to physicians. The framework enables training of RL agents for sequential clinical
-      decisions (medication dosing, ventilator management, treatment timing) while
-      maintaining explainability through attention mechanisms and policy distillation.
-      Relexi supports safe exploration in healthcare settings by incorporating domain
-      constraints and enabling clinicians to understand why specific actions are recommended.
-      Applications include explainable sepsis treatment protocols, interpretable insulin
-      dosing algorithms, and transparent clinical trial enrollment strategies where
-      understanding the agent's reasoning is essential for clinical trust and regulatory
-      approval.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:821
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
