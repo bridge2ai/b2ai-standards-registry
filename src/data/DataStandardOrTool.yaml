@@ -25499,27 +25499,21 @@ data_standardortools_collection:
   - B2AI_ORG:115
   is_open: false
   name: Compass Rose
-  purpose_detail: Care coordination module focused on social determinant of health
-    factors. Part of the Epic EHR platform.
+  purpose_detail: Compass Rose is Epic's care coordination application designed to
+    manage care episodes and track patient engagement across healthcare and community-based
+    organizations, with particular emphasis on addressing social determinants of health
+    (SDOH). The module enables care teams to document SDOH factors such as housing
+    instability, food insecurity, and transportation barriers, create and monitor
+    social care episodes, manage patient registries for specific populations, and
+    coordinate referrals to community resources. Compass Rose facilitates whole-person
+    care delivery by generating task lists for care team follow-up, tracking program
+    participant outcomes, and integrating with community resource directories to connect
+    patients with social services, enabling organizations to document interventions
+    addressing health-related social needs and monitor their impact on patient health
+    outcomes.
   requires_registration: true
   url: https://www.epic.com/software/population-health
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:87
-    category: B2AI:Application
-    name: Population Health Analytics and Risk Stratification
-    description: Compass Rose (Epic's population health tool) is used in AI applications
-      for large-scale risk stratification, care gap identification, and population-level
-      outcome prediction across Epic's extensive user base. Machine learning models
-      leverage Compass Rose's aggregated clinical data, standardized quality measures,
-      and longitudinal patient tracking to develop predictive algorithms for chronic
-      disease management, preventive care optimization, and resource allocation. AI
-      systems built on this platform can identify high-risk patient populations, predict
-      hospital readmissions, and recommend targeted interventions at scale. The tool's
-      integration with Epic's EHR ecosystem enables real-time AI inference during
-      clinical encounters and automated outreach programs guided by ML-based risk
-      scores.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:870
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
