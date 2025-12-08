@@ -24183,10 +24183,463 @@ data_standardortools_collection:
   - B2AI_ORG:71
   is_open: true
   name: Terra
-  purpose_detail: Terra is a cloud-native platform for biomedical researchers to access
-    data, run analysis tools, and collaborate.
+  purpose_detail: 'Terra is a cloud-native platform for biomedical researchers to
+    access data, run analysis tools, and collaborate, developed by the Broad Institute
+    of MIT and Harvard in partnership with Microsoft and Verily. Positioned as "the
+    world''s most trusted platform for biomedical data analysis, secure sharing, and
+    global collaboration," Terra inverts the traditional model of genomics data sharing
+    by eliminating data movement and providing scalable, shared computing resources
+    directly adjacent to hosted datasets. This co-location of compute and data dramatically
+    reduces data transfer costs and accelerates analysis workflows, particularly for
+    large-scale genomic studies.
+
+
+    Terra is built on Google Cloud Platform (GCP) infrastructure and provides a comprehensive
+    environment for collaborative biomedical research. The platform integrates multiple
+    analysis modalities within shared workspaces, including workflow execution via
+    WDL (Workflow Description Language), interactive computing through Jupyter notebooks
+    and RStudio environments, and containerized applications. Workspaces serve as
+    the fundamental organizational unit, aggregating data, analysis methods, computational
+    resources, and collaborative permissions in a single shareable entity. This workspace
+    model enables researchers to start quickly from existing analyses and customize
+    them to their specific needs, promoting reproducible and replicable science across
+    the research community.
+
+
+    The platform''s workflow execution system is powered by Cromwell, an open-source
+    workflow management system that orchestrates WDL pipelines at scale. Terra supports
+    both batch workflow execution for high-throughput data processing and interactive
+    analysis environments for exploratory work. WDL workflows can express complex
+    computational patterns including conditional execution, scatter-gather parallelization,
+    and dynamic resource allocation, making them suitable for diverse genomic analysis
+    tasks from variant calling to machine learning model training. The platform automatically
+    handles workflow scheduling, resource provisioning, and failure recovery, abstracting
+    away the complexities of cloud infrastructure management from research scientists.
+
+
+    Terra''s architecture emphasizes security and compliance for sensitive biomedical
+    data. The platform is FedRAMP Moderate compliant, enabling researchers to securely
+    work with controlled-access data including protected health information and human
+    genomic data subject to NIH data access policies. Authorization domains allow
+    fine-grained access control, ensuring that only approved researchers can access
+    restricted datasets. The platform implements comprehensive audit logging, data
+    encryption at rest and in transit, and supports workspace-level isolation of computational
+    resources to meet stringent regulatory requirements for clinical and translational
+    research.
+
+
+    The platform serves as the computational infrastructure for major NIH initiatives
+    and international consortia. AnVIL (NHGRI''s Analysis, Visualization, and Informatics
+    Lab-space) provides the genomics research community with access to over 5 petabytes
+    of data from 79 studies including centers for Common Disease Genomics (CCDG),
+    Centers for Mendelian Genomics (CMG), Genome Sequencing Program (GSP), and the
+    1000 Genomes Project, among others. BioData Catalyst, NHLBI''s ecosystem for
+    heart, lung, blood, and sleep research, integrates population-scale datasets including
+    TOPMed (Trans-Omics for Precision Medicine) whole genome sequences with Terra''s
+    analysis capabilities. The Human Cell Atlas project leverages Terra for processing
+    single-cell transcriptomics and multi-omics data, providing standardized pipelines
+    for technologies including 10x Genomics, Smart-seq2, and scATAC-seq.
+
+
+    Terra''s ecosystem includes integration with complementary tools and platforms.
+    Dockstore provides workflow discovery and sharing, enabling researchers to import
+    Docker-based workflows from community repositories. The platform integrates with
+    Galaxy for users preferring graphical workflow composition, Bioconductor for R-based
+    statistical genomics, and Seqr for identifying disease-causing variants in rare
+    disease studies. The AnVIL Data Explorer enables cross-study cohort building,
+    allowing researchers to select participants based on phenotypic and demographic
+    criteria before launching analysis in Terra workspaces. This interoperability
+    extends to the NCPI (NIH Cloud Platform Interoperability) effort, enabling data
+    and tool sharing across multiple NIH data commons.
+
+
+    The platform provides extensive educational resources and documentation through
+    Terra Training workshops, self-paced tutorials, and the active Terra Community
+    Forum where over 28,000 researchers exchange advice and best practices. Featured
+    workspaces demonstrate common analysis patterns including GATK best practices
+    for germline and somatic variant discovery, Hail for genome-wide association studies,
+    and optimized pipelines for single-cell genomics. Terra Support provides comprehensive
+    documentation covering workflow development, cost optimization strategies, data
+    management, and compliance requirements. The Terra Roadmap provides transparency
+    into planned features and allows users to preview functionality before general
+    release.
+
+
+    Cost management is a central design consideration in Terra. Because AnVIL-hosted
+    datasets are stored free of charge to researchers and data transfers within the
+    same cloud region incur no egress fees, researchers can significantly reduce infrastructure
+    costs compared to downloading and analyzing data locally. The platform provides
+    cost estimation tools and spending dashboards to help researchers understand and
+    control their computational expenses. Workflow configurations support cost optimization
+    strategies including preemptible instances, automatic retry logic, and configurable
+    resource thresholds to prevent unexpectedly expensive runs.
+
+
+    Terra has become a proven platform for production-scale genomic research and has
+    been cited in numerous high-impact publications. Research using Terra has contributed
+    to landmark studies including the T2T-CHM13 complete human reference genome, SARS-CoV-2
+    phylogenetic analysis revealing superspreading dynamics in Boston, and the Human
+    Pangenome Reference Consortium''s draft pangenome assembly. The platform''s ability
+    to combine data access, scalable compute, collaborative workspaces, and compliance
+    infrastructure has established it as essential infrastructure for the genomics
+    research community, enabling researchers to focus on scientific questions rather
+    than computational logistics.'
+  has_relevant_applications:
+  - B2AI_APP:314
+  - B2AI_APP:315
+  - B2AI_APP:316
   requires_registration: true
   url: https://app.terra.bio/
+  relevant_applications:
+  - id: B2AI_APP:314
+    category: B2AI:Application
+    name: Large-scale genomic variant calling and cohort analysis on AnVIL
+    description: 'Terra serves as the computational infrastructure for AnVIL (Analysis,
+      Visualization, and Informatics Lab-space), NHGRI''s genomics research platform
+      that inverts the traditional model of data sharing by bringing compute to data
+      rather than moving massive genomic datasets to local infrastructure. AnVIL hosts
+      over 5 petabytes of genomic data from 79 studies representing 287,000+ participants,
+      including flagship NIH programs such as the Centers for Common Disease Genomics
+      (CCDG), Centers for Mendelian Genomics (CMG), Genome Sequencing Program (GSP),
+      Genotype-Tissue Expression Project (GTEx), Human Pangenome Reference Consortium
+      (HPRC), 1000 Genomes Project, and the GREGoR Consortium for rare disease genomics.
+      This concentration of data eliminates the primary bottleneck in genomic research:
+      downloading and managing terabyte-scale datasets locally, which was previously
+      estimated to require weeks of transfer time and substantial local storage infrastructure
+      for a single whole genome sequencing study.
+
+
+      Researchers use Terra''s WDL workflow system to execute standardized, reproducible
+      genomic analysis pipelines directly adjacent to these hosted datasets. The GATK
+      Best Practices workflows, developed and maintained by the Broad Institute, implement
+      production-grade pipelines for germline and somatic variant discovery, including
+      the WholeGenomeGermlineSingleSample workflow for processing raw sequencing reads
+      through alignment with BWA-MEM, duplicate marking, base quality score recalibration,
+      and HaplotypeCaller for variant calling, generating analysis-ready genomic VCF
+      (GVCF) files. These workflows are containerized and version-controlled, ensuring
+      that analyses performed across different research groups produce comparable results.
+      The scatter-gather parallelization capabilities of WDL enable whole genome analysis
+      to complete in 6-10 hours on cloud infrastructure, distributing work across chromosome
+      intervals and aggregating results, compared to days or weeks on traditional HPC
+      clusters.
+
+
+      Joint variant calling workflows process GVCFs from thousands of samples simultaneously
+      using GATK''s GenomicsDB for efficient storage and GenomicsDBImport followed
+      by GenotypeGVCFs for cohort-scale variant discovery. This approach enables population-scale
+      studies like the GREGoR Consortium''s analysis of over 7,500 individuals from
+      3,000+ families with rare diseases, published in Nature and demonstrating how
+      large-scale collaborative frameworks rapidly make datasets available to the global
+      research community through AnVIL. The platform''s ability to securely share workspaces
+      containing data, analysis code, and computational configurations allows research
+      teams to collaborate in real-time, with AnVIL''s FedRAMP Moderate compliance
+      enabling controlled-access data sharing that meets NIH data security requirements.
+
+
+      The T2T-CHM13 complete human reference genome project, also published in Nature,
+      leveraged Terra and AnVIL to demonstrate that this telomere-to-telomere assembly
+      universally improves analysis of human genetic variation by resolving previously
+      inaccessible genomic regions including centromeres and segmental duplications.
+      Researchers analyzed alignment improvements, variant calling accuracy gains,
+      and structural variant detection enhancements across diverse populations, with
+      Terra workspaces providing reproducible analysis environments that other researchers
+      could immediately clone and adapt. The Human Pangenome Reference Consortium similarly
+      uses AnVIL to process and distribute its draft pangenome reference comprising
+      genome assemblies from 94 individuals representing diverse ancestries, enabling
+      researchers to assess how reference choice affects variant calling accuracy and
+      reduces reference bias that historically disadvantaged non-European populations.
+
+
+      AnVIL Data Explorer enables cross-study cohort building by allowing researchers
+      to query phenotypic and demographic metadata across all hosted studies, select
+      participants matching specific criteria (age ranges, disease status, ancestry,
+      data types available), and export cohort manifests directly into Terra workspaces
+      for analysis. This capability has accelerated translational research by enabling
+      multi-study analyses that would be infeasible when data is distributed across
+      institutional repositories requiring separate data access applications and transfer
+      logistics. Studies published using AnVIL infrastructure include analyses of SARS-CoV-2
+      phylogenetics revealing superspreading dynamics in the Boston area, rare disease
+      gene discovery efforts through the CMG program, and GWAS studies using TOPMed
+      whole genome sequences integrated through NCPI (NIH Cloud Platform Interoperability)
+      cross-platform queries.
+
+
+      Cost efficiency is a key driver of AnVIL adoption. Because data transfer from
+      Google Cloud Storage to Google Compute Engine instances within the same region
+      incurs zero egress charges, and hosted datasets are provided free to researchers,
+      the primary costs are compute hours and result storage. For a typical whole genome
+      analysis using preemptible instances, costs range from $5-15 per sample including
+      alignment and variant calling, compared to the previous model where data transfer
+      alone could cost hundreds of dollars per genome in egress fees from institutional
+      repositories. Terra''s cost estimation tools and spending dashboards enable researchers
+      to model expected expenses before launching analyses and monitor spending in
+      real-time, with automatic spending caps preventing budget overruns.
+
+
+      The platform has trained over 10,000 researchers through workshops, tutorials,
+      and documentation hosted on AnVIL and Terra Support sites. Featured workspaces
+      provide turnkey examples including GATK Best Practices for germline SNP/indel
+      discovery, somatic CNV detection workflows, Hail-based GWAS tutorials processing
+      UK Biobank-scale datasets, and integration examples with Seqr for rare disease
+      variant interpretation. The Terra Community Forum connects researchers to share
+      best practices, troubleshoot analysis issues, and collaborate on method development,
+      fostering a community approach to advancing genomic analysis standards and reproducibility.'
+    reference:
+    - https://doi.org/10.1016/j.xgen.2021.100085
+    - https://doi.org/10.1038/s41586-023-05896-x
+    - https://doi.org/10.1126/science.abl3533
+    - https://doi.org/10.1038/s41586-025-09613-8
+    - https://anvilproject.org/
+  - id: B2AI_APP:315
+    category: B2AI:Application
+    name: Population health genomics and cardiovascular disease research on BioData
+      Catalyst
+    description: 'Terra provides the analysis infrastructure for NHLBI BioData Catalyst,
+      an ecosystem that integrates large-scale genomic and phenotypic data from heart,
+      lung, blood, and sleep research studies to enable population health genomics
+      and precision medicine discoveries. BioData Catalyst hosts TOPMed (Trans-Omics
+      for Precision Medicine), the flagship NHLBI program that has sequenced deep-coverage
+      whole genomes from over 200,000 participants across diverse ancestries with rich
+      longitudinal clinical phenotypes spanning decades, representing one of the largest
+      cardiovascular genomics resources globally. This integration of high-coverage
+      genomic data (30x+ depth) with detailed phenotypic information including blood
+      pressure trajectories, lipid profiles, cardiac imaging, pulmonary function tests,
+      and clinical event outcomes creates unprecedented opportunities for gene-phenotype
+      association studies that would be impossible with genotyping arrays or lower-coverage
+      sequencing.
+
+
+      Researchers use Terra workspaces to conduct genome-wide association studies (GWAS),
+      rare variant association tests, and polygenic risk score development on TOPMed
+      cohorts including Framingham Heart Study, Jackson Heart Study, MESA (Multi-Ethnic
+      Study of Atherosclerosis), ARIC (Atherosclerosis Risk in Communities), and dozens
+      of other landmark epidemiological studies. The Hail framework, accessible through
+      Terra''s Jupyter notebook environments, enables scalable analysis of whole genome
+      sequence data with distributed computing across dozens of compute nodes. Typical
+      GWAS workflows process variant calls for 100,000+ individuals across ~300 million
+      single nucleotide variants and ~50 million insertion-deletion variants, performing
+      association tests adjusted for population structure principal components, relatedness
+      matrices accounting for family structure and cryptic relatedness, and environmental
+      covariates like age, sex, and clinical site.
+
+
+      The statistical power enabled by TOPMed''s scale has led to discoveries of novel
+      low-frequency and rare variants associated with cardiovascular traits that were
+      invisible in genotyping array studies. Studies have identified coding variants
+      in PCSK9, ANGPTL4, and other lipid metabolism genes with large effect sizes on
+      LDL cholesterol levels but frequencies below 0.5%, which require the sample sizes
+      and sequencing resolution that TOPMed provides. Association studies of blood
+      pressure traits have revealed rare variants in natriuretic peptide pathway genes,
+      with functional follow-up studies demonstrating therapeutic potential. These
+      discoveries are accelerated by BioData Catalyst''s model of bringing analysis
+      to data, where researchers apply for access through dbGaP, receive secure credentials,
+      and immediately launch analyses in Terra without waiting for multi-terabyte data
+      transfers.
+
+
+      Multi-ancestry analyses are a particular strength of the TOPMed resource accessed
+      through BioData Catalyst. Studies include substantial representation of African
+      American, Hispanic/Latino, Asian American, and other populations often underrepresented
+      in genomic research, with cohorts specifically designed to study health disparities
+      such as the Jackson Heart Study (exclusively African American participants) and
+      the Hispanic Community Health Study/Study of Latinos. Researchers use Terra to
+      conduct ancestry-stratified analyses, test for effect heterogeneity across populations,
+      and fine-map association signals by leveraging population-specific linkage disequilibrium
+      patterns. This has been critical for developing polygenic risk scores that perform
+      more equitably across ancestries, addressing a major concern in translating genomic
+      medicine to diverse populations where Eurocentrism in training data causes PRS
+      accuracy to degrade substantially.
+
+
+      Longitudinal phenotype analysis is facilitated by Terra''s integration with BioData
+      Catalyst''s phenotype harmonization efforts. Researchers can access standardized
+      phenotype data across studies using common data models, enabling meta-analyses
+      that increase power and generalizability. For example, coronary artery disease
+      case definitions are harmonized across cohorts using consistent criteria for
+      myocardial infarction, revascularization procedures, and physician diagnoses,
+      with careful attention to ensuring that phenotype capture is comparable despite
+      differences in study design and era of data collection. Terra workspaces include
+      phenotype data alongside genomic data, with R and Python environments providing
+      statistical computing tools for mixed models, survival analysis, and longitudinal
+      trajectory modeling.
+
+
+      Machine learning approaches for phenotype prediction and risk stratification
+      are increasingly deployed on BioData Catalyst through Terra. Researchers train
+      gradient boosting models, deep neural networks, and other ML algorithms on combined
+      genomic and clinical features to predict incident cardiovascular events, disease
+      progression rates, and treatment responses. Training datasets benefit from TOPMed''s
+      scale, with 50,000+ cardiovascular disease events enabling robust model development
+      with separate training, validation, and testing cohorts. Models are deployed
+      using TensorFlow, PyTorch, or scikit-learn within Jupyter environments, with
+      Terra''s reproducible workspace model enabling other researchers to assess model
+      performance on held-out cohorts and test generalization across studies.
+
+
+      Cost and data governance considerations make the bring-compute-to-data model
+      essential for TOPMed and BioData Catalyst. Sequencing data for 200,000 whole
+      genomes at 30x coverage represents approximately 1.5 petabytes in BAM/CRAM format,
+      with variant calls adding hundreds of additional terabytes. Downloading this
+      data would incur transfer costs exceeding $100,000 and require institutional
+      storage infrastructure that most academic research groups lack. By hosting data
+      in Terra''s Google Cloud environment and providing compute adjacent to storage,
+      researchers pay only for compute hours (~$50-500 per analysis depending on scale)
+      with no transfer fees. The NIH funds storage costs centrally, democratizing access
+      to these transformative datasets for the broader research community.
+
+
+      BioData Catalyst implements stringent security controls for protected health
+      information and controlled-access genomic data. Terra''s FedRAMP Moderate authorization
+      and compliance with NIH genomic data sharing policies enable authorized researchers
+      to analyze individual-level data within secure cloud workspaces, with audit logging
+      tracking all data access and compute activities. Workspace sharing is restricted
+      to collaborators with appropriate data access approvals, and egress controls
+      prevent bulk download of raw sequencing data while enabling export of summary
+      statistics and derived phenotypes following NIH data sharing guidelines. This
+      security model has been critical for enabling multi-institutional collaborations
+      that bring together investigators across universities, hospitals, and industry
+      partners working on TOPMed data.'
+    reference:
+    - https://biodatacatalyst.nhlbi.nih.gov/
+    - https://www.nhlbiwgs.org/
+    - https://doi.org/10.1161/CIRCGEN.122.003936
+    - https://www.cell.com/ajhg/fulltext/S0002-9297(24)00379-3
+    - https://support.terra.bio/hc/en-us/sections/4408259637403
+  - id: B2AI_APP:316
+    category: B2AI:Application
+    name: Single-cell genomics and multi-omics integration for Human Cell Atlas
+    description: 'Terra serves as a key computational platform for the Human Cell
+      Atlas (HCA), an international consortium creating comprehensive reference maps
+      of all human cell types and states. The HCA generates massive-scale single-cell
+      transcriptomics, epigenomics, and spatial profiling datasets characterizing the
+      molecular signatures of cells across tissues, organs, developmental stages, and
+      disease states. Terra''s workflow orchestration and collaborative workspace model
+      enable standardized processing of single-cell data from diverse technologies
+      and laboratories, ensuring that datasets from different research groups are processed
+      with consistent quality control and analysis methods to create an integrated
+      atlas of human cellular diversity.
+
+
+      The Optimus pipeline, implemented in WDL and distributed through Terra, represents
+      the HCA''s standardized workflow for processing 10x Genomics 3-prime single-cell
+      RNA-seq data, the most widely used single-cell technology. Optimus corrects cell
+      barcodes and unique molecular identifiers (UMIs), aligns reads to the reference
+      transcriptome using STAR, marks PCR duplicates, and returns data as both alignments
+      in BAM format and counts in sparse matrix exchange format suitable for downstream
+      analysis. The workflow processes millions of cells in parallel by scattering
+      across samples and dynamically allocating resources based on library complexity,
+      with a typical experiment of 50,000 cells completing in 2-4 hours. Critical quality
+      control metrics including reads per cell, genes per cell, mitochondrial fraction,
+      doublet rates, and ambient RNA contamination are computed automatically and reported
+      in standardized formats enabling systematic quality assessment across datasets.
+
+
+      For Smart-seq2 full-length transcript sequencing, Terra hosts the MultiSampleSmartSeq2SingleNucleus
+      pipeline optimized for single-nucleus RNA-seq from frozen tissues, which is particularly
+      important for profiling human brain tissues and other samples where live cell
+      isolation is challenging. This pipeline handles the increased complexity of full-length
+      transcripts compared to 3-prime protocols, performing transcript quantification
+      with RSEM and generating gene-level and isoform-level expression matrices. The
+      HCA has processed tens of millions of nuclei from human brain, lung, heart, kidney,
+      immune system, and other tissues using these standardized pipelines on Terra,
+      creating a coherent resource where data from different laboratories can be directly
+      compared and integrated.
+
+
+      Multi-modal single-cell workflows integrate transcriptomics with chromatin accessibility
+      (scATAC-seq), surface protein expression (CITE-seq), or spatial location (spatial
+      transcriptomics). The scATAC pipeline on Terra processes single-cell ATAC-seq
+      data to generate chromatin accessibility profiles at single-cell resolution,
+      aligning reads to the genome, calling peaks, generating fragment files, and creating
+      count matrices of cells by peaks. Integration of scRNA-seq and scATAC-seq from
+      the same tissues enables joint analysis linking gene expression states with chromatin
+      accessibility landscapes, revealing regulatory programs controlling cell identity.
+      Researchers use Terra''s R and Python notebook environments to perform integration
+      analysis with Seurat, Scanpy, or other single-cell toolkits, identifying shared
+      cell types across modalities and inferring gene regulatory networks from accessibility-expression
+      correlations.
+
+
+      The scale of HCA data presents significant computational challenges that Terra''s
+      cloud infrastructure addresses. Individual HCA datasets routinely contain 100,000+
+      cells, with organ-wide atlases aggregating millions of cells from hundreds of
+      donors spanning age, sex, ancestry, and health status. Loading and analyzing
+      these datasets requires substantial RAM (often 100-500GB for clustered datasets
+      of millions of cells) that exceeds typical workstation capabilities. Terra enables
+      researchers to provision high-memory compute instances (up to 4TB RAM) on-demand,
+      performing dimensionality reduction with PCA and UMAP, clustering analysis with
+      Leiden or Louvain algorithms, differential expression testing, and trajectory
+      inference at scale that would be impossible on local infrastructure. Costs are
+      controlled through automatic instance shutdown when analyses complete and use
+      of preemptible instances for batch processing.
+
+
+      Cell type annotation workflows combine computational prediction with expert biological
+      knowledge. Researchers use reference-based annotation methods like SingleR, Azimuth,
+      or CellTypist in Terra notebooks to project new datasets onto curated reference
+      atlases, transferring cell type labels based on transcriptional similarity. For
+      novel cell states not represented in references, clustering and marker gene identification
+      followed by manual annotation using tissue-specific biological expertise remains
+      critical. Terra workspaces facilitate collaborative annotation by enabling computational
+      biologists and domain experts to interact with the same data and analysis code,
+      with version control tracking annotation decisions and rationale. Consensus cell
+      type ontologies from the HCA are represented using standardized vocabularies
+      enabling cross-dataset comparisons.
+
+
+      Integration of data across donors, technologies, and laboratories requires batch
+      effect correction and normalization. Terra provides environments for running
+      Harmony, scVI, Seurat integration, or other batch correction algorithms that
+      align datasets in shared embedding spaces while preserving biological variation.
+      The HCA Bone Marrow single-cell atlas, for example, integrates data from over
+      30 donors processed across multiple sites, requiring sophisticated integration
+      to create coherent cell state maps identifying hematopoietic stem cells, progenitor
+      populations, and mature blood cells with consensus markers. These integrated
+      atlases are shared as public Terra workspaces enabling other researchers to query
+      cell type-specific expression patterns, test hypotheses about cell state transitions,
+      and compare disease perturbations to reference healthy tissue landscapes.
+
+
+      Disease application of HCA reference atlases is increasingly central to translational
+      research. Researchers compare disease tissues to matched HCA healthy reference
+      tissues to identify pathological cell states, dysregulated pathways, and potential
+      therapeutic targets. COVID-19 studies leveraged HCA lung and immune cell references
+      to characterize hyperinflammatory immune responses, identifying expanded monocyte
+      and dendritic cell populations with interferon-stimulated gene signatures associated
+      with severe outcomes. Cancer studies compare tumor single-cell profiles to HCA
+      tissue references to distinguish malignant cells from normal stromal and immune
+      infiltrates, with the HCA providing ground truth for deconvolution algorithms
+      estimating cell type proportions from bulk tumor RNA-seq. Terra workspaces connecting
+      disease datasets to HCA references enable direct comparative analysis within
+      reproducible computational environments.
+
+
+      The Bioconductor ecosystem on Terra provides R-based single-cell analysis infrastructure
+      through the Orchestrating Single-Cell Analysis with Bioconductor book, a comprehensive
+      tutorial hosted as an interactive Terra workspace. This resource guides researchers
+      through quality control, normalization, dimensionality reduction, clustering,
+      marker identification, trajectory inference, and integration using Bioconductor''s
+      SingleCellExperiment and related packages. The HCA Data Portal links directly
+      to Terra workspaces containing featured datasets and analysis code, enabling
+      researchers to transition seamlessly from data discovery to analysis without
+      downloads or local software installation.
+
+
+      Reproducibility is paramount for the HCA''s goal of creating a lasting community
+      resource. Terra workspaces capture complete analysis provenance including software
+      versions, reference genome builds, parameter settings, and random seeds, enabling
+      exact reproduction of published analyses. Docker containers specify the complete
+      software environment, and workflow WDL files document every processing step from
+      raw sequencing reads to final count matrices. This level of reproducibility is
+      essential for a multi-year, multi-laboratory consortium producing data that will
+      be reanalyzed and reinterpreted for decades as biological understanding and computational
+      methods advance.'
+    reference:
+    - https://www.humancellatlas.org/
+    - https://doi.org/10.1038/s41592-019-0654-x
+    - https://anvil.terra.bio/#workspaces/bioconductor-rpci-anvil/Bioconductor-Book-OrchestratingSingleCellAnalysis
+    - https://anvil.terra.bio/#workspaces/featured-workspaces-hca/HCA_Optimus_Pipeline
+    - https://support.terra.bio/hc/en-us
 - id: B2AI_STANDARD:833
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
