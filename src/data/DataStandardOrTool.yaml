@@ -25788,26 +25788,20 @@ data_standardortools_collection:
   formal_specification: https://github.com/unitycatalog/unitycatalog
   is_open: true
   name: Unity Catalog
-  purpose_detail: A universal catalog for data and AI. It includes a core set of APIs
-    for tables, unstructured data, and AI assets.
+  purpose_detail: Unity Catalog is an open-source, universal catalog system for managing
+    data and AI assets across multi-cloud and hybrid environments, developed as a
+    Linux Foundation AI & Data sandbox project. The platform provides a unified governance
+    layer supporting multiple table formats (Delta Lake, Apache Iceberg via UniForm,
+    Apache Hudi, Parquet, CSV, JSON), implements OpenAPI specifications and Iceberg
+    REST Catalog APIs for broad interoperability, and manages diverse asset types
+    including structured tables, unstructured files, functions, and AI models through
+    a single interface. Unity Catalog enables fine-grained access control, credential
+    vending, lineage tracking, and audit logging across distributed data and AI workflows,
+    with integration support from major cloud platforms (AWS, Azure, Google Cloud),
+    compute engines (DuckDB, Spark), and AI frameworks (LangChain, LlamaIndex), facilitating
+    governed data discovery and secure asset sharing in lakehouse architectures.
   requires_registration: false
   url: https://www.unitycatalog.io/
-  has_application:
-  - id: B2AI_APP:89
-    category: B2AI:Application
-    name: Unified Data and AI Asset Governance
-    description: Unity Catalog is used in biomedical AI for centralized governance
-      of data assets, ML models, and AI artifacts across multi-cloud and hybrid healthcare
-      IT environments. Healthcare organizations leverage Unity Catalog to implement
-      fine-grained access controls for sensitive patient data used in model training,
-      track lineage from raw clinical data through processed features to trained models,
-      and ensure HIPAA compliance across distributed AI development teams. The catalog
-      provides a single source of truth for data discovery, enables secure data sharing
-      across research and clinical domains, and maintains comprehensive audit logs
-      for regulatory compliance. Unity Catalog's integration with major ML platforms
-      facilitates governed AI development where data scientists can access approved
-      datasets while maintaining security and privacy requirements.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:881
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
