@@ -25814,9 +25814,20 @@ data_standardortools_collection:
   formal_specification: https://github.com/sensein/senselab
   is_open: true
   name: Senselab
-  purpose_detail: A Python package for streamlining the processing and analysis of
-    behavioral data, such as voice and speech patterns, with robust and reproducible
-    methodologies.
+  purpose_detail: Senselab is an open-source Python package that streamlines processing
+    and analysis of behavioral data, primarily voice and speech but also text and
+    video, through modular pipelines enforcing reproducible open-science practices.
+    Built on PyTorch, HuggingFace Transformers, and specialized speech libraries (SpeechBrain,
+    Pyannote-audio, Praat-Parselmouth, OpenSMILE), it provides pre-built and customizable
+    workflows for audio preprocessing (resampling, feature extraction with opensmile/praat/torchaudio/SQUIM
+    metrics), speech-to-text transcription with multiple model backends (Whisper,
+    NeMo), voice synthesis, speaker diarization, articulatory coding via SPARC, and
+    multimodal analysis integrating computer vision (MediaPipe, Ultralytics) with
+    text processing (NLTK, sentence-transformers). Includes interactive Jupyter tutorials,
+    Senselab AI chatbot for code generation, comprehensive validation utilities via
+    Pydantic, and supports both local and HPC deployment. Developed with funding from
+    McGovern Institute, NIH Bridge2AI Precision Public Health, Child Mind Institute,
+    and collaborators.
   requires_registration: false
   url: https://sensein.group/senselab/
 - id: B2AI_STANDARD:882
