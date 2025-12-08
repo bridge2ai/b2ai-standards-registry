@@ -27019,37 +27019,25 @@ data_standardortools_collection:
   - B2AI_ORG:115
   is_open: true
   name: GIS Toolchain
-  purpose_detail: The GIS toolchain consists of extensions to the OMOP schema, extensions
-    to the OMOP Vocabulary, and GIS-specific software for acquiring and working with
-    geospatial data. Together, these enable researchers to use health-related attributes
-    of the regions where patients live in OHDSI study cohort definitions. For example,
-    you can use the GIS toolchain to define cohorts that include regional data on
-    exposure to toxicants or social deprivation along with EHR data on relevant health
-    outcomes. The toolchain also includes informatics resources that support integration
-    with the main OHDSI tool stack (HADES) and integration with externally supported
-    solutions for geocoding and for finding and deriving relevant data sources from
-    catalogs of available data sources. Importantly, the toolchain allows integrated
-    analysis of geospatial and EHR data without sharing any sensitive patient location
-    data.
+  purpose_detail: 'The OHDSI GIS (Geographic Information Systems) Toolchain is an
+    integrated infrastructure for incorporating geospatial and environmental exposure
+    data into observational health research using the OMOP Common Data Model. The
+    toolchain comprises three core components: (1) OMOP GIS schema extensions including
+    the External_Exposure table for health-affecting regional attributes and the Location_History
+    table for patient residence tracking over time; (2) OMOP Vocabulary extensions
+    covering geometries, toxicants, social determinants of health, and the exposome,
+    based on mature existing ontologies; and (3) gaiaCore software with the gaiaDB
+    schema that enables specification and joining of geographic shapes from publicly
+    available datasets with patient-level clinical data. The toolchain integrates
+    with the OHDSI HADES analytics ecosystem and supports privacy-preserving analysis
+    by enabling cohort definitions that incorporate regional exposures (air quality,
+    toxicants, social deprivation) alongside EHR data without sharing sensitive patient
+    location information. Modified BroadSea containers include draft GIS vocabularies
+    and demonstration datasets, with ongoing development of schema.org-compliant data
+    cataloging resources for discovering and reusing geospatial datasets.'
   requires_registration: false
   url: https://ohdsi.github.io/GIS/
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:94
-    category: B2AI:Application
-    name: Geospatial Health Analytics and Environmental Exposure Modeling
-    description: GIS Toolchain (from OHDSI) is used in AI applications for integrating
-      geographic information with clinical data to train models that account for environmental
-      exposures, social determinants of health, and spatial disease patterns. Machine
-      learning systems leverage geospatial features derived from this toolchain to
-      develop prediction models for infectious disease spread, environmental health
-      impacts, cancer cluster detection, and health equity analysis. AI applications
-      combine geocoded patient addresses with environmental data layers (air quality,
-      greenspace, food access) to create location-aware risk models that inform population
-      health interventions and resource allocation. The toolchain's integration with
-      OMOP CDM enables spatiotemporal analysis at scale across observational health
-      databases.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:897
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
