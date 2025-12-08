@@ -9873,8 +9873,22 @@ data_standardortools_collection:
   formal_specification: https://github.com/ReproNim/reproschema
   is_open: true
   name: ReproSchema
-  purpose_detail: A common schema that encodes how the different elements of assessment
-    data and / or the metadata relate to one another.
+  purpose_detail: 'ReproSchema is a schema-driven ecosystem for standardizing survey-based
+    data collection in biomedical, clinical, behavioral, and social science research.
+    It uses JSON-LD format with a three-level hierarchical structure: Items (individual
+    questions with response options and visibility conditions), Activities (collections
+    of related items with scoring and branching logic), and Protocols (complete study
+    designs combining multiple activities). Built on LinkML (Linked Data Modeling
+    Language) since version 1.0.0, ReproSchema provides Git-based version control
+    for persistent URIs, supports multiple question types and computable elements
+    for automated scoring, and ensures interoperability through bidirectional conversion
+    tools for REDCap and FHIR formats. The ecosystem includes a core schema, assessment
+    library with over 90 standardized instruments, Python CLI tools for validation
+    and conversion, web-based user interface for interactive survey deployment, and
+    protocol templates. ReproSchema enhances research reproducibility by ensuring
+    consistency across multisite and longitudinal studies, systematically tracking
+    questionnaire changes over time, and supporting reuse of validated assessment
+    instruments.'
   requires_registration: false
   url: https://www.repronim.org/reproschema/
 - id: B2AI_STANDARD:272
