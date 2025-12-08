@@ -6183,9 +6183,28 @@ data_standardortools_collection:
   formal_specification: https://github.com/INTER-IoT/ipsm-alignments
   is_open: true
   name: IPSM-AF
-  purpose_detail: Alignment can be interpreted as a set of uni-directional mappings
-    for transforming input RDF graph into output RDF graph. It is persisted in IPSM
-    Alignment Format (IPSM-AF) that is based on a well known Alignment API Format.
+  purpose_detail: RDF/XML-based format developed by the EU Horizon 2020 INTER-IoT
+    project for persisting semantic alignments as uni-directional RDF graph transformation
+    mappings enabling interoperability between heterogeneous IoT platforms. Extends
+    the Alignment API Format with INTER-IoT-specific features for IoT semantic mediation.
+    Format consists of metadata elements (Dublin Core title, version, creator, description,
+    date and Alignment API xml, level, type, method), ontology specifications defining
+    source (onto1) and target (onto2) ontologies with locations and formalisms, ordered
+    steps for execution sequencing, and alignment cells containing transformation logic.
+    Each cell defines entity1 (source RDF pattern), entity2 (target RDF pattern),
+    transformations (SPARQL built-in functions, XPath constructors, Jena ARQ extensions),
+    filters (datatype constraints on input variables), and typings (return datatype
+    specifications). IPSM component internally generates SPARQL UPDATE statements
+    (DELETE/INSERT/WHERE clauses) from cell patterns to perform RDF graph transformations.
+    Variables use sripas namespace with node_ prefix for subjects/objects and pred_
+    prefix for predicates. Version 0.6 and later support RDF/XML format with Turtle
+    or RDF/XML cell syntax, while prior versions used XML-only format with converters
+    available via REST API. Applications include semantic translation in Ambient Assisted
+    Living (CasAware platform integration), Active and Healthy Ageing ecosystems (AIoTES,
+    universAAL), port sector IoT (NOATUM), body-worn sensors (BodyCloud), and smart
+    city platforms (FIWARE). Sample alignments available demonstrating mappings between
+    platform-specific ontologies and common INTER-IoT model based on SSN, SOSA, and
+    SAREF ontologies.
   requires_registration: false
   url: https://inter-iot.readthedocs.io/projects/ipsm/en/latest/Configuration/Alignment-format/IPSM-alignment-format/
 - id: B2AI_STANDARD:179
