@@ -24681,23 +24681,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:354
   requires_registration: false
   url: https://github.com/Theano/Theano
-  has_application:
-  - id: B2AI_APP:80
-    category: B2AI:Application
-    name: Legacy Deep Learning Models and Reproducible Research
-    description: Theano was historically important in early biomedical deep learning
-      research and continues to be relevant for reproducing published models and maintaining
-      legacy clinical AI systems. Many influential early papers in medical AI used
-      Theano, and researchers still need to run these models for comparison benchmarks,
-      reproduce published results, and maintain systems deployed before modern frameworks
-      emerged. The library's symbolic computation approach and automatic differentiation
-      influenced the design of current frameworks, and understanding Theano remains
-      valuable for historical context in AI research. While active development has
-      ceased (succeeded by Aesara), Theano-based code remains in production in some
-      clinical settings and research archives.
-    used_in_bridge2ai: false
-    references:
-    - https://theano-pymc.readthedocs.io/
 - id: B2AI_STANDARD:835
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -25048,24 +25031,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:109
   url: https://build.fhir.org/ig/HL7/US-Core/index.html
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:82
-    category: B2AI:Application
-    name: US-Specific Clinical AI and Regulatory Compliance
-    description: FHIR US Core Implementation Guide is used in AI applications that
-      require compliance with US healthcare regulations and interoperability requirements,
-      enabling standardized data extraction from US-based EHR systems for training
-      clinical prediction models. AI systems leverage US Core's profiles for patient
-      demographics, vital signs, laboratory results, medications, and conditions to
-      build models that meet ONC certification requirements and support CMS quality
-      measures. The implementation guide ensures AI applications can reliably access
-      structured clinical data across diverse US healthcare systems, supporting use
-      cases in risk adjustment, quality metric prediction, social determinants of
-      health analysis, and value-based care optimization. US Core's mandatory data
-      elements provide a consistent feature set for federated learning across US hospitals.
-    used_in_bridge2ai: false
-    references:
-    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi
 - id: B2AI_STANDARD:852
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -25096,24 +25061,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:851
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:83
-    category: B2AI:Application
-    name: Standardized Data Element Mapping for Healthcare AI
-    description: FHIR USCDI (US Core Data for Interoperability) implementation is
-      used in AI applications to ensure consistent access to core clinical data elements
-      required by federal regulations, enabling interoperable AI systems across US
-      healthcare. Machine learning models leverage USCDI-compliant data elements including
-      allergies, procedures, immunizations, lab results, and clinical notes to train
-      on standardized features that are guaranteed to be available across certified
-      EHR systems. This standardization is critical for AI applications that need
-      to be deployed broadly across healthcare organizations, ensuring model portability
-      and consistent performance. USCDI compliance enables AI researchers to develop
-      models that align with national interoperability goals and can participate in
-      health information exchange networks.
-    used_in_bridge2ai: false
-    references:
-    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi
 - id: B2AI_STANDARD:853
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -25146,24 +25093,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:852
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:84
-    category: B2AI:Application
-    name: Foundation Models on Core Clinical Data Elements
-    description: FHIR USCDI v1 provides the baseline data elements for AI applications
-      requiring backward compatibility and stable data definitions for longitudinal
-      model training. AI systems developed against USCDI v1 can reliably access essential
-      clinical information including patient demographics, problems, medications,
-      allergies, lab results, vital signs, and procedures across time, enabling training
-      of models on historical data and ensuring consistency in production deployments.
-      This version stability is crucial for validating AI models in clinical trials,
-      meeting regulatory requirements for locked algorithms, and maintaining model
-      performance monitoring over multi-year periods. USCDI v1 compliance ensures
-      AI applications can function across healthcare systems at different stages of
-      EHR modernization.
-    used_in_bridge2ai: false
-    references:
-    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi-v1
 - id: B2AI_STANDARD:854
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -25196,24 +25125,6 @@ data_standardortools_collection:
   - B2AI_STANDARD:852
   url: https://build.fhir.org/ig/HL7/US-Core/uscdi.html
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:85
-    category: B2AI:Application
-    name: Advanced Clinical AI with Expanded Data Elements
-    description: FHIR USCDI v4 enables next-generation AI applications with access
-      to expanded data elements including social determinants of health, mental health
-      assessments, substance use information, and care team details. Machine learning
-      models leverage these additional data classes to develop more comprehensive
-      prediction models that account for social, behavioral, and environmental factors
-      affecting health outcomes. AI systems benefit from USCDI v4's enhanced data
-      elements for health equity research, population health modeling, and holistic
-      patient risk assessment that goes beyond traditional clinical variables. The
-      expanded scope supports AI applications in addressing health disparities, improving
-      care coordination, and developing interventions that consider the full spectrum
-      of factors influencing patient health.
-    used_in_bridge2ai: false
-    references:
-    - https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi-v4
 - id: B2AI_STANDARD:855
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
