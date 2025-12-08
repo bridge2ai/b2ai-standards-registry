@@ -6287,8 +6287,23 @@ data_standardortools_collection:
   is_open: true
   name: Countgraph
   publication: doi:10.12688/f1000research.6924.1
-  purpose_detail: A format used by the khmer tool to represent k-mer counts and their
-    occurences.
+  purpose_detail: Countgraph is a binary file format implemented in the khmer software
+    package for memory-efficient storage and retrieval of k-mer frequency data using
+    probabilistic Count-min Sketch data structures. The format stores fixed-length
+    DNA words with headers containing magic string OXLI for version 2.0 compatibility,
+    format version identifier, file type flag, bigcount usage indicator, k-mer length
+    parameter, number of Count-min Sketch tables, and occupied bin counts. Following
+    the header, multiple hash tables store binned k-mer counts with configurable
+    precision levels, and optional bigcount map stores high-frequency k-mers exceeding
+    standard count thresholds as kmer-hash and count pairs. The probabilistic counting
+    approach enables processing of large genomic and metagenomic datasets in limited
+    memory by trading exact counts for space efficiency, supporting applications
+    including digital normalization of sequencing reads, error correction based on
+    k-mer spectrum analysis, De Bruijn graph construction, and preprocessing for
+    genome assembly workflows. Countgraph files enable efficient online k-mer counting
+    without requiring complete dataset traversal, making them suitable for streaming
+    analysis of high-throughput sequencing data where k-mer statistics inform quality
+    control and data reduction strategies.
   related_to:
   - B2AI_STANDARD:782
   requires_registration: false
