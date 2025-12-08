@@ -9967,31 +9967,41 @@ data_standardortools_collection:
   name: SRA-XML
   publication: doi:10.1093/nar/gkq1019
   purpose_detail: SRA-XML is an XML-based metadata format used by the Sequence Read
-    Archive (SRA) and the European Nucleotide Archive (ENA) to describe and exchange
-    metadata for raw sequencing data submissions from next-generation sequencing platforms.
-    The format captures detailed information about sequencing experiments, sample
-    attributes, library preparation, instrument models, and data files, enabling standardized
-    data submission, validation, and integration across international repositories.
-    SRA-XML supports the reproducibility and discoverability of sequencing datasets
-    by providing a structured, machine-readable representation of experimental context
-    and provenance, facilitating large-scale genomics research and data sharing.
+    Archive (SRA), operated by the International Nucleotide Sequence Database Collaboration
+    (INSDC) partners NCBI, EBI, and DDBJ, to describe and exchange metadata for raw
+    sequencing data submissions from next-generation sequencing platforms. The format
+    consists of six XML objects (study, sample, experiment, run, analysis, and submission)
+    constrained by schemas that capture detailed information about sequencing experiments,
+    sample attributes, library preparation protocols, instrument models, and data
+    files, enabling standardized data submission, validation, and daily exchange across
+    international repositories. SRA-XML supports reproducibility and discoverability
+    of sequencing datasets by providing structured, machine-readable representations
+    of experimental context and provenance that facilitate large-scale genomics research,
+    meta-analyses, and computational integration of sequencing data.
   requires_registration: false
   url: https://www.ncbi.nlm.nih.gov/sra/docs/submitmeta/
   has_application:
   - id: B2AI_APP:48
     category: B2AI:Application
-    name: Sequence Data Metadata Mining and Dataset Discovery
-    description: SRA-XML (Sequence Read Archive metadata format) is used in AI applications
-      for automated mining of experimental metadata from genomic studies, enabling
-      dataset discovery, quality assessment, and training of models that learn from
-      experimental design information. Machine learning systems parse SRA metadata
-      to identify relevant datasets for specific research questions, predict data
-      quality issues before download, and extract experimental conditions that inform
-      downstream analysis. AI applications leverage structured metadata to train models
-      for automated experiment type classification, sample relationship inference,
-      and detection of metadata quality issues. The format enables large-scale meta-analyses
-      where AI systems integrate findings across thousands of sequencing experiments
-      by understanding their experimental context.
+    name: Automated metadata mining and dataset discovery for genomic studies
+    description: SRA-XML enables machine learning systems to automatically parse and
+      analyze experimental metadata from hundreds of thousands of sequencing studies
+      in the Sequence Read Archive for dataset discovery, quality assessment, and
+      experimental design analysis. ML models extract structured information from
+      SRA-XML documents to classify experiment types, predict data quality issues
+      before download, infer sample relationships, and identify relevant datasets
+      for specific research questions based on organism, tissue type, sequencing platform,
+      library preparation strategy, and experimental conditions. Natural language
+      processing methods parse free-text fields (experiment titles, descriptions)
+      combined with structured attributes to enable semantic search across the >500
+      billion reads archived in SRA. Computational pipelines leverage SRA-XML to automate
+      large-scale meta-analyses by programmatically extracting experimental context
+      and provenance information that informs reanalysis strategies, batch effect
+      correction, and integration of findings across thousands of independent studies.
+    reference:
+    - https://doi.org/10.1093/nar/gkq1019
+    - https://www.ncbi.nlm.nih.gov/sra/
+    - https://www.ebi.ac.uk/ena/browser/about
     used_in_bridge2ai: false
 - id: B2AI_STANDARD:275
   category: B2AI_STANDARD:BiomedicalStandard
