@@ -12135,9 +12135,42 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Graph Markup Language
+  has_application:
+  - category: B2AI:Application
+    description: GraphML format used to represent multi-modal COVID-19 cause-and-effect
+      knowledge graphs combining biological expression language triples (source node-relation-target
+      node with metadata). Knowledge model integrates genomic data, clinical records,
+      and biomedical literature to enable network visualization and graph machine
+      learning inference tasks for understanding COVID-19 pathophysiology and supporting
+      drug discovery. GraphML representations alongside NDEx and SIF formats enable
+      diverse visualization tools and downstream ML analyses including variant emergence
+      prediction and infection pattern modeling using graph neural networks.
+    id: B2AI_APP:323
+    name: COVID-19 Knowledge Graph Visualization and Machine Learning
+    references:
+    - https://doi.org/10.1093/bioinformatics/btaa834
+    - https://doi.org/10.3389/fdata.2024.1466391
   is_open: true
   name: GraphML
-  purpose_detail: An XML file format and language for describing graphs.
+  purpose_detail: GraphML is a comprehensive XML-based file format and language for
+    describing graphs developed through a collaborative effort initiated at the 2000
+    Graph Drawing Symposium. The format consists of a structural layer defining graph
+    topology (nodes, edges, ports, hyperedges, hierarchical nesting) and flexible
+    extension mechanisms to add application-specific data through typed attributes
+    and parsing information. GraphML supports directed, undirected, and mixed graphs,
+    hypergraphs, hierarchical graphs, graphical representations, and references to
+    external data. The language core uses XML Schema (XSD) specifications with modular
+    components (graphml-structure.xsd, graphml-attributes.xsd, graphml-parseinfo.xsd)
+    enabling lightweight parsers and custom extensions. Key features include a data
+    mechanism allowing arbitrary attribute assignments to graph elements via key declarations
+    with typed ranges (boolean, int, long, float, double, string), default values,
+    and metadata annotations. GraphML is freely available under Creative Commons Attribution
+    3.0 license, widely supported across graph drawing and analysis tools (yFiles,
+    Cytoscape, BioLayout, NetworkX), and serves as a common interchange format for
+    network data in bioinformatics, systems biology, social network analysis, and
+    knowledge graph visualization. The format enables efficient storage and exchange
+    of complex graph structures with rich metadata while maintaining human readability
+    and machine processability through XML standards.
   related_to:
   - B2AI_STANDARD:829
   requires_registration: false
