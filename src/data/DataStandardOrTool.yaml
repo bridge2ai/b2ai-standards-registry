@@ -27084,28 +27084,22 @@ data_standardortools_collection:
   - B2AI_ORG:116
   is_open: true
   name: CX
-  purpose_detail: Cytoscape Exchange (CX) format is a network exchange format, designed
-    as a flexible structure for transmission of networks. It is designed for flexibility,
-    modularity, and extensibility, and as a message payload in common REST protocols.
-    It is not intended as an in-memory data model for use in applications.
+  purpose_detail: Cytoscape Exchange (CX) is an aspect-oriented JSON-based format
+    for transmitting and exchanging biological network data across applications and
+    platforms. CX separates different types of network information into modular aspects
+    (nodes, edges, attributes, layout coordinates, visual styles), each following
+    its own schema while maintaining minimal dependencies between aspects. The format
+    supports both directed and undirected graphs, enables lossless encoding of complex
+    networks, and facilitates streaming to reduce memory overhead when processing
+    large networks. CX2, the current recommended version, provides compact representation
+    for efficient data transfer and supports extensibility through opaque aspects
+    for custom fields. The format integrates with the Network Data Exchange (NDEx)
+    platform for cloud-based storage and with Cytoscape Web and Desktop applications
+    via standardized REST protocols, serving as the primary interchange format for
+    the Cytoscape ecosystem.
   requires_registration: false
   url: https://cytoscape.org/cx/
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:96
-    category: B2AI:Application
-    name: Network Biology and Graph Neural Networks
-    description: CX (Cytoscape Exchange) format is used in AI applications for representing
-      biological networks that serve as input to graph neural networks for tasks such
-      as protein function prediction, drug-target interaction prediction, and disease
-      gene prioritization. Machine learning models leverage CX's standardized representation
-      of nodes, edges, and network attributes to train graph-based deep learning architectures
-      that capture complex biological relationships. AI systems use CX-encoded networks
-      for multi-omics data integration, pathway analysis, and systems biology modeling
-      where network topology and node features inform predictions. The format enables
-      sharing of network models across platforms and reproducible AI research in network
-      medicine, synthetic biology, and computational drug discovery.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:899
   category: B2AI_STANDARD:DataStandard
   collection:
