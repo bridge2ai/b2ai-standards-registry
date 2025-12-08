@@ -5856,19 +5856,106 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: imzML format
+  has_application:
+  - category: B2AI:Application
+    description: imzML format used as storage and interchange format for supervised
+      machine learning classification of MALDI mass spectrometry imaging data from
+      cancer spheroids. MALDI-MS images saved as imzML files are converted to Cardinal-readable
+      format, from which pixel-level mass spectral data matrices are extracted, normalized,
+      and used to train supervised classifiers including the Aristotle Classifier
+      with support vector machine and random forest implementations. Training groups
+      assign pixels from individual spheroids while remaining pixels serve as test
+      sets, with classification scores generated for both training and test data.
+      Post-classification feature ranking uses receiver operating characteristic
+      analysis to compute area under curve per mass-to-charge ratio, identifying
+      top fifty ranked features per timepoint for cetuximab treatment response prediction
+      in cancer spheroid models.
+    id: B2AI_APP:327
+    name: Supervised Machine Learning Classification of Cancer Spheroid Mass Spectrometry
+      Imaging
+    references:
+    - https://doi.org/10.1021/jasms.0c00010
+  - category: B2AI:Application
+    description: imzML format serves as required ingestion and distribution format
+      for METASPACE community AI platform supporting machine learning development
+      on imaging mass spectrometry datasets. METASPACE requires centroided imzML
+      format for data upload and processing, hosts over 3,500 public imaging MS datasets
+      with planned distribution of associated imzML data files for programmatic access,
+      and provides toolchain including imzMLConverter for vendor data conversion
+      to imzML and pyImzML parser for reading and writing imzML files using Python.
+      The platform enables engagement of domain experts to select representative
+      data for AI development, performs automated metabolite annotation on uploaded
+      imzML datasets, and facilitates large-scale machine learning algorithm development
+      and testing on standardized mass spectrometry imaging data across diverse biological
+      applications.
+    id: B2AI_APP:328
+    name: METASPACE Community AI Platform for Mass Spectrometry Imaging Data
+    references:
+    - https://doi.org/10.1146/annurev-biodatasci-011420-031537
+  - category: B2AI:Application
+    description: imzML format enables preprocessing and statistical analysis pipelines
+      that prepare mass spectrometry imaging data for machine learning workflows.
+      Python-based imzML Writer converts continuously acquired raw vendor MS imaging
+      data to standardized imzML format, which is then loaded into Cardinal for spatial
+      shrunken centroids segmentation with preprocessing steps including RMS normalization,
+      peak alignment, and feature filtration. Generated imzML files are compatible
+      with analysis toolboxes and repositories including METASPACE for automated
+      metabolite annotation, and co-packaged imzML Scout enables batch export of
+      mass-to-charge specific images to CSV format readily imported into MATLAB or
+      Python for custom data manipulation, visualization, and downstream machine
+      learning model development. The conversion pipeline facilitates cross-vendor
+      data harmonization and enables public sharing of standardized datasets on repository
+      platforms supporting ML-ready data distribution.
+    id: B2AI_APP:329
+    name: Mass Spectrometry Imaging Data Conversion and Preprocessing for Machine
+      Learning Pipelines
+    references:
+    - https://doi.org/10.26434/chemrxiv-2024-0jjf6
+  - category: B2AI:Application
+    description: imzML format provides standardized interchange format enabling cross-vendor
+      harmonization and algorithm development for multimodal imaging mass spectrometry
+      studies. Multicenter studies convert vendor-specific outputs to imzML for uniform
+      display across platforms including MSiReader, SpectralAnalysis, and METASPACE,
+      with METASPACE requiring imzML upload to servers for distribution and analysis.
+      Open imzML datasets in public repositories serve as example files for developing
+      and testing new analysis algorithms including machine learning and deep learning
+      methods, with extensions such as Raman2imzML enabling combination of vibrational
+      spectroscopy and MS imaging data. The format supports multimodal tissue analysis
+      workflows where FlexImaging exports to imzML serve as primary data source,
+      and pyImzML library parses imzML files into NumPy array pairs providing machine-learning-ready
+      spectral representations commonly ingested by statistical and deep learning
+      tools for downstream computational analyses.
+    id: B2AI_APP:330
+    name: Multimodal Mass Spectrometry Imaging Data Harmonization and Algorithm Development
+    references:
+    - https://doi.org/10.1021/acs.analchem.0c04595
+    - https://matheo.uliege.be/bitstream/2268.2/15988/4/Maxime_Amodei___Master_Thesis_Report.pdf
   has_relevant_organization:
   - B2AI_ORG:20
   is_open: true
   name: imzML
   publication: doi:10.1016/j.jprot.2012.07.026
-  purpose_detail: The purpose of imzML is to facilitate the exchange and processing
-    of mass spectrometry imaging data. This website is intended to provide all information
-    neccesary to implement imzML.imzML was developed in the framework of the EU funded
-    project COMPUTIS. The main goals during the development were complete description
-    of MS imaging experiments and efficient storage of (very large) data sets. imzML
-    is it not limited to MS imaging, but is also useful for other MS applications
-    generating large data sets such as LC-FTMS. The current version is mzML 1.1.0.
-    The metadata part of imzML is based on the mzML format by HUPO-PSI
+  purpose_detail: imzML is a standardized XML-based file format for mass spectrometry
+    imaging data developed through the EU-funded COMPUTIS project to facilitate exchange
+    and processing of MS imaging experiments with complete metadata description and
+    efficient storage of large datasets. The format consists of two separate files
+    with matching universally unique identifiers - an XML metadata file with mzML-based
+    structure extended via imaging-specific controlled vocabulary describing experimental
+    parameters, and a binary data file storing mass spectral intensities and mass-to-charge
+    arrays. imzML supports two storage modes - continuous format where all spectra
+    share identical mass-to-charge values stored once with only intensity arrays
+    per spectrum, and processed format where each spectrum has independent mass-to-charge
+    and intensity arrays enabling variable spectral binning. The XML component uses
+    HUPO-PSI mzML version 1.1.0 schema with empty binary tags and offset pointers
+    linking to binary file positions, while the binary component stores data in little-endian
+    byte order with support for multiple precision levels. Current version imzML
+    1.1.1 provides XML schema definitions, mapping files, controlled vocabulary in
+    OBO format, and validator tools, with widespread adoption across commercial platforms
+    including SCiLS Lab, flexImaging, ImageQuest, and open-source tools including
+    Cardinal, MSiReader, SpectralAnalysis, and METASPACE. The format enables cross-vendor
+    data harmonization, public data repository submission, and efficient file sizes
+    with continuous mode achieving fourfold compression versus mzML while maintaining
+    compatibility with LC-FTMS and other large-dataset MS applications.
   requires_registration: false
   url: https://ms-imaging.org/imzml/
 - id: B2AI_STANDARD:174
