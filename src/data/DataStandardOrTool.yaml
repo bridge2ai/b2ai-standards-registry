@@ -20771,27 +20771,267 @@ data_standardortools_collection:
   formal_specification: https://github.com/determined-ai/determined
   is_open: true
   name: Determined
-  purpose_detail: Determined is an open-source deep learning training platform.
+  purpose_detail: 'Determined is an open-source, enterprise-grade deep learning training
+    platform designed to simplify and accelerate machine learning operations (MLOps)
+    for research teams and production environments. The platform provides comprehensive
+    infrastructure for managing the complete deep learning workflow, from initial
+    experimentation through model deployment, with native support for PyTorch and
+    TensorFlow frameworks. Determined addresses critical challenges in scalable ML
+    development by automating distributed training orchestration, intelligent hyperparameter
+    optimization, experiment tracking and reproducibility, and efficient GPU resource
+    management across on-premises clusters and cloud infrastructure (AWS, GCP, Azure).
+    The architecture consists of three integrated components: a Python library providing
+    APIs for model development (class-based PyTorchTrial and TensorFlow Keras Trial
+    APIs, plus a flexible Core API for framework-agnostic code), a command-line interface
+    (CLI) for cluster deployment and experiment management, and a web-based user
+    interface for visualization and monitoring. For distributed training, Determined
+    automatically handles the complexity of multi-GPU and multi-node parallelization,
+    supporting data parallelism, model parallelism (via DeepSpeed integration), Fully
+    Sharded Data Parallel (FSDP) for training large language models, and pipeline
+    parallelism, enabling researchers to scale from single-GPU prototypes to hundreds
+    of GPUs without modifying training code. The platform''s intelligent resource
+    scheduler dynamically allocates GPU compute across concurrent experiments based
+    on configurable priorities, implements fair-share scheduling to prevent resource
+    monopolization, supports preemption for high-priority jobs, and provides gang
+    scheduling for distributed experiments requiring synchronized resource allocation.
+    Hyperparameter tuning leverages state-of-the-art search algorithms including
+    Adaptive ASHA (Asynchronous Successive Halving Algorithm) for early-stopping
+    poorly-performing configurations, Bayesian optimization for sample-efficient
+    search in expensive evaluation regimes, population-based training for dynamic
+    hyperparameter schedules, and grid/random search baselines, with automatic parallelization
+    across available GPUs to accelerate search completion. Determined ensures experiment
+    reproducibility through comprehensive versioning of code snapshots, configuration
+    YAML files, model checkpoints, training metrics (loss curves, validation accuracies,
+    custom metrics), hyperparameter values, and software environment specifications,
+    with all metadata stored in a centralized PostgreSQL database for queryability
+    and audit trails. The platform implements fault tolerance for long-running training
+    jobs through automatic checkpointing at configurable intervals, enabling training
+    to resume from the last checkpoint after hardware failures, cluster maintenance,
+    or preemption events without losing progress. For experiment management, the
+    web UI provides rich visualizations including real-time loss curves with smoothing
+    and comparison across experiments, hyperparameter parallel coordinates plots,
+    3D hyperparameter response surfaces, training logs with filtering and search,
+    system resource utilization (GPU memory, compute usage, network I/O), performance
+    profiling traces identifying training bottlenecks, and model registries for tracking
+    deployment-ready models. Determined supports diverse deployment scenarios through
+    flexible installation options: local deployment for development and testing (via
+    `det deploy local cluster-up`), cloud-native deployments with infrastructure-as-code
+    templates for AWS EC2, GCP Compute Engine, and Azure VMs, Kubernetes integration
+    via Helm charts for containerized environments supporting autoscaling and namespace
+    isolation, and HPC scheduler integration with Slurm and PBS for shared supercomputing
+    facilities requiring job submission workflows. The platform''s security model
+    includes role-based access control (RBAC) for multi-tenant environments, integration
+    with enterprise authentication systems (LDAP, SAML, OAuth), TLS encryption for
+    API and web traffic, and audit logging for compliance requirements. Advanced
+    features include support for custom search algorithms (users can implement novel
+    hyperparameter search methods), custom reducers for aggregating metrics from
+    distributed training, integration with PyTorch Geometric for graph neural networks,
+    neural architecture search (NAS) implementations including DARTS, meta-learning
+    experiments (prototypical networks, MAML), generative adversarial network (GAN)
+    training with specialized handling for discriminator/generator coordination,
+    and extensive examples across computer vision (CIFAR-10, COCO, ImageNet), natural
+    language processing (BERT, ALBERT, SQuAD, GLUE), and domain-specific applications.
+    The Python SDK enables programmatic experiment submission, monitoring, and result
+    analysis, supporting notebook-based workflows and automated ML pipelines. Determined
+    has been successfully deployed at research institutions, healthcare organizations,
+    financial services, and technology companies for training models ranging from
+    small research prototypes to production-scale large language models requiring
+    thousands of GPU-hours, with documented cost savings from improved GPU utilization
+    and accelerated time-to-model through parallelized hyperparameter search. The
+    platform is licensed under Apache 2.0, with an active open-source community contributing
+    examples, bug reports, and feature enhancements, and extensive documentation
+    including tutorials, API references, deployment guides, and best practices for
+    various ML workflows.'
   requires_registration: false
   url: https://www.determined.ai/
   has_application:
   - id: B2AI_APP:66
     category: B2AI:Application
-    name: Scalable ML Training Platform for Healthcare Research
-    description: Determined is used in biomedical AI for managing large-scale deep
-      learning experiments, hyperparameter tuning, and distributed training across
-      GPU clusters in research and healthcare organizations. AI teams leverage Determined's
-      automated experiment tracking, resource scheduling, and hyperparameter optimization
-      to efficiently develop medical imaging models, genomic prediction algorithms,
-      and clinical NLP systems. The platform provides reproducible experiment management
-      with automatic checkpointing, fault tolerance for long-running medical imaging
-      training jobs, and collaborative features for multi-institutional research teams.
-      Determined's integration with healthcare security requirements and support for
-      diverse model frameworks makes it valuable for organizations scaling from research
-      to production clinical AI.
+    name: Distributed medical imaging model training with automated hyperparameter
+      optimization
+    description: Determined enables healthcare research institutions and clinical
+      AI development teams to efficiently train deep learning models on large-scale
+      medical imaging datasets (CT scans, MRI sequences, whole slide pathology images,
+      retinal fundus photographs, X-rays) that require substantial GPU compute resources
+      and systematic hyperparameter exploration. Medical imaging models for tasks
+      such as tumor segmentation, disease classification, anatomical landmark detection,
+      and image quality assessment benefit from Determined's distributed training
+      capabilities which automatically parallelize training across multi-GPU clusters,
+      reducing training time from weeks to days or hours for architectures like U-Net,
+      ResNet, EfficientNet, Vision Transformers, and domain-specific models (e.g.,
+      DeepMedic for brain lesion segmentation, Faster R-CNN for object detection
+      in radiographs). The platform's Adaptive ASHA hyperparameter search is particularly
+      valuable for medical imaging where optimal learning rates, data augmentation
+      strategies (rotation angles, intensity scaling, elastic deformations), batch
+      sizes balanced against GPU memory for high-resolution images, and architectural
+      choices (network depth, filter counts, attention mechanisms) significantly
+      impact model generalization to diverse patient populations and imaging protocols.
+      By automatically exploring hundreds of hyperparameter configurations in parallel
+      and early-stopping unpromising trials, Determined accelerates the model development
+      cycle from months to weeks, enabling researchers to systematically identify
+      configurations that maximize validation metrics (Dice coefficients for segmentation,
+      AUC-ROC for classification, mean average precision for detection) while minimizing
+      overfitting risks common in medical imaging with limited annotated training
+      data. Determined's fault tolerance through automatic checkpointing ensures long-running
+      training jobs (which may require 48-96 hours for high-resolution 3D medical
+      imaging models) can recover from hardware failures or cluster maintenance without
+      losing progress, critical for research environments with shared GPU resources
+      and unpredictable infrastructure interruptions. The experiment tracking features
+      enable radiologists and clinical collaborators without deep learning expertise
+      to monitor model training progress through intuitive web visualizations showing
+      loss curves, sample predictions overlaid on medical images, confusion matrices
+      for classification tasks, and segmentation quality metrics, facilitating rapid
+      iteration and clinical validation. For multi-institutional collaborations (common
+      in clinical AI research requiring diverse patient populations), Determined's
+      centralized experiment database and model registry enable teams at different
+      sites to share training configurations, reproduce experiments with identical
+      hyperparameters and software environments, and collaboratively evaluate model
+      performance across institutions without exposing sensitive patient data, supporting
+      federated learning workflows where models are trained locally and aggregated
+      centrally. The platform integrates with healthcare-specific data pipelines
+      handling DICOM medical imaging formats, supports data augmentation libraries
+      for domain-specific transformations (intensity normalization mimicking different
+      scanner manufacturers, synthetic lesion insertion for training data augmentation),
+      and provides security features (RBAC, audit logging, encrypted communication)
+      required for working with protected health information in research environments.
+      Organizations using Determined for medical imaging report 3-5x improvements
+      in researcher productivity through automated hyperparameter search eliminating
+      manual trial-and-error, 60-80% reductions in GPU infrastructure costs from
+      improved resource utilization and automatic scheduling, and faster translation
+      from research prototypes to clinical validation studies through reproducible
+      experiment management and systematic model selection.
     used_in_bridge2ai: false
     references:
-    - https://docs.determined.ai/
+    - https://github.com/determined-ai/determined
+    - https://github.com/determined-ai/determined-examples
+  - id: B2AI_APP:308
+    category: B2AI:Application
+    name: Genomic variant effect prediction model development with large-scale hyperparameter
+      search
+    description: Determined facilitates development of deep learning models for genomic
+      variant pathogenicity prediction and functional effect scoring by providing
+      infrastructure to systematically explore architectural and training configurations
+      across datasets with millions of genetic variants and complex sequence features.
+      Genomic prediction tasks including variant pathogenicity classification (distinguishing
+      disease-causing mutations from benign variants in ClinVar, UK Biobank, gnomAD),
+      splice site effect prediction (identifying variants disrupting RNA splicing
+      using position weight matrices and deep learning), transcription factor binding
+      prediction (modeling DNA sequence motifs and chromatin accessibility), and
+      protein structure stability prediction (estimating ΔΔG for missense variants)
+      require careful hyperparameter tuning of sequence encoding strategies (one-hot
+      vs learned embeddings vs pre-trained DNA language models like DNABERT), convolutional
+      architectures (kernel sizes for capturing motif patterns at 6-20 nucleotide
+      scales, dilated convolutions for long-range interactions), attention mechanisms
+      (for modeling epistatic interactions between distant variants), and training
+      procedures (handling severe class imbalance with 1:100 or 1:1000 ratios of
+      pathogenic to benign variants, appropriate loss functions like focal loss or
+      weighted cross-entropy). Determined's hyperparameter search capabilities enable
+      genomics researchers to explore hundreds of configurations across dimensions
+      including sequence context window sizes (ranging from 200bp for local splice
+      effects to 10kb for regulatory element interactions), data augmentation strategies
+      (reverse complementation for strand invariance, mutation injection for robustness),
+      regularization approaches (dropout rates, L2 penalties preventing overfitting
+      to limited pathogenic variant training examples), and optimization parameters
+      (learning rate schedules, batch sizes affecting gradient noise for rare variant
+      classes). The platform's distributed training accelerates model development
+      for large genomic datasets where training sets may include 10+ million variants
+      with multi-dimensional features (sequence context, evolutionary conservation
+      scores from phyloP/phastCons, chromatin state annotations from Roadmap Epigenomics,
+      population allele frequencies, in silico predictions from legacy tools like
+      SIFT/PolyPhen), enabling exploration of ensemble models combining convolutional
+      neural networks for local sequence patterns with recurrent or transformer architectures
+      for long-range dependencies. For transfer learning applications where models
+      pre-trained on large unlabeled genomic sequences (human reference genome, comparative
+      genomics across species) are fine-tuned for specific prediction tasks (rare
+      disease variant interpretation, pharmacogenomic variant effect prediction),
+      Determined's experiment management tracks performance across pre-training datasets,
+      fine-tuning strategies (learning rate scheduling, layer freezing), and downstream
+      task evaluations, enabling systematic comparison of foundation models. The
+      reproducibility features are critical for genomic AI given the importance of
+      benchmarking against established tools (CADD, REVEL, SpliceAI) and the need
+      for transparent reporting of model development for clinical genetics applications
+      where predictions inform medical decision-making. Determined's fault tolerance
+      ensures multi-day training jobs for large sequence models (transformer architectures
+      processing megabase-scale genomic contexts) can checkpoint and resume, while
+      the web UI enables collaboration between computational biologists developing
+      models and clinical geneticists validating predictions, with visualizations
+      showing prediction calibration, feature importance (highlighting sequence positions
+      driving predictions), and performance stratification across variant functional
+      classes (missense, nonsense, splice-site, regulatory). The platform integrates
+      with genomics-specific data formats (VCF for variants, BED for genomic intervals,
+      FASTA for sequences, BigWig for quantitative tracks) and supports bioinformatics
+      pipelines accessing reference genome assemblies, gene annotations, and population
+      databases, enabling end-to-end workflows from raw variant calls to trained
+      prediction models deployed in clinical variant interpretation platforms.
+    used_in_bridge2ai: false
+    references:
+    - https://github.com/determined-ai/determined
+  - id: B2AI_APP:309
+    category: B2AI:Application
+    name: Clinical natural language processing model training for electronic health
+      record extraction
+    description: Determined supports development and deployment of clinical natural
+      language processing (NLP) models that extract structured information from unstructured
+      clinical notes, radiology reports, pathology reports, and discharge summaries
+      in electronic health records (EHRs) for applications including clinical trial
+      cohort identification, adverse event surveillance, phenotype extraction for
+      genomic studies, and real-world evidence generation. Clinical NLP tasks such
+      as named entity recognition (identifying medications, diseases, procedures,
+      anatomical sites with proper medical terminology), relation extraction (linking
+      clinical entities such as drug-condition associations or temporal sequences
+      of treatments), negation detection (distinguishing between mentioned vs observed
+      conditions, critical for accurate phenotyping), temporal information extraction
+      (determining when symptoms began, medication start/stop dates, disease progression
+      timelines), and clinical text classification (assigning ICD diagnosis codes,
+      identifying quality metrics, detecting patient safety events) require fine-tuning
+      large language models (BERT, RoBERTa, GPT variants) on domain-specific clinical
+      corpora where optimal hyperparameters differ substantially from general-domain
+      text. Determined enables systematic exploration of model architectures (base
+      vs large transformer sizes, domain-specific pre-trained models like BioBERT,
+      ClinicalBERT, PubMedBERT), fine-tuning strategies (learning rates for avoiding
+      catastrophic forgetting, layer-wise learning rate decay, gradual unfreezing),
+      and training procedures (handling class imbalance in rare disease mention detection,
+      data augmentation through synonym substitution using UMLS medical ontology,
+      multi-task learning combining entity recognition with attribute classification).
+      The platform's distributed training capabilities accelerate experimentation
+      for institutions processing millions of clinical notes where training datasets
+      may include 100K+ annotated documents, with models requiring evaluation across
+      diverse note types (emergency department notes with abbreviations and incomplete
+      sentences, operative reports with specialized surgical terminology, radiology
+      reports with standardized section structures) and multiple clinical sites with
+      variable documentation practices. Determined's hyperparameter optimization
+      is particularly valuable for balancing model performance metrics (F1 scores
+      for entity recognition, exact match accuracy for relation extraction, macro-averaged
+      recall across disease categories) against inference latency requirements for
+      real-time clinical decision support systems that must process notes within
+      seconds of clinician documentation. For multi-institutional research networks
+      (PCORnet, OHDSI, TriNetX) developing shared NLP models, Determined's experiment
+      tracking enables sites to document training procedures, share optimal hyperparameters,
+      and evaluate model generalization across healthcare systems with different
+      EHR vendors (Epic, Cerner, Allscripts) and clinical workflows, while HIPAA-compliant
+      deployment options support working with protected health information. The platform
+      integrates with clinical text preprocessing pipelines handling de-identification
+      (removing patient names, dates, identifiers per Safe Harbor rules), section
+      detection in clinical notes, sentence boundary detection robust to medical
+      abbreviations, and medical concept normalization to standard terminologies
+      (SNOMED-CT, RxNorm, LOINC). Researchers using Determined for clinical NLP
+      report substantial improvements in model development velocity, enabling rapid
+      prototyping of models for new phenotypes or clinical outcomes, systematic comparison
+      of pre-trained language model choices, and efficient allocation of clinical
+      annotation resources by identifying optimal sample sizes and annotation strategies
+      through learning curve analysis. The fault tolerance features ensure multi-day
+      training jobs for large transformer models fine-tuned on institutional corpora
+      with millions of notes can checkpoint and recover, critical for research environments
+      where GPU access is shared and preemptible. The web UI facilitates collaboration
+      between NLP engineers developing extraction models and clinical domain experts
+      validating predictions, with visualizations showing entity extraction examples,
+      model attention patterns highlighting text spans driving predictions, and error
+      analysis identifying systematic failure modes requiring additional training
+      data or model architectural modifications.
+    used_in_bridge2ai: false
+    references:
+    - https://github.com/determined-ai/determined
+    - https://github.com/determined-ai/determined-examples
 - id: B2AI_STANDARD:757
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
