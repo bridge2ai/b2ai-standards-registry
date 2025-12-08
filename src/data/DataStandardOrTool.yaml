@@ -12166,6 +12166,56 @@ data_standardortools_collection:
     references:
     - https://doi.org/10.1093/bioinformatics/btaa834
     - https://doi.org/10.3389/fdata.2024.1466391
+  - category: B2AI:Application
+    description: GraphML serves as interchange and storage format for function-level
+      code property graphs extracted from executable binaries for compiler identification.
+      Executables are preprocessed into Binary Ninja database files, then code property
+      graphs are constructed for each function using binary ninja intermediate language
+      in static single assignment form. These function graphs are serialized as GraphML
+      files, which are consumed by graph2vec for unsupervised graph embedding. The
+      resulting vector representations feed a Random Forest classifier to predict
+      whether functions were compiled by clang or gcc, achieving high accuracy on
+      Linux From Scratch binaries. GraphML enables the pipeline by providing a portable
+      format bridging reverse-engineering tools, graph embedding models, and downstream
+      supervised classification for binary analysis tasks.
+    id: B2AI_APP:324
+    name: Binary Analysis and Compiler Identification via Code Property Graph Machine
+      Learning
+    references:
+    - https://doi.org/10.1109/tps-isa56441.2022.00039
+  - category: B2AI:Application
+    description: GraphML format used in OpenLS-DGF framework to export gate-level
+      netlists alongside Verilog for machine-learning-ready logic synthesis datasets.
+      After logic blasting and technology mapping for ASIC and FPGA designs, the
+      framework saves all resulting gate-level netlists in both Verilog and GraphML
+      formats to ensure broad compatibility and facilitate downstream applications.
+      GraphML representations enable graph neural network analyses of circuit graphs,
+      static timing analysis, physical design evaluation, and benchmarking tasks
+      for electronic design automation ML research. The format serves as portable
+      graph-structured representation of Boolean circuits with timing information
+      and netlist performance metrics, enabling ML pipelines to consume circuit data
+      for tasks including optimization prediction and technology mapping.
+    id: B2AI_APP:325
+    name: Logic Synthesis Circuit Datasets for Graph Neural Network Analysis
+    references:
+    - https://doi.org/10.48550/arxiv.2411.09422
+  - category: B2AI:Application
+    description: GraphML selected as interchange format for graph neural network
+      model-as-a-service pipeline applied to social media misinformation detection.
+      The system evaluates multiple graph file formats and selects GraphML for its
+      support of directed, undirected, mixed graphs, hypergraphs, and application-specific
+      attributes in XML-based representation. A graph generation service produces
+      social graphs in GraphML from Twitter data collected via API, storing nine
+      months of COVID-19 and vaccine-related tweets initially as JSON then transforming
+      to GraphML. The generated GraphML graphs are provided to a prediction service
+      that queries trained GNN models in real time to identify likely spreaders of
+      fake news, and to visualization tools for end-user analysis. GraphML enables
+      interoperability between data ingestion, GNN inference, and visualization services
+      in the misinformation detection workflow.
+    id: B2AI_APP:326
+    name: Social Media Misinformation Detection with Graph Neural Networks
+    references:
+    - https://jns.edu.al/wp-content/uploads/2024/01/A.Ceni-L.Bozo-A.-Kika.pdf
   is_open: true
   name: GraphML
   purpose_detail: GraphML is a comprehensive XML-based file format and language for
