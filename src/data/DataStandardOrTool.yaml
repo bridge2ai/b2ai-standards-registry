@@ -27303,33 +27303,80 @@ data_standardortools_collection:
   - B2AI_ORG:116
   is_open: true
   name: ARK PIDs
-  purpose_detail: Archival Resource Key (ARK) identifiers are persistent URLs designed
-    to support long-term access to information objects. ARKs can identify digital
-    objects (documents, databases, images, software), physical objects (books, artifacts),
-    living beings, and intangible objects (concepts, services). ARKs are characterized
-    by their internal "ark:" label, their NAAN (Name Assigning Authority Number) identifying
-    the naming organization, and features like metadata access through inflections
-    (adding ? to the URL). They are free to create and use, with no fees to assign
-    or use ARKs, and can be hosted on any web server or through the global N2T.net
-    resolver.
+  purpose_detail: 'Archival Resource Key (ARK) identifiers are persistent URLs designed
+    to facilitate high-quality, long-term identification and access to information
+    objects across digital, physical, and conceptual domains. ARKs consist of a label
+    ("ark:"), a Name Assigning Authority Number (NAAN) identifying the assigning
+    organization, and an assigned name, optionally preceded by a resolver service
+    (typically https:// plus hostname). The ARK scheme supports three core services:
+    object access (returning the object or sensible proxy), metadata access via inflections
+    (appending "?info" to retrieve descriptions), and policy statements (commitment
+    declarations from the current provider regarding persistence, naming, and support).
+    ARKs are identity-inert with respect to the resolver service hostname appears
+    in the URL but does not participate in object identification, allowing ARKs to
+    be resolved through different services over time or simultaneously as providers
+    change while the core immutable identity (ark:NAAN/Name) remains stable. The
+    N2T.net (Name-to-Thing) resolver provides global ARK resolution services, acting
+    as a reliable first resolver that can redirect to organization-specific resolvers
+    based on the NAAN registry. ARKs are free to create and assign (no registration
+    fees), support machine-actionable features including queryable PIDs that encode
+    dataset slicing parameters and cross-dataset linking semantics, and enable organizations
+    to subdivide their NAAN namespace into "shoulders" for departmental or project-specific
+    assignment streams, making them well-suited for distributed research environments
+    requiring reproducible data access, provenance tracking, and long-term reference
+    stability independent of specific networking technologies.'
   requires_registration: false
   url: https://arks.org/about/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:98
     category: B2AI:Application
-    name: Persistent Dataset Identification for ML Reproducibility
-    description: ARK (Archival Resource Key) persistent identifiers are used in AI
-      applications to create stable, long-term references to training datasets, model
-      artifacts, and research outputs, ensuring reproducibility and provenance tracking
-      in machine learning research. AI systems leverage ARK identifiers to maintain
-      citations to specific versions of datasets used in model training, enabling
-      verification of results and compliance with data governance policies. The identifier
-      scheme's flexibility supports both fine-grained object identification (individual
-      data files) and collections (entire datasets), which is essential for documenting
-      complex ML pipelines. ARK PIDs facilitate data sharing in federated AI research
-      while maintaining clear attribution and enabling auditable access logs for sensitive
-      biomedical data.
+    name: Time-Series Data Slicing and ML Cross-Validation Splits
+    description: ARK persistent identifiers with machine-actionable resolution are
+      used to enable reproducible ML experiments with time-series datasets by encoding
+      dataset, sensor, measurement, and timestamp ranges directly into ARK URIs resolved
+      via N2T.net to deliver CSV-formatted data slices for automated loading into
+      ML pipelines. Tu and Makonin demonstrate minting ARK PIDs to represent cross-fold
+      validation splits (e.g., 10 ARKs for 10-fold cross-validation), enabling precise,
+      reproducible training/test subsetting where each PID resolves to a specific
+      data partition with inclusion/exclusion syntax, wildcard selection, and multi-range
+      concatenation, supporting automated ML data retrieval and eliminating manual
+      partitioning errors in model evaluation workflows for datasets such as AMPds.
+    references:
+    - https://doi.org/10.1007/978-3-031-39141-5_25
+    used_in_bridge2ai: false
+  - id: B2AI_APP:321
+    category: B2AI:Application
+    name: Neural Network Training Dataset Assembly with Provenance
+    description: ARKs are used as API search keys in the BGNN (bio-generated neural
+      network) fish specimen image project to programmatically retrieve packaged dataset
+      bundles containing images, segmentation masks, CSV/XML metadata files, and RDF/OWL
+      ontology artifacts for training computer vision models. The REST API accepts
+      ARK identifiers (via GUI and command-line cURL/Wget) to download zip bundles
+      from the 300,000+ fish specimen image dataset, enabling machine-accessible,
+      provenance-rich dataset assembly where ARKs serve as stable handles linking
+      training images to their metadata and semantic annotations, supporting FAIR
+      principles and reproducible ML dataset preparation for neural network training
+      pipelines.
+    references:
+    - https://doi.org/10.1007/978-3-031-39141-5_15
+    used_in_bridge2ai: false
+  - id: B2AI_APP:322
+    category: B2AI:Application
+    name: Programmatic Cross-Dataset Linking for Automated ML Pipelines
+    description: ARK-style PIDs with query syntax enable reproducible, automated data
+      pipelines by acting as machine-addressable URLs that extract specific time-series
+      slices, specify join columns, and link compatible fields across distributed
+      datasets without extensive SQL coding. Tu's architecture uses ARKs with embedded
+      query parameters (e.g., https://n2t.net/ark:/57460/AMPds/DWE/V@*?links/62700/Weather/YVR/temp)
+      to resolve dataset field-level links indicating join columns (e.g., (TS, DateTime),
+      (TS, sample_date)), enabling programmatic cross-dataset joins and automated
+      extraction workflows that reduce manual data wrangling, prevent data alteration
+      through immutable references, and support reproducible ML model training by
+      ensuring consistent, auditable data inputs across model development and evaluation
+      phases.
+    references:
+    - https://summit.sfu.ca/_flysystem/fedora/2024-06/etd23020.pdf
     used_in_bridge2ai: false
 - id: B2AI_STANDARD:903
   category: B2AI_STANDARD:BiomedicalStandard
