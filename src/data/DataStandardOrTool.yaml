@@ -25830,6 +25830,28 @@ data_standardortools_collection:
     and collaborators.
   requires_registration: false
   url: https://sensein.group/senselab/
+  has_application:
+  - id: B2AI_APP:320
+    category: B2AI:Application
+    name: ML-Ready Audio Feature Extraction for Bridge2AI Precision Public Health
+    description: Within the NIH Bridge2AI Precision Public Health Grand Challenge,
+      Senselab is used as the audio feature extraction toolkit to produce ML-ready
+      waveform derivatives and features from audio recordings stored as WAV files
+      in REDCap before conversion to BIDS organization. The toolkit generates two
+      feature formats for AI/ML workflows - fixed (global) feature sets extracted
+      from entire waveforms providing static acoustic characteristics, and temporal
+      feature formats that vary with recording length to capture time-varying acoustic
+      properties. These features are organized into BIDS JSON data dictionaries that
+      integrate metadata pulled from ReproSchema-derived protocols and Senselab's
+      feature extraction outputs, providing structured metadata and features explicitly
+      designed as inputs for AI/ML workflows in precision public health applications
+      including voice-based symptom detection and screening. The application demonstrates
+      Senselab's role in standardizing audio data preparation pipelines to enable
+      AI/ML-ready interaction with behavioral health recordings within Bridge2AI's
+      data ecosystem.
+    references:
+    - https://doi.org/10.48550/arxiv.2509.10432
+    used_in_bridge2ai: true
 - id: B2AI_STANDARD:882
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
