@@ -16972,10 +16972,57 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Mammalian Phenotype Ontology
   formal_specification: https://github.com/mgijax/mammalian-phenotype-ontology
+  has_application:
+  - id: B2AI_APP:318
+    category: B2AI:Application
+    name: Cross-species disease gene prediction using ontology-based phenotype similarity
+    description: PhenomeNET integrates MP with phenotype ontologies from human (HPO),
+      zebrafish, fly, worm, and yeast to create a cross-species phenotype network
+      based on semantic similarity. Using automated reasoning over OWL-based logical
+      definitions and information content-weighted Jaccard similarity metrics, the
+      method computes phenotypic similarity scores between mouse mutant genotypes and
+      human disease phenotypes to identify candidate disease genes. The approach achieved
+      AUC 0.68 for predicting gene-disease associations, AUC 0.62 for identifying orthologous
+      genes, and AUC 0.59 for predicting pathway membership. Successfully identified
+      known disease genes and novel candidates including Slc34a1 for Fanconi renotubular
+      syndrome and Adam19/Fgf15 as candidates for tetralogy of Fallot.
+    references:
+    - https://doi.org/10.1093/nar/gkr538
+    - https://doi.org/10.1371/journal.pbio.1000247
+  - id: B2AI_APP:319
+    category: B2AI:Application
+    name: Semantic similarity-based pathway analysis and orthology prediction from
+      mouse phenotypes
+    description: Computational approaches use MP annotations with Entity-Quality (EQ)
+      methodology and semantic similarity measures (simIC, ICCS, maxIC, Jaccard index)
+      to identify genes in signaling pathways and predict orthology relationships.
+      Automated reasoning over cross-species anatomy ontologies (UBERON) enables mapping
+      of mouse phenotypes to zebrafish, fly, worm, and human phenotypes. Successfully
+      retrieved 76% of allelic variants as most phenotypically similar (all 118 alleles
+      matched within same gene), identified 55% of hedgehog pathway members in top
+      10% by similarity metrics (11 of 20 pathway members in top 23 most similar genes,
+      p<E-19), and enabled cross-species orthology predictions with significantly higher
+      phenotypic similarity for orthologous genes.
+    references:
+    - https://doi.org/10.1371/journal.pbio.1000247
+    - https://doi.org/10.1093/nar/gkr538
+    - https://doi.org/10.1186/2041-1480-3-S2-S1
+    - https://doi.org/10.1242/dmm.049441
   is_open: true
   name: MP
   publication: doi:10.1007/s00335-012-9421-3
-  purpose_detail: Standard terms for annotating mammalian phenotypic data.
+  purpose_detail: A structured vocabulary maintained by the Mouse Genome Informatics
+    (MGI) database for describing phenotypes observed in laboratory mouse strains and
+    mutants, supporting high-throughput phenotyping initiatives including the International
+    Mouse Phenotyping Consortium. MP provides standardized terms organized hierarchically
+    across physiological systems, developmental stages, and molecular phenotypes, enabling
+    computational comparison of mutant phenotypes within and across species through
+    formal ontology-based reasoning. The ontology includes over 13,000 classes with
+    OWL-based logical definitions that link phenotypic abnormalities to affected anatomical
+    structures (using the Mouse Anatomy Ontology), biological processes (Gene Ontology),
+    and qualities (PATO ontology), facilitating semantic integration with other phenotype
+    ontologies including the Human Phenotype Ontology and cross-species anatomical
+    frameworks such as UBERON.
   requires_registration: false
   url: https://github.com/mgijax/mammalian-phenotype-ontology
 - id: B2AI_STANDARD:480
@@ -24294,13 +24341,9 @@ data_standardortools_collection:
     infrastructure has established it as essential infrastructure for the genomics
     research community, enabling researchers to focus on scientific questions rather
     than computational logistics.'
-  has_relevant_applications:
-  - B2AI_APP:314
-  - B2AI_APP:315
-  - B2AI_APP:316
   requires_registration: true
   url: https://app.terra.bio/
-  relevant_applications:
+  has_application:
   - id: B2AI_APP:314
     category: B2AI:Application
     name: Large-scale genomic variant calling and cohort analysis on AnVIL
