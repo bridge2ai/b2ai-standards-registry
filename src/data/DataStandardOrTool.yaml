@@ -26889,35 +26889,24 @@ data_standardortools_collection:
   is_open: true
   name: PRIDE
   publication: doi:10.1093/nar/gkae1011
-  purpose_detail: The PRIDE PRoteomics IDEntifications (PRIDE) Archive database is
-    a centralized, standards compliant, public data repository for mass spectrometry
-    proteomics data, including protein and peptide identifications and the corresponding
-    expression values, post-translational modifications and supporting mass spectra
-    evidence (both as raw data and peak list files). PRIDE is a core member in the
-    ProteomeXchange (PX) consortium, which provides a standardised way for submitting
-    mass spectrometry based proteomics data to public-domain repositories. Datasets
-    are submitted to ProteomeXchange via PRIDE and are handled by expert bio-curators.
-    All PRIDE public datasets can also be searched in ProteomeCentral, the portal
-    for all ProteomeXchange datasets.
+  purpose_detail: The PRIDE database is the world's leading mass spectrometry-based
+    proteomics data repository and founding member of the ProteomeXchange consortium.
+    As of 2024, PRIDE Archive stores over 42,000 datasets totaling 2.85 petabytes,
+    representing 44.9% growth in the last three years. The resource provides standardized
+    data submission supporting all MS-based proteomics experimental approaches including
+    DDA, DIA, top-down, peptidomics, and crosslinking proteomics. Infrastructure
+    includes automatic validation pipelines using NLP, multiple data transfer protocols
+    (Aspera, FTP, Globus), comprehensive RESTful APIs (Archive API, USI API, Streaming
+    API, Crosslinking API), and a chatbot using open-source LLMs for documentation
+    navigation. PRIDE implements FAIR data principles, supports PSI standard formats
+    (mzML, mzIdentML, mzTab, SDRF-Proteomics, USI), and serves as an ELIXIR Core
+    Data Resource and Global Core Biodata Resource. The database enables large-scale
+    data reuse for proteogenomics analysis, PTM dissemination to UniProt, quantitative
+    data integration into Expression Atlas, and increasingly serves as training data
+    source for machine learning and deep learning approaches revolutionizing proteomics.
   requires_registration: false
   url: https://www.ebi.ac.uk/pride/
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:92
-    category: B2AI:Application
-    name: Proteomics Data Mining and Peptide Identification
-    description: PRIDE (PRoteomics IDEntifications) database is used in AI applications
-      for training deep learning models on mass spectrometry proteomics data, enabling
-      improved peptide identification, protein quantification, and post-translational
-      modification prediction. Machine learning systems leverage PRIDE's extensive
-      repository of annotated spectra to develop neural networks for de novo peptide
-      sequencing, spectral quality assessment, and cross-linking analysis. AI models
-      trained on PRIDE data improve upon traditional database search algorithms by
-      learning complex patterns in fragmentation spectra, enabling identification
-      of novel peptides, non-canonical modifications, and proteoforms. The database's
-      standardized mzML and mzIdentML formats facilitate reproducible AI research
-      in clinical proteomics, biomarker discovery, and precision medicine applications.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:895
   category: B2AI_STANDARD:DataStandard
   collection:
