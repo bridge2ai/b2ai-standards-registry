@@ -6657,6 +6657,128 @@ data_standardortools_collection:
   - B2AI_ORG:14
   url: https://www.cdc.gov/nchs/icd/icd-10-cm.htm
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:197
+    category: B2AI:Application
+    name: Automatic ICD-10-CM Code Assignment from Clinical Notes Using Deep Neural Networks
+    description: A hospital-scale deep learning system using BERT embeddings and GRU
+      networks with attention mechanisms to automatically predict ICD-10-CM diagnosis
+      codes directly from free-text clinical notes. The supervised NLP model predicts
+      ICD-10-CM codes solely from unstructured discharge summaries and clinical documentation,
+      achieving F1-score of 0.62 on internal hospital data. When deployed as an interactive
+      web service to assist human coders, the system significantly improved coder efficiency
+      and accuracy. This application demonstrates AI-driven medical coding automation
+      that reduces manual coding burden while improving precision in healthcare documentation
+      and billing accuracy.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.2196/23230
+  - id: B2AI_APP:198
+    category: B2AI:Application
+    name: Real-World AI-Assisted ICD-10-CM Coding System in Randomized Controlled Trial
+    description: A semiautomatic AI-assisted coding tool evaluated in a rigorous crossover
+      randomized controlled trial across multiple healthcare organizations (Sweden and
+      Norway). The tool generates and suggests ICD-10-CM codes using NLP and machine
+      learning to support human clinical coders in real-world coding workflows. Results
+      demonstrated 46% reduction in median coding time for longer clinical notes and
+      modest improvements in coding accuracy (e.g., 62% to 67% accuracy on longer notes).
+      This application shows practical deployment of AI coding assistance in production
+      EHR environments, improving both efficiency and quality of ICD-10-CM code assignment.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.2196/71904
+  - id: B2AI_APP:199
+    category: B2AI:Application
+    name: Deep Learning CNN for Automated ICD-10-CM Prediction from Clinical Notes
+    description: A convolutional neural network with Word2Vec embeddings that automatically
+      predicts ICD-10-CM diagnosis codes from unstructured SOAP notes in outpatient
+      clinical records. Trained on 21,953 outpatient department records from a single
+      hospital, the system achieved department-specific performance metrics ranging from
+      precision 0.53–0.96, recall 0.85–0.99, and F1-scores 0.65–0.98 (with best performance
+      in cardiology at F1 0.98). This application demonstrates that deep learning can
+      achieve high-quality automated diagnosis coding across different clinical departments,
+      reducing manual coding workload while maintaining clinical coding accuracy.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3390/diagnostics13132297
+  - id: B2AI_APP:200
+    category: B2AI:Application
+    name: Semi-Supervised Phenotyping of Long COVID Using ICD-10-CM Codes and Machine Learning
+    description: The LATCH pipeline uses ICD-10-CM code U09.9 (post-COVID condition)
+      both as a noisy label for unsupervised learning and as a structured feature for
+      predictive modeling. All ICD-10 diagnosis codes are rolled to PheCodes to construct
+      machine learning features; XGBoost and logistic regression models are trained to
+      identify patients with Long COVID. The semi-supervised approach outperformed relying
+      on ICD-10-CM U09.9 codes alone across evaluation metrics (AUROC, F1, TPR, PPV)
+      in both VHA and UPMC cohorts. This application demonstrates ICD-10-CM's value
+      as both a target outcome label and as a structured data source for high-throughput
+      clinical phenotyping and disease identification.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41746-025-01617-y
+  - id: B2AI_APP:201
+    category: B2AI:Application
+    name: ICD-10-CM Mapping to PheCodes for High-Throughput EHR Phenotyping
+    description: Community frameworks and tools map ICD-10-CM diagnosis codes to PheCodes
+      (phenotype codes) to enable scalable, high-throughput phenotyping from electronic
+      health records. PheMap and related systems leverage structured ICD-10-CM concepts
+      to produce phenotype probabilities for genome-wide association studies (GWAS) and
+      phenome-wide association studies (PheWAS). This standardized mapping approach enables
+      automated creation of machine learning-ready features from diagnostic codes, supporting
+      large-scale biomedical research while maintaining interpretability. ICD-10-CM-derived
+      phenotypes have demonstrated performance comparable to manually curated phenotypes,
+      enabling reproducible, scalable disease identification across diverse EHR systems.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s41597-021-00912-8
+  - id: B2AI_APP:202
+    category: B2AI:Application
+    name: Predictive Modeling Using ICD-10-CM Comorbidity Features and Machine Learning
+    description: Machine learning models for predicting clinical outcomes (readmission,
+      mortality, severe morbidity) leverage ICD-10-CM-derived features including count
+      of diagnoses, Elixhauser/Charlson comorbidity indices updated for ICD-10-CM, and
+      disease-specific ICD-10-CM groupings. Studies using XGBoost, random forest, and
+      logistic regression consistently show that ICD-10-CM-derived features rank among
+      the most predictive variables, improving model discrimination and calibration.
+      Example applications include trauma mortality prediction (XGBoost outperforming
+      TRISS score), obstetric severe maternal morbidity risk stratification, and hospital
+      readmission risk. This demonstrates ICD-10-CM's role as a structured data source
+      for clinical prediction systems.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1097/01.ogx.0000688420.15136.ad
+  - id: B2AI_APP:203
+    category: B2AI:Application
+    name: Bridge2AI Metadata Standards for Diagnostic Coding in AI-Ready Research
+    description: Bridge2AI consortium recommends standardizing clinical metadata to link
+      diagnoses to recognized terminologies including ICD-10-CM, with explicit capture
+      of code system version and diagnostic coding context. Bridge2AI guidance emphasizes
+      that recording detailed provenance of ICD-10-CM codes (version, coding standards,
+      encounter type) supports reproducible phenotyping, enables reliable machine learning
+      model training, and improves data interoperability. By mapping ICD-10-CM to standardized
+      data models (OMOP Common Data Model, HL7 FHIR) and recording rich metadata, research
+      institutions can create AI-ready datasets where diagnostic codes are machine-interpretable
+      and suitable for automated phenotyping and predictive modeling. This Bridge2AI application
+      directly supports data standardization practices that enhance AI/ML readiness.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.48550/arxiv.2509.10432
+  - id: B2AI_APP:204
+    category: B2AI:Application
+    name: Bridge2AI AI-Readiness Standards for EHR Data Quality and Diagnostic Coding
+    description: Bridge2AI recommendations for AI-readiness emphasize rich characterization
+      and provenance of clinical data including diagnostic codes, adherence to data quality
+      standards (ISO 8000-61), and FAIR (Findable, Accessible, Interoperable, Reusable)
+      principles. The consortium advises use of standardized EHR data models (OMOP CDM,
+      HL7 FHIR) that harmonize coded diagnoses including ICD-10-CM, with detailed documentation
+      of data quality metrics, potential biases, and measurement protocols. This supports
+      reliable downstream use of ICD-10-CM codes in machine learning for phenotyping,
+      prediction, and clinical decision support. Bridge2AI's emphasis on metadata and
+      versioning ensures that ICD-10-CM codes can be correctly interpreted and reused
+      across time, institutions, and analytical contexts.
+    used_in_bridge2ai: true
+    references:
+    - https://doi.org/10.1101/2024.10.23.619844
 - id: B2AI_STANDARD:175
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
