@@ -7195,7 +7195,39 @@ data_standardortools_collection:
   - B2AI_ORG:115
   is_open: true
   name: WFDB Format
-  purpose_detail: Format for MIMIC Waveform Database records.
+  purpose_detail: The WFDB (WaveForm DataBase) format is a standardized file format for storing physiological
+    waveform data and associated metadata from the MIMIC (Medical Information Mart for Intensive Care)
+    databases, enabling standardized exchange and analysis of high-frequency biomedical signal recordings
+    including electrocardiogram (ECG), blood pressure (BP), pulse oximetry, respiration, and other vital
+    sign waveforms collected from intensive care unit (ICU) patients. WFDB was developed to address the
+    need for a portable, standard way to store physiological data from multiple devices and sources while
+    maintaining temporal alignment and clinical context. The format consists of header files (.hea) containing
+    metadata including number of signals, sampling rate, ADC resolution, signal names and units, data start
+    time, and patient/study identifiers, paired with binary or ASCII data files (.dat) containing the actual
+    waveform samples. Each signal can have different sampling rates enabling efficient storage of signals
+    requiring different temporal resolution (e.g., 1000 Hz for ECG, 125 Hz for respiration). The format
+    includes mechanisms for storing annotations marking significant events (QRS complexes in ECG, arrhythmia
+    episodes, alarm events) enabling labeled datasets for supervised machine learning. WFDB supports variable
+    precision (8-bit to 32-bit) and data compression reducing storage requirements. Applications in biomedical
+    data science and AI/ML include training deep learning models for arrhythmia detection, QRS detection,
+    heart rate variability analysis, and sepsis prediction from ICU waveforms; time series analysis where
+    physiological waveforms enable investigation of cardiovascular dynamics and autonomic nervous system
+    function; signal quality assessment where algorithms identify poor-quality recordings; event detection
+    where machine learning identifies clinically significant patterns (atrial fibrillation, ventricular
+    arrhythmias, apnea events); patient acuity prediction where waveform-derived features (heart rate variability,
+    pulse pressure variation) predict patient deterioration enabling early interventions; and waveform-based
+    diagnosis where patterns in physiological signals support clinical decision-making. Integration with the
+    MIMIC-III and MIMIC-IV databases provides large-scale publicly available ICU waveform datasets enabling
+    reproducible research and algorithm development. Open-source tools including PhysioNet WFDB software,
+    wfdb-python library, and specialized signal processing software provide comprehensive WFDB support. The
+    format facilitates research on physiological signal analysis supporting studies of cardiovascular dynamics,
+    respiratory mechanics, and neuromuscular function. WFDB enables creation of curated datasets with precise
+    temporal annotations supporting machine learning on physiological signals. The format has become standard
+    in critical care research enabling data sharing and collaborative algorithm development. Real-world clinical
+    deployment of WFDB-based algorithms improves patient monitoring in intensive care settings. Longitudinal
+    waveform analysis using WFDB data reveals circadian and longer-term physiological patterns. The format
+    supports multi-modal data collection combining waveforms with laboratory results, medications, and clinical
+    notes providing comprehensive patient context for machine learning model development.
   requires_registration: false
   url: https://wfdb.io/mimic_wfdb_tutorials/mimic/formatting.html
   used_in_bridge2ai: true
@@ -11721,10 +11753,35 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:19
   is_open: false
   name: LSM
-  purpose_detail: A proprietary image format based on TIFF.
-  requires_registration: false
-  responsible_organization:
-  - B2AI_ORG:101
+  purpose_detail: LSM (Laser Scanning Microscopy) is a proprietary image file format developed by Carl Zeiss
+    for storing high-dimensional imaging data from confocal and multiphoton laser scanning microscopy systems.
+    The format is based on TIFF (Tagged Image File Format) with proprietary extensions storing microscopy-specific
+    metadata and multi-dimensional image arrays. LSM files contain optical sections (z-slices) acquired at different
+    focal planes through specimens, enabling 3D reconstruction of cellular and tissue structures at sub-micrometer
+    resolution. The format stores multiple channels (wavelengths) captured simultaneously enabling multi-color
+    imaging of different fluorescent markers, time-lapse image sequences tracking dynamic cellular processes,
+    and associated metadata including microscope settings (laser power, pinhole size, detector gain), sample
+    staining information, acquisition parameters (pixel dwell time, frame averaging), and spatial calibration
+    (voxel size in x, y, z dimensions). LSM files typically include intensity image data, metadata in XML
+    format, and regions of interest (ROIs) and annotations. The proprietary nature of LSM limits direct
+    accessibility without Zeiss software or specialized converters. Applications in biomedical data science and
+    AI/ML include 3D image segmentation where deep learning models identify cellular structures and organelles
+    from 3D confocal image stacks; 3D reconstruction and visualization enabling quantitative morphology analysis;
+    image registration aligning z-stacks and multiple channels; deconvolution restoring blurred images; machine
+    learning-based image enhancement improving signal-to-noise ratio; cellular phenotyping where morphological
+    measurements derived from confocal images support classification into cell types or states; high-content
+    screening where automated image analysis of thousands of fields measures drug effects on cellular phenotypes;
+    and temporal dynamics analysis where time-lapse imaging reveals cellular processes (mitosis, migration,
+    apoptosis) enabling quantitative cell biology research. Integration with image analysis platforms including
+    Fiji/ImageJ (with LSM reader plugin), Python libraries (python-bioformats, aicsimageio), and specialized
+    microscopy software enables LSM data access and processing. Format conversion tools export LSM to standard
+    formats (OME-TIFF, HDF5) facilitating interoperability. LSM data enables research on cell biology, developmental
+    biology, neuroscience, and cancer biology. Real-world applications include drug screening, genetic studies,
+    and tissue engineering research leveraging high-resolution 3D imaging. The format's proprietary nature motivates
+    community adoption of open standards like OME-TIFF for long-term data preservation and accessibility. Challenges
+    include file size (multi-gigabyte datasets), computational requirements for 3D image analysis, and vendor
+    dependency limiting reproducible analysis and data sharing. LSM represents important biomedical imaging data
+    from cutting-edge microscopy systems supporting hypothesis-driven research and translational studies.
   url: https://openwetware.org/wiki/Dissecting_LSM_files
 - id: B2AI_STANDARD:308
   category: B2AI_STANDARD:DataStandard
@@ -15746,7 +15803,38 @@ data_standardortools_collection:
   is_open: true
   name: CHIRO
   publication: doi:10.26434/chemrxiv.12591221.v1
-  purpose_detail: A distinct role hierarchy for chemicals.
+  purpose_detail: The CHEBI Integrated Role Ontology (CHIRO) is a hierarchical classification of chemical
+    entity roles extending the Chemical Entities of Biological Interest (CHEBI) ontology. CHIRO provides
+    standardized semantic descriptions of functional roles that chemical compounds play in biological
+    systems, enabling more precise chemical nomenclature and improved chemical entity identification and
+    reasoning in biomedical research. The ontology distinguishes between what a chemical substance is
+    (chemical structure, CHEBI class) and what role it plays (function in biological systems), addressing
+    the limitation that CHEBI's primary focus is chemical structure classification. CHIRO includes role
+    hierarchies for common chemical functions including protein roles (enzymes, receptors, structural
+    proteins), signaling molecule roles (hormones, neurotransmitters, growth factors), metabolite roles
+    (substrates, products, cofactors), drug roles (therapeutic agents, diagnostic agents, toxins), and
+    biological process modifier roles (inhibitors, activators, modulators). Each role is formally defined
+    with relationships to biological processes, molecular targets, and phenotypic outcomes. CHIRO integrates
+    with other biomedical ontologies including Gene Ontology (GO) for biological processes, Disease
+    Ontology (DOID) for disease associations, and Protein Ontology for protein targets. Applications in
+    biomedical data science and AI/ML include drug discovery and pharmacology where CHIRO enables semantic
+    search for compounds with specific pharmacological roles (kinase inhibitors, dopamine agonists); chemical
+    annotation of literature where natural language processing extracts chemical mentions and CHIRO helps
+    classify their roles from context; chemical database curation where standardized role classifications
+    improve data quality; knowledge graph construction integrating chemical entities, their roles, biological
+    targets, and disease associations; machine learning for drug repurposing where CHIRO-based chemical role
+    similarity enables identification of candidate drugs for new indications; metabolomics data annotation
+    where metabolite roles help interpret biological significance; synthetic biology where CHIRO enables design
+    of synthetic circuits with defined chemical signals; and toxicology where chemical roles predict potential
+    adverse effects. Integration with chemical informatics platforms and databases enables CHIRO-based searches
+    and reasoning. CHIRO supports computational methods including ontology-based classification of novel
+    chemicals, logical inference deriving implicit role relationships, and semantic similarity computation
+    between chemicals based on role hierarchies. The ontology actively incorporates emerging chemical biology
+    concepts including epigenetic regulators, synthetic biology parts, and novel therapeutic modalities. CHIRO
+    development involved collaboration with chemistry, pharmacology, and bioinformatics experts ensuring
+    chemical and biological accuracy. Real-world applications span drug development, environmental chemistry,
+    and systems biology research where precise chemical role specification improves understanding of
+    chemistry-biology interfaces.
   requires_registration: false
   url: https://github.com/obophenotype/chiro
 - id: B2AI_STANDARD:418
@@ -17117,8 +17205,35 @@ data_standardortools_collection:
   is_open: true
   name: GO
   publication: doi:10.1093/nar/gkaa1113
-  purpose_detail: Function of genes and gene products.
-  requires_registration: false
+  purpose_detail: The Gene Ontology (GO) is a comprehensive, standardized vocabulary for describing gene and
+    gene product functions, cellular locations, and biological roles enabling semantic annotation of genomic
+    and proteomic data across species and experimental contexts. GO provides a machine-readable, hierarchically
+    organized controlled vocabulary enabling computational analysis of biological processes, molecular mechanisms,
+    and cellular functions. The ontology consists of three independent vocabularies: Biological Process (BP)
+    describing outcomes or goals accomplished by one or more ordered assemblies of molecular functions; Molecular
+    Function (MF) describing the biochemical activities of gene products (catalytic activity, binding, transport);
+    and Cellular Component (CC) describing locations where gene products function (nucleus, ribosome, extracellular
+    matrix, cytoplasm). Each GO term is defined with a unique identifier, natural language definition, and formal
+    relationships to other terms (is_a, part_of, regulates) enabling automated reasoning and traversal of functional
+    hierarchies. GO annotations link genes and proteins to GO terms with evidence codes indicating supporting evidence
+    type (Inferred from Experiment, Inferred from Sequence Similarity, Curated, Computational Inference). GO serves as
+    the de facto standard for gene function annotation across genomic databases and is used by major resources including
+    NCBI Gene, Ensembl, UniProt, and the Gene Ontology Consortium. Applications in biomedical data science and AI/ML
+    include functional annotation of novel genes where sequence similarity to characterized genes suggests GO functional
+    annotations; enrichment analysis identifying GO terms overrepresented in gene lists from genome-wide association
+    studies, expression experiments, or interaction networks; functional classification of genes supporting hypothesis
+    generation; knowledge graph construction integrating genes, proteins, diseases, and functions; machine learning for
+    predicting gene function from sequence, structure, or interaction data; natural language processing on biomedical
+    literature where GO enables extraction and normalization of functional descriptions; computational systems biology
+    where GO-annotated networks enable simulation of biological processes; and phenotype-genotype association studies
+    where GO terms mediate connections between molecular mechanisms and observable traits. GO enables cross-species
+    comparative biology identifying conserved functions across organisms. The ontology supports hypothesis-driven research
+    by enabling precise specification of biological processes under investigation. Integration with analysis platforms
+    including R packages (GOstats, clusterProfiler), Python libraries (goatools, py-geneontology), and web-based tools
+    enables GO-based enrichment analysis. GO annotations enable development of predictive models linking genetic variation
+    to functional consequences. Real-world applications span all areas of biological research including transcriptomics,
+    proteomics, systems biology, and translational research. GO facilitates reproducible research through standardized
+    functional terminology. Continuous community curation maintains GO accuracy as biological knowledge advances.
   url: http://geneontology.org/
 - id: B2AI_STANDARD:455
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -17444,8 +17559,37 @@ data_standardortools_collection:
   - B2AI_ORG:40
   is_open: true
   name: HL7 Vocabulary
-  purpose_detail: An index to the HL7-supported Code Systems.
-  requires_registration: false
+  purpose_detail: HL7 Vocabulary is a comprehensive index and registry of standardized code systems and value
+    sets used within HL7 (Health Level 7) messaging standards, clinical document standards (CDA), and FHIR
+    (Fast Healthcare Interoperability Resources) for healthcare data exchange. The HL7 Vocabulary provides
+    curated, harmonized references to code systems from international standards bodies and widely-adopted
+    healthcare coding systems enabling consistent representation of clinical and administrative data across
+    healthcare systems. HL7 Vocabulary consolidates mappings and alignments between related code systems
+    (ICD-10-CM, SNOMED CT, LOINC, RxNorm, CPT, NDC, HL7 internal code tables) enabling semantic interoperability
+    across systems using different coding schemes. The vocabulary includes HL7-specific code tables defining
+    values for data elements (administrative gender, marital status, vital status, visit types) and mappings
+    enabling translation between HL7 code tables and standardized code systems. Each HL7 Vocabulary entry
+    includes the code system name, OID (Object Identifier) for machine-readable reference, version information,
+    governing body, maintenance status, and relationships to other code systems. Applications in biomedical
+    data science and AI/ML include healthcare data integration where HL7 Vocabulary enables mapping of clinical
+    data from diverse EHR systems using different internal coding schemes to standard terminology enabling
+    federated analysis; clinical data warehouses where HL7 Vocabulary supports translation of data from multiple
+    source systems into unified data models; natural language processing on clinical documents where HL7 Vocabulary
+    enables post-processing validation and normalization of extracted codes; knowledge graphs integrating healthcare
+    data where standardized terminology from HL7 Vocabulary enables semantic traversal; machine learning model
+    development where consistent terminology improves model generalization across patient populations and healthcare
+    systems; clinical decision support where HL7 Vocabulary enables precise specification of clinical decision logic
+    and evidence; and semantic interoperability testing where HL7 Vocabulary supports validation of code mappings.
+    HL7 Vocabulary supports all HL7 versions including v2.x (traditional messaging), v3 (XML-based), and FHIR
+    (RESTful API). Integration with standards development tools enables automated validation of terminology usage.
+    HL7 Vocabulary maintenance involves collaboration with code system owners ensuring accuracy and currency.
+    Regular updates incorporate new codes as healthcare practices and clinical knowledge evolve. The vocabulary
+    actively supports emerging healthcare needs including novel therapies, genomic testing, and digital health
+    technologies. Web-based tools and APIs enable programmatic access to HL7 Vocabulary enabling automated
+    terminology validation and mapping. The vocabulary facilitates international healthcare standards adoption
+    enabling countries to adopt HL7 standards while respecting local coding system requirements. Real-world
+    deployment of HL7-standardized systems demonstrates improved interoperability, reduced implementation
+    complexity, and enhanced data quality compared to custom mappings.
   url: https://www.hl7.org/documentcenter/public/standards/vocabulary/vocabulary_tables/infrastructure/vocabulary/vocabulary.html#voc-systems
 - id: B2AI_STANDARD:463
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -17684,7 +17828,38 @@ data_standardortools_collection:
   formal_specification: https://github.com/information-artifact-ontology/IAO
   is_open: true
   name: IAO
-  purpose_detail: An ontology of information entities.
+  purpose_detail: The Information Artifact Ontology (IAO) is a formal ontology for describing information
+    entities and their relationships, providing standardized vocabulary for representing documents, data,
+    measurements, and other information artifacts used in biomedical research and healthcare. IAO extends
+    the Basic Formal Ontology (BFO) adding specializations relevant to information science enabling precise
+    semantic representation of documents, electronic health records, research papers, datasets, and other
+    information-bearing entities. The ontology defines abstract information entities (information content
+    entity, document, data item) and specializations relevant to specific domains (journal article, clinical
+    note, laboratory result, diagnostic image). IAO includes relationships describing how information relates
+    to physical entities it describes (has_subject, is_about, represents) enabling representation of complex
+    document and data provenance. Each IAO concept includes formal definition, annotations describing usage,
+    and logical relationships supporting automated reasoning. Applications in biomedical data science and AI/ML
+    include document classification where IAO types enable automated categorization of biomedical literature
+    (journal articles, case reports, clinical guidelines); information extraction from biomedical text where
+    IAO concepts structure extraction targets (abstract, methods, results, conclusions); electronic health
+    record modeling where IAO provides formal representations of clinical documents and their components
+    (patient summaries, problem lists, medication lists); metadata specification where IAO defines what
+    information should accompany datasets improving data discoverability; knowledge representation where IAO
+    provides formal vocabulary for describing information structure and content; natural language processing
+    where IAO guides entity recognition and relationship extraction; and document provenance tracking where
+    IAO enables representation of document creation, modification, and authorship. Integration with other
+    biomedical ontologies including OBI (Ontology for Biomedical Investigations) for experimental information,
+    PATO (Phenotype and Trait Ontology) for observable characteristics, and domain-specific ontologies enables
+    comprehensive semantic annotation of biomedical information. IAO supports FAIR data principles enabling
+    machine-readable documentation of data structure and content improving Findability and Interoperability.
+    The ontology facilitates development of information management systems where IAO-based schema definitions
+    guide system architecture. IAO representations support automated validation ensuring information completeness
+    and quality. The ontology actively evolves incorporating emerging information types including genomic data,
+    imaging biomarkers, and real-world evidence. IAO development involves collaboration with information science,
+    ontology, and biomedical informatics experts. Real-world applications span clinical informatics, translational
+    research informatics, and scientific publishing where standardized information representation improves
+    reproducibility and knowledge dissemination. Integration with computational tools enables IAO-based
+    information retrieval and analysis.
   requires_registration: false
   url: https://github.com/information-artifact-ontology/IAO
 - id: B2AI_STANDARD:473
@@ -17700,8 +17875,35 @@ data_standardortools_collection:
   formal_specification: https://github.com/ICO-ontology/ICO
   is_open: true
   name: ICO
-  purpose_detail: An ontology of clinical informed consents
-  requires_registration: false
+  purpose_detail: The Informed Consent Ontology (ICO) is a formal ontology for representing and standardizing
+    information content in clinical research informed consent documents and processes, enabling machine-readable
+    documentation of consent elements, study information disclosures, and participant understanding. ICO provides
+    structured representation of informed consent components including study title and identifier, research purpose
+    and objectives, participant population and selection criteria, study procedures and visit schedules, risks and
+    benefits assessments, confidentiality and data privacy provisions, compensation and injury compensation clauses,
+    contact information for study investigators and safety monitoring, participant rights and withdrawal information,
+    and recruitment and voluntary participation statements. The ontology defines relationships between consent
+    elements, their logical dependencies, and dependencies on study characteristics enabling automated validation
+    of consent completeness and consistency. ICO enables standardized consent template development where common elements
+    are consistently represented across consent documents. Each ICO concept includes formal definition, requirements
+    for consent documentation, and evidence from regulatory guidance (FDA, ICH, institutional requirements). Applications
+    in biomedical data science and AI/ML include automated consent analysis where natural language processing extracts
+    ICO-structured elements from unstructured consent documents; consent quality assessment where missing or inadequately
+    described ICO elements are identified; research data governance where ICO-represented consent scope guides permissible
+    data uses and secondary research; participant cohort identification where ICO elements defining eligible populations
+    support recruitment; regulatory compliance assessment where ICO enables verification that consents meet regulatory
+    requirements; knowledge graphs representing study designs and consent scope where ICO provides formal consent
+    semantics; machine learning for consent template generation suggesting appropriate elements for studies; and
+    multicenter research harmonization where ICO enables alignment of consent documents across institutions. Integration
+    with electronic consent systems enables dynamic, interactive consent interfaces where participants review ICO-structured
+    information at appropriate cognitive level. ICO supports assessment of participant understanding where comprehension
+    questions aligned with ICO consent elements verify understanding. The ontology facilitates research data sharing
+    governance where ICO-documented consent scope enables automated determination of permissible secondary uses. ICO
+    addresses emerging challenges including digital health data collection, genetic testing, and international research
+    where different regulatory requirements govern consent. Development involved collaboration with research ethics,
+    regulatory science, informatics, and clinical research experts. Real-world deployment in clinical research networks
+    improves consent quality and participant understanding. Integration with IRB systems and clinical research software
+    enables ICO-based consent documentation and compliance tracking.
   url: https://github.com/ICO-ontology/ICO
 - id: B2AI_STANDARD:474
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -19084,8 +19286,34 @@ data_standardortools_collection:
   is_open: true
   name: OHD
   publication: doi:10.1186/s13326-020-00222-0
-  purpose_detail: Content of dental practice health records.
-  requires_registration: false
+  purpose_detail: The Oral Health and Disease Ontology (OHD) is a comprehensive, formal ontology for standardizing
+    and representing information from dental and oral health records, enabling semantic interoperability and structured
+    data sharing in dentistry and oral health research. OHD provides standardized vocabulary for describing dental
+    procedures, oral diseases, dental findings, patient demographics, and clinical outcomes extracted from electronic
+    dental records, supporting integration of dental data with broader clinical information. The ontology includes
+    hierarchical classifications of oral diseases (caries, periodontitis, oral cancer, temporomandibular disorders),
+    dental procedures (restorations, extractions, periodontal treatments, implant placement), dental anatomical features
+    (tooth numbering systems, tooth surfaces, periodontal attachment), clinical examination findings (plaque, calculus,
+    bleeding, pocket depths, mobility), treatment materials (amalgam, composite, metals, bone grafts), and patient
+    outcomes (tooth survival, implant success, patient satisfaction). OHD integrates with established ontologies including
+    SNOMED CT for clinical findings, Foundational Model of Anatomy (FMA) for dental anatomy, and Disease Ontology for
+    disease classification. Applications in biomedical data science and AI/ML include clinical decision support where
+    OHD enables representation of treatment recommendations based on dental diagnoses; predictive modeling of treatment
+    outcomes where standardized OHD-annotated treatment and outcome data enable machine learning models predicting success
+    rates; epidemiology of oral disease where standardized OHD disease definitions enable population-level surveillance
+    and risk factor analysis; dental research data integration where multi-site dental studies use OHD for harmonized data
+    sharing; natural language processing on dental records where OHD guides extraction of clinical information from
+    unstructured narrative; knowledge graphs integrating dental findings, treatments, and outcomes with patient
+    characteristics; dental quality improvement where standardized OHD metrics enable comparison of treatment quality
+    across practices; and dental education where OHD provides standardized terminology for teaching dental concepts.
+    Integration with electronic dental record systems enables OHD-based data capture and clinical decision support.
+    OHD enables dental practice interoperability where practices using different EHR systems can exchange standardized
+    patient records. The ontology facilitates dental research enabling meta-analyses across studies using standardized
+    OHD outcome definitions. OHD actively incorporates emerging oral health topics including implant dentistry, sleep
+    apnea associations, and oral cancer screening. Development involved collaboration with dental professionals, dentistry
+    researchers, and informatics experts ensuring clinical relevance. Real-world deployment in dental research networks
+    improves data quality and research efficiency. OHD positions dentistry as part of integrated healthcare enabling
+    connection of oral health with systemic health outcomes.
   url: https://github.com/oral-health-and-disease-ontologies/ohd-ontology
 - id: B2AI_STANDARD:528
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -24193,27 +24421,36 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:33
   is_open: true
   name: PyTorch
-  purpose_detail: A popular machine learning platform.
-  related_to:
-  - B2AI_STANDARD:354
-  requires_registration: false
+  purpose_detail: PyTorch is an open-source machine learning and deep learning framework built on Python providing
+    dynamic computational graphs, automatic differentiation, and GPU acceleration enabling efficient development and
+    deployment of neural networks and machine learning models. PyTorch provides intuitive APIs allowing researchers and
+    practitioners to define complex neural network architectures using imperative programming style where code executes
+    immediately, contrasting with static graph frameworks enabling rapid prototyping and debugging. The framework includes
+    extensive libraries for computer vision (torchvision), natural language processing (torchtext), audio processing
+    (torchaudio), and reinforcement learning (torchRL) supporting diverse machine learning applications. PyTorch enables
+    automatic differentiation computing gradients for backpropagation through arbitrary computation graphs, supporting
+    flexible model architectures not possible with static graph systems. GPU acceleration via CUDA and AMD ROCm enables
+    training large models on high-performance hardware. PyTorch includes optimization algorithms (SGD, Adam, RMSprop),
+    loss functions, and regularization techniques for model training. Applications in biomedical data science and AI/ML
+    include medical image analysis where PyTorch powers convolutional neural networks for imaging tasks (segmentation,
+    classification, registration); natural language processing on biomedical literature and clinical notes where transformers
+    trained in PyTorch enable information extraction and named entity recognition; genomics where PyTorch enables deep
+    learning on genomic sequences and structures; drug discovery where neural networks trained in PyTorch predict molecular
+    properties and candidate compounds; medical time series analysis where recurrent neural networks process physiological
+    signals enabling patient monitoring; and fairness and explainability research where PyTorch facilitates investigation
+    of machine learning model biases. Integration with Jupyter notebooks enables interactive exploration and visualization.
+    PyTorch supports distributed training across multiple GPUs and machines enabling efficient training of large models.
+    Model deployment is supported through TorchScript enabling model serialization and deployment in production systems.
+    PyTorch research applications span all areas of machine learning with particular strength in computer vision and NLP.
+    The open-source community contributes pre-trained models, utility libraries, and domain-specific tools accelerating
+    research and development. PyTorch dominance in academic machine learning research ensures alignment between published
+    algorithms and production-ready implementations. Integration with cloud platforms enables scalable training and inference.
+    Real-world biomedical applications deploying PyTorch models demonstrate clinical utility improving diagnostic accuracy
+    and patient outcomes. PyTorch continues evolving incorporating emerging research including federated learning, privacy-preserving
+    machine learning, and neural architecture search. Active development ensures compatibility with latest hardware and software
+    dependencies. PyTorch community support through documentation, tutorials, and forums facilitates adoption in research and
+    clinical applications.
   url: https://pytorch.org/
-  has_application:
-  - id: B2AI_APP:76
-    category: B2AI:Application
-    name: Deep Learning for Biomedical Research and Clinical AI
-    description: PyTorch is the dominant framework for biomedical AI research, used
-      extensively for developing deep learning models across medical imaging, genomics,
-      drug discovery, and clinical prediction. Researchers leverage PyTorch's dynamic
-      computational graphs, extensive ecosystem (torchvision, torchaudio, TorchIO),
-      and pretrained models to build custom neural architectures for tasks like cancer
-      detection in pathology images, protein structure prediction, medical report
-      generation, and patient outcome forecasting. PyTorch's flexibility enables rapid
-      prototyping of novel architectures, its strong academic community supports reproducible
-      research through shared model implementations, and its production deployment
-      tools (TorchServe, TorchScript) facilitate clinical translation of research
-      models.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:817
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -26636,7 +26873,36 @@ data_standardortools_collection:
   - B2AI_ORG:118
   is_open: true
   name: GSCID/BRC CMS v1.5
-  purpose_detail: A general standard for clinical metadata.
+  purpose_detail: The GSCID/BRC Clinical Metadata Standard (CMS) v1.5 is a comprehensive standardized framework
+    for organizing, documenting, and annotating clinical research metadata developed by the Genomics and Sequencing
+    Centers in Infectious Diseases (GSCID) and Biorepository Resource Centers (BRC) consortium. The CMS provides
+    structured specifications for capturing essential clinical and research information enabling harmonized data
+    management across distributed research networks and biorepositories. CMS v1.5 includes detailed specifications
+    for subject demographics and identification, medical history and comorbidities, disease diagnosis and progression,
+    treatment and medication administration, laboratory results and clinical measurements, specimen collection and
+    processing, genomic data and sequencing information, phenotype descriptions, and outcome measurements. The standard
+    provides controlled vocabularies and value sets for common data elements enabling consistent representation across
+    research sites. CMS supports multiple data collection scenarios including prospective clinical research, retrospective
+    chart abstraction, and biorepository data harmonization. The standard specifies data element definitions, permissible
+    values, data types, units of measurement, and relationships between related elements. Integration with emerging standards
+    including FHIR, CDISC, and GA4GH enables interoperability with broader healthcare and genomics data ecosystems. Applications
+    in biomedical data science and AI/ML include multicenter research data harmonization where CMS-standardized metadata enables
+    integration of data across GSCID/BRC sites supporting consortium-wide analyses; federated machine learning where standardized
+    metadata ensures consistency enabling collaborative model development; infectious disease surveillance where harmonized clinical
+    and genomic data from multiple sites enable outbreak investigations and epidemiological studies; precision medicine where
+    standardized phenotypic and genomic information guides treatment selection; biobank sample discovery where CMS-indexed
+    clinical metadata enables researcher queries for specimen cohorts; natural language processing training on standardized
+    clinical narratives; knowledge graph construction integrating clinical, genomic, and treatment data; and clinical research
+    network operations where standardized data reduces data quality issues and accelerates research. CMS v1.5 specifically supports
+    infectious disease research including HIV, tuberculosis, and emerging infectious diseases with disease-specific extensions.
+    The standard facilitates compliance with NIH requirements for data sharing and management plans. Integration with electronic
+    data capture systems enables automated CMS-compliant data collection reducing manual entry errors. CMS supports longitudinal
+    data collection tracking patient outcomes over time. The standard actively evolves incorporating feedback from research sites
+    and emerging research requirements. Development involved collaboration with infectious disease specialists, clinical research
+    coordinators, bioinformaticians, and data managers ensuring practical applicability. CMS deployment across GSCID/BRC
+    consortium sites demonstrates feasibility and utility for large-scale biorepository and clinical research operations. Real-world
+    applications including COVID-19 research coordination and HIV cohort studies demonstrate CMS effectiveness for managing complex
+    clinical and genomic data supporting precision medicine research.
   requires_registration: false
   url: https://www.niaid.nih.gov/research/clinical-metadata-standard
 - id: B2AI_STANDARD:877
