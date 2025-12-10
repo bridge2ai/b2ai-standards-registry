@@ -1631,7 +1631,45 @@ data_standardortools_collection:
   formal_specification: https://evs.nci.nih.gov/ftp1/CDISC/Protocol/
   is_open: true
   name: CDISC Protocol
-  purpose_detail: Controlled terminology for biomedical protocols.
+  purpose_detail: The CDISC Protocol Controlled Terminology (Protocol CT) provides a standardized,
+    machine-readable vocabulary for annotating and describing critical elements of clinical trial
+    and biomedical research protocols. This controlled terminology enables consistent representation
+    of protocol design decisions, study objectives, population characteristics, treatment assignments,
+    and measurement specifications across diverse clinical research contexts. CDISC Protocol CT
+    facilitates semantic interoperability by providing standard terms for describing study phases
+    (Phase I through Phase IV, IND-enabling studies), therapeutic indications, patient population
+    inclusion/exclusion criteria, randomization methods, blinding approaches, study arms and treatment
+    assignments, dosing regimens, assessment timepoints, primary and secondary endpoints, safety
+    monitoring parameters, and data collection schedules. Each terminology entry includes formal
+    definitions, synonyms, relationships to biomedical concepts, and mappings to related controlled
+    vocabularies including FDA MedDRA for adverse events, CDISC Controlled Terminology domains (LOINC
+    for lab tests, SNOMED CT for procedures, RxNorm for medications), and ISO standards. Applications
+    in biomedical data science and AI/ML include automated protocol parsing and entity recognition
+    from unstructured clinical trial protocol documents where CDISC Protocol CT terms enable machine
+    identification of study design elements; clinical trial matching systems where standardized protocol
+    terms enable semantic similarity calculations between patient characteristics and study eligibility
+    criteria improving patient recruitment; electronic protocol authoring tools where CDISC Protocol CT
+    provides autocomplete and validation ensuring protocols are written using standard terminology from
+    protocol inception; regulatory submission standardization where submission documents can embed
+    CDISC Protocol CT annotations supporting FDA and EMA review processes; study metadata harmonization
+    across clinical trial networks where Protocol CT enables standardized representation of study designs
+    facilitating meta-analyses and integrative analyses combining data from multiple trials; machine
+    learning models for trial design optimization where historical CDISC Protocol CT-annotated protocols
+    train systems to suggest design choices based on therapeutic area and patient populations; natural
+    language processing on protocol synopsis and amendment documents where Protocol CT vocabulary enables
+    extraction of key design modifications and compliance tracking; and knowledge graphs representing
+    relationships between protocol design choices (e.g., randomization methods associated with specific
+    therapeutic areas, blinding strategies linked to drug classes, assessment frequency correlated with
+    adverse event risks). Integration with broader CDISC standards including the Protocol Representation
+    Model (which provides XML schemas for protocol structure) creates comprehensive infrastructure where
+    Protocol CT vocabulary populates structured fields in computer-readable protocols. The terminology
+    supports development of "smart protocols" where machine-actionable specifications enable automated
+    checking of protocol compliance during trial execution, automated generation of case report forms
+    aligned with protocol requirements, and computational validation that collected data matches protocol-specified
+    endpoints and assessment schedules. CDISC Protocol CT continues evolving to incorporate emerging
+    therapeutic approaches including adaptive trial designs, basket trials for multiple cancer types,
+    N-of-1 precision medicine studies, real-world evidence protocols combining RCT elements with observational
+    data collection, and remote/decentralized clinical trials with digital health technologies.
   related_to:
   - B2AI_STANDARD:41
   - B2AI_STANDARD:43
@@ -6309,7 +6347,44 @@ data_standardortools_collection:
   description: ITU H.810, H.811, H.812, H.812.5, and H.813
   is_open: true
   name: ITU-T E-health
-  purpose_detail: Standards for medical device communication.
+  purpose_detail: The International Telecommunication Union Telecommunication Standardization
+    Sector (ITU-T) E-health standards (H.810, H.811, H.812, H.812.5, and H.813) provide
+    comprehensive technical specifications for secure, interoperable communication and
+    data exchange in remote healthcare delivery and medical device systems. These standards
+    define protocols, architectures, and quality of service requirements enabling safe and
+    effective delivery of healthcare services over telecommunication networks including the
+    internet and mobile networks. H.810 (home-based telemedicine systems architecture) specifies
+    end-to-end frameworks for patient monitoring, consultation, and diagnosis at remote locations;
+    H.811 defines general models and protocols for multimedia communication in medical services;
+    H.812 establishes requirements for health-related telecommunication services; H.812.5
+    provides specifications for accessibility and adaptive communication interfaces supporting
+    users with disabilities or special needs in telehealth systems; and H.813 addresses
+    advanced features including privacy-preserving data transmission, authentication mechanisms,
+    and interoperability requirements. These standards collectively address critical technical
+    challenges in e-health including secure transmission of protected health information (PHI)
+    over unsecured networks using encryption standards, reliable connectivity and redundancy
+    for mission-critical health applications, quality assurance and latency requirements for
+    real-time diagnostic imaging and remote surgery, interoperability between heterogeneous
+    medical devices and health information systems from different manufacturers, and accessibility
+    for patients with sensory or motor impairments. Applications in biomedical data science and
+    AI/ML include standardized data formats enabling machine learning models trained on data
+    collected across diverse telehealth platforms; remote patient monitoring systems where
+    ITU-T standards ensure reliable transmission of continuous vital sign data from wearable
+    sensors enabling anomaly detection and early warning algorithms; automated triage systems
+    using machine learning to prioritize patient consultations based on symptom severity transmitted
+    via standardized formats; clinical decision support systems where telemedicine-collected data
+    standardized by ITU-T specifications improves predictive accuracy; federated learning across
+    geographically distributed telehealth providers where standardized data exchange protocols
+    enable collaborative training of machine learning models while preserving patient privacy;
+    epidemiological surveillance where standardized data from telehealth encounters enable rapid
+    identification of disease outbreaks and public health emergencies; and deployment of AI
+    diagnostic tools (e.g., chest X-ray interpretation, retinal imaging analysis) across
+    remote healthcare settings with standardized data formats improving model generalization.
+    ITU-T E-health standards facilitate global deployment of telehealth infrastructure especially
+    in resource-limited settings by defining minimal technical requirements and providing flexibility
+    in implementation. Integration with emerging technologies including 5G networks, edge computing,
+    and Internet of Medical Things (IoMT) ensures these standards remain relevant as healthcare
+    delivery increasingly shifts toward remote, distributed, and real-time monitoring paradigms.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:50
@@ -13208,7 +13283,50 @@ data_standardortools_collection:
   formal_specification: https://github.com/OAI/OpenAPI-Specification/
   is_open: true
   name: OpenAPI
-  purpose_detail: Standard for describing program interfaces.
+  purpose_detail: The OpenAPI Specification is a machine-readable standard for formally
+    describing RESTful application programming interfaces (APIs) in a language-agnostic,
+    vendor-neutral format that enables automated generation of API documentation, client
+    software development kits (SDKs), server stubs, and validation tools. OpenAPI (formerly
+    known as Swagger) provides a comprehensive vocabulary for documenting API endpoints,
+    request/response payloads, authentication mechanisms, error handling, and server connectivity
+    information using JSON or YAML syntax. An OpenAPI specification document describes all
+    available operations exposed by an API including HTTP method (GET, POST, PUT, DELETE),
+    URL path with parameter definitions, expected input parameters and their types, request
+    body schema defining data structure and validation rules, response status codes with
+    corresponding data schemas, security requirements (API keys, OAuth 2.0, mutual TLS),
+    and semantic documentation of business logic. The specification includes mechanisms for
+    defining reusable data models (OpenAPI schemas) representing common entities like patient
+    records, laboratory results, medication information, enabling consistent representation
+    across multiple endpoints; standardized error response formats with problem codes and
+    descriptions supporting automated error handling in client applications; pagination and
+    filtering specifications for list endpoints returning large result sets; rate limiting
+    information documenting API usage quotas; and deprecation notices enabling smooth API
+    evolution. Applications in biomedical data science and AI/ML include automatic generation
+    of FAIR data access layers where OpenAPI specifications describe standardized interfaces
+    for querying genomic, clinical, and phenotypic databases improving data discoverability
+    and accessibility; semantic interoperability between biomedical data repositories where
+    OpenAPI schemas define canonical representations of clinical observations, molecular
+    assays, and imaging metadata enabling federated queries across distributed data sources;
+    clinical data integration pipelines where OpenAPI specifications guide ETL (extract-transform-load)
+    processes ensuring data extracted from diverse electronic health record systems conforms
+    to standardized schemas; machine learning feature engineering where OpenAPI-documented
+    data schemas clarify variable definitions, units of measurement, and valid value ranges
+    enabling automated feature extraction and encoding; natural language processing where
+    OpenAPI documentation provides ground truth for entity recognition and relationship extraction
+    from biomedical text; containerized microservices architectures where OpenAPI specifications
+    enable independent teams to develop analysis services (variant annotation, clinical trial
+    matching, drug-drug interaction checking) with standardized interfaces facilitating service
+    composition and orchestration; and knowledge graph construction from heterogeneous biomedical
+    data sources where OpenAPI documentation provides schema information guiding semantic mapping
+    and ontology alignment. The specification supports API versioning allowing graceful evolution
+    as data models and analysis capabilities advance; server-side specification generation from
+    domain models enables tight coupling between data schemas and API implementations reducing
+    inconsistencies; and client-side code generation from specifications accelerates development
+    of analysis tools and data visualization dashboards. Integration with containerized environments
+    (Docker, Kubernetes) enables deployment of OpenAPI-specified services as microservices supporting
+    scalable, cloud-native architecture for biomedical data analysis. OpenAPI has become the de facto
+    standard for documenting REST APIs in bioinformatics tools and biomedical data repositories,
+    enabling programmatic access and integration supporting the broader vision of FAIR data principles.
   requires_registration: false
   url: https://spec.openapis.org/oas/latest.html
 - id: B2AI_STANDARD:359
@@ -15058,7 +15176,49 @@ data_standardortools_collection:
   is_open: true
   name: ARO
   publication: doi:10.1093/nar/gkz935
-  purpose_detail: Antibiotic resistance genes and mutations
+  purpose_detail: The Antibiotic Resistance Ontology (ARO) is a comprehensive, machine-readable
+    vocabulary for standardizing and annotating antibiotic resistance genes, mutations, phenotypes,
+    and associated molecular mechanisms in bacterial pathogens. ARO provides formal semantic
+    representations of resistance mechanisms enabling computational systems to identify, classify,
+    and interpret antimicrobial resistance (AMR) from genomic and phenotypic data across diverse
+    bacterial species and clinical contexts. The ontology includes hierarchical classifications
+    of resistance genes (acquired resistance genes, intrinsic resistance genes, gene clusters),
+    specific genetic mutations conferring resistance (point mutations with specific amino acid
+    changes, insertions/deletions, promoter variants), protein families with known resistance
+    functions (beta-lactamases, aminoglycoside-modifying enzymes, tetracycline efflux pumps),
+    resistance mechanisms at molecular level (enzymatic inactivation, target modification, efflux
+    mechanisms, reduced uptake), antibiotic drug classes (beta-lactams, fluoroquinolones, macrolides,
+    tetracyclines, glycopeptides, aminoglycosides, rifamycins), and bacterial species/genera
+    carrying resistance determinants. Each ARO term includes formal definitions, hierarchical
+    relationships enabling traversal from specific mutations to broader resistance mechanisms,
+    cross-references to external databases (GenBank, RefSeq, NCBI Gene), literature citations,
+    and experimental evidence supporting resistance associations. Applications in biomedical
+    data science and AI/ML include automated identification of resistance genes from whole genome
+    sequences where ARO enables semantic annotation of genomic variants; machine learning models
+    for predicting phenotypic resistance (susceptible/resistant) from genotypic data where ARO
+    terms provide feature labels improving model interpretability; clinical decision support systems
+    where ARO-annotated resistance profiles guide empiric antibiotic selection for patients with
+    bacterial infections; epidemiological surveillance where standardized ARO annotations enable
+    tracking of resistance prevalence trends and identification of emerging resistance mechanisms
+    across hospital systems, regions, and globally; high-throughput resistance profiling where
+    ARO standardizes metadata from phenotypic testing platforms (broth microdilution, disk diffusion,
+    E-test) linking measured minimum inhibitory concentrations (MICs) to underlying genetic
+    mechanisms; whole genome sequencing interpretation pipelines where ARO-referenced resistance
+    genes detected in patient samples are automatically classified and ranked by clinical significance;
+    antimicrobial stewardship programs where standardized resistance information supports rational
+    antibiotic prescribing decisions and monitoring of resistance trends; and knowledge graphs
+    integrating resistance genotypes with bacterial taxonomy, virulence factors, and host factors
+    enabling systems-level understanding of pathogenesis. The ARO actively incorporates emerging
+    resistance mechanisms including novel beta-lactamases (carbapenemases like KPC, NDM, VIM,
+    OXA variants), colistin resistance mechanisms (mcr genes), and resistance to newer antibiotics
+    (cephalosporin-resistant Enterobacterales, vancomycin-resistant enterococci, linezolid resistance).
+    Integration with bioinformatics tools including CARD (Comprehensive Antibiotic Resistance Database)
+    supports implementation of standardized resistance detection and reporting. ARO development
+    involves antimicrobial stewardship, clinical microbiology, and genomics experts ensuring the
+    ontology reflects current best practices in resistance interpretation. The resource facilitates
+    global coordination on AMR surveillance enabling international sharing of resistance data with
+    standardized semantics supporting One Health initiatives addressing resistance in human medicine,
+    veterinary medicine, and agriculture.
   requires_registration: false
   url: https://github.com/arpcard/aro
 - id: B2AI_STANDARD:406
@@ -15261,7 +15421,46 @@ data_standardortools_collection:
   formal_specification: https://github.com/OpenLHS/CVDO
   is_open: true
   name: CVDO
-  purpose_detail: Entities related to cardiovascular diseases.
+  purpose_detail: The Cardiovascular Disease Ontology (CVDO) is a formally structured, machine-readable
+    vocabulary for standardizing and annotating entities, concepts, and relationships relevant to
+    cardiovascular disease (CVD) research and clinical practice. CVDO enables semantic interoperability
+    in cardiovascular health data by providing standardized representations of disease phenotypes,
+    pathophysiological mechanisms, risk factors, therapeutic interventions, and clinical outcomes
+    across diverse cardiovascular conditions and populations. The ontology encompasses comprehensive
+    coverage of cardiovascular disease entities including specific disease types (coronary artery
+    disease, myocardial infarction, heart failure with reduced/preserved ejection fraction, atrial
+    fibrillation, stroke, peripheral arterial disease, aortic disease, pulmonary hypertension, valvular
+    disease, arrhythmias), anatomical structures (coronary arteries, myocardium, endocardium, conduction
+    system, heart chambers, valves, aorta, carotid arteries), pathophysiological mechanisms (atherosclerosis
+    with plaque formation and rupture, endothelial dysfunction, inflammation, thrombosis, cardiac
+    hypertrophy, fibrosis, remodeling, arrhythmia mechanisms), risk factors (hypertension, dyslipidemia,
+    diabetes, smoking, obesity, sedentary lifestyle, genetic predisposition), biomarkers (cardiac
+    troponins, natriuretic peptides, C-reactive protein, lipoprotein markers, endothelial function
+    markers), diagnostic modalities (electrocardiography with interval/segment measurements, echocardiography
+    with chamber dimensions and functional parameters, cardiac imaging including coronary angiography,
+    cardiac CT, cardiac MRI), therapeutic approaches (medications by class and mechanism, device therapies,
+    revascularization procedures), and patient outcomes (mortality, rehospitalization, symptom improvement,
+    quality of life, exercise tolerance). Integration with other biomedical ontologies including the
+    Ontology for Biomedical Investigations (OBI) for study design specification, Gene Ontology (GO)
+    for biological processes in cardiovascular pathophysiology, and Disease Ontology (DOID) for disease
+    classification enables comprehensive annotation of cardiovascular research data. Applications in
+    biomedical data science and AI/ML include automated phenotyping of cardiovascular disease from
+    electronic health records where CVDO terms enable standardized definitions of disease presentations
+    across healthcare systems; machine learning models for cardiovascular risk prediction where CVDO-annotated
+    risk factors improve model interpretability and clinical actionability; clinical trial matching systems
+    where CVDO provides semantic frameworks for matching patients to trials based on cardiovascular phenotypes
+    and comorbidities; knowledge graph construction integrating genetic variants, drug targets, and
+    cardiovascular phenotypes where CVDO terms structure relationships between molecular mechanisms and
+    clinical presentations; natural language processing on cardiovascular literature where CVDO vocabulary
+    enables entity recognition and relationship extraction from published clinical trials and observational
+    studies; and decision support systems for cardiovascular disease management where CVDO-structured
+    evidence guides therapy selection. The ontology supports development of cardiovascular disease registries
+    and biobanks where standardized CVDO terms enable federated queries across institutions identifying
+    patient cohorts for research. CVDO actively incorporates emerging cardiovascular phenotypes and
+    mechanisms including takotsubo cardiomyopathy, immune-mediated myocarditis, cardiotoxicity from
+    cancer therapies, and cardiovascular complications of COVID-19. Integration with precision medicine
+    initiatives enables CVDO annotation of genetic variants affecting cardiovascular traits, pharmacogenomic
+    variants influencing drug response in cardiac medications, and biomarker-stratified treatment strategies.
   requires_registration: false
   url: https://github.com/OpenLHS/CVDO
 - id: B2AI_STANDARD:415
@@ -16039,7 +16238,43 @@ data_standardortools_collection:
   is_open: true
   name: EDAM
   publication: doi:10.1093/bioinformatics/btt113
-  purpose_detail: Data types, identifiers, and formats
+  purpose_detail: The EMBRACE Data And Methods Ontology (EDAM) is a comprehensive, hierarchically
+    organized vocabulary for standardizing and annotating bioinformatics data types, computational
+    operations, topics, identifiers, and file formats used in biological research, genomics, proteomics,
+    and biomedical data science. EDAM provides formal, machine-readable representations of the
+    conceptual entities in bioinformatics enabling automated discovery, integration, and interpretation
+    of bioinformatics tools, databases, and analysis pipelines. The ontology encompasses standardized
+    descriptions of bioinformatics data types (DNA sequences, protein sequences, structures, alignments,
+    phylogenetic trees, gene expression matrices, variant calls, pathway representations), computational
+    operations (sequence alignment, phylogenetic analysis, variant calling, expression quantification,
+    pathway analysis, structure prediction), file formats (FASTA, FASTQ, BAM, VCF, SAM, GTF, GFF,
+    PDB, and hundreds more), biological identifiers (NCBI Gene, Ensembl, HGNC, UniProt, UniRef),
+    data topics (genomics, transcriptomics, proteomics, metabolomics, metagenomics, systems biology),
+    and computational techniques (machine learning, statistical analysis, network analysis). EDAM
+    provides multiple organizational hierarchies enabling navigation by data type, operation, topic,
+    or identifier, with cross-links between related concepts. Each term includes formal definitions,
+    synonyms, hierarchical parent/child relationships, and cross-references to external resources.
+    Applications in biomedical data science and AI/ML include tool annotation and automated discovery
+    where EDAM terms enable semantic search and automatic identification of analysis tools matching
+    specified data types and operations; workflow composition where EDAM annotations on tool inputs/outputs
+    enable automated matching of upstream outputs to downstream inputs composing reproducible analysis
+    pipelines; data integration where EDAM standardizes metadata annotation enabling identification of
+    semantically equivalent datasets across repositories; natural language processing on bioinformatics
+    literature and documentation where EDAM vocabulary enables normalization of tool descriptions and
+    method documentation; knowledge graphs integrating bioinformatics tools, data formats, and biological
+    concepts where EDAM terms structure relationships enabling traversal from biological questions to
+    relevant computational methods; machine learning pipeline optimization where EDAM annotations guide
+    feature engineering and algorithm selection; containerized tool deployment where EDAM annotations
+    in tool metadata (CWL, WDL, Nextflow) enable automated resource allocation and execution planning;
+    and systems biology modeling where EDAM data types structure representation of metabolic networks,
+    signaling pathways, and gene regulatory networks. Integration with the tooling ecosystem including
+    ELIXIR tools and services directory, Bioconda, and Galaxy enables EDAM annotations to be leveraged
+    across major bioinformatics platforms. The ontology actively incorporates emerging data types and
+    operations including long-read sequencing formats (PacBio, Oxford Nanopore), single-cell RNA-seq
+    analysis methods, spatial transcriptomics, high-resolution imaging data, and artificial intelligence
+    model formats (PyTorch, TensorFlow). EDAM has become the de facto standard for semantic annotation
+    of bioinformatics in the ELIXIR infrastructure across Europe and increasingly worldwide, enabling
+    standardized, machine-actionable annotation of the global bioinformatics software and data ecosystem.
   requires_registration: false
   url: https://github.com/edamontology/edamontology
 - id: B2AI_STANDARD:441
@@ -16072,7 +16307,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/EnvironmentOntology/envo
   is_open: true
   name: ENVO
-  purpose_detail: Environmental systems, components, and processes.
+  purpose_detail: The Environment Ontology (ENVO) is a comprehensive, hierarchically organized
+    vocabulary for standardizing and annotating environmental systems, components, processes,
+    conditions, and phenomena relevant to biomedical research, environmental health, and ecology.
+    ENVO enables machine-readable representation and integration of environmental context information
+    in biological and clinical datasets, facilitating understanding of how environmental exposures
+    influence health outcomes, disease susceptibility, and treatment response. The ontology encompasses
+    standardized descriptions of environmental entities including biomes and ecosystems (forests,
+    grasslands, aquatic systems, deserts, human-made environments), environmental features and
+    structures (mountains, valleys, water bodies, soil types, weather systems), environmental processes
+    and phenomena (weathering, erosion, nutrient cycling, photosynthesis, decomposition), atmospheric
+    composition and conditions (temperature, humidity, air quality, pollutant levels), water systems
+    and qualities (freshwater, saltwater, pH, dissolved oxygen, contamination), soil properties
+    (texture, composition, nutrient content, pH), and human environmental pressures (pollution,
+    deforestation, climate change, habitat loss). Integration with other biomedical ontologies
+    enables comprehensive annotation where ENVO environmental concepts link to disease ontologies
+    for environmental disease associations, exposure ontologies for pollutant and hazard representation,
+    and phenotype ontologies for organism-level effects of environmental conditions. Applications
+    in biomedical data science and AI/ML include environmental epidemiology where ENVO-standardized
+    exposure data enables machine learning models predicting environmental health impacts (air
+    pollution effects on respiratory disease, water contamination affecting gastrointestinal illness);
+    personalized medicine where ENVO-annotated patient environmental contexts (residence location,
+    occupational exposures, dietary environment, physical activity environment) improve predictive
+    accuracy of disease risk models; knowledge graphs integrating environmental data with genetic
+    and lifestyle factors enabling systems-level understanding of gene-environment interactions;
+    clinical trial design where ENVO terms specify environmental inclusion/exclusion criteria and
+    standardize environmental parameters affecting trial outcomes; metagenomics data annotation where
+    ENVO terms describe sample source environments enabling meta-analyses across diverse microbial
+    studies; and natural language processing on environmental health literature where ENVO vocabulary
+    enables extraction and normalization of environmental exposure descriptions. ENVO supports
+    environmental health registries and biobanks where standardized ENVO terms enable queries
+    identifying cohorts with specific environmental exposures for research. The ontology actively
+    incorporates emerging environmental health concerns including microplastics pollution, urban
+    heat island effects, per- and polyfluoroalkyl substances (PFAS) contamination, and climate
+    change health impacts. Integration with spatial and temporal information systems enables
+    representation of environmental dynamics and individual-level exposure tracking over time.
+    ENVO has become widely adopted in environmental science, ecology, and environmental health
+    research supporting integration of environmental context across diverse domains studying
+    human-environment interactions affecting health and disease.
   requires_registration: false
   url: http://environmentontology.org/
 - id: B2AI_STANDARD:443
@@ -16487,7 +16759,48 @@ data_standardortools_collection:
   is_open: true
   name: FYPO
   publication: doi:10.1093/bioinformatics/btt266
-  purpose_detail: Phenotypes observed in fission yeast.
+  purpose_detail: The Fission Yeast Phenotype Ontology (FYPO) is a comprehensive, formally structured
+    vocabulary for standardizing and annotating phenotypes observed in the model organism Schizosaccharomyces
+    pombe (fission yeast), enabling machine-readable representation and systematic analysis of cellular
+    and organismal traits discovered through genetic, molecular, and biochemical studies. FYPO facilitates
+    integration of fission yeast phenotypic data with genomic information enabling understanding of
+    gene-phenotype relationships and biological mechanisms conserved across eukaryotes including humans.
+    The ontology encompasses standardized descriptions of fission yeast phenotypes including morphological
+    phenotypes (cell shape, septation, cell wall organization, organelle morphology), growth phenotypes
+    (vegetative growth rate, stationary phase viability, stress tolerance, nutrient utilization), cell
+    cycle phenotypes (septation defects, spindle checkpoint control, mitotic progression abnormalities,
+    centrosome duplication), sexual development and mating phenotypes (sporulation efficiency, sexual
+    differentiation, pheromone response), resistance/sensitivity phenotypes (drug resistance, chemical
+    sensitivity, radiation sensitivity, osmotic stress response), colony morphology phenotypes (pigmentation,
+    texture, size), and molecular phenotypes (protein localization, mRNA expression changes, metabolite
+    levels). FYPO includes hierarchical relationships enabling classification from general phenotype
+    categories to specific manifestations, cross-references to molecular and cellular biology processes,
+    and linkages to genetic mutations causing observable phenotypes. Integration with PomBase (Schizosaccharomyces
+    pombe molecular biology database) and other model organism resources enables comprehensive annotation
+    of experimental results. Applications in biomedical data science and AI/ML include model organism
+    genetics where FYPO enables systematic interpretation of mutant phenotypes facilitating forward
+    genetics screens and identification of gene function; computational systems biology where FYPO
+    phenotypes connect to molecular pathways and regulatory networks improving biological model accuracy;
+    ortholog discovery where phenotypic similarities described in FYPO aid identification of functionally
+    conserved genes between yeast and human cells supporting disease gene discovery; machine learning
+    on model organism datasets where FYPO phenotype annotations train algorithms to predict human disease
+    associations from yeast genetics; natural language processing on yeast genetics literature where
+    FYPO standardizes phenotype descriptions enabling extraction of gene-phenotype associations from
+    published studies; knowledge graphs integrating yeast phenotypes with human disease genes enabling
+    hypothesis generation for disease mechanisms; and high-throughput phenotyping where FYPO standardizes
+    measurements enabling integration of diverse experimental approaches (microscopy, growth assays,
+    molecular profiling). FYPO supports population-scale yeast genetics research where comprehensive
+    phenotyping of natural yeast strains reveals adaptive variation in response to environmental stressors.
+    The ontology actively incorporates emerging phenotypic assays including imaging-based phenotypes,
+    metabolomic phenotypes, and single-cell phenotypes reflecting technological advances in yeast
+    research. FYPO development involves close collaboration with the fission yeast research community
+    ensuring the ontology captures phenotypic variation meaningful to experimental researchers. The
+    resource exemplifies how model organism phenotype ontologies support translation of basic research
+    findings from simple systems to human biology, with FYPO-described fission yeast phenotypes having
+    documented human disease analogs in cell cycle control, sexual development, and stress response
+    pathways conserved across eukaryotes. Integration with mammalian phenotype ontologies enables
+    comparative phenomics across diverse model organisms supporting systems-level understanding of
+    biological function across the eukaryotic kingdom.
   requires_registration: false
   url: https://github.com/pombase/fypo
 - id: B2AI_STANDARD:449
@@ -18342,7 +18655,49 @@ data_standardortools_collection:
   formal_specification: https://github.com/obcs/obcs
   is_open: true
   name: OBCS
-  purpose_detail: Biological and clinical statistics.
+  purpose_detail: The Ontology of Biological and Clinical Statistics (OBCS) is a comprehensive
+    ontology designed to standardize and formalize concepts, methods, and practices in
+    biological and clinical statistical analysis. It provides structured representations
+    of statistical methodologies, study designs, data analysis techniques, and statistical
+    measures commonly encountered in biomedical research and clinical data science. OBCS
+    serves as a bridge between domain-specific biological and clinical knowledge and the
+    formal language of statistics, enabling researchers, bioinformaticians, and data scientists
+    to describe, annotate, and interpret statistical procedures with precision and machine-readability.
+    The ontology encompasses statistical study designs (randomized controlled trials, observational
+    studies, case-control designs, cohort studies, cross-sectional surveys), study population
+    characteristics (stratification factors, inclusion/exclusion criteria, recruitment methods),
+    sample size considerations (power analysis, effect size estimation, sample size justification),
+    data collection methodologies (blinding, randomization schemes, endpoint definitions), statistical
+    measures (descriptive statistics, effect sizes, measures of association, risk metrics like
+    hazard ratios and odds ratios), hypothesis testing approaches (frequentist inference, p-values,
+    confidence intervals, Bayesian methods), multiple testing corrections (Bonferroni, false
+    discovery rate), and model-based analyses (regression models, mixed effects models, survival
+    analysis, causal inference frameworks). OBCS enables integration with other biomedical ontologies
+    such as the Ontology for Biomedical Investigations (OBI) for study design specification and
+    the Gene Ontology (GO) for biological function interpretation, facilitating comprehensive
+    annotation of experimental datasets with their corresponding statistical contexts. Applications
+    in biomedical data science and AI/ML include semantic annotation of statistical metadata in
+    clinical trials enabling machine-readable descriptions of analysis plans; ontology-driven data
+    harmonization where OBCS terms standardize statistical variable definitions across distributed
+    datasets and biobanks; natural language processing on statistical analysis sections of methods
+    in biomedical literature where OBCS concepts enable extraction and normalization of reported
+    analyses; automated clinical decision support systems where OBCS provides formal representations
+    of evidence-based statistical thresholds and significance criteria; pharmacogenomics and
+    precision medicine where OBCS terms standardize statistical approaches to biomarker-stratified
+    analysis and treatment response prediction; real-world evidence generation where OBCS guides
+    statistical analysis protocols ensuring comparability of observational studies with randomized
+    trial data; machine learning model evaluation where OBCS concepts structure reporting of
+    performance metrics (AUC, sensitivity, specificity, F1-score, calibration); active learning
+    systems where OBCS enables intelligent sample selection based on statistical uncertainty
+    principles; and knowledge graphs integrating statistical methodology with patient phenotypes
+    and drug mechanisms where OBCS concepts enable traversal between biological entities and their
+    statistical associations discovered in large-scale epidemiological studies. The ontology supports
+    development of analysis-ready datasets where statistical concepts are formalized alongside data
+    elements, enabling computational systems to automatically suggest appropriate statistical tests
+    based on variable types and study design encoded in OBCS terms. OBCS facilitates regulatory
+    compliance and scientific reproducibility by providing standardized vocabulary for documenting
+    analytical approaches in electronic case report forms and statistical analysis plans submitted
+    to regulatory agencies.
   requires_registration: false
   url: https://github.com/obcs/obcs
 - id: B2AI_STANDARD:518
@@ -20211,8 +20566,45 @@ data_standardortools_collection:
   formal_specification: https://github.com/linkml/linkml-registry/
   is_open: true
   name: LinkML registry
-  purpose_detail: schemas and machine-actionable standards
-  requires_registration: false
+  purpose_detail: The LinkML Registry is a curated, discoverable repository of LinkML schemas
+    and machine-actionable biomedical data standards that enables semantic interoperability
+    and standardization across diverse biomedical research domains. LinkML (Linked Data Modeling
+    Language) is a flexible framework for defining data models using YAML syntax that can be
+    compiled to multiple serialization formats (JSON-LD, RDF, JSON Schema, Python dataclasses,
+    SQL, and more), making it ideal for representing complex biomedical concepts in ways that
+    are both human-readable and machine-processable. The registry serves as a centralized hub
+    where researchers, data managers, and software developers can discover, reuse, and contribute
+    standardized schemas for common biomedical data entities including patient phenotypes, clinical
+    observations, molecular biology experiments, bioimaging metadata, genomic variants, electronic
+    health records, and biobank specimens. Each registered schema includes formal class definitions,
+    property declarations with type constraints, enum value sets for controlled terminology, range
+    restrictions for valid values, cardinality specifications, and relationship mappings to existing
+    biomedical ontologies (OBO, SNOMED CT, LOINC). The registry enables semantic linking between
+    schemas through slot inheritance, class composition, and cross-schema references, allowing complex
+    biomedical information models to be built from reusable, standardized components. Applications in
+    biomedical data science and AI/ML include automatic generation of data validation pipelines where
+    LinkML schemas define structural requirements and value constraints applied to incoming data;
+    semantic data integration where schemas from multiple biobanks and research repositories are aligned
+    and harmonized using LinkML's mapping and transformation capabilities; knowledge graph construction
+    where LinkML schemas structure RDF triples representing relationships between biomedical entities
+    such as diseases, drugs, genes, and proteins; machine learning feature engineering where LinkML
+    schema documentation and type information enable automated feature extraction and encoding selection;
+    electronic health record standardization where schemas define standard structures for clinical notes,
+    lab results, medication lists, and vital signs improving interoperability between healthcare systems;
+    FAIR data principles implementation where LinkML schemas promote Findability through registry discovery,
+    Accessibility through standard formats, Interoperability through ontology alignment, and Reusability
+    through explicit semantics and machine-actionable specifications; API documentation generation where
+    LinkML schemas automatically produce OpenAPI/Swagger specifications for RESTful services exposing
+    standardized data; and natural language processing on biomedical literature and clinical documents
+    where schema-based entity recognition and relationship extraction are guided by formal semantic
+    definitions. The registry supports collaborative schema development through version control, community
+    review processes, and governance workflows ensuring quality and adoption of registered schemas. Integration
+    with containerized environments and cloud platforms enables deployment of standardized data pipelines
+    where LinkML schemas define expected input/output structures for Docker containers and serverless
+    functions processing biomedical data. The registry actively incorporates schemas from major biomedical
+    initiatives including GA4GH standards, FHIR profiles, CDISC standards, and disease-specific data models,
+    creating an increasingly comprehensive ecosystem of reusable, interoperable schemas that accelerate
+    standardization efforts in biomedical research and precision medicine applications.
   url: https://linkml.io/linkml-registry/registry/
 - id: B2AI_STANDARD:714
   category: B2AI_STANDARD:Registry
