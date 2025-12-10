@@ -620,18 +620,37 @@ data_standardortools_collection:
   formal_specification: https://specifications.openehr.org/releases/AM/latest/ADL1.4.html
   is_open: true
   name: ADL
-  purpose_detail: ADL (Archetype Definition Language) provides a formal, human-readable
-    syntax for expressing constraint-based models of clinical information structures.
-    It enables the definition of reusable archetypes that constrain generic reference
-    models (such as openEHR's) to represent specific clinical concepts like blood
-    pressure measurements or problem lists. The language consists of cADL (constraint
-    ADL) for structural definitions, dADL (data ADL) for metadata and terminology
-    bindings, and an assertion language for business rules. ADL archetypes support
-    multi-lingual terminology, specialization hierarchies, and versioning, making
-    them suitable for creating maintainable, semantically interoperable health information
-    systems. Tools exist for authoring, compiling, and validating ADL archetypes,
-    with XML exchange formats also supported. The syntax is designed to be accessible
-    to both clinical domain experts and technical implementers.
+  purpose_detail: The Archetype Definition Language (ADL) is a formal, standardized
+    language designed for expressing constraint-based models of clinical information
+    structures in a human-readable yet machine-processable format. ADL enables the
+    definition of reusable archetypes that constrain generic, flexible reference models
+    (such as openEHR's reference information model) to represent specific clinical concepts,
+    medical procedures, observations, and healthcare processes in a standardized manner.
+    ADL archetypes define templates for clinical data structures such as blood pressure
+    measurements, medication records, problem lists, immunization records, and laboratory
+    results, ensuring consistency and interoperability across different healthcare systems
+    and applications. The ADL language consists of multiple components: cADL (constraint
+    ADL) for specifying structural constraints and data definitions; dADL (data ADL) for
+    encoding metadata, terminology bindings, and example data; and an assertion language
+    for expressing business rules and clinical constraints. ADL archetypes support sophisticated
+    features including multi-lingual terminology bindings enabling clinical data in multiple
+    languages, specialization hierarchies allowing archetypes to inherit from and extend
+    parent archetypes, and versioning mechanisms ensuring compatibility across archetype
+    evolution. This architecture makes ADL archetypes suitable for creating maintainable,
+    semantically interoperable electronic health record (EHR) systems that support diverse
+    clinical workflows while maintaining data quality and semantic consistency. Comprehensive
+    tooling exists for authoring, compiling, and validating ADL archetypes, with XML and
+    JSON exchange formats also supported for integration with diverse EHR platforms. In
+    biomedical data science and machine learning contexts, ADL-standardized clinical data
+    supports training predictive models on high-quality, semantically consistent clinical
+    information, developing clinical decision support systems, and conducting multi-site
+    clinical research with standardized data definitions. Real-world applications include
+    openEHR-based EHR implementations across healthcare systems in multiple countries,
+    international clinical data standardization initiatives, and integration of legacy EHR
+    systems with modern semantic interoperability requirements. ADL's design philosophy
+    balances formal precision for technical implementers with accessibility for clinical
+    domain experts, enabling collaborative development of clinical information standards
+    by both technical and clinical communities.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:79
@@ -653,8 +672,34 @@ data_standardortools_collection:
   - B2AI_STANDARD:850
   is_open: true
   name: StructureDefinition-argo-careplan
-  purpose_detail: Specifications for sharing single sets of patient care plans. Based
-    on FHIR R2.
+  purpose_detail: The Argonaut Data Query Implementation Guide defines standardized specifications
+    and technical requirements for sharing care plan information for individual patients using
+    FHIR (Fast Healthcare Interoperability Resources) R2 standards. This implementation guide
+    specifically focuses on the StructureDefinition for the Argonaut Care Plan profile, which
+    establishes a standardized representation of patient care plans that can be reliably exchanged
+    between healthcare systems, electronic health records (EHRs), and clinical applications. Care
+    plans represent comprehensive documented plans of treatment for individual patients, including
+    goals, interventions, and expected outcomes. Standardizing care plan representation through
+    FHIR enables interoperable sharing of care coordination information across diverse healthcare
+    organizations, supporting collaborative care delivery, care transitions, and longitudinal patient
+    management. The Argonaut initiative, led by leading healthcare vendors and organizations, developed
+    these implementation guides to promote practical adoption of FHIR standards in real-world healthcare
+    settings. The care plan profile specifies required and optional FHIR elements, terminology bindings,
+    validation rules, and examples enabling consistent representation of care plans across different
+    healthcare systems. In biomedical data science and machine learning contexts, standardized FHIR
+    care plans support training predictive models on structured care coordination information, developing
+    algorithms for care plan optimization and risk prediction, and creating machine learning systems for
+    clinical decision support. The standardized format enables aggregation of care plan data across multiple
+    healthcare organizations for research on care coordination effectiveness, quality improvement initiatives,
+    and outcomes analysis. Real-world applications include integrated care delivery networks that exchange
+    standardized care plans between hospitals, outpatient clinics, and home health agencies; accountable care
+    organizations (ACOs) that coordinate care across provider networks using FHIR-based care plans; patient
+    portals that display standardized care plan information to engage patients in their care; and clinical
+    research platforms that analyze care plan data to identify patterns and improve care coordination. Integration
+    with other FHIR implementation guides ensures seamless data exchange where care plans reference other clinical
+    data including diagnoses, medications, encounters, and laboratory results. The Argonaut Data Query Implementation
+    Guide represents a critical step toward practical FHIR adoption that improves care coordination, patient engagement,
+    and research capabilities in modern healthcare delivery systems.
   related_to:
   - B2AI_STANDARD:109
   requires_registration: false
@@ -761,7 +806,32 @@ data_standardortools_collection:
   description: BAM indexing format file
   is_open: true
   name: BAI
-  purpose_detail: A file containing the index for a Binary Alignment Map (BAM) file.
+  purpose_detail: The BAI (BAM Index) format is a specialized binary index file that enables
+    rapid random access to sequence alignments stored in BAM (Binary Alignment Map) files without
+    needing to scan through the entire file. BAI index files are generated from BAM files and store
+    information about the physical locations of alignment records within the BAM file, enabling
+    quick lookup and retrieval of alignments for specific genomic regions. The index structure divides
+    the BAM file into fixed-size blocks and maintains coordinate mappings that allow bioinformatics
+    software to jump directly to relevant alignments for a given chromosome and genomic position. BAI
+    indexing is essential for processing large genomic datasets efficiently, as BAM files containing
+    whole-genome sequencing data can exceed hundreds of gigabytes, making sequential scanning impractical
+    for most analysis tasks. Standard bioinformatics tools including samtools, htslib, GATK, and genome
+    browsers rely on BAI indices to enable interactive exploration and rapid analysis of large sequencing
+    datasets. BAI index files follow the standardized format defined in the SAM/BAM specification maintained
+    by the Sequence Alignment/Map (SAM) format specification group and GA4GH standards committees. The compact
+    binary structure of BAI files minimizes disk space requirements while providing microsecond-level access
+    times for genomic region queries. In biomedical data science and machine learning contexts, BAI indexing
+    enables efficient data loading and preprocessing of genomic datasets for training machine learning models,
+    developing variant discovery algorithms, and creating genomic analysis pipelines. The standardized indexing
+    format enables seamless integration with diverse bioinformatics tools and enables parallel processing of
+    large-scale genomic datasets by enabling multiple computational processes to simultaneously access different
+    genomic regions. Real-world applications include clinical genomics laboratories that use BAI indices to rapidly
+    retrieve and analyze alignments for specific genes associated with disease; research consortia conducting
+    population-scale genomic studies that rely on BAI indexing to efficiently process exabytes of sequencing data;
+    and genome browsers and visualization tools that use BAI indices to enable interactive exploration of genomic
+    alignments. Integration with cloud storage systems and parallel computing frameworks enables BAI-indexed genomic
+    data to be analyzed efficiently in distributed computing environments, supporting large-scale precision medicine
+    and population genomics initiatives.
   requires_registration: false
   url: https://www.ncbi.nlm.nih.gov/tools/gbench/tutorial6/
 - id: B2AI_STANDARD:18
@@ -777,8 +847,32 @@ data_standardortools_collection:
   description: BEDgraph format
   is_open: true
   name: BEDgraph
-  purpose_detail: The bedGraph format allows display of continuous-valued data in
-    track format.
+  purpose_detail: The BEDgraph (Genome Browser Extensible Display graph) format is a specialized
+    genomic data format designed for representing and visualizing continuous-valued data across
+    genomic regions. BEDgraph files represent genome-wide quantitative measurements such as signal
+    intensities, enrichment scores, sequencing coverage depths, and statistical significance values
+    as track data suitable for display in genome browsers including UCSC Genome Browser, IGV, and
+    other genomic visualization tools. The format extends the simpler BED (Browser Extensible Data)
+    format with the capability to specify arbitrary floating-point values for each genomic region,
+    enabling representation of continuous quantitative genomic data rather than discrete intervals
+    or features. BEDgraph files contain chromosome coordinates (start, end positions) paired with
+    numerical values representing measurement intensities for each region, enabling intuitive visualization
+    of quantitative variation across the genome. The format is widely used in genome-wide association studies
+    (GWAS), chromatin immunoprecipitation followed by sequencing (ChIP-seq), and RNA-seq applications where
+    researchers need to visualize patterns of genomic enrichment or coverage. BEDgraph's simplicity and
+    compatibility with standard genome browsers make it a de facto standard for sharing quantitative genomic
+    data across research groups and databases. In biomedical data science and machine learning contexts,
+    BEDgraph data supports training machine learning models to recognize patterns of genomic enrichment,
+    developing algorithms for identifying regulatory regions and disease-associated genomic loci, and creating
+    systems for predicting gene expression and chromatin structure from genomic signals. The standardized format
+    enables aggregation and comparative analysis of quantitative genomic datasets from multiple studies and
+    experimental conditions. Real-world applications include integrating ChIP-seq signal tracks from multiple
+    transcription factors to predict regulatory interactions; combining RNA-seq coverage data across tissues
+    to develop tissue-specific gene expression models; visualizing disease-associated variants and their chromatin
+    accessibility signatures across cell types; and creating pan-cancer genomic signal atlases that reveal commonalities
+    and differences in chromatin regulation across cancer types. BEDgraph integration with genome browsers enables
+    interactive exploration and hypothesis generation from large-scale quantitative genomic datasets, supporting
+    discovery of regulatory mechanisms and biomarkers for precision medicine applications.
   related_to:
   - B2AI_STANDARD:19
   - B2AI_STANDARD:20
@@ -948,7 +1042,34 @@ data_standardortools_collection:
   formal_specification: https://samtools.github.io/hts-specs/SAMv1.pdf
   is_open: true
   name: BAM
-  purpose_detail: A BAM file (.bam) is the binary version of a SAM file.
+  purpose_detail: The BAM (Binary Alignment/Map) format is the standardized binary encoding
+    for DNA sequence alignment data, representing the compressed, indexed, and machine-optimized
+    version of the text-based SAM (Sequence Alignment/Map) format. BAM files encode aligned DNA
+    sequencing reads positioned relative to reference genomes, along with comprehensive metadata
+    including alignment quality scores, CIGAR strings (compact representations of alignment
+    operations), and optional custom tags for storing additional information. The binary structure
+    provides dramatic space savings compared to SAM text files (typically 5-10 fold compression)
+    while enabling rapid random access to alignments for specific genomic regions through associated
+    BAI (BAM Index) files. BAM is the de facto standard format for storing and exchanging sequencing
+    alignment data in genomics research, maintained and standardized by the GA4GH Large Scale Genomics
+    work stream and supported by the hts-specs (High-Throughput Sequencing Specifications) group.
+    The format supports sorting by genomic coordinate or read name, allowing efficient retrieval of
+    alignments for specific genes, regulatory regions, or disease-associated variants. BAM files contain
+    header information describing the reference genome, sequencing platforms, and processing history,
+    enabling reproducibility and data provenance tracking across genomic analysis pipelines. Comprehensive
+    tooling including samtools (the de facto standard SAM/BAM manipulation tool), GATK (Genome Analysis
+    Toolkit), and htslib provide standardized operations for filtering, merging, quality assessment, and
+    statistical analysis of BAM data. In biomedical data science and machine learning contexts, BAM-formatted
+    alignment data supports training deep learning models for variant calling, developing algorithms for copy
+    number variation detection, and creating machine learning systems for disease association discovery. The
+    standardized BAM format enables aggregation of sequencing alignment data from multiple research institutions
+    and clinical laboratories for large-scale genomic studies. Real-world applications include clinical genomics
+    laboratories that archive and query BAM files for genetic testing; cancer genomics consortia analyzing BAM files
+    from thousands of tumor samples to identify cancer-driving mutations; clinical trials that generate BAM files for
+    pharmacogenomic testing; and precision medicine initiatives that integrate BAM alignment data with patient phenotypes
+    for discovering disease-causing variants. BAM format integration with cloud-based genomic analysis platforms enables
+    secure, distributed processing of large-scale sequencing datasets while maintaining data integrity and analytical
+    reproducibility across global genomic research networks.
   related_to:
   - B2AI_STANDARD:21
   requires_registration: false
@@ -989,7 +1110,29 @@ data_standardortools_collection:
   description: Binary variant call format
   is_open: true
   name: BCF
-  purpose_detail: A binary version of the variant call format (VCF).
+  purpose_detail: The BCF (Binary Call Format) is a highly compressed binary encoding of the
+    VCF (Variant Call Format) specification designed for efficient storage and rapid processing
+    of genetic variant data. BCF preserves all information from VCF files (genotypes, quality scores,
+    annotations, metadata) while reducing file sizes typically by 10-100 fold compared to text-based
+    VCF, enabling practical archival and analysis of large-scale genomic datasets. BCF files can be
+    indexed using the CSI (Coordinate Sorted Index) or BCF-specific indexing schemes to enable
+    microsecond-level random access to variants in specific genomic regions without scanning entire
+    files. The binary format is maintained by the HTSlib project and standardized through the GA4GH
+    and hts-specs initiatives, ensuring compatibility across genomic analysis tools. BCF is particularly
+    valuable for large-scale projects such as the 1000 Genomes Project, UK Biobank, and gnomAD that
+    contain millions of variants across thousands of samples, where text-based VCF files would require
+    prohibitive storage and computational resources. BCF includes efficient encoding for diploid and
+    polyploid genotypes, genotype quality scores, read depths, and allele frequencies, enabling representation
+    of complex variant data from diverse sequencing experiments. The format supports streaming access and
+    parallel processing, enabling distributed analysis of variant datasets across computing clusters. In
+    biomedical data science and machine learning contexts, BCF data supports training machine learning models
+    for disease association discovery, developing algorithms for variant pathogenicity prediction, and creating
+    systems for identifying clinically significant mutations. Real-world applications include clinical genomics
+    laboratories that store patient variant data in BCF format for rapid querying and reporting; cancer genomics
+    consortia analyzing variants from exabytes of sequencing data using BCF indexing; and precision medicine
+    initiatives that integrate BCF variant data with clinical phenotypes for genotype-phenotype correlation
+    studies. BCF integration with variant annotation tools (VEP, SnpEff) and analysis pipelines (GATK, bcftools)
+    enables comprehensive variant characterization and interpretation in genomic medicine applications.
   requires_registration: false
   url: https://samtools.github.io/bcftools/bcftools.html
 - id: B2AI_STANDARD:25
@@ -1120,12 +1263,34 @@ data_standardortools_collection:
   name: BRIDG Model
   publication: doi:10.1093/jamia/ocx004
   purpose_detail: The Biomedical Research Integrated Domain Group (BRIDG) Model is
-    a collaborative effort engaging stakeholders from the Clinical Data Interchange
-    Standards Consortium (CDISC), the HL7 BRIDG Work Group, the US National Cancer
-    Institute (NCI), and the US Food and Drug Administration (FDA). The goal of the
-    BRIDG Model is to produce a shared view of the dynamic and static semantics for
-    the domain of basic, pre-clinical, clinical, and translational research and its
-    associated regulatory artifacts.
+    a comprehensive, collaborative semantic data model developed through multi-stakeholder
+    efforts engaging the Clinical Data Interchange Standards Consortium (CDISC), HL7
+    BRIDG Work Group, US National Cancer Institute (NCI), and US Food and Drug Administration
+    (FDA). The BRIDG Model provides a unified, shared semantic representation of the dynamic
+    and static information structures across the entire biomedical research domain, spanning
+    basic science research, pre-clinical studies, clinical trials, translational research,
+    and associated regulatory artifacts. BRIDG is designed to enable semantic interoperability
+    and data harmonization across diverse biomedical research contexts and organizational
+    boundaries, supporting data exchange, integration, and governance in complex research
+    environments. The model represents fundamental biomedical research concepts including
+    study designs, subjects, clinical observations, investigations, and regulatory submissions
+    in a standardized, machine-interpretable format. BRIDG serves as the foundational reference
+    model for CDISC standards (SDTM, ADaM, Define-XML) used in clinical trial data standardization,
+    ensuring consistency between clinical research data models and broader biomedical research
+    semantics. In biomedical data science and machine learning contexts, BRIDG-standardized
+    research metadata enables training machine learning models on consistently structured clinical
+    trial data, developing algorithms for clinical trial site performance prediction, and creating
+    systems for identifying protocol violations and data quality issues in multi-site studies. Real-world
+    applications include FDA regulatory submissions where BRIDG-compliant data structures improve
+    review efficiency and data transparency; clinical trial networks that standardize data collection
+    across participating sites using BRIDG semantics; and translational research initiatives that integrate
+    clinical and pre-clinical data using BRIDG's unified domain model. BRIDG integration with HL7 FHIR,
+    openEHR, and other health informatics standards enables bridging between research and clinical care
+    data systems. The model supports reproducibility in clinical research by documenting studies and
+    investigations in a standardized, machine-interpretable format, facilitating meta-analyses and
+    systematic reviews. BRIDG fundamentally advances biomedical research data governance by providing
+    a shared semantic foundation that enables data harmonization, regulatory compliance, and collaborative
+    research across institutional and international boundaries.
   requires_registration: false
   url: https://bridgmodel.nci.nih.gov/
 - id: B2AI_STANDARD:29
@@ -1141,17 +1306,37 @@ data_standardortools_collection:
   is_open: true
   name: BioPAX
   publication: doi:10.1038/nbt.1666
-  purpose_detail: BioPAX is a standard language that aims to enable integration, exchange,
-    visualization and analysis of biological pathway data. Specifically, BioPAX supports
-    data exchange between pathway data groups and thus reduces the complexity of interchange
-    between data formats by providing an accepted standard format for pathway data.
-    By offering a standard, with well-defined semantics for pathway representation,
-    BioPAX allows pathway databases and software to interact more efficiently. In
-    addition, BioPAX enables the development of pathway visualization from databases
-    and facilitates analysis of experimentally generated data through combination
-    with prior knowledge. The BioPAX effort is coordinated closely with that of other
-    pathway related standards initiatives namely; PSI-MI, SBML, CellML, and SBGN in
-    order to deliver a compatible standard in the areas where they overlap.
+  purpose_detail: BioPAX (Biological Pathway Exchange) is a comprehensive, standardized
+    language and ontology designed to enable integration, exchange, visualization, and
+    computational analysis of biological pathway data across diverse databases and research
+    communities. BioPAX specifically addresses the challenge of biological pathway data heterogeneity
+    by providing a unified, machine-readable standard format that reduces the complexity of
+    data interchange and enables seamless interoperability between pathway databases including
+    KEGG, Reactome, pathway Commons, and pathway resources from diverse organisms. The standard
+    provides formal semantics for representing complex biological knowledge including molecular
+    interactions, cellular processes, signal transduction cascades, and metabolic pathways in
+    a computationally tractable format. BioPAX enables pathway databases and analysis software
+    to interact efficiently by providing well-defined semantics for pathway representation,
+    permitting pathway data from multiple sources to be integrated, queried, and analyzed
+    collectively. BioPAX supports representation of diverse pathway elements including proteins,
+    complexes, small molecules, reactions, interactions, and cellular compartments with detailed
+    kinetic information, regulatory relationships, and experimental evidence annotations. The
+    standard facilitates development of pathway visualization tools that can render biological
+    knowledge from databases in clear, interpretable formats, and enables computational analysis
+    of experimental data (transcriptomics, proteomics) through integration with pathway models
+    and systems biology workflows. BioPAX development is coordinated closely with related pathway
+    and systems biology standards including PSI-MI (interaction data), SBML (mathematical modeling),
+    CellML (cellular modeling), and SBGN (pathway visualization), ensuring compatibility and
+    complementary coverage. In biomedical data science and machine learning contexts, BioPAX-formatted
+    pathway data supports training neural network models for pathway prediction, developing algorithms
+    for discovering novel drug targets through network analysis, and creating machine learning systems
+    for disease mechanism understanding. Real-world applications include drug discovery pipelines that
+    use BioPAX pathway data to identify genetic targets and predicted drug-protein interactions; precision
+    medicine systems that contextualize patient genomic variations within pathway networks; systems biology
+    research that models cellular responses to genetic and environmental perturbations; and clinical decision
+    support that leverages pathway networks for interpreting genetic variations and personalizing treatment.
+    BioPAX integration with network analysis tools enables topological, statistical, and dynamical analysis
+    of biological systems, supporting discovery of pathway biomarkers and mechanisms underlying disease.
   requires_registration: false
   url: http://www.biopax.org/
 - id: B2AI_STANDARD:30
@@ -1401,11 +1586,33 @@ data_standardortools_collection:
   formal_specification: http://www.npcrc.org/files/news/brief_fatigue_inventory.pdf
   is_open: true
   name: BFI
-  purpose_detail: The Brief Fatigue Inventory (BFI) is used to rapidly assess the
-    severity and impact of cancer-related fatigue. An increasing focus on cancer-related
-    fatigue emphasized the need for sensitive tools to assess this most frequently
-    reported symptom. The six interference items correlate with standard quality-of-life
-    measures.
+  purpose_detail: The Brief Fatigue Inventory (BFI) is a widely-used, validated patient-reported
+    outcome measure instrument designed to rapidly assess the severity and functional impact of
+    fatigue in cancer patients and other clinical populations. The BFI addresses a critical clinical
+    need, as cancer-related fatigue (CRF) is one of the most common and distressing symptoms reported
+    by cancer patients yet remains significantly under-treated due to lack of standardized assessment
+    tools. The BFI uses a nine-item questionnaire approach: three items assess fatigue severity
+    (worst, usual, current) and six items evaluate fatigue's interference with activities of daily
+    living including general activity, mood, walking ability, normal work (including housework),
+    relations with other people, and enjoyment of life. Items are rated on numerical rating scales
+    (0-10), enabling rapid quantification of fatigue burden. The BFI demonstrates strong psychometric
+    properties including high internal consistency, test-retest reliability, and convergent validity
+    with standard quality-of-life measures and symptom burden scales. The instrument has been translated
+    into dozens of languages, enabling cross-cultural clinical research and global health equity
+    applications. BFI is widely used in both research and clinical settings, including oncology practices,
+    cancer support organizations, clinical trials, and population health studies. In biomedical data
+    science and machine learning contexts, standardized BFI scores support training algorithms for
+    predicting fatigue severity in cancer populations, developing machine learning models to identify
+    high-risk patients requiring intensive symptom management, and creating predictive systems for
+    personalizing fatigue interventions. The standardized BFI format enables aggregation of fatigue
+    data across multiple clinical sites for meta-analyses and large-scale studies investigating fatigue
+    etiology and interventions. Real-world applications include oncology centers that systematically
+    assess cancer-related fatigue using BFI scores to guide clinical management; cancer research
+    networks that use BFI data to monitor symptom burden and treatment response; patient registries
+    that track longitudinal fatigue trajectories for understanding disease natural history; and clinical
+    trials that use BFI as a primary or secondary outcome measure for evaluating fatigue interventions.
+    BFI integration with electronic health records enables real-time fatigue monitoring and clinical
+    alerts for patients at risk of debilitating fatigue.
   requires_registration: false
   url: https://www.mdanderson.org/research/departments-labs-institutes/departments-divisions/symptom-research/symptom-assessment-tools/brief-fatigue-inventory.html
 - id: B2AI_STANDARD:35
@@ -1421,9 +1628,35 @@ data_standardortools_collection:
   formal_specification: http://www.npcrc.org/files/news/briefpain_short.pdf
   is_open: true
   name: BPI
-  purpose_detail: The Brief Pain Inventory (BPI) rapidly assesses the severity of
-    pain and its impact on functioning. The BPI has been translated into dozens of
-    languages, and it is widely used in both research and clinical settings.
+  purpose_detail: The Brief Pain Inventory (BPI) is a standardized, validated patient-reported
+    outcome measure instrument designed to rapidly assess the severity of pain and its functional
+    impact on quality of life across diverse patient populations and clinical settings. The BPI
+    addresses a critical clinical need, as pain is one of the most prevalent and debilitating symptoms
+    in medical conditions ranging from cancer to chronic pain syndromes, yet remains inadequately
+    assessed and managed. The BPI uses a structured nine-item questionnaire approach: four items assess
+    pain severity (worst, least, average, current pain) using numerical rating scales (0-10), and five
+    items evaluate pain's interference with major life activities including general activity, mood,
+    walking ability, normal work (including housework), and relations with other people. This two-part
+    structure provides comprehensive assessment of both pain intensity and functional impact. The BPI
+    demonstrates strong psychometric properties including excellent internal consistency, test-retest
+    reliability, and convergent validity with other pain and quality-of-life measures. The instrument
+    captures the multidimensional nature of pain, recognizing that pain severity alone does not predict
+    functional outcomes, and functional interference provides critical clinical context. The BPI has been
+    translated into dozens of languages and adapted for diverse populations, enabling cross-cultural
+    research and global health equity applications. The instrument is widely used in diverse settings
+    including cancer centers, chronic pain clinics, palliative care, primary care practices, research
+    studies, and clinical trials. In biomedical data science and machine learning contexts, standardized
+    BPI scores support training algorithms for pain severity prediction, developing machine learning
+    models to identify patients at high risk for pain-related disability, and creating predictive systems
+    for personalizing pain management interventions. The standardized BPI format enables aggregation of
+    pain data across multiple clinical sites for meta-analyses and large-scale studies investigating pain
+    etiology, mechanisms, and interventions. Real-world applications include pain clinics that systematically
+    assess pain using BPI scores to guide treatment decisions; cancer centers that monitor pain trajectories
+    during cancer treatment; clinical trials of pain interventions that use BPI as the primary outcome
+    measure; patient registries that track longitudinal pain patterns; and healthcare systems that integrate
+    BPI into electronic health records for systematic pain monitoring and quality improvement. BPI integration
+    with EHR systems enables real-time pain assessment, clinical alerts for severe pain, and population-level
+    pain management quality monitoring.
   requires_registration: false
   url: https://www.mdanderson.org/research/departments-labs-institutes/departments-divisions/symptom-research/symptom-assessment-tools/brief-pain-inventory.html
 - id: B2AI_STANDARD:36
@@ -1604,10 +1837,37 @@ data_standardortools_collection:
   - B2AI_ORG:10
   is_open: true
   name: BPMN
-  purpose_detail: A graphical notation that depicts the steps in a business process.
-    BPMN depicts the end-to-end flow of a business process. The notation has been
-    specifically designed to coordinate the sequence of processes and the messages
-    that flow between different process participants in a related set of activities.
+  purpose_detail: Business Process Modeling Notation (BPMN) is a standardized graphical
+    notation and visual language designed for specifying, documenting, and communicating
+    business processes in a clear, intuitive, and machine-readable format. BPMN provides
+    a comprehensive set of visual symbols and rules for representing business workflows,
+    enabling stakeholders from both business and technical domains to understand, analyze,
+    and optimize organizational processes. BPMN depicts the end-to-end flow of business
+    processes through a collection of connected shapes representing activities, events, gateways,
+    and flows, enabling comprehensive documentation of decision points, parallel processes,
+    and exception handling. The notation was specifically designed to coordinate the sequence
+    of processes and the messages that flow between different process participants, departments,
+    and organizations in complex, related sets of activities. BPMN supports multiple levels
+    of detail from high-level process diagrams suitable for non-technical stakeholders to detailed
+    executable process specifications that can be directly implemented in workflow management
+    systems and business process execution engines. The standard includes sophisticated features
+    for representing conditional logic, parallel processing, error handling, escalation procedures,
+    and inter-process communication. BPMN is maintained and continuously evolved by the Object
+    Management Group (OMG), ensuring consistency and compatibility with related standards including
+    UML (Unified Modeling Language) and DMN (Decision Model and Notation). In biomedical data
+    science and machine learning contexts, BPMN specifications support workflow documentation
+    in clinical trials, drug development pipelines, and healthcare delivery systems, enabling
+    machine learning systems to optimize process efficiency, predict process outcomes, and identify
+    bottlenecks in complex healthcare workflows. Real-world applications in biomedical research
+    include documenting clinical trial workflows from patient recruitment through data analysis and
+    regulatory submission; specifying drug development processes from discovery through manufacturing
+    and distribution; standardizing electronic health record (EHR) workflows for patient management
+    and care coordination; and defining quality assurance and regulatory compliance procedures for
+    healthcare organizations. BPMN facilitates process automation by providing executable specifications
+    that business process management systems (BPMS) can directly interpret and execute. BPMN integration
+    with process mining and analytics platforms enables data-driven process optimization, supporting
+    healthcare delivery organizations to improve operational efficiency, reduce costs, and enhance
+    patient care quality.
   requires_registration: false
   url: https://www.omg.org/bpmn/index.htm
 - id: B2AI_STANDARD:38
