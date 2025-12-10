@@ -3184,11 +3184,30 @@ data_standardortools_collection:
   is_open: true
   name: CHEERS
   publication: doi:10.1136/bmj.f1049
-  purpose_detail: The Consolidated Health Economic Evaluation Reporting Standards
-    (CHEERS) statement is an attempt to consolidate and update previous health economic
-    evaluation guidelines efforts into one current, useful reporting guidance. The
-    primary audiences for the CHEERS statement are researchers reporting economic
-    evaluations and the editors and peer reviewers assessing them for publication.
+  purpose_detail: 'The Consolidated Health Economic Evaluation Reporting Standards (CHEERS)
+    statement provides guidance for transparent, comprehensive reporting of health economic evaluation
+    studies, consolidating and updating previous reporting standards into a current, evidence-based
+    checklist. CHEERS addresses economic evaluation methodologies including cost-effectiveness analysis
+    (CEA), cost-utility analysis (CUA), cost-benefit analysis (CBA), and budget impact analysis (BIA),
+    establishing standardized reporting items covering study design, data sources, health outcomes measurement,
+    cost measurement and analysis, equity considerations, and uncertainty quantification. The 2022 CHEERS
+    update incorporates new guidance on equity implications, long-term sustainability, and healthcare
+    system context. The primary audience includes health economics researchers conducting evaluations,
+    journal editors and peer reviewers assessing economic evaluation manuscripts, and decision-makers
+    using economic evidence for policy and reimbursement decisions. CHEERS promotes transparency and
+    reproducibility in economic evaluation research, enabling readers to understand methodology, assess
+    quality, and evaluate applicability to different healthcare contexts. In machine learning and biomedical
+    AI, CHEERS guidance supports economic evaluation of AI diagnostic and prognostic tools, decision support
+    systems, and clinical algorithms. AI developers must document model costs (development, validation,
+    deployment infrastructure), implementation costs, and cost-effectiveness relative to current clinical
+    practice or alternatives. CHEERS provides structured framework for demonstrating real-world value of
+    AI interventions in healthcare, addressing healthcare economics stakeholders'' need for evidence of
+    financial benefit. Compliance with CHEERS enables publication in health economics journals and supports
+    health technology assessment (HTA) submissions for reimbursement decisions. CHEERS reporting enables
+    meta-analyses of economic evaluations comparing cost-effectiveness across AI tools, clinical contexts,
+    and patient populations. By establishing standardized economic evaluation reporting, CHEERS supports
+    evidence-based adoption of clinical artificial intelligence and ensures that AI investments align with
+    healthcare value and sustainability objectives.'
   requires_registration: true
   url: https://www.ispor.org/heor-resources/good-practices/article/consolidated-health-economic-evaluation-reporting-standards-2022-cheers-2022-statement-updated-reporting-guidance-for-health-economic-evaluations
 - id: B2AI_STANDARD:69
@@ -3591,10 +3610,28 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: DICOM Part 11
-  purpose_detail: This Part of the DICOM Standard specifies application specific subsets
-    of the DICOM Standard to which an implementation may claim conformance. Such a
-    conformance statement applies to the interoperable interchange of medical images
-    and related information on storage media for specific clinical uses.
+  purpose_detail: 'DICOM Part 11 specifies application-specific profiles and subsets of the
+    full DICOM Standard, enabling implementations to declare standardized conformance for
+    particular clinical use cases and medical specialties. The standard defines Application
+    Profiles for specific imaging modalities and clinical workflows (e.g., general radiography,
+    fluoroscopy, CT, MR, ultrasound, nuclear medicine, pathology, ophthalmology), each specifying
+    which DICOM services, data elements, and information objects are required, optional, or not
+    used. These profiles enable interoperable interchange of medical images and related information
+    on storage media while accommodating specialty-specific requirements and constraints. A conformance
+    statement formally describes which Application Profile an implementation supports, facilitating
+    vendor independence and multi-system interoperability within healthcare organizations. DICOM Part 11
+    establishes baseline requirements ensuring that systems claiming conformance to a specific profile
+    can exchange data reliably and completely. For biomedical AI applications, DICOM Part 11 profiles
+    provide standardized datasets suitable for machine learning model training and validation. By conforming
+    to established application profiles, healthcare institutions ensure that imaging data provided to AI
+    systems contains required metadata, consistent data formats, and quality specifications necessary for
+    reproducible model development. Standardized profiles facilitate multi-institutional AI studies where
+    training data from diverse healthcare systems meet common specifications. Clinical validation of AI
+    diagnostic systems depends on testing with imaging datasets conforming to relevant DICOM Part 11 profiles
+    to ensure model generalization across equipment from different vendors and healthcare settings. The
+    profiles'' clear specification of data requirements and optional attributes enables AI developers to
+    understand exactly what data types and metadata are available, supporting transparent feature engineering
+    and model interpretability critical for clinical deployment of artificial intelligence in diagnostic imaging.'
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -4019,10 +4056,28 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: DICOM Part 20
-  purpose_detail: This Part of the DICOM Standard specifies templates for the encoding
-    of imaging reports using the HL7 Clinical Document Architecture Release 2 (CDA
-    R2, or simply CDA) Standard. Within this scope are clinical procedure reports
-    for specialties that use imaging for screening, diagnostic, or therapeutic purposes.
+  purpose_detail: 'DICOM Part 20 specifies standardized templates and conformance requirements
+    for encoding structured imaging reports using the HL7 Clinical Document Architecture Release 2
+    (HL7 CDA R2) standard, enabling interoperable exchange of radiology, cardiology, and other imaging
+    specialty reports. The standard defines CDA document templates specifying narrative and structured
+    content organization for clinical procedure reports, measurements, findings, impressions, and recommendations.
+    DICOM Part 20 aligns DICOM imaging data with HL7 CDA clinical documentation standards, enabling integration
+    of imaging reports with electronic health records (EHRs) and clinical information systems. Imaging reports
+    structured using DICOM Part 20 templates support natural language processing (NLP), information extraction,
+    and coding automation. In machine learning and biomedical AI contexts, DICOM Part 20-compliant reports
+    provide rich structured data for training natural language understanding models to extract diagnostic codes,
+    anatomical locations, measurements, and clinically relevant findings. Standardized report structure enables
+    development of automated report generation systems, clinical decision support tools that integrate imaging
+    findings with clinical data, and AI algorithms that correlate imaging findings with clinical outcomes.
+    DICOM Part 20 templates specify data elements critical for AI algorithms including measurement values
+    (diameter, density, enhancement patterns), anatomical locations in standardized terminology (SNOMED CT),
+    and assessment categories (BI-RADS for breast, Fleischner for lung, etc.). Automated extraction of structured
+    data from DICOM Part 20-compliant reports supports quality assurance monitoring, research cohort identification,
+    and epidemiological studies. The standard enables integration of radiologist-generated structured reports
+    with machine learning pipelines that correlate imaging features with clinical outcomes, enabling discovery
+    of imaging biomarkers and development of AI-assisted diagnosis tools. By standardizing imaging report structure,
+    DICOM Part 20 facilitates trustworthy deployment of AI algorithms in clinical radiology workflows while
+    ensuring that human clinicians retain responsibility and oversight over diagnostic recommendations.'
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -6236,10 +6291,28 @@ data_standardortools_collection:
   is_open: true
   name: GTrack
   publication: doi:10.1186/1471-2105-12-494
-  purpose_detail: GTrack is a tabular format that was developed as part of the Genomic
-    HyperBrowser system to provide a uniform representation of most types of genomic
-    datasets. GTrack is able to replace common formats such as WIG, GFF, BED, FASTA,
-    in addition to represent chromatin capture datasets, such as Hi-C and ChIA-PET.
+  purpose_detail: 'GTrack is a comprehensive tabular format for representing diverse types of
+    genomic datasets in a unified, standardized representation developed as part of the Genomic HyperBrowser
+    project. The format provides flexible, extensible syntax for encoding genomic tracks including sequences
+    (FASTA-equivalent), genomic intervals (BED/GFF-equivalent), quantitative signals (WIG-equivalent), genomic
+    graphs representing junctions and connections (RNA-seq splice junctions), sequence properties (nucleotide
+    composition, GC content), and multi-dimensional genomic features (chromatin interactions, Hi-C, ChIA-PET).
+    GTrack unifies representation of genomic data traditionally encoded in multiple incompatible formats (FASTA,
+    BED, GFF, WIG, BAM), enabling consistent data interchange and analysis workflows. The format specifies metadata
+    including genomic coordinates (chromosome, start, end), strand information, feature types, quantitative values,
+    track statistics, and column descriptions. GTrack supports reference-based and de novo genome annotations,
+    enabling representation of variant calls, structural variations, and custom genomic annotations. In biomedical
+    AI and machine learning contexts, GTrack-formatted data supports genome-scale machine learning applications
+    including regulatory element prediction (promoters, enhancers, silencers), variant effect prediction, and
+    chromatin state learning. The standardized format enables development of genomic deep learning models that
+    integrate multiple data types (DNA sequences, histone modifications, accessibility, transcription factor
+    binding) represented in unified GTrack format. GTrack integration with the Genomic HyperBrowser facilitates
+    interactive analysis and visualization of genomic data in support of hypothesis development and validation.
+    The format enables efficient storage and retrieval of large-scale genomic datasets critical for training
+    neural networks on genomic sequences and annotations. GTrack''s comprehensive feature support enables machine
+    learning models to capture complex relationships between sequence, epigenetic features, and gene expression.
+    By providing standardized representation of genomic data, GTrack facilitates reproducible genome-scale machine
+    learning and comparative genomics analyses supporting biological discovery and precision medicine applications.'
   requires_registration: false
   url: https://github.com/gtrack/gtrack
 - id: B2AI_STANDARD:145
@@ -6915,10 +6988,27 @@ data_standardortools_collection:
   description: IHE Retrieve Form for Data Capture
   is_open: true
   name: RFD
-  purpose_detail: The RFD Profile provides a generic polling mechanism to allow an
-    external agency to indicate issues with data that have been captured and enable
-    the healthcare provider to correct the data. The profile does not dictate the
-    mechanism employed or content required to achieve such corrections.
+  purpose_detail: 'IHE Retrieve Form for Data Capture (RFD) establishes a standard mechanism
+    for retrieving data collection forms and submitting form-based data capture over web protocols,
+    enabling clinical workflow integration of electronic data capture (EDC) systems and healthcare
+    information systems. The RFD Profile defines RESTful interfaces allowing external systems to query
+    available forms, retrieve form templates and validation rules, and submit completed form data with
+    captured values and metadata. RFD provides a polling mechanism enabling data managers and quality
+    assurance personnel to identify and correct data quality issues discovered during analysis or post-hoc
+    review, with corrections being traceable and auditable. The profile supports form-based data collection
+    in clinical and research contexts, enabling structured capture of standardized data elements essential
+    for biomedical research and clinical operations. In machine learning and data science contexts, RFD
+    facilitates standardized data capture workflows that produce ML-ready datasets with consistent formatting,
+    validation rules, and completeness checks applied at the point of data entry. Form templates serve as
+    specification documents for expected data types, value ranges, and required fields, providing clear data
+    contracts between data collection systems and downstream analytical pipelines. RFD''s systematic data
+    correction capabilities support data quality assurance processes critical for training trustworthy machine
+    learning models. The standard enables integration of EDC systems with clinical research platforms and trial
+    management systems, supporting multi-site studies where standardized form designs ensure data consistency
+    across institutions. RFD''s auditable trail of data corrections and validation maintains data provenance
+    essential for regulatory compliance and reproducible research. By establishing standardized form-based data
+    capture workflows, RFD facilitates development of high-quality training datasets for clinical prediction
+    models, research analytics, and AI applications requiring reliable, well-documented source data.'
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:46
@@ -13557,11 +13647,28 @@ data_standardortools_collection:
   formal_specification: https://docs.google.com/document/d/1RWt2obXOOeJRRFmVo9VAkl4h41cL33Zm5YYny3hbPZ8/edit
   is_open: true
   name: CURATE(D)
-  purpose_detail: The CURATE(D) steps are a teaching and representation tool. This
-    model is useful for onboarding data curators and orienting researchers preparing
-    to share their data. It serves as a demonstration for the type of work involved
-    in robust data curation, and was created to fit within institution-specific data
-    repository workflows.
+  purpose_detail: 'CURATE(D) is a stepwise data curation workflow and educational framework
+    developed by the Data Curation Network, specifying systematic procedures for preparing research
+    data for archiving, reuse, and sharing. The CURATE(D) steps (Check, Understand, Request, Augment,
+    Transform, Evaluate, Document) provide a structured workflow for data curators assessing incoming
+    datasets, communicating with data producers, improving data quality and completeness, documenting
+    data provenance and methodology, and ensuring data repositories maintain high-quality, reusable research
+    data. CURATE(D) serves as both a practical workflow for institutional data repositories and a training
+    tool for onboarding new data curators and orienting researchers preparing to share their data. The framework
+    emphasizes best practices in data documentation, metadata standards, format selection, and preservation
+    readiness. CURATE(D) has been widely adopted by academic data repositories and research institutions
+    as a workflow guide ensuring consistent, high-quality data stewardship. In machine learning and biomedical
+    AI contexts, CURATE(D) procedures directly support creation of high-quality training datasets essential
+    for developing trustworthy models. The "Check" phase assesses data quality, completeness, and consistency.
+    The "Understand" phase documents research methodology, data collection procedures, and contextual information
+    essential for interpreting results. The "Request" phase identifies missing information or quality issues
+    requiring clarification from data producers. The "Augment" phase adds essential metadata, standardized
+    terminology, and quality metrics. The "Transform" phase converts data to standard formats suitable for
+    computational analysis. The "Evaluate" phase assesses data fitness for purpose and identifies limitations.
+    The "Document" phase creates comprehensive data documentation supporting data discovery, understanding,
+    and appropriate reuse. Systematic application of CURATE(D) procedures produces machine learning datasets
+    with clear provenance, comprehensive documentation, standardized formats, and documented quality metrics—
+    critical foundations for reproducible, trustworthy AI development.'
   requires_registration: false
   url: https://datacurationnetwork.org/outputs/workflows/
 - id: B2AI_STANDARD:322
@@ -13678,10 +13785,28 @@ data_standardortools_collection:
   description: eXtensible Graph Markup and Modeling Language
   is_open: true
   name: XGMML
-  purpose_detail: eXtensible Graph Markup and Modeling Language is an XML application
-    based on GML which is used for graph description. XGMML uses tags to describe
-    nodes and edges of a graph. The purpose of XGMML is to make possible the exchange
-    of graphs between differents authoring and browsing tools for graphs.
+  purpose_detail: 'eXtensible Graph Markup and Modeling Language (XGMML) is an XML-based
+    file format for representing and exchanging graphs and networks, extending the Graph Modeling
+    Language (GML) with XML and RDF integration capabilities. XGMML provides standardized syntax for
+    encoding graph structures including nodes, edges, node attributes, edge attributes, hierarchical
+    structures, and metadata. The format enables interoperable exchange of graphs between diverse authoring,
+    visualization, and analysis tools, supporting network science, systems biology, and knowledge graph
+    applications. XGMML documents contain formal specifications of graph topology and associated annotations,
+    enabling programmatic access and manipulation independent of specific tools. In biomedical and systems
+    biology contexts, XGMML represents molecular interaction networks, protein-protein interaction (PPI)
+    networks, gene regulatory networks, metabolic pathways, and disease networks. Bioinformatics tools like
+    Cytoscape use XGMML as a native format for network visualization and analysis, facilitating reproducible
+    network biology workflows. In machine learning and biomedical AI, XGMML-formatted networks provide structured
+    representations of biological relationships suitable for graph neural networks (GNNs) and network-based
+    machine learning. Graph-structured data enables training of deep learning models to predict node properties
+    (protein function), edge properties (interaction strength, interaction type), or graph-level properties
+    (pathway activity, disease association). Knowledge graphs in biomedical domains (gene ontologies, disease
+    networks, drug-target networks) represented in XGMML format support semantic reasoning and automated knowledge
+    integration. XGMML integration with semantic web standards (RDF, OWL) enables interoperability with linked
+    data and knowledge management systems. The format supports network analysis pipelines computing graph metrics
+    (centrality, modularity, clustering coefficients) and network motifs identifying functionally important
+    patterns. By standardizing network representation, XGMML facilitates reproducible, shareable network analyses
+    and enables development of network-based artificial intelligence methods for biological discovery.'
   requires_registration: false
   url: http://xml.coverpages.org/xgmml.html
 - id: B2AI_STANDARD:328
@@ -15236,10 +15361,28 @@ data_standardortools_collection:
   formal_specification: https://dmg.org/pmml/v4-4-1/GeneralStructure.html
   is_open: true
   name: PMML
-  purpose_detail: PMML (Predictive Model Markup Language) uses XML to represent mining
-    models. The structure of the models is described by an XML Schema. One or more
-    mining models can be contained in a PMML document. A PMML document is an XML document
-    with a root element of type PMML
+  purpose_detail: 'PMML (Predictive Model Markup Language) is an XML-based specification for
+    representing, exchanging, and executing machine learning and statistical models in a vendor-neutral,
+    interoperable format. PMML documents contain formal descriptions of predictive models including model
+    type, trained parameters, feature specifications, preprocessing transformations, and deployment
+    instructions. The standard supports diverse model types including regression, decision trees, neural
+    networks, support vector machines, cluster models, text categorization, association rules, and ensemble
+    methods. PMML enables separation of model development (in Python, R, or other ML frameworks) from model
+    deployment (in production systems, PACS, clinical decision support platforms), facilitating workflow
+    integration without vendor lock-in. A PMML document formally specifies the complete model including
+    data dictionary (feature definitions, types, ranges), pre-processing steps (normalization, imputation,
+    encoding), the trained model itself with parameters and coefficients, and post-processing rules. This
+    formalization enables model transparency, reproducibility, and regulatory compliance critical for
+    clinical AI applications. PMML supports model versioning, enabling systematic tracking of model evolution
+    and comparison across development iterations. In biomedical AI, PMML facilitates deployment of diagnostic
+    and prognostic models into healthcare IT systems by providing standardized model representation that
+    clinical systems can parse and execute. PMML models can be deployed in multiple environments—from standalone
+    applications to integrated healthcare information systems—ensuring consistent predictions across platforms.
+    The standard enables model governance and audit trails necessary for FDA approval and clinical validation.
+    PMML''s explicit representation of data preprocessing ensures that production systems apply identical
+    transformations to incoming data as were used during model training, preventing data drift and maintaining
+    model performance. By establishing standardized machine learning model representation, PMML facilitates
+    trustworthy, reproducible deployment of artificial intelligence in clinical and biomedical research settings.'
   requires_registration: false
   url: https://dmg.org/pmml/v4-4-1/GeneralStructure.html
 - id: B2AI_STANDARD:365
@@ -22815,11 +22958,29 @@ data_standardortools_collection:
   - B2AI_STANDARD:844
   is_open: true
   name: ATLAS
-  purpose_detail: An open source software tool for researchers to conduct scientific
-    analyses on standardized observational data converted to the OMOP Common Data
-    Model V5. Researchers can create cohorts by defining groups of people based on
-    an exposure to a drug or diagnosis of a particular condition using healthcare
-    claims data.
+  purpose_detail: 'ATLAS is an open-source web application for enabling researchers to design
+    cohort definitions, analyses, and studies on observational health data standardized to the
+    OMOP (Observational Medical Outcomes Partnership) Common Data Model. The tool provides an
+    intuitive interface for defining patient cohorts based on clinical and demographic characteristics
+    (diagnoses, medications, procedures, observations, measurements) captured in healthcare claims,
+    EHR, and observational databases. Researchers use ATLAS to specify inclusion/exclusion criteria,
+    define exposure definitions (e.g., drug exposure, diagnostic exposure), outcome definitions, and
+    covariates for epidemiological studies and comparative effectiveness research. ATLAS integrates
+    with standardized vocabularies (SNOMED CT, RxNorm, LOINC) enabling consistent terminology across
+    studies despite underlying data source variation. The platform enables execution of standardized
+    analysis protocols across multiple institutions contributing OMOP-standardized data, facilitating
+    large-scale epidemiological research and evidence generation. Cohort definitions created in ATLAS
+    are version-controlled and shareable, enabling study reproducibility and collaborative research.
+    In machine learning and biomedical AI, ATLAS supports development of training datasets for clinical
+    prediction models by enabling systematic definition of study populations, outcome definitions, and
+    feature extraction specifications. The tool facilitates creation of balanced, well-characterized cohorts
+    essential for training trustworthy models with appropriate representation of patient demographics and
+    clinical characteristics. ATLAS integrates with OHDSI (Observational Health Data Sciences and Informatics)
+    ecosystem tools for study design, analysis execution, and quality assessment. The platform enables network
+    research where multiple healthcare organizations execute identical analyses on their local OMOP-standardized
+    data, generating site-specific results suitable for meta-analysis and understanding treatment heterogeneity
+    across populations. ATLAS democratizes access to observational health data for research, enabling rigorous,
+    reproducible epidemiological and AI-driven analyses without requiring direct database access.'
   requires_registration: false
   url: https://atlas-demo.ohdsi.org/#/home
 - id: B2AI_STANDARD:732
@@ -25143,11 +25304,27 @@ data_standardortools_collection:
   is_open: true
   name: MoClust
   publication: doi:10.1093/bioinformatics/btac736
-  purpose_detail: A novel joint clustering framework that can be applied to several
-    types of single-cell multi-omics data. A selective automatic doublet detection
-    module that can identify and filter out doublets is introduced in the pretraining
-    stage to improve data quality. Omics-specific autoencoders are introduced to characterize
-    the multi-omics data.
+  purpose_detail: 'MoClust is a machine learning framework for unsupervised clustering of
+    single-cell multi-omics data, integrating diverse molecular measurements (transcriptomics,
+    proteomics, metabolomics, chromatin accessibility) from the same individual cells. The framework
+    employs omics-specific autoencoders to learn feature representations capturing modality-specific
+    characteristics while discovering cell types and cellular states. MoClust incorporates a selective
+    automatic doublet detection module that identifies and filters out doublets (aggregated cells or
+    artifacts from cell isolation) during preprocessing, improving data quality prior to downstream
+    analysis. The doublet detection step is critical for single-cell RNA-seq (scRNA-seq) analysis as
+    doublets confound cell type identification and gene expression analysis. MoClust enables joint
+    analysis of multiple omics modalities measured on the same cells, leveraging complementary information
+    to improve cell type characterization and discovery of cell states. Multi-omics integration is essential
+    for understanding cellular heterogeneity in tissues and organs, where different cell types express distinct
+    combinations of genes, proteins, and epigenetic marks. The framework produces interpretable cell clustering
+    and cluster-specific feature importance rankings identifying genes, proteins, and chromatin regions
+    distinguishing cell types. MoClust outputs support downstream analyses including cell type annotation
+    via reference-based matching, trajectory inference to understand developmental paths, and gene expression
+    regulatory analysis. The tool integrates seamlessly with standard bioinformatics workflows and enables
+    reproducible single-cell multi-omics analysis in research and clinical contexts. MoClust facilitates
+    discovery of rare cell populations, cell type-specific biomarkers, and dysregulated cell states in disease,
+    supporting translational research applications including patient stratification and therapeutic target
+    identification in precision medicine.'
   requires_registration: false
   url: https://zenodo.org/record/7306504
 - id: B2AI_STANDARD:796
