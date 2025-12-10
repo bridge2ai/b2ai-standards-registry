@@ -8739,6 +8739,85 @@ data_standardortools_collection:
     where standardized data format improves cross-study comparisons and hypothesis testing.
   requires_registration: false
   url: https://nifti.nimh.nih.gov/
+  has_application:
+  - id: B2AI_APP:335
+    category: B2AI:Application
+    name: BraTS Challenge Brain Tumor Segmentation Pipeline
+    description: 'The 2024 Brain Tumor Segmentation (BraTS) challenge uses NIfTI as the standardized
+      file format for distributing preprocessed multimodal MRI volumes. The challenge preprocessing
+      pipeline includes DICOM→NIfTI conversion using dcm2niix, followed by skull-stripping with
+      HD-BET and affine registration to the MNI atlas. Multiple deep learning architectures including
+      nnU-Net V1/V2, 3D SegResNet (trained with MONAI), and proprietary nnU-Net variants consume
+      NIfTI-formatted T1, T1-Gd, T2, and FLAIR sequences as 3D volumes, producing segmentation
+      outputs that are fused using STAPLE (Simultaneous Truth and Performance Level Estimation).
+      The standardized NIfTI distribution format enables consistent data ingestion across dozens
+      of participating institutions and machine learning teams, making it a canonical benchmark
+      for evaluating 3D segmentation approaches in neuro-oncology.'
+    references:
+    - https://doi.org/10.48550/arxiv.2405.18368
+    used_in_bridge2ai: false
+  - id: B2AI_APP:336
+    category: B2AI:Application
+    name: BraTS-PEDs Pediatric Brain Tumor Segmentation
+    description: 'The BraTS-PEDs 2023 challenge demonstrates NIfTI''s role in pediatric neuroimaging
+      machine learning workflows. Challenge datasets undergo standardized preprocessing converting
+      raw DICOM scans to NIfTI format, co-registering to the SRI24 pediatric anatomical template,
+      and resampling to isotropic 1 mm³ resolution via the Cancer Imaging Phenomics Toolkit (CaPTk)
+      and Federated Tumor Segmentation (FeTS) platform. Containerized deep learning algorithms
+      evaluate on standardized NIfTI inputs and generate segmentation outputs, which are validated
+      on withheld test sets via the synapse.org/MedPerf platform. The explicit DICOM→NIfTI conversion
+      step includes de-identification and de-facing for privacy protection, demonstrating how NIfTI
+      standardization enables privacy-preserving dataset distribution and facilitates algorithm
+      development across multiple pediatric centers.'
+    references:
+    - https://doi.org/10.48550/arxiv.2305.17033
+    used_in_bridge2ai: false
+  - id: B2AI_APP:337
+    category: B2AI:Application
+    name: BraSyn Image Synthesis for Tumor Segmentation
+    description: 'The BraSyn 2023 challenge task requires machine learning methods to synthesize
+      missing MRI modalities from incomplete multimodal imaging data, with all data distributed in
+      standardized NIfTI format. The challenge preprocessing explicitly includes DICOM→NIfTI conversion,
+      co-registration to SRI24, and isotropic resampling via CaPTk and FeTS. Participants develop
+      image-to-image synthesis networks that consume NIfTI-formatted partial modality sets and generate
+      synthetic missing sequences, which are then evaluated using downstream segmentation models trained
+      on the synthesized outputs. This architecture demonstrates how NIfTI standardization enables
+      reproducible multi-stage machine learning pipelines where intermediate synthesis outputs serve
+      as inputs to downstream segmentation stages.'
+    references:
+    - https://doi.org/10.48550/arxiv.2305.09011
+    used_in_bridge2ai: false
+  - id: B2AI_APP:338
+    category: B2AI:Application
+    name: MONAI/FastAI Brain Tumor Segmentation Workflows
+    description: 'Industrial and research brain tumor segmentation systems leverage NIfTI as a primary
+      format for 3D medical image processing in machine learning pipelines. A workflow-integrated system
+      built on fastai and MONAI libraries explicitly documents that "the two most used file formats for
+      medical scans in this project have been DICOM and NIfTI," using NIfTI as the standard format for
+      distributing 3D volumetric data to deep learning models. The system implements U-Net and nnU-Net
+      variants, comparing training and inference approaches across these architectures, with MONAI providing
+      native NIfTI I/O support and data transforms (e.g., orientation normalization, resampling, intensity
+      normalization) specific to volumetric medical imaging. Such workflows are packaged as Docker containers
+      for integration with clinical PACS systems and research workflows, demonstrating NIfTI''s role as
+      a standard intermediate format bridging clinical acquisition systems and ML analysis pipelines.'
+    references:
+    - https://bora.uib.no/bora-xmlui/bitstream/handle/11250/3021987/MSc_Ditlev_Simonsen_Digernes_2022.pdf
+    used_in_bridge2ai: false
+  - id: B2AI_APP:339
+    category: B2AI:Application
+    name: Open-Source Medical Imaging ML Toolchain Support
+    description: 'A Society of Imaging Informatics in Medicine (SIIM) survey of 28 open-source tools
+      for medical imaging data curation and preparation documents widespread NIfTI support across the
+      machine learning data preparation ecosystem. Tools including MONAI Label, 3D Slicer, ITK-SNAP,
+      ImageJ/FIJI, and the NCI Imaging Data Commons explicitly support NIfTI as both input and output
+      format. The survey emphasizes tools'' capability for DICOM↔NIfTI conversion (via dcm2niix and
+      dicom2nifti), data annotation, quality assessment, and preprocessing—all critical steps in the
+      pipeline from raw DICOM acquisition to ML-ready NIfTI volumes. This ecosystem-wide support
+      demonstrates NIfTI''s central role in standardizing data flow from clinical imaging systems
+      through preprocessing and curation stages into machine learning training pipelines.'
+    references:
+    - https://doi.org/10.1007/s10278-024-01083-0
+    used_in_bridge2ai: false
 - id: B2AI_STANDARD:234
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
