@@ -6615,7 +6615,37 @@ data_standardortools_collection:
   - B2AI_STANDARD:848
   is_open: true
   name: LOINC
-  purpose_detail: Tests, observations, diagnostics, and other clinical procedures.
+  purpose_detail: LOINC (Logical Observation Identifier Names and Codes) is a comprehensive, machine-readable
+    standardized vocabulary for identifying laboratory and clinical observations, measurements, tests, and
+    procedures, enabling semantic interoperability of clinical and laboratory data across healthcare systems
+    and research networks worldwide. LOINC provides unique, non-ambiguous identifiers and human-readable names
+    for test and observation codes enabling consistent representation of clinical data including laboratory
+    tests (chemistry, hematology, microbiology, immunology), vital signs (temperature, blood pressure,
+    respiratory rate, oxygen saturation), physical examinations, functional assessments, imaging procedures,
+    and survey questions. Each LOINC code includes a unique six-digit numeric identifier, standardized long
+    and short names, component (analyte measured), property measured (mass concentration, number, catalytic
+    activity), time aspect (point in time, 24-hour), specimen/system (blood, urine, CSF), scale (quantitative,
+    ordinal, narrative), and method of measurement. LOINC enables seamless data exchange between laboratory
+    information systems, electronic health records, clinical research platforms, and public health surveillance
+    systems by providing a common vocabulary independent of how individual organizations internally code their
+    tests. Applications in biomedical data science and AI/ML include clinical decision support where LOINC-coded
+    laboratory values trigger evidence-based alerts and therapeutic recommendations; machine learning models for
+    disease prediction where LOINC-standardized lab values improve model accuracy across diverse EHR systems;
+    automated phenotyping where LOINC codes define disease-specific patient cohorts for research; epidemiological
+    surveillance where LOINC standardization enables tracking of test results (e.g., COVID-19 PCR tests) across
+    public health jurisdictions; clinical trial matching where LOINC-coded inclusion/exclusion criteria enable
+    automated patient screening; data harmonization in multi-site research where LOINC ensures lab value
+    consistency across institutions using different LIS systems; natural language processing on clinical notes
+    where LOINC vocabulary guides extraction of test results and measurements; and knowledge graphs integrating
+    clinical tests, results, and disease associations where LOINC provides standardized test representation.
+    LOINC integrates with other healthcare standards including SNOMED CT (clinical terminology), ICD codes
+    (diagnoses), and RxNorm (medications) enabling comprehensive clinical data semantics. The Regenstrief
+    Institute maintains LOINC through community input from clinical laboratories, healthcare IT vendors, public
+    health agencies, and research organizations ensuring the vocabulary reflects current clinical practice and
+    emerging laboratory tests. LOINC adoption in major healthcare systems, EHR vendors, and public health agencies
+    has made it the de facto standard for laboratory data exchange. Real-world deployment across thousands of
+    healthcare organizations demonstrates LOINC's critical role in enabling data sharing and clinical decision
+    support.
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:53
@@ -13153,7 +13183,24 @@ data_standardortools_collection:
   - B2AI_ORG:56
   is_open: false
   name: xlsx
-  purpose_detail: Format used by Microsoft Excel spreadsheet software.
+  purpose_detail: The XLSX (Microsoft Office Open XML Spreadsheet) format is a standardized, open XML-based file
+    format for storing tabular data, spreadsheets, calculations, and charts, enabling data interchange and analysis
+    across diverse platforms and applications. XLSX provides structured representation of spreadsheet content including
+    worksheets with cells containing values (numbers, text, dates), formulas and functions, formatting (fonts, colors,
+    alignment), charts and visualization, and metadata. The format uses ZIP compression containing multiple XML files
+    defining sheet content, styles, relationships, and workbook structure enabling both human readability of underlying
+    XML and efficient storage. Applications in biomedical data science and AI/ML include data entry and curation where
+    XLSX spreadsheets serve as primary collection tools for clinical, laboratory, and research data; data exchange where
+    XLSX enables portability of datasets across institutions and research groups; exploratory data analysis where XLSX
+    pivot tables and built-in functions support preliminary statistical investigation; clinical trial case report forms
+    (CRFs) where XLSX provides standardized templates for capturing subject data; electronic health record data export
+    where XLSX format facilitates data download for research and analysis; data quality assessment where XLSX spreadsheets
+    document data validation rules and missing data patterns; and machine learning data preparation where XLSX serves as
+    intermediate format for feature engineering and data cleaning. XLSX integration with programming tools including R
+    (readxl, openxlsx packages), Python (openpyxl, pandas), and statistical software (SAS, SPSS, Stata) enables automated
+    data processing and analysis workflows. XLSX adoption as de facto standard for business and research data entry ensures
+    widespread tool support and compatibility. Real-world biomedical applications span clinical research data management,
+    laboratory information systems export, and public health reporting where XLSX provides universally accessible data format.
   requires_registration: false
   url: https://www.iso.org/standard/71691.html
 - id: B2AI_STANDARD:350
@@ -13237,7 +13284,26 @@ data_standardortools_collection:
   - B2AI_ORG:8
   is_open: true
   name: netCDF
-  purpose_detail: A standardized format for chromatographic data representation.
+  purpose_detail: Network Common Data Form (netCDF) is a self-describing, portable binary file format for storing
+    multidimensional scientific data including arrays, variables, dimensions, and attributes, enabling efficient data
+    storage, sharing, and analysis across platforms and scientific domains. Originally developed for climate and
+    weather data, netCDF supports structured representation of gridded data (latitude, longitude, time, depth),
+    irregular/scattered data, and hierarchical data structures. netCDF includes self-describing metadata describing
+    data dimensions, variable names and types, units, fill values, and coordinate systems enabling automated interpretation
+    without external documentation. The format provides efficient compression and chunked storage enabling fast access to
+    subsets of large multidimensional arrays. Applications in biomedical data science and AI/ML include time series
+    physiological data where netCDF efficiently stores longitudinal recordings from patient monitoring systems; medical
+    imaging where netCDF represents 3D/4D volumetric and temporal image sequences; chromatography and spectrometry where
+    netCDF standardizes analytical measurement data and detector outputs; genomics where netCDF stores sequence alignment
+    data and genomic coordinate information; environmental health monitoring where netCDF integrates spatial/temporal
+    environmental exposure data; bioinformatics pipelines where netCDF serves as exchange format between analysis tools;
+    data harmonization in multi-site studies where netCDF standardization enables integration of datasets from diverse
+    instruments and protocols; and machine learning where self-describing netCDF metadata improves automated data loading
+    and feature engineering. netCDF libraries available in R (ncdf4), Python (netCDF4, h5netcdf), MATLAB, and other scientific
+    languages enable programmatic data access and processing. netCDF adoption in climate, weather, oceanography, and remote
+    sensing communities demonstrates its effectiveness for scientific data archiving and sharing. Real-world biomedical
+    applications benefit from netCDF's efficiency in storing and accessing large multidimensional datasets characteristic
+    of modern biomedical measurement technologies.
   requires_registration: false
   url: https://www.unidata.ucar.edu/software/netcdf/
 - id: B2AI_STANDARD:354
@@ -15421,7 +15487,25 @@ data_standardortools_collection:
   - B2AI_ORG:4
   is_open: false
   name: ASA/ANSI S3.20
-  purpose_detail: Definitions for terms used in human bioacoustics.
+  purpose_detail: The ASA/ANSI S3.20 standard (Acoustical Society of America/American National Standards Institute)
+    provides comprehensive standardized definitions and terminology for human bioacoustics, including hearing science,
+    speech acoustics, and auditory processing. The standard defines acoustical terms, hearing assessment methodologies,
+    sound measurement principles, and hearing-related concepts enabling precise communication in audiology, otolaryngology,
+    speech-language pathology, and hearing science research. Terminology coverage includes pure tone audiometry,
+    speech discrimination testing, loudness scaling, tinnitus characterization, and hearing aid fitting parameters.
+    Applications in biomedical data science and AI/ML include automated hearing assessment where standardized acoustic
+    measurements guide machine learning models for hearing loss classification; speech intelligibility prediction where
+    bioacoustic parameters enable assessment of communication effectiveness in hearing-impaired individuals; machine
+    learning for tinnitus characterization where standardized acoustic and perceptual descriptors improve model
+    interpretability; natural language processing on audiology reports where S3.20 terminology enables extraction of
+    hearing-related clinical information; knowledge graphs integrating hearing test results, acoustic measurements, and
+    treatment outcomes where standardized terminology provides semantic structure; clinical decision support for hearing
+    aid prescription where acoustical parameters inform device selection; and epidemiological studies of hearing loss
+    where standardized assessment terminology enables comparison across populations and time periods. The standard
+    facilitates international coordination in hearing science ensuring consistency of hearing measurements across countries
+    and research institutions. Adoption by professional organizations including the American Academy of Audiology ensures
+    clinical relevance and widespread use. Real-world applications span clinical audiology, occupational hearing conservation,
+    hearing aid fitting, and auditory research where standardized terminology improves communication and research reproducibility.
   requires_registration: true
   url: https://webstore.ansi.org/Standards/ASA/ANSIASAS3202015R2020
 - id: B2AI_STANDARD:404
@@ -16561,7 +16645,25 @@ data_standardortools_collection:
   is_open: true
   name: DPO
   publication: doi:10.1186/2041-1480-4-30
-  purpose_detail: Commonly encountered and/or high level Drosophila phenotypes.
+  purpose_detail: The Drosophila Phenotype Ontology (DPO) is a comprehensive, hierarchically-organized vocabulary for
+    standardizing and annotating phenotypes observed in Drosophila melanogaster (fruit fly), a preeminent model organism
+    for genetic and developmental biology research. DPO enables machine-readable representation of observable traits and
+    characteristics in fruit flies facilitating genetic mapping, functional annotation of genes, and cross-species translation
+    of biological findings to human biology. The ontology encompasses morphological phenotypes (body size, eye color, wing
+    shape, bristle patterns), developmental phenotypes (embryonic lethality, larval developmental timing, pupal development),
+    behavioral phenotypes (locomotion, courtship, feeding, sleep), neurobiological phenotypes (synaptic morphology, neural
+    function, memory), and cellular phenotypes (cell migration, differentiation, death). DPO integrates with the Drosophila
+    Genome Reference Consortium providing standardized annotation of mutant phenotypes and gene-phenotype associations enabling
+    functional characterization of thousands of Drosophila genes. Applications in biomedical data science and AI/ML include
+    automated phenotype extraction from Drosophila research literature using natural language processing trained on DPO terms;
+    machine learning for predicting human disease orthologs where Drosophila gene functions annotated with DPO phenotypes
+    guide disease gene discovery; model organism comparative genomics where DPO phenotypes enable functional alignment between
+    fly and human genes supporting translation of basic biology to medicine; ontology-driven databases enabling semantic queries
+    identifying genes with specific phenotypes; and knowledge graphs integrating Drosophila genetics with human disease biology
+    where DPO provides standardized phenotypic connection points. FlyBase maintains DPO in collaboration with the Drosophila
+    research community ensuring accuracy and completeness. Real-world applications span developmental biology, neuroscience,
+    genetics, and aging research where standardized Drosophila phenotype annotation accelerates translation of findings to
+    human biology and disease mechanisms.
   requires_registration: false
   url: https://github.com/FlyBase/flybase-controlled-vocabulary/wiki
 - id: B2AI_STANDARD:438
@@ -17196,7 +17298,16 @@ data_standardortools_collection:
   formal_specification: https://github.com/getbordea/fideo/
   is_open: true
   name: FIDEO
-  purpose_detail: Food-Drug interactions automatically extracted from scientific literature.
+  purpose_detail: The Food Interactions with Drugs Evidence Ontology (FIDEO) is a formal ontology for representing
+    and standardizing food-drug interactions extracted from scientific literature and clinical evidence. FIDEO enables
+    machine-readable documentation of molecular mechanisms whereby food components affect drug absorption, metabolism,
+    and efficacy. The ontology includes food categories, chemical constituents, drug targets, interaction mechanisms,
+    and clinical significance classifications. Applications include clinical decision support for medication-food
+    counseling, machine learning for predicting drug-food interactions from pharmacokinetic data, natural language
+    processing of clinical literature, and knowledge graphs integrating dietary factors with drug response prediction.
+    Integration with pharmacogenomics enables personalized medicine where dietary factors are considered alongside genetic
+    variants in treatment planning. Real-world applications span pharmacotherapy optimization, patient safety, and
+    precision medicine.
   requires_registration: false
   url: https://gitub.u-bordeaux.fr/erias/fideo
 - id: B2AI_STANDARD:450
@@ -18033,7 +18144,14 @@ data_standardortools_collection:
   is_open: true
   name: INO
   publication: doi:10.1186/2041-1480-6-2
-  purpose_detail: An ontology of interactions and interaction networks.
+  purpose_detail: The Interaction Network Ontology (INO) is a formal vocabulary for representing molecular
+    interactions, protein-protein interactions, and broader biological interaction networks enabling semantic annotation
+    of interaction data. INO standardizes representation of binding interactions, regulatory interactions, signaling cascades,
+    and metabolic networks. Applications include knowledge graph construction integrating biomolecular interactions with
+    disease biology, machine learning for predicting protein functions from interaction networks, automated curation of
+    interaction databases, and systems biology modeling. INO integration with biological databases enables network-based
+    drug target discovery and understanding of disease mechanisms through interaction pattern analysis. Real-world applications
+    span functional genomics, drug discovery, and systems medicine.
   requires_registration: false
   url: https://github.com/INO-ontology/ino
 - id: B2AI_STANDARD:477
@@ -18443,7 +18561,14 @@ data_standardortools_collection:
   formal_specification: https://github.com/MPIO-Developers/MPIO
   is_open: true
   name: MPIO
-  purpose_detail: Minimum information regarding potential drug-drug interaction information.
+  purpose_detail: The Minimum PDDI Information Ontology (MPIO) is a formal specification defining minimum information
+    required for documenting potential drug-drug interactions (PDDI) enabling standardized representation of interaction
+    evidence and clinical significance. MPIO standardizes drug pairing information, pharmacokinetic mechanisms, pharmacodynamic
+    effects, severity classifications, and evidence quality assessment. Applications include clinical decision support for
+    polypharmacy patients, machine learning for predicting significant interactions, pharmacist clinical workflow optimization,
+    and drug-drug interaction knowledge base curation. Integration with pharmacy systems enables automated interaction checking
+    at prescription time. Real-world applications improve medication safety in complex polypharmacy scenarios common in aging
+    and chronic disease populations.
   requires_registration: false
   url: https://github.com/MPIO-Developers/MPIO
 - id: B2AI_STANDARD:492
@@ -18901,7 +19026,15 @@ data_standardortools_collection:
   formal_specification: https://github.com/obo-behavior/behavior-ontology/
   is_open: true
   name: NBO
-  purpose_detail: Human and animal behaviours and behavioural phenotypes
+  purpose_detail: The Neuro Behavior Ontology (NBO) is a comprehensive vocabulary for standardizing representation of
+    behavioral phenotypes and neurological behaviors in humans and animals, enabling formal annotation of observable
+    behaviors, behavioral tests, and neural mechanisms underlying behavioral expression. NBO encompasses locomotor behaviors,
+    social behaviors, feeding behaviors, reproductive behaviors, sleep-wake cycles, learning and memory, and pathological
+    behaviors. Applications include automated behavior extraction from video recordings using computer vision and machine
+    learning, comparative behavioral genomics across species, neuropsychiatric disease modeling, drug development for
+    behavioral disorders, and knowledge graphs integrating neural circuits with behavioral outcomes. NBO standardization
+    enables reproducible behavioral research and translation from model organisms to human clinical phenotypes. Real-world
+    applications span neuroscience, psychiatry, neurology, and behavioral pharmacology research.
   requires_registration: false
   url: https://github.com/obo-behavior/behavior-ontology/
 - id: B2AI_STANDARD:503
@@ -20297,7 +20430,22 @@ data_standardortools_collection:
   - B2AI_ORG:115
   is_open: true
   name: Metathesaurus
-  purpose_detail: Biomedical terminology and hierarchical relationships between concepts.
+  purpose_detail: The UMLS Metathesaurus is a comprehensive, machine-readable database of biomedical terminology and
+    semantic relationships integrating concepts from 200+ source vocabularies including SNOMED CT, ICD codes, MeSH,
+    LOINC, RxNorm, and disease/drug databases. The Metathesaurus provides unified representation of biomedical concepts
+    enabling standardized mapping between different nomenclatures used by healthcare systems, research databases, and
+    clinical applications. Each concept includes multiple preferred and synonym terms, concept relationships (hierarchical,
+    associative, semantic types), and cross-references to source vocabularies. Applications include clinical NLP where
+    Metathesaurus enables normalization of biomedical entity mentions in clinical notes; automated phenotyping where
+    standardized concept mapping identifies patient cohorts; knowledge graph construction integrating clinical data with
+    biomedical knowledge; machine learning for clinical outcome prediction where standardized terminology improves model
+    generalization; clinical decision support where UMLS concepts structure evidence integration; interoperability systems
+    where UMLS mappings enable translation between healthcare systems using different coding schemes; and biomedical
+    literature mining where standardized terminology guides information extraction. The National Library of Medicine
+    maintains UMLS ensuring continuous incorporation of emerging medical terminology and validation through expert curation.
+    UMLS adoption across major healthcare IT systems, research platforms, and NLP tools makes it the standard reference for
+    biomedical concept normalization globally. Real-world applications span clinical practice, research, public health, and
+    precision medicine leveraging UMLS semantic normalization for improved data quality and analytical accuracy.
   requires_registration: true
   url: https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/index.html
   used_in_bridge2ai: true
