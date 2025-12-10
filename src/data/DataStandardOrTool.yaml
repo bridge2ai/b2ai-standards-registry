@@ -9105,6 +9105,42 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:119
   url: http://genome.ucsc.edu/FAQ/FAQformat.html#format5
+  has_application:
+  - id: B2AI_APP:348
+    category: B2AI:Application
+    name: GPN-MSA Alignment-Based DNA Language Model for Variant Effect Prediction
+    description: GPN-MSA is a Transformer-based DNA language model that directly ingests whole-genome multiple sequence alignment (MSA) data in MAF format as its primary input. The pipeline processes a 100-vertebrate multiz MAF alignment by stitching contiguous alignment blocks using maf2fasta, removing columns with gaps in human, and excluding close primate genomes to avoid trivial prediction. The model trains on 128-bp MSA windows where one-hot nucleotide encodings across species are concatenated per column, with 15% of positions masked during training. At inference, individual variant positions are masked to compute per-base probabilities for variant effect prediction. The authors report that inclusion of the MSA from MAF is the most critical factor for model performance, demonstrating genome-wide variant effect prediction with precomputed scores for approximately 9 billion SNVs. The framework also derives conservation features (phastCons, phyloP) from MAF-derived alignments, illustrating direct dependence on standardized multiple alignment format.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2023.10.10.561776
+  - id: B2AI_APP:349
+    category: B2AI:Application
+    name: ConsHMM Unsupervised Conservation-State Learning from Multiple Alignments
+    description: ConsHMM applies a multivariate hidden Markov model (HMM) at single-nucleotide resolution to multi-species sequence alignments in MAF format to learn genome-wide conservation states. The method accepts MAF-formatted alignments (or formats convertible to MAF) and was applied to the 100-way Multiz vertebrate alignment with human as the reference. For each reference base, ConsHMM encodes a vector of observations per non-reference species (match, mismatch, or no alignment), expanded into binary features (two per species). The underlying model uses the ChromHMM framework with Baum-Welch parameter learning, implementing per-species observations as a three-way multinomial equivalent. The method performs single-nucleotide annotation of conservation states across the entire genome in an unsupervised manner, producing per-base state assignments useful for variant prioritization and conservation interpretation. ConsHMM required scaling modifications to handle high-dimensional whole-genome alignments in MAF format, including parallel processing and extended iterations.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1038/s42003-019-0488-1
+  - id: B2AI_APP:350
+    category: B2AI:Application
+    name: ncRNA Discovery Using MAF Alignments with Machine Learning Classifiers
+    description: Comparative genomics screens for novel non-coding RNA (ncRNA) discovery commonly operate on UCSC MAF-formatted genomic alignment blocks in sliding windows. Multiple pipelines integrate machine learning classifiers with MAF alignments to detect conserved RNA structure. RNAz uses support vector machines (SVMs) trained on features including z-scores and structure conservation index (SCI) computed from MAF alignment windows. Other methods employ probabilistic models including hidden Markov models (HMMs) and stochastic context-free grammars (SCFGs) such as qrna and Evofold to detect structured ncRNA sequences from MAF blocks. Dynalign pipelines have been used with SVM training on realigned windows from UCSC MAF blocks. These workflows demonstrate direct use of MAF format as primary input to supervised and unsupervised ML pipelines for de novo ncRNA discovery at genome scale. The quality of genomic MAF alignments significantly impacts discovery accuracy, with challenges arising from short blocks or fragmented alignments across species.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1371/journal.pcbi.1002100
+  - id: B2AI_APP:351
+    category: B2AI:Application
+    name: Conservation Score Computation from MAF for Regulatory Variant Prediction
+    description: Multiple AI/ML frameworks for variant prioritization and genomic annotation use conservation metrics derived from large multi-species alignments in MAF format. In cattle regulatory variant prediction, phastCons and phyloP conservation scores were computed from the Cactus 241-way multiple alignment of vertebrates and integrated as features alongside other genomic annotations (distances to regulatory elements, CpG islands, gene density, sequence features) and learned representations (Enformer-derived predicted expression features). The pipeline analyzed 590,778 human regulatory variants and 79,215 cattle regulatory variants, using MAF-derived conservation features as critical input signals for supervised learning frameworks. Conservation metrics computed from MAF alignments are widely employed in genomic machine learning applications including feature enrichment analysis, variant effect prioritization, and integration with deep learning models. This demonstrates an indirect but pervasive use of MAF-formatted alignments in modern biomedical AI pipelines where conservation features extracted from MAF serve as essential input data for machine learning models.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1101/2024.08.01.606140
+  - id: B2AI_APP:352
+    category: B2AI:Application
+    name: Structural Variation Calling and Integration with Alignment-Based Features
+    description: While structural variation (SV) calling pipelines may produce MAF-formatted output from aligners such as LAST, the integration of MAF data into machine learning frameworks for SV call filtering presents challenges and limited direct usage. In nanopore sequencing SV benchmarking, LAST-produced MAF alignments were evaluated, but conversion to SAM format proved incompatible with standard SV callers (Sniffles, NanoSV), limiting practical integration. The primary machine learning integration for SV call filtering used random forest models trained on SV caller-derived features (SV length, depth p-value, read support, mapping quality, confidence intervals) extracted from VCF and caller metadata rather than MAF alignment blocks directly. However, the dedicated LAST-Picky pipeline demonstrates specialized SV workflows that do consume LAST alignments directly. This application illustrates both the potential for MAF in SV analysis and current limitations in integrating MAF-based features into standard ML frameworks for structural variant detection.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1186/s13059-019-1858-1
 - id: B2AI_STANDARD:218
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
