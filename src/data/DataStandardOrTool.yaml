@@ -12947,6 +12947,14 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:99
   url: https://www.w3.org/TR/hcls-dataset/
+  has_application:
+  - id: B2AI_APP:345
+    category: B2AI:Application
+    name: Privacy-Preserving Distributed Learning with FAIR Data Stations (Personal Health Train)
+    description: A distributed learning infrastructure (Sun et al., 2019) implements the Personal Health Train architecture using FAIR data stations where heterogeneous health data (clinical data from De Maastricht Studie and healthcare cost data from Statistics Netherlands) are transformed to RDF format with dataset metadata made compliant to the W3C HCLS Dataset Description Profile. The infrastructure enforces privacy preservation by sending "application trains" (analysis models) to distributed data stations rather than centralizing raw data. Application trains query RDF triples via SPARQL, perform pre-processing, and execute analysis models including correlation matrices and linear regression on Type 2 Diabetes incidence and healthcare cost relationships. The HCLS-compliant metadata enables machine-actionable dataset descriptions and SPARQL-based discovery, allowing researchers to understand and integrate heterogeneous data sources in a privacy-preserving, federated learning setting where only analysis results leave the original data holders.
+    used_in_bridge2ai: false
+    references:
+    - https://ceur-ws.org/Vol-2849/paper-21.pdf
 - id: B2AI_STANDARD:306
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
