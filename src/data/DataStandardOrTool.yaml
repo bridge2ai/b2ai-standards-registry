@@ -2216,8 +2216,36 @@ data_standardortools_collection:
   formal_specification: https://evs.nci.nih.gov/ftp1/CDISC/SDTM/
   is_open: true
   name: SDTM
-  purpose_detail: A standard for organizing and formatting data to streamline processes
-    in collection, management, analysis and reporting.
+  purpose_detail: The Study Data Tabulation Model (SDTM) is a comprehensive international
+    standard developed by the Clinical Data Interchange Standards Consortium (CDISC)
+    for organizing, formatting, and standardizing clinical trial and observational research
+    data to streamline collection, management, analysis, and regulatory reporting. SDTM
+    provides a unified structure that enables consistent representation of clinical observations,
+    demographics, vital signs, laboratory findings, pharmacokinetic measurements, and medical
+    histories across diverse research studies and therapeutic areas. The standard defines a
+    modular, table-based format where each clinical domain (demographics, vital signs, lab
+    tests, adverse events, medications, procedures, etc.) is represented as a separate dataset
+    following standardized naming conventions, column structures, and variable definitions.
+    SDTM includes extensive controlled terminology that maps clinical findings to standardized
+    codes (CDISC, MedDRA, SNOMED CT, LOINC), ensuring semantic consistency and enabling automated
+    data validation, processing, and interpretation. The standard incorporates qualification
+    variables and supplemental qualifiers that capture detailed context for clinical observations,
+    enabling precise documentation of measurement conditions, reference ranges, and analytical
+    methods. SDTM is specifically designed to support FDA regulatory submissions for new drug
+    approvals, where standardized data formats reduce regulatory review timelines and enable
+    automated conformance checking. The standard has been extended to cover specialized data
+    types including pharmacokinetic samples (SDTM-PK), medical device data (SDTM-MD), and
+    pharmacogenomics information (SDTM-PGx). In biomedical data science and machine learning
+    contexts, SDTM-formatted data enables training predictive models on consistently structured
+    clinical trial data, developing algorithms for adverse event detection, and creating systems
+    for safety signal identification and pharmacovigilance. SDTM integration with analysis data
+    models (ADaM) enables standardized statistical analysis and supports meta-analyses across
+    multiple studies. Real-world applications include pharmaceutical companies conducting regulatory-compliant
+    clinical trials using SDTM data capture, regulatory agencies (FDA, EMA, PMDA) that review
+    SDTM submissions for drug approvals, and research organizations conducting non-commercial
+    clinical studies requiring standardized data formats. SDTM compliance is increasingly mandated
+    by regulatory bodies and funders, making it essential for translating clinical research data
+    into machine-readable formats suitable for automated analysis and regulatory approval.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:15
@@ -2469,8 +2497,35 @@ data_standardortools_collection:
   is_open: true
   name: CHADO
   publication: doi:10.1093/bioinformatics/btm189
-  purpose_detail: Chado is a modular schema covering many aspects of biology, not
-    just sequence data. Chado-XML has exactly the same scope as the Chado schema.
+  purpose_detail: Chado (Common Hierarchical Annotation Database Object) is a comprehensive,
+    modular, open-source database schema designed to represent diverse biological data
+    covering genomic sequences, genetic polymorphisms, molecular interactions, phylogenetic
+    relationships, and functional annotations. Developed by the GMOD (Generic Model Organism
+    Database) collaboration, Chado provides a unified schema that accommodates not just sequence
+    data but also phenotypes, genotypes, expression data, and literature references. The Chado
+    schema is built on a modular architecture where different modules (cv, organism, seq, feature,
+    analysis, phylogenetics, audit, expression, project) can be selectively used depending on
+    database requirements, enabling flexibility for diverse model organism and genomic research
+    applications. Chado-XML is the XML serialization of the Chado schema, providing an interoperable
+    exchange format with identical semantic scope, enabling data integration across heterogeneous
+    biological databases. The schema includes sophisticated data structures for representing genomic
+    features (genes, exons, regulatory elements) with hierarchical relationships, nucleotide and
+    protein sequences with quality metrics, sequence variations and polymorphisms with population
+    context, and functional annotations linked to genes and proteins. Chado supports ontology-driven
+    annotation through integration with controlled vocabularies and biological ontologies (Gene Ontology,
+    Sequence Ontology, PATO), enabling standardized semantic annotation of biological entities. The
+    schema includes audit trail capabilities for tracking data provenance, curator annotations, and
+    database change history. In biomedical data science and machine learning contexts, Chado-formatted
+    genomic data supports training deep learning models for genome annotation prediction, developing
+    algorithms for variant effect prediction, and creating machine learning systems for functional
+    element identification and comparative genomics. The standardized schema enables aggregation of
+    genomic and functional data from multiple organisms for evolutionary analysis, pathway inference,
+    and cross-species validation of genetic findings. Real-world applications include model organism
+    databases (FlyBase, WormBase, SGD) that use Chado as their core schema for organizing and sharing
+    genomic and phenotypic data, genome annotation pipelines that load predictions into Chado-compliant
+    databases, and research consortia conducting multi-organism comparative genomics using Chado for
+    data standardization. Chado integration with genome browsers and analysis tools enables comprehensive
+    visualization and querying of complex genomic datasets.
   requires_registration: false
   url: https://github.com/GMOD/Chado
 - id: B2AI_STANDARD:53
@@ -2517,8 +2572,31 @@ data_standardortools_collection:
   description: CHARMM Card File Format
   is_open: true
   name: CARD
-  purpose_detail: The CARD file format is the standard means in CHARMM for providing
-    a human readable and writable coordinate file.
+  purpose_detail: The CARD (Coordinate Archive or Description) file format is the
+    standard means in CHARMM (Chemistry at HARvard Macromolecular Mechanics) for providing
+    a human-readable and human-writable coordinate file representation of molecular structures.
+    CARD files store atomic coordinates, residue information, molecular connectivity, and
+    structural metadata for proteins, nucleic acids, and other biological macromolecules in
+    a text-based format designed for human inspection and manual editing. The format enables
+    researchers to visualize molecular structures in plain text, verify atomic coordinates,
+    and manually modify structures when needed. CARD files contain structured information
+    including atom names, residue numbers, chain identifiers, x/y/z coordinates, and optional
+    information such as element types, charges, and structure metadata. The human-readable
+    nature of CARD files enables easy debugging of molecular systems, version control tracking
+    of structural changes, and integration with text-based bioinformatics workflows. CARD is
+    the standard interchange format for CHARMM molecular dynamics simulations, enabling users
+    to prepare initial structures, analyze trajectories, and post-process simulation results.
+    The format is widely compatible with CHARMM-GUI and other molecular modeling tools that
+    work with CHARMM force fields. In biomedical data science and machine learning contexts,
+    CARD-formatted coordinate data supports training machine learning models for protein structure
+    prediction, developing algorithms for molecular simulation analysis, and creating systems for
+    automated structure quality assessment. CARD files enable reproducible molecular dynamics
+    workflows by providing standardized formats for structure representation and archival. Real-world
+    applications include molecular dynamics simulations in drug discovery screening for predicting
+    protein-ligand binding modes, structural biology research analyzing macromolecular dynamics,
+    and rational drug design pipelines that require accurate 3D molecular representations. CARD
+    format integration with molecular visualization tools enables interactive exploration of
+    computed molecular structures and analysis of simulation results.
   requires_registration: false
   url: https://charmm-gui.org/charmmdoc/io.html
 - id: B2AI_STANDARD:55
@@ -2650,7 +2728,33 @@ data_standardortools_collection:
   description: CLSI Next-Generation In Vitro Diagnostic Interface
   is_open: false
   name: CLSI AUTO16
-  purpose_detail: Exchange of data about and produced by in vitro diagnostic tests.
+  purpose_detail: CLSI AUTO16 is the Clinical and Laboratory Standards Institute (CLSI)
+    standard for next-generation automated in vitro diagnostic interfaces, defining specifications
+    for the exchange of data about and produced by in vitro diagnostic tests performed on
+    clinical laboratory automation systems. AUTO16 establishes communication protocols, message
+    formats, and data structures enabling seamless interoperability between diagnostic analyzers,
+    middleware systems, and laboratory information systems (LIS). The standard addresses the
+    growing complexity of clinical laboratory automation where multiple diagnostic instruments
+    (chemistry analyzers, hematology instruments, immunoassay systems, point-of-care devices)
+    must communicate efficiently with centralized LIS and data management systems. AUTO16 defines
+    bidirectional communication including transmission of patient information and test orders from
+    LIS to instruments, and return of results, quality control data, instrument status, and error
+    messages from instruments to LIS. The standard specifies data formatting, transmission protocols,
+    error handling, and security considerations for automated laboratory workflows. AUTO16 supports
+    diverse diagnostic tests across chemistry, immunology, microbiology, and hematology, accommodating
+    the wide variety of in vitro diagnostic platforms used in modern clinical laboratories. The standard
+    includes provisions for delta checking, reference range validation, result verification, and
+    handling of critical values that require immediate clinical notification. In biomedical data science
+    and machine learning contexts, AUTO16-compliant diagnostic data supports training machine learning
+    models for quality control in clinical laboratory testing, developing algorithms for detecting
+    instrument malfunction and assay anomalies, and creating systems for automatic result validation and
+    pattern recognition in laboratory diagnostics. The standardized format enables aggregation of laboratory
+    test data from multiple instruments and institutions for epidemiological surveillance, quality assurance
+    monitoring, and algorithm development. Real-world applications include clinical laboratories implementing
+    LIS and laboratory automation that rely on AUTO16 for instrument-to-system communication, hospital networks
+    centralizing diagnostic data from distributed laboratory sites, and quality assurance programs that monitor
+    laboratory testing processes and outcomes. AUTO16 compliance ensures reliable, secure, and efficient
+    laboratory diagnostics supporting clinical decision-making and patient care.
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:16
@@ -2671,14 +2775,31 @@ data_standardortools_collection:
   is_open: true
   name: MSF
   purpose_detail: The MSF (Multiple Sequence Format) is a standardized file format
-    produced by CLUSTAL-W for representing multiple sequence alignments of proteins
-    or nucleic acids. It includes sequence metadata, alignment length, checksums for
-    data integrity verification, and displays aligned sequences in blocks with position
-    numbering. The format supports gap characters and ambiguity codes, making it widely
-    compatible with bioinformatics tools for phylogenetic analysis, sequence conservation
-    studies, and comparative genomics. MSF files preserve alignment quality information
-    and are human-readable while maintaining machine-parseable structure for automated
-    processing.
+    produced by CLUSTAL-W and related multiple sequence alignment tools for representing
+    aligned sequences of proteins or nucleic acids. The MSF format provides structured
+    representation of multiple sequence alignments with positions, scores, and metadata,
+    enabling conservation analysis and comparative genomics. MSF files contain header sections
+    that specify sequence metadata including names, lengths, and checksum values for data
+    integrity verification, followed by the aligned sequences displayed in blocks with position
+    numbering to show alignment coordinates. The format supports gap characters (dashes) and
+    ambiguity codes (N for nucleic acids, X for proteins) to accurately represent alignment
+    uncertainty and incomplete sequence information. MSF is widely compatible with diverse
+    bioinformatics tools for phylogenetic analysis, enabling computation of evolutionary
+    distances, construction of phylogenetic trees, and inference of evolutionary relationships.
+    The format is particularly valuable for sequence conservation studies where alignment quality
+    and gap patterns are critical for identifying functionally important residues. Comparative
+    genomics analyses rely on MSF format to organize and analyze orthologous sequences across
+    species. MSF files are human-readable, enabling researchers to manually inspect alignments
+    for quality assessment, while maintaining machine-parseable structure for automated processing.
+    In biomedical data science and machine learning contexts, MSF-formatted alignments support
+    training machine learning models for sequence feature extraction, developing algorithms for
+    functional annotation and homology detection, and creating systems for protein family
+    classification and evolutionary analysis. The standardized alignment format enables reproducible
+    comparative sequence analysis across different tools and platforms. Real-world applications
+    include phylogenetic reconstructions in infectious disease epidemiology, protein family
+    classification for functional annotation, and evolution of drug-target sequences for drug
+    resistance prediction. Integration with sequence databases and alignment tools enables
+    systematic analysis of molecular evolution.
   requires_registration: false
   url: https://bioinfo.nhri.edu.tw/gcg/doc/11.0/clustalw+.html
 - id: B2AI_STANDARD:59
@@ -2922,8 +3043,30 @@ data_standardortools_collection:
   formal_specification: http://www.hl7.org/implement/standards/product_brief.cfm?product_id=492
   is_open: true
   name: C-CDA
-  purpose_detail: A widely-used, XML-based format for electronic health records. Superceded
-    by FHIR document standards.
+  purpose_detail: The Consolidated Clinical Document Architecture (C-CDA) is an XML-based
+    standard developed by HL7 for encoding electronic health record documents in a structured,
+    machine-readable format suitable for clinical care, quality reporting, and interoperability.
+    C-CDA represents a major evolution from unstructured free-text clinical notes toward standardized,
+    coded clinical documents that enable automated processing, semantic interoperability, and decision
+    support. The standard builds on the HL7 Reference Information Model (RIM) and Clinical Document
+    Architecture (CDA) to define specific clinical document structures (progress notes, discharge
+    summaries, referral documents, continuity of care documents) with required and optional sections
+    capturing chief complaints, history of illness, medications, vital signs, assessments, and care plans.
+    C-CDA enforces use of standardized clinical vocabularies (SNOMED CT, LOINC, RxNorm, ICD-10-CM)
+    for coded clinical information, ensuring semantic consistency across EHR systems. The standard includes
+    templates and implementation guides that specify which elements are mandatory, optional, or conditional,
+    and how to encode different types of clinical information. C-CDA supports complex clinical scenarios
+    including allergy information, medication administration records, diagnostic procedures, and family history
+    documented with precise timing and severity information. The Meaningful Use program promoted C-CDA adoption
+    in U.S. healthcare, leading to widespread deployment in hospital EHRs and health information exchanges. In
+    biomedical data science and machine learning contexts, C-CDA-formatted documents enable training natural
+    language processing models on structured clinical text, developing algorithms for clinical coding and note
+    classification, and creating systems for automated clinical decision support and adverse event detection.
+    Real-world applications include health information exchanges that use C-CDA for document sharing between
+    providers, telehealth platforms that exchange clinical summaries, and research networks aggregating clinical
+    data from diverse EHR systems. While increasingly superseded by FHIR for new implementations, C-CDA remains
+    widely deployed in U.S. healthcare infrastructure and continues to serve critical roles in document exchange
+    and interoperability.
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:40
@@ -3257,8 +3400,31 @@ data_standardortools_collection:
   - B2AI_ORG:10
   is_open: true
   name: DMN
-  purpose_detail: A modeling language and notation for the precise specification of
-    business decisions and business rules.
+  purpose_detail: Decision Model and Notation (DMN) is a standardized graphical modeling
+    language and notation developed by the Object Management Group (OMG) for specifying
+    business decisions, decision logic, and business rules in a precise, executable, and
+    platform-independent manner. DMN provides visual and textual representations of how
+    organizations make decisions, capturing decision requirements, decision logic tables, and
+    business rules that govern outcomes. The language is designed to bridge the gap between
+    business analysts who understand domain logic and developers who implement decision systems,
+    enabling both business and technical stakeholders to collaborate on decision specification.
+    DMN defines a multi-level modeling approach including decision requirements diagrams (DRD)
+    showing decision dependencies and relationships, decision tables (hit policies, input/output
+    clauses) encoding business rules in tabular format, literal expressions for complex logic,
+    and invocations of external functions or services. The standard supports both forward-chaining
+    and backward-chaining decision logic, enabling representation of complex decision scenarios
+    with multiple conditions, thresholds, and rule priorities. DMN seamlessly integrates with
+    BPMN (Business Process Model and Notation) allowing processes to invoke decisions at specific
+    workflow steps. In biomedical contexts, DMN supports specification of clinical decision rules
+    such as diagnostic criteria, treatment recommendations based on patient characteristics, risk
+    stratification algorithms, and clinical practice guidelines in machine-readable format. In
+    biomedical data science and machine learning contexts, DMN specifications can be translated
+    into decision tree structures, rule-based classifiers, or conditions in machine learning
+    pipelines for clinical decision support. Real-world applications include hospital workflow
+    systems that invoke DMN-specified clinical rules for patient triage, discharge planning decisions
+    based on clinical status, and medication optimization algorithms. DMN integration with business
+    process execution engines enables automated decision-making within clinical workflows, improving
+    consistency and enabling audit trails of decision rationale.
   requires_registration: false
   url: https://www.omg.org/dmn/
 - id: B2AI_STANDARD:78
@@ -4173,8 +4339,29 @@ data_standardortools_collection:
   is_open: true
   name: EML
   publication: doi:10.5063/F11834T2
-  purpose_detail: A metadata standard developed for the earth, environmental and ecological
-    sciences.
+  purpose_detail: The Ecological Metadata Language (EML) is a comprehensive, structured
+    XML-based metadata standard developed for documenting ecological and environmental datasets
+    with comprehensive descriptive information supporting data discovery, reuse, and reproducibility.
+    EML provides a standardized framework for encoding metadata that describes the purpose, methods,
+    structure, and quality of environmental research data including field measurements, species surveys,
+    climate observations, remote sensing products, and modeling outputs. The standard specifies required
+    and optional metadata elements covering dataset title and abstract, creator and contact information,
+    study geographic scope and temporal coverage, sampling methods and protocols, quality assurance
+    procedures, taxonomic coverage, and detailed documentation of data tables and measured variables.
+    EML requires explicit documentation of units, measurement scales (nominal, ordinal, interval, ratio),
+    missing data codes, and quality flags enabling proper interpretation and analysis of data by downstream
+    users. The standard emphasizes provenance tracking including links to citations and other resources,
+    version history, and archival locations, supporting reproducible science and proper attribution.
+    EML is widely adopted by ecological data repositories (EDI, DataONE, GBIF) and long-term ecological
+    research (LTER) networks for standardized data documentation and discovery. In biomedical data science
+    and machine learning contexts, EML metadata supports training machine learning models on environmental
+    and ecological data by providing essential context about measurement conditions, potential biases,
+    and data quality that affect model training and validation. Real-world applications include biodiversity
+    monitoring programs that use EML to document species occurrence data for conservation planning, climate
+    research networks that standardize environmental time series metadata for climate modeling, and ecological
+    research consortia that aggregate heterogeneous field datasets using EML standards. EML integration with
+    data repositories enables automated discovery of datasets matching specific geographic regions, species,
+    or time periods, facilitating meta-analyses and synthesis across multiple studies.
   requires_registration: false
   url: https://eml.ecoinformatics.org/
 - id: B2AI_STANDARD:102
@@ -4554,7 +4741,31 @@ data_standardortools_collection:
   description: FASTA Sequence Format
   is_open: true
   name: FASTA
-  purpose_detail: A text-based data format for nucleotide and amino acid sequences.
+  purpose_detail: FASTA (Fast All-to-All Sequence Alignment) is a ubiquitous text-based
+    data format for representing nucleotide (DNA, RNA) and amino acid (protein) sequences
+    in a compact, human-readable, and machine-parseable form. The FASTA format consists
+    of a header line beginning with '>' followed by a sequence identifier, optional description,
+    and subsequent lines containing the actual sequence characters (A, T, G, C for DNA;
+    A, U, G, C for RNA; standard amino acid codes for proteins). FASTA's simplicity and
+    universal compatibility make it the de facto standard for exchanging biological sequences
+    across databases, analysis tools, and research communities worldwide. The format supports
+    multiple sequences per file, enabling batch processing of sequence collections, and uses
+    standard IUPAC ambiguity codes (N for any nucleotide, X for any amino acid) to represent
+    sequence uncertainty. FASTA is the input format for virtually all sequence analysis tools
+    including BLAST (sequence homology search), CLUSTAL (multiple sequence alignment), genome
+    assemblers, and gene prediction programs. The format's plaintext nature enables easy version
+    control, human inspection for quality assessment, and integration into bioinformatics pipelines
+    using standard Unix tools. In biomedical data science and machine learning contexts, FASTA-formatted
+    sequences are fundamental input data for training deep learning models for protein structure
+    prediction, developing algorithms for pathogenic variant detection, and creating systems for
+    species identification from genomic sequences. The standardized format enables reproducible
+    comparative genomics analyses and supports large-scale machine learning on genomic datasets.
+    Real-world applications include genomic databases (NCBI GenBank, UniProt) that distribute
+    sequences in FASTA format, genome assembly pipelines that require FASTA input, metagenomic
+    analysis that processes FASTA sequences from environmental samples, and clinical genomics that
+    uses FASTA for variant analysis. FASTA integration with web services (BLAST online, sequence
+    composition tools) enables rapid sequence analysis and similarity searching across billions of
+    public sequences.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/FASTA_format
   used_in_bridge2ai: true
@@ -11234,7 +11445,30 @@ data_standardortools_collection:
   formal_specification: http://opensmiles.org/opensmiles.html
   is_open: true
   name: SMILES
-  purpose_detail: A typographical line notation for specifying chemical structure.
+  purpose_detail: The Simplified Molecular Input Line Entry Specification (SMILES) is a
+    typographical line notation for specifying chemical structures, molecular formulas, and chemical
+    composition in a compact, machine-readable textual format suitable for computational chemistry and
+    molecular informatics. SMILES encodes molecular structure as a linear ASCII string where atoms
+    are represented by standard element symbols (C for carbon, N for nitrogen, O for oxygen, etc.),
+    bonds are indicated by special characters (- for single bond, = for double bond, # for triple bond,
+    : for aromatic bonds), and branching and ring structures are denoted using parentheses and digit
+    labels. The notation's simplicity and compactness make SMILES ideal for database storage, chemical
+    structure searching, and chemical transformation representation in scientific literature and data
+    repositories. SMILES strings can be parsed by cheminformatics toolkits (RDKit, OpenBabel, CDK)
+    to generate 2D and 3D molecular structures, enabling computational chemistry, molecular property
+    prediction, and chemical reaction modeling. The format supports specification of stereochemistry
+    (@, @@ for chiral centers) and aromaticity enabling precise representation of three-dimensional
+    molecular structure. Major chemical databases (PubChem, ChEMBL, ZINC, DrugBank) use SMILES to
+    represent chemical structures alongside molecular properties and annotations. In biomedical data
+    science and machine learning contexts, SMILES provides machine-readable chemical structure
+    representations enabling training deep learning models for drug discovery, molecular property
+    prediction, and chemical compound classification. SMILES-based molecular fingerprints support
+    similarity searching and clustering of chemical compounds for drug design and virtual screening.
+    Real-world applications include drug discovery pipelines using SMILES for molecular property
+    prediction and lead optimization, cheminformatics analyses that use SMILES for structure searching,
+    and machine learning systems for predicting drug efficacy and toxicity from molecular structure.
+    SMILES integration with molecular modeling tools enables automated structure generation, reaction
+    prediction, and chemical synthesis planning supporting computational drug development.
   requires_registration: false
   url: http://opensmiles.org/
 - id: B2AI_STANDARD:277
