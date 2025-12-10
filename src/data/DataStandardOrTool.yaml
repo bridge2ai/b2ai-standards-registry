@@ -455,15 +455,44 @@ data_standardortools_collection:
   description: Article Minimum Information Standard
   is_open: true
   name: AMIS
-  purpose_detail: The curation process is significantly slowed down by missing information
-    in the articles analyzed. The identity of the clones used to generate ISH probes
-    and the precise sequences tested in reporter assays constituted the most frequent
-    omissions. To help authors ensure in the future that necessary information is
-    present in their article, the Article Minimum Information Standard (AMIS) guidelines
-    have been defined. The guideline describes the mandatory (and useful) information
-    that should be mentioned in literature articles to facilitate the curation process.
-    These guidelines extend the minimal information defined by the MISFISHIE format
-    (Deutsch at al. 2008, Nature Biotechnology).
+  purpose_detail: The Article Minimum Information Standard (AMIS) is a set of guidelines
+    specifying the essential information that should be included in scientific publications
+    describing embryonic developmental biology research, particularly in situ hybridization
+    (ISH) and reporter assay experiments. AMIS addresses the critical problem that data curation
+    for databases like ANISEED (ANISE Embryonic Database) is significantly hampered by incomplete
+    experimental descriptions in published articles, with frequently missing information about
+    probe generation, sequence details, experimental protocols, and results interpretation. AMIS
+    specifies mandatory information required for reproducibility and data integration including
+    precise molecular probe sequences used for ISH experiments, identity and source of clones
+    used to generate ISH probes, species and developmental stages examined, anatomical locations
+    and tissues analyzed, staining procedures and detection methods, photographic documentation
+    and image quality standards, quantification methods where applicable, and data interpretation.
+    The standard extends minimal information standards from related initiatives including MISFISHIE
+    (Minimum Information Specification for Studies of Extracellular Vesicles) specifically tailored
+    to developmental biology context. AMIS guidelines are organized by experiment type (ISH, reporter
+    assays, immunohistochemistry) with specific requirements for each. Compliance enables automated
+    data extraction and integration into structured databases improving cross-study comparison and
+    meta-analysis capabilities. Applications in biomedical data science and AI/ML include automated
+    data extraction from literature where natural language processing trained on AMIS-compliant
+    articles enables systematic identification and extraction of experimental parameters; knowledge
+    graphs integrating developmental biology data where standardized AMIS metadata connects genes,
+    developmental stages, anatomical locations, and expression patterns enabling semantic queries;
+    machine learning models for developmental biology prediction where AMIS-standardized experimental
+    data trains algorithms to predict gene expression patterns and developmental gene regulatory networks;
+    comparative developmental genomics where standardized descriptions of orthologous genes across
+    species enable identification of conserved developmental regulatory mechanisms; and data integration
+    for systems biology where AMIS-compliant metadata enables integration of spatial transcriptomics,
+    single-cell RNA-seq, and classical ISH data with consistent metadata. AMIS facilitates curation
+    of developmental biology databases where standardized information requirements reduce curation effort
+    and improve data quality. The guidelines support open science practices by enabling data FAIRness
+    (Findability, Accessibility, Interoperability, Reusability) of developmental biology datasets.
+    Integration with journal publishing workflows enables incorporation of AMIS requirements into
+    supplementary information requirements. AMIS development involved the developmental biology
+    research community and database curators ensuring requirements reflect actual information needs
+    for database population and research use. The standard actively incorporates emerging methodologies
+    including high-resolution imaging, multiplexing approaches, and machine vision analysis for
+    developmental tissue analysis. Adoption of AMIS guidelines by authors and journals improves quality
+    of developmental biology literature supporting evidence-based research synthesis.
   requires_registration: false
   url: https://www.aniseed.fr/aniseed/default/submit_data?module=aniseed&action=default:submit_data#tab-4
 - id: B2AI_STANDARD:16
@@ -3101,15 +3130,44 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: DICOM Part 19
-  purpose_detail: This Part of the DICOM Standard defines an interface between two
-    software applications. One application, the Hosting System, provides the second
-    application with data, such as a set of images and related data. The second application,
-    the Hosted Application, analyzes that data, potentially returning the results
-    of that analysis, for example in the form of another set of images and/or structured
-    reports, to the first application. Such an Application Program Interface (API)
-    differs in scope from other portions of the DICOM Standard in that it standardizes
-    the data interchange between software components on the same system, instead of
-    data interchange between different systems.
+  purpose_detail: DICOM Part 19 (Application Hosting) defines a standardized interface enabling
+    external software applications and analytical services to integrate with healthcare imaging systems
+    and PACS (Picture Archiving and Communication Systems) for analysis, processing, and reporting of
+    medical imaging studies. DICOM Part 19 addresses the need for independent developers to create
+    sophisticated image analysis applications (automated detection algorithms, quantification tools,
+    surgical planning systems, research analysis packages) that can seamlessly integrate with clinical
+    imaging workflows without requiring deep knowledge of DICOM file formats or network protocols. The
+    standard defines the Application Hosting Framework establishing roles for the Hosting System (PACS
+    or imaging system) and the Hosted Application (analytics tool), communication protocols using HTTP
+    and web services, and XML schemas for structured data exchange. The framework enables Hosted
+    Applications to request images from the Hosting System, access patient and study metadata, and
+    return results and measurements back to the system for integration into clinical workflows and
+    reports. DICOM Part 19 supports multiple deployment models including local applications running
+    on the same network as PACS, cloud-based services accessed via standard internet connections, and
+    mobile applications. Applications in biomedical data science and AI/ML include automated medical
+    image analysis where algorithms for lesion detection, segmentation, classification, and measurement
+    plug into clinical imaging systems enabling integrated clinical decision support; radiomics extraction
+    where computational feature analysis automatically extracts quantitative imaging biomarkers enabling
+    prognostic modeling; longitudinal tracking where DICOM Part 19 enables automated measurement
+    comparison across time points identifying disease progression; research-to-clinical translation where
+    academic research algorithms are deployed as clinical decision support tools; quality assurance where
+    automated image quality assessment flags suboptimal acquisitions; and workflow optimization where
+    integration of analysis tools reduces manual steps and improves turnaround time. DICOM Part 19
+    facilitates vendor-neutral integration where third-party software developers create applications
+    without proprietary vendor integrations improving accessibility and standardization. The framework
+    supports containerized deployment using standard web service conventions enabling cloud-based and
+    on-premise deployment. Integration with machine learning frameworks enables deployment of deep
+    learning models for image analysis. DICOM Part 19 applications enable federated analysis where
+    algorithms are deployed to multiple PACS systems analyzing imaging data at source without centralizing
+    sensitive data. The standard addresses regulatory compliance including FDA clearance of software as
+    a medical device, HIPAA-compliant de-identification, and audit logging. Enterprise imaging adoption
+    extends DICOM Part 19 beyond radiology to pathology, cardiology, and other imaging specialties.
+    DICOM Part 19 actively incorporates emerging technologies including artificial intelligence for image
+    interpretation, 3D visualization and rendering, and advanced reporting capabilities. The framework
+    supports structured reporting enabling detailed findings and measurements in standardized formats.
+    Real-world deployment of DICOM Part 19 applications demonstrates clinical impact including improved
+    diagnostic accuracy, reduced interpretation time, and standardized measurements supporting clinical
+    decision-making and quality improvement.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -5673,14 +5731,41 @@ data_standardortools_collection:
   is_open: true
   name: GHP
   publication: doi:10.1093/jamia/ocab196
-  purpose_detail: Currently, it is common that a single data element is used to capture
-    both sex and gender information, often assuming these two items are one unified
-    idea. This specification challenges that notion and proposes that independent
-    consideration of sex and gender, and the assessment of their differences promotes
-    the health of women, men, and people of diverse gender identities of all ages,
-    avoiding systematic errors that generate results with a low validity (if any)
-    in clinical studies. The Gender Harmony model describes an approach that can improve
-    data accuracy for sex and gender information in health care systems.
+  purpose_detail: The HL7 Gender Harmony Project provides a comprehensive, standards-based
+    framework for accurately representing and exchanging sex and gender information in health
+    information systems, addressing the critical gap where traditional healthcare data models
+    conflate sex (a biological characteristic assigned at birth based on chromosomal, hormonal,
+    and anatomical features) with gender identity (a person's internal sense of their own gender,
+    which may differ from assigned sex at birth). The Gender Harmony specification establishes
+    distinct data elements for biological sex (with values including male, female, other, unknown),
+    gender identity (with values reflecting diversity including man, woman, non-binary, additional
+    categories), and sex parameters for clinical use (such as reproductive capacity, hormone sensitivity)
+    enabling healthcare providers and researchers to accurately capture and utilize sex and gender
+    information for clinical decision-making and research. The model includes mechanisms for capturing
+    legal sex (as recorded on official documents), clinical sex assessments relevant to specific conditions,
+    and transitions in gender identity over time. Integration with existing HL7 standards (FHIR, v2,
+    v3) provides backward compatibility while enabling migration toward more inclusive data models.
+    Applications in biomedical data science and AI/ML include improved clinical decision support where
+    algorithms trained on sex-stratified cohorts avoid conflating biological sex with gender identity
+    improving prediction accuracy for conditions with sex-specific pathophysiology; precision medicine
+    where sex-specific drug metabolism and dosing recommendations are distinct from gender identity
+    considerations; epidemiological research where accurate sex and gender data enable identification
+    of health disparities affecting sexual and gender minorities and transgender populations; mental
+    health research where Gender Harmony enables accurate assessment of mental health outcomes in
+    diverse gender identities; machine learning model development where standardized sex and gender
+    variables improve model generalization across populations; and electronic health record systems
+    where comprehensive sex and gender documentation improves clinical safety and reduces adverse events
+    from inappropriate sex-specific or gender-specific interventions. The framework addresses health
+    equity by enabling capture of gender-specific health risks including gender-based violence exposure,
+    healthcare discrimination, and inequitable access to gender-affirming care. Integration with LGBTQ+
+    inclusive healthcare standards supports culturally competent documentation. Gender Harmony facilitates
+    international coordination on sex and gender data standards ensuring consistency in global health
+    research and surveillance. The standard supports clinical workflow improvements where providers can
+    document sex and gender information clearly facilitating appropriate clinical decision-making. Integration
+    with population health surveillance enables tracking of health outcomes across sex and gender strata
+    identifying disparities. Real-world evidence studies leveraging Gender Harmony-compliant data from
+    multiple health systems enable population-level research on sex and gender health differences improving
+    clinical outcomes for all populations.
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:40
@@ -6900,15 +6985,40 @@ data_standardortools_collection:
   description: Medicare Severity Diagnosis Related Groups codes
   is_open: true
   name: MS-DRG
-  purpose_detail: Medical cases in the US are classified into Medicare Severity Diagnosis
-    Related Groups (MS-DRGs) for payment based on the following information reported
-    by the hospital - the principal diagnosis, up to 24 additional diagnoses, and
-    up to 25 procedures performed during the stay. In a small number of MS-DRGs, classification
-    is also based on the age, sex, and discharge status of the patient. Effective
-    October 1, 2015, the diagnosis and procedure information is reported by the hospital
-    using codes from the International Classification of Diseases, Tenth Revision,
-    Clinical Modification (ICD-10-CM) and the International Classification of Diseases,
-    Tenth Revision, Procedure Coding System (ICD-10-PCS).
+  purpose_detail: Medicare Severity Diagnosis Related Groups (MS-DRGs) are a prospective payment
+    system for classifying hospital inpatient cases for reimbursement by the Centers for Medicare &
+    Medicaid Services (CMS) and increasingly by other payers (commercial insurers, Medicaid). MS-DRGs
+    group hospital cases into clinically coherent, statistically similar cohorts with comparable resource
+    utilization enabling standardized payment rates. Each MS-DRG represents a grouping of diagnoses and
+    procedures with similar clinical characteristics and expected hospital length of stay and resource
+    intensity. Classification is based on principal diagnosis (primary reason for hospitalization), up to
+    24 secondary diagnoses (comorbidities and complications), up to 25 procedures performed during
+    hospitalization, and patient factors (age, gender, discharge status) for selected DRGs. Diagnosis and
+    procedure codes are submitted using ICD-10-CM (International Classification of Diseases, Tenth Revision,
+    Clinical Modification) and ICD-10-PCS (Procedure Coding System). The MS-DRG grouper algorithm applies
+    a hierarchical decision tree incorporating these codes to assign cases to specific DRGs. Each DRG has
+    a relative weight reflecting average resource intensity compared to the base DRG, generating a payment
+    amount by multiplying the weight by a hospital-specific base payment rate. Applications in biomedical
+    data science and AI/ML include healthcare cost prediction where MS-DRG assignments enable estimation
+    of expected reimbursement and actual costs for patient cohorts; machine learning models for length of
+    stay and resource utilization prediction where ICD-10-CM/PCS codes feeding predictive models estimate
+    expected hospital duration and complications; quality and safety monitoring where DRG-specific case
+    mix adjustment enables fair comparison of hospital quality metrics (mortality, readmission rates) across
+    institutions with different patient populations; administrative data analysis where MS-DRG classifications
+    facilitate epidemiological studies using billing data; and clinical variation research where MS-DRG
+    standardization enables comparison of clinical and cost outcomes across hospitals and regions. Integration
+    with electronic health records enables automated coding and DRG assignment. The MS-DRG system impacts
+    clinical decision-making as coding choices and documentation affect DRG assignment and reimbursement.
+    Encoder software provides computer-assisted coding guidance helping coders select appropriate ICD-10
+    codes. The MS-DRG system facilitates payment model experimentation including bundled payments and
+    value-based arrangements. CMS updates MS-DRG definitions annually incorporating emerging clinical
+    conditions and medical technologies. The system actively addresses emerging health conditions including
+    COVID-19 complications and novel treatments. MS-DRGs enable comparison of clinical outcomes and costs
+    between similar cases supporting quality improvement and cost effectiveness research. The classification
+    supports international healthcare policy analysis where different countries' reimbursement systems are
+    compared using MS-DRG frameworks. Machine learning applications predicting DRG assignment from clinical
+    documentation improve coding accuracy and completeness. Real-world evidence studies leverage MS-DRG
+    classifications enabling large-scale observational research on comparative effectiveness and outcomes.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:17
@@ -8368,14 +8478,41 @@ data_standardortools_collection:
   - B2AI_ORG:99
   is_open: true
   name: NIDM
-  purpose_detail: The Neuroimaging Data Model (NIDM) is a collection of specification
-    documents and examples that outline a domain specific extension to the W3C Provenance
-    Data Model (PROV-DM) for the exchange and sharing of human brain imaging data.
-    The goal of the data model is to capture data, information about the data and
-    processes that generated the data (i.e. provenance). This information can be converted
-    to RDF and therefore queried using SPARQL. This representation allows machine
-    accessible representations of brain imaging data and will provide links to related
-    resources such as publications, virtual machines, people and funding agencies.
+  purpose_detail: The Neuroimaging Data Model (NIDM) is a comprehensive, semantic data model
+    and set of specifications for representing, exchanging, and querying neuroimaging research data
+    and associated metadata including experimental designs, acquisition parameters, image data, image
+    processing pipelines, statistical results, and study outcomes. NIDM extends the W3C Provenance
+    Data Model (PROV-DM) with neuroimaging-specific concepts enabling formal representation of how
+    neuroimaging datasets were created, processed, and analyzed. The model provides semantic descriptions
+    of acquisition parameters (MRI sequence types, echo times, repetition times, flip angles, spatial
+    resolution), preprocessing steps (motion correction, registration, normalization to standard spaces),
+    statistical modeling choices (design matrices, contrasts, thresholds), and results (activation maps,
+    connectivity matrices, effect sizes, statistical significance). NIDM data can be serialized to RDF
+    (Resource Description Framework) enabling semantic queries using SPARQL to identify datasets matching
+    specific experimental or analysis criteria. The model includes formal ontologies defining neuroimaging
+    concepts and their relationships enabling automated reasoning and integration across heterogeneous
+    studies. NIDM supports BIDS (Brain Imaging Data Structure) integration providing machine-actionable
+    descriptions of BIDS datasets and analysis results. Applications in biomedical data science and AI/ML
+    include automated dataset discovery where SPARQL queries identify studies with specific imaging
+    acquisition parameters, preprocessing pipelines, or outcome variables; meta-analyses where NIDM-standardized
+    representations enable harmonization of statistical maps and coordinates across studies; machine learning
+    model development where NIDM metadata guides appropriate handling of data heterogeneity including
+    differences in MRI protocols, preprocessing steps, and statistical approaches across studies contributing
+    to training datasets; reproducibility verification where NIDM documents enable computational validation
+    that analysis code generated reported results from specified inputs; knowledge graphs integrating
+    neuroimaging studies with clinical phenotypes where NIDM semantics enable traversal from experimental
+    design through acquisition through analysis to outcomes; and automated pipeline composition where NIDM
+    data provenance information guides selection of compatible preprocessing and analysis tools. The model
+    supports FAIR data principles enabling machine-readable descriptions of neuroimaging datasets improving
+    Findability and Interoperability across neuroimaging repositories and research groups. Integration with
+    tools including Pybids, pyNIDM, and web services enables programmatic access to NIDM-annotated data.
+    NIDM facilitates collaborative research where standardized semantic representations enable seamless
+    sharing of datasets and results across institutions. The specification actively incorporates emerging
+    neuroimaging modalities including diffusion MRI, functional connectivity analysis, structural connectivity,
+    and multimodal integration. NIDM development involves close collaboration with the neuroimaging community
+    through INCF and the Neuroimaging Data Architecture (NDA) ensuring the model captures information critical
+    for neuroscience research. Integration with electronic health records enables NIDM representation of
+    clinical neuroimaging studies linking imaging findings to patient outcomes and treatments.
   requires_registration: false
   url: http://nidm.nidash.org/
   has_application:
@@ -8534,15 +8671,40 @@ data_standardortools_collection:
   formal_specification: https://nifti.nimh.nih.gov/nifti-2
   is_open: true
   name: NIFTI
-  purpose_detail: The Neuroimaging Informatics Technology Initiative (nifti) file
-    format was envisioned about a decade ago as a replacement to the then widespread,
-    yet problematic, analyze 7.5 file format. The main problem with the previous format
-    was perhaps the lack of adequate information about orientation in space, such
-    that the stored data could not be unambiguously interpreted. Although the file
-    was used by many different imaging software, the lack of adequate information
-    on orientation obliged some, most notably spm, to include, for every analyze file,
-    an accompanying file describing the orientation, such as a file with extension
-    .mat.
+  purpose_detail: The Neuroimaging Informatics Technology Initiative (NIfTI) file format
+    is a standardized, widely-adopted file format for storing and exchanging neuroimaging data
+    including structural, functional, and diffusion MRI, PET, SPECT, and MEG/EEG data. NIfTI was
+    developed to address critical limitations in earlier formats (particularly Analyze 7.5) by providing
+    unambiguous spatial orientation information, comprehensive metadata support, and compatibility
+    across neuroimaging software platforms. The format defines binary file structures storing imaging
+    data arrays (3D or 4D) with associated metadata in a header specifying data dimensions, voxel
+    dimensions, data type, orientation and position in stereotactic space (subject-specific, MNI,
+    or Talairach coordinates), temporal information for fMRI/dynamic acquisitions, scaling parameters,
+    and intent codes indicating data semantics (anatomical, functional, tensor, etc.). NIfTI files
+    (.nii, .nii.gz for compressed) include both data and header information in a single file improving
+    portability and reducing file management overhead. The format is fully documented with multiple
+    versions (NIfTI-1, NIfTI-2) supporting different precision levels and large file support. Applications
+    in biomedical data science and AI/ML include standardized neuroimaging data archiving where NIfTI
+    enables long-term preservation and sharing of brain imaging studies; machine learning model development
+    where NIfTI data feeds deep learning pipelines for brain tumor segmentation, stroke lesion identification,
+    Alzheimer's disease classification, and neuropsychiatric disorder prediction; neuroimaging processing
+    pipelines where NIfTI serves as the standard interchange format between analysis tools (FSL, SPM,
+    AFNI, ANTs) enabling reproducible multi-tool workflows; fMRI studies where NIfTI time series data
+    enables resting-state and task-based connectivity analyses; diffusion MRI where NIfTI supports tensor
+    field storage enabling white matter tractography and microstructural analysis; and brain atlases where
+    NIfTI encodes anatomical segmentations in standard spaces facilitating cross-subject group analyses.
+    Integration with major neuroimaging data repositories including the Human Connectome Project, UK Biobank,
+    ADNI, and OpenNeuro enables NIfTI as the standard data format supporting large-scale neuroimaging
+    research. Open-source tools including FSL, SPM, AFNI, MRtrix, ANTs, and Python libraries (nibabel,
+    nilearn, nipype) provide comprehensive NIfTI support enabling programmatic data access and manipulation.
+    NIfTI facilitates FAIR data principles by enabling machine-readable spatial and temporal metadata
+    improving data Findability and Interoperability across institutions and studies. The format supports
+    derivative data including statistical maps, probability maps, regions of interest (ROIs), atlases,
+    and connectivity matrices enabling layered data annotation. NIfTI has become the de facto standard
+    for neuroimaging data exchange in research and increasingly in clinical settings, enabling global
+    collaboration and meta-analyses in neuroscience and clinical neuroimaging. Adoption extends to
+    pediatric neuroimaging, aging research, psychiatric neuroimaging, and translational neuroscience
+    where standardized data format improves cross-study comparisons and hypothesis testing.
   requires_registration: false
   url: https://nifti.nimh.nih.gov/
 - id: B2AI_STANDARD:234
@@ -9715,16 +9877,41 @@ data_standardortools_collection:
   - B2AI_ORG:40
   is_open: true
   name: PHIN Guide
-  purpose_detail: An HL7 messaging and content reference standard for national, syndromic
-    surveillance electronic health record technology certification; A basis for local
-    and state syndromic surveillance messaging implementation guides; A resource for
-    planning for the increasing use of electronic health record technology and for
-    providing details on health data elements that may become a part of future public
-    health syndromic surveillance messaging requirements; Optional elements of interest
-    for adding laboratory results to syndromic surveillance messages using ORU^R01
-    message structure (see details in the PHIN messaging Standard, National Condition
-    Reporting case Notification, ORU^R01 message Structure Specification profile,
-    Version 2.1, 2014)
+  purpose_detail: The PHIN Messaging Guide for Syndromic Surveillance is a comprehensive, standards-based
+    HL7 messaging specification developed by the Centers for Disease Control and Prevention (CDC) to enable
+    standardized electronic exchange of syndromic surveillance data from healthcare facilities (emergency
+    departments, urgent care centers, inpatient settings, ambulatory care centers) to public health agencies.
+    Syndromic surveillance systems monitor pre-diagnosis indicators of disease (chief complaints, vital signs,
+    medication administration records, vital signs) enabling early detection of disease outbreaks, bioterrorism
+    events, and emerging health threats before laboratory confirmation. The PHIN specification standardizes
+    HL7 v2.5 message structures and contents for transmitting syndromic data including chief complaint text,
+    patient demographics (age, gender, zip code), visit classification (type of facility, visit result),
+    vitals (temperature, heart rate, respiratory rate, oxygen saturation), and optional detailed clinical
+    information. The specification defines required data elements (mandatory for transmission), optional elements
+    of interest (useful but not required), and local extensions enabling jurisdictions to capture additional
+    data relevant to regional public health priorities. The guide provides implementation examples, validation
+    rules, and security/privacy requirements including HIPAA compliance. Applications in biomedical data science
+    and AI/ML include early outbreak detection where machine learning algorithms trained on PHIN-standardized
+    syndromic data identify aberrant clustering of symptoms suggesting disease outbreaks enabling rapid public
+    health response; respiratory disease surveillance where PHIN data captures respiratory symptom presentations
+    enabling monitoring of influenza, COVID-19, and other respiratory pathogens; gastrointestinal disease
+    surveillance where chief complaint categorization detects increases in gastrointestinal illness suggesting
+    food-borne outbreaks or waterborne contamination; natural language processing on chief complaint free text
+    where PHIN standardization enables categorization into syndromic categories (respiratory, gastrointestinal,
+    rash, neurologic); predictive modeling for healthcare demand where syndromic data helps forecast patient
+    volumes during disease outbreaks informing resource allocation; and epidemiological mapping where spatial
+    analysis of PHIN-standardized data identifies geographic disease clusters. Integration with the National
+    Syndromic Surveillance System (NSSS) enables real-time aggregation of syndromic data from hundreds of
+    healthcare facilities across the United States providing near real-time national disease surveillance
+    capability. The standard facilitates state and local implementation enabling syndromic surveillance at
+    jurisdictional levels supporting local outbreak detection. PHIN messaging supports automated data quality
+    monitoring where standardized message validation identifies missing or invalid data elements. The specification
+    actively incorporates public health priorities including emerging infectious disease threats, bioterrorism
+    preparedness, and chronic disease surveillance. Integration with electronic health record systems enables
+    automated syndromic data extraction from existing EHR data improving operational efficiency. PHIN messaging
+    supports privacy-preserving surveillance through de-identification and aggregation supporting population
+    health monitoring without compromising individual patient privacy. Real-time data flow enables rapid public
+    health response informing isolation precautions, contact tracing, and targeted prevention interventions.
   requires_registration: false
   url: https://knowledgerepository.syndromicsurveillance.org/hl7-version-251-phin-messaging-guide-syndromic-surveillance-emergency-department-urgent-care-and
 - id: B2AI_STANDARD:258
@@ -11441,15 +11628,41 @@ data_standardortools_collection:
   is_open: false
   name: VHI
   publication: doi:10.1044/1058-0360.0603.66
-  purpose_detail: A statistically robust Voice Handicap Index (VHI). An 85-item version
-    of this instrument was administered to 65 consecutive patients seen in the Voice
-    Clinic at Henry Ford Hospital. The data were subjected to measures of internal
-    consistency reliability and the initial 85-item version was reduced to a 30-item
-    final version. This final version was administered to 63 consecutive patients
-    on two occasions in an attempt to assess test-retest stability, which proved to
-    be strong. The findings of the latter analysis demonstrated that a change between
-    two administrations of 18 points represents a significant shift in psychosocial
-    function.
+  purpose_detail: The Voice Handicap Index (VHI) is a validated, patient-reported outcome
+    instrument for quantifying the impact of voice disorders on quality of life and functional
+    limitations in individuals with dysphonia (abnormal voice quality). The VHI was developed
+    through rigorous psychometric testing to provide a standardized, quantitative measure of voice
+    handicap enabling consistent assessment and monitoring of voice-related functional impairment
+    across patient populations and clinical settings. The 30-item final version (derived from an
+    initial 85-item pool through validation studies at Henry Ford Hospital) asks patients to rate
+    on a 5-point Likert scale (0=never, 4=always) the frequency of voice-related problems across
+    three functional domains: Functional domain (10 items) covering voice-dependent activities of
+    daily living such as being heard in noisy environments, speaking on the telephone, and speaking
+    to groups; Emotional domain (8 items) capturing psychosocial impacts including embarrassment,
+    frustration, and anxiety related to voice problems; and Physical domain (12 items) assessing
+    physiological symptoms including voice fatigue, hoarseness, throat pain, and effort to speak.
+    Raw scores are summed across domains with total scores ranging from 0-120 (higher scores indicate
+    greater voice handicap). The instrument demonstrates strong internal consistency (Cronbach's alpha
+    >0.9) and test-retest reliability (r>0.9 on two administrations) and is sensitive to changes
+    in voice quality with treatment. Applications in biomedical data science and AI/ML include voice
+    disorder outcome measurement where VHI scores quantify treatment effectiveness enabling comparative
+    effectiveness research across voice therapy approaches, surgical interventions (laryngeal surgery),
+    and pharmacological treatments (botulinum toxin); machine learning models for predicting voice
+    disorder prognosis where VHI baseline scores and domain patterns predict treatment response enabling
+    personalized medicine approaches; clinical decision support where VHI scores combined with acoustic
+    measures (voice perturbation, formant frequencies) improve diagnosis and treatment planning; quality
+    improvement initiatives where VHI trend monitoring tracks population-level voice outcomes; longitudinal
+    outcome tracking in clinical research where VHI baseline and follow-up scores quantify voice-related
+    functional improvements; and health disparities research where VHI enables identification of demographic
+    differences in voice handicap impact and access to voice care. The VHI complements objective voice
+    measures (acoustic analysis, laryngoscopy findings, aerodynamic measures) providing patient-centered
+    outcome assessment capturing lived experience of voice disorders. Integration with electronic health
+    records enables VHI administration and trending within clinical workflows. The instrument has been
+    translated into multiple languages enabling international research and clinical use. VHI is widely
+    adopted in otolaryngology, speech-language pathology, laryngology, and voice medicine for routine
+    clinical assessment and research. The measure is responsive to voice changes supporting its use in
+    clinical trials of voice interventions. Comparative effectiveness studies using VHI data enable
+    evidence-based selection of treatment modalities optimizing voice-related quality of life outcomes.
   requires_registration: false
   url: https://doi.org/10.1044/1058-0360.0603.66
 - id: B2AI_STANDARD:305
@@ -21985,16 +22198,44 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:33
   is_open: true
   name: FastAI
-  purpose_detail: fastai is a deep learning library which provides practitioners with
-    high-level components that can quickly and easily provide state-of-the-art results
-    in standard deep learning domains, and provides researchers with low-level components
-    that can be mixed and matched to build new approaches. It aims to do both things
-    without substantial compromises in ease of use, flexibility, or performance. This
-    is possible thanks to a carefully layered architecture, which expresses common
-    underlying patterns of many deep learning and data processing techniques in terms
-    of decoupled abstractions. These abstractions can be expressed concisely and clearly
-    by leveraging the dynamism of the underlying Python language and the flexibility
-    of the PyTorch library.
+  purpose_detail: FastAI is a high-level deep learning library built on PyTorch that makes
+    modern deep learning accessible to practitioners while providing researchers with sufficient
+    flexibility for innovation. FastAI provides intuitive APIs and training techniques enabling
+    users without extensive machine learning expertise to build state-of-the-art computer vision,
+    natural language processing, tabular data, and time series models with minimal code. The library
+    implements best practices and training techniques (progressive resizing, learning rate scheduling,
+    mixed precision training, discriminative learning rates, differential learning rates per layer)
+    discovered through deep learning research, automatically applying these techniques to improve
+    model performance. FastAI supports multiple application domains including computer vision
+    (image classification, segmentation, object detection, image captioning), natural language
+    processing (text classification, language modeling, machine translation, question answering),
+    tabular data modeling for structured data problems, and time series forecasting. The library
+    features a carefully layered architecture separating high-level APIs for practitioners from
+    low-level components for researchers enabling both ease of use and extensibility. Applications
+    in biomedical data science and AI/ML include medical image analysis where FastAI enables rapid
+    development of pathology image classification, radiology image interpretation, and microscopy
+    image analysis models; clinical text analysis where FastAI NLP models extract information from
+    clinical notes, electronic health records, and biomedical literature; tabular data modeling for
+    predicting clinical outcomes from electronic health record data, biomarker measurements, and
+    patient characteristics; time series analysis for patient monitoring data enabling predictive
+    models for adverse events; and histopathology image classification for cancer diagnosis and
+    prognosis. FastAI's emphasis on transfer learning enables efficient model development when
+    labeled biomedical data is limited. Pretrained models trained on large general image datasets
+    (ImageNet) transfer well to medical imaging tasks with fine-tuning on smaller medical datasets
+    improving model accuracy. FastAI provides regularization techniques (dropout, weight decay, data
+    augmentation) preventing overfitting on limited biomedical datasets. The library includes domain-specific
+    modules for computer vision enabling efficient implementation of medical imaging pipelines including
+    preprocessing, augmentation, training, and inference. FastAI's learning resources including tutorials,
+    courses (fast.ai courses freely available online), and documentation democratize deep learning
+    education enabling biomedical researchers to adopt modern machine learning techniques. Integration
+    with Jupyter notebooks supports interactive development and experimentation. FastAI models can be
+    exported in standard formats (ONNX) enabling deployment in clinical systems and cloud platforms.
+    The library actively incorporates emerging research including vision transformers, self-supervised
+    learning, and federated learning approaches. FastAI research applications span biomedical image
+    analysis, clinical text mining, and precision medicine. The open-source community contributes
+    domain-specific extensions including medical imaging modules. Real-world deployment of FastAI models
+    in clinical settings and biomedical research demonstrates practical utility improving diagnostic
+    accuracy and workflow efficiency.
   related_to:
   - B2AI_STANDARD:816
   requires_registration: false
@@ -28057,35 +28298,43 @@ data_standardortools_collection:
   is_open: true
   name: CDS
   publication: doi:10.5281/zenodo.10867040
-  purpose_detail: The Clinical Dataset Structure (CDS) is a standardized way to organize
-    and describe clinical research datasets to make them readily interoperable and
-    easily reusable by humans and machines. It addresses the challenge of integrating
-    multiple data modalities from clinical studies by providing a simple, intuitive
-    file and directory structure. CDS organizes data by datatype at the root level,
-    with each datatype directory structured according to applicable standards or a
-    recommended hierarchy of modality/device/participant directories. The standard
-    includes specifications for metadata files that document the dataset content,
-    structure, and participant information, optimizing datasets for AI-readiness and
-    secondary analysis.
+  purpose_detail: The Clinical Dataset Structure (CDS) is a comprehensive, machine-readable
+    specification for organizing, describing, and annotating clinical research datasets to enable
+    semantic interoperability, automated data integration, and reproducible analysis across diverse
+    healthcare institutions and research platforms. CDS provides a standardized framework specifying
+    essential dataset metadata including dataset identification and versioning, contributor and creator
+    information, data collection methods and periods, participant demographics and eligibility criteria,
+    clinical variables and data elements with standardized definitions, data quality metrics and missing
+    data documentation, data preprocessing and transformation procedures, privacy and security specifications
+    including de-identification approaches, and lineage documentation. The specification builds on FAIR
+    data principles incorporating Findability through standardized metadata, Accessibility through defined
+    access controls and distributions, Interoperability through alignment with standard data models and
+    ontologies, and Reusability through complete documentation enabling secondary use. CDS data structure
+    definitions link clinical variables to standard ontologies (SNOMED CT, LOINC, RxNorm) ensuring semantic
+    consistency. CDS specifications are serializable in multiple formats (JSON, YAML, FHIR) supporting
+    integration with diverse healthcare systems and analytical platforms. Applications in biomedical data
+    science and AI/ML include automated dataset discovery where CDS metadata enables search and identification
+    of datasets matching specific inclusion criteria (disease phenotypes, study populations, measured variables);
+    federated machine learning across healthcare systems where CDS-documented data harmonization enables
+    collaborative training of predictive models without centralizing sensitive patient data; meta-analyses
+    where standardized CDS descriptions of datasets enable appropriate consideration of data quality and
+    methodology in evidence synthesis; natural language processing on clinical notes where CDS variable
+    documentation improves training of models for automated extraction of clinical information; and data
+    quality assessment where CDS-documented data characteristics inform selection of appropriate analytical
+    approaches. CDS facilitates electronic health record integration where clinical research data management
+    systems align with EHR data structures and definitions improving data capture efficiency. The specification
+    supports development of clinical data repositories and learning health systems where standardized dataset
+    documentation enables rapid integration of new data sources. CDS actively incorporates emerging clinical
+    data types including real-world evidence from electronic health records, wearable device data, genomic
+    data, and imaging data. Integration with clinical trial data standards (CDISC) enables CDS representation
+    of observational study data with formal connections to trial data standards where relevant. The specification
+    was developed through collaboration with AI-READI (Artificial Intelligence Ready and Exploratory Atlas for Diabetes Insights)
+    and other clinical data initiatives ensuring practical applicability. CDS adoption by clinical research
+    networks and healthcare institutions improves data standardization supporting multicenter research and
+    precision medicine applications requiring integrated clinical data from multiple sources.
   requires_registration: false
   url: https://cds-specification.readthedocs.io/
   used_in_bridge2ai: true
-  has_application:
-  - id: B2AI_APP:99
-    category: B2AI:Application
-    name: Clinical Decision Support Rule Integration and ML Hybridization
-    description: CDS (Clinical Decision Support) specification is used in AI applications
-      to integrate machine learning models with traditional rule-based clinical decision
-      support systems, enabling hybrid AI approaches that combine interpretable rules
-      with data-driven predictions. AI systems leverage CDS Hooks and standardized
-      interfaces to deploy ML models as FHIR-based services that provide real-time
-      recommendations during clinical workflows, such as drug-drug interaction checking
-      augmented with personalized risk predictions, or sepsis alerts that combine
-      guideline-based criteria with neural network early warning scores. The specification
-      enables AI applications to surface predictions within EHR user interfaces at
-      appropriate decision points, while maintaining auditability through standardized
-      request/response formats and provenance metadata.
-    used_in_bridge2ai: false
 - id: B2AI_STANDARD:904
   category: B2AI_STANDARD:DataStandard
   collection:
