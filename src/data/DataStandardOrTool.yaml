@@ -2264,16 +2264,25 @@ data_standardortools_collection:
   name: CDASH
   purpose_detail: The Clinical Data Acquisition Standards Harmonization (CDASH) is
     a CDISC foundational standard that establishes consistent data collection practices
-    across clinical studies and sponsors. CDASH provides a standardized framework
-    for designing case report forms (CRFs) and electronic data capture (eCRF) systems
-    by defining a common set of data collection fields and structures. The standard
-    specifies field names, labels, prompt questions, and controlled terminology for
-    capturing clinical observations, ensuring that data can be directly traced to
-    the Study Data Tabulation Model (SDTM) without extensive post-collection transformation.
-    By harmonizing data collection at the source, CDASH reduces data cleaning efforts,
-    improves data quality, and accelerates the transition from collection to analysis.
-    The standard covers various therapeutic areas and data domains including demographics,
-    vital signs, adverse events, concomitant medications, and laboratory results.
+    across clinical studies and sponsors enabling direct mapping to standardized analysis datasets.
+    CDASH provides a standardized framework for designing case report forms (CRFs) and electronic
+    data capture (eCRF) systems by defining a common set of data collection fields, structures,
+    variable names, and permissible values. The standard specifies field names, labels, prompt
+    questions, and controlled terminology aligned with CDISC Controlled Terminology for capturing
+    clinical observations, enabling that data can be directly traced to the Study Data Tabulation
+    Model (SDTM) without extensive post-collection transformation or mapping. By harmonizing data
+    collection at the source, CDASH reduces data cleaning efforts, improves data quality, and
+    accelerates the transition from collection to analysis and regulatory submission. The standard
+    covers various therapeutic areas and data domains including demographics, vital signs, adverse
+    events, concomitant medications, laboratory results, and medical history. CDASH integration with
+    CRF design tools enables automated form generation conforming to collection standards. In biomedical
+    data science and machine learning contexts, CDASH-standardized data collection supports training
+    machine learning models on consistently structured clinical trial data, developing algorithms for
+    data quality prediction, and creating systems for automated data validation. Real-world applications
+    include pharmaceutical companies conducting regulatory-compliant clinical trials, CRO systems that
+    standardize data collection across multiple studies, and research institutions implementing
+    standardized data capture. CDASH compliance ensures regulatory readiness and accelerates the
+    transition from clinical data collection to analysis datasets meeting FDA submission requirements.
     CDISC provides a library of ready-to-use, CDASH-compliant annotated eCRFs in multiple
     formats (PDF, HTML, XML) that can be implemented as-is or customized for specific
     study needs, facilitating regulatory submission and data review processes.
@@ -2817,8 +2826,27 @@ data_standardortools_collection:
   description: CLUSTAL-W Dendrogram Guide File Format
   is_open: true
   name: DND
-  purpose_detail: Format for the tree (or “dendrogram”) used to guide the a multiple
-    sequence alignment process.
+  purpose_detail: The DND (Dendrogram) format is a structured format for representing
+    phylogenetic tree structures and dendrograms that guide the multiple sequence alignment
+    process in CLUSTAL-W and related sequence alignment tools. Dendrograms graphically represent
+    hierarchical clustering of sequences, showing pairwise distances and evolutionary relationships
+    among sequences being aligned. The DND file contains the tree structure in a nested bracket
+    notation that encodes branching patterns, branch lengths (evolutionary distances), and sequence
+    relationships calculated during the alignment clustering phase. The format enables reconstruction
+    of the progressive alignment strategy used by CLUSTAL-W, where sequences are aligned incrementally
+    following the hierarchical clustering order defined by the dendrogram. DND files preserve information
+    about sequence similarity measurements and clustering decisions, allowing users to understand and
+    reproduce the alignment process. The dendrogram structure is critical for CLUSTAL-W's progressive
+    alignment algorithm, which groups similar sequences first and gradually adds more divergent sequences
+    to build the complete multiple sequence alignment. DND format is output by CLUSTAL-W as a guide tree
+    and can be visualized using phylogenetic tree visualization tools. In biomedical data science and machine
+    learning contexts, dendrograms from DND files support training models for sequence similarity prediction,
+    understanding evolutionary relationships between sequences, and validating phylogenetic inferences. The
+    standardized dendrogram format enables reproducible sequence alignment workflows and supports quality
+    assessment of alignment clustering decisions. Real-world applications include phylogenetic reconstruction
+    for infectious disease epidemiology where dendrograms show evolutionary relationships of pathogen sequences,
+    protein family analysis where dendrograms reveal functional divergence, and quality control of sequence
+    alignments where dendrogram structure indicates potential misalignments or sequence outliers.
   requires_registration: false
   url: https://bioinfo.nhri.edu.tw/gcg/doc/11.0/clustalw+.html
 - id: B2AI_STANDARD:60
@@ -2850,10 +2878,31 @@ data_standardortools_collection:
   description: Coherent X-ray Imaging Data Bank format
   is_open: true
   name: CXI
-  purpose_detail: The CXI format was created as common format for all the data in
-    the Coherent X-ray Imaging Data Bank (CXIDB). Naturally its scope is all experimental
-    data collected during Coherent X-ray Imaging experiments as well as all data generated
-    during the analysis of the experimental data.
+  purpose_detail: The CXI (Coherent X-ray Imaging) format is a comprehensive HDF5-based
+    file format designed as a common standard for organizing and storing all experimental
+    and analytical data from Coherent X-ray Imaging (CXI) experiments. The Coherent X-ray
+    Imaging Data Bank (CXIDB) repository adopted CXI as its standard format to enable
+    consistent organization and exchange of data across diverse CXI research groups and
+    facilities. The CXI format encompasses all experimental data collected during coherent
+    X-ray diffraction, crystallography, and imaging experiments including detector frames
+    (diffraction patterns or imaging data), beam parameters, sample information, experimental
+    metadata, and all intermediate and final analysis results. The format preserves complete
+    experimental context including detector configuration, beam properties, sample positioning,
+    acquisition parameters, and quality metrics necessary for reproducible data analysis.
+    CXI files support storage of both raw experimental data and processed results enabling
+    comprehensive documentation of the experimental workflow from raw measurements through
+    final interpretations. The HDF5 foundation provides efficient storage, hierarchical
+    organization, and rapid access to large datasets common in modern synchrotron experiments.
+    CXI format supports diverse downstream analyses including phase retrieval, crystallographic
+    structure determination, and coherent diffraction imaging reconstruction. In biomedical
+    data science and machine learning contexts, CXI data supports training machine learning
+    models for automated phase retrieval and image reconstruction, developing algorithms for
+    anomaly detection in diffraction patterns, and creating systems for automated sample
+    characterization. Real-world applications include synchrotron facilities that use CXI for
+    standardized data archival and sharing, structural biology studies using coherent X-ray
+    diffraction for protein structure determination, and materials science research analyzing
+    crystalline materials. CXI integration with analysis software enables seamless data processing
+    workflows and reproducible research practices in coherent X-ray imaging.
   requires_registration: false
   url: https://www.cxidb.org/cxi.html
 - id: B2AI_STANDARD:62
@@ -3025,11 +3074,30 @@ data_standardortools_collection:
   is_open: true
   name: FACIT-COST
   publication: doi:10.1002/cncr.30369
-  purpose_detail: Developed in conjunction with the University of Chicago, the COST
-    is a patient-reported outcome measure that describes the financial distress experienced
-    by cancer patients. Since its initial publication, an additional item from the
-    FACIT System has been included to screen for financial toxicity and to provide
-    a good global summary item for financial toxicity.
+  purpose_detail: The FACIT-COST (Functional Assessment of Cancer Therapy - Cancer
+    Overcoming Through Strength and Tenacity) is a patient-reported outcome measure specifically
+    developed to assess and quantify financial toxicity in cancer patients. Financial toxicity
+    describes the financial distress and economic burden experienced by cancer patients as they
+    navigate treatment, hospitalizations, and long-term management of their disease. Developed in
+    conjunction with the University of Chicago, the COST measure captures the multidimensional
+    impact of cancer-related financial strain on patient wellbeing, quality of life, and treatment
+    adherence. The instrument uses validated questionnaire items addressing concerns about paying
+    medical bills, affording medications, managing household expenses during treatment, and achieving
+    financial stability. FACIT-COST acknowledges that financial toxicity is a significant source of
+    distress comparable to physical and psychosocial side effects of cancer treatment. Since its
+    initial publication, an additional item from the broader FACIT System has been included to
+    screen for financial toxicity and to provide a comprehensive global summary item characterizing
+    overall financial burden. FACIT-COST enables quantitative assessment of financial toxicity
+    severity, enabling researchers and clinicians to identify patients at high risk of financial
+    distress, monitor financial burden during treatment, and evaluate interventions targeting
+    financial support. In biomedical data science and machine learning contexts, standardized
+    FACIT-COST scores support training algorithms for identifying cancer patients at high financial
+    risk, developing systems for personalized financial assistance programs, and creating interventions
+    targeting financial toxicity. Real-world applications include oncology clinics that use FACIT-COST
+    to screen patients for financial burden, cancer research networks that study relationships between
+    financial toxicity and treatment outcomes, and healthcare systems implementing financial assistance
+    programs guided by FACIT-COST assessment. Integration with electronic health records enables
+    systematic financial toxicity monitoring and timely intervention to support cancer patients.
   requires_registration: false
   url: https://www.facit.org/measures/FACIT-COST
 - id: B2AI_STANDARD:66
@@ -3287,11 +3355,30 @@ data_standardortools_collection:
   is_open: true
   name: CIF
   purpose_detail: The acronym CIF is used both for the Crystallographic Information
-    File, the data exchange standard file format of Hall, Allen & Brown (1991) (see
-    Documentation), and for the Crystallographic Information Framework, a broader
-    system of exchange protocols based on data dictionaries and relational rules expressible
-    in different machine-readable manifestations, including, but not restricted to,
-    Crystallographic Information File and XML.
+    File, a standardized data exchange format for crystallographic structure data, and for the
+    Crystallographic Information Framework, a comprehensive system of exchange protocols based on
+    data dictionaries and relational rules expressible in diverse machine-readable manifestations.
+    The Crystallographic Information File (CIF) format, developed by Hall, Allen & Brown (1991),
+    provides a structured, human-readable ASCII text format for encoding complete crystallographic
+    data including unit cell parameters, atomic coordinates, bond distances, angles, crystal symmetry
+    information, and experimental details from X-ray crystallography studies. CIF enables standardized
+    representation of macromolecular structures (proteins, nucleic acids, complexes) and small molecule
+    crystal structures with comprehensive metadata supporting structure validation, reproducibility,
+    and archival in crystallographic databases (Protein Data Bank, Cambridge Structural Database).
+    The format supports both simple structures and complex macromolecular assemblies, encompassing
+    diffraction data, structure factors, and quality metrics assessing model-data agreement. The
+    Crystallographic Information Framework extends CIF concepts to support broader exchange protocols
+    based on data dictionaries defining allowed data types, vocabularies, and validation rules,
+    enabling flexible representation in XML, JSON, and other machine-readable formats while maintaining
+    semantic consistency. CIF files are essential for crystal structure submission to major structural
+    databases and archival of structural research results. In biomedical data science and machine learning
+    contexts, CIF-encoded structural data supports training machine learning models for protein structure
+    prediction, developing algorithms for structure quality assessment, and creating systems for drug
+    design through structure-based virtual screening. Real-world applications include structural biology
+    research depositing protein structures, drug discovery pipelines using crystal structures for molecular
+    modeling, and structural genomics initiatives curating large collections of protein structures.
+    CIF integration with structure analysis software enables seamless workflow from crystallography
+    experiments through structure determination, validation, and functional prediction.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Crystallographic_Information_File
 - id: B2AI_STANDARD:74
@@ -3563,13 +3650,29 @@ data_standardortools_collection:
   - B2AI_STANDARD:849
   is_open: true
   name: DICOM Part 14
-  purpose_detail: PS3.14 specifies a standardized Display Function for display of
-    grayscale images. It provides examples of methods for measuring the Characteristic
-    Curve of a particular Display System for the purpose of either altering the Display
-    System to match the Grayscale Standard Display Function, or for measuring the
-    conformance of a Display System to the Grayscale Standard Display Function. Display
-    Systems include such things as monitors with their associated driving electronics
-    and printers producing films that are placed on light-boxes or alternators.
+  purpose_detail: DICOM Part 14 (PS3.14) specifies a standardized Display Function for
+    consistent and accurate display of grayscale (black and white) medical images across different
+    display systems. The standard establishes methods for measuring the Characteristic Curve of a
+    particular display system (such as monitors, film printers, or film viewers) to ensure consistent
+    image reproduction. DICOM Part 14 provides guidance for either altering or calibrating the display
+    system to match the Grayscale Standard Display Function, or for measuring conformance of a display
+    system to the standard function ensuring that medical images are displayed with proper contrast,
+    brightness, and visibility of clinically relevant features. The standard encompasses diverse display
+    systems including computer monitors with associated driving electronics (video display cards, graphics
+    processors), film printers that produce hardcopy films for placement on light-boxes or film alternators
+    for viewing, and direct-view display systems used in radiology reading rooms. DICOM Part 14
+    standardization ensures that radiologists and clinicians see consistent image quality regardless of
+    display technology or manufacturer, enabling reliable visual interpretation of radiographs, CT images,
+    MR images, and other medical imaging modalities. The standard includes calibration methods and lookup
+    tables (LUTs) defining the relationship between digital pixel values and displayed luminance, enabling
+    accurate soft-copy and hard-copy image presentation. In biomedical data science and machine learning
+    contexts, standardized grayscale display functions support training machine learning models on correctly
+    displayed medical images, developing algorithms for image quality assessment, and creating systems for
+    automated radiologic interpretation with consistent image presentation. Real-world applications include
+    radiology departments calibrating monitors and film printers for DICOM compliance, clinical imaging centers
+    ensuring consistent image quality for diagnosis, and medical imaging research using standardized display
+    for experimental reproducibility. DICOM Part 14 compliance ensures that subtle radiologic findings remain
+    visible and that diagnostic accuracy is preserved across different display systems and technologies.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -11445,7 +11548,7 @@ data_standardortools_collection:
   formal_specification: http://opensmiles.org/opensmiles.html
   is_open: true
   name: SMILES
-  purpose_detail: The Simplified Molecular Input Line Entry Specification (SMILES) is a
+  purpose_detail: "The Simplified Molecular Input Line Entry Specification (SMILES) is a
     typographical line notation for specifying chemical structures, molecular formulas, and chemical
     composition in a compact, machine-readable textual format suitable for computational chemistry and
     molecular informatics. SMILES encodes molecular structure as a linear ASCII string where atoms
@@ -11468,7 +11571,7 @@ data_standardortools_collection:
     prediction and lead optimization, cheminformatics analyses that use SMILES for structure searching,
     and machine learning systems for predicting drug efficacy and toxicity from molecular structure.
     SMILES integration with molecular modeling tools enables automated structure generation, reaction
-    prediction, and chemical synthesis planning supporting computational drug development.
+    prediction, and chemical synthesis planning supporting computational drug development."
   requires_registration: false
   url: http://opensmiles.org/
 - id: B2AI_STANDARD:277
