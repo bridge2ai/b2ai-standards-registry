@@ -4872,6 +4872,78 @@ data_standardortools_collection:
   requires_registration: false
   url: https://en.wikipedia.org/wiki/FASTA_format
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:340
+    category: B2AI:Application
+    name: AlphaFold Protein Structure Database Distribution of Predicted Structures
+    description: The AlphaFold Protein Structure Database uses FASTA format to distribute
+      amino acid sequences corresponding to predicted protein structures alongside structural
+      coordinate files (PDB/mmCIF). FASTA sequence files are available for download via
+      EMBL-EBI FTP and Google Cloud, providing the complete sequence context for over 214
+      million predicted structures. FASTA serves as a standardized output and packaging format
+      that interoperates with downstream bioinformatics and machine learning tools, enabling
+      researchers to rapidly access both predicted structures and their source sequences.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1093/nar/gkad1011
+  - id: B2AI_APP:341
+    category: B2AI:Application
+    name: AI-Enabled Virus Detection and Variant Discovery Pipeline
+    description: An AI-enabled pipeline for virus detection, validation, and SNP discovery
+      uses FASTA format as both input and output. Unmapped sequencing reads are written to
+      unmapped.fasta files for de novo assembly using tools like MegaHit, demonstrating FASTA
+      as input to ML-augmented assembly steps. Assembled contigs are then exported as FASTA
+      sequences with accompanying de novo assembly reports, showing FASTA as the standardized
+      output format for assembled genomic sequences. This pipeline demonstrates FASTA's role
+      in integrating sequencing, assembly, and machine learning components within genomics workflows.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.3389/fgene.2024.1492752
+  - id: B2AI_APP:342
+    category: B2AI:Application
+    name: AlphaFold Adversarial Sequence Generation and Model Robustness Testing
+    description: A study probing AlphaFold's robustness against adversarial perturbations
+      obtains original protein sequences from FASTA files (e.g., UniProt FASTA database).
+      Sequences are sourced from FASTA, converted to one-hot encoded tensors, and input to the
+      neural network for prediction. This demonstrates FASTA as the canonical source format for
+      sequence perturbation experiments and highlights the explicit FASTA → tensor conversion
+      pipeline typical in deep learning protein structure prediction workflows. The study shows
+      how FASTA serves as the primary input format bridging experimental data and machine learning
+      model evaluation.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1109/tai.2024.3353708
+  - id: B2AI_APP:343
+    category: B2AI:Application
+    name: NGS Read Classification with AI-Powered Taxonomic Assignment
+    description: An AI-based next-generation sequencing (NGS) read classification workflow uses
+      FASTA format as both input and annotated output. Input reads are supplied in FASTA format
+      and processed through frame-selection and translation steps. A neural network classifier
+      predicts taxonomy for each read, and predictions are written back to the input FASTA by
+      appending classification results to FASTA identifier lines. This demonstrates FASTA as a
+      container for both raw sequence data and machine learning predictions, enabling researchers
+      to track per-read taxonomic assignments alongside original sequences. FASTA functions as
+      an indexed data structure that preserves the connection between sequences and their predicted
+      taxonomic labels.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.1371/journal.pone.0261548
+  - id: B2AI_APP:344
+    category: B2AI:Application
+    name: Deep Learning Feature Extraction from Biological Sequences (deepFEPS)
+    description: The deepFEPS toolkit accepts multi-FASTA inputs (DNA, RNA, protein sequences)
+      and converts them into numerical features for machine learning. The toolkit supports label
+      annotations in FASTA header lines (format ">ID|label") enabling supervised learning. FASTA
+      sequences are transformed through explicit conversion steps including k-mer tokenization,
+      embedding generation, and aggregation into fixed-length numerical vectors. The pipeline
+      produces analysis-ready CSV feature matrices directly from FASTA inputs, making FASTA the
+      primary data source for feature-extraction pipelines. The toolkit provides both web and
+      command-line interfaces, supporting integration into bioinformatics workflows and large-scale
+      batch processing. This application demonstrates FASTA → features conversion typical in deep
+      learning pipelines for biological sequence analysis.
+    used_in_bridge2ai: false
+    references:
+    - https://doi.org/10.48550/arxiv.2511.22821
 - id: B2AI_STANDARD:111
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
