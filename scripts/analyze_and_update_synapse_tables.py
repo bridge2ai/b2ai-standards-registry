@@ -48,6 +48,12 @@ from pandas.api.types import infer_dtype
 import pandas as pd
 from scripts.utils import initialize_synapse, clear_populate_snapshot_table, PROJECT_ID
 
+DATATYPE_OVERRRIDES = {
+     # maybe will only work for JSON cols, which is fine for now
+    'DataStandardOrTool': {
+        'has_application': 'JSON'
+    }
+}
 
 # the paths detected as changes from the "Get changed files" job mapped to their corresponding synapse table ids
 PATHS_TO_IDS = {
@@ -57,6 +63,7 @@ PATHS_TO_IDS = {
     "project/data/Organization.json": "syn63096836",
     "project/data/UseCase.json": "syn63096837",
     "project/data/DataSet.json": "syn66330217",
+    "project/data/Manifest.json": "syn72106735",
 }
 
 
@@ -92,9 +99,9 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
 
     df = pd.DataFrame(data=data)
 
-    coldefs = get_col_defs(df)
-
     table_name = file_path_to_table_name(update_file)
+
+    coldefs = get_col_defs(df, table_name)
 
     clear_populate_snapshot_table(syn, table_name, coldefs, df, table_id)
 
@@ -102,7 +109,7 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
 SYNAPSE_MIN_LIST_SIZE = 2
 
 
-def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
+def get_col_defs(new_data_df: pd.DataFrame, table_name: str) -> List[Column]:
     """
     Returns Column definitions for Synapse schema based on data in df
     TODO: If ever refactoring, this could be combined into a shared function with
@@ -126,8 +133,11 @@ def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
     for col_name in new_cols:
         new_col = new_cols[col_name]
         actual_max_size = 0
+        overridden_datatype = DATATYPE_OVERRRIDES.get(table_name, {}).get(col_name)
 
-        if new_col['columnType'].endswith('_LIST'):
+        if overridden_datatype is not None:
+            new_col['columnType'] = overridden_datatype # maybe will only work for JSON cols
+        elif new_col['columnType'].endswith('_LIST'):
             actual_max_list_len = 0
             for value in new_data_df[col_name].dropna():
                 actual_max_list_len = max(actual_max_list_len, len(value))

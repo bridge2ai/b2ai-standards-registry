@@ -12,6 +12,7 @@ SRC_TABLE_NAMES = [
     'DataTopic',
     'Organization',
     'UseCase',
+    # 'Manifest',
     # 'test',
 ]
 TABLE_IDS = {
@@ -26,6 +27,7 @@ TABLE_IDS = {
     'Organization': { 'name': 'Organization', 'id': 'syn63096836' },
     'Organization_denormalized': { 'name': 'Organization_denormalized', 'id': 'syn69693360' },
     'UseCase': { 'name': 'UseCase', 'id': 'syn63096837' },
+    # 'Manifest': { 'name': 'Manifest', 'id': 'syn72106735' }, # not sure if i'll need this
     # 'test': { 'name': 'test', 'id': 'syn64943432' }
 }
 
@@ -42,7 +44,8 @@ DEST_TABLES = {
             {'faceted': True,  'name': 'category',  'alias': 'category', 'transform': 'category_to_title_case'},
             {'name': 'purpose_detail',              'alias': 'description'},
             {'faceted': True,  'name': 'collection','alias': 'collections', 'transform': 'collections_to_title_case'},
-            {'faceted': True,  'name': 'collection','alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
+            {'name': 'has_application','alias': 'hasApplication', },
+            # {'faceted': True,  'name': 'collection','alias': 'hasAIApplication', 'transform': 'collections_to_has_ai_app', 'columnType': 'STRING'},
             {'faceted': True,  'name': 'collection','alias': 'mature', 'transform': 'collections_to_is_mature', 'columnType': 'STRING'},
             {'name': 'concerns_data_topic',         'alias': 'concerns_data_topic'},
             {'name': 'has_relevant_data_substrate', 'alias': 'has_relevant_data_substrate'},
