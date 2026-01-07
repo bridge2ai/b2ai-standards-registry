@@ -130,6 +130,7 @@ def get_transform_function(transform_spec):
         'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
         'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
         'collections_to_is_mature': lambda col: 'Is Mature' if 'standards_process_maturity_final' in col or 'implementation_maturity_production' in col else 'Is Not Mature',
+        'json_length': json_length,
 
         'create_org_link': lambda id_val, name_val: f"[{name_val}](/Explore/Organization/OrganizationDetailsPage?id={id_val})",
         'create_topic_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataTopic/DataTopicDetailsPage?id={id_val})",
@@ -141,6 +142,12 @@ def get_transform_function(transform_spec):
         return predefined_transforms[transform_spec]
 
     raise ValueError(f"Unknown transform: {transform_spec}")
+
+def json_length(jsn: str) -> int|None:
+    if (jsn):
+        lst = json.loads(jsn)
+        return len(lst)
+    return None
 
 def col_transform(col: pd.Series, transform_name: str, df: pd.DataFrame) -> pd.Series:
     """
