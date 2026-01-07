@@ -115,8 +115,7 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
             f"Error checking for and clearing existing table {table_name}: {e}")
 
     schema = Schema(name=table_name, columns=columnDefs, parent=PROJECT_ID)
-    table = Table(name=table_name, parent_id=PROJECT_ID,
-                  schema=schema, values=df)
+    table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
     table.tableId = table_id
     table = syn.store(table)
     table_id = table_id or table.get('id', table.get('tableId'))
