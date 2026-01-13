@@ -107,6 +107,17 @@ classes:
       - datasheet
       - references
 
+  Reference:
+    description: >-
+      A bibliographic reference to a publication, preprint,
+      or other citable resource.
+    slots:
+      - ref_url
+      - ref_title
+      - ref_authors
+      - ref_publication_year
+      - ref_journal
+
 slots:
   node_property:
     description: >-
@@ -190,9 +201,9 @@ slots:
     multivalued: true
   references:
     is_a: node_property
-    range: uriorcurie
+    range: Reference
     description: >-
-      List of one or more URLs pointing to related
+      List of one or more Reference objects for related
       publications, preprints, or other references.
     multivalued: true
 
@@ -261,3 +272,41 @@ slots:
     inlined: true
     inlined_as_list: true
     multivalued: true
+
+  # Slots for References
+  ref_url:
+    domain: Reference
+    range: uriorcurie
+    description: >-
+      URL of the referenced publication, preprint,
+      or other citable resource. This will often
+      be a DOI in URL form.
+  ref_title:
+    domain: Reference
+    range: string
+    description: Title of the referenced publication,
+      preprint, or other citable resource.
+  ref_authors:
+    domain: Reference
+    range: string
+    multivalued: true
+    description: >-
+      List of authors of the referenced publication,
+      preprint, or other citable resource.
+      Format as surname(s) given name initials,
+      e.g., "Brockheimer J", "Gudmundsdottir JF".
+  ref_publication_year:
+    domain: Reference
+    range: integer
+    description: >-
+      Year of publication of the referenced
+      publication, preprint, or other citable resource.
+      Use four-digit year format (e.g., 2023).
+  ref_journal:
+    domain: Reference
+    range: string
+    description: >-
+      Journal or venue of the referenced publication,
+      preprint, or other citable resource.
+      Follow the NLM Catalog journal title abbreviations
+      where possible (e.g., J Biol Chem).
