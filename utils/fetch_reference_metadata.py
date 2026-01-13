@@ -113,7 +113,10 @@ def zenodo_id_from_doi(doi: str) -> Optional[str]:
 def extract_github_repo(ref_url: str) -> Optional[str]:
     match = GITHUB_REPO_PATTERN.search(ref_url)
     if match:
-        owner, repo = match.group(1), match.group(2).rstrip(".git")
+        owner, repo = match.group(1), match.group(2)
+        # Strip only a literal .git suffix without trimming other trailing letters.
+        if repo.lower().endswith(".git"):
+            repo = repo[:-4]
         return f"{owner}/{repo}"
     return None
 
