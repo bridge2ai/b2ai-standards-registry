@@ -415,10 +415,13 @@ def enrich_value(
     verbose: bool,
 ) -> Tuple[Dict[str, Any], bool, Dict[str, int]]:
     """Return (reference_object, changed, api_stats)."""
-    if isinstance(value, dict) and "ref_url" in value:
-        return value, False, {"crossref": 0, "arxiv": 0, "github": 0, "web": 0}
 
-    ref_url, doi = normalize_reference(value)
+    # If already a Reference object, we may still want to enrich it when fields are missing.
+    existing_ref = value if isinstance(value, dict) and "ref_url" in value else None
+    if existing_ref and all(existing_ref.get(k) for k in ("ref_title", "ref_authors", "ref_publication_year", "ref_journal")):
+        return existing_ref, False, {"crossref": 0, "arxiv": 0, "github": 0, "web": 0}
+
+    ref_url, doi = normalize_reference(value if not existing_ref else existing_ref.get("ref_url"))
     api_stats = {"crossref": 0, "arxiv": 0, "github": 0, "web": 0}
 
     message: Optional[Dict[str, Any]] = None
@@ -460,7 +463,17 @@ def enrich_value(
                         ref_url, session, delay, verbose)
                 message = cache.get(cache_key)
     reference = build_reference_object(ref_url, message)
-    return reference, True, api_stats
+
+    # Preserve any existing fields that were already set on the reference
+    if existing_ref:
+        for key in ("ref_title", "ref_authors", "ref_publication_year", "ref_journal"):
+            if existing_ref.get(key):
+                reference[key] = existing_ref[key]
+        changed = reference != existing_ref
+    else:
+        changed = True
+
+    return reference, changed, api_stats
 
 
 def enrich_references_list(
