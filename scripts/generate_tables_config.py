@@ -44,7 +44,7 @@ DEST_TABLES = {
             { 'name': 'category',                   'alias': 'category', 'transform': 'category_to_title_case', 'faceted': True, },
             {'name': 'purpose_detail',              'alias': 'description'},
             {'name': 'collection',                  'alias': 'collections', 'transform': 'collections_to_title_case', 'faceted': True, },
-            {'name': 'has_application',             'alias': 'AIApplicationJSON', },
+            {'name': 'has_application',             'alias': 'AIApplicationJSON', 'columnType': 'JSON'},
             {'name': 'has_application',             'alias': 'aiApplicationCount',  'transform': 'json_to_count', 'columnType': 'INTEGER'},
             {'name': 'has_application',             'alias': 'hasAIApplication', 'transform': 'count_to_yes_no', 'columnType': 'STRING', 'faceted': True, },
             {'name': 'has_application',             'alias': 'applicationNames', 'transform': 'json_to_name_strings', 'columnType': 'STRING_LIST', 'faceted': True, },

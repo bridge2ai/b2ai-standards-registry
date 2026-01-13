@@ -45,9 +45,8 @@ from typing import Any, Dict, List, Optional
 from argparse import ArgumentParser
 from synapseclient import Synapse
 from synapseclient.models import Column, ColumnType
-from pandas.api.types import infer_dtype
 import pandas as pd
-from scripts.utils import initialize_synapse, clear_populate_snapshot_table, configure_column_from_data, PROJECT_ID, SYNAPSE_MIN_LIST_SIZE
+from scripts.utils import initialize_synapse, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, PROJECT_ID
 
 DATATYPE_OVERRRIDES = {
      # maybe will only work for JSON cols, which is fine for now
@@ -107,61 +106,27 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
     clear_populate_snapshot_table(syn, table_name, coldefs, df, table_id)
 
 
-SYNAPSE_MIN_LIST_SIZE = 2
-
-
 def get_col_defs(new_data_df: pd.DataFrame, table_name: str) -> List[Column]:
     """
-    Returns Column definitions for Synapse schema based on data in df
-    TODO: If ever refactoring, this could be combined into a shared function with
-          ./create_denormalized_tables.py:configure_column_metadata
+    Returns Column definitions for Synapse schema based on data in df.
 
     :param new_data_df: DataFrame with new data
+    :param table_name: Name of table (used for datatype overrides)
     :return: Column definitions
     """
-    is_list_cols = (new_data_df.map(type).astype(str)
-                    == "<class 'list'>").any()
-    list_cols = set(is_list_cols[is_list_cols == True].index)
-    scalar_types = {c: infer_dtype(new_data_df[c], skipna=True).upper(
-    ) for c in new_data_df.columns}  # infer_dtype gives 'mixed' for list types
-    # assuming all list columns are string lists, at least for now
-    def get_col_type(
-        col_name): return ColumnType.STRING_LIST if col_name in list_cols else scalar_types[col_name]
-
-    new_cols = {col_name: {'name': col_name, 'column_type': get_col_type(
-        col_name)} for col_name in new_data_df.columns}
-
-    for col_name in new_cols:
-        new_col = new_cols[col_name]
-        actual_max_size = 0
-        overridden_datatype = DATATYPE_OVERRRIDES.get(table_name, {}).get(col_name)
-
-        if overridden_datatype is not None:
-            new_col['column_type'] = overridden_datatype # maybe will only work for JSON cols
-        elif new_col['column_type'].endswith('_LIST'):
-            actual_max_list_len = 0
-            for value in new_data_df[col_name].dropna():
-                actual_max_list_len = max(actual_max_list_len, len(value))
-                # Find longest string in this list
-                if value:  # Check if list is not empty
-                    item_lengths = [len(str(item)) for item in value]
-                    max_item_in_this_list = max(
-                        item_lengths) if item_lengths else 0
-                    actual_max_size = max(
-                        actual_max_size, max_item_in_this_list)
-            new_col['maximum_size'] = int(actual_max_size)
-            new_col['maximum_list_length'] = max(
-                int(actual_max_list_len), SYNAPSE_MIN_LIST_SIZE)
+    coldefs = []
+    for col_name in new_data_df.columns:
+        # Check for datatype override first
+        overridden = DATATYPE_OVERRRIDES.get(table_name, {}).get(col_name)
+        if overridden is not None:
+            col_type = overridden
         else:
-            actual_max_size = new_data_df[col_name].astype(str).str.len().max()
-            if new_col['column_type'] == ColumnType.STRING:
-                if actual_max_size > 2000:
-                    new_col['column_type'] = ColumnType.LARGETEXT
-                elif actual_max_size > 1000:
-                    new_col['column_type'] = ColumnType.MEDIUMTEXT
-                new_col['maximum_size'] = int(actual_max_size)
+            col_type = infer_column_type(new_data_df[col_name])
 
-    coldefs = [Column(**col) for col in new_cols.values()]
+        col = Column(name=col_name, column_type=col_type)
+        col = configure_column_from_data(col, new_data_df[col_name])
+        coldefs.append(col)
+
     return coldefs
 
 

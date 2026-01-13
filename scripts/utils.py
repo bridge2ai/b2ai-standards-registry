@@ -1,6 +1,8 @@
+import json
 import os
 from dataclasses import replace
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
+import numpy as np
 import pandas as pd
 from synapseclient import Synapse
 from synapseclient.models import Column, ColumnType, FacetType, Table
@@ -14,7 +16,61 @@ Expected Environment:
 """
 PROJECT_ID = 'syn63096806'
 
+# Base path for JSON data files
+DATA_PATH = 'project/data'
+
+
+def load_json_to_dataframe(table_name: str) -> pd.DataFrame:
+    """
+    Load a JSON data file into a pandas DataFrame.
+
+    :param table_name: Name of the table (e.g., 'DataStandardOrTool')
+    :return: DataFrame with the table data, NaNs replaced with empty strings for non-numeric columns
+    """
+    file_path = os.path.join(DATA_PATH, f"{table_name}.json")
+
+    with open(file_path, "r") as file:
+        data = json.load(file)
+
+    # Each JSON file begins with a key that maps to the list of records
+    data = next(iter(data.values()), [])
+
+    if not isinstance(data, list):
+        raise ValueError(f"Could not get list of data from {file_path}")
+
+    df = pd.DataFrame(data=data)
+
+    # Replace NaNs with empty strings for all non-numeric columns
+    for col in df.columns:
+        df[col] = df[col].apply(lambda x: '' if isinstance(x, float) and np.isnan(x) else x)
+
+    return df
+
 SYNAPSE_MIN_LIST_SIZE = 2
+
+
+def infer_column_type(values: pd.Series) -> ColumnType:
+    """
+    Infer the Synapse ColumnType from a pandas Series.
+
+    :param values: pandas Series containing column data
+    :return: Appropriate ColumnType enum value
+    """
+    from pandas.api.types import infer_dtype
+
+    # Check if column contains lists
+    is_list = (values.map(type).astype(str) == "<class 'list'>").any()
+    if is_list:
+        # Assume string lists for now
+        return ColumnType.STRING_LIST
+
+    # Infer scalar type
+    inferred = infer_dtype(values, skipna=True).upper()
+
+    # Map pandas inferred type to Synapse ColumnType
+    if hasattr(ColumnType, inferred):
+        return ColumnType[inferred]
+    return ColumnType.STRING
 
 
 def configure_column_from_data(col: Column, values: pd.Series, faceted: bool = False) -> Column:
@@ -155,6 +211,14 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
         print(
             f"Error checking for and clearing existing table {table_name}: {e}")
 
+    # TODO: Need help from Synapse API support
+    # Goal: Replace the schema (columns) of an existing table entirely, then add rows.
+    # The old API (syn.store(Schema(...))) would clobber the old schema.
+    # With the new synapseclient.models API, we can't figure out how to replace
+    # columns when the type changes (e.g., STRING_LIST -> JSON).
+    # Errors encountered:
+    #   - "Cannot perform schema change from _LIST type to non-_LIST type"
+    #   - "The provided ordered column IDs does not match resulting columns"
     table = Table(name=table_name, parent_id=PROJECT_ID, columns=columnDefs)
     if table_id:
         table.id = table_id

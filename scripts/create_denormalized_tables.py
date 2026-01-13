@@ -30,8 +30,8 @@ Main entry point:
     denormalize_tables()
 """
 import sys
+import os
 from typing import Any, Dict, List, Optional
-from dataclasses import replace
 from synapseclient import Synapse
 from synapseclient.models import Column, ColumnType, Table as TableModel
 import pandas as pd
@@ -40,7 +40,7 @@ import re
 import json
 
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
-from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, configure_column_from_data, initialize_synapse
+from scripts.utils import DATA_PATH, PROJECT_ID, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, initialize_synapse, load_json_to_dataframe
 
 special_capitalization = {
     'has_ai_application': 'Has AI Application',
@@ -113,7 +113,10 @@ def snake_to_title_case(s: str) -> str:
     words[-1] = words[-1].capitalize()
     return ' '.join(words)
 
-def str_to_json(s: str) -> List[Dict[str, Any]]:
+def str_to_json(s) -> List[Dict[str, Any]]:
+    """Convert a JSON string to a list of dicts. If already parsed, return as-is."""
+    if isinstance(s, list):
+        return s
     return json.loads(s or '[]')
 
 def get_transform_function(transform_spec):
@@ -244,7 +247,6 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         """
         base_table_name = dest_table['base_table']
         base_df = src_tables[base_table_name]['df']
-        dest_df = get_src_table(syn, TABLE_IDS['DST_denormalized'])['df']
         join_columns = []
 
         # TODO: Clean up all these nearly-same var names
@@ -307,11 +309,10 @@ def make_col(
     src_tables: Dict[str, Dict[str, Any]]
 ) -> Dict[str, Any]:
     """
-    Construct a destination column definition based on the source table's column schema.
+    Construct a destination column definition based on the source table's data.
 
-    This function looks up the source column metadata (from the base table), copies it,
-    updates the name to the desired alias (destination column name), and returns the updated column definition
-    to be included in the output schema.
+    This function infers the column type from the source data and creates a new Column
+    with the destination column name (alias).
 
     :param dest_table: Configuration for the destination table, including the base table name
     :param dest_col: Column definition with keys:
@@ -319,26 +320,26 @@ def make_col(
                      - 'alias': desired column name in the destination table
                      - 'faceted': whether the column should be faceted
                      - 'transform': optional function for transforming data values
+                     - 'columnType': optional override for column type
     :param src_tables: Dictionary of available source tables, keyed by name. Each value includes:
-                       - 'columns': dict of Column objects keyed by column name
-    :return: Updated dest_col dict with a new 'col' key containing the modified Column object
+                       - 'df': DataFrame with the table data
+    :return: Updated dest_col dict with a new 'col' key containing the Column object
     """
     src_col_name = dest_col['name']
     dest_col_name = dest_col['alias']
 
-    # Get the key to use in SRC_TABLES for the base table
+    # Get the source DataFrame
     base_table_name = dest_table['base_table']
-    src_table = src_tables[base_table_name]
+    src_df = src_tables[base_table_name]['df']
 
-    # Copy the column schema using dataclasses.replace and update the name to use the alias
-    src_col = src_tables[base_table_name]['columns'][src_col_name]
-    col = replace(src_col, id=None, name=dest_col_name)
-
+    # Determine column type - use override if provided, otherwise infer from data
     if 'columnType' in dest_col:
-        ctype = dest_col['columnType']
-        col = replace(col, column_type=ColumnType[ctype])
-        if not ctype.endswith('LIST'):
-            col = replace(col, maximum_list_length=None)
+        col_type = ColumnType[dest_col['columnType']]
+    else:
+        col_type = infer_column_type(src_df[src_col_name])
+
+    # Create the Column with the destination name
+    col = Column(name=dest_col_name, column_type=col_type)
 
     dest_col['col'] = col
     return dest_col
@@ -514,9 +515,10 @@ def create_join_column(
     else:
         # Normal lookup: base table has lists of IDs, join table has matching records
         if not is_json_column:  # JSON columns can work with scalar IDs too
-            sample_val = base_df[base_tbl_col].dropna().iloc[0] if not base_df[base_tbl_col].dropna().empty else []
-            if not isinstance(sample_val, list):
-                raise ValueError(f"Expected list column from '{base_table_name}.{base_tbl_col}', but got scalar.")
+            # Find first actual list value (skip None, empty strings, etc.)
+            list_values = [v for v in base_df[base_tbl_col] if isinstance(v, list)]
+            if not list_values:
+                raise ValueError(f"Expected list column from '{base_table_name}.{base_tbl_col}', but found no list values.")
 
         def process_ids(ids):
             if not ids:
@@ -574,48 +576,36 @@ def create_join_column(
 
 def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
     """
-    Retrieve and validate a source table from Synapse, capture its column metadata and a cleaned DataFrame.
-    If the table is empty:
-        - If a version number has been specified, raise an exception and quit execution.
-        - Otherwise, find the last non-empty version and use that
-            - Ideally,
+    Load a source table, preferring local JSON files over Synapse.
 
-    This function:
-    - Retrieves the Synapse table and confirms its name matches the expected one
-    - Extracts column metadata
-    - Queries the full table contents into a DataFrame
-    - Cleans NaNs from the DataFrame (replacing them with empty strings)
-    - Stores the DataFrame, table object, and column info in the returned dictionary
+    For tables with JSON files in project/data/, loads from the local file.
+    For tables without JSON files (like denormalized tables or D4D_content),
+    falls back to fetching from Synapse.
 
-    :param syn: Authenticated Synapse client
+    :param syn: Authenticated Synapse client (used for fallback)
     :param table_info: Dictionary with keys:
              - 'id': Synapse table ID
              - 'name': expected name of the table
     :return: Dictionary with keys:
              - 'id': Synapse table ID
-             - 'name': expected name of the table
-             - 'syn_table': the retrieved Synapse table object
-             - 'columns': dict of Synapse column metadata keyed by column name
+             - 'name': table name
              - 'df': cleaned DataFrame of table contents
-    :raises ValueError: if the retrieved Synapse table has a different name than expected
     """
-    # Use new Table model API
-    table_model = TableModel(id=table_info['id']).get()
+    table_name = table_info['name']
+    json_path = os.path.join(DATA_PATH, f"{table_name}.json")
 
-    # Confirm table name matches what's expected
-    if table_model.name != table_info['name']:
-        raise ValueError(f"Expected table '{table_info['name']}', but got '{table_model.name}'.")
+    if os.path.exists(json_path):
+        # Load from local JSON file
+        print(f"Loading '{table_name}' from {json_path}")
+        df = load_json_to_dataframe(table_name)
+    else:
+        # Fallback to Synapse for tables without JSON files
+        print(f"Loading '{table_name}' from Synapse (no local JSON file)")
+        df = TableModel.query(query=f"SELECT * FROM {table_info['id']}")
 
-    # Store the retrieved Synapse table and column metadata (as Column objects keyed by name)
-    table_info['syn_table'] = table_model
-    table_info['columns'] = {col.name: col for col in table_model.columns.values()}
-
-    # Query the table and clean up the resulting DataFrame
-    df = TableModel.query(query=f"SELECT * FROM {table_info['id']}")
-
-    # Replace NaNs with empty strings for all non-numeric columns (since df converts null columns to NaNs)
-    for col in df.columns:
-        df[col] = df[col].apply(lambda x: '' if isinstance(x, float) and np.isnan(x) else x)
+        # Replace NaNs with empty strings for all non-numeric columns
+        for col in df.columns:
+            df[col] = df[col].apply(lambda x: '' if isinstance(x, float) and np.isnan(x) else x)
 
     table_info['df'] = df
     return table_info
