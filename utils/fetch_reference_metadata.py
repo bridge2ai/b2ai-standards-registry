@@ -1,17 +1,23 @@
 #!/usr/bin/env python3
-"""Lookup reference metadata from CrossRef and enrich registry data.
+"""Lookup reference metadata from CrossRef, arXiv, and GitHub.
 
-This helper script fetches publication metadata for DOIs (or DOI URLs)
-from the CrossRef API and formats them as Reference objects defined
-in the standards schema. It can:
+This helper script fetches publication metadata for DOIs (CrossRef),
+arXiv links/IDs, and GitHub repositories, formatting them as Reference
+objects defined in the standards schema. It can:
 
-- Fetch a single DOI and print the Reference object
+- Fetch a single DOI/URL and print the Reference object
 - Update src/data/DataStandardOrTool.yaml in-place (or to a new file)
-  so publication and application references use full Reference objects
+    so publication and application references use full Reference objects
 
 Examples:
     # Print metadata for a single DOI
     python utils/fetch_reference_metadata.py --doi 10.1093/bioinformatics/btq391
+
+        # Print metadata for an arXiv link
+        python utils/fetch_reference_metadata.py --doi https://arxiv.org/abs/1904.03323
+
+        # Print metadata for a GitHub repo link
+        python utils/fetch_reference_metadata.py --doi https://github.com/NVIDIA/Megatron-LM
 
     # Update the registry data file in-place (default) with a short delay
     python utils/fetch_reference_metadata.py --write --delay 0.2
@@ -28,6 +34,7 @@ import os
 import re
 import sys
 import time
+import xml.etree.ElementTree as ET
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 from urllib.parse import quote
 
@@ -35,7 +42,11 @@ import requests
 import yaml
 
 CROSSREF_WORKS_URL = "https://api.crossref.org/works/"
+ARXIV_API_URL = "https://export.arxiv.org/api/query?id_list="
+GITHUB_API_URL = "https://api.github.com/repos/"
 DOI_PATTERN = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
+ARXIV_PATTERN = re.compile(r"arxiv\.org/(abs|pdf)/([A-Za-z0-9._-]+)", re.IGNORECASE)
+GITHUB_REPO_PATTERN = re.compile(r"github\.com/([^/]+)/([^/#?]+)")
 
 
 def build_user_agent(mailto: Optional[str]) -> str:
@@ -64,6 +75,21 @@ def extract_doi(raw: str) -> Optional[str]:
 
     if DOI_PATTERN.match(value):
         return value
+    return None
+
+
+def extract_arxiv_id(ref_url: str) -> Optional[str]:
+    match = ARXIV_PATTERN.search(ref_url)
+    if match:
+        return match.group(2)
+    return None
+
+
+def extract_github_repo(ref_url: str) -> Optional[str]:
+    match = GITHUB_REPO_PATTERN.search(ref_url)
+    if match:
+        owner, repo = match.group(1), match.group(2).rstrip(".git")
+        return f"{owner}/{repo}"
     return None
 
 
@@ -128,6 +154,103 @@ def format_authors(authors: Iterable[Dict[str, Any]]) -> List[str]:
         else:
             formatted.append(str(given))
     return formatted
+
+
+def fetch_arxiv_metadata(arxiv_id: str, session: requests.Session, delay: float, verbose: bool) -> Optional[Dict[str, Any]]:
+    url = f"{ARXIV_API_URL}{quote(arxiv_id)}"
+    try:
+        response = session.get(url, timeout=15)
+        response.raise_for_status()
+    except requests.RequestException as exc:
+        if verbose:
+            print(f"[warn] arXiv request failed for {arxiv_id}: {exc}", file=sys.stderr)
+        time.sleep(delay)
+        return None
+
+    try:
+        root = ET.fromstring(response.text)
+    except ET.ParseError as exc:
+        if verbose:
+            print(f"[warn] arXiv XML parse failed for {arxiv_id}: {exc}", file=sys.stderr)
+        return None
+
+    # arXiv Atom feed namespace handling
+    ns = {"atom": "http://www.w3.org/2005/Atom"}
+    entry = root.find("atom:entry", ns)
+    if entry is None:
+        return None
+
+    def text_or_none(elem_name: str) -> Optional[str]:
+        elem = entry.find(elem_name, ns)
+        if elem is not None and elem.text:
+            return elem.text.strip()
+        return None
+
+    title = text_or_none("atom:title")
+    summary = text_or_none("atom:summary")
+    published = text_or_none("atom:published")
+    authors = [a.find("atom:name", ns).text.strip() for a in entry.findall("atom:author", ns) if a.find("atom:name", ns) is not None and a.find("atom:name", ns).text]
+
+    year = None
+    if published and len(published) >= 4 and published[:4].isdigit():
+        year = int(published[:4])
+
+    return {
+        "ref_title": title,
+        "ref_authors": authors or None,
+        "ref_publication_year": year,
+        "ref_journal": "arXiv",
+        "ref_summary": summary,
+    }
+
+
+def fetch_github_metadata(repo: str, session: requests.Session, token: Optional[str], delay: float, verbose: bool) -> Optional[Dict[str, Any]]:
+    url = f"{GITHUB_API_URL}{repo}"
+    headers = {"Accept": "application/vnd.github+json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+
+    try:
+        response = session.get(url, headers=headers, timeout=15)
+    except requests.RequestException as exc:
+        if verbose:
+            print(f"[warn] GitHub request failed for {repo}: {exc}", file=sys.stderr)
+        time.sleep(delay)
+        return None
+
+    if response.status_code == 404:
+        if verbose:
+            print(f"[warn] GitHub repo not found: {repo}", file=sys.stderr)
+        return None
+    if response.status_code in (429, 503):
+        if verbose:
+            print(f"[info] GitHub rate limit for {repo}; status {response.status_code}", file=sys.stderr)
+        time.sleep(delay)
+        return None
+
+    try:
+        response.raise_for_status()
+        data = response.json()
+    except (requests.HTTPError, ValueError) as exc:
+        if verbose:
+            print(f"[warn] GitHub parse failed for {repo}: {exc}", file=sys.stderr)
+        return None
+
+    title = data.get("full_name") or data.get("name")
+    desc = data.get("description")
+    updated = data.get("updated_at")
+    year = None
+    if updated and len(updated) >= 4 and updated[:4].isdigit():
+        year = int(updated[:4])
+
+    metadata: Dict[str, Any] = {
+        "ref_title": title,
+    }
+    if desc:
+        metadata["ref_journal"] = "GitHub"
+        metadata["ref_authors"] = [data.get("owner", {}).get("login")] if data.get("owner", {}).get("login") else None
+        metadata["ref_publication_year"] = year
+    return metadata
 
 
 def fetch_crossref_message(
@@ -203,22 +326,29 @@ def build_reference_object(ref_url: str, message: Optional[Dict[str, Any]]) -> D
     if not message:
         return reference
 
-    titles = message.get("title") or []
-    if isinstance(titles, list) and titles:
-        reference["ref_title"] = str(titles[0])
+    # CrossRef-like payload
+    if "title" in message or "author" in message:
+        titles = message.get("title") or []
+        if isinstance(titles, list) and titles:
+            reference["ref_title"] = str(titles[0])
 
-    authors = format_authors(message.get("author", []))
-    if authors:
-        reference["ref_authors"] = authors
+        authors = format_authors(message.get("author", []))
+        if authors:
+            reference["ref_authors"] = authors
 
-    year = extract_year(message)
-    if year:
-        reference["ref_publication_year"] = year
+        year = extract_year(message)
+        if year:
+            reference["ref_publication_year"] = year
 
-    journal = extract_journal(message)
-    if journal:
-        reference["ref_journal"] = journal
+        journal = extract_journal(message)
+        if journal:
+            reference["ref_journal"] = journal
+        return reference
 
+    # arXiv/GitHub generic metadata shape already matches Reference keys
+    for key in ("ref_title", "ref_authors", "ref_publication_year", "ref_journal"):
+        if key in message and message[key]:
+            reference[key] = message[key]
     return reference
 
 
@@ -229,25 +359,44 @@ def enrich_value(
     mailto: Optional[str],
     delay: float,
     verbose: bool,
-) -> Tuple[Dict[str, Any], bool, bool]:
-    """Return (reference_object, changed, api_called)."""
+) -> Tuple[Dict[str, Any], bool, Dict[str, int]]:
+    """Return (reference_object, changed, api_stats)."""
     if isinstance(value, dict) and "ref_url" in value:
-        return value, False, False
+        return value, False, {"crossref": 0, "arxiv": 0, "github": 0}
 
     ref_url, doi = normalize_reference(value)
-    api_called = False
+    api_stats = {"crossref": 0, "arxiv": 0, "github": 0}
 
     message: Optional[Dict[str, Any]] = None
     if doi:
-        api_called = True
+        api_stats["crossref"] = 1
         if doi not in cache:
             cache[doi] = fetch_crossref_message(doi, session, mailto, delay, verbose=verbose)
         message = cache[doi]
     else:
-        message = None
-
+        arxiv_id = extract_arxiv_id(ref_url)
+        if arxiv_id:
+            api_stats["arxiv"] = 1
+            cache_key = f"arxiv:{arxiv_id}"
+            if cache_key not in cache:
+                cache[cache_key] = fetch_arxiv_metadata(arxiv_id, session, delay, verbose)
+            message = cache.get(cache_key)
+        else:
+            gh_repo = extract_github_repo(ref_url)
+            if gh_repo:
+                api_stats["github"] = 1
+                cache_key = f"github:{gh_repo}"
+                if cache_key not in cache:
+                    cache[cache_key] = fetch_github_metadata(
+                        gh_repo,
+                        session,
+                        token=os.getenv("GITHUB_TOKEN"),
+                        delay=delay,
+                        verbose=verbose,
+                    )
+                message = cache.get(cache_key)
     reference = build_reference_object(ref_url, message)
-    return reference, True, api_called
+    return reference, True, api_stats
 
 
 def enrich_references_list(
@@ -266,15 +415,16 @@ def enrich_references_list(
             updated.append(value)
             continue
 
-        ref_obj, changed, api_called = enrich_value(value, session, cache, mailto, delay, verbose)
+        ref_obj, changed, api_stats = enrich_value(value, session, cache, mailto, delay, verbose)
         updated.append(ref_obj)
 
         if counters is not None:
             counters["references_total"] += 1
             if changed:
                 counters["references_changed"] += 1
-            if api_called:
-                counters["api_calls"] += 1
+            counters["api_crossref"] += api_stats.get("crossref", 0)
+            counters["api_arxiv"] += api_stats.get("arxiv", 0)
+            counters["api_github"] += api_stats.get("github", 0)
     return updated
 
 
@@ -296,7 +446,9 @@ def process_data_file(
         "applications_enriched": 0,
         "references_total": 0,
         "references_changed": 0,
-        "api_calls": 0,
+        "api_crossref": 0,
+        "api_arxiv": 0,
+        "api_github": 0,
     }
 
     cache: Dict[str, Optional[Dict[str, Any]]] = {}
@@ -306,14 +458,15 @@ def process_data_file(
         publication = std.get("publication")
         if publication:
             counters["standards_with_publication"] += 1
-            ref_obj, changed, api_called = enrich_value(
+            ref_obj, changed, api_stats = enrich_value(
                 publication, session, cache, mailto, delay, verbose
             )
             if changed:
                 std["publication"] = ref_obj
                 counters["publications_enriched"] += 1
-            if api_called:
-                counters["api_calls"] += 1
+            counters["api_crossref"] += api_stats.get("crossref", 0)
+            counters["api_arxiv"] += api_stats.get("arxiv", 0)
+            counters["api_github"] += api_stats.get("github", 0)
 
         if not std.get("has_application"):
             continue
@@ -390,13 +543,14 @@ def main() -> None:
 
     if args.doi:
         session = requests.Session()
-        doi_ref_url, doi_value = normalize_reference(args.doi)
-        message = None
-        if doi_value:
-            message = fetch_crossref_message(
-                doi_value, session, args.mailto, args.delay, verbose=args.verbose
-            )
-        reference = build_reference_object(doi_ref_url, message)
+        reference, _, _ = enrich_value(
+            args.doi,
+            session=session,
+            cache={},
+            mailto=args.mailto,
+            delay=args.delay,
+            verbose=args.verbose,
+        )
         print_reference(reference, args.output_format)
         return
 
@@ -417,7 +571,9 @@ def main() -> None:
     print(f"  Applications enriched:      {counters['applications_enriched']}")
     print(f"  References processed:       {counters['references_total']}")
     print(f"  References changed:         {counters['references_changed']}")
-    print(f"  CrossRef API calls:         {counters['api_calls']}")
+    print(f"  CrossRef API calls:         {counters['api_crossref']}")
+    print(f"  arXiv API calls:            {counters['api_arxiv']}")
+    print(f"  GitHub API calls:           {counters['api_github']}")
 
     if args.write:
         print(f"\n✓ Updated {output_path}")
