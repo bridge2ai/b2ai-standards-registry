@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Lookup reference metadata from CrossRef, arXiv, and GitHub.
+"""Lookup reference metadata from CrossRef, arXiv, Zenodo, and GitHub.
 
 This helper script fetches publication metadata for DOIs (CrossRef),
 arXiv links/IDs, and GitHub repositories, formatting them as Reference
@@ -35,6 +35,7 @@ import argparse
 import html
 import json
 import os
+import random
 import re
 import sys
 import time
@@ -54,6 +55,9 @@ ARXIV_PATTERN = re.compile(
 GITHUB_REPO_PATTERN = re.compile(r"github\.com/([^/]+)/([^/#?]+)")
 TITLE_PATTERN = re.compile(
     r"<title[^>]*>(.*?)</title>", re.IGNORECASE | re.DOTALL)
+ARXIV_DOI_PATTERN = re.compile(
+    r"10\.48550/ARXIV\.([A-Za-z0-9._-]+)", re.IGNORECASE)
+ZENODO_DOI_PATTERN = re.compile(r"10\.5281/zenodo\.(\d+)", re.IGNORECASE)
 
 
 def build_user_agent(mailto: Optional[str]) -> str:
@@ -89,6 +93,20 @@ def extract_arxiv_id(ref_url: str) -> Optional[str]:
     match = ARXIV_PATTERN.search(ref_url)
     if match:
         return match.group(2)
+    return None
+
+
+def arxiv_id_from_doi(doi: str) -> Optional[str]:
+    match = ARXIV_DOI_PATTERN.match(doi)
+    if match:
+        return match.group(1)
+    return None
+
+
+def zenodo_id_from_doi(doi: str) -> Optional[str]:
+    match = ZENODO_DOI_PATTERN.match(doi)
+    if match:
+        return match.group(1)
     return None
 
 
@@ -164,54 +182,161 @@ def format_authors(authors: Iterable[Dict[str, Any]]) -> List[str]:
     return formatted
 
 
-def fetch_arxiv_metadata(arxiv_id: str, session: requests.Session, delay: float, verbose: bool) -> Optional[Dict[str, Any]]:
+def fetch_arxiv_metadata(
+    arxiv_id: str,
+    session: requests.Session,
+    delay: float,
+    verbose: bool,
+    retries: int = 3,
+    timeout: int = 15,
+) -> Tuple[Optional[Dict[str, Any]], int]:
     url = f"{ARXIV_API_URL}{quote(arxiv_id)}"
+    retries_used = 0
+
+    for attempt in range(retries):
+        try:
+            response = session.get(url, timeout=timeout)
+        except requests.RequestException as exc:
+            retries_used = attempt + 1
+            if verbose:
+                print(
+                    f"[warn] arXiv request failed for {arxiv_id}: {exc}", file=sys.stderr)
+            sleep_for = delay * (attempt + 1) + random.random() * delay
+            time.sleep(sleep_for)
+            continue
+
+        if response.status_code in (429, 503) or response.status_code >= 500:
+            retries_used = attempt + 1
+            sleep_for = delay * (attempt + 1) + random.random() * delay
+            if verbose:
+                print(
+                    f"[info] arXiv rate/server response {response.status_code} for {arxiv_id}; retrying after {sleep_for:.2f}s",
+                    file=sys.stderr,
+                )
+            time.sleep(sleep_for)
+            continue
+
+        try:
+            response.raise_for_status()
+        except requests.HTTPError as exc:
+            if verbose:
+                print(
+                    f"[warn] arXiv HTTP error for {arxiv_id}: {exc}", file=sys.stderr)
+            return None, retries_used
+
+        try:
+            root = ET.fromstring(response.text)
+        except ET.ParseError as exc:
+            if verbose:
+                print(
+                    f"[warn] arXiv XML parse failed for {arxiv_id}: {exc}", file=sys.stderr)
+            return None, retries_used
+
+        # arXiv Atom feed namespace handling
+        ns = {"atom": "http://www.w3.org/2005/Atom"}
+        entry = root.find("atom:entry", ns)
+        if entry is None:
+            return None, retries_used
+
+        def text_or_none(elem_name: str) -> Optional[str]:
+            elem = entry.find(elem_name, ns)
+            if elem is not None and elem.text:
+                return elem.text.strip()
+            return None
+
+        title = text_or_none("atom:title")
+        summary = text_or_none("atom:summary")
+        published = text_or_none("atom:published")
+        authors = [
+            a.find("atom:name", ns).text.strip()
+            for a in entry.findall("atom:author", ns)
+            if a.find("atom:name", ns) is not None and a.find("atom:name", ns).text
+        ]
+
+        year = None
+        if published and len(published) >= 4 and published[:4].isdigit():
+            year = int(published[:4])
+
+        return (
+            {
+                "ref_title": title,
+                "ref_authors": authors or None,
+                "ref_publication_year": year,
+                "ref_journal": "arXiv",
+                "ref_summary": summary,
+            },
+            retries_used,
+        )
+
+    if verbose:
+        print(
+            f"[warn] exhausted arXiv retries for {arxiv_id}", file=sys.stderr)
+    return None, retries_used
+
+
+def fetch_zenodo_metadata(zenodo_id: str, session: requests.Session, delay: float, verbose: bool) -> Optional[Dict[str, Any]]:
+    url = f"https://zenodo.org/api/records/{zenodo_id}"
     try:
         response = session.get(url, timeout=15)
-        response.raise_for_status()
     except requests.RequestException as exc:
         if verbose:
             print(
-                f"[warn] arXiv request failed for {arxiv_id}: {exc}", file=sys.stderr)
+                f"[warn] Zenodo request failed for {zenodo_id}: {exc}", file=sys.stderr)
+        time.sleep(delay)
+        return None
+
+    if response.status_code == 404:
+        if verbose:
+            print(
+                f"[warn] Zenodo record not found: {zenodo_id}", file=sys.stderr)
+        return None
+
+    if response.status_code in (429, 503) or response.status_code >= 500:
+        if verbose:
+            print(
+                f"[info] Zenodo rate/server response {response.status_code} for {zenodo_id}; backing off {delay:.2f}s",
+                file=sys.stderr,
+            )
         time.sleep(delay)
         return None
 
     try:
-        root = ET.fromstring(response.text)
-    except ET.ParseError as exc:
+        response.raise_for_status()
+        payload = response.json()
+    except (requests.HTTPError, ValueError) as exc:
         if verbose:
             print(
-                f"[warn] arXiv XML parse failed for {arxiv_id}: {exc}", file=sys.stderr)
+                f"[warn] Zenodo parse failed for {zenodo_id}: {exc}", file=sys.stderr)
         return None
 
-    # arXiv Atom feed namespace handling
-    ns = {"atom": "http://www.w3.org/2005/Atom"}
-    entry = root.find("atom:entry", ns)
-    if entry is None:
-        return None
+    metadata = payload.get("metadata", {}) if isinstance(payload, dict) else {}
+    title = metadata.get("title")
 
-    def text_or_none(elem_name: str) -> Optional[str]:
-        elem = entry.find(elem_name, ns)
-        if elem is not None and elem.text:
-            return elem.text.strip()
-        return None
+    creators = metadata.get("creators") or []
+    authors: List[str] = []
+    for creator in creators:
+        name = creator.get("name") if isinstance(creator, dict) else None
+        if name:
+            authors.append(str(name))
 
-    title = text_or_none("atom:title")
-    summary = text_or_none("atom:summary")
-    published = text_or_none("atom:published")
-    authors = [a.find("atom:name", ns).text.strip() for a in entry.findall(
-        "atom:author", ns) if a.find("atom:name", ns) is not None and a.find("atom:name", ns).text]
-
+    publication_date = metadata.get("publication_date")
     year = None
-    if published and len(published) >= 4 and published[:4].isdigit():
-        year = int(published[:4])
+    if publication_date and len(publication_date) >= 4 and publication_date[:4].isdigit():
+        year = int(publication_date[:4])
+
+    journal = None
+    if isinstance(metadata.get("journal"), dict):
+        journal = metadata.get("journal", {}).get("title")
+    elif metadata.get("journal"):
+        journal = str(metadata.get("journal"))
+    if not journal:
+        journal = "Zenodo"
 
     return {
         "ref_title": title,
         "ref_authors": authors or None,
         "ref_publication_year": year,
-        "ref_journal": "arXiv",
-        "ref_summary": summary,
+        "ref_journal": journal,
     }
 
 
@@ -417,28 +542,53 @@ def enrich_value(
     """Return (reference_object, changed, api_stats)."""
 
     # If already a Reference object, we may still want to enrich it when fields are missing.
-    existing_ref = value if isinstance(value, dict) and "ref_url" in value else None
+    existing_ref = value if isinstance(
+        value, dict) and "ref_url" in value else None
     if existing_ref and all(existing_ref.get(k) for k in ("ref_title", "ref_authors", "ref_publication_year", "ref_journal")):
-        return existing_ref, False, {"crossref": 0, "arxiv": 0, "github": 0, "web": 0}
+        return existing_ref, False, {"crossref": 0, "arxiv": 0, "arxiv_retries": 0, "zenodo": 0, "github": 0, "web": 0}
 
-    ref_url, doi = normalize_reference(value if not existing_ref else existing_ref.get("ref_url"))
-    api_stats = {"crossref": 0, "arxiv": 0, "github": 0, "web": 0}
+    ref_url, doi = normalize_reference(
+        value if not existing_ref else existing_ref.get("ref_url"))
+    api_stats = {"crossref": 0, "arxiv": 0,
+                 "arxiv_retries": 0, "zenodo": 0, "github": 0, "web": 0}
 
     message: Optional[Dict[str, Any]] = None
     if doi:
-        api_stats["crossref"] = 1
-        if doi not in cache:
-            cache[doi] = fetch_crossref_message(
-                doi, session, mailto, delay, verbose=verbose)
-        message = cache[doi]
+        arxiv_from_doi = arxiv_id_from_doi(doi)
+        zenodo_id = zenodo_id_from_doi(doi)
+
+        if arxiv_from_doi:
+            api_stats["arxiv"] = 1
+            cache_key = f"arxiv:{arxiv_from_doi}"
+            if cache_key not in cache:
+                fetched, retries_used = fetch_arxiv_metadata(
+                    arxiv_from_doi, session, delay, verbose)
+                cache[cache_key] = fetched
+                api_stats["arxiv_retries"] = retries_used
+            message = cache.get(cache_key)
+        elif zenodo_id:
+            api_stats["zenodo"] = 1
+            cache_key = f"zenodo:{zenodo_id}"
+            if cache_key not in cache:
+                cache[cache_key] = fetch_zenodo_metadata(
+                    zenodo_id, session, delay, verbose)
+            message = cache.get(cache_key)
+        else:
+            api_stats["crossref"] = 1
+            if doi not in cache:
+                cache[doi] = fetch_crossref_message(
+                    doi, session, mailto, delay, verbose=verbose)
+            message = cache[doi]
     else:
         arxiv_id = extract_arxiv_id(ref_url)
         if arxiv_id:
             api_stats["arxiv"] = 1
             cache_key = f"arxiv:{arxiv_id}"
             if cache_key not in cache:
-                cache[cache_key] = fetch_arxiv_metadata(
+                fetched, retries_used = fetch_arxiv_metadata(
                     arxiv_id, session, delay, verbose)
+                cache[cache_key] = fetched
+                api_stats["arxiv_retries"] = retries_used
             message = cache.get(cache_key)
         else:
             gh_repo = extract_github_repo(ref_url)
@@ -502,6 +652,8 @@ def enrich_references_list(
                 counters["references_changed"] += 1
             counters["api_crossref"] += api_stats.get("crossref", 0)
             counters["api_arxiv"] += api_stats.get("arxiv", 0)
+            counters["api_arxiv_retries"] += api_stats.get("arxiv_retries", 0)
+            counters["api_zenodo"] += api_stats.get("zenodo", 0)
             counters["api_github"] += api_stats.get("github", 0)
             counters["api_web"] += api_stats.get("web", 0)
     return updated
@@ -527,6 +679,8 @@ def process_data_file(
         "references_changed": 0,
         "api_crossref": 0,
         "api_arxiv": 0,
+        "api_arxiv_retries": 0,
+        "api_zenodo": 0,
         "api_github": 0,
         "api_web": 0,
     }
@@ -546,6 +700,8 @@ def process_data_file(
                 counters["publications_enriched"] += 1
             counters["api_crossref"] += api_stats.get("crossref", 0)
             counters["api_arxiv"] += api_stats.get("arxiv", 0)
+            counters["api_arxiv_retries"] += api_stats.get("arxiv_retries", 0)
+            counters["api_zenodo"] += api_stats.get("zenodo", 0)
             counters["api_github"] += api_stats.get("github", 0)
             counters["api_web"] += api_stats.get("web", 0)
 
@@ -661,6 +817,8 @@ def main() -> None:
     print(f"  References changed:         {counters['references_changed']}")
     print(f"  CrossRef API calls:         {counters['api_crossref']}")
     print(f"  arXiv API calls:            {counters['api_arxiv']}")
+    print(f"  arXiv retries:              {counters['api_arxiv_retries']}")
+    print(f"  Zenodo API calls:           {counters['api_zenodo']}")
     print(f"  GitHub API calls:           {counters['api_github']}")
     print(f"  Web page fetches:           {counters['api_web']}")
 
