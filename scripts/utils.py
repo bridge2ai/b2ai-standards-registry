@@ -1,7 +1,8 @@
 import os
 from typing import Any, Dict, List, Optional
 import pandas as pd
-from synapseclient import Synapse, Table, Schema, Column
+from synapseclient import Synapse, Schema
+from synapseclient.models import Column, Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import csv
 import sys

@@ -43,7 +43,8 @@ import json
 import sys
 from typing import Any, Dict, List, Optional
 from argparse import ArgumentParser
-from synapseclient import Synapse, Table, Schema, Column
+from synapseclient import Synapse, Column
+from synapseclient.models import ColumnType
 from pandas.api.types import infer_dtype
 import pandas as pd
 from scripts.utils import initialize_synapse, clear_populate_snapshot_table, PROJECT_ID
@@ -51,7 +52,7 @@ from scripts.utils import initialize_synapse, clear_populate_snapshot_table, PRO
 DATATYPE_OVERRRIDES = {
      # maybe will only work for JSON cols, which is fine for now
     'DataStandardOrTool': {
-        'has_application': 'JSON'
+        'has_application': ColumnType.JSON
     }
 }
 
@@ -125,9 +126,9 @@ def get_col_defs(new_data_df: pd.DataFrame, table_name: str) -> List[Column]:
     ) for c in new_data_df.columns}  # infer_dtype gives 'mixed' for list types
     # assuming all list columns are string lists, at least for now
     def get_col_type(
-        col_name): return 'STRING_LIST' if col_name in list_cols else scalar_types[col_name]
+        col_name): return ColumnType.STRING_LIST if col_name in list_cols else scalar_types[col_name]
 
-    new_cols = {col_name: {'name': col_name, 'columnType': get_col_type(
+    new_cols = {col_name: {'name': col_name, 'column_type': get_col_type(
         col_name)} for col_name in new_data_df.columns}
 
     for col_name in new_cols:
@@ -136,8 +137,8 @@ def get_col_defs(new_data_df: pd.DataFrame, table_name: str) -> List[Column]:
         overridden_datatype = DATATYPE_OVERRRIDES.get(table_name, {}).get(col_name)
 
         if overridden_datatype is not None:
-            new_col['columnType'] = overridden_datatype # maybe will only work for JSON cols
-        elif new_col['columnType'].endswith('_LIST'):
+            new_col['column_type'] = overridden_datatype # maybe will only work for JSON cols
+        elif new_col['column_type'].endswith('_LIST'):
             actual_max_list_len = 0
             for value in new_data_df[col_name].dropna():
                 actual_max_list_len = max(actual_max_list_len, len(value))
@@ -148,18 +149,20 @@ def get_col_defs(new_data_df: pd.DataFrame, table_name: str) -> List[Column]:
                         item_lengths) if item_lengths else 0
                     actual_max_size = max(
                         actual_max_size, max_item_in_this_list)
-            new_col['maximumListLength'] = max(
+            new_col['maximum_size'] = int(actual_max_size)
+            new_col['maximum_list_length'] = max(
                 int(actual_max_list_len), SYNAPSE_MIN_LIST_SIZE)
         else:
             actual_max_size = new_data_df[col_name].astype(str).str.len().max()
-            if new_col['columnType'] == 'STRING':
+            if new_col['column_type'] == ColumnType.STRING:
                 if actual_max_size > 2000:
-                    new_col['columnType'] = 'LARGETEXT'
+                    new_col['column_type'] = ColumnType.LARGETEXT
                 elif actual_max_size > 1000:
-                    new_col['columnType'] = 'MEDIUMTEXT'
-        new_col['maximumSize'] = int(actual_max_size)
+                    new_col['column_type'] = ColumnType.MEDIUMTEXT
+                new_col['maximum_size'] = int(actual_max_size)
 
-    return [Column(**col) for col in new_cols.values()]
+    coldefs = [Column(**col) for col in new_cols.values()]
+    return coldefs
 
 
 def analyze_and_update(files: List[str], all: bool = False, table_names: List[str] = False):
