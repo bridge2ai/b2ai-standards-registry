@@ -13,11 +13,14 @@ Examples:
     # Print metadata for a single DOI
     python utils/fetch_reference_metadata.py --doi 10.1093/bioinformatics/btq391
 
-        # Print metadata for an arXiv link
-        python utils/fetch_reference_metadata.py --doi https://arxiv.org/abs/1904.03323
+    # Print metadata for an arXiv link
+    python utils/fetch_reference_metadata.py --doi https://arxiv.org/abs/1904.03323
 
-        # Print metadata for a GitHub repo link
-        python utils/fetch_reference_metadata.py --doi https://github.com/NVIDIA/Megatron-LM
+    # Print metadata for a GitHub repo link
+    python utils/fetch_reference_metadata.py --doi https://github.com/NVIDIA/Megatron-LM
+
+    # Print metadata for a generic web page (title-only fallback)
+    python utils/fetch_reference_metadata.py --doi https://ceur-ws.org/Vol-2849/paper-21.pdf
 
     # Update the registry data file in-place (default) with a short delay
     python utils/fetch_reference_metadata.py --write --delay 0.2
@@ -29,6 +32,7 @@ Examples:
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import re
@@ -48,6 +52,8 @@ DOI_PATTERN = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
 ARXIV_PATTERN = re.compile(
     r"arxiv\.org/(abs|pdf)/([A-Za-z0-9._-]+)", re.IGNORECASE)
 GITHUB_REPO_PATTERN = re.compile(r"github\.com/([^/]+)/([^/#?]+)")
+TITLE_PATTERN = re.compile(
+    r"<title[^>]*>(.*?)</title>", re.IGNORECASE | re.DOTALL)
 
 
 def build_user_agent(mailto: Optional[str]) -> str:
@@ -262,6 +268,43 @@ def fetch_github_metadata(repo: str, session: requests.Session, token: Optional[
     return metadata
 
 
+def fetch_page_title(ref_url: str, session: requests.Session, delay: float, verbose: bool) -> Optional[Dict[str, Any]]:
+    """Fetch page title from a generic HTML page. Returns None if not HTML or on error."""
+
+    headers = {"User-Agent": build_user_agent(os.getenv("CROSSREF_MAILTO"))}
+    try:
+        response = session.get(ref_url, headers=headers,
+                               timeout=10, allow_redirects=True)
+    except requests.RequestException as exc:
+        if verbose:
+            print(
+                f"[warn] page request failed for {ref_url}: {exc}", file=sys.stderr)
+        time.sleep(delay)
+        return None
+
+    content_type = (response.headers.get("content-type") or "").lower()
+    if "text/html" not in content_type:
+        return None
+
+    # Limit read to avoid huge pages
+    raw = response.content[:100000]
+    try:
+        text = raw.decode(response.encoding or "utf-8", errors="ignore")
+    except Exception:
+        text = raw.decode("utf-8", errors="ignore")
+
+    match = TITLE_PATTERN.search(text)
+    if not match:
+        return None
+
+    title = html.unescape(match.group(1)).strip()
+    title = re.sub(r"\s+", " ", title)
+    if not title:
+        return None
+
+    return {"ref_title": title, "ref_journal": None, "ref_authors": None, "ref_publication_year": None}
+
+
 def fetch_crossref_message(
     doi: str,
     session: requests.Session,
@@ -356,7 +399,7 @@ def build_reference_object(ref_url: str, message: Optional[Dict[str, Any]]) -> D
             reference["ref_journal"] = journal
         return reference
 
-    # arXiv/GitHub generic metadata shape already matches Reference keys
+    # arXiv/GitHub/page metadata shape already matches Reference keys
     for key in ("ref_title", "ref_authors", "ref_publication_year", "ref_journal"):
         if key in message and message[key]:
             reference[key] = message[key]
@@ -373,10 +416,10 @@ def enrich_value(
 ) -> Tuple[Dict[str, Any], bool, Dict[str, int]]:
     """Return (reference_object, changed, api_stats)."""
     if isinstance(value, dict) and "ref_url" in value:
-        return value, False, {"crossref": 0, "arxiv": 0, "github": 0}
+        return value, False, {"crossref": 0, "arxiv": 0, "github": 0, "web": 0}
 
     ref_url, doi = normalize_reference(value)
-    api_stats = {"crossref": 0, "arxiv": 0, "github": 0}
+    api_stats = {"crossref": 0, "arxiv": 0, "github": 0, "web": 0}
 
     message: Optional[Dict[str, Any]] = None
     if doi:
@@ -407,6 +450,14 @@ def enrich_value(
                         delay=delay,
                         verbose=verbose,
                     )
+                message = cache.get(cache_key)
+            else:
+                # Generic web page fallback to extract <title>
+                cache_key = f"web:{ref_url}"
+                api_stats["web"] = 1
+                if cache_key not in cache:
+                    cache[cache_key] = fetch_page_title(
+                        ref_url, session, delay, verbose)
                 message = cache.get(cache_key)
     reference = build_reference_object(ref_url, message)
     return reference, True, api_stats
@@ -439,6 +490,7 @@ def enrich_references_list(
             counters["api_crossref"] += api_stats.get("crossref", 0)
             counters["api_arxiv"] += api_stats.get("arxiv", 0)
             counters["api_github"] += api_stats.get("github", 0)
+            counters["api_web"] += api_stats.get("web", 0)
     return updated
 
 
@@ -463,6 +515,7 @@ def process_data_file(
         "api_crossref": 0,
         "api_arxiv": 0,
         "api_github": 0,
+        "api_web": 0,
     }
 
     cache: Dict[str, Optional[Dict[str, Any]]] = {}
@@ -481,6 +534,7 @@ def process_data_file(
             counters["api_crossref"] += api_stats.get("crossref", 0)
             counters["api_arxiv"] += api_stats.get("arxiv", 0)
             counters["api_github"] += api_stats.get("github", 0)
+            counters["api_web"] += api_stats.get("web", 0)
 
         if not std.get("has_application"):
             continue
@@ -595,6 +649,7 @@ def main() -> None:
     print(f"  CrossRef API calls:         {counters['api_crossref']}")
     print(f"  arXiv API calls:            {counters['api_arxiv']}")
     print(f"  GitHub API calls:           {counters['api_github']}")
+    print(f"  Web page fetches:           {counters['api_web']}")
 
     if args.write:
         print(f"\n✓ Updated {output_path}")
