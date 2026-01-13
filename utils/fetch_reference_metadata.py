@@ -45,7 +45,8 @@ CROSSREF_WORKS_URL = "https://api.crossref.org/works/"
 ARXIV_API_URL = "https://export.arxiv.org/api/query?id_list="
 GITHUB_API_URL = "https://api.github.com/repos/"
 DOI_PATTERN = re.compile(r"10\.\d{4,9}/\S+", re.IGNORECASE)
-ARXIV_PATTERN = re.compile(r"arxiv\.org/(abs|pdf)/([A-Za-z0-9._-]+)", re.IGNORECASE)
+ARXIV_PATTERN = re.compile(
+    r"arxiv\.org/(abs|pdf)/([A-Za-z0-9._-]+)", re.IGNORECASE)
 GITHUB_REPO_PATTERN = re.compile(r"github\.com/([^/]+)/([^/#?]+)")
 
 
@@ -70,7 +71,7 @@ def extract_doi(raw: str) -> Optional[str]:
     )
     for prefix in prefixes:
         if value.lower().startswith(prefix):
-            value = value[len(prefix) :]
+            value = value[len(prefix):]
             break
 
     if DOI_PATTERN.match(value):
@@ -147,7 +148,8 @@ def format_authors(authors: Iterable[Dict[str, Any]]) -> List[str]:
         if not family and not given:
             continue
         if family and given:
-            initials = "".join(part[0] for part in re.split(r"[ \-]", given) if part)
+            initials = "".join(part[0]
+                               for part in re.split(r"[ \-]", given) if part)
             formatted.append(f"{family} {initials}")
         elif family:
             formatted.append(str(family))
@@ -163,7 +165,8 @@ def fetch_arxiv_metadata(arxiv_id: str, session: requests.Session, delay: float,
         response.raise_for_status()
     except requests.RequestException as exc:
         if verbose:
-            print(f"[warn] arXiv request failed for {arxiv_id}: {exc}", file=sys.stderr)
+            print(
+                f"[warn] arXiv request failed for {arxiv_id}: {exc}", file=sys.stderr)
         time.sleep(delay)
         return None
 
@@ -171,7 +174,8 @@ def fetch_arxiv_metadata(arxiv_id: str, session: requests.Session, delay: float,
         root = ET.fromstring(response.text)
     except ET.ParseError as exc:
         if verbose:
-            print(f"[warn] arXiv XML parse failed for {arxiv_id}: {exc}", file=sys.stderr)
+            print(
+                f"[warn] arXiv XML parse failed for {arxiv_id}: {exc}", file=sys.stderr)
         return None
 
     # arXiv Atom feed namespace handling
@@ -189,7 +193,8 @@ def fetch_arxiv_metadata(arxiv_id: str, session: requests.Session, delay: float,
     title = text_or_none("atom:title")
     summary = text_or_none("atom:summary")
     published = text_or_none("atom:published")
-    authors = [a.find("atom:name", ns).text.strip() for a in entry.findall("atom:author", ns) if a.find("atom:name", ns) is not None and a.find("atom:name", ns).text]
+    authors = [a.find("atom:name", ns).text.strip() for a in entry.findall(
+        "atom:author", ns) if a.find("atom:name", ns) is not None and a.find("atom:name", ns).text]
 
     year = None
     if published and len(published) >= 4 and published[:4].isdigit():
@@ -214,7 +219,8 @@ def fetch_github_metadata(repo: str, session: requests.Session, token: Optional[
         response = session.get(url, headers=headers, timeout=15)
     except requests.RequestException as exc:
         if verbose:
-            print(f"[warn] GitHub request failed for {repo}: {exc}", file=sys.stderr)
+            print(
+                f"[warn] GitHub request failed for {repo}: {exc}", file=sys.stderr)
         time.sleep(delay)
         return None
 
@@ -224,7 +230,8 @@ def fetch_github_metadata(repo: str, session: requests.Session, token: Optional[
         return None
     if response.status_code in (429, 503):
         if verbose:
-            print(f"[info] GitHub rate limit for {repo}; status {response.status_code}", file=sys.stderr)
+            print(
+                f"[info] GitHub rate limit for {repo}; status {response.status_code}", file=sys.stderr)
         time.sleep(delay)
         return None
 
@@ -233,7 +240,8 @@ def fetch_github_metadata(repo: str, session: requests.Session, token: Optional[
         data = response.json()
     except (requests.HTTPError, ValueError) as exc:
         if verbose:
-            print(f"[warn] GitHub parse failed for {repo}: {exc}", file=sys.stderr)
+            print(
+                f"[warn] GitHub parse failed for {repo}: {exc}", file=sys.stderr)
         return None
 
     title = data.get("full_name") or data.get("name")
@@ -248,7 +256,8 @@ def fetch_github_metadata(repo: str, session: requests.Session, token: Optional[
     }
     if desc:
         metadata["ref_journal"] = "GitHub"
-        metadata["ref_authors"] = [data.get("owner", {}).get("login")] if data.get("owner", {}).get("login") else None
+        metadata["ref_authors"] = [data.get("owner", {}).get(
+            "login")] if data.get("owner", {}).get("login") else None
         metadata["ref_publication_year"] = year
     return metadata
 
@@ -270,7 +279,8 @@ def fetch_crossref_message(
             response = session.get(url, headers=headers, timeout=timeout)
         except requests.RequestException as exc:  # network/timeout errors
             if verbose:
-                print(f"[warn] request failed for {doi}: {exc}", file=sys.stderr)
+                print(
+                    f"[warn] request failed for {doi}: {exc}", file=sys.stderr)
             time.sleep(delay)
             continue
 
@@ -311,7 +321,8 @@ def fetch_crossref_message(
             payload = response.json()
         except ValueError as exc:
             if verbose:
-                print(f"[warn] JSON decode failed for {doi}: {exc}", file=sys.stderr)
+                print(
+                    f"[warn] JSON decode failed for {doi}: {exc}", file=sys.stderr)
             return None
 
         return payload.get("message")
@@ -371,7 +382,8 @@ def enrich_value(
     if doi:
         api_stats["crossref"] = 1
         if doi not in cache:
-            cache[doi] = fetch_crossref_message(doi, session, mailto, delay, verbose=verbose)
+            cache[doi] = fetch_crossref_message(
+                doi, session, mailto, delay, verbose=verbose)
         message = cache[doi]
     else:
         arxiv_id = extract_arxiv_id(ref_url)
@@ -379,7 +391,8 @@ def enrich_value(
             api_stats["arxiv"] = 1
             cache_key = f"arxiv:{arxiv_id}"
             if cache_key not in cache:
-                cache[cache_key] = fetch_arxiv_metadata(arxiv_id, session, delay, verbose)
+                cache[cache_key] = fetch_arxiv_metadata(
+                    arxiv_id, session, delay, verbose)
             message = cache.get(cache_key)
         else:
             gh_repo = extract_github_repo(ref_url)
@@ -415,7 +428,8 @@ def enrich_references_list(
             updated.append(value)
             continue
 
-        ref_obj, changed, api_stats = enrich_value(value, session, cache, mailto, delay, verbose)
+        ref_obj, changed, api_stats = enrich_value(
+            value, session, cache, mailto, delay, verbose)
         updated.append(ref_obj)
 
         if counters is not None:
@@ -489,7 +503,8 @@ def process_data_file(
 
     if write:
         with open(output_path, "w") as handle:
-            yaml.dump(data, handle, default_flow_style=False, sort_keys=False, allow_unicode=True)
+            yaml.dump(data, handle, default_flow_style=False,
+                      sort_keys=False, allow_unicode=True)
 
     return counters
 
@@ -498,12 +513,14 @@ def print_reference(reference: Dict[str, Any], output_format: str) -> None:
     if output_format == "json":
         print(json.dumps(reference, indent=2, ensure_ascii=False))
     else:
-        yaml.dump(reference, sys.stdout, default_flow_style=False, sort_keys=False, allow_unicode=True)
+        yaml.dump(reference, sys.stdout, default_flow_style=False,
+                  sort_keys=False, allow_unicode=True)
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--doi", help="Fetch a single DOI/URL and print the Reference object")
+    parser.add_argument(
+        "--doi", help="Fetch a single DOI/URL and print the Reference object")
     parser.add_argument(
         "--input",
         default="src/data/DataStandardOrTool.yaml",
@@ -519,15 +536,18 @@ def parse_args() -> argparse.Namespace:
         default=os.getenv("CROSSREF_MAILTO"),
         help="Contact email for CrossRef User-Agent (env CROSSREF_MAILTO also supported)",
     )
-    parser.add_argument("--delay", type=float, default=0.2, help="Delay (seconds) between retries")
+    parser.add_argument("--delay", type=float, default=0.2,
+                        help="Delay (seconds) between retries")
     parser.add_argument(
         "--max-references",
         type=int,
         default=None,
         help="Limit number of references processed per list (for testing)",
     )
-    parser.add_argument("--verbose", action="store_true", help="Print debug information")
-    parser.add_argument("--write", action="store_true", help="Write changes to file")
+    parser.add_argument("--verbose", action="store_true",
+                        help="Print debug information")
+    parser.add_argument("--write", action="store_true",
+                        help="Write changes to file")
     parser.add_argument(
         "--format",
         dest="output_format",
@@ -566,7 +586,8 @@ def main() -> None:
     )
 
     print("Reference enrichment summary")
-    print(f"  Standards with publication: {counters['standards_with_publication']}")
+    print(
+        f"  Standards with publication: {counters['standards_with_publication']}")
     print(f"  Publications enriched:      {counters['publications_enriched']}")
     print(f"  Applications enriched:      {counters['applications_enriched']}")
     print(f"  References processed:       {counters['references_total']}")
