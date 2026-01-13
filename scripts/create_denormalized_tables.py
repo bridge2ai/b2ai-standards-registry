@@ -31,14 +31,16 @@ Main entry point:
 """
 import sys
 from typing import Any, Dict, List, Optional
-from synapseclient import Synapse, Column
+from dataclasses import replace
+from synapseclient import Synapse
+from synapseclient.models import Column, ColumnType, Table as TableModel
 import pandas as pd
 import numpy as np
 import re
 import json
 
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
-from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
+from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, configure_column_from_data, initialize_synapse
 
 special_capitalization = {
     'has_ai_application': 'Has AI Application',
@@ -271,34 +273,15 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     def configure_column_metadata(columns: List[Dict[str, Any]], df: pd.DataFrame) -> List[Column]:
         """
         Set metadata on each column definition, including list sizes and faceting.
-        TODO: If ever refactoring, this could be combined into a shared function with
-              ./analyze_and_update_synapse_tables.py:get_col_defs
 
-        :param columns: List of column definition dicts to update
+        :param columns: List of column definition dicts to update (each has 'col' as a Column object)
         :param df: Final combined DataFrame, used to calculate sizes and lengths
-        :return: Updated list of column definitions with metadata
+        :return: Updated list of Column objects with metadata
         """
-        for col_def in columns:
-            col = col_def['col']
-            # Remove the column id so new column gets created in Synapse schema - this is also so we can update the new max
-            # list length and size
-            col.pop('id', None)
-
-            if col_def.get('faceted'):
-                col['facetType'] = 'enumeration'
-
-            if col['columnType'] == 'STRING_LIST':
-                values = df[col['name']]
-                max_item_length = max([len(item) if len(item) > 20 else 20 for items in values for item in items])
-                max_items = max(len(items) for items in values)
-                col['maximumListLength'] = max(max_items, 2) # 2 is minimum allowed
-                col['maximumSize'] = max_item_length
-            elif col['columnType'] == 'INTEGER_LIST':
-                values = df[col['name']]
-                max_items = max(len(items) for items in values)
-                col['maximumListLength'] = max(max_items, 2) # 2 is minimum allowed
-
-        return [Column(**col_def['col']) for col_def in columns]
+        return [
+            configure_column_from_data(col_def['col'], df[col_def['col'].name], col_def.get('faceted', False))
+            for col_def in columns
+        ]
 
     # Step 1: Build all columns and their data
     base_columns = build_base_columns()
@@ -337,8 +320,8 @@ def make_col(
                      - 'faceted': whether the column should be faceted
                      - 'transform': optional function for transforming data values
     :param src_tables: Dictionary of available source tables, keyed by name. Each value includes:
-                       - 'columns': dict of column metadata definitions
-    :return: Updated dest_col dict with a new 'col' key containing the modified column metadata
+                       - 'columns': dict of Column objects keyed by column name
+    :return: Updated dest_col dict with a new 'col' key containing the modified Column object
     """
     src_col_name = dest_col['name']
     dest_col_name = dest_col['alias']
@@ -347,17 +330,17 @@ def make_col(
     base_table_name = dest_table['base_table']
     src_table = src_tables[base_table_name]
 
-    # Copy the column schema and update the name to use the alias
-    dest_col['col'] = src_table['columns'][src_col_name].copy()
-    col = dest_col['col']
-    col['name'] = dest_col_name
+    # Copy the column schema using dataclasses.replace and update the name to use the alias
+    src_col = src_tables[base_table_name]['columns'][src_col_name]
+    col = replace(src_col, id=None, name=dest_col_name)
 
     if 'columnType' in dest_col:
         ctype = dest_col['columnType']
-        col['columnType'] = ctype
-        if not ctype.endswith('LIST') and 'maximumListLength' in col:
-            del col['maximumListLength']
+        col = replace(col, column_type=ColumnType[ctype])
+        if not ctype.endswith('LIST'):
+            col = replace(col, maximum_list_length=None)
 
+    dest_col['col'] = col
     return dest_col
 
 
@@ -569,23 +552,23 @@ def create_join_column(
 
     # Determine column type
     if is_json_column:
-        columnType = 'JSON'
+        col_type = ColumnType.JSON
     if dest_col.get('columnType'):
-        columnType = dest_col.get('columnType')
+        col_type = ColumnType[dest_col.get('columnType')]
     else:
         # Type detection for regular columns
         sample_values = [val for sublist in result[:10] for val in sublist]
         if sample_values:
             datatype = type(sample_values[0])
-            columnType = 'STRING_LIST' if datatype == str else 'INTEGER_LIST'
+            col_type = ColumnType.STRING_LIST if datatype == str else ColumnType.INTEGER_LIST
         else:
-            columnType = 'STRING_LIST'
+            col_type = ColumnType.STRING_LIST
 
     return {
         'src': join_config['join_table_name'],
         'name': dest_col.get('name', 'json_fields') if not is_json_column else 'json_objects',
         'alias': column_name,
-        'col': Column(name=column_name, columnType=columnType),
+        'col': Column(name=column_name, column_type=col_type),
         'data': result
     }
 
@@ -616,21 +599,19 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
              - 'df': cleaned DataFrame of table contents
     :raises ValueError: if the retrieved Synapse table has a different name than expected
     """
-    syn_table = syn.get(table_info['id'])
+    # Use new Table model API
+    table_model = TableModel(id=table_info['id']).get()
 
     # Confirm table name matches what's expected
-    if syn_table.name != table_info['name']:
-        raise ValueError(f"Expected table '{table_info['name']}', but got '{syn_table.name}'.")
+    if table_model.name != table_info['name']:
+        raise ValueError(f"Expected table '{table_info['name']}', but got '{table_model.name}'.")
 
-    # Store the retrieved Synapse table and column metadata
-    table_info['syn_table'] = syn_table
-    table_info['columns'] = {
-        col['name']: col for col in syn.getTableColumns(syn_table)
-    }
+    # Store the retrieved Synapse table and column metadata (as Column objects keyed by name)
+    table_info['syn_table'] = table_model
+    table_info['columns'] = {col.name: col for col in table_model.columns.values()}
 
     # Query the table and clean up the resulting DataFrame
-    query_result = syn.tableQuery(f"SELECT * FROM {table_info['id']}")
-    df = query_result.asDataFrame()
+    df = TableModel.query(query=f"SELECT * FROM {table_info['id']}")
 
     # Replace NaNs with empty strings for all non-numeric columns (since df converts null columns to NaNs)
     for col in df.columns:

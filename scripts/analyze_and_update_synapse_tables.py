@@ -43,11 +43,11 @@ import json
 import sys
 from typing import Any, Dict, List, Optional
 from argparse import ArgumentParser
-from synapseclient import Synapse, Column
-from synapseclient.models import ColumnType
+from synapseclient import Synapse
+from synapseclient.models import Column, ColumnType
 from pandas.api.types import infer_dtype
 import pandas as pd
-from scripts.utils import initialize_synapse, clear_populate_snapshot_table, PROJECT_ID
+from scripts.utils import initialize_synapse, clear_populate_snapshot_table, configure_column_from_data, PROJECT_ID, SYNAPSE_MIN_LIST_SIZE
 
 DATATYPE_OVERRRIDES = {
      # maybe will only work for JSON cols, which is fine for now

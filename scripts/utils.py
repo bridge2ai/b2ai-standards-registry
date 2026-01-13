@@ -1,8 +1,9 @@
 import os
-from typing import Any, Dict, List, Optional
+from dataclasses import replace
+from typing import Any, Dict, List, Optional, Tuple
 import pandas as pd
-from synapseclient import Synapse, Schema
-from synapseclient.models import Column, Table
+from synapseclient import Synapse
+from synapseclient.models import Column, ColumnType, FacetType, Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 import csv
 import sys
@@ -12,6 +13,44 @@ Expected Environment:
       Instructions for setting up your auth token are documented in the README.
 """
 PROJECT_ID = 'syn63096806'
+
+SYNAPSE_MIN_LIST_SIZE = 2
+
+
+def configure_column_from_data(col: Column, values: pd.Series, faceted: bool = False) -> Column:
+    """
+    Configure a Column's metadata (sizes, faceting) based on actual data values.
+
+    This handles STRING, STRING_LIST, INTEGER_LIST column types by calculating
+    appropriate maximum_size and maximum_list_length values from the data.
+
+    :param col: Column object to configure
+    :param values: pandas Series containing the column's data
+    :param faceted: Whether this column should be faceted
+    :return: New Column object with updated metadata
+    """
+    col = replace(col, id=None)
+
+    if faceted:
+        col = replace(col, facet_type=FacetType.ENUMERATION)
+
+    if col.column_type == ColumnType.STRING_LIST:
+        max_item_length = max([len(item) if len(item) > 20 else 20 for items in values for item in items])
+        max_items = max(len(items) for items in values)
+        col = replace(col, maximum_list_length=max(max_items, SYNAPSE_MIN_LIST_SIZE), maximum_size=max_item_length)
+    elif col.column_type == ColumnType.INTEGER_LIST:
+        max_items = max(len(items) for items in values)
+        col = replace(col, maximum_list_length=max(max_items, SYNAPSE_MIN_LIST_SIZE))
+    elif col.column_type == ColumnType.STRING:
+        max_size = int(values.astype(str).str.len().max())
+        if max_size > 2000:
+            col = replace(col, column_type=ColumnType.LARGETEXT)
+        elif max_size > 1000:
+            col = replace(col, column_type=ColumnType.MEDIUMTEXT, maximum_size=max_size)
+        else:
+            col = replace(col, maximum_size=max(max_size, 1))
+
+    return col
 
 
 def get_auth_token():
@@ -94,37 +133,39 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
 
     try:
         existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
-        for table in existing_tables:
-            if table['name'] == table_name:
+        for existing_table in existing_tables:
+            if existing_table['name'] == table_name:
                 if table_id:
-                    if table['id'] != table_id:
+                    if existing_table['id'] != table_id:
                         table_id_list = table_id.split('.')
                         table_id = table_id_list[0]
                         table_version = table_id_list[1] if table_id_list[1] else None
                         if table_version is None:
                             raise Exception(
-                                f"got table_id mismatch for {table_name}: {table['id']} != {table_id}")
+                                f"got table_id mismatch for {table_name}: {existing_table['id']} != {table_id}")
                 else:
-                    table_id = table['id']
-                query_result = syn.tableQuery(f"SELECT * FROM {table_id}")
+                    table_id = existing_table['id']
+                # Use new Table model API for query and delete
+                query_result = Table.query(query=f"SELECT * FROM {table_id}")
                 print(
                     f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
-                syn.delete(query_result)
+                Table(id=table_id).delete_rows(query=f"SELECT ROW_ID, ROW_VERSION FROM {table_id}")
                 break
     except Exception as e:
         print(
             f"Error checking for and clearing existing table {table_name}: {e}")
 
-    schema = Schema(name=table_name, columns=columnDefs, parent=PROJECT_ID)
-    table = Table(name=table_name, parent_id=PROJECT_ID, schema=schema, values=df)
-    table.tableId = table_id
-    table = syn.store(table)
-    table_id = table_id or table.get('id', table.get('tableId'))
+    table = Table(name=table_name, parent_id=PROJECT_ID, columns=columnDefs)
+    if table_id:
+        table.id = table_id
+    table = table.store()
+    table.store_rows(values=df)
+    table_id = table_id or table.id
     if not table_id:
-        raise f"Couldn't find table_id for {table_name}"
+        raise Exception(f"Couldn't find table_id for {table_name}")
     try:
         syn.create_snapshot_version(table_id)
     except Exception as e:
         print(f"Error creating new version of table {table_name}: {e}\nRetrying...")
         table_id = table_id.split('.')[0]
-    print(f"Created table: {table.schema.name} ({table.tableId})")
+    print(f"Created table: {table.name} ({table.id})")
