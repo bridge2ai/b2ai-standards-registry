@@ -22,7 +22,8 @@ DataSubstrate.yaml \
 DataTopic.yaml \
 Organization.yaml \
 UseCase.yaml \
-Manifest.yaml
+Manifest.yaml \
+DataSet.yaml
 
 DATA_DIR = src/data/
 
@@ -45,7 +46,7 @@ ISSUE_TEMPLATE_DIR = .github/ISSUE_TEMPLATE/
 CONVERT_ENTRIES_TO_PAGES = $(shell python ./utils/convert_entries_to_pages.py $(DATA_DIR)/DataTopic.yaml $(DOCDIR)/topics)
 COMBINE_DATA = $(shell python ./utils/combine_data.py)
 
-.PHONY: clean-schemas update-schemas validate all-data doc-data issue-templates
+.PHONY: clean-schemas update-schemas validate all-data doc-data issue-templates sanitize-data
 
 # Remove old versions of schemas.
 clean-schemas:
@@ -73,6 +74,10 @@ src/all_ids.tsv:
 site: all-data src/all_ids.tsv
 	$(RUN) mkdocs build ;
 
+sanitize-data:
+	@echo "Normalizing typographic Unicode in data files..."
+	$(RUN) python scripts/clean_unicode.py $(DATA_FILE_PATHS)
+
 # Use schemas to validate the data.
 # could use IN ZIP_LISTS if this was CMake, but it isn't
 # so we do a somewhat messy array instead
@@ -92,7 +97,7 @@ validate:
 # Make alternative serializations of data:
 # json and tsv for now
 # Output goes in project/data/
-all-data:
+all-data: sanitize-data
 	@echo "Removing any previously created serializations..."
 	rm -rf $(SERIAL_DATA_DIR) ;
 	mkdir -p $(SERIAL_DATA_DIR) ;
