@@ -51,26 +51,33 @@ SYNAPSE_MIN_LIST_SIZE = 2
 
 def infer_column_type(values: pd.Series) -> ColumnType:
     """
-    Infer the Synapse ColumnType from a pandas Series.
-
-    :param values: pandas Series containing column data
-    :return: Appropriate ColumnType enum value
+    Infer Synapse column type from a pandas Series.
+    Handles NaN values and empty strings by inferring from non-null/non-empty values only.
     """
-    from pandas.api.types import infer_dtype
+    # Filter out NaN, None, and empty strings for type inference
+    non_null = values.dropna()
+    non_empty = non_null[non_null.apply(lambda x: x != '')]
 
-    # Check if column contains lists
-    is_list = (values.map(type).astype(str) == "<class 'list'>").any()
-    if is_list:
-        # Assume string lists for now
-        return ColumnType.STRING_LIST
+    if len(non_empty) == 0:
+        return ColumnType.STRING
 
-    # Infer scalar type
-    inferred = infer_dtype(values, skipna=True).upper()
+    # Check types of non-empty values
+    types = non_empty.map(type).unique()
 
-    # Map pandas inferred type to Synapse ColumnType
-    if hasattr(ColumnType, inferred):
-        return ColumnType[inferred]
-    return ColumnType.STRING
+    if len(types) == 1:
+        t = types[0]
+        if t == bool:
+            return ColumnType.BOOLEAN
+        elif t == int:
+            return ColumnType.INTEGER
+        elif t == float:
+            return ColumnType.DOUBLE
+        elif t == list:
+            return ColumnType.STRING_LIST
+        else:
+            return ColumnType.STRING
+    else:
+        return ColumnType.STRING
 
 
 def configure_column_from_data(col: Column, values: pd.Series, faceted: bool = False) -> Column:
@@ -91,11 +98,17 @@ def configure_column_from_data(col: Column, values: pd.Series, faceted: bool = F
         col = replace(col, facet_type=FacetType.ENUMERATION)
 
     if col.column_type == ColumnType.STRING_LIST:
-        max_item_length = max([len(item) if len(item) > 20 else 20 for items in values for item in items])
-        max_items = max(len(items) for items in values)
+        list_values = [v for v in values if isinstance(v, list)]
+        if list_values:
+            max_item_length = max((max(len(item), 20) for items in list_values for item in items), default=20)
+            max_items = max(len(items) for items in list_values)
+        else:
+            max_item_length = 20
+            max_items = SYNAPSE_MIN_LIST_SIZE
         col = replace(col, maximum_list_length=max(max_items, SYNAPSE_MIN_LIST_SIZE), maximum_size=max_item_length)
     elif col.column_type == ColumnType.INTEGER_LIST:
-        max_items = max(len(items) for items in values)
+        list_values = [v for v in values if isinstance(v, list)]
+        max_items = max((len(items) for items in list_values), default=SYNAPSE_MIN_LIST_SIZE)
         col = replace(col, maximum_list_length=max(max_items, SYNAPSE_MIN_LIST_SIZE))
     elif col.column_type == ColumnType.STRING:
         max_size = int(values.astype(str).str.len().max())
@@ -223,6 +236,14 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     if table_id:
         table.id = table_id
     table = table.store()
+
+    # Synapse JSON columns expect JSON strings, not Python objects
+    for col in columnDefs:
+        if col.column_type == ColumnType.JSON and col.name in df.columns:
+            df[col.name] = df[col.name].apply(
+                lambda v: json.dumps(v) if isinstance(v, (list, dict)) else '[]'
+            )
+
     table.store_rows(values=df)
     table_id = table_id or table.id
     if not table_id:
