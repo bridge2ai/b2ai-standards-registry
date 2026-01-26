@@ -237,11 +237,13 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
         table.id = table_id
     table = table.store()
 
-    # Synapse JSON columns expect JSON strings, not Python objects
+    # Synapse JSON columns need JSON strings. Replace \" with \u0022 to avoid
+    # ambiguity with CSV quote-doubling during upload (\" becomes \"" in CSV,
+    # which Synapse's server-side CSV parser can misinterpret).
     for col in columnDefs:
         if col.column_type == ColumnType.JSON and col.name in df.columns:
             df[col.name] = df[col.name].apply(
-                lambda v: json.dumps(v) if isinstance(v, (list, dict)) else '[]'
+                lambda v: json.dumps(v).replace('\\"', '\\u0022') if isinstance(v, (list, dict)) else '[]'
             )
 
     table.store_rows(values=df)
