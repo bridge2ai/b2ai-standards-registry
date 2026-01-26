@@ -154,6 +154,12 @@ Updates DataStandardOrTool.yaml entries to use the new Application inline struct
 - Generates placeholder descriptions referencing the parent standard
 - Sets default values for new application fields
 
+### `fetch_reference_metadata.py`
+Looks up publication metadata (CrossRef for DOIs, arXiv API for arXiv links/IDs, GitHub API for repo URLs, and page-title fallback for generic URLs) and formats it as Reference objects:
+- Fetch a single DOI/URL and print a Reference object in YAML or JSON
+- Enriches DataStandardOrTool.yaml so publication and application references include titles, authors, journal, and year (title-only for generic pages)
+- Supports optional rate limiting, custom CrossRef contact email, and GitHub token via `GITHUB_TOKEN`
+
 ## Shell Scripts
 
 ### `get-value.sh`

@@ -7,10 +7,10 @@ The Bridge2AI Standards Explorer data is hosted on [Sage Synapse](https://www.sy
 The Standards Explorer consists of several public Synapse tables:
 
 - **DataStandardOrTool** (`syn63096833`): Main table containing all standards, tools, and resources
+- **DST_denormalized** (`syn65676531`): Flattened view of DataStandardOrTool and referenced data for easier querying
 - **DataTopics** (`syn63096835`): Topics/domains that standards concern (e.g., EHR, Genomics, Image)
 - **DataSubstrate** (`syn63096834`): Data formats and structures (e.g., JSON, CSV, BIDS)
 - **Organization** (`syn63096836`): Organizations related to standards (e.g., HL7, W3C, CDISC)
-- **DataStandardOrTool_denormalized** (`syn65676531`): Flattened view for easier querying
 
 All tables belong to the Bridge2AI Standards Explorer project (`syn63096806`).
 
