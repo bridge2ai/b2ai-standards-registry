@@ -7,7 +7,7 @@ use_cases:
     data_topics:
       - B2AI_TOPIC:15
       - B2AI_TOPIC:4
-    description: Collecting clinical data from patient visits involves the process of gathering information about a patient's medical history, current symptoms, and other relevant information during a healthcare appointment. This typically includes taking a detailed medical history, conducting a physical examination, ordering and interpreting diagnostic tests, and documenting the findings in the patient's medical record. This may also include more focused evaluations, as with the AI-READI project’s assessments of cognitive function and visual acuity. Medical records may include structured/unstructured text, values for lab results, and/or images.
+    description: Collecting clinical data from patient visits involves the process of gathering information about a patient's medical history, current symptoms, and other relevant information during a healthcare appointment. This typically includes taking a detailed medical history, conducting a physical examination, ordering and interpreting diagnostic tests, and documenting the findings in the patient's medical record. This may also include more focused evaluations, as with the AI-READI project's assessments of cognitive function and visual acuity. Medical records may include structured/unstructured text, values for lab results, and/or images.
     enables:
       - B2AI_USECASE:5
       - B2AI_USECASE:13
@@ -226,7 +226,7 @@ use_cases:
     contributor_orcid: "ORCID:0000-0001-5705-7831"
     data_topics:
       - B2AI_TOPIC:19
-    description: Images of objects at the microscale (i.e., those at 0.1–100μm) are obtained through a variety of microscopy approaches. In the CM4AI project, images of cell structures are obtained through confocal immunofluorescence microscopy.
+    description: Images of objects at the microscale (i.e., those at 0.1-100μm) are obtained through a variety of microscopy approaches. In the CM4AI project, images of cell structures are obtained through confocal immunofluorescence microscopy.
     enables:
       - B2AI_USECASE:16
     involved_in_experimental_design: true
@@ -332,7 +332,7 @@ use_cases:
     contributor_orcid: "ORCID:0000-0001-5705-7831"
     data_topics:
       - B2AI_TOPIC:5
-    description: "The sets of identifiers shared between two or more data products serve as points of commonality between observations, but in practice, a desired level of interoperability may not be achievable without mapping some identifiers to equivalent terms. This may be necessary for entire namespaces (e.g., mapping all NCBI Gene identifiers to their corresponding UniProtKB protein accessions) or for a subset (e.g., mapping ChEBI entries for drugs to their identifiers in a drug-centric knowledge base). There may also be a need to define inexact matches: an identifier’s best mapping in another resource may be to a more broadly-defined concept."
+    description: "The sets of identifiers shared between two or more data products serve as points of commonality between observations, but in practice, a desired level of interoperability may not be achievable without mapping some identifiers to equivalent terms. This may be necessary for entire namespaces (e.g., mapping all NCBI Gene identifiers to their corresponding UniProtKB protein accessions) or for a subset (e.g., mapping ChEBI entries for drugs to their identifiers in a drug-centric knowledge base). There may also be a need to define inexact matches: an identifier's best mapping in another resource may be to a more broadly-defined concept."
     involved_in_experimental_design: true
     involved_in_metadata_management: true
     involved_in_quality_control: false
@@ -636,7 +636,7 @@ use_cases:
       - B2AI_TOPIC:18
       - B2AI_TOPIC:24
       - B2AI_TOPIC:29
-    description: As presented by the AI-READI GC, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on insulin dependence. Its goal is to produce a model capable of yielding predictions about a given patient’s progression towards a health or disease state. This case depends upon availability of pseudotime models, unlike B2AI_USECASE:28.
+    description: As presented by the AI-READI GC, this use case develops models capable of interpreting relationships between clinical observations of diabetes patients and their features, with a focus on insulin dependence. Its goal is to produce a model capable of yielding predictions about a given patient's progression towards a health or disease state. This case depends upon availability of pseudotime models, unlike B2AI_USECASE:28.
     involved_in_experimental_design: true
     involved_in_metadata_management: true
     involved_in_quality_control: true
@@ -782,7 +782,7 @@ use_cases:
     contributor_orcid: "ORCID:0000-0001-5705-7831"
     data_topics:
       - B2AI_TOPIC:5
-    description: Training a linear regression model on data in the R tibble data structure generally involves R’s lm() function. To see the summary of the resulting model, use the summary() function on the model object. To make predictions using the model, use the predict() function on the model object and provide new data as the argument.
+    description: Training a linear regression model on data in the R tibble data structure generally involves R's lm() function. To see the summary of the resulting model, use the summary() function on the model object. To make predictions using the model, use the predict() function on the model object and provide new data as the argument.
     involved_in_experimental_design: true
     involved_in_metadata_management: false
     involved_in_quality_control: true
@@ -824,7 +824,7 @@ use_cases:
     contributor_orcid: "ORCID:0000-0001-5705-7831"
     data_topics:
       - B2AI_TOPIC:5
-    description: Data described through the HL7 FHIR standard may take a variety of forms, owing to the standard’s intentional flexibility. A highly interpretable, easily parsed format such as TSV may be desirable as part of transformation or subsequent analysis.
+    description: Data described through the HL7 FHIR standard may take a variety of forms, owing to the standard's intentional flexibility. A highly interpretable, easily parsed format such as TSV may be desirable as part of transformation or subsequent analysis.
     involved_in_experimental_design: true
     involved_in_metadata_management: true
     involved_in_quality_control: false
@@ -868,7 +868,7 @@ use_cases:
     contributor_orcid: "ORCID:0000-0001-5705-7831"
     data_topics:
       - B2AI_TOPIC:5
-    description: Even a high-performing computational model may be subject to bias, both explicitly and implicitly. The model may not accurately represent the population it was trained on. It may be algorithmically biased, with some features gaining weight over others in unexpected ways. There may be biases resulting from human preconceptions, e.g., human curators may have already made assumptions about disease status of patients contributing data to the model’s training set. There may also be unexpected confounders, such as social or economic factors contributing to clinical outcomes.
+    description: Even a high-performing computational model may be subject to bias, both explicitly and implicitly. The model may not accurately represent the population it was trained on. It may be algorithmically biased, with some features gaining weight over others in unexpected ways. There may be biases resulting from human preconceptions, e.g., human curators may have already made assumptions about disease status of patients contributing data to the model's training set. There may also be unexpected confounders, such as social or economic factors contributing to clinical outcomes.
     involved_in_experimental_design: false
     involved_in_metadata_management: false
     involved_in_quality_control: true
@@ -882,7 +882,7 @@ use_cases:
     contributor_orcid: "ORCID:0000-0001-5705-7831"
     data_topics:
       - B2AI_TOPIC:5
-    description: Computational models are not equivalently explainable. A model’s operations may appear correct, but without the ability to justify its responses based on a particular reasoning process, it may remain challenging to identify its weaknesses.
+    description: Computational models are not equivalently explainable. A model's operations may appear correct, but without the ability to justify its responses based on a particular reasoning process, it may remain challenging to identify its weaknesses.
     involved_in_experimental_design: false
     involved_in_metadata_management: false
     involved_in_quality_control: true
