@@ -194,7 +194,7 @@ DEST_TABLES = {
             {'faceted': True, 'name': 'category', 'alias': 'category', 'transform': 'category_to_title_case'},
             {'name': 'topics', 'alias': 'topicIds'},
             {'name': 'produced_by', 'alias': 'producedByOrgId'},
-            {'name': 'datasheet_url', 'alias': 'DatasheetURL'},
+            {'name': 'data_url', 'alias': 'DataURL'},
             {'name': 'documentation_url', 'alias': 'DocumentationURL'},
             {'name': 'is_public', 'alias': 'isPublic'},
             {'name': 'substrates', 'alias': 'substrateIds'},
