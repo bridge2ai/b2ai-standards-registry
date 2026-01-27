@@ -68,19 +68,13 @@ DEST_TABLES = {
             {'join_tbl': 'DataTopic', 'base_tbl_col': 'concerns_data_topic', 'join_tbl_col': 'id',
              'dest_cols': [
                  {'faceted': True, 'name': 'name', 'alias': 'topic'},
-             ]},
-			 {'join_tbl': 'DataTopic', 'base_tbl_col': 'concerns_data_topic', 'join_tbl_col': 'id',
-             'dest_cols': [
                  {'faceted': True, 'name': 'description', 'alias': 'topicDescription'},
              ]},
             {'join_tbl': 'DataSubstrate', 'base_tbl_col': 'has_relevant_data_substrate', 'join_tbl_col': 'id',
              'dest_cols': [
-                {'faceted': True, 'name': 'name', 'alias': 'dataTypes'},
-            ]},
-			{'join_tbl': 'DataSubstrate', 'base_tbl_col': 'has_relevant_data_substrate', 'join_tbl_col': 'id',
-             'dest_cols': [
-                {'name': 'description', 'alias': 'dataTypesDescription'},
-            ]},
+                 {'faceted': True, 'name': 'name', 'alias': 'dataTypes'},
+                 {'name': 'description', 'alias': 'dataTypesDescription'},
+             ]},
             {'join_tbl': 'Organization', 'base_tbl_col': 'has_relevant_organization', 'join_tbl_col': 'id',
              'dest_cols': [
                  {'faceted': True,  'name': 'description', 'alias': 'relevantOrgNames'},
@@ -95,18 +89,12 @@ DEST_TABLES = {
 			 {'join_tbl': 'DataSet_denormalized', 'base_tbl_col': 'responsible_organization', 'join_tbl_col': 'producedByOrgId',
              'dest_cols': [
                  { 'name': 'description', 'alias': 'responsibleOrgDatasetDescriptions', 'columnType': 'LARGETEXT'},
-             ]},
-			 {'join_tbl': 'DataSet_denormalized', 'base_tbl_col': 'responsible_organization', 'join_tbl_col': 'producedByOrgId',
-             'dest_cols': [
-                 { 'name': 'topics', 'alias': 'responsibleOrgDatasetTopics', 'columnType': 'LARGETEXT'},
+                 {'name': 'topics', 'alias': 'responsibleOrgDatasetTopics', 'columnType': 'LARGETEXT'},
              ]},
 			 {'join_tbl': 'DataSet_denormalized', 'base_tbl_col': 'has_relevant_organization', 'join_tbl_col': 'producedByOrgId',
              'dest_cols': [
                  { 'name': 'description', 'alias': 'relevantOrgDatasetDescriptions', 'columnType': 'LARGETEXT'},
-             ]},
-			 {'join_tbl': 'DataSet_denormalized', 'base_tbl_col': 'has_relevant_organization', 'join_tbl_col': 'producedByOrgId',
-             'dest_cols': [
-                 { 'name': 'topics', 'alias': 'relevantOrgDatasetTopics', 'columnType': 'LARGETEXT'},
+                 {'name': 'topics', 'alias': 'relevantOrgDatasetTopics', 'columnType': 'LARGETEXT'},
              ]},
         ],
     },
