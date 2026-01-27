@@ -200,38 +200,28 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
 
     csv.field_size_limit(sys.maxsize)
 
-    try:
-        existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
-        for existing_table in existing_tables:
+    # Resolve table_id if not provided
+    if not table_id:
+        for existing_table in syn.getChildren(PROJECT_ID, includeTypes=['table']):
             if existing_table['name'] == table_name:
-                if table_id:
-                    if existing_table['id'] != table_id:
-                        table_id_list = table_id.split('.')
-                        table_id = table_id_list[0]
-                        table_version = table_id_list[1] if table_id_list[1] else None
-                        if table_version is None:
-                            raise Exception(
-                                f"got table_id mismatch for {table_name}: {existing_table['id']} != {table_id}")
-                else:
-                    table_id = existing_table['id']
-                # Use new Table model API for query and delete
-                query_result = Table.query(query=f"SELECT * FROM {table_id}")
-                print(
-                    f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
-                Table(id=table_id).delete_rows(query=f"SELECT ROW_ID, ROW_VERSION FROM {table_id}")
+                table_id = existing_table['id']
                 break
-    except Exception as e:
-        print(
-            f"Error checking for and clearing existing table {table_name}: {e}")
 
-    # TODO: Need help from Synapse API support
-    # Goal: Replace the schema (columns) of an existing table entirely, then add rows.
-    # The old API (syn.store(Schema(...))) would clobber the old schema.
-    # With the new synapseclient.models API, we can't figure out how to replace
-    # columns when the type changes (e.g., STRING_LIST -> JSON).
-    # Errors encountered:
-    #   - "Cannot perform schema change from _LIST type to non-_LIST type"
-    #   - "The provided ordered column IDs does not match resulting columns"
+    if table_id:
+        # Delete all rows first (using only ROW_ID/ROW_VERSION to avoid
+        # SELECT * failures when column types have changed)
+        print(f"  Deleting rows from {table_name}...")
+        Table(id=table_id).delete_rows(query=f"SELECT ROW_ID, ROW_VERSION FROM {table_id}")
+
+        # Delete all existing columns so the new schema starts clean.
+        # Table.store() adds columns but doesn't remove old ones and can't
+        # change column types in place.
+        existing_table = Table(id=table_id).get(include_columns=True)
+        for existing_col in list(existing_table.columns.values()):
+            existing_table.delete_column(name=existing_col.name)
+        existing_table.store()
+        print(f"  Cleared rows and columns from {table_name}")
+
     table = Table(name=table_name, parent_id=PROJECT_ID, columns=columnDefs)
     if table_id:
         table.id = table_id

@@ -185,11 +185,22 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
         # SRC_TABLE_NAMES is all source tables, src_table_names is just the ones for this dest table
         src_table_names = set([base_tbl_name] + [j['join_tbl'] for j in dest_table['join_columns']])
         for table_name in src_table_names:
+            if table_name in src_tables:
+                continue
             table_info = TABLE_IDS[table_name]
             table_info = get_src_table(syn, table_info)
             src_tables[table_name] = table_info
 
-        make_dest_table(syn, dest_table, src_tables)
+        result_df = make_dest_table(syn, dest_table, src_tables)
+
+        # Stash the result so downstream tables can use it without downloading from Synapse
+        dest_name = dest_table['dest_table_name']
+        if dest_name in TABLE_IDS:
+            src_tables[dest_name] = {
+                'id': TABLE_IDS[dest_name]['id'],
+                'name': dest_name,
+                'df': result_df,
+            }
 
 
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
@@ -301,6 +312,8 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     table_name = dest_table['dest_table_name']
     table_id = TABLE_IDS[table_name]['id'] if table_name in TABLE_IDS else None
     clear_populate_snapshot_table(syn, table_name, schema_cols, final_df, table_id)
+
+    return final_df
 
 
 def make_col(
@@ -555,7 +568,7 @@ def create_join_column(
     # Determine column type
     if is_json_column:
         col_type = ColumnType.JSON
-    if dest_col.get('columnType'):
+    elif dest_col.get('columnType'):
         col_type = ColumnType[dest_col.get('columnType')]
     else:
         # Type detection for regular columns

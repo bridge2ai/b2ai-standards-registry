@@ -57,7 +57,7 @@ DEST_TABLES = {
             {'name': 'requires_registration',       'alias': 'registration', 'transform': 'bool_to_yes_no', 'columnType': 'STRING', 'faceted': True, },
             {'name': 'url',                         'alias': 'URL'},
             {'name': 'formal_specification',        'alias': 'formalSpec'},
-            {'name': 'publication',                 'alias': 'publication'},
+            {'name': 'publication',                 'alias': 'publication', 'columnType': 'JSON'},
             {'name': 'has_training_resource',       'alias': 'trainingResources'},
             {'name': 'subclass_of',                 'alias': 'subclassOf'},
             {'name': 'contribution_date',           'alias': 'contributionDate'},
