@@ -119,6 +119,32 @@ def str_to_json(s) -> List[Dict[str, Any]]:
         return s
     return json.loads(s or '[]')
 
+def ai_app_to_markdown(id: str, jsn_str: str) -> str:
+    """
+    Create a markdown string showing AI apps for Explore page, like this:
+
+        **[4 apps](/Explore/Standard/DetailsPage?id=B2AI_STANDARD:123#AIApplications):**
+        - App Name 1...
+        - App Name 2...
+
+    App names are truncated with ellipses if longer than truncation_length.
+    """
+    truncation_length = 17
+    apps = str_to_json(jsn_str)
+    if not apps:
+        return ''
+
+    count = len(apps)
+    link = f"/Explore/Standard/DetailsPage?id={id}#AIApplications"
+
+    def truncate(name: str) -> str:
+        if len(name) <= truncation_length:
+            return name
+        return name[:truncation_length] + '...'
+
+    app_names = [f"- {truncate(app.get('name', ''))}" for app in apps]
+    return f"**[{count} apps]({link}):**\n" + '\n'.join(app_names)
+
 def get_transform_function(transform_spec):
     """
     Get a transform function from either a string identifier or a callable.
@@ -140,6 +166,7 @@ def get_transform_function(transform_spec):
         'json_to_count': lambda jsn_str: len(str_to_json(jsn_str)),
         'count_to_yes_no': lambda jsn_str: 'Yes' if str_to_json(jsn_str) else 'No',
         'json_to_name_strings': lambda jsn_str: [o['name'] for o in str_to_json(jsn_str)],
+        'ai_app_to_markdown': lambda id, jsn_str: ai_app_to_markdown(id, jsn_str),
 
         'create_org_link': lambda id_val, name_val: f"[{name_val}](/Explore/Organization/OrganizationDetailsPage?id={id_val})",
         'create_topic_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataTopic/DataTopicDetailsPage?id={id_val})",
@@ -233,6 +260,8 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         """
         Extract base table columns and attach their data from the DataFrame.
 
+        Supports both single-column configs (name is a string) and multi-column configs (name is a list).
+
         :return: List of column definition dictionaries with 'data' and 'col' keys
         """
         base_table_name = dest_table['base_table']
@@ -242,9 +271,19 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         for col_config in dest_table['columns']:
             col_def = make_col(dest_table, col_config, src_tables)
             if col_def:
-                col_data = base_df[col_def['name']]
-                if 'transform' in col_def:
-                    col_data = col_transform(col_data, col_def['transform'], base_df)
+                src_col_name = col_def['name']
+                if isinstance(src_col_name, list):
+                    # Multi-column: apply transform with multiple column values
+                    transform_func = get_transform_function(col_def['transform'])
+                    col_data = base_df.apply(
+                        lambda row, cols=src_col_name: transform_func(*[row[c] for c in cols]),
+                        axis=1
+                    )
+                else:
+                    # Single-column: existing behavior
+                    col_data = base_df[src_col_name]
+                    if 'transform' in col_def:
+                        col_data = col_transform(col_data, col_def['transform'], base_df)
                 col_def['data'] = col_data
                 columns.append(col_def)
 
@@ -329,7 +368,7 @@ def make_col(
 
     :param dest_table: Configuration for the destination table, including the base table name
     :param dest_col: Column definition with keys:
-                     - 'name': name of the source column
+                     - 'name': source column name (string) or list of source column names
                      - 'alias': desired column name in the destination table
                      - 'faceted': whether the column should be faceted
                      - 'transform': optional function for transforming data values
@@ -345,9 +384,13 @@ def make_col(
     base_table_name = dest_table['base_table']
     src_df = src_tables[base_table_name]['df']
 
-    # Determine column type - use override if provided, otherwise infer from data
+    # Handle multi-column configs (name is a list) vs single-column (name is a string)
+    is_multi_col = isinstance(src_col_name, list)
+
     if 'columnType' in dest_col:
         col_type = ColumnType[dest_col['columnType']]
+    elif is_multi_col:
+        raise ValueError(f"Multi-column config for '{dest_col_name}' requires explicit 'columnType'")
     else:
         col_type = infer_column_type(src_df[src_col_name])
 
