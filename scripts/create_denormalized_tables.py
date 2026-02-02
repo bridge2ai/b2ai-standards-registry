@@ -100,7 +100,7 @@ def category_to_title_case(text: str) -> str:
     return ' '.join(result_words)
 
 
-def collections_to_title_case(lst: list[str]) -> str:
+def collections_to_title_case(lst: list[str]) -> list[str]:
     return [collection_to_title_case(s) for s in lst]
 
 
@@ -242,7 +242,7 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
             }
 
 
-def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
+def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
     """
     Create and upload a Synapse table by joining a base table with related tables.
 
@@ -525,6 +525,18 @@ def create_join_column(
         source_fields = dest_col.get('source_cols', [dest_col.get('name')])
         is_multi_field = len(source_fields) > 1
 
+    if not is_multi_field:
+        if not isinstance(source_fields, list) or not source_fields:
+            raise TypeError(
+                "Expected source_fields to be a non-empty list for single-field joins, "
+                f"got {type(source_fields)!r}: {source_fields!r}"
+            )
+        if not isinstance(source_fields[0], str) or not source_fields[0].strip():
+            raise TypeError(
+                "Expected source_fields[0] to be a non-empty string for single-field joins, "
+                f"got {type(source_fields[0])!r}: {source_fields[0]!r}"
+            )
+
     # Get transform function (or no-op)
     if 'transform' in dest_col:
         transform_func = get_transform_function(dest_col['transform'])
@@ -561,9 +573,32 @@ def create_join_column(
             json_objects.append(json.dumps(obj))
         return json_objects
 
+    def process_matching_rows(matching_rows):
+        if matching_rows.empty:
+            return []
+
+        if is_json_column:
+            return create_json_objects(matching_rows)
+        if is_multi_field:
+            if source_fields is None:
+                return [
+                    transform_func(row)
+                    for _, row in matching_rows.iterrows()
+                ]
+            return [
+                transform_func(*[row[field] for field in source_fields])
+                for _, row in matching_rows.iterrows()
+            ]
+        if source_fields is None:
+            return [
+                transform_func(row)
+                for _, row in matching_rows.iterrows()
+            ]
+        return matching_rows[source_fields[0]].apply(transform_func).tolist()
+
     if reverse_lookup:
         # Reverse lookup: join table has lists pointing to base table IDs
-        def process_ids(base_id):
+        def process_reverse_ids(base_id):
             def base_id_matches(join_col_val):
                 if isinstance(join_col_val, pd.Series):
                     join_col_val = list(join_col_val)
@@ -574,21 +609,11 @@ def create_join_column(
             matching_rows = join_df[join_df[join_tbl_col].apply(
                 base_id_matches)]
 
-            if matching_rows.empty:
-                return []
-
-            if is_json_column:
-                return create_json_objects(matching_rows)
-            elif is_multi_field:
-                return [
-                    transform_func(*[row[field] for field in source_fields])
-                    for _, row in matching_rows.iterrows()
-                ]
-            else:
-                return matching_rows[source_fields[0]].apply(transform_func).tolist()
+            return process_matching_rows(matching_rows)
 
         # use lambda so process_ids doesn't receives a value, not a series
-        result = base_df[base_tbl_col].apply(lambda x: process_ids(x)).tolist()
+        result = base_df[base_tbl_col].apply(
+            lambda x: process_reverse_ids(x)).tolist()
 
     else:
         # Normal lookup: base table has lists of IDs, join table has matching records
@@ -600,7 +625,7 @@ def create_join_column(
                 raise ValueError(
                     f"Expected list column from '{base_table_name}.{base_tbl_col}', but found no list values.")
 
-        def process_ids(ids):
+        def process_normal_ids(ids):
             if not ids:
                 return []
 
@@ -618,26 +643,27 @@ def create_join_column(
             matching_rows = join_df[join_df[join_tbl_col].apply(
                 row_matches)].reset_index()
 
-            if matching_rows.empty:
-                return []
+            return process_matching_rows(matching_rows)
 
-            if is_json_column:
-                return create_json_objects(matching_rows)
-            elif is_multi_field:
-                return [
-                    transform_func(*[row[field] for field in source_fields])
-                    for _, row in matching_rows.iterrows()
-                ]
-            else:
-                return matching_rows[source_fields[0]].apply(transform_func).tolist()
-
-        result = base_df[base_tbl_col].apply(lambda x: process_ids(x)).tolist()
+        result = base_df[base_tbl_col].apply(
+            lambda x: process_normal_ids(x)).tolist()
 
     # Determine column type
     if is_json_column:
         col_type = ColumnType.JSON
     elif dest_col.get('columnType'):
-        col_type = ColumnType[dest_col.get('columnType')]
+        column_type_name = dest_col.get('columnType')
+        if not isinstance(column_type_name, str) or not column_type_name.strip():
+            raise TypeError(
+                "Expected dest_col['columnType'] to be a non-empty string, "
+                f"got {type(column_type_name)!r}: {column_type_name!r}"
+            )
+        if column_type_name not in ColumnType.__members__:
+            raise ValueError(
+                "Expected dest_col['columnType'] to be a valid ColumnType name, "
+                f"got {column_type_name!r}"
+            )
+        col_type = ColumnType[column_type_name]
     else:
         # Type detection for regular columns
         sample_values = [val for sublist in result[:10] for val in sublist]
@@ -685,10 +711,16 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
         print(f"Loading '{table_name}' from Synapse (no local JSON file)")
         df = TableModel.query(query=f"SELECT * FROM {table_info['id']}")
 
-        # Replace NaNs with empty strings for all non-numeric columns
-        for col in df.columns:
-            df[col] = df[col].apply(lambda x: '' if isinstance(
-                x, float) and np.isnan(x) else x)
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError(
+            "Expected loaded table data to be a pandas DataFrame, "
+            f"got {type(df)!r}: {df!r}"
+        )
+
+    # Replace NaNs with empty strings for all non-numeric columns
+    for col in df.columns:
+        df[col] = df[col].apply(lambda x: '' if isinstance(
+            x, float) and np.isnan(x) else x)
 
     table_info['df'] = df
     return table_info
