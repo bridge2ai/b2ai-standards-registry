@@ -9,6 +9,7 @@ import csv
 import json
 import os
 import sys
+from collections.abc import Mapping
 from dataclasses import replace
 from typing import List, Optional
 
@@ -213,8 +214,30 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     # Resolve table_id if not provided
     if not table_id:
         for existing_table in syn.getChildren(PROJECT_ID, includeTypes=['table']):
-            if existing_table['name'] == table_name:
-                table_id = existing_table['id']
+            if isinstance(existing_table, str):
+                raise TypeError(
+                    "Expected a table-like object with 'name' and 'id' attributes "
+                    f"from syn.getChildren(), got string: {existing_table!r}"
+                )
+            if isinstance(existing_table, Mapping):
+                if "name" not in existing_table or "id" not in existing_table:
+                    raise TypeError(
+                        "Expected a table-like mapping with 'name' and 'id' keys "
+                        f"from syn.getChildren(), got {type(existing_table)!r}: {existing_table!r}"
+                    )
+                existing_name = existing_table["name"]
+                existing_id = existing_table["id"]
+                if existing_name == table_name:
+                    table_id = existing_id
+                    break
+                continue
+            if not hasattr(existing_table, "name") or not hasattr(existing_table, "id"):
+                raise TypeError(
+                    "Expected a table-like object with 'name' and 'id' attributes "
+                    f"from syn.getChildren(), got {type(existing_table)!r}: {existing_table!r}"
+                )
+            if existing_table.name == table_name:
+                table_id = existing_table.id
                 break
 
     if table_id:
@@ -228,8 +251,52 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
         # Table.store() adds columns but doesn't remove old ones and can't
         # change column types in place.
         existing_table = Table(id=table_id).get(include_columns=True)
-        for existing_col in list(existing_table.columns.values()):
-            existing_table.delete_column(name=existing_col.name)
+        if isinstance(existing_table, str):
+            raise TypeError(
+                "Expected a table-like object with columns and delete_column() "
+                f"from Table.get(), got string: {existing_table!r}"
+            )
+        if not hasattr(existing_table, "columns"):
+            raise TypeError(
+                "Expected a table-like object with a 'columns' attribute "
+                f"from Table.get(), got {type(existing_table)!r}: {existing_table!r}"
+            )
+        if not hasattr(existing_table, "delete_column"):
+            raise TypeError(
+                "Expected a table-like object with delete_column() "
+                f"from Table.get(), got {type(existing_table)!r}: {existing_table!r}"
+            )
+        columns = existing_table.columns
+        if isinstance(columns, Mapping):
+            columns_iter = list(columns.values())
+        elif isinstance(columns, (list, tuple)):
+            columns_iter = list(columns)
+        else:
+            raise TypeError(
+                "Expected 'columns' to be a mapping or list-like collection, "
+                f"got {type(columns)!r}: {columns!r}"
+            )
+        for existing_col in columns_iter:
+            if isinstance(existing_col, Mapping):
+                if "name" not in existing_col:
+                    raise TypeError(
+                        "Expected column mapping with 'name' key, "
+                        f"got {type(existing_col)!r}: {existing_col!r}"
+                    )
+                col_name = existing_col["name"]
+            elif hasattr(existing_col, "name"):
+                col_name = existing_col.name
+            else:
+                raise TypeError(
+                    "Expected column-like object with 'name' attribute or key, "
+                    f"got {type(existing_col)!r}: {existing_col!r}"
+                )
+            if not isinstance(col_name, str) or not col_name.strip():
+                raise TypeError(
+                    "Expected column name to be a non-empty string, "
+                    f"got {type(col_name)!r}: {col_name!r}"
+                )
+            existing_table.delete_column(name=col_name)
         existing_table.store()
         print(f"  Cleared rows and columns from {table_name}")
 
