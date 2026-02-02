@@ -1,12 +1,20 @@
+"""
+Replicate a Synapse Table.store() issue using a cached DST denormalized dataset.
+
+This script loads pickled table data and column definitions, writes the table to
+Synapse, and stores the rows to reproduce a known storage error for debugging.
+"""
+
 import os
 import pickle
 from synapseclient import Synapse
-from synapseclient.models import Column, ColumnType, FacetType, Table
+from synapseclient.models import Table
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 
 PROJECT_ID = 'syn63096806'
 table_name = 'DST_denormalized'
 table_id = 'syn65676531'
+
 
 def replicate_error():
     with open('dst_denormalized_df.pickle', 'rb') as f:
@@ -20,6 +28,7 @@ def replicate_error():
         table.id = table_id
     table = table.store()
     table.store_rows(values=df)
+
 
 def get_auth_token():
     """
