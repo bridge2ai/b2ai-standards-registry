@@ -41,7 +41,7 @@ Example:
 
 import json
 import sys
-from typing import List
+from typing import List, Union
 from argparse import ArgumentParser
 from synapseclient import Synapse
 from synapseclient.models import Column, ColumnType
@@ -130,7 +130,7 @@ def get_col_defs(new_data_df: pd.DataFrame, table_name: str) -> List[Column]:
     return coldefs
 
 
-def analyze_and_update(files: List[str], all: bool = False, table_names: List[str] = False):
+def analyze_and_update(files: List[str], all: bool = False, table_names: Union[List[str], bool] = False):
     """
     - Upload json files to Synapse
     - Requires one parameter (files, all, or table_names) to be provided
@@ -159,6 +159,8 @@ def analyze_and_update(files: List[str], all: bool = False, table_names: List[st
 
         for file in files:
             table_id = PATHS_TO_IDS.get(file)
+            if table_id is None:
+                raise ValueError(f"No Synapse table ID found for file: {file}")
             populate_table(syn, file, table_id)
 
     except Exception as e:
