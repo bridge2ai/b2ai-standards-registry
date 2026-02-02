@@ -1,19 +1,22 @@
-import json
-import os
-from dataclasses import replace
-from typing import Any, Dict, List, Optional
-import numpy as np
-import pandas as pd
-from synapseclient import Synapse
-from synapseclient.models import Column, ColumnType, FacetType, Table
-from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
-import csv
-import sys
 """
+Utility helpers for B2AI standards registry data loading and Synapse integration.
+
 Expected Environment:
     - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
       Instructions for setting up your auth token are documented in the README.
 """
+import csv
+import json
+import os
+import sys
+from dataclasses import replace
+from typing import List, Optional
+
+import numpy as np
+import pandas as pd
+from synapseclient import Synapse
+from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
+from synapseclient.models import Column, ColumnType, FacetType, Table
 PROJECT_ID = 'syn63096806'
 
 # Base path for JSON data files
@@ -42,9 +45,11 @@ def load_json_to_dataframe(table_name: str) -> pd.DataFrame:
 
     # Replace NaNs with empty strings for all non-numeric columns
     for col in df.columns:
-        df[col] = df[col].apply(lambda x: '' if isinstance(x, float) and np.isnan(x) else x)
+        df[col] = df[col].apply(lambda x: '' if isinstance(
+            x, float) and np.isnan(x) else x)
 
     return df
+
 
 SYNAPSE_MIN_LIST_SIZE = 2
 
@@ -100,22 +105,27 @@ def configure_column_from_data(col: Column, values: pd.Series, faceted: bool = F
     if col.column_type == ColumnType.STRING_LIST:
         list_values = [v for v in values if isinstance(v, list)]
         if list_values:
-            max_item_length = max((max(len(item), 20) for items in list_values for item in items), default=20)
+            max_item_length = max(
+                (max(len(item), 20) for items in list_values for item in items), default=20)
             max_items = max(len(items) for items in list_values)
         else:
             max_item_length = 20
             max_items = SYNAPSE_MIN_LIST_SIZE
-        col = replace(col, maximum_list_length=max(max_items, SYNAPSE_MIN_LIST_SIZE), maximum_size=max_item_length)
+        col = replace(col, maximum_list_length=max(
+            max_items, SYNAPSE_MIN_LIST_SIZE), maximum_size=max_item_length)
     elif col.column_type == ColumnType.INTEGER_LIST:
         list_values = [v for v in values if isinstance(v, list)]
-        max_items = max((len(items) for items in list_values), default=SYNAPSE_MIN_LIST_SIZE)
-        col = replace(col, maximum_list_length=max(max_items, SYNAPSE_MIN_LIST_SIZE))
+        max_items = max((len(items) for items in list_values),
+                        default=SYNAPSE_MIN_LIST_SIZE)
+        col = replace(col, maximum_list_length=max(
+            max_items, SYNAPSE_MIN_LIST_SIZE))
     elif col.column_type == ColumnType.STRING:
         max_size = int(values.astype(str).str.len().max())
         if max_size > 2000:
             col = replace(col, column_type=ColumnType.LARGETEXT)
         elif max_size > 1000:
-            col = replace(col, column_type=ColumnType.MEDIUMTEXT, maximum_size=max_size)
+            col = replace(col, column_type=ColumnType.MEDIUMTEXT,
+                          maximum_size=max_size)
         else:
             col = replace(col, maximum_size=max(max_size, 1))
 
@@ -211,7 +221,8 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
         # Delete all rows first (using only ROW_ID/ROW_VERSION to avoid
         # SELECT * failures when column types have changed)
         print(f"  Deleting rows from {table_name}...")
-        Table(id=table_id).delete_rows(query=f"SELECT ROW_ID, ROW_VERSION FROM {table_id}")
+        Table(id=table_id).delete_rows(
+            query=f"SELECT ROW_ID, ROW_VERSION FROM {table_id}")
 
         # Delete all existing columns so the new schema starts clean.
         # Table.store() adds columns but doesn't remove old ones and can't
@@ -233,7 +244,8 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     for col in columnDefs:
         if col.column_type == ColumnType.JSON and col.name in df.columns:
             df[col.name] = df[col.name].apply(
-                lambda v: json.dumps(v).replace('\\"', '\\u0022') if isinstance(v, (list, dict)) else '[]'
+                lambda v: json.dumps(v).replace(
+                    '\\"', '\\u0022') if isinstance(v, (list, dict)) else '[]'
             )
 
     table.store_rows(values=df)
@@ -243,6 +255,7 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     try:
         syn.create_snapshot_version(table_id)
     except Exception as e:
-        print(f"Error creating new version of table {table_name}: {e}\nRetrying...")
+        print(
+            f"Error creating new version of table {table_name}: {e}\nRetrying...")
         table_id = table_id.split('.')[0]
     print(f"Created table: {table.name} ({table.id})")
