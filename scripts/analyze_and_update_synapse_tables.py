@@ -41,7 +41,7 @@ Example:
 
 import json
 import sys
-from typing import Any, Dict, List, Optional
+from typing import List
 from argparse import ArgumentParser
 from synapseclient import Synapse
 from synapseclient.models import Column, ColumnType
@@ -49,7 +49,7 @@ import pandas as pd
 from scripts.utils import initialize_synapse, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, PROJECT_ID
 
 DATATYPE_OVERRRIDES = {
-     # maybe will only work for JSON cols, which is fine for now
+    # maybe will only work for JSON cols, which is fine for now
     'DataStandardOrTool': {
         'has_application': ColumnType.JSON
     }
