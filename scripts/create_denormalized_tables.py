@@ -30,15 +30,17 @@ Main entry point:
     denormalize_tables()
 """
 import sys
+import os
 from typing import Any, Dict, List, Optional
-from synapseclient import Synapse, Column
+from synapseclient import Synapse
+from synapseclient.models import Column, ColumnType, Table as TableModel
 import pandas as pd
 import numpy as np
 import re
 import json
 
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
-from scripts.utils import PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
+from scripts.utils import DATA_PATH, PROJECT_ID, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, initialize_synapse, load_json_to_dataframe
 
 special_capitalization = {
     'has_ai_application': 'Has AI Application',
@@ -72,7 +74,9 @@ manual_title_case_mappings = {
     'graphdataplatform': 'graph_data_platform',
     'fileformat': 'file_format',
 }
-lowercase_words = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for', 'in', 'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'yet'}
+lowercase_words = {'a', 'an', 'and', 'as', 'at', 'but', 'by', 'for',
+                   'in', 'nor', 'of', 'on', 'or', 'so', 'the', 'to', 'up', 'yet'}
+
 
 def category_to_title_case(text: str) -> str:
     """
@@ -95,7 +99,8 @@ def category_to_title_case(text: str) -> str:
 
     return ' '.join(result_words)
 
-def collections_to_title_case(lst: list[str]) -> str:
+
+def collections_to_title_case(lst: list[str]) -> list[str]:
     return [collection_to_title_case(s) for s in lst]
 
 
@@ -105,11 +110,46 @@ def collection_to_title_case(s: str) -> str:
     s = manual_title_case_mappings.get(s, s)
     return snake_to_title_case(s)
 
+
 def snake_to_title_case(s: str) -> str:
     words = [w.capitalize() if w not in lowercase_words else w for w in s.split('_')]
     words[0] = words[0].capitalize()
     words[-1] = words[-1].capitalize()
     return ' '.join(words)
+
+
+def str_to_json(s) -> List[Dict[str, Any]]:
+    """Convert a JSON string to a list of dicts. If already parsed, return as-is."""
+    if isinstance(s, list):
+        return s
+    return json.loads(s or '[]')
+
+
+def ai_app_to_markdown(id: str, jsn_str: str) -> str:
+    """
+    Create a markdown string showing AI apps for Explore page, like this:
+
+        **[4 apps](/Explore/Standard/DetailsPage?id=B2AI_STANDARD:123#AIApplications):**
+        - App Name 1...
+        - App Name 2...
+
+    App names are truncated with ellipses if longer than truncation_length.
+    """
+    truncation_length = 17
+    apps = str_to_json(jsn_str)
+    if not apps:
+        return ''
+
+    count = len(apps)
+    link = f"/Explore/Standard/DetailsPage?id={id}#AIApplications"
+
+    def truncate(name: str) -> str:
+        if len(name) <= truncation_length:
+            return name
+        return name[:truncation_length] + '...'
+
+    app_names = [f"- {truncate(app.get('name', ''))}" for app in apps]
+    return f"**[{count} apps]({link}):**\n" + '\n'.join(app_names)
 
 
 def get_transform_function(transform_spec):
@@ -130,6 +170,10 @@ def get_transform_function(transform_spec):
         'bool_to_yes_no': lambda b: 'Yes' if b else 'No',
         'collections_to_has_ai_app': lambda col: 'Yes' if 'has_ai_application' in col else 'No',
         'collections_to_is_mature': lambda col: 'Is Mature' if 'standards_process_maturity_final' in col or 'implementation_maturity_production' in col else 'Is Not Mature',
+        'json_to_count': lambda jsn_str: len(str_to_json(jsn_str)),
+        'count_to_yes_no': lambda jsn_str: 'Yes' if str_to_json(jsn_str) else 'No',
+        'json_to_name_strings': lambda jsn_str: [o['name'] for o in str_to_json(jsn_str)],
+        'ai_app_to_markdown': lambda id, jsn_str: ai_app_to_markdown(id, jsn_str),
 
         'create_org_link': lambda id_val, name_val: f"[{name_val}](/Explore/Organization/OrganizationDetailsPage?id={id_val})",
         'create_topic_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataTopic/DataTopicDetailsPage?id={id_val})",
@@ -142,13 +186,16 @@ def get_transform_function(transform_spec):
 
     raise ValueError(f"Unknown transform: {transform_spec}")
 
+
 def col_transform(col: pd.Series, transform_name: str, df: pd.DataFrame) -> pd.Series:
     """
     All transforms now passing through this function for further special handling
     """
-    transform = get_transform_function(transform_name) # purposely set to raise error if transform_name is wrong
+    transform = get_transform_function(
+        transform_name)  # purposely set to raise error if transform_name is wrong
     col_data = col.apply(transform)
     return col_data
+
 
 def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
     """
@@ -169,20 +216,33 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
         base_table_info = get_src_table(syn, TABLE_IDS[base_tbl_name])
         base_df = base_table_info['df']
         if base_df.empty:
-            print(f"Skipping '{dest_table['dest_table_name']}' — base table '{base_tbl_name}' has no data.")
+            print(
+                f"Skipping '{dest_table['dest_table_name']}' — base table '{base_tbl_name}' has no data.")
             continue
 
         # SRC_TABLE_NAMES is all source tables, src_table_names is just the ones for this dest table
-        src_table_names = set([base_tbl_name] + [j['join_tbl'] for j in dest_table['join_columns']])
+        src_table_names = set([base_tbl_name] + [j['join_tbl']
+                              for j in dest_table['join_columns']])
         for table_name in src_table_names:
+            if table_name in src_tables:
+                continue
             table_info = TABLE_IDS[table_name]
             table_info = get_src_table(syn, table_info)
             src_tables[table_name] = table_info
 
-        make_dest_table(syn, dest_table, src_tables)
+        result_df = make_dest_table(syn, dest_table, src_tables)
+
+        # Stash the result so downstream tables can use it without downloading from Synapse
+        dest_name = dest_table['dest_table_name']
+        if dest_name in TABLE_IDS:
+            src_tables[dest_name] = {
+                'id': TABLE_IDS[dest_name]['id'],
+                'name': dest_name,
+                'df': result_df,
+            }
 
 
-def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> None:
+def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
     """
     Create and upload a Synapse table by joining a base table with related tables.
 
@@ -212,6 +272,8 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         """
         Extract base table columns and attach their data from the DataFrame.
 
+        Supports both single-column configs (name is a string) and multi-column configs (name is a list).
+
         :return: List of column definition dictionaries with 'data' and 'col' keys
         """
         base_table_name = dest_table['base_table']
@@ -221,9 +283,23 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         for col_config in dest_table['columns']:
             col_def = make_col(dest_table, col_config, src_tables)
             if col_def:
-                col_data = base_df[col_def['name']]
-                if 'transform' in col_def:
-                    col_data = col_transform(col_data, col_def['transform'], base_df)
+                src_col_name = col_def['name']
+                if isinstance(src_col_name, list):
+                    # Branch change: support multi-column transforms (e.g., build markdown from id + JSON)
+                    # Multi-column: apply transform with multiple column values
+                    transform_func = get_transform_function(
+                        col_def['transform'])
+                    col_data = base_df.apply(
+                        lambda row, cols=src_col_name: transform_func(
+                            *[row[c] for c in cols]),
+                        axis=1
+                    )
+                else:
+                    # Single-column: existing behavior
+                    col_data = base_df[src_col_name]
+                    if 'transform' in col_def:
+                        col_data = col_transform(
+                            col_data, col_def['transform'], base_df)
                 col_def['data'] = col_data
                 columns.append(col_def)
 
@@ -237,25 +313,31 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         """
         base_table_name = dest_table['base_table']
         base_df = src_tables[base_table_name]['df']
-        dest_df = get_src_table(syn, TABLE_IDS['DST_denormalized'])['df']
         join_columns = []
 
-        # TODO: Clean up all these nearly-same var names
         for join_config in dest_table.get('join_columns', []):
-            join_tbl = join_config['join_tbl']
-            join_table = src_tables[join_tbl]
-            join_df = join_table['df']
+            join_table_name = join_config['join_tbl']
+            join_table = src_tables[join_table_name]
+            join_table_df = join_table['df']
 
             join_config['join_table_name'] = join_table['name']
             join_config['join_table_id'] = join_table['id']
 
-            base_tbl_col = join_config['base_tbl_col']
-            join_tbl_col = join_config['join_tbl_col']
+            base_join_col = join_config['base_tbl_col']
+            join_table_col = join_config['join_tbl_col']
 
-            for dest_col in join_config['dest_cols']:
-                faceted = dest_col.get('faceted', False)
+            for dest_col_config in join_config['dest_cols']:
+                faceted = dest_col_config.get('faceted', False)
 
-                col_def = create_join_column(base_table_name, base_df, join_df, base_tbl_col, join_tbl_col, join_config, dest_col)
+                col_def = create_join_column(
+                    base_table_name,
+                    base_df,
+                    join_table_df,
+                    base_join_col,
+                    join_table_col,
+                    join_config,
+                    dest_col_config,
+                )
 
                 if col_def:
                     col_def['faceted'] = faceted
@@ -266,34 +348,16 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     def configure_column_metadata(columns: List[Dict[str, Any]], df: pd.DataFrame) -> List[Column]:
         """
         Set metadata on each column definition, including list sizes and faceting.
-        TODO: If ever refactoring, this could be combined into a shared function with
-              ./analyze_and_update_synapse_tables.py:get_col_defs
 
-        :param columns: List of column definition dicts to update
+        :param columns: List of column definition dicts to update (each has 'col' as a Column object)
         :param df: Final combined DataFrame, used to calculate sizes and lengths
-        :return: Updated list of column definitions with metadata
+        :return: Updated list of Column objects with metadata
         """
-        for col_def in columns:
-            col = col_def['col']
-            # Remove the column id so new column gets created in Synapse schema - this is also so we can update the new max
-            # list length and size
-            col.pop('id', None)
-
-            if col_def.get('faceted'):
-                col['facetType'] = 'enumeration'
-
-            if col['columnType'] == 'STRING_LIST':
-                values = df[col['name']]
-                max_item_length = max([len(item) if len(item) > 20 else 20 for items in values for item in items])
-                max_items = max(len(items) for items in values)
-                col['maximumListLength'] = max(max_items, 2) # 2 is minimum allowed
-                col['maximumSize'] = max_item_length
-            elif col['columnType'] == 'INTEGER_LIST':
-                values = df[col['name']]
-                max_items = max(len(items) for items in values)
-                col['maximumListLength'] = max(max_items, 2) # 2 is minimum allowed
-
-        return [Column(**col_def['col']) for col_def in columns]
+        return [
+            configure_column_from_data(
+                col_def['col'], df[col_def['col'].name], col_def.get('faceted', False))
+            for col_def in columns
+        ]
 
     # Step 1: Build all columns and their data
     base_columns = build_base_columns()
@@ -301,7 +365,8 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     all_columns = base_columns + join_columns
 
     # Step 2: Construct the full data frame
-    data_dict = {col['alias']: col['data'] for col in all_columns if 'data' in col}
+    data_dict = {col['alias']: col['data']
+                 for col in all_columns if 'data' in col}
     final_df = pd.DataFrame(data_dict).reset_index(drop=True)
 
     # Step 3: Configure column metadata
@@ -310,7 +375,10 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
     # Step 4: Clear, populate, snapshot dest table
     table_name = dest_table['dest_table_name']
     table_id = TABLE_IDS[table_name]['id'] if table_name in TABLE_IDS else None
-    clear_populate_snapshot_table(syn, table_name, schema_cols, final_df, table_id)
+    clear_populate_snapshot_table(
+        syn, table_name, schema_cols, final_df, table_id)
+
+    return final_df
 
 
 def make_col(
@@ -319,51 +387,55 @@ def make_col(
     src_tables: Dict[str, Dict[str, Any]]
 ) -> Dict[str, Any]:
     """
-    Construct a destination column definition based on the source table's column schema.
+    Construct a destination column definition based on the source table's data.
 
-    This function looks up the source column metadata (from the base table), copies it,
-    updates the name to the desired alias (destination column name), and returns the updated column definition
-    to be included in the output schema.
+    This function infers the column type from the source data and creates a new Column
+    with the destination column name (alias).
 
     :param dest_table: Configuration for the destination table, including the base table name
     :param dest_col: Column definition with keys:
-                     - 'name': name of the source column
+                     - 'name': source column name (string) or list of source column names
                      - 'alias': desired column name in the destination table
                      - 'faceted': whether the column should be faceted
                      - 'transform': optional function for transforming data values
+                     - 'columnType': optional override for column type
     :param src_tables: Dictionary of available source tables, keyed by name. Each value includes:
-                       - 'columns': dict of column metadata definitions
-    :return: Updated dest_col dict with a new 'col' key containing the modified column metadata
+                       - 'df': DataFrame with the table data
+    :return: Updated dest_col dict with a new 'col' key containing the Column object
     """
     src_col_name = dest_col['name']
     dest_col_name = dest_col['alias']
 
-    # Get the key to use in SRC_TABLES for the base table
+    # Get the source DataFrame
     base_table_name = dest_table['base_table']
-    src_table = src_tables[base_table_name]
+    src_df = src_tables[base_table_name]['df']
 
-    # Copy the column schema and update the name to use the alias
-    dest_col['col'] = src_table['columns'][src_col_name].copy()
-    col = dest_col['col']
-    col['name'] = dest_col_name
+    # Handle multi-column configs (name is a list) vs single-column (name is a string)
+    is_multi_col = isinstance(src_col_name, list)
 
     if 'columnType' in dest_col:
-        ctype = dest_col['columnType']
-        col['columnType'] = ctype
-        if not ctype.endswith('LIST') and 'maximumListLength' in col:
-            del col['maximumListLength']
+        col_type = ColumnType[dest_col['columnType']]
+    elif is_multi_col:
+        raise ValueError(
+            f"Multi-column config for '{dest_col_name}' requires explicit 'columnType'")
+    else:
+        col_type = infer_column_type(src_df[src_col_name])
 
+    # Create the Column with the destination name
+    col = Column(name=dest_col_name, column_type=col_type)
+
+    dest_col['col'] = col
     return dest_col
 
 
 def create_join_column(
-  base_table_name: str,
-  base_df: pd.DataFrame,
-  join_df: pd.DataFrame,
-  base_tbl_col: str,
-  join_tbl_col: str,
-  join_config: Dict[str, Any],
-  dest_col: Dict[str, Any]
+    base_table_name: str,
+    base_df: pd.DataFrame,
+    join_df: pd.DataFrame,
+    base_tbl_col: str,
+    join_tbl_col: str,
+    join_config: Dict[str, Any],
+    dest_col: Dict[str, Any]
 ) -> Dict[str, Any]:
     """
     Create a column containing lists of values or JSON objects from a join table.
@@ -446,10 +518,12 @@ def create_join_column(
     reverse_lookup = join_config.get('reverse_lookup', False)  # <- Moved here!
 
     # Determine if this is a JSON column
-    is_json_column = 'fields' in dest_col or dest_col.get('whole_records', False)
+    is_json_column = 'fields' in dest_col or dest_col.get(
+        'whole_records', False)
 
     # Determine source columns
     if is_json_column:
+        # Branch change: JSON columns can be whole-record or field-mapped payloads
         if dest_col.get('whole_records'):
             source_fields = None  # Will use all fields
         else:
@@ -458,6 +532,19 @@ def create_join_column(
     else:
         source_fields = dest_col.get('source_cols', [dest_col.get('name')])
         is_multi_field = len(source_fields) > 1
+
+    if not is_multi_field:
+        # Branch change: validate single-field configs to catch bad source_cols early
+        if not isinstance(source_fields, list) or not source_fields:
+            raise TypeError(
+                "Expected source_fields to be a non-empty list for single-field joins, "
+                f"got {type(source_fields)!r}: {source_fields!r}"
+            )
+        if not isinstance(source_fields[0], str) or not source_fields[0].strip():
+            raise TypeError(
+                "Expected source_fields[0] to be a non-empty string for single-field joins, "
+                f"got {type(source_fields[0])!r}: {source_fields[0]!r}"
+            )
 
     # Get transform function (or no-op)
     if 'transform' in dest_col:
@@ -495,9 +582,34 @@ def create_join_column(
             json_objects.append(json.dumps(obj))
         return json_objects
 
+    def process_matching_rows(matching_rows):
+        # Branch change: centralize join output logic (JSON vs multi-field vs single-field)
+        if matching_rows.empty:
+            return []
+
+        if is_json_column:
+            return create_json_objects(matching_rows)
+        if is_multi_field:
+            if source_fields is None:
+                return [
+                    transform_func(row)
+                    for _, row in matching_rows.iterrows()
+                ]
+            return [
+                transform_func(*[row[field] for field in source_fields])
+                for _, row in matching_rows.iterrows()
+            ]
+        if source_fields is None:
+            return [
+                transform_func(row)
+                for _, row in matching_rows.iterrows()
+            ]
+        return matching_rows[source_fields[0]].apply(transform_func).tolist()
+
     if reverse_lookup:
         # Reverse lookup: join table has lists pointing to base table IDs
-        def process_ids(base_id):
+        def process_reverse_ids(base_id):
+            # Branch change: allow reverse lookups where join columns contain base IDs
             def base_id_matches(join_col_val):
                 if isinstance(join_col_val, pd.Series):
                     join_col_val = list(join_col_val)
@@ -505,32 +617,26 @@ def create_join_column(
                     return base_id in join_col_val
                 return join_col_val == base_id
             # Find join table rows where join_tbl_col list contains this base_id
-            matching_rows = join_df[join_df[join_tbl_col].apply(base_id_matches)]
+            matching_rows = join_df[join_df[join_tbl_col].apply(
+                base_id_matches)]
 
-            if matching_rows.empty:
-                return []
-
-            if is_json_column:
-                return create_json_objects(matching_rows)
-            elif is_multi_field:
-                return [
-                    transform_func(*[row[field] for field in source_fields])
-                    for _, row in matching_rows.iterrows()
-                ]
-            else:
-                return matching_rows[source_fields[0]].apply(transform_func).tolist()
+            return process_matching_rows(matching_rows)
 
         # use lambda so process_ids doesn't receives a value, not a series
-        result = base_df[base_tbl_col].apply(lambda x: process_ids(x)).tolist()
+        result = base_df[base_tbl_col].apply(
+            lambda x: process_reverse_ids(x)).tolist()
 
     else:
         # Normal lookup: base table has lists of IDs, join table has matching records
         if not is_json_column:  # JSON columns can work with scalar IDs too
-            sample_val = base_df[base_tbl_col].dropna().iloc[0] if not base_df[base_tbl_col].dropna().empty else []
-            if not isinstance(sample_val, list):
-                raise ValueError(f"Expected list column from '{base_table_name}.{base_tbl_col}', but got scalar.")
+            # Find first actual list value (skip None, empty strings, etc.)
+            list_values = [v for v in base_df[base_tbl_col]
+                           if isinstance(v, list)]
+            if not list_values:
+                raise ValueError(
+                    f"Expected list column from '{base_table_name}.{base_tbl_col}', but found no list values.")
 
-        def process_ids(ids):
+        def process_normal_ids(ids):
             if not ids:
                 return []
 
@@ -545,94 +651,94 @@ def create_join_column(
                     return any(i in val for i in ids)
                 return val in ids
 
-            matching_rows = join_df[join_df[join_tbl_col].apply(row_matches)].reset_index()
+            matching_rows = join_df[join_df[join_tbl_col].apply(
+                row_matches)].reset_index()
 
-            if matching_rows.empty:
-                return []
+            return process_matching_rows(matching_rows)
 
-            if is_json_column:
-                return create_json_objects(matching_rows)
-            elif is_multi_field:
-                return [
-                    transform_func(*[row[field] for field in source_fields])
-                    for _, row in matching_rows.iterrows()
-                ]
-            else:
-                return matching_rows[source_fields[0]].apply(transform_func).tolist()
-
-        result = base_df[base_tbl_col].apply(lambda x: process_ids(x)).tolist()
+        result = base_df[base_tbl_col].apply(
+            lambda x: process_normal_ids(x)).tolist()
 
     # Determine column type
     if is_json_column:
-        columnType = 'JSON'
-    if dest_col.get('columnType'):
-        columnType = dest_col.get('columnType')
+        col_type = ColumnType.JSON
+    elif dest_col.get('columnType'):
+        # Branch change: guard against invalid columnType names with explicit errors
+        column_type_name = dest_col.get('columnType')
+        if not isinstance(column_type_name, str) or not column_type_name.strip():
+            raise TypeError(
+                "Expected dest_col['columnType'] to be a non-empty string, "
+                f"got {type(column_type_name)!r}: {column_type_name!r}"
+            )
+        if column_type_name not in ColumnType.__members__:
+            raise ValueError(
+                "Expected dest_col['columnType'] to be a valid ColumnType name, "
+                f"got {column_type_name!r}"
+            )
+        col_type = ColumnType[column_type_name]
     else:
         # Type detection for regular columns
         sample_values = [val for sublist in result[:10] for val in sublist]
         if sample_values:
             datatype = type(sample_values[0])
-            columnType = 'STRING_LIST' if datatype == str else 'INTEGER_LIST'
+            col_type = ColumnType.STRING_LIST if datatype == str else ColumnType.INTEGER_LIST
         else:
-            columnType = 'STRING_LIST'
+            col_type = ColumnType.STRING_LIST
 
     return {
         'src': join_config['join_table_name'],
         'name': dest_col.get('name', 'json_fields') if not is_json_column else 'json_objects',
         'alias': column_name,
-        'col': Column(name=column_name, columnType=columnType),
+        'col': Column(name=column_name, column_type=col_type),
         'data': result
     }
 
+
 def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
     """
-    Retrieve and validate a source table from Synapse, capture its column metadata and a cleaned DataFrame.
-    If the table is empty:
-        - If a version number has been specified, raise an exception and quit execution.
-        - Otherwise, find the last non-empty version and use that
-            - Ideally,
+    Load a source table, preferring local JSON files over Synapse.
 
-    This function:
-    - Retrieves the Synapse table and confirms its name matches the expected one
-    - Extracts column metadata
-    - Queries the full table contents into a DataFrame
-    - Cleans NaNs from the DataFrame (replacing them with empty strings)
-    - Stores the DataFrame, table object, and column info in the returned dictionary
+    For tables with JSON files in project/data/, loads from the local file.
+    For tables without JSON files (like denormalized tables or D4D_content),
+    falls back to fetching from Synapse.
 
-    :param syn: Authenticated Synapse client
+    :param syn: Authenticated Synapse client (used for fallback)
     :param table_info: Dictionary with keys:
              - 'id': Synapse table ID
              - 'name': expected name of the table
     :return: Dictionary with keys:
              - 'id': Synapse table ID
-             - 'name': expected name of the table
-             - 'syn_table': the retrieved Synapse table object
-             - 'columns': dict of Synapse column metadata keyed by column name
+             - 'name': table name
              - 'df': cleaned DataFrame of table contents
-    :raises ValueError: if the retrieved Synapse table has a different name than expected
     """
-    syn_table = syn.get(table_info['id'])
+    table_name = table_info['name']
+    json_path = os.path.join(DATA_PATH, f"{table_name}.json")
 
-    # Confirm table name matches what's expected
-    if syn_table.name != table_info['name']:
-        raise ValueError(f"Expected table '{table_info['name']}', but got '{syn_table.name}'.")
+    if os.path.exists(json_path):
+        # Branch change: prefer local JSON snapshot when available to avoid Synapse calls
+        # Load from local JSON file
+        print(f"Loading '{table_name}' from {json_path}")
+        df = load_json_to_dataframe(table_name)
+    else:
+        # Fallback to Synapse for tables without JSON files
+        print(f"Loading '{table_name}' from Synapse (no local JSON file)")
+        df = TableModel.query(query=f"SELECT * FROM {table_info['id']}")
 
-    # Store the retrieved Synapse table and column metadata
-    table_info['syn_table'] = syn_table
-    table_info['columns'] = {
-        col['name']: col for col in syn.getTableColumns(syn_table)
-    }
+    if not isinstance(df, pd.DataFrame):
+        # Branch change: type-check loaded data to surface misconfigured loaders early
+        raise TypeError(
+            "Expected loaded table data to be a pandas DataFrame, "
+            f"got {type(df)!r}: {df!r}"
+        )
 
-    # Query the table and clean up the resulting DataFrame
-    query_result = syn.tableQuery(f"SELECT * FROM {table_info['id']}")
-    df = query_result.asDataFrame()
-
-    # Replace NaNs with empty strings for all non-numeric columns (since df converts null columns to NaNs)
+    # Replace NaNs with empty strings for all non-numeric columns
     for col in df.columns:
-        df[col] = df[col].apply(lambda x: '' if isinstance(x, float) and np.isnan(x) else x)
+        df[col] = df[col].apply(lambda x: '' if isinstance(
+            x, float) and np.isnan(x) else x)
 
     table_info['df'] = df
     return table_info
+
 
 if __name__ == "__main__":
     denormalize_tables(sys.argv[1:])

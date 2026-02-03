@@ -41,13 +41,19 @@ Example:
 
 import json
 import sys
-from typing import Any, Dict, List, Optional
+from typing import List, Union
 from argparse import ArgumentParser
-from synapseclient import Synapse, Table, Schema, Column
-from pandas.api.types import infer_dtype
+from synapseclient import Synapse
+from synapseclient.models import Column, ColumnType
 import pandas as pd
-from scripts.utils import initialize_synapse, clear_populate_snapshot_table, PROJECT_ID
+from scripts.utils import initialize_synapse, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, PROJECT_ID
 
+DATATYPE_OVERRRIDES = {
+    # maybe will only work for JSON cols, which is fine for now
+    'DataStandardOrTool': {
+        'has_application': ColumnType.JSON
+    }
+}
 
 # the paths detected as changes from the "Get changed files" job mapped to their corresponding synapse table ids
 PATHS_TO_IDS = {
@@ -57,6 +63,7 @@ PATHS_TO_IDS = {
     "project/data/Organization.json": "syn63096836",
     "project/data/UseCase.json": "syn63096837",
     "project/data/DataSet.json": "syn66330217",
+    "project/data/Manifest.json": "syn72106735",
 }
 
 
@@ -92,67 +99,38 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
 
     df = pd.DataFrame(data=data)
 
-    coldefs = get_col_defs(df)
-
     table_name = file_path_to_table_name(update_file)
+
+    coldefs = get_col_defs(df, table_name)
 
     clear_populate_snapshot_table(syn, table_name, coldefs, df, table_id)
 
 
-SYNAPSE_MIN_LIST_SIZE = 2
-
-
-def get_col_defs(new_data_df: pd.DataFrame) -> List[Column]:
+def get_col_defs(new_data_df: pd.DataFrame, table_name: str) -> List[Column]:
     """
-    Returns Column definitions for Synapse schema based on data in df
-    TODO: If ever refactoring, this could be combined into a shared function with
-          ./create_denormalized_tables.py:configure_column_metadata
+    Returns Column definitions for Synapse schema based on data in df.
 
     :param new_data_df: DataFrame with new data
+    :param table_name: Name of table (used for datatype overrides)
     :return: Column definitions
     """
-    is_list_cols = (new_data_df.map(type).astype(str)
-                    == "<class 'list'>").any()
-    list_cols = set(is_list_cols[is_list_cols == True].index)
-    scalar_types = {c: infer_dtype(new_data_df[c], skipna=True).upper(
-    ) for c in new_data_df.columns}  # infer_dtype gives 'mixed' for list types
-    # assuming all list columns are string lists, at least for now
-    def get_col_type(
-        col_name): return 'STRING_LIST' if col_name in list_cols else scalar_types[col_name]
-
-    new_cols = {col_name: {'name': col_name, 'columnType': get_col_type(
-        col_name)} for col_name in new_data_df.columns}
-
-    for col_name in new_cols:
-        new_col = new_cols[col_name]
-        actual_max_size = 0
-
-        if new_col['columnType'].endswith('_LIST'):
-            actual_max_list_len = 0
-            for value in new_data_df[col_name].dropna():
-                actual_max_list_len = max(actual_max_list_len, len(value))
-                # Find longest string in this list
-                if value:  # Check if list is not empty
-                    item_lengths = [len(str(item)) for item in value]
-                    max_item_in_this_list = max(
-                        item_lengths) if item_lengths else 0
-                    actual_max_size = max(
-                        actual_max_size, max_item_in_this_list)
-            new_col['maximumListLength'] = max(
-                int(actual_max_list_len), SYNAPSE_MIN_LIST_SIZE)
+    coldefs = []
+    for col_name in new_data_df.columns:
+        # Check for datatype override first
+        overridden = DATATYPE_OVERRRIDES.get(table_name, {}).get(col_name)
+        if overridden is not None:
+            col_type = overridden
         else:
-            actual_max_size = new_data_df[col_name].astype(str).str.len().max()
-            if new_col['columnType'] == 'STRING':
-                if actual_max_size > 2000:
-                    new_col['columnType'] = 'LARGETEXT'
-                elif actual_max_size > 1000:
-                    new_col['columnType'] = 'MEDIUMTEXT'
-        new_col['maximumSize'] = int(actual_max_size)
+            col_type = infer_column_type(new_data_df[col_name])
 
-    return [Column(**col) for col in new_cols.values()]
+        col = Column(name=col_name, column_type=col_type)
+        col = configure_column_from_data(col, new_data_df[col_name])
+        coldefs.append(col)
+
+    return coldefs
 
 
-def analyze_and_update(files: List[str], all: bool = False, table_names: List[str] = False):
+def analyze_and_update(files: List[str], all: bool = False, table_names: Union[List[str], bool] = False):
     """
     - Upload json files to Synapse
     - Requires one parameter (files, all, or table_names) to be provided
@@ -181,6 +159,8 @@ def analyze_and_update(files: List[str], all: bool = False, table_names: List[st
 
         for file in files:
             table_id = PATHS_TO_IDS.get(file)
+            if table_id is None:
+                raise ValueError(f"No Synapse table ID found for file: {file}")
             populate_table(syn, file, table_id)
 
     except Exception as e:

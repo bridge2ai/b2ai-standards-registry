@@ -1,16 +1,136 @@
-import os
-from typing import Any, Dict, List, Optional
-import pandas as pd
-from synapseclient import Synapse, Table, Schema, Column
-from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
-import csv
-import sys
 """
+Utility helpers for B2AI standards registry data loading and Synapse integration.
+
 Expected Environment:
     - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
       Instructions for setting up your auth token are documented in the README.
 """
+import csv
+import json
+import os
+import sys
+from collections.abc import Mapping
+from dataclasses import replace
+from typing import List, Optional
+
+import numpy as np
+import pandas as pd
+from synapseclient import Synapse
+from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
+from synapseclient.models import Column, ColumnType, FacetType, Table
 PROJECT_ID = 'syn63096806'
+
+# Base path for JSON data files
+DATA_PATH = 'project/data'
+
+
+def load_json_to_dataframe(table_name: str) -> pd.DataFrame:
+    """
+    Load a JSON data file into a pandas DataFrame.
+
+    :param table_name: Name of the table (e.g., 'DataStandardOrTool')
+    :return: DataFrame with the table data, NaNs replaced with empty strings for non-numeric columns
+    """
+    file_path = os.path.join(DATA_PATH, f"{table_name}.json")
+
+    with open(file_path, "r") as file:
+        data = json.load(file)
+
+    # Each JSON file begins with a key that maps to the list of records
+    data = next(iter(data.values()), [])
+
+    if not isinstance(data, list):
+        raise ValueError(f"Could not get list of data from {file_path}")
+
+    df = pd.DataFrame(data=data)
+
+    # Replace NaNs with empty strings for all non-numeric columns
+    for col in df.columns:
+        df[col] = df[col].apply(lambda x: '' if isinstance(
+            x, float) and np.isnan(x) else x)
+
+    return df
+
+
+SYNAPSE_MIN_LIST_SIZE = 2
+
+
+def infer_column_type(values: pd.Series) -> ColumnType:
+    """
+    Infer Synapse column type from a pandas Series.
+    Handles NaN values and empty strings by inferring from non-null/non-empty values only.
+    """
+    # Filter out NaN, None, and empty strings for type inference
+    non_null = values.dropna()
+    non_empty = non_null[non_null.apply(lambda x: x != '')]
+
+    if len(non_empty) == 0:
+        return ColumnType.STRING
+
+    # Check types of non-empty values
+    types = non_empty.map(type).unique()
+
+    if len(types) == 1:
+        t = types[0]
+        if t == bool:
+            return ColumnType.BOOLEAN
+        elif t == int:
+            return ColumnType.INTEGER
+        elif t == float:
+            return ColumnType.DOUBLE
+        elif t == list:
+            return ColumnType.STRING_LIST
+        else:
+            return ColumnType.STRING
+    else:
+        return ColumnType.STRING
+
+
+def configure_column_from_data(col: Column, values: pd.Series, faceted: bool = False) -> Column:
+    """
+    Configure a Column's metadata (sizes, faceting) based on actual data values.
+
+    This handles STRING, STRING_LIST, INTEGER_LIST column types by calculating
+    appropriate maximum_size and maximum_list_length values from the data.
+
+    :param col: Column object to configure
+    :param values: pandas Series containing the column's data
+    :param faceted: Whether this column should be faceted
+    :return: New Column object with updated metadata
+    """
+    col = replace(col, id=None)
+
+    if faceted:
+        col = replace(col, facet_type=FacetType.ENUMERATION)
+
+    if col.column_type == ColumnType.STRING_LIST:
+        list_values = [v for v in values if isinstance(v, list)]
+        if list_values:
+            max_item_length = max(
+                (max(len(item), 20) for items in list_values for item in items), default=20)
+            max_items = max(len(items) for items in list_values)
+        else:
+            max_item_length = 20
+            max_items = SYNAPSE_MIN_LIST_SIZE
+        col = replace(col, maximum_list_length=max(
+            max_items, SYNAPSE_MIN_LIST_SIZE), maximum_size=max_item_length)
+    elif col.column_type == ColumnType.INTEGER_LIST:
+        list_values = [v for v in values if isinstance(v, list)]
+        max_items = max((len(items) for items in list_values),
+                        default=SYNAPSE_MIN_LIST_SIZE)
+        col = replace(col, maximum_list_length=max(
+            max_items, SYNAPSE_MIN_LIST_SIZE))
+    elif col.column_type == ColumnType.STRING:
+        max_size = int(values.astype(str).str.len().max())
+        if max_size > 2000:
+            col = replace(col, column_type=ColumnType.LARGETEXT)
+        elif max_size > 1000:
+            col = replace(col, column_type=ColumnType.MEDIUMTEXT,
+                          maximum_size=max_size)
+        else:
+            col = replace(col, maximum_size=max(max_size, 1))
+
+    return col
 
 
 def get_auth_token():
@@ -91,40 +211,118 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
 
     csv.field_size_limit(sys.maxsize)
 
-    try:
-        existing_tables = syn.getChildren(PROJECT_ID, includeTypes=['table'])
-        for table in existing_tables:
-            if table['name'] == table_name:
-                if table_id:
-                    if table['id'] != table_id:
-                        table_id_list = table_id.split('.')
-                        table_id = table_id_list[0]
-                        table_version = table_id_list[1] if table_id_list[1] else None
-                        if table_version is None:
-                            raise Exception(
-                                f"got table_id mismatch for {table_name}: {table['id']} != {table_id}")
-                else:
-                    table_id = table['id']
-                query_result = syn.tableQuery(f"SELECT * FROM {table_id}")
-                print(
-                    f"Table '{table_name}' already exists. Deleting {len(query_result)} rows.")
-                syn.delete(query_result)
-                break
-    except Exception as e:
-        print(
-            f"Error checking for and clearing existing table {table_name}: {e}")
-
-    schema = Schema(name=table_name, columns=columnDefs, parent=PROJECT_ID)
-    table = Table(name=table_name, parent_id=PROJECT_ID,
-                  schema=schema, values=df)
-    table.tableId = table_id
-    table = syn.store(table)
-    table_id = table_id or table.get('id', table.get('tableId'))
+    # Resolve table_id if not provided
     if not table_id:
-        raise f"Couldn't find table_id for {table_name}"
+        for existing_table in syn.getChildren(PROJECT_ID, includeTypes=['table']):
+            if isinstance(existing_table, str):
+                raise TypeError(
+                    "Expected a table-like object with 'name' and 'id' attributes "
+                    f"from syn.getChildren(), got string: {existing_table!r}"
+                )
+            if isinstance(existing_table, Mapping):
+                if "name" not in existing_table or "id" not in existing_table:
+                    raise TypeError(
+                        "Expected a table-like mapping with 'name' and 'id' keys "
+                        f"from syn.getChildren(), got {type(existing_table)!r}: {existing_table!r}"
+                    )
+                existing_name = existing_table["name"]
+                existing_id = existing_table["id"]
+                if existing_name == table_name:
+                    table_id = existing_id
+                    break
+                continue
+            if not hasattr(existing_table, "name") or not hasattr(existing_table, "id"):
+                raise TypeError(
+                    "Expected a table-like object with 'name' and 'id' attributes "
+                    f"from syn.getChildren(), got {type(existing_table)!r}: {existing_table!r}"
+                )
+            if existing_table.name == table_name:
+                table_id = existing_table.id
+                break
+
+    if table_id:
+        # Delete all rows first (using only ROW_ID/ROW_VERSION to avoid
+        # SELECT * failures when column types have changed)
+        print(f"  Deleting rows from {table_name}...")
+        Table(id=table_id).delete_rows(
+            query=f"SELECT ROW_ID, ROW_VERSION FROM {table_id}")
+
+        # Delete all existing columns so the new schema starts clean.
+        # Table.store() adds columns but doesn't remove old ones and can't
+        # change column types in place.
+        existing_table = Table(id=table_id).get(include_columns=True)
+        if isinstance(existing_table, str):
+            raise TypeError(
+                "Expected a table-like object with columns and delete_column() "
+                f"from Table.get(), got string: {existing_table!r}"
+            )
+        if not hasattr(existing_table, "columns"):
+            raise TypeError(
+                "Expected a table-like object with a 'columns' attribute "
+                f"from Table.get(), got {type(existing_table)!r}: {existing_table!r}"
+            )
+        if not hasattr(existing_table, "delete_column"):
+            raise TypeError(
+                "Expected a table-like object with delete_column() "
+                f"from Table.get(), got {type(existing_table)!r}: {existing_table!r}"
+            )
+        columns = existing_table.columns
+        if isinstance(columns, Mapping):
+            columns_iter = list(columns.values())
+        elif isinstance(columns, (list, tuple)):
+            columns_iter = list(columns)
+        else:
+            raise TypeError(
+                "Expected 'columns' to be a mapping or list-like collection, "
+                f"got {type(columns)!r}: {columns!r}"
+            )
+        for existing_col in columns_iter:
+            if isinstance(existing_col, Mapping):
+                if "name" not in existing_col:
+                    raise TypeError(
+                        "Expected column mapping with 'name' key, "
+                        f"got {type(existing_col)!r}: {existing_col!r}"
+                    )
+                col_name = existing_col["name"]
+            elif hasattr(existing_col, "name"):
+                col_name = existing_col.name
+            else:
+                raise TypeError(
+                    "Expected column-like object with 'name' attribute or key, "
+                    f"got {type(existing_col)!r}: {existing_col!r}"
+                )
+            if not isinstance(col_name, str) or not col_name.strip():
+                raise TypeError(
+                    "Expected column name to be a non-empty string, "
+                    f"got {type(col_name)!r}: {col_name!r}"
+                )
+            existing_table.delete_column(name=col_name)
+        existing_table.store()
+        print(f"  Cleared rows and columns from {table_name}")
+
+    table = Table(name=table_name, parent_id=PROJECT_ID, columns=columnDefs)
+    if table_id:
+        table.id = table_id
+    table = table.store()
+
+    # Synapse JSON columns need JSON strings. Replace \" with \u0022 to avoid
+    # ambiguity with CSV quote-doubling during upload (\" becomes \"" in CSV,
+    # which Synapse's server-side CSV parser can misinterpret).
+    for col in columnDefs:
+        if col.column_type == ColumnType.JSON and col.name in df.columns:
+            df[col.name] = df[col.name].apply(
+                lambda v: json.dumps(v).replace(
+                    '\\"', '\\u0022') if isinstance(v, (list, dict)) else '[]'
+            )
+
+    table.store_rows(values=df)
+    table_id = table_id or table.id
+    if not table_id:
+        raise Exception(f"Couldn't find table_id for {table_name}")
     try:
         syn.create_snapshot_version(table_id)
     except Exception as e:
-        print(f"Error creating new version of table {table_name}: {e}\nRetrying...")
+        print(
+            f"Error creating new version of table {table_name}: {e}\nRetrying...")
         table_id = table_id.split('.')[0]
-    print(f"Created table: {table.schema.name} ({table.tableId})")
+    print(f"Created table: {table.name} ({table.id})")
