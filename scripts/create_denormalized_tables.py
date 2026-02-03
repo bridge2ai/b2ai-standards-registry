@@ -285,6 +285,7 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
             if col_def:
                 src_col_name = col_def['name']
                 if isinstance(src_col_name, list):
+                    # Branch change: support multi-column transforms (e.g., build markdown from id + JSON)
                     # Multi-column: apply transform with multiple column values
                     transform_func = get_transform_function(
                         col_def['transform'])
@@ -516,6 +517,7 @@ def create_join_column(
 
     # Determine source columns
     if is_json_column:
+        # Branch change: JSON columns can be whole-record or field-mapped payloads
         if dest_col.get('whole_records'):
             source_fields = None  # Will use all fields
         else:
@@ -526,6 +528,7 @@ def create_join_column(
         is_multi_field = len(source_fields) > 1
 
     if not is_multi_field:
+        # Branch change: validate single-field configs to catch bad source_cols early
         if not isinstance(source_fields, list) or not source_fields:
             raise TypeError(
                 "Expected source_fields to be a non-empty list for single-field joins, "
@@ -574,6 +577,7 @@ def create_join_column(
         return json_objects
 
     def process_matching_rows(matching_rows):
+        # Branch change: centralize join output logic (JSON vs multi-field vs single-field)
         if matching_rows.empty:
             return []
 
@@ -599,6 +603,7 @@ def create_join_column(
     if reverse_lookup:
         # Reverse lookup: join table has lists pointing to base table IDs
         def process_reverse_ids(base_id):
+            # Branch change: allow reverse lookups where join columns contain base IDs
             def base_id_matches(join_col_val):
                 if isinstance(join_col_val, pd.Series):
                     join_col_val = list(join_col_val)
@@ -652,6 +657,7 @@ def create_join_column(
     if is_json_column:
         col_type = ColumnType.JSON
     elif dest_col.get('columnType'):
+        # Branch change: guard against invalid columnType names with explicit errors
         column_type_name = dest_col.get('columnType')
         if not isinstance(column_type_name, str) or not column_type_name.strip():
             raise TypeError(
@@ -703,6 +709,7 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
     json_path = os.path.join(DATA_PATH, f"{table_name}.json")
 
     if os.path.exists(json_path):
+        # Branch change: prefer local JSON snapshot when available to avoid Synapse calls
         # Load from local JSON file
         print(f"Loading '{table_name}' from {json_path}")
         df = load_json_to_dataframe(table_name)
@@ -712,6 +719,7 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
         df = TableModel.query(query=f"SELECT * FROM {table_info['id']}")
 
     if not isinstance(df, pd.DataFrame):
+        # Branch change: type-check loaded data to surface misconfigured loaders early
         raise TypeError(
             "Expected loaded table data to be a pandas DataFrame, "
             f"got {type(df)!r}: {df!r}"
