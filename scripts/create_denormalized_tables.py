@@ -315,23 +315,29 @@ def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[s
         base_df = src_tables[base_table_name]['df']
         join_columns = []
 
-        # TODO: Clean up all these nearly-same var names
         for join_config in dest_table.get('join_columns', []):
-            join_tbl = join_config['join_tbl']
-            join_table = src_tables[join_tbl]
-            join_df = join_table['df']
+            join_table_name = join_config['join_tbl']
+            join_table = src_tables[join_table_name]
+            join_table_df = join_table['df']
 
             join_config['join_table_name'] = join_table['name']
             join_config['join_table_id'] = join_table['id']
 
-            base_tbl_col = join_config['base_tbl_col']
-            join_tbl_col = join_config['join_tbl_col']
+            base_join_col = join_config['base_tbl_col']
+            join_table_col = join_config['join_tbl_col']
 
-            for dest_col in join_config['dest_cols']:
-                faceted = dest_col.get('faceted', False)
+            for dest_col_config in join_config['dest_cols']:
+                faceted = dest_col_config.get('faceted', False)
 
                 col_def = create_join_column(
-                    base_table_name, base_df, join_df, base_tbl_col, join_tbl_col, join_config, dest_col)
+                    base_table_name,
+                    base_df,
+                    join_table_df,
+                    base_join_col,
+                    join_table_col,
+                    join_config,
+                    dest_col_config,
+                )
 
                 if col_def:
                     col_def['faceted'] = faceted
