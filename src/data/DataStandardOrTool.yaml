@@ -18450,6 +18450,106 @@ data_standardortools_collection:
     of research data.'
   requires_registration: false
   url: https://www.repronim.org/reproschema/
+  has_application:
+  - id: B2AI_APP:364
+    category: B2AI:Application
+    name: Bridge2AI Voice feature extraction dictionaries derived from ReproSchema protocols
+    description: In the Bridge2AI Precision Public Health (Voice) pipeline, ReproSchema
+      structured protocols are used as the source for data dictionaries that drive
+      audio feature extraction and derivative generation. The workflow describes dictionaries
+      retrieving protocol content from ReproSchema and packaging metadata in machine-readable
+      JSON artifacts (including BIDS JSON and RO-Crate exports) to support reproducible
+      processing. These derivatives include fixed and temporal waveform features produced
+      to enable AI/ML-ready interaction, making ReproSchema an operational metadata
+      layer that supports consistent feature engineering and downstream model-development
+      workflows across datasets.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.48550/arxiv.2509.10432
+      ref_title: "Standards in the Preparation of Biomedical Research Metadata: A
+        Bridge2AI Perspective"
+      ref_authors:
+      - Caufield H
+      - Ghosh S
+      - Kong SW
+      - Parker J
+      - Sheffield N
+      - Patel B
+      - Williams A
+      - Clark T
+      - Munoz-Torres M
+      ref_publication_year: 2025
+      ref_journal: arXiv
+    - ref_url: https://doi.org/10.1101/2024.10.23.619844
+      ref_title: "AI-readiness for Biomedical Data: Bridge2AI Recommendations"
+      ref_authors:
+      - Clark T
+      - Caufield H
+      - Parker JA
+      - Manir SA
+      - Amorim E
+      - Eddy J
+      - Ghosh SS
+      - Williams A
+      - Munoz-Torres MC
+      ref_publication_year: 2024
+      ref_journal: bioRxiv
+  - id: B2AI_APP:365
+    category: B2AI:Application
+    name: MindLogger ReproSchema-encoded assessments for ML-ready behavioral data
+    description: MindLogger uses ReproSchema to encode applets, activities, and item-level
+      assessment content in provenance-preserving JSON-LD, creating harmonized and
+      machine-readable behavioral and clinical response structures. This representation
+      supports consistent variable definition, response interpretation, and reuse
+      of assessment instruments across studies, which are key prerequisites for assembling
+      AI-ready datasets from mobile mental health and digital phenotyping workflows.
+      While the cited implementation emphasizes data capture and harmonization rather
+      than direct model training, the ReproSchema-based encoding provides the standardized
+      substrate needed for robust downstream feature construction and predictive analytics.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/22369
+      ref_title: "Remote Digital Psychiatry for Mobile Mental Health Assessment and
+        Therapy: MindLogger Platform Development Study"
+      ref_authors:
+      - Klein A
+      - Clucas J
+      - Krishnakumar A
+      - Ghosh SS
+      - van Auken W
+      - Thonet B
+      - Alexander LM
+      - Merikangas KR
+      - Milham MP
+      ref_publication_year: 2021
+      ref_journal: J Med Internet Res
+  - id: B2AI_APP:366
+    category: B2AI:Application
+    name: ReproSchema validation and harmonization in NIDM-Terms for automated dataset querying
+    description: NIDM-Terms applies ReproSchema for validation and standardization
+      of assessment representations, including alignment of data element descriptions
+      and automated validation workflows in GitHub actions. Combined with JSON-LD
+      sidecars and structured concept annotations, this enables automated cross-dataset
+      querying and harmonized variable discovery in neuroimaging and phenotype collections.
+      The approach is an AI-enabling application because it improves metadata computability,
+      interoperability, and cohort selection readiness for machine learning pipelines
+      that depend on consistent assessment semantics across studies.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fninf.2023.1174156
+      ref_title: "NIDM-Terms: community-based terminology management for improved
+        neuroimaging dataset descriptions and query"
+      ref_authors:
+      - Queder N
+      - Tien VB
+      - Abraham SA
+      - Urchs SGW
+      - Helmer KG
+      - Chaplin D
+      - Ghosh SS
+      - Keator DB
+      ref_publication_year: 2023
+      ref_journal: Front Neuroinform
   publication:
     ref_url: ''
 - id: B2AI_STANDARD:272
