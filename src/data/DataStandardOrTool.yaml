@@ -23640,6 +23640,96 @@ data_standardortools_collection:
     compact binary format suitable for large-scale analysis and retraining pipelines.
   requires_registration: false
   url: https://developers.google.com/protocol-buffers/
+  has_application:
+  - id: B2AI_APP:367
+    category: B2AI:Application
+    name: TFRecord and tf.train.Example protobuf pipelines for biomedical graph and omics machine learning
+    description: Protocol Buffers are a core serialization layer in TensorFlow input
+      pipelines where training examples are stored in TFRecord streams as tf.train.Example
+      messages and parsed into typed tensors. In biomedical and biological data science,
+      this pattern supports scalable ingestion of high-volume, schema-controlled training
+      data such as molecular interaction graphs, metagenomics-derived features, multimodal
+      phenotypes, and longitudinal clinical covariates. TF-GNN workflows demonstrate
+      this directly by serializing graph samples to tf.train.Example protos on disk
+      and parsing them back into GraphTensor objects for model training, which is
+      highly relevant to graph-based biology tasks including pathway modeling and
+      patient-similarity learning.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.48550/arxiv.2207.03522
+      ref_title: 'TF-GNN: Graph Neural Networks in TensorFlow'
+      ref_authors:
+      - Ferludin O
+      - Eigenwillig A
+      - Blais M
+      - Zelle D
+      - Pfeifer J
+      - Sanchez-Gonzalez A
+      - Abu-El-Haija S
+      - Battaglia P
+      ref_publication_year: 2022
+      ref_journal: arXiv
+    - ref_url: https://doi.org/10.1145/3722215
+      ref_title: I/O in Machine Learning Applications on HPC Systems; A 360-degree
+        Survey
+      ref_authors:
+      - Lewis N
+      - Bez JL
+      - Byna S
+      ref_publication_year: 2025
+      ref_journal: ACM Comput Surv
+  - id: B2AI_APP:368
+    category: B2AI:Application
+    name: ONNX protobuf model interchange for biomedical AI deployment across frameworks
+    description: ONNX uses Protocol Buffers as its model schema and serialization
+      mechanism (for objects such as ModelProto, GraphProto, and TensorProto), enabling
+      models trained in one framework to be executed or analyzed in another runtime.
+      This protobuf-based interchange is valuable in biomedical AI where research
+      teams often develop models in heterogeneous stacks but must deploy reproducibly
+      across clinical or translational environments. Typical examples include cross-platform
+      deployment of imaging, pathology, and omics models where protobuf-serialized
+      ONNX artifacts preserve model structure and parameters for portable inference
+      and validation workflows.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.21105/jcon.00059
+      ref_title: Interoperating Deep Learning models with ONNX.jl
+      ref_authors:
+      - Shridhar A
+      - Tomson P
+      - Innes M
+      ref_publication_year: 2020
+      ref_journal: JuliaCon Proc
+  - id: B2AI_APP:369
+    category: B2AI:Application
+    name: Protobuf and gRPC messaging for distributed TensorFlow training in biomedical HPC workflows
+    description: In distributed TensorFlow systems, protocol buffer messages are
+      used to transmit graph definitions and runtime communication payloads over gRPC
+      between workers, masters, and parameter servers. This architecture is directly
+      relevant to biomedical high-performance computing where large deep learning
+      workloads in imaging, genomics, and multimodal phenotype modeling require coordinated
+      multi-node training with reliable, typed message exchange. Protobuf serialization
+      supports compatibility across service versions while preserving throughput-oriented
+      communication patterns needed for large-scale model development and inference
+      services in research and translational settings.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=osu1531827968620294&disposition=inline
+      ref_title: Benchmarking and Accelerating TensorFlow-based Deep Learning on
+        Modern HPC Systems
+      ref_authors:
+      - Biswas R
+      ref_publication_year: 2018
+      ref_journal: PhD Thesis
+    - ref_url: https://doi.org/10.1145/3722215
+      ref_title: I/O in Machine Learning Applications on HPC Systems; A 360-degree
+        Survey
+      ref_authors:
+      - Lewis N
+      - Bez JL
+      - Byna S
+      ref_publication_year: 2025
+      ref_journal: ACM Comput Surv
   publication:
     ref_url: ''
 - id: B2AI_STANDARD:366
