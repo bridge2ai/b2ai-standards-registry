@@ -13568,6 +13568,134 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:38
   url: https://genomicsstandardsconsortium.github.io/mixs/
+  has_application:
+  - id: B2AI_APP:353
+    category: B2AI:Application
+    name: ML and NLP extraction and enrichment of metagenomics metadata using MIxS
+    description: Nassar et al. used machine learning and natural language processing
+      to extract metagenomics metadata from publication methods text and align those
+      extracted values to MIxS terms for large-scale repository enrichment. In this
+      workflow, MIxS provides the target schema for normalization and comparison against
+      author-submitted ENA metadata across thousands of studies. The approach uses
+      MIxS fields such as env_package, lib_layout, geo_loc_name, seq_meth, and collection_date
+      to quantify overlap, identify missing metadata, and support curation of richer
+      records. This is a direct AI application because model-generated annotations
+      are operationalized through MIxS structure to improve machine-actionable metadata
+      coverage for downstream analytics.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/gigascience/giac077
+      ref_title: A machine learning framework for discovery and enrichment of metagenomics
+        metadata from open access publications
+      ref_authors:
+      - Nassar M
+      - Rogers AB
+      - Talo F
+      - Sanchez S
+      - Shafique Z
+      - Finn RD
+      - McEntyre J
+      ref_publication_year: 2022
+      ref_journal: GigaScience
+    - ref_url: https://doi.org/10.1038/nbt.1823
+      ref_title: Minimum information about a marker gene sequence (MIMARKS) and minimum
+        information about any (x) sequence (MIxS) specifications
+      ref_authors:
+      - Yilmaz P
+      - Kottmann R
+      - Field D
+      - Knight R
+      - Cole JR
+      - Amaral-Zettler L
+      - Gilbert JA
+      - Glockner FO
+      ref_publication_year: 2011
+      ref_journal: Nat Biotechnol
+  - id: B2AI_APP:354
+    category: B2AI:Application
+    name: LLM-based microbiome metadata harmonization benchmarked against MIxS term extraction
+    description: Higashi et al. evaluated an LLM-enabled harmonization pipeline for
+      heterogeneous microbiome sample metadata and explicitly compared it to a MIxS
+      term-based extraction baseline. In this setting, MIxS terminology and field
+      organization serve as the structured reference frame for automated extraction
+      and harmonization quality assessment on key variables such as age, biological
+      sex, BMI, and mode of delivery. The comparison demonstrates how MIxS can anchor
+      reproducible benchmarking between rule or term-based metadata extraction and
+      generative AI approaches. This enables more reliable integration of study-level
+      metadata for downstream AI and statistical analysis.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1101/2024.10.26.620145
+      ref_title: Automated Harmonization and Large-Scale Integration of Heterogeneous
+        Biomedical Sample Metadata Using Large Language Models
+      ref_authors:
+      - Higashi K
+      - Nakagawa Z
+      - Yamada T
+      - Mori H
+      ref_publication_year: 2024
+      ref_journal: bioRxiv
+    - ref_url: https://doi.org/10.1007/978-1-0716-3838-5_20
+      ref_title: A Practical Approach to Using the Genomic Standards Consortium MIxS
+        Reporting Standard for Comparative Genomics and Metagenomics
+      ref_authors:
+      - Eloe-Fadrosh EA
+      - Mungall CJ
+      - Miller MA
+      - Smith M
+      - Patil SS
+      - Kelliher JM
+      - Johnson LYD
+      - Rodriguez FE
+      - Chain PSG
+      - Schriml LM
+      ref_publication_year: 2024
+      ref_journal: Methods Mol Biol
+  - id: B2AI_APP:355
+    category: B2AI:Application
+    name: Bridge2AI AI-ready genomic metadata recommendations mapped to MIxS
+    description: Bridge2AI Genomic Information Standards Team recommendations for
+      AI-ready genomic data identify MIxS as an existing community standard to use
+      when possible for sample-origin and sequencing-preparation metadata. The recommendations
+      map key fields relevant to model development and interpretation, including sex
+      assigned at birth, genetic ancestry, anatomical source, library preparation,
+      sequencing method, and instrument metadata, to standards that include MIxS.
+      This creates a practical Bridge2AI application of MIxS as a harmonization substrate
+      for interoperable, machine-readable genomic metadata that supports AI training,
+      covariate control, reproducibility, and cross-dataset integration.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.48550/arxiv.2512.11519
+      ref_title: Bridge2AI Recommendations for AI-Ready Genomic Data
+      ref_authors:
+      - Cannon M
+      - Goar WA
+      - Lee IH
+      - Stevenson J
+      - Heiser A
+      - Sheffield N
+      - Eddy J
+      - Munoz-Torres M
+      - Kong SW
+      - Wagner AH
+      ref_publication_year: 2025
+      ref_journal: arXiv
+    - ref_url: https://doi.org/10.1007/978-1-0716-3838-5_20
+      ref_title: A Practical Approach to Using the Genomic Standards Consortium MIxS
+        Reporting Standard for Comparative Genomics and Metagenomics
+      ref_authors:
+      - Eloe-Fadrosh EA
+      - Mungall CJ
+      - Miller MA
+      - Smith M
+      - Patil SS
+      - Kelliher JM
+      - Johnson LYD
+      - Rodriguez FE
+      - Chain PSG
+      - Schriml LM
+      ref_publication_year: 2024
+      ref_journal: Methods Mol Biol
 - id: B2AI_STANDARD:210
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
