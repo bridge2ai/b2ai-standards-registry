@@ -23879,6 +23879,83 @@ data_standardortools_collection:
     making it an essential component of the Semantic Web infrastructure.
   requires_registration: false
   url: https://www.w3.org/TR/rdf-schema/
+  has_application:
+  - id: B2AI_APP:370
+    category: B2AI:Application
+    name: Bridge2AI CM4AI provenance and metadata graphs serialized in RDF ecosystem formats
+    description: In the Bridge2AI Cell Maps for AI (CM4AI) program, metadata and
+      provenance are exposed as machine-actionable graph representations with alternate
+      serializations in JSON-LD and RDF-XML and entailment over evidence graphs in
+      FAIRSCAPE. While this workflow is broader than standalone RDFS modeling, it
+      operationalizes RDFS-compatible semantic graph infrastructure for AI-readiness,
+      linking datasets, software, and computational provenance in interoperable graph
+      form to support reproducibility, traceability, and reuse of biomedical resources
+      in downstream AI and analytical workflows.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1101/2024.05.21.589311
+      ref_title: 'Cell Maps for Artificial Intelligence: AI-Ready Maps of Human Cell Architecture from Disease-Relevant Cell Lines'
+      ref_authors:
+      - Clark T
+      - Mohan J
+      - Schaffer L
+      - Obernier K
+      - Manir SA
+      - Churas CP
+      - Ideker T
+      ref_publication_year: 2024
+      ref_journal: bioRxiv
+  - id: B2AI_APP:371
+    category: B2AI:Application
+    name: Ecotoxicology knowledge graph embeddings using RDFS trait hierarchies
+    description: The TERA ecotoxicology knowledge graph integrates biodiversity and
+      chemical datasets in RDF and applies knowledge graph embedding models to predict
+      whether chemicals have lethal effects on organisms. A key RDFS contribution
+      in this pipeline is the use of trait subsumption relationships expressed with
+      `rdfs:subClassOf`, which provide hierarchical semantic structure for integrated
+      graph construction prior to embedding-based prediction. This demonstrates a
+      direct biomedical and biological AI application in which RDFS hierarchy semantics
+      support machine learning over life science knowledge graphs.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3233/sw-222804
+      ref_title: Prediction of adverse biological effects of chemicals using knowledge
+        graph embeddings
+      ref_authors:
+      - Myklebust EB
+      - Jimenez-Ruiz E
+      - Chen J
+      - Wolf R
+      - Tollefsen KE
+      ref_publication_year: 2022
+      ref_journal: Semantic Web
+  - id: B2AI_APP:372
+    category: B2AI:Application
+    name: Metabolomics and disease association inference with RDFS class hierarchies in FORUM
+    description: FORUM uses Semantic Web knowledge graphs to infer associations between
+      chemicals and biomedical concepts by propagating annotations across class hierarchies.
+      The framework explicitly uses `rdfs:subClassOf` and transitive true-path inference
+      to derive higher-level relations, then evaluates those inferred associations
+      statistically before instantiating significant links back into the graph. In
+      practice, this RDFS-driven abstraction and relation generation creates analyzable
+      features and candidate associations that support downstream computational discovery
+      and machine-learning-oriented hypothesis generation in metabolomics and biomedical
+      interpretation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btab627
+      ref_title: 'FORUM: building a Knowledge Graph from public databases and scientific
+        literature to extract associations between chemicals and diseases'
+      ref_authors:
+      - Delmas M
+      - Filangi O
+      - Paulhe N
+      - Vinson F
+      - Duperier C
+      - Jourdan F
+      - Frainay C
+      ref_publication_year: 2021
+      ref_journal: Bioinformatics
   publication:
     ref_url: ''
 - id: B2AI_STANDARD:371
