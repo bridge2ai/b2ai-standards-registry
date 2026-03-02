@@ -6,7 +6,7 @@
 
 **contributor orcid:** ORCID:0000-0001-5705-7831
 
-**description:** One or more complete collections of gene sequences from a single individual, potentially including ony exon sequences.
+**description:** One or more complete collections of gene sequences from a single individual, potentially including any exon sequences.
 
 **edam id:** edam.data:1288
 

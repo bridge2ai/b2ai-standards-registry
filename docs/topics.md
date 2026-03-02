@@ -27,6 +27,9 @@ flowchart LR
         DATA --> SURVEY(Survey)
         DATA --> ENV(Environment)
         DATA --> CHEM(Cheminformatics)
+        DATA --> METADATA(Metadata)
+        DATA --> DATAPKG("Data Packaging")
+        METADATA --> ONTOLOGY(Ontology)
 
         %% Molecular / omics branch
         BIO --> MOLBIO("Molecular Biology")
@@ -131,6 +134,9 @@ flowchart LR
         click VOICEDIS "VoiceDisorders/" "Voice Disorders"
         click DRUG "Drug/" "Drug"
         click CHEM "Cheminformatics/" "Cheminformatics"
+        click METADATA "Metadata/" "Metadata"
+        click DATAPKG "DataPackaging/" "Data Packaging"
+        click ONTOLOGY "Ontology/" "Ontology"
         click SURVEY "Survey/" "Survey"
         click CELL "Cell/" "Cell"
         click NEURON "Neuron/" "Neuron"
