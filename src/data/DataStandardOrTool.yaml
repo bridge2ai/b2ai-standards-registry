@@ -6145,6 +6145,7 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:11
   has_training_resource:
   - B2AI_STANDARD:849
+  - B2AI_STANDARD:940
   is_open: true
   name: DCMR
   purpose_detail: DICOM Part 16 Content Mapping Resource (DCMR) is a comprehensive
@@ -6268,6 +6269,7 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:11
   has_training_resource:
   - B2AI_STANDARD:849
+  - B2AI_STANDARD:941
   is_open: true
   name: DICOMweb
   purpose_detail: 'DICOMweb (DICOM Part 18) establishes RESTful web service standards
@@ -12050,6 +12052,7 @@ data_standardortools_collection:
   - B2AI_ORG:115
   has_training_resource:
   - B2AI_STANDARD:848
+  - B2AI_STANDARD:942
   is_open: true
   name: LOINC
   purpose_detail: LOINC (Logical Observation Identifier Names and Codes) is a comprehensive,
@@ -20769,6 +20772,8 @@ data_standardortools_collection:
   description: Variation Representation Specification
   has_relevant_organization:
   - B2AI_ORG:117
+  has_training_resource:
+  - B2AI_STANDARD:943
   is_open: true
   name: VRS
   publication:
@@ -35216,6 +35221,7 @@ data_standardortools_collection:
   - B2AI_ORG:76
   has_training_resource:
   - B2AI_STANDARD:844
+  - B2AI_STANDARD:944
   is_open: true
   name: ATHENA
   purpose_detail: A resource of searchable and loadable standardized vocabularies.
@@ -35282,6 +35288,8 @@ data_standardortools_collection:
   description: AtriumDB
   has_relevant_organization:
   - B2AI_ORG:117
+  has_training_resource:
+  - B2AI_STANDARD:945
   is_open: false
   name: AtriumDB
   publication:
@@ -38431,6 +38439,8 @@ data_standardortools_collection:
   formal_specification: https://github.com/idekerlab/MuSIC
   has_relevant_organization:
   - B2AI_ORG:116
+  has_training_resource:
+  - B2AI_STANDARD:946
   is_open: true
   name: MuSIC
   publication:
@@ -43516,6 +43526,8 @@ data_standardortools_collection:
   formal_specification: https://github.com/audeering/opensmile
   has_relevant_organization:
   - B2AI_ORG:117
+  has_training_resource:
+  - B2AI_STANDARD:947
   is_open: true
   name: openSMILE
   purpose_detail: openSMILE (open-source Speech and Music Interpretation by Large-space
@@ -43614,6 +43626,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Praat software
   formal_specification: https://github.com/praat/praat
+  has_training_resource:
+  - B2AI_STANDARD:948
   has_application:
   - category: B2AI:Application
     description: Praat was used to extract voice quality and prosodic features (pitch
@@ -43928,6 +43942,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Parselmouth software
   formal_specification: https://github.com/YannickJadoul/Parselmouth
+  has_training_resource:
+  - B2AI_STANDARD:949
   has_application:
   - category: B2AI:Application
     description: Parselmouth, the Python wrapper for Praat, was used to build a reproducible
@@ -47172,5 +47188,197 @@ data_standardortools_collection:
     packaging and metadata structure.
   requires_registration: false
   url: https://www.researchobject.org/ro-crate/specification.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:940
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Content Mapping Resource
+  has_relevant_data_substrate:
+  - B2AI_SUBSTRATE:11
+  has_relevant_organization:
+  - B2AI_ORG:25
+  is_open: true
+  name: DICOM Part 16 Guidance
+  purpose_detail: Official DICOM Part 16 page describing the Content Mapping Resource,
+    including templates, context groups, and structured-report semantics used throughout
+    DICOM implementations.
+  requires_registration: false
+  url: https://www.dicomstandard.org/standards/view/content-mapping-resource
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:941
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Web Services
+  has_relevant_data_substrate:
+  - B2AI_SUBSTRATE:11
+  has_relevant_organization:
+  - B2AI_ORG:25
+  is_open: true
+  name: DICOMweb Guidance
+  purpose_detail: Official DICOM Part 18 page covering RESTful web services, DICOMweb
+    service types, resources, transactions, and payload conventions for web-based
+    imaging interoperability.
+  requires_registration: false
+  url: https://www.dicomstandard.org/standards/view/web-services
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:942
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Videos - LOINC
+  has_relevant_organization:
+  - B2AI_ORG:53
+  is_open: true
+  name: LOINC Videos
+  purpose_detail: Official LOINC video library with introductory and topic-specific
+    recordings covering LOINC basics, structure of names, search syntax, and related
+    terminology workflows.
+  requires_registration: false
+  url: https://loinc.org/videos/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:943
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:35
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Quick Start - GA4GH Variation Representation Specification
+  has_relevant_organization:
+  - B2AI_ORG:34
+  is_open: true
+  name: VRS Quick Start
+  purpose_detail: Official VRS quick-start guide that introduces the specification,
+    points readers to educational Python notebooks, and walks through core implementation
+    concepts for representing genomic variation.
+  requires_registration: false
+  url: https://vrs.ga4gh.org/en/stable/quickstart.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:944
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHDSI Tutorial Program
+  has_relevant_organization:
+  - B2AI_ORG:76
+  is_open: true
+  name: OHDSI Standardized Vocabularies Tutorial
+  purpose_detail: OHDSI tutorial deck focused on standardized vocabularies, Athena,
+    vocabulary domains and relationships, and practical vocabulary workflows in the
+    OHDSI ecosystem.
+  requires_registration: false
+  url: https://www.ohdsi.org/wp-content/uploads/2016/11/OHDSI-Tutorial-Standardized-Vocabularies-24Sep2016.pdf
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:945
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:37
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: AtriumDB Quick Start
+  purpose_detail: Public AtriumDB package page with installation instructions and
+    quick-start examples for creating datasets, connecting to existing stores, and
+    retrieving waveform data programmatically.
+  requires_registration: false
+  url: https://pypi.org/project/atriumdb/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:946
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:26
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: idekerlab/MuSIC
+  has_relevant_organization:
+  - B2AI_ORG:116
+  is_open: true
+  name: MuSIC Documentation
+  purpose_detail: The public MuSIC repository provides installation instructions,
+    workflow setup, example commands, and project documentation for running the multi-scale
+    integrated cell pipeline.
+  requires_registration: false
+  url: https://github.com/idekerlab/MuSIC
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:947
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:37
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: openSMILE Python - Documentation
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: openSMILE Python Documentation
+  purpose_detail: Official openSMILE Python documentation with installation guidance,
+    supported feature sets, and usage examples for extracting audio features in Python.
+  requires_registration: false
+  url: https://audeering.github.io/opensmile-python/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:948
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:36
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Intro
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: Praat Intro Tutorial
+  purpose_detail: Official introductory Praat tutorial covering recording, viewing,
+    spectral analysis, pitch and formant analysis, annotation, and basic manipulation
+    workflows.
+  requires_registration: false
+  url: https://www.fon.hum.uva.nl/praat/manual/Intro.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:949
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:36
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Parselmouth - Praat in Python, the Pythonic way
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: Parselmouth Documentation
+  purpose_detail: Official Parselmouth documentation with getting-started instructions,
+    examples, and API references for using Praat functionality from Python.
+  requires_registration: false
+  url: https://parselmouth.readthedocs.io/en/stable/
   publication:
     ref_url: ''
