@@ -4478,6 +4478,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Common Fund Data Ecosystem Crosscut Metadata Model
   formal_specification: https://osf.io/bq6k9/
+  has_training_resource:
+  - B2AI_STANDARD:930
   is_open: true
   name: CFDE C2M2
   purpose_detail: The Common Fund Data Ecosystem (CFDE) Crosscut Metadata Model (C2M2)
@@ -6001,6 +6003,7 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:11
   has_training_resource:
   - B2AI_STANDARD:849
+  - B2AI_STANDARD:933
   is_open: true
   name: DICOM Part 12
   purpose_detail: DICOM Part 12 specifies media formats and physical media for exchanging
@@ -7797,6 +7800,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:846
   - B2AI_STANDARD:847
   - B2AI_STANDARD:850
+  - B2AI_STANDARD:934
   is_open: true
   name: FHIR
   purpose_detail: Fast Healthcare Interoperability Resources (FHIR) is a standard
@@ -11179,6 +11183,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: International Classification of Diseases 10th Revision Clinical Modification
+  has_training_resource:
+  - B2AI_STANDARD:935
   is_open: true
   name: ICD-10-CM
   purpose_detail: ICD-10-CM (International Classification of Diseases, 10th Revision,
@@ -13053,6 +13059,8 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:57
   - B2AI_ORG:115
+  has_training_resource:
+  - B2AI_STANDARD:936
   is_open: true
   name: WFDB Format
   purpose_detail: The WFDB (WaveForm DataBase) format is a standardized file format
@@ -16221,6 +16229,7 @@ data_standardortools_collection:
   - B2AI_ORG:114
   has_training_resource:
   - B2AI_STANDARD:844
+  - B2AI_STANDARD:937
   is_open: true
   name: OMOP CDM
   publication:
@@ -22402,6 +22411,8 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:16
   has_relevant_organization:
   - B2AI_ORG:116
+  has_training_resource:
+  - B2AI_STANDARD:938
   is_open: true
   name: HDF5
   purpose_detail: HDF5 is a data model, library, and file format for storing and managing
@@ -24323,6 +24334,8 @@ data_standardortools_collection:
   formal_specification: https://www.researchobject.org/ro-crate/specification.html
   has_relevant_organization:
   - B2AI_ORG:116
+  has_training_resource:
+  - B2AI_STANDARD:939
   is_open: true
   name: RO-CRATE
   publication:
@@ -39777,6 +39790,8 @@ data_standardortools_collection:
   formal_specification: https://github.com/Sage-Bionetworks/Synapse-Repository-Services
   has_relevant_organization:
   - B2AI_ORG:86
+  has_training_resource:
+  - B2AI_STANDARD:931
   is_open: true
   name: Synapse
   publication:
@@ -44023,6 +44038,8 @@ data_standardortools_collection:
   description: TorchAudio library
   has_relevant_organization:
   - B2AI_ORG:117
+  has_training_resource:
+  - B2AI_STANDARD:932
   is_open: true
   name: torchaudio
   purpose_detail: TorchAudio is an official PyTorch domain library that provides building
@@ -46801,7 +46818,7 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Quickstart for Model Developers — Determined AI Documentation
+  description: Quickstart for Model Developers - Determined AI Documentation
   is_open: true
   name: Determined Model Developer Quickstart
   purpose_detail: Official Determined tutorial that walks first-time users through
@@ -46958,5 +46975,202 @@ data_standardortools_collection:
     related indexing concepts used in sequence-alignment workflows.
   requires_registration: false
   url: https://samtools.github.io/hts-specs/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:930
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:1
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: CFDE Workbench Documentation
+  has_relevant_organization:
+  - B2AI_ORG:68
+  is_open: true
+  name: CFDE C2M2 Documentation
+  purpose_detail: Public CFDE Workbench documentation describing C2M2 metadata packages,
+    submission workflows, and related interoperability assets used to contribute and
+    standardize Common Fund metadata.
+  requires_registration: false
+  url: https://data.cfde.cloud/documentation
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:931
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Setting Up a Project | Synapse.org Docs
+  has_relevant_organization:
+  - B2AI_ORG:86
+  is_open: true
+  name: Synapse Project Tutorial
+  purpose_detail: Official Synapse tutorial covering project creation, dashboards,
+    file organization, wiki setup, sharing, and team-based collaboration in Synapse.
+  requires_registration: false
+  url: https://docs.synapse.org/synapse-docs/setting-up-a-project
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:932
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:37
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Torchaudio Tutorials
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: Torchaudio Tutorials
+  purpose_detail: Official torchaudio documentation portal collecting tutorials for
+    audio I/O, resampling, feature extraction, datasets, speech pipelines, and other
+    practical audio-processing workflows.
+  requires_registration: false
+  url: https://docs.pytorch.org/audio/stable/index.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:933
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Media Formats and Physical Media for Media Interchange
+  has_relevant_data_substrate:
+  - B2AI_SUBSTRATE:11
+  has_relevant_organization:
+  - B2AI_ORG:25
+  is_open: true
+  name: DICOM Part 12 Guidance
+  purpose_detail: Official DICOM Part 12 page describing media interchange concepts,
+    media formats, file-set behavior, and physical media requirements relevant to
+    DICOM offline exchange and archive workflows.
+  requires_registration: false
+  url: https://www.dicomstandard.org/standards/view/media-formats-and-physical-media-for-media-interchange
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:934
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Comprehensive HL7 FHIR Foundational Implementer Exam Preparation Course
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: false
+  name: FHIR Foundational Implementer Course
+  purpose_detail: Official HL7 asynchronous course covering core FHIR concepts, JSON
+    and XML resource structure, REST API queries, profiling, implementation guides,
+    and validation workflows for implementers.
+  requires_registration: true
+  url: https://courses.hl7.org/about-the-fhir-foundational-course
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:935
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 'Diagnosis Coding: Using the ICD-10-CM'
+  has_relevant_organization:
+  - B2AI_ORG:14
+  is_open: true
+  name: CMS ICD-10-CM Web-Based Training
+  purpose_detail: CMS web-based training that teaches ICD-10-CM structure and format,
+    coding conventions, and practical code-finding workflows for diagnosis coding.
+  requires_registration: false
+  url: https://www.cms.gov/training-education/medicare-learning-networkr-mln/resources-training/mln-web-based-training
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:936
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:37
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Waveform Data Formats - MIMIC WFDB Tutorials
+  has_relevant_data_substrate:
+  - B2AI_SUBSTRATE:9
+  has_relevant_organization:
+  - B2AI_ORG:57
+  - B2AI_ORG:115
+  is_open: true
+  name: WFDB Format Tutorial
+  purpose_detail: Public MIMIC WFDB tutorial explaining WFDB record structure, header
+    and signal files, waveform segmentation, and practical interpretation of waveform-formatted
+    ICU data.
+  requires_registration: false
+  url: https://wfdb.io/mimic_wfdb_tutorials/mimic/formatting.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:937
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Common Data Model Team Leads CDM 5.4 Workshop; Full Video Tutorial
+    Is Now Available
+  has_relevant_organization:
+  - B2AI_ORG:76
+  is_open: true
+  name: OHDSI CDM 5.4 Workshop
+  purpose_detail: Public OHDSI workshop covering OMOP CDM setup, governance, mapping,
+    White Rabbit, Rabbit in a Hat, USAGI, data quality, and ACHILLES in a single
+    tutorial sequence.
+  requires_registration: false
+  url: https://www.ohdsi.org/cdm-workshop-march2022/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:938
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:55
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Getting Started with HDF5
+  has_relevant_data_substrate:
+  - B2AI_SUBSTRATE:16
+  has_relevant_organization:
+  - B2AI_ORG:116
+  is_open: true
+  name: HDF5 Getting Started
+  purpose_detail: The HDF Group's getting-started guide aggregates introductory HDF5
+    tutorials, HDFView learning materials, basic programming examples, and links
+    to advanced HDF5 tutorials.
+  requires_registration: false
+  url: https://support.hdfgroup.org/documentation/hdf5/latest/_getting_started.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:939
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:55
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: RO-Crate Specification
+  has_relevant_organization:
+  - B2AI_ORG:116
+  is_open: true
+  name: RO-Crate Tutorials and Specification
+  purpose_detail: Official RO-Crate specification portal linking to tutorials, quick
+    references, and the current long-term-release specification for learning RO-Crate
+    packaging and metadata structure.
+  requires_registration: false
+  url: https://www.researchobject.org/ro-crate/specification.html
   publication:
     ref_url: ''
