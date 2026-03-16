@@ -55,6 +55,9 @@ flowchart LR
     B2AI_TOPIC_50[Psychiatry]
     B2AI_TOPIC_51[Psychiatric Disorders]
     B2AI_TOPIC_52[Training]
+    B2AI_TOPIC_53[Ontology]
+    B2AI_TOPIC_54[Metadata]
+    B2AI_TOPIC_55[Data Packaging]
     B2AI_TOPIC_1 --> B2AI_TOPIC_11
     B2AI_TOPIC_1 --> B2AI_TOPIC_20
     B2AI_TOPIC_1 --> B2AI_TOPIC_46
@@ -78,6 +81,8 @@ flowchart LR
     B2AI_TOPIC_5 --> B2AI_TOPIC_32
     B2AI_TOPIC_5 --> B2AI_TOPIC_37
     B2AI_TOPIC_5 --> B2AI_TOPIC_40
+    B2AI_TOPIC_5 --> B2AI_TOPIC_54
+    B2AI_TOPIC_5 --> B2AI_TOPIC_55
     B2AI_TOPIC_6 --> B2AI_TOPIC_29
     B2AI_TOPIC_7 --> B2AI_TOPIC_43
     B2AI_TOPIC_7 --> B2AI_TOPIC_44
@@ -109,6 +114,7 @@ flowchart LR
     B2AI_TOPIC_48 --> B2AI_TOPIC_22
     B2AI_TOPIC_48 --> B2AI_TOPIC_49
     B2AI_TOPIC_50 --> B2AI_TOPIC_51
+    B2AI_TOPIC_54 --> B2AI_TOPIC_53
 
     click B2AI_TOPIC_1 "topics/Biology/" "Biology"
     click B2AI_TOPIC_2 "topics/Cell/" "Cell"
@@ -162,6 +168,9 @@ flowchart LR
     click B2AI_TOPIC_50 "topics/Psychiatry/" "Psychiatry"
     click B2AI_TOPIC_51 "topics/PsychiatricDisorders/" "Psychiatric Disorders"
     click B2AI_TOPIC_52 "topics/Training/" "Training"
+    click B2AI_TOPIC_53 "topics/Ontology/" "Ontology"
+    click B2AI_TOPIC_54 "topics/Metadata/" "Metadata"
+    click B2AI_TOPIC_55 "topics/DataPackaging/" "Data Packaging"
 ```
 <!-- TOPIC_DIAGRAM_END -->
 

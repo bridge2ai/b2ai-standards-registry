@@ -22,6 +22,8 @@
 
 - [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown) (Clinical Observations)
 
+- [B2AI_TOPIC:55](../topics/DataPackaging.markdown) (Data Packaging)
+
 - [B2AI_TOPIC:6](../topics/Demographics.markdown) (Demographics)
 
 - [B2AI_TOPIC:7](../topics/Disease.markdown) (Disease)
@@ -31,6 +33,8 @@
 - [B2AI_TOPIC:40](../topics/Governance.markdown) (Governance)
 
 - [B2AI_TOPIC:15](../topics/Image.markdown) (Image)
+
+- [B2AI_TOPIC:54](../topics/Metadata.markdown) (Metadata)
 
 - [B2AI_TOPIC:21](../topics/NetworksAndPathways.markdown) (Networks And Pathways)
 
