@@ -6051,6 +6051,7 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:11
   has_training_resource:
   - B2AI_STANDARD:849
+  - B2AI_STANDARD:915
   is_open: true
   name: DICOM Part 14
   purpose_detail: DICOM Part 14 (PS3.14) specifies a standardized Display Function
@@ -8595,6 +8596,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:846
   - B2AI_STANDARD:847
   - B2AI_STANDARD:850
+  - B2AI_STANDARD:917
   is_open: true
   name: Provenance
   purpose_detail: 'The FHIR Provenance resource provides comprehensive tracking of
@@ -10902,6 +10904,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IHE Retrieve Form for Data Capture
+  has_training_resource:
+  - B2AI_STANDARD:919
   is_open: true
   name: RFD
   purpose_detail: IHE Retrieve Form for Data Capture (RFD) establishes a standard
@@ -15131,6 +15135,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Neurodata Without Borders
   formal_specification: https://github.com/NeurodataWithoutBorders
+  has_training_resource:
+  - B2AI_STANDARD:910
   is_open: true
   name: NWB
   publication:
@@ -16810,6 +16816,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:846
   - B2AI_STANDARD:847
   - B2AI_STANDARD:850
+  - B2AI_STANDARD:916
   is_open: true
   name: Open mHealth
   purpose_detail: Open mHealth (OMH) is a comprehensive ecosystem of data standards,
@@ -18027,6 +18034,8 @@ data_standardortools_collection:
   formal_specification: https://www.cdc.gov/nssp/documents/guides/syndrsurvmessagguide2_messagingguide_phn.pdf
   has_relevant_organization:
   - B2AI_ORG:40
+  has_training_resource:
+  - B2AI_STANDARD:913
   is_open: true
   name: PHIN Guide
   purpose_detail: The PHIN Messaging Guide for Syndromic Surveillance is a comprehensive,
@@ -18238,6 +18247,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Preferred Reporting Items for Systematic Reviews and Meta-Analyses
+  has_training_resource:
+  - B2AI_STANDARD:914
   is_open: true
   name: PRISMA
   publication:
@@ -19382,6 +19393,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Standard PREanalytical Code
+  has_training_resource:
+  - B2AI_STANDARD:912
   is_open: true
   name: SPREC
   publication:
@@ -21758,6 +21771,8 @@ data_standardortools_collection:
   description: Data Catalog Vocabulary
   has_relevant_organization:
   - B2AI_ORG:99
+  has_training_resource:
+  - B2AI_STANDARD:918
   is_open: true
   name: DCAT
   purpose_detail: An RDF vocabulary designed to facilitate interoperability between
@@ -32277,6 +32292,8 @@ data_standardortools_collection:
   formal_specification: https://github.com/monarch-initiative/phenio
   has_relevant_organization:
   - B2AI_ORG:58
+  has_training_resource:
+  - B2AI_STANDARD:911
   is_open: true
   name: PHENIO
   purpose_detail: An application ontology for accessing and comparing knowledge concerning
@@ -46542,5 +46559,201 @@ data_standardortools_collection:
     healthcare, financial services, retail, telecommunications, and manufacturing.'
   requires_registration: false
   url: https://open-metadata.org/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:910
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Training Materials - Neurodata Without Borders
+  is_open: true
+  name: NWB Training Materials
+  purpose_detail: Official NWB workshop materials covering NWB overview, NWB GUIDE,
+    PyNWB and MatNWB APIs, electrophysiology and optical physiology tutorials, data
+    conversion, DANDI usage, and related videos and slides for self-paced learning
+    or instructor-led events.
+  requires_registration: false
+  url: https://nwb.org/training-materials/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:911
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:3
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:25
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 'Phenomics Integrated Ontology (PHENIO): Documentation'
+  has_relevant_organization:
+  - B2AI_ORG:58
+  is_open: true
+  name: PHENIO Documentation
+  purpose_detail: Official PHENIO documentation with getting-started material, ontology
+    source listings, and workflow notes for understanding how the ontology is built
+    and used across the Monarch ecosystem.
+  requires_registration: false
+  url: https://monarch-initiative.github.io/phenio/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:912
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Standard PREanalytical Code (SPREC) v2.0 - ISBER
+  has_relevant_organization:
+  - B2AI_ORG:48
+  is_open: true
+  name: SPRECalc Tool and Release Notes
+  purpose_detail: ISBER's SPREC page provides the SPRECalc tool for automatic code
+    generation together with release notes describing technical requirements, tool
+    behavior, and data-entry rules for implementing SPREC in biobanking workflows.
+  requires_registration: false
+  url: https://www.isber.org/page/SPREC
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:913
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Onboarding Resources | National Syndromic Surveillance Program (NSSP)
+    | CDC
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: NSSP Onboarding Resources
+  purpose_detail: CDC's NSSP onboarding portal collects public guides, manuals, job
+    aids, and implementation guidance used to bring sites and facilities onto syndromic
+    surveillance data feeds, including the HL7 messaging guides used in PHIN-based
+    implementations.
+  requires_registration: false
+  url: https://www.cdc.gov/nssp/php/onboarding-resources/index.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:914
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: PRISMA-Scoping Reviews
+  is_open: true
+  name: PRISMA-ScR Introductory Video
+  purpose_detail: Official PRISMA extension page for scoping reviews that includes
+    the checklist, explanation paper, tip sheets, and an introductory video that
+    trains authors on applying PRISMA reporting practices in review workflows.
+  requires_registration: false
+  url: https://www.prisma-statement.org/scoping
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:915
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Grayscale Standard Display Function
+  has_relevant_data_substrate:
+  - B2AI_SUBSTRATE:11
+  has_relevant_organization:
+  - B2AI_ORG:25
+  is_open: true
+  name: DICOM GSDF Guidance
+  purpose_detail: Official DICOM page for the Grayscale Standard Display Function
+    explaining the display model, just-noticeable-difference scale, luminance calibration,
+    and conformance concepts that support implementation of DICOM Part 14.
+  requires_registration: false
+  url: https://www.dicomstandard.org/standards/view/grayscale-standard-display-function
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:916
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Data Integration Training
+  has_relevant_organization:
+  - B2AI_ORG:114
+  is_open: false
+  name: Open mHealth Data Integration Training
+  purpose_detail: Open mHealth's data integration training introduces participants
+    to the OMH schema ecosystem and the tools and patterns used to integrate patient-generated
+    health data from multiple sources into standardized OMH representations.
+  requires_registration: true
+  url: https://www.openmhealth.org/data-integration-training/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:917
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: HL7 FHIR Security Education Event
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: HL7 FHIR Security Capabilities
+  purpose_detail: Public HL7 education event with video sessions for implementers,
+    including the FHIR Security Capabilities track covering provenance basics, digital
+    signatures, audit logging, consent, and related implementation topics relevant
+    to the FHIR Provenance resource.
+  requires_registration: false
+  url: https://info.hl7.org/hl7-fhir-security-education-event-live
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:918
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:40
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Introduction to DCAT-AP for Data Spaces
+  has_relevant_organization:
+  - B2AI_ORG:99
+  is_open: true
+  name: DCAT-AP for Data Spaces
+  purpose_detail: Interoperable Europe course introducing participants to DCAT-AP,
+    with practical guidance on cataloguing and interoperability patterns for data
+    spaces built on the DCAT family of specifications.
+  requires_registration: true
+  url: https://interoperable-europe.ec.europa.eu/collection/semic-support-centre/news/introduction-dcat-ap-data-spaces
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:919
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 2017 Webinars - IHE International
+  has_relevant_organization:
+  - B2AI_ORG:46
+  is_open: true
+  name: IHE mRFD Webinar
+  purpose_detail: Archived IHE webinar materials for the mRFD Profile, a mobile extension
+    of Retrieve Form for Data Capture, providing implementation-oriented training
+    on form retrieval and submission workflows closely related to core RFD usage.
+  requires_registration: false
+  url: https://www.ihe.net/education/webinars/2017-webinars/
   publication:
     ref_url: ''
