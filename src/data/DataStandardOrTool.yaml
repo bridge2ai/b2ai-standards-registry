@@ -4141,6 +4141,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CLUSTAL-W Dendrogram Guide File Format
+  has_training_resource:
+  - B2AI_STANDARD:925
   is_open: true
   name: DND
   purpose_detail: The DND (Dendrogram) format is a structured format for representing
@@ -6754,6 +6756,7 @@ data_standardortools_collection:
   - B2AI_ORG:117
   has_training_resource:
   - B2AI_STANDARD:849
+  - B2AI_STANDARD:922
   is_open: true
   name: DICOM
   purpose_detail: Digital Imaging and Communications in Medicine (DICOM) is the international
@@ -18861,6 +18864,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Sequence Alignment/Map Format
+  has_training_resource:
+  - B2AI_STANDARD:929
   is_open: true
   name: SAM
   publication:
@@ -24825,6 +24830,8 @@ data_standardortools_collection:
   description: Silicon Graphics image format
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:19
+  has_training_resource:
+  - B2AI_STANDARD:926
   is_open: true
   name: SGI
   purpose_detail: Silicon Graphics Image (SGI or RGB) is a raster graphics file format
@@ -26974,6 +26981,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Cell Line Ontology
   formal_specification: https://github.com/CLO-Ontology/CLO
+  has_training_resource:
+  - B2AI_STANDARD:923
   is_open: true
   name: CLO
   publication:
@@ -28202,6 +28211,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Environmental conditions, treatments and exposures ontology
   formal_specification: https://github.com/EnvironmentOntology/environmental-exposure-ontology
+  has_training_resource:
+  - B2AI_STANDARD:928
   is_open: true
   name: ECTO
   purpose_detail: Exposures to experimental treatments of plants and model organisms.
@@ -30956,6 +30967,8 @@ data_standardortools_collection:
   formal_specification: https://github.com/obophenotype/ncbitaxon
   has_relevant_organization:
   - B2AI_ORG:74
+  has_training_resource:
+  - B2AI_STANDARD:924
   is_open: true
   name: NCBITAXON
   purpose_detail: 'The NCBI Taxonomy Database (NCBITAXON) provides a comprehensive
@@ -35912,6 +35925,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Determined
   formal_specification: https://github.com/determined-ai/determined
+  has_training_resource:
+  - B2AI_STANDARD:921
   is_open: true
   name: Determined
   purpose_detail: 'Determined is an open-source, enterprise-grade deep learning training
@@ -41979,6 +41994,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Xethub
+  has_training_resource:
+  - B2AI_STANDARD:920
   is_open: true
   name: Xethub
   purpose_detail: Git-based collaboration to large scale repositories of data, code,
@@ -44714,6 +44731,8 @@ data_standardortools_collection:
   description: Cytoscape Exchange
   has_relevant_organization:
   - B2AI_ORG:116
+  has_training_resource:
+  - B2AI_STANDARD:927
   is_open: true
   name: CX
   purpose_detail: Cytoscape Exchange (CX) is an aspect-oriented JSON-based format
@@ -46755,5 +46774,189 @@ data_standardortools_collection:
     on form retrieval and submission workflows closely related to core RFD usage.
   requires_registration: false
   url: https://www.ihe.net/education/webinars/2017-webinars/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:920
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:55
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: XetHub PyXet Documentation
+  is_open: true
+  name: PyXet Get Started
+  purpose_detail: Archived XetHub documentation for the PyXet SDK, covering versioned
+    access to Xet repositories from Python, notebook workflows, command-line usage,
+    and mounted filesystem access.
+  requires_registration: false
+  url: https://xethub.com/archive/toolbox/pyxet
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:921
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Quickstart for Model Developers — Determined AI Documentation
+  is_open: true
+  name: Determined Model Developer Quickstart
+  purpose_detail: Official Determined tutorial that walks first-time users through
+    installing a local cluster, launching training jobs, viewing experiment metrics,
+    and scaling from single-trial training to distributed and hyperparameter-search
+    workflows.
+  requires_registration: false
+  url: https://docs.determined.ai/tutorials/quickstart-mdldev.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:922
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 2019 DICOM Educational Conference
+  has_relevant_data_substrate:
+  - B2AI_SUBSTRATE:11
+  - B2AI_SUBSTRATE:19
+  has_relevant_organization:
+  - B2AI_ORG:25
+  is_open: true
+  name: DICOM Educational Conference
+  purpose_detail: Official DICOM educational conference materials introducing practitioners
+    to core DICOM concepts, reporting, vendor neutral archive topics, artificial
+    intelligence in imaging, and broader implementation guidance from DICOM experts.
+  requires_registration: false
+  url: https://www.dicomstandard.org/dicom-educational-conference
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:923
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Cell Line Ontology
+  is_open: true
+  name: CLO Documentation
+  purpose_detail: The OBO Foundry CLO page provides summary documentation, download
+    links, ontology browsers, and related publication links to support use of the
+    Cell Line Ontology in annotation and reasoning workflows.
+  requires_registration: false
+  url: https://obofoundry.org/ontology/clo.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:924
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCBI Taxonomy Quick Start Guide and Handbook
+  has_relevant_organization:
+  - B2AI_ORG:74
+  is_open: true
+  name: NCBI Taxonomy Help
+  purpose_detail: Official NCBI taxonomy portal linking to the Quick Start Guide,
+    FAQ, and Handbook for browsing taxonomic hierarchies, understanding taxon-specific
+    pages, and using linked taxonomy tools.
+  requires_registration: false
+  url: https://www.ncbi.nlm.nih.gov/taxonomy
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:925
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:26
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SeqWeb 3.1.2 Handout for ClustalW+
+  is_open: true
+  name: ClustalW Guide Tree Tutorial
+  purpose_detail: Public instructional handout for SeqWeb's ClustalW+ workflow, supporting
+    users in running multiple sequence alignments and interpreting the guide-tree
+    outputs that underpin DND dendrogram files.
+  requires_registration: false
+  url: https://bioinfo.nhri.edu.tw/sweb/SeqWeb3.1.2_handout.pdf
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:926
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SGI Image File Format Specification
+  has_relevant_data_substrate:
+  - B2AI_SUBSTRATE:19
+  is_open: true
+  name: SGI RGB File Format Specification
+  purpose_detail: Public specification describing the SGI RGB image header structure,
+    compression model, and scanline encoding details for developers and curators working
+    with legacy SGI image files.
+  requires_registration: false
+  url: https://www.paulbourke.net/dataformats/sgirgb/sgiversion.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:927
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:21
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Cytoscape Exchange Format Documentation
+  has_relevant_organization:
+  - B2AI_ORG:116
+  is_open: true
+  name: CX Format Specification
+  purpose_detail: Official Cytoscape Exchange documentation introducing the aspect-oriented
+    CX model, the CX2 specification, visual styles, and related schemas used for
+    network exchange workflows.
+  requires_registration: false
+  url: https://cytoscape.org/cx/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:928
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:11
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Environmental conditions, treatments and exposures ontology
+  is_open: true
+  name: ECTO Quick Start
+  purpose_detail: Official ECTO repository documentation with quick-start guidance,
+    annotation notes, ontology source organization, and editing instructions for
+    users and contributors working with exposure terms.
+  requires_registration: false
+  url: https://github.com/EnvironmentOntology/environmental-exposure-ontology
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:929
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Sequence Alignment/Map Format Specification
+  is_open: true
+  name: SAM/BAM Specification
+  purpose_detail: The official HTS specifications site and SAMv1 specification provide
+    implementation guidance for SAM fields, headers, tags, BAM compatibility, and
+    related indexing concepts used in sequence-alignment workflows.
+  requires_registration: false
+  url: https://samtools.github.io/hts-specs/
   publication:
     ref_url: ''
