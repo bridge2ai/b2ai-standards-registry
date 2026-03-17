@@ -1171,6 +1171,7 @@ data_standardortools_collection:
   - B2AI_ORG:116
   has_training_resource:
   - B2AI_STANDARD:965
+  - B2AI_STANDARD:1116
   is_open: true
   name: BAM/CRAM
   purpose_detail: BAM (Binary Alignment/Map) and CRAM (Compressed Reference-oriented
@@ -1292,6 +1293,7 @@ data_standardortools_collection:
   formal_specification: https://samtools.github.io/hts-specs/SAMv1.pdf
   has_training_resource:
   - B2AI_STANDARD:965
+  - B2AI_STANDARD:1116
   is_open: true
   name: BAM
   purpose_detail: The BAM (Binary Alignment/Map) format is the standardized binary
@@ -1481,6 +1483,7 @@ data_standardortools_collection:
   - B2AI_ORG:70
   has_training_resource:
   - B2AI_STANDARD:951
+  - B2AI_STANDARD:1117
   is_open: true
   name: Biolink
   publication:
@@ -4510,6 +4513,7 @@ data_standardortools_collection:
   formal_specification: https://osf.io/bq6k9/
   has_training_resource:
   - B2AI_STANDARD:930
+  - B2AI_STANDARD:1118
   is_open: true
   name: CFDE C2M2
   purpose_detail: The Common Fund Data Ecosystem (CFDE) Crosscut Metadata Model (C2M2)
@@ -16319,6 +16323,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:937
   - B2AI_STANDARD:1064
   - B2AI_STANDARD:1103
+  - B2AI_STANDARD:1114
+  - B2AI_STANDARD:1115
   is_open: true
   name: OMOP CDM
   publication:
@@ -42831,6 +42837,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: DuckDB
   formal_specification: https://github.com/duckdb/duckdb
+  has_training_resource:
+  - B2AI_STANDARD:1113
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:9
   is_open: true
@@ -50849,5 +50857,115 @@ data_standardortools_collection:
     which are distributed and archived in GEO-associated formats such as SOFT.
   requires_registration: false
   url: https://www.youtube.com/watch?v=EUPmGWS8ik0&feature=youtu.be
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1113
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: DataCamp tutorial on building AI projects with DuckDB
+  is_open: true
+  name: 'DuckDB Tutorial: Building AI Projects'
+  purpose_detail: This tutorial introduces DuckDB through practical AI-focused examples,
+    including data analysis, retrieval-augmented generation, and natural-language
+    querying workflows.
+  requires_registration: false
+  url: https://www.datacamp.com/tutorial/building-ai-projects-with-duckdb
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1114
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: All of Us guide to understanding OMOP basics in the Researcher Workbench
+  is_open: true
+  name: 'All of Us: Understanding OMOP Basics'
+  purpose_detail: This All of Us support guide introduces the OMOP Common Data Model
+    as used in the Researcher Workbench and explains the core concepts needed to work
+    with OMOP-based data tables.
+  requires_registration: false
+  url: https://support.researchallofus.org/hc/en-us/articles/360039585391-Understanding-OMOP-Basics
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1115
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHDSI video tutorial on developing and evaluating ETL pipelines for
+    the OMOP Common Data Model
+  is_open: true
+  name: 'OHDSI2025 Tutorial: Developing and Evaluating Your ETL Process to the OMOP Common Data Model'
+  purpose_detail: This OHDSI tutorial video focuses on extract-transform-load workflow
+    design and evaluation for populating the OMOP Common Data Model from source data.
+  requires_registration: false
+  url: https://www.youtube.com/watch?v=_67Mluiwqc0
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1116
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Broad Institute video tutorial on running a Terra workflow that converts
+    CRAM data to BAM
+  is_open: true
+  name: 'BroadE: Running a real workflow in Terra (CRAM to BAM) (July 2019)'
+  purpose_detail: This Broad Institute tutorial video demonstrates practical Terra
+    workflows for working with CRAM and BAM files, including conversion from CRAM
+    to BAM in a cloud analysis setting.
+  requires_registration: false
+  url: https://www.youtube.com/watch?v=Ml0nLSoWN8g
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1117
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:20
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Biolink Model video presentation on using the Biolink schema for
+    knowledge graphs in clinical, biomedical, and translational science
+  has_relevant_organization:
+  - B2AI_ORG:70
+  is_open: true
+  name: 'Biolink Model: A Universal Schema for Knowledge Graphs'
+  purpose_detail: This public conference presentation introduces the Biolink Model
+    as a universal schema for biomedical knowledge graphs, helping learners understand
+    how Biolink supports interoperable graph modeling across clinical and translational
+    data applications.
+  requires_registration: false
+  url: https://www.youtube.com/watch?v=bt5xSwyw5D4
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1118
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:1
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: CFDE C2M2 video tutorial on scripts for converting data into the
+    C2M2 format
+  has_relevant_organization:
+  - B2AI_ORG:68
+  is_open: true
+  name: Scripts for Converting Data into the C2M2 Format
+  purpose_detail: This public CFDE Workbench training video explains practical scripting
+    approaches for transforming research metadata into the C2M2 format, giving implementers
+    hands-on guidance for preparing submissions to the CFDE ecosystem.
+  requires_registration: false
+  url: https://www.youtube.com/watch?v=X3DBT7FvEvY
   publication:
     ref_url: ''
