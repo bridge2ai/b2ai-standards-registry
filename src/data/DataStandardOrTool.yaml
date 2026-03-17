@@ -19028,6 +19028,8 @@ data_standardortools_collection:
   description: Sequence Read Archive Metadata XML
   has_relevant_organization:
   - B2AI_ORG:74
+  has_training_resource:
+  - B2AI_STANDARD:1111
   is_open: true
   name: SRA-XML
   publication:
@@ -19095,6 +19097,8 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Simple Omnibus Format in Text
+  has_training_resource:
+  - B2AI_STANDARD:1112
   is_open: true
   name: SOFT
   purpose_detail: Simple Omnibus Format in Text (SOFT) is a line-based, plain text
@@ -31217,6 +31221,9 @@ data_standardortools_collection:
   - B2AI_ORG:74
   has_training_resource:
   - B2AI_STANDARD:924
+  - B2AI_STANDARD:1108
+  - B2AI_STANDARD:1109
+  - B2AI_STANDARD:1110
   is_open: true
   name: NCBITAXON
   purpose_detail: 'The NCBI Taxonomy Database (NCBITAXON) provides a comprehensive
@@ -50749,5 +50756,98 @@ data_standardortools_collection:
     development topics.
   requires_registration: false
   url: https://vimeo.com/bridge2aitraining
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1108
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCBI tutorial for retrieving sequence records by organism or taxon
+    using taxonomy navigation
+  has_relevant_organization:
+  - B2AI_ORG:74
+  is_open: true
+  name: 'How to: Retrieve all sequences for an organism or taxon'
+  purpose_detail: This NCBI tutorial shows how to use taxonomic identifiers and organism-level
+    queries to retrieve sequence records associated with a selected taxon.
+  requires_registration: false
+  url: https://www.ncbi.nlm.nih.gov/guide/howto/retrieve-seq-org
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1109
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCBI tutorial for tracing complete organismal taxonomic lineages
+  has_relevant_organization:
+  - B2AI_ORG:74
+  is_open: true
+  name: 'How to: Find the complete taxonomic lineage for an organism'
+  purpose_detail: This NCBI tutorial explains how to navigate the NCBI Taxonomy hierarchy
+    to recover the full lineage for a selected organism.
+  requires_registration: false
+  url: https://www.ncbi.nlm.nih.gov/guide/howto/find-complete-tax-lin
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1110
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCBI tutorial for building taxonomy trees from sets of taxa
+  has_relevant_organization:
+  - B2AI_ORG:74
+  is_open: true
+  name: 'How to: Generate a Common Tree for a set of taxa'
+  purpose_detail: This NCBI tutorial demonstrates how to construct and visualize a
+    shared taxonomy tree for a user-specified set of taxa.
+  requires_registration: false
+  url: https://www.ncbi.nlm.nih.gov/guide/howto/gen-com-tree
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1111
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:33
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCBI tutorial for sequence-data submission workflows relevant to SRA
+    metadata
+  has_relevant_organization:
+  - B2AI_ORG:74
+  is_open: true
+  name: 'How to: Submit sequence data to NCBI'
+  purpose_detail: This NCBI tutorial outlines the sequence-data submission process,
+    including the metadata and archive context relevant to SRA submissions.
+  requires_registration: false
+  url: https://www.ncbi.nlm.nih.gov/guide/howto/submit-sequence-data
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1112
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:34
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCBI video tutorial for analyzing GEO expression data with GEO2R
+  has_relevant_organization:
+  - B2AI_ORG:74
+  is_open: true
+  name: 'GEO2R: Analyze GEO Data'
+  purpose_detail: This NCBI video tutorial introduces analysis workflows for GEO data,
+    which are distributed and archived in GEO-associated formats such as SOFT.
+  requires_registration: false
+  url: https://www.youtube.com/watch?v=EUPmGWS8ik0&feature=youtu.be
   publication:
     ref_url: ''
