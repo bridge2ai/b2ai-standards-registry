@@ -21,7 +21,15 @@ for filename in os.listdir(directory):
             # Get the first (and only) value which is the container class
             container_class = next(iter(data.values()))
             for item in container_class:
-                combined_data.append([item.get('id'), item.get('name')])
+                item_id = item.get('id')
+                item_name = item.get('name')
+
+                # Manifest entries do not have a native name field, so use the
+                # owning organization identifier in the exported name column.
+                if item_id and item_id.startswith('B2AI_MANIFEST:') and not item_name:
+                    item_name = item.get('organization')
+
+                combined_data.append([item_id, item_name])
 
 # Write the combined data to a TSV file
 with open(output_file, 'w', newline='') as tsvfile:
