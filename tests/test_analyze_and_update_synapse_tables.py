@@ -1,3 +1,5 @@
+"""Tests for Synapse table update behavior, including Manifest special-casing."""
+
 import json
 import tempfile
 import unittest
@@ -8,6 +10,8 @@ from scripts import analyze_and_update_synapse_tables as update_module
 
 
 class PopulateTableTests(unittest.TestCase):
+    """Verify populate_table chooses the correct upload path for each source table."""
+
     @patch.object(update_module, "clear_populate_snapshot_table")
     @patch.object(update_module, "upload_denormalized_manifest")
     def test_populate_table_uses_denormalized_manifest_for_manifest(
@@ -15,6 +19,7 @@ class PopulateTableTests(unittest.TestCase):
         mock_upload_denormalized_manifest,
         mock_clear_populate_snapshot_table,
     ):
+        """populate_table should delegate Manifest uploads to the denormalized Manifest helper."""
         update_module.populate_table(
             sentinel.synapse,
             "project/data/Manifest.json",
@@ -36,6 +41,7 @@ class PopulateTableTests(unittest.TestCase):
         mock_get_col_defs,
         mock_clear_populate_snapshot_table,
     ):
+        """populate_table should keep the standard JSON-to-DataFrame path for non-Manifest tables."""
         with tempfile.TemporaryDirectory() as tmpdir:
             file_path = Path(tmpdir) / "DataSet.json"
             file_path.write_text(json.dumps({

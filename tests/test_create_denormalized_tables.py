@@ -1,3 +1,5 @@
+"""Tests for integrating Manifest generation into denormalized table creation."""
+
 import unittest
 from unittest.mock import patch, sentinel
 
@@ -7,6 +9,8 @@ from scripts import create_denormalized_tables as denorm_module
 
 
 class DenormalizeTablesTests(unittest.TestCase):
+    """Verify when Manifest is included in denormalized table runs."""
+
     @patch.object(denorm_module, "upload_denormalized_manifest")
     @patch.object(denorm_module, "make_dest_table")
     @patch.object(denorm_module, "get_src_table")
@@ -18,6 +22,7 @@ class DenormalizeTablesTests(unittest.TestCase):
         mock_make_dest_table,
         mock_upload_denormalized_manifest,
     ):
+        """denormalize_tables should include Manifest when running the default full denormalization pass."""
         mock_initialize_synapse.return_value = sentinel.synapse
         mock_get_src_table.side_effect = lambda syn, table_info: {
             **table_info,
@@ -53,6 +58,7 @@ class DenormalizeTablesTests(unittest.TestCase):
         mock_make_dest_table,
         mock_upload_denormalized_manifest,
     ):
+        """denormalize_tables should support running only the Manifest denormalization path."""
         mock_initialize_synapse.return_value = sentinel.synapse
 
         with patch.object(denorm_module, "DEST_TABLES", {
@@ -83,6 +89,7 @@ class DenormalizeTablesTests(unittest.TestCase):
         mock_make_dest_table,
         mock_upload_denormalized_manifest,
     ):
+        """denormalize_tables should not upload Manifest when specific tables do not request it."""
         mock_initialize_synapse.return_value = sentinel.synapse
         mock_get_src_table.side_effect = lambda syn, table_info: {
             **table_info,

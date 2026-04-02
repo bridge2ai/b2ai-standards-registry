@@ -1,3 +1,5 @@
+"""Tests for building and uploading the denormalized Manifest table."""
+
 import unittest
 from unittest.mock import patch, sentinel
 
@@ -7,6 +9,8 @@ from scripts import create_denormalized_manifest as manifest_module
 
 
 class BuildDenormalizedDfTests(unittest.TestCase):
+    """Verify Manifest records are expanded and linked correctly."""
+
     @patch.object(manifest_module, "get_anatomy_label_cached", return_value="Retina")
     @patch.object(manifest_module, "load_json_to_dataframe")
     def test_build_denormalized_df_explodes_data_parts_and_builds_links(
@@ -14,6 +18,7 @@ class BuildDenormalizedDfTests(unittest.TestCase):
         mock_load_json_to_dataframe,
         _mock_get_anatomy_label_cached,
     ):
+        """build_denormalized_df should emit one row per data part and populate resolved markdown links."""
         mock_load_json_to_dataframe.return_value = pd.DataFrame([
             {
                 "id": "B2AI_MANIFEST:1",
@@ -64,6 +69,8 @@ class BuildDenormalizedDfTests(unittest.TestCase):
 
 
 class UploadDenormalizedManifestTests(unittest.TestCase):
+    """Verify denormalized Manifest upload orchestration."""
+
     @patch.object(manifest_module, "clear_populate_snapshot_table")
     @patch.object(manifest_module, "get_column_definitions")
     @patch.object(manifest_module, "build_denormalized_df")
@@ -77,6 +84,7 @@ class UploadDenormalizedManifestTests(unittest.TestCase):
         mock_get_column_definitions,
         mock_clear_populate_snapshot_table,
     ):
+        """upload_denormalized_manifest should reuse a provided Synapse client and explicit table ID."""
         df = pd.DataFrame([{"id": "B2AI_MANIFEST:1"}])
         mock_build_lookup_dicts.return_value = {"Organization": {}}
         mock_build_denormalized_df.return_value = df
