@@ -1,6 +1,7 @@
 """Tests for building and uploading the denormalized Manifest table."""
 
 import unittest
+from typing import cast
 from unittest.mock import patch, sentinel
 
 import pandas as pd
@@ -56,7 +57,8 @@ class BuildDenormalizedDfTests(unittest.TestCase):
             df.loc[0, "uses_data_substrates_links"],
             ["[Microscopy Image](https://bridge2ai.github.io/b2ai-standards-registry/substrates/microscopy-image/)"],
         )
-        self.assertTrue(df.loc[0, "concerns_data_topics_links"][0].startswith("[Cell Morphology](/Explore?qw0="))
+        topic_links = cast(list[str], df.loc[0, "concerns_data_topics_links"])
+        self.assertTrue(topic_links[0].startswith("[Cell Morphology](/Explore?qw0="))
         self.assertEqual(
             df.loc[0, "anatomy_links"],
             ["[Retina](http://purl.obolibrary.org/obo/UBERON_0001)"],

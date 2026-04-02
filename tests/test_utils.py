@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from typing import cast
 from unittest.mock import patch
 
 import numpy as np
@@ -59,7 +60,8 @@ class ConfigureColumnFromDataTests(unittest.TestCase):
         configured = utils.configure_column_from_data(column, values, faceted=True)
 
         self.assertEqual(configured.maximum_list_length, 2)
-        self.assertGreaterEqual(configured.maximum_size, len("a much longer tag"))
+        self.assertIsNotNone(configured.maximum_size)
+        self.assertGreaterEqual(cast(int, configured.maximum_size), len("a much longer tag"))
         self.assertEqual(configured.facet_type, FacetType.ENUMERATION)
 
     def test_configure_column_from_data_promotes_large_strings_to_largetext(self):
