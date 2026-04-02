@@ -208,7 +208,8 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
     include_manifest = not specific_tables or 'Manifest' in specific_tables
 
     if specific_tables:
-        dest_table_defs = [DEST_TABLES[t] for t in specific_tables if t != 'Manifest']
+        dest_table_defs = [DEST_TABLES[t]
+                           for t in specific_tables if t != 'Manifest']
     else:
         dest_table_defs = DEST_TABLES.values()
 
@@ -243,7 +244,8 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
             }
 
     if include_manifest:
-        upload_denormalized_manifest(syn=syn, table_id=TABLE_IDS['Manifest']['id'])
+        upload_denormalized_manifest(
+            syn=syn, table_id=TABLE_IDS['Manifest']['id'])
 
 
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> pd.DataFrame:

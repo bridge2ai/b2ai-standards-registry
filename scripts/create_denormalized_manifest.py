@@ -8,6 +8,7 @@ the result to the existing Manifest Synapse table.
 Usage:
     python -m scripts.create_denormalized_manifest
 """
+from id_linking import get_ontology_label, slugify
 import base64
 import gzip
 import json
@@ -29,7 +30,6 @@ from scripts.utils import (
 
 # Import get_ontology_label and slugify from utils/id_linking.py
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
-from id_linking import get_ontology_label, slugify
 
 
 COLUMN_DEFS: List[tuple[str, ColumnType]] = [
@@ -78,7 +78,8 @@ def make_topic_facet_url(topic_name: str) -> str:
             "facetValues": [topic_name],
         }]
     }
-    compressed = gzip.compress(json.dumps(diff, separators=(',', ':')).encode())
+    compressed = gzip.compress(json.dumps(
+        diff, separators=(',', ':')).encode())
     encoded = base64.b64encode(compressed).decode()
     return f"/Explore?qw0={quote(encoded)}"
 
