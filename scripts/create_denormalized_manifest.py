@@ -54,11 +54,22 @@ COLUMN_DEFS: List[tuple[str, ColumnType]] = [
 def build_lookup_dicts() -> Dict[str, Dict[str, str]]:
     """
     Load lookup tables and return {table: {id: name}} dicts for ID resolution.
+    Also builds a topic_standard_counts dict: {topic_id: number of standards using that topic}.
     """
-    lookups = {}
+    lookups: Dict[str, dict] = {}
     for table_name in ('Organization', 'DataStandardOrTool', 'DataSubstrate', 'DataTopic'):
         df = load_json_to_dataframe(table_name)
         lookups[table_name] = dict(zip(df['id'], df['name']))
+
+    # Count how many standards reference each topic (for link/no-link decisions)
+    dst_df = load_json_to_dataframe('DataStandardOrTool')
+    topic_counts: Dict[str, int] = {}
+    for topics in dst_df['concerns_data_topic']:
+        if isinstance(topics, list):
+            for tid in topics:
+                topic_counts[tid] = topic_counts.get(tid, 0) + 1
+    lookups['topic_standard_counts'] = topic_counts
+
     return lookups
 
 
@@ -101,9 +112,12 @@ def build_substrate_link(substrate_id: str, lookups: Dict[str, Dict[str, str]]) 
     return f"[{name}](https://bridge2ai.github.io/b2ai-standards-registry/substrates/{slug}/)"
 
 
-def build_topic_link(topic_id: str, lookups: Dict[str, Dict[str, str]]) -> str:
+def build_topic_link(topic_id: str, lookups: Dict[str, dict]) -> str:
     name = resolve_id(topic_id, lookups['DataTopic'], 'Topic')
-    return f"[{name}]({make_topic_facet_url(name)})"
+    count = lookups['topic_standard_counts'].get(topic_id, 0)
+    if count > 0:
+        return f"[{name} ({count})]({make_topic_facet_url(name)})"
+    return f"{name} (0)"
 
 
 def build_anatomy_link(anatomy_id: str, cache: Dict[str, Optional[str]]) -> str:
