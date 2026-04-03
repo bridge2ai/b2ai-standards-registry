@@ -46,6 +46,7 @@ class BuildDenormalizedDfTests(unittest.TestCase):
             "DataStandardOrTool": {"B2AI_STANDARD:1": "FHIR"},
             "DataSubstrate": {"B2AI_SUBSTRATE:1": "Microscopy Image"},
             "DataTopic": {"B2AI_TOPIC:1": "Cell Morphology"},
+            "topic_standard_counts": {"B2AI_TOPIC:1": 5},
         }
 
         df = manifest_module.build_denormalized_df(lookups)
@@ -58,7 +59,7 @@ class BuildDenormalizedDfTests(unittest.TestCase):
             ["[Microscopy Image](https://bridge2ai.github.io/b2ai-standards-registry/substrates/microscopy-image/)"],
         )
         topic_links = cast(list[str], df.loc[0, "concerns_data_topics_links"])
-        self.assertTrue(topic_links[0].startswith("[Cell Morphology](/Explore?qw0="))
+        self.assertTrue(topic_links[0].startswith("[Cell Morphology (5)](/Explore?qw0="))
         self.assertEqual(
             df.loc[0, "anatomy_links"],
             ["[Retina](http://purl.obolibrary.org/obo/UBERON_0001)"],

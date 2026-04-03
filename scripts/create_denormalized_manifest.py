@@ -35,7 +35,7 @@ from id_linking import get_ontology_label, slugify
 COLUMN_DEFS: List[tuple[str, ColumnType]] = [
     ('id', ColumnType.STRING),
     ('organization', ColumnType.STRING),
-    ('organization_link', ColumnType.STRING),
+    # ('organization_link', ColumnType.STRING),
     ('data_part_name', ColumnType.STRING),
     ('data_part_description', ColumnType.STRING),
     ('standards_and_tools', ColumnType.STRING_LIST),
@@ -44,10 +44,11 @@ COLUMN_DEFS: List[tuple[str, ColumnType]] = [
     ('uses_data_substrates_links', ColumnType.STRING_LIST),
     ('concerns_data_topics', ColumnType.STRING_LIST),
     ('concerns_data_topics_links', ColumnType.STRING_LIST),
+    ('concerns_data_topics_doc_links', ColumnType.STRING_LIST),
     ('anatomy', ColumnType.STRING_LIST),
     ('anatomy_links', ColumnType.STRING_LIST),
     ('datasets', ColumnType.STRING_LIST),
-    ('datasets_link', ColumnType.STRING),
+    # ('datasets_link', ColumnType.STRING),
 ]
 
 
@@ -121,6 +122,12 @@ def build_topic_link(topic_id: str, lookups: Dict[str, dict]) -> str:
     return f"{name} (0)"
 
 
+def build_topic_doc_links(topic_id: str, lookups: Dict[str, dict]) -> str:
+    name = resolve_id(topic_id, lookups['DataTopic'], 'Topic doc')
+    slug = name.replace(' ', '')
+    return f"[{name}](https://bridge2ai.github.io/b2ai-standards-registry/topics/{slug}/)"
+
+
 def build_anatomy_link(anatomy_id: str, cache: Dict[str, Optional[str]]) -> str:
     label = get_anatomy_label_cached(anatomy_id, cache)
     display = label if label else anatomy_id
@@ -168,6 +175,7 @@ def build_denormalized_df(lookups: Dict[str, Dict[str, str]]) -> pd.DataFrame:
                 'uses_data_substrates_links': [build_substrate_link(sid, lookups) for sid in sub_ids],
                 'concerns_data_topics': topic_ids,
                 'concerns_data_topics_links': [build_topic_link(tid, lookups) for tid in topic_ids],
+                'concerns_data_topics_doc_links': [build_topic_doc_links(tid, lookups) for tid in topic_ids],
                 'anatomy': anatomy_ids,
                 'anatomy_links': [build_anatomy_link(aid, anatomy_cache) for aid in anatomy_ids],
                 'datasets': datasets,
