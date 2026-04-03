@@ -48,7 +48,7 @@ jobs:
       - name: Run script to update synapse tables
         run: |
           if [ -n "${{ env.CHANGED_FILES }}" ]; then
-            poetry run b2aisr update-synapse  ${{ env.CHANGED_FILES }}
+            poetry run b2aisr update-synapse ${{ env.CHANGED_FILES }}
             poetry run b2aisr create-denormalized-tables   # --specific-tables DST_denormalized
           else
             echo "No relevant json files changed."
