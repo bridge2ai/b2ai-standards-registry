@@ -89,7 +89,8 @@ def make_topic_facet_url(topic_name: str) -> str:
             "facetValues": [topic_name],
         }]
     }
-    compressed = gzip.compress(json.dumps(diff, separators=(',', ':')).encode())
+    compressed = gzip.compress(json.dumps(
+        diff, separators=(',', ':')).encode())
     encoded = base64.b64encode(compressed).decode()
     return f"/Explore?qw0={quote(encoded)}"
 
@@ -186,7 +187,10 @@ def get_column_definitions(df: pd.DataFrame) -> List[Column]:
     return columns
 
 
-def create_denormalized_manifest() -> None:
+def upload_denormalized_manifest(
+    syn=None,
+    table_id: Optional[str] = None,
+) -> pd.DataFrame:
     """Build and upload the denormalized Manifest table to Synapse."""
     print("Building lookup tables...")
     lookups = build_lookup_dicts()
@@ -197,9 +201,17 @@ def create_denormalized_manifest() -> None:
 
     col_defs = get_column_definitions(df)
 
-    syn = initialize_synapse()
-    table_id = TABLE_IDS['Manifest']['id']
+    if syn is None:
+        syn = initialize_synapse()
+    if table_id is None:
+        table_id = TABLE_IDS['Manifest']['id']
     clear_populate_snapshot_table(syn, 'Manifest', col_defs, df, table_id)
+    return df
+
+
+def create_denormalized_manifest() -> None:
+    """Build and upload the denormalized Manifest table to Synapse."""
+    upload_denormalized_manifest()
 
 
 if __name__ == '__main__':

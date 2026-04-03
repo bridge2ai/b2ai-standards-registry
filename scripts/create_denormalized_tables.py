@@ -39,6 +39,7 @@ import numpy as np
 import re
 import json
 
+from scripts.create_denormalized_manifest import upload_denormalized_manifest
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import DATA_PATH, PROJECT_ID, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, initialize_synapse, load_json_to_dataframe
 
@@ -204,9 +205,11 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
     """
     syn = initialize_synapse()
     src_tables = {}
+    include_manifest = not specific_tables or 'Manifest' in specific_tables
 
     if specific_tables:
-        dest_table_defs = [DEST_TABLES[t] for t in specific_tables]
+        dest_table_defs = [DEST_TABLES[t]
+                           for t in specific_tables if t != 'Manifest']
     else:
         dest_table_defs = DEST_TABLES.values()
 
@@ -239,6 +242,10 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
                 'name': dest_name,
                 'df': result_df,
             }
+
+    if include_manifest:
+        upload_denormalized_manifest(
+            syn=syn, table_id=TABLE_IDS['Manifest']['id'])
 
 
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
