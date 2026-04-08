@@ -51724,3 +51724,37 @@ data_standardortools_collection:
   url: https://github.com/OHNLP/MedTator/wiki/Quick-Start
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1134
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  concerns_data_topic:
+  - B2AI_TOPIC:37
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ROS bag message recording format
+  formal_specification: https://raw.githubusercontent.com/ros/ros_comm/noetic-devel/tools/rosbag/FORMATS
+  is_open: true
+  name: ROS Bags
+  purpose_detail: ROS Bags, commonly known as rosbag files, are the ROS message-recording
+    format used to store timestamped message streams for later playback, inspection,
+    sharing, and offline analysis. In the original ROS 1 implementation, bag files
+    use the `.bag` format and store topic metadata, message type information, message
+    definitions, timestamps, and serialized message payloads, with support for chunking,
+    indexing, and optional compression in later format versions such as `#ROSBAG
+    V2.0`. In practice, rosbag is used to capture synchronized multimodal streams
+    such as sensor readings, control messages, images, point clouds, and continuous
+    time-series or waveform-like signals produced within robotic or cyber-physical
+    systems. This makes the format useful for reproducible replay of recorded experiments,
+    debugging time-synchronized data pipelines, creating benchmark datasets, and
+    supporting machine learning workflows that depend on aligned message histories.
+    In biomedical and health-adjacent research settings, ROS Bags can serve as an
+    exchange and archival format for wearable, assistive, rehabilitation, or bedside
+    robotic systems that emit continuous physiologic or behavioral message streams,
+    enabling downstream feature extraction and model development from recorded sensor
+    trajectories.
+  requires_registration: false
+  url: https://wiki.ros.org/Bags
+  publication:
+    ref_url: ''
