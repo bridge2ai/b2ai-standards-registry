@@ -50969,3 +50969,102 @@ data_standardortools_collection:
   url: https://www.youtube.com/watch?v=X3DBT7FvEvY
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1119
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - diagnosticinstrument
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Montreal Cognitive Assessment cognitive screening instrument
+  formal_specification: https://mocacognition.com/paper/
+  is_open: false
+  name: MoCA
+  purpose_detail: The Montreal Cognitive Assessment (MoCA) is a brief, structured
+    cognitive screening instrument designed to detect mild cognitive impairment and
+    early dementia-related deficits across multiple domains including visuospatial
+    and executive function, naming, attention, language, abstraction, delayed recall,
+    and orientation. The full paper instrument is scored on 30 points and is typically
+    administered in about 10 minutes, with alternate forms and translated versions
+    available to support repeated use and international deployment. MoCA is widely
+    used in neurology, geriatrics, primary care, stroke care, Parkinson disease,
+    and memory clinic settings for case finding, baseline assessment, longitudinal
+    follow-up, and clinical trial screening. Because the instrument yields standardized
+    scores and item-level responses, it supports structured capture of cognitive
+    status data in EHRs and research datasets. In biomedical AI and data science,
+    MoCA measurements are commonly used as phenotyping labels, outcome measures,
+    covariates, or eligibility criteria in studies of cognitive decline, neurodegenerative
+    disease, stroke recovery, and digital biomarkers. Official training and certification
+    are required for administration, scoring, and interpretation, and use is governed
+    by MoCA Cognition permissions and licensing policies.
+  requires_registration: true
+  url: https://mocacognition.com/
+  publication:
+    ref_url: https://doi.org/10.1111/j.1532-5415.2005.53221.x
+    ref_title: 'The Montreal Cognitive Assessment, MoCA: a brief screening tool for mild cognitive impairment'
+    ref_authors:
+    - Nasreddine ZS
+    - Phillips NA
+    - Bedirian V
+    - Charbonneau S
+    - Whitehead V
+    - Collin I
+    - Cummings JL
+    - Chertkow H
+    ref_publication_year: 2005
+    ref_journal: Journal of the American Geriatrics Society
+- id: B2AI_STANDARD:1120
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Consensus-based social determinants of health interoperability standardization project
+  formal_specification: https://hl7.org/fhir/us/sdoh-clinicalcare/
+  is_open: true
+  name: Gravity Project
+  purpose_detail: The Gravity Project is a U.S. national public collaborative that
+    develops consensus-based standards for representing social determinants of health
+    and social care data so they can be documented, exchanged, aggregated, and reused
+    across healthcare, community-based, payer, public health, and research settings.
+    Launched in 2019 by the Social Interventions Research and Evaluation Network
+    (SIREN) with partners and now operating as an HL7 FHIR Accelerator, the project
+    defines use cases, common data elements, value sets, code recommendations, and
+    FHIR implementation guidance for activities such as screening, assessment and
+    diagnosis, goal setting, referral, intervention, and closed-loop feedback. Initial
+    priority domains included food insecurity, housing instability and quality, and
+    transportation access, and the published SDOH Clinical Care implementation guide
+    supports broader social risk and social need workflows. Gravity is not a single
+    vocabulary; rather, it harmonizes structured SDOH content across standards such
+    as FHIR, LOINC, and SNOMED CT, enabling interoperable capture of questionnaires,
+    observations, conditions, goals, service requests, procedures, and referral outcomes.
+    In biomedical AI and data science, Gravity helps normalize SDoH variables and
+    intervention data across sites, improving cohort identification, health equity
+    analytics, quality measurement, and predictive or causal modeling that depends
+    on consistent representation of social risk and social care activities.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:553
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:126
+  url: https://thegravityproject.net/our-work/overview/
+  publication:
+    ref_url: https://doi.org/10.1093/jamiaopen/ooy051
+    ref_title: Documenting social determinants of health-related clinical activities
+      using standardized medical vocabularies
+    ref_authors:
+    - Arons A
+    - DeSilvey S
+    - Fichtenberg C
+    - Gottlieb L
+    ref_publication_year: 2019
+    ref_journal: JAMIA Open
