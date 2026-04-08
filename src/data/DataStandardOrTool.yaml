@@ -50969,3 +50969,465 @@ data_standardortools_collection:
   url: https://www.youtube.com/watch?v=X3DBT7FvEvY
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1119
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - diagnosticinstrument
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Montreal Cognitive Assessment cognitive screening instrument
+  formal_specification: https://mocacognition.com/paper/
+  has_relevant_organization:
+  - B2AI_ORG:114
+  has_training_resource:
+  - B2AI_STANDARD:1121
+  - B2AI_STANDARD:1122
+  - B2AI_STANDARD:1123
+  is_open: false
+  name: MoCA
+  purpose_detail: The Montreal Cognitive Assessment (MoCA) is a brief, structured
+    cognitive screening instrument designed to detect mild cognitive impairment and
+    early dementia-related deficits across multiple domains including visuospatial
+    and executive function, naming, attention, language, abstraction, delayed recall,
+    and orientation. The full paper instrument is scored on 30 points and is typically
+    administered in about 10 minutes, with alternate forms and translated versions
+    available to support repeated use and international deployment. MoCA is widely
+    used in neurology, geriatrics, primary care, stroke care, Parkinson disease,
+    and memory clinic settings for case finding, baseline assessment, longitudinal
+    follow-up, and clinical trial screening. Because the instrument yields standardized
+    scores and item-level responses, it supports structured capture of cognitive
+    status data in EHRs and research datasets. In biomedical AI and data science,
+    MoCA measurements are commonly used as phenotyping labels, outcome measures,
+    covariates, or eligibility criteria in studies of cognitive decline, neurodegenerative
+    disease, stroke recovery, and digital biomarkers. Official training and certification
+    are required for administration, scoring, and interpretation, and use is governed
+    by MoCA Cognition permissions and licensing policies.
+  requires_registration: true
+  url: https://mocacognition.com/
+  used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:373
+    category: B2AI:Application
+    name: AI-READI multimodal cognitive phenotyping for type 2 diabetes AI/ML studies
+    description: In the Bridge2AI Salutogenesis Grand Challenge (AI-READI), MoCA is
+      used as a standardized cognitive function assessment within a large, triple-balanced,
+      multimodal type 2 diabetes cohort explicitly designed to support AI/ML research
+      on salutogenesis and health resilience. The protocol administers MoCA electronically
+      on an iPad through the MoCA Duo application, and AI-READI documentation indicates
+      that the exported data include total score, section-level or task-level results,
+      Memory Index Score, and task completion times in CSV files. These MoCA-derived
+      variables are harmonized into the AI-READI clinical data structure using OMOP,
+      making them directly linkable to other modalities in the same participants including
+      retinal imaging, ECG, continuous glucose monitoring, laboratory data, physical
+      activity, and social determinants of health. This standardized representation
+      makes MoCA a useful cognitive phenotype for downstream AI/ML analyses in AI-READI,
+      such as modeling relationships between diabetes severity, multimodal biomarkers,
+      and cognitive health, and using cognition-related measures as features, outcomes,
+      or stratification variables in studies of type 2 diabetes salutogenesis.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1136/bmjopen-2024-097449
+      ref_title: Cross-sectional design and protocol for Artificial Intelligence Ready
+        and Equitable Atlas for Diabetes Insights (AI-READI)
+      ref_authors:
+      - Owsley C
+      - Matthies DS
+      - McGwin G
+      - Edberg JC
+      - Baxter SL
+      - Zangwill LM
+      - Owen JP
+      - Lee CS
+      - AI-READI Consortium
+      ref_publication_year: 2025
+      ref_journal: BMJ Open
+  - id: B2AI_APP:374
+    category: B2AI:Application
+    name: ML-enhanced interpretation of MoCA subtests for cognitive impairment and
+      dementia subtype classification
+    description: Detailed MoCA subtest profiles have been used as machine-learning
+      inputs for classifying cognitively normal versus cognitively impaired individuals
+      and for distinguishing dementia subtypes. In this application, the conventional
+      MoCA total-score cutoff functions as a benchmark comparator, while supervised
+      models such as XGBoost, random forest, SVM, logistic regression, and k-nearest
+      neighbors exploit richer subtest-level patterns together with demographics and
+      derived cognitive metrics. Reported results in a large NACC-derived cohort showed
+      improved global impairment detection over the fixed cutoff approach, and strong
+      subtype-specific discrimination for conditions such as primary progressive aphasia,
+      Lewy body dementia, and Alzheimer's disease.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fnins.2026.1679649
+      ref_title: Enhanced diagnostic interpretation of the MoCA using machine learning
+      ref_authors:
+      - Gourdeau C
+      - Gourdeau CL
+      - Bernier PJ
+      - Laforce R
+      ref_publication_year: 2026
+      ref_journal: Frontiers in Neuroscience
+  - id: B2AI_APP:375
+    category: B2AI:Application
+    name: Parkinson's disease cognitive-impairment screening using MoCA domain and
+      item data
+    description: In Parkinson's disease cohorts, machine-learning models have used
+      MoCA domain scores and item-level responses as structured input features to
+      classify cognitive impairment. Logistic regression, SVM, and random forest
+      models were compared against conventional MoCA total-score cutoffs and showed
+      greater robustness, especially when repeated measures were excluded. Adding
+      cognitive-complaint information further improved performance, illustrating how
+      MoCA's internal structure can support richer PD cognitive screening than a single
+      summary score alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.14802/jmd.22012
+      ref_title: Accuracy of Machine Learning Using the Montreal Cognitive Assessment
+        for the Diagnosis of Cognitive Impairment in Parkinson's Disease
+      ref_authors:
+      - Jeon J
+      - Kim K
+      - Baek K
+      - Chung SJ
+      - Yoon J
+      - Kim YJ
+      ref_publication_year: 2022
+      ref_journal: Journal of Movement Disorders
+  - id: B2AI_APP:376
+    category: B2AI:Application
+    name: MoCA-defined PD-MCI labels for machine-learning risk stratification in Parkinson's
+      disease
+    description: MoCA has also been used as the target definition for supervised
+      learning in Parkinson's disease, where MoCA-based MDS Level I labels distinguish
+      mild cognitive impairment from cognitively normal status. In this role, MoCA
+      is not merely an input feature but the reference cognitive endpoint used to
+      train predictive models on routinely collected clinical variables. This supports
+      risk stratification and triage workflows in which machine-learning models estimate
+      contemporaneous probability of PD-MCI, including among patients whose raw MoCA
+      scores may not yet independently trigger concern.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-025-03215-0
+      ref_title: Machine learning-based stratification of mild cognitive impairment
+        in Parkinson's disease
+      ref_authors:
+      - Liu Y
+      - Chen M
+      - Chen P
+      - Lin X
+      - Chen S
+      - Liu C
+      - Wang D
+      - Deng H
+      - Li Q
+      - Wu Y
+      ref_publication_year: 2025
+      ref_journal: BMC Medical Informatics and Decision Making
+  - id: B2AI_APP:377
+    category: B2AI:Application
+    name: Multi-test cognitive screening models that include MoCA as a predictive
+      feature
+    description: MoCA has been incorporated as one feature source within broader machine-learning
+      screening models that combine multiple neuropsychological instruments and demographic
+      variables to classify mild cognitive impairment, dementia, and general cognitive
+      dysfunction. In these systems, MoCA contributes complementary signal alongside
+      tests such as MMSE and informant questionnaires rather than acting as a standalone
+      thresholded screen. Reported models, including gradient boosting and random
+      forest, achieved substantially higher classification performance than baseline
+      screening models using demographics alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1177/0300060520936881
+      ref_title: Mild cognitive impairment, dementia, and cognitive dysfunction screening
+        using machine learning
+      ref_authors:
+      - Yim D
+      - Yeo TY
+      - Park MH
+      ref_publication_year: 2020
+      ref_journal: Journal of International Medical Research
+  - id: B2AI_APP:378
+    category: B2AI:Application
+    name: Automated scoring of the MoCA verbal-fluency subtest from speech audio
+    description: MoCA has been directly digitized through machine-learning-driven
+      automation of subtest scoring. In Thai-language work on the phonemic verbal-fluency
+      item, an ASR pipeline implemented in Kaldi with GMM-HMM and TDNN-based acoustic
+      models was used to recognize candidate words and automatically compute the MoCA
+      fluency score. This application treats MoCA as the assessment instrument being
+      automated rather than as a label or benchmark, showing how speech AI can reduce
+      manual scoring burden and support digital cognitive assessment workflows.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3390/s22041583
+      ref_title: Using Automatic Speech Recognition to Assess Thai Speech Language
+        Fluency in the Montreal Cognitive Assessment (MoCA)
+      ref_authors:
+      - Kantithammakorn P
+      - Punyabukkana P
+      - Pratanwanich PN
+      - Hemrungrojn S
+      - Chunharas C
+      - Wanvarie D
+      ref_publication_year: 2022
+      ref_journal: Sensors
+  - id: B2AI_APP:379
+    category: B2AI:Application
+    name: Hybrid gait-machine-learning systems benchmarked and combined with MoCA
+      for cerebrovascular cognitive impairment detection
+    description: In cerebrovascular disease and post-stroke contexts, MoCA has been
+      used as a benchmark and auxiliary decision signal alongside gait-based machine-learning
+      classifiers. Models trained on dual-task gait metrics from electronic walkways
+      or accelerometers were compared with optimized MoCA thresholds and, in some
+      analyses, combined with MoCA classifications through majority voting. This use
+      case positions MoCA as a clinically familiar cognitive screen that can be complemented
+      by movement-derived ML predictions to improve sensitivity-specificity tradeoffs
+      in impairment detection.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-025-02979-9
+      ref_title: Detecting cognitive impairment in cerebrovascular disease using gait,
+        dual tasks, and machine learning
+      ref_authors:
+      - Guimaraes V
+      - Sousa I
+      - Velhote Correia M
+      ref_publication_year: 2025
+      ref_journal: BMC Medical Informatics and Decision Making
+  - id: B2AI_APP:380
+    category: B2AI:Application
+    name: Multimodal deep-learning prognosis models using baseline MoCA for post-stroke
+      cognitive decline
+    description: MoCA has been used as an informative clinical covariate in multimodal
+      deep-learning models that predict post-stroke cognitive decline from imaging
+      and clinical data. In this setting, the initial MoCA score contributes to prognostic
+      modeling together with MRI-derived features such as white matter hyperintensities
+      and hippocampal atrophy, and interpretability analyses identified MoCA as one
+      of the key contributors to model predictions. This use case illustrates MoCA's
+      value as a standardized cognitive baseline that can be fused with imaging biomarkers
+      in deep-learning risk models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2174/0118749445393308250529093953
+      ref_title: Predicting Cognitive Decline in Stroke Patients Using Deep Learning
+      ref_authors:
+      - Kim S
+      ref_publication_year: 2025
+      ref_journal: Open Public Health Journal
+  publication:
+    ref_url: https://doi.org/10.1111/j.1532-5415.2005.53221.x
+    ref_title: 'The Montreal Cognitive Assessment, MoCA: a brief screening tool for mild cognitive impairment'
+    ref_authors:
+    - Nasreddine ZS
+    - Phillips NA
+    - Bedirian V
+    - Charbonneau S
+    - Whitehead V
+    - Collin I
+    - Cummings JL
+    - Chertkow H
+    ref_publication_year: 2005
+    ref_journal: Journal of the American Geriatrics Society
+- id: B2AI_STANDARD:1120
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Consensus-based social determinants of health interoperability standardization project
+  formal_specification: https://hl7.org/fhir/us/sdoh-clinicalcare/
+  has_relevant_organization:
+  - B2AI_ORG:114
+  has_training_resource:
+  - B2AI_STANDARD:1124
+  - B2AI_STANDARD:1125
+  is_open: true
+  name: Gravity Project
+  purpose_detail: The Gravity Project is a U.S. national public collaborative that
+    develops consensus-based standards for representing social determinants of health
+    and social care data so they can be documented, exchanged, aggregated, and reused
+    across healthcare, community-based, payer, public health, and research settings.
+    Launched in 2019 by the Social Interventions Research and Evaluation Network
+    (SIREN) with partners and now operating as an HL7 FHIR Accelerator, the project
+    defines use cases, common data elements, value sets, code recommendations, and
+    FHIR implementation guidance for activities such as screening, assessment and
+    diagnosis, goal setting, referral, intervention, and closed-loop feedback. Initial
+    priority domains included food insecurity, housing instability and quality, and
+    transportation access, and the published SDOH Clinical Care implementation guide
+    supports broader social risk and social need workflows. Gravity is not a single
+    vocabulary; rather, it harmonizes structured SDOH content across standards such
+    as FHIR, LOINC, and SNOMED CT, enabling interoperable capture of questionnaires,
+    observations, conditions, goals, service requests, procedures, and referral outcomes.
+    In biomedical AI and data science, Gravity helps normalize SDoH variables and
+    intervention data across sites, improving cohort identification, health equity
+    analytics, quality measurement, and predictive or causal modeling that depends
+    on consistent representation of social risk and social care activities.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:553
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:126
+  url: https://thegravityproject.net/our-work/overview/
+  used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:381
+    category: B2AI:Application
+    name: Embedding and clustering of SDOH common data elements benchmarked against
+      Gravity domains
+    description: Gravity Project social determinants of health common data elements
+      have been used directly in a machine-learning pipeline for semantic harmonization
+      of common data elements. In this application, text strings constructed from
+      Gravity question and answer concepts were embedded with a large-language-model-derived
+      embedding model and clustered with HDBSCAN, and the resulting unsupervised groupings
+      were externally validated against Gravity-defined SDOH domain labels. Gravity
+      therefore served both as source content for the embedding workflow and as the
+      benchmark or ground-truth structure for evaluating clustering quality, demonstrating
+      a concrete ML use of Gravity's standardized domain organization for SDOH harmonization.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.48550/arxiv.2506.02160
+      ref_title: A Dynamic Framework for Semantic Grouping of Common Data Elements
+        (CDE) Using Embeddings and Clustering
+      ref_authors:
+      - Krishnamurthy M
+      - Korn DR
+      - Haendel MA
+      - Mungall CJ
+      - Thessen A
+      ref_publication_year: 2025
+      ref_journal: arXiv
+  publication:
+    ref_url: https://doi.org/10.1093/jamiaopen/ooy051
+    ref_title: Documenting social determinants of health-related clinical activities
+      using standardized medical vocabularies
+    ref_authors:
+    - Arons A
+    - DeSilvey S
+    - Fichtenberg C
+    - Gottlieb L
+    ref_publication_year: 2019
+    ref_journal: JAMIA Open
+- id: B2AI_STANDARD:1121
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official MoCA online training and certification program
+  is_open: false
+  name: MoCA Training & Certification
+  purpose_detail: This official one-hour MoCA training and certification module teaches
+    clinicians and researchers how to administer, score, and interpret the Montreal
+    Cognitive Assessment with consistent technique. The program covers the cognitive
+    domains assessed by MoCA, practical administration guidance, scoring proficiency,
+    and communication of results, and it issues a certificate and MoCA ID number
+    on completion. MoCA Test Inc. states that completion of the online training and
+    certification module is required for the vast majority of professionals using
+    or planning to use paper-based MoCA tests in clinical practice or research. Training
+    is offered in multiple languages and is free for some categories of users such
+    as students, academic researchers, and full-time employees of publicly operated
+    institutions, but registration and status verification are required.
+  requires_registration: true
+  url: https://mocacognition.com/training-certification/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1122
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ACT on Alzheimer's MoCA video and webinar tutorials for medical providers
+  is_open: true
+  name: ACT on Alzheimer's MoCA Video Tutorials
+  purpose_detail: This openly accessible ACT on Alzheimer's provider resource points
+    clinicians to video and webinar tutorials on administering and scoring common
+    cognitive screening instruments including MoCA. The materials are framed as practical
+    provider tools for screening, diagnosis, and dementia care workflows, making
+    them useful introductory training resources for clinicians who want a freely
+    available overview of MoCA administration and scoring in clinical practice.
+  requires_registration: false
+  url: https://actonalz.org/video-tutorials
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1123
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official MoCA public video and webinar resource page
+  is_open: true
+  name: MoCA Video Tutorials
+  purpose_detail: This official MoCA video page is openly accessible and aggregates
+    public educational webinars and video resources related to cognitive screening
+    and MoCA use, including a specific item on how to perform MoCA by video conference.
+    It serves as a freely available orientation resource for clinicians and researchers
+    seeking practical guidance and continuing education around MoCA administration
+    and related cognitive assessment topics without requiring enrollment in the formal
+    certification module.
+  requires_registration: false
+  url: https://mocacognition.com/video
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1124
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official HL7 SDOH Clinical Care implementation guide for Gravity Project
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: SDOH Clinical Care Implementation Guide
+  purpose_detail: This official HL7 implementation guide provides the core technical
+    learning resource for implementers adopting Gravity Project standards. It includes
+    introductory background on SDOH and the Gravity Project, technical background,
+    guidance on how to read the implementation guide, workflow descriptions, assessment
+    instrument support, referral workflow patterns, value sets, example FHIR artifacts,
+    and downloadable implementation materials. Although it is specification-focused,
+    it functions as a practical training resource for developers, informaticians,
+    and program teams learning how Gravity-aligned SDOH data are represented and
+    exchanged using FHIR.
+  requires_registration: false
+  url: https://hl7.org/fhir/us/sdoh-clinicalcare/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1125
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Gravity Project HITAC ISP TF Presentation
+  has_relevant_organization:
+  - B2AI_ORG:126
+  - B2AI_ORG:40
+  is_open: true
+  name: Gravity Project Presentation
+  purpose_detail: This publicly accessible presentation deck offers a structured introduction
+    to the Gravity Project's goals, governance, terminology and FHIR workstreams,
+    published value sets, implementation-guide development, pilot activities, and
+    participation pathways. It is useful as an orientation and education resource
+    for stakeholders who need a concise walkthrough of how Gravity organizes SDOH
+    domains, clinical activities, terminology choices, and implementation work across
+    the project ecosystem.
+  requires_registration: false
+  url: https://thegravityproject.net/wp-content/uploads/2022/08/20210408-ONC-ISP-WG-2021-04-08_Gravity_Project_Presentation.pdf
+  publication:
+    ref_url: ''
