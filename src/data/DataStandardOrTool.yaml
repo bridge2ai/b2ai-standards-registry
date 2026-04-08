@@ -51461,6 +51461,9 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:127
   - B2AI_ORG:115
+  has_training_resource:
+  - B2AI_STANDARD:1132
+  - B2AI_STANDARD:1133
   is_open: true
   name: OHNLP Toolkit
   purpose_detail: The OHNLP Toolkit is the collection of open-source software projects
@@ -51522,6 +51525,8 @@ data_standardortools_collection:
   formal_specification: https://github.com/OHNLP/MedTagger
   has_relevant_organization:
   - B2AI_ORG:127
+  has_training_resource:
+  - B2AI_STANDARD:1132
   is_open: true
   name: MedTagger
   purpose_detail: MedTagger is a lightweight clinical natural language processing
@@ -51606,6 +51611,8 @@ data_standardortools_collection:
   formal_specification: https://github.com/OHNLP/MedTator
   has_relevant_organization:
   - B2AI_ORG:127
+  has_training_resource:
+  - B2AI_STANDARD:1133
   is_open: true
   name: MedTator
   purpose_detail: MedTator is a serverless text annotation tool for corpus development
@@ -51672,3 +51679,48 @@ data_standardortools_collection:
     - Liu H
     ref_publication_year: 2015
     ref_journal: Journal of Biomedical Informatics
+- id: B2AI_STANDARD:1132
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official OHNLP MedTagger video walkthrough for installation and use
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedTagger Video Demo
+  purpose_detail: This openly accessible video demo is the main tutorial resource
+    linked from the official MedTagger repository. It complements the installation
+    and use instructions in the README by showing how the tool is configured and
+    run on example clinical-text rulesets, making it a practical onboarding resource
+    for users learning how to operate MedTagger within the OHNLP toolkit.
+  requires_registration: false
+  url: https://vimeo.com/392331446
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1133
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official MedTator quick-start tutorial for browser-based corpus annotation
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedTator Quick Start
+  purpose_detail: This OHNLP-maintained quick-start guide walks new users through
+    a minimal annotation task in MedTator, including loading a schema and files,
+    annotating documents, reviewing statistics, and exporting results. Because it
+    uses the public MedTator deployment and sample data to demonstrate the interface
+    step by step, it serves as a practical training resource for learning the annotation
+    workflow within the OHNLP toolkit.
+  requires_registration: false
+  url: https://github.com/OHNLP/MedTator/wiki/Quick-Start
+  publication:
+    ref_url: ''
