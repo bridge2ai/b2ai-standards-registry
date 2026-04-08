@@ -51244,6 +51244,9 @@ data_standardortools_collection:
   formal_specification: https://hl7.org/fhir/us/sdoh-clinicalcare/
   has_relevant_organization:
   - B2AI_ORG:114
+  has_training_resource:
+  - B2AI_STANDARD:1124
+  - B2AI_STANDARD:1125
   is_open: true
   name: Gravity Project
   purpose_detail: The Gravity Project is a U.S. national public collaborative that
@@ -51376,5 +51379,55 @@ data_standardortools_collection:
     certification module.
   requires_registration: false
   url: https://mocacognition.com/video
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1124
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official HL7 SDOH Clinical Care implementation guide for Gravity Project
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: SDOH Clinical Care Implementation Guide
+  purpose_detail: This official HL7 implementation guide provides the core technical
+    learning resource for implementers adopting Gravity Project standards. It includes
+    introductory background on SDOH and the Gravity Project, technical background,
+    guidance on how to read the implementation guide, workflow descriptions, assessment
+    instrument support, referral workflow patterns, value sets, example FHIR artifacts,
+    and downloadable implementation materials. Although it is specification-focused,
+    it functions as a practical training resource for developers, informaticians,
+    and program teams learning how Gravity-aligned SDOH data are represented and
+    exchanged using FHIR.
+  requires_registration: false
+  url: https://hl7.org/fhir/us/sdoh-clinicalcare/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1125
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Gravity Project HITAC ISP TF Presentation
+  has_relevant_organization:
+  - B2AI_ORG:126
+  - B2AI_ORG:40
+  is_open: true
+  name: Gravity Project Presentation
+  purpose_detail: This publicly accessible presentation deck offers a structured introduction
+    to the Gravity Project's goals, governance, terminology and FHIR workstreams,
+    published value sets, implementation-guide development, pilot activities, and
+    participation pathways. It is useful as an orientation and education resource
+    for stakeholders who need a concise walkthrough of how Gravity organizes SDOH
+    domains, clinical activities, terminology choices, and implementation work across
+    the project ecosystem.
+  requires_registration: false
+  url: https://thegravityproject.net/wp-content/uploads/2022/08/20210408-ONC-ISP-WG-2021-04-08_Gravity_Project_Presentation.pdf
   publication:
     ref_url: ''
