@@ -51041,6 +51041,177 @@ data_standardortools_collection:
       - AI-READI Consortium
       ref_publication_year: 2025
       ref_journal: BMJ Open
+  - id: B2AI_APP:374
+    category: B2AI:Application
+    name: ML-enhanced interpretation of MoCA subtests for cognitive impairment and
+      dementia subtype classification
+    description: Detailed MoCA subtest profiles have been used as machine-learning
+      inputs for classifying cognitively normal versus cognitively impaired individuals
+      and for distinguishing dementia subtypes. In this application, the conventional
+      MoCA total-score cutoff functions as a benchmark comparator, while supervised
+      models such as XGBoost, random forest, SVM, logistic regression, and k-nearest
+      neighbors exploit richer subtest-level patterns together with demographics and
+      derived cognitive metrics. Reported results in a large NACC-derived cohort showed
+      improved global impairment detection over the fixed cutoff approach, and strong
+      subtype-specific discrimination for conditions such as primary progressive aphasia,
+      Lewy body dementia, and Alzheimer's disease.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fnins.2026.1679649
+      ref_title: Enhanced diagnostic interpretation of the MoCA using machine learning
+      ref_authors:
+      - Gourdeau C
+      - Gourdeau CL
+      - Bernier PJ
+      - Laforce R
+      ref_publication_year: 2026
+      ref_journal: Frontiers in Neuroscience
+  - id: B2AI_APP:375
+    category: B2AI:Application
+    name: Parkinson's disease cognitive-impairment screening using MoCA domain and
+      item data
+    description: In Parkinson's disease cohorts, machine-learning models have used
+      MoCA domain scores and item-level responses as structured input features to
+      classify cognitive impairment. Logistic regression, SVM, and random forest
+      models were compared against conventional MoCA total-score cutoffs and showed
+      greater robustness, especially when repeated measures were excluded. Adding
+      cognitive-complaint information further improved performance, illustrating how
+      MoCA's internal structure can support richer PD cognitive screening than a single
+      summary score alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.14802/jmd.22012
+      ref_title: Accuracy of Machine Learning Using the Montreal Cognitive Assessment
+        for the Diagnosis of Cognitive Impairment in Parkinson's Disease
+      ref_authors:
+      - Jeon J
+      - Kim K
+      - Baek K
+      - Chung SJ
+      - Yoon J
+      - Kim YJ
+      ref_publication_year: 2022
+      ref_journal: Journal of Movement Disorders
+  - id: B2AI_APP:376
+    category: B2AI:Application
+    name: MoCA-defined PD-MCI labels for machine-learning risk stratification in Parkinson's
+      disease
+    description: MoCA has also been used as the target definition for supervised
+      learning in Parkinson's disease, where MoCA-based MDS Level I labels distinguish
+      mild cognitive impairment from cognitively normal status. In this role, MoCA
+      is not merely an input feature but the reference cognitive endpoint used to
+      train predictive models on routinely collected clinical variables. This supports
+      risk stratification and triage workflows in which machine-learning models estimate
+      contemporaneous probability of PD-MCI, including among patients whose raw MoCA
+      scores may not yet independently trigger concern.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-025-03215-0
+      ref_title: Machine learning-based stratification of mild cognitive impairment
+        in Parkinson's disease
+      ref_authors:
+      - Liu Y
+      - Chen M
+      - Chen P
+      - Lin X
+      - Chen S
+      - Liu C
+      - Wang D
+      - Deng H
+      - Li Q
+      - Wu Y
+      ref_publication_year: 2025
+      ref_journal: BMC Medical Informatics and Decision Making
+  - id: B2AI_APP:377
+    category: B2AI:Application
+    name: Multi-test cognitive screening models that include MoCA as a predictive
+      feature
+    description: MoCA has been incorporated as one feature source within broader machine-learning
+      screening models that combine multiple neuropsychological instruments and demographic
+      variables to classify mild cognitive impairment, dementia, and general cognitive
+      dysfunction. In these systems, MoCA contributes complementary signal alongside
+      tests such as MMSE and informant questionnaires rather than acting as a standalone
+      thresholded screen. Reported models, including gradient boosting and random
+      forest, achieved substantially higher classification performance than baseline
+      screening models using demographics alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1177/0300060520936881
+      ref_title: Mild cognitive impairment, dementia, and cognitive dysfunction screening
+        using machine learning
+      ref_authors:
+      - Yim D
+      - Yeo TY
+      - Park MH
+      ref_publication_year: 2020
+      ref_journal: Journal of International Medical Research
+  - id: B2AI_APP:378
+    category: B2AI:Application
+    name: Automated scoring of the MoCA verbal-fluency subtest from speech audio
+    description: MoCA has been directly digitized through machine-learning-driven
+      automation of subtest scoring. In Thai-language work on the phonemic verbal-fluency
+      item, an ASR pipeline implemented in Kaldi with GMM-HMM and TDNN-based acoustic
+      models was used to recognize candidate words and automatically compute the MoCA
+      fluency score. This application treats MoCA as the assessment instrument being
+      automated rather than as a label or benchmark, showing how speech AI can reduce
+      manual scoring burden and support digital cognitive assessment workflows.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3390/s22041583
+      ref_title: Using Automatic Speech Recognition to Assess Thai Speech Language
+        Fluency in the Montreal Cognitive Assessment (MoCA)
+      ref_authors:
+      - Kantithammakorn P
+      - Punyabukkana P
+      - Pratanwanich PN
+      - Hemrungrojn S
+      - Chunharas C
+      - Wanvarie D
+      ref_publication_year: 2022
+      ref_journal: Sensors
+  - id: B2AI_APP:379
+    category: B2AI:Application
+    name: Hybrid gait-machine-learning systems benchmarked and combined with MoCA
+      for cerebrovascular cognitive impairment detection
+    description: In cerebrovascular disease and post-stroke contexts, MoCA has been
+      used as a benchmark and auxiliary decision signal alongside gait-based machine-learning
+      classifiers. Models trained on dual-task gait metrics from electronic walkways
+      or accelerometers were compared with optimized MoCA thresholds and, in some
+      analyses, combined with MoCA classifications through majority voting. This use
+      case positions MoCA as a clinically familiar cognitive screen that can be complemented
+      by movement-derived ML predictions to improve sensitivity-specificity tradeoffs
+      in impairment detection.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-025-02979-9
+      ref_title: Detecting cognitive impairment in cerebrovascular disease using gait,
+        dual tasks, and machine learning
+      ref_authors:
+      - Guimaraes V
+      - Sousa I
+      - Velhote Correia M
+      ref_publication_year: 2025
+      ref_journal: BMC Medical Informatics and Decision Making
+  - id: B2AI_APP:380
+    category: B2AI:Application
+    name: Multimodal deep-learning prognosis models using baseline MoCA for post-stroke
+      cognitive decline
+    description: MoCA has been used as an informative clinical covariate in multimodal
+      deep-learning models that predict post-stroke cognitive decline from imaging
+      and clinical data. In this setting, the initial MoCA score contributes to prognostic
+      modeling together with MRI-derived features such as white matter hyperintensities
+      and hippocampal atrophy, and interpretability analyses identified MoCA as one
+      of the key contributors to model predictions. This use case illustrates MoCA's
+      value as a standardized cognitive baseline that can be fused with imaging biomarkers
+      in deep-learning risk models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2174/0118749445393308250529093953
+      ref_title: Predicting Cognitive Decline in Stroke Patients Using Deep Learning
+      ref_authors:
+      - Kim S
+      ref_publication_year: 2025
+      ref_journal: Open Public Health Journal
   publication:
     ref_url: https://doi.org/10.1111/j.1532-5415.2005.53221.x
     ref_title: 'The Montreal Cognitive Assessment, MoCA: a brief screening tool for mild cognitive impairment'
