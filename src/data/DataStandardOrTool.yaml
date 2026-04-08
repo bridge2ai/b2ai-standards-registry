@@ -51005,6 +51005,42 @@ data_standardortools_collection:
   requires_registration: true
   url: https://mocacognition.com/
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:373
+    category: B2AI:Application
+    name: AI-READI multimodal cognitive phenotyping for type 2 diabetes AI/ML studies
+    description: In the Bridge2AI Salutogenesis Grand Challenge (AI-READI), MoCA is
+      used as a standardized cognitive function assessment within a large, triple-balanced,
+      multimodal type 2 diabetes cohort explicitly designed to support AI/ML research
+      on salutogenesis and health resilience. The protocol administers MoCA electronically
+      on an iPad through the MoCA Duo application, and AI-READI documentation indicates
+      that the exported data include total score, section-level or task-level results,
+      Memory Index Score, and task completion times in CSV files. These MoCA-derived
+      variables are harmonized into the AI-READI clinical data structure using OMOP,
+      making them directly linkable to other modalities in the same participants including
+      retinal imaging, ECG, continuous glucose monitoring, laboratory data, physical
+      activity, and social determinants of health. This standardized representation
+      makes MoCA a useful cognitive phenotype for downstream AI/ML analyses in AI-READI,
+      such as modeling relationships between diabetes severity, multimodal biomarkers,
+      and cognitive health, and using cognition-related measures as features, outcomes,
+      or stratification variables in studies of type 2 diabetes salutogenesis.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1136/bmjopen-2024-097449
+      ref_title: Cross-sectional design and protocol for Artificial Intelligence Ready
+        and Equitable Atlas for Diabetes Insights (AI-READI)
+      ref_authors:
+      - Owsley C
+      - Matthies DS
+      - McGwin G
+      - Edberg JC
+      - Baxter SL
+      - Zangwill LM
+      - Owen JP
+      - Lee CS
+      - AI-READI Consortium
+      ref_publication_year: 2025
+      ref_journal: BMJ Open
   publication:
     ref_url: https://doi.org/10.1111/j.1532-5415.2005.53221.x
     ref_title: 'The Montreal Cognitive Assessment, MoCA: a brief screening tool for mild cognitive impairment'
