@@ -35145,13 +35145,16 @@ data_standardortools_collection:
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: A corpus-driven standardization framework for encoding clinical problems
-    with HL7 FHIR
+  description: OHNLP framework for standardizing free-text clinical problems into
+    SNOMED CT expressions and HL7 FHIR resources
   formal_specification: https://github.com/OHNLP/clinical-problem-standardization
   has_relevant_organization:
+  - B2AI_ORG:127
   - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
@@ -35171,11 +35174,21 @@ data_standardortools_collection:
     ref_publication_year: 2020
     ref_journal: Journal of Biomedical Informatics
   purpose_detail: A framework for transforming free-text problem descriptions into
-    standardized Health Level 7 (HL7) Fast Healthcare Interoperability Resources (FHIR)
-    models.
+    standardized SNOMED CT expressions and Health Level 7 (HL7) Fast Healthcare
+    Interoperability Resources (FHIR) models. The OHNLP clinical-problem-standardization
+    project is designed for short clinical problem descriptions such as problem-list
+    entries and other EHR text fragments, and it uses natural language processing
+    and weak supervision to parse these free-text problems into structured clinical
+    representations. The research codebase combines terminology resources such as
+    UMLS and SNOMED CT with components including MetaMap, Snorkel, dependency parsing,
+    and biomedical language embeddings, and can expose the resulting standardization
+    workflow through a REST API that returns OWL, FHIR, SNOMED, or raw graph output
+    formats.
   related_to:
   - B2AI_STANDARD:109
   requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
   url: https://github.com/OHNLP/clinical-problem-standardization
 - id: B2AI_STANDARD:721
   category: B2AI_STANDARD:SoftwareOrTool
@@ -51431,3 +51444,231 @@ data_standardortools_collection:
   url: https://thegravityproject.net/wp-content/uploads/2022/08/20210408-ONC-ISP-WG-2021-04-08_Gravity_Project_Presentation.pdf
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1126
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Open-source healthcare natural language processing toolkit maintained
+    by OHNLP
+  formal_specification: https://ohnlp.org/page/tool-list.html
+  has_relevant_organization:
+  - B2AI_ORG:127
+  - B2AI_ORG:115
+  is_open: true
+  name: OHNLP Toolkit
+  purpose_detail: The OHNLP Toolkit is the collection of open-source software projects
+    maintained and promoted by the Open Health Natural Language Processing Consortium
+    for biomedical and clinical text processing. The toolkit centers on Apache UIMA-based
+    clinical NLP pipelines and companion utilities for text annotation, temporal extraction,
+    medication normalization, and scalable ETL, making it useful for transforming
+    unstructured healthcare text into structured artifacts that can support cohort
+    identification, corpus development, terminology normalization, and downstream
+    biomedical AI workflows.
+  requires_registration: false
+  url: https://ohnlp.org/page/tool-list.html
+  used_in_bridge2ai: true
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1127
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP scalable ETL framework for healthcare NLP workflows
+  formal_specification: https://github.com/OHNLP/Backbone
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: Backbone
+  purpose_detail: Backbone is OHNLP's scalable extract-transform-load framework
+    for healthcare natural language processing workflows. It lets users express ETL
+    pipelines as JSON configurations, then executes those pipelines across local
+    or distributed environments by wrapping Apache Beam. Backbone is intended to
+    orchestrate practical clinical-text workflows such as extracting narratives from
+    EHR databases, converting rich text to plain text, running clinical NLP modules
+    such as MedTagger or MedXN, transforming outputs into standard schemas such as
+    OHDSI NOTE_NLP, and loading the results back into analytics-ready data stores.
+  related_to:
+  - B2AI_STANDARD:1128
+  - B2AI_STANDARD:1131
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/Backbone
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1128
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP clinical natural language processing system built on Apache
+    UIMA
+  formal_specification: https://github.com/OHNLP/MedTagger
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedTagger
+  purpose_detail: MedTagger is a lightweight clinical natural language processing
+    system built on Apache UIMA. The OHNLP distribution includes dictionary-based
+    indexing, pattern-based information extraction, and machine-learning-based named
+    entity recognition components, with terminology resources that can map detected
+    concepts to OMOP concept identifiers and use contextual annotation to identify
+    local modifiers. It is designed for extracting structured concepts from clinical
+    narratives and can be incorporated into larger ETL and cohort-identification
+    workflows.
+  related_to:
+  - B2AI_STANDARD:1127
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/MedTagger
+  publication:
+    ref_url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3811227/
+    ref_title: An information extraction framework for cohort identification using
+      electronic health records
+    ref_authors:
+    - Liu H
+    - Bielinski SJ
+    - Sohn S
+    - Murphy S
+    - Wagholikar KB
+    - Jonnalagadda SR
+    - Ravikumar KE
+    - Wu ST
+    - Kullo IJ
+    - Chute CG
+    ref_publication_year: 2013
+    ref_journal: AMIA Joint Summits on Translational Science Proceedings
+- id: B2AI_STANDARD:1129
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP temporal information extraction system for clinical text
+  formal_specification: https://github.com/OHNLP/MedTime
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedTime
+  purpose_detail: MedTime is an Apache UIMA-based temporal information extraction
+    system developed by the Mayo Clinic NLP program and maintained within OHNLP.
+    It extracts and normalizes TIMEX3-based temporal expressions from clinical text,
+    adapting HeidelTime for the clinical domain and packaging annotators, resources,
+    and UIMA descriptors for batch processing or interactive debugging. This makes
+    it useful for recovering normalized dates, times, durations, and frequencies
+    from clinical narratives for longitudinal analysis and event-timeline construction.
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/MedTime
+  publication:
+    ref_url: https://doi.org/10.1136/amiajnl-2013-001912
+    ref_title: Comprehensive temporal information detection from clinical text medical
+      events, time, and TLINK identification
+    ref_authors:
+    - Sohn S
+    - Wagholikar KB
+    - Li D
+    - Jonnalagadda SR
+    - Tao C
+    - Komandur Elayavilli R
+    - Liu H
+    ref_publication_year: 2013
+    ref_journal: Journal of the American Medical Informatics Association
+- id: B2AI_STANDARD:1130
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP serverless text annotation tool for corpus development
+  formal_specification: https://github.com/OHNLP/MedTator
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedTator
+  purpose_detail: MedTator is a serverless text annotation tool for corpus development
+    that runs as a lightweight web application without requiring a dedicated application
+    server or heavyweight runtime stack for annotation work. It supports annotation
+    schema design, corpus annotation, adjudication, conversion, and downstream script
+    support, making it useful for building gold-standard text corpora that can train
+    and evaluate biomedical natural language processing and machine learning systems.
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/MedTator
+  publication:
+    ref_url: https://doi.org/10.1093/bioinformatics/btab880
+    ref_title: MedTator a serverless annotation tool for corpus development
+    ref_authors:
+    - He H
+    - Fu S
+    - Wang L
+    - Liu S
+    - Wen A
+    - Liu H
+    ref_publication_year: 2022
+    ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1131
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP medication extraction and normalization system for clinical text
+  formal_specification: https://github.com/OHNLP/MedXN
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedXN
+  purpose_detail: MedXN is an Apache UIMA-based medication information extraction
+    and normalization system for clinical text. It identifies medication mentions
+    and their attributes, including strength, dose, form, route, frequency, and
+    duration, then normalizes the extracted information to the most specific RxNorm
+    concept identifier using dictionary resources, abbreviation expansion, inference,
+    and flexible matching. The tool is intended to turn free-text medication documentation
+    into structured medication data suitable for analytics, interoperability, and
+    downstream AI workflows.
+  related_to:
+  - B2AI_STANDARD:1127
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/MedXN
+  publication:
+    ref_url: https://doi.org/10.1016/j.jbi.2015.09.012
+    ref_title: MedXN an open source medication extraction and normalization tool
+      for clinical text
+    ref_authors:
+    - Sohn S
+    - Clark C
+    - Halgrim S
+    - Murphy SP
+    - Chute CG
+    - Liu H
+    ref_publication_year: 2015
+    ref_journal: Journal of Biomedical Informatics
