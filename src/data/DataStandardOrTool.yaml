@@ -51274,6 +51274,33 @@ data_standardortools_collection:
   - B2AI_ORG:126
   url: https://thegravityproject.net/our-work/overview/
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:381
+    category: B2AI:Application
+    name: Embedding and clustering of SDOH common data elements benchmarked against
+      Gravity domains
+    description: Gravity Project social determinants of health common data elements
+      have been used directly in a machine-learning pipeline for semantic harmonization
+      of common data elements. In this application, text strings constructed from
+      Gravity question and answer concepts were embedded with a large-language-model-derived
+      embedding model and clustered with HDBSCAN, and the resulting unsupervised groupings
+      were externally validated against Gravity-defined SDOH domain labels. Gravity
+      therefore served both as source content for the embedding workflow and as the
+      benchmark or ground-truth structure for evaluating clustering quality, demonstrating
+      a concrete ML use of Gravity's standardized domain organization for SDOH harmonization.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.48550/arxiv.2506.02160
+      ref_title: A Dynamic Framework for Semantic Grouping of Common Data Elements
+        (CDE) Using Embeddings and Clustering
+      ref_authors:
+      - Krishnamurthy M
+      - Korn DR
+      - Haendel MA
+      - Mungall CJ
+      - Thessen A
+      ref_publication_year: 2025
+      ref_journal: arXiv
   publication:
     ref_url: https://doi.org/10.1093/jamiaopen/ooy051
     ref_title: Documenting social determinants of health-related clinical activities
