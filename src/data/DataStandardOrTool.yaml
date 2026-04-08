@@ -35410,15 +35410,40 @@ data_standardortools_collection:
   formal_specification: https://github.com/apache/spark
   has_relevant_organization:
   - B2AI_ORG:5
+  has_training_resource:
+  - B2AI_STANDARD:1135
   is_open: true
   name: Spark
   purpose_detail: Apache Spark is a unified analytics engine for large-scale data
-    processing. It provides high-level APIs in Java, Scala, Python and R, and an optimized
-    engine that supports general execution graphs.
+    processing. It provides high-level APIs in Java, Scala, Python, and R, supports
+    interactive use through shells such as `pyspark` and `spark-shell`, and can
+    run locally or across distributed environments. The Spark platform also includes
+    higher-level components such as Spark SQL for structured data, MLlib for machine
+    learning, GraphX for graph analytics, and Structured Streaming for incremental
+    stream processing, making it a general-purpose engine for batch, interactive,
+    and real-time analytics workflows.
   requires_registration: false
   url: https://spark.apache.org/docs/latest/index.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/2934664
+    ref_title: 'Apache Spark: a unified engine for big data processing'
+    ref_authors:
+    - Zaharia M
+    - Xin RS
+    - Wendell P
+    - Das T
+    - Armbrust M
+    - Dave A
+    - Meng X
+    - Rosen J
+    - Venkataraman S
+    - Franklin MJ
+    - Ghodsi A
+    - Gonzalez JE
+    - Shenker S
+    - Stoica I
+    ref_publication_year: 2016
+    ref_journal: Communications of the ACM
 - id: B2AI_STANDARD:728
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -35452,6 +35477,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Appyters
   formal_specification: https://github.com/MaayanLab/appyter-catalog
+  has_training_resource:
+  - B2AI_STANDARD:1136
   is_open: true
   name: Appyters
   publication:
@@ -35485,8 +35512,13 @@ data_standardortools_collection:
     ref_publication_year: 2021
     ref_journal: Patterns
   purpose_detail: Appyters extend the Jupyter Notebook language to support external,
-    end-user configurable variables. Appyters can be considered a meta Jupyter Notebook
-    language that is compatible with standard Jupyter Notebook execution.
+    end-user configurable variables. The Appyter framework turns Jupyter notebooks
+    into Jinja2 template-driven web applications that can be installed locally,
+    launched from the command line, or deployed as executable notebook-backed web
+    tools. It supports configurable fields, profiles, custom templates, filters,
+    and static assets, allowing notebook authors to build parameterized, reproducible
+    interfaces for interactive data analysis while preserving compatibility with
+    standard notebook execution.
   requires_registration: false
   url: https://appyters.maayanlab.cloud/
 - id: B2AI_STANDARD:730
@@ -35644,13 +35676,29 @@ data_standardortools_collection:
   formal_specification: https://github.com/facebookresearch/balance
   has_relevant_organization:
   - B2AI_ORG:55
+  has_training_resource:
+  - B2AI_STANDARD:1137
   is_open: true
   name: balance
-  purpose_detail: A Python package for balancing biased data samples.
+  purpose_detail: balance is a Python package for adjusting biased samples so they
+    better represent a target population. It is designed for settings such as surveys,
+    observational studies, and other selection-biased datasets where auxiliary covariates
+    are available for both the sample and a target population. The package provides
+    a workflow for loading sample and target data, diagnosing imbalance, fitting
+    adjustment weights, evaluating post-adjustment quality, and producing weighted
+    population-level estimates, making it useful for statistically grounded correction
+    of non-response, coverage, and selection bias in data science workflows.
   requires_registration: false
   url: https://import-balance.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.48550/arXiv.2307.06024
+    ref_title: balance - a Python package for balancing biased data samples
+    ref_authors:
+    - Sarig T
+    - Galili T
+    - Eilat R
+    ref_publication_year: 2023
+    ref_journal: arXiv
 - id: B2AI_STANDARD:735
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -35685,18 +35733,39 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Biopython
   formal_specification: https://github.com/biopython/biopython
+  has_training_resource:
+  - B2AI_STANDARD:1138
   is_open: true
   name: Biopython
   purpose_detail: Biopython is a set of freely available tools for biological computation
-    written in Python by an international team of developers. It is a distributed
-    collaborative effort to develop Python libraries and applications which address
-    the needs of current and future work in bioinformatics. The source code is made
-    available under the Biopython License, which is extremely liberal and compatible
-    with almost every license in the world.
+    written in Python by an international team of developers. The project provides
+    libraries and applications for common bioinformatics tasks including sequence
+    input and output, alignments, BLAST and search-tool parsing, access to NCBI
+    Entrez resources, structural biology through the PDB module, phylogenetics,
+    and other downstream analysis workflows. Its tutorial and API documentation
+    are organized around practical biological data tasks, making Biopython both
+    a reusable toolkit and an entry point for building custom bioinformatics pipelines
+    in Python.
   requires_registration: false
   url: https://biopython.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/bioinformatics/btp163
+    ref_title: Biopython freely available Python tools for computational molecular
+      biology and bioinformatics
+    ref_authors:
+    - Cock PJA
+    - Antao T
+    - Chang JT
+    - Chapman BA
+    - Cox CJ
+    - Dalke A
+    - Friedberg I
+    - Hamelryck T
+    - Kauff F
+    - Wilczynski B
+    - de Hoon MJL
+    ref_publication_year: 2009
+    ref_journal: Bioinformatics
 - id: B2AI_STANDARD:737
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -35708,14 +35777,29 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Biotite
   formal_specification: https://github.com/biotite-dev/biotite
+  has_training_resource:
+  - B2AI_STANDARD:1139
   is_open: true
   name: Biotite
-  purpose_detail: This package bundles popular tasks in computational molecular biology
-    into a uniform Python library.
+  purpose_detail: Biotite is a Python library that bundles common tasks in computational
+    molecular biology into a uniform workflow centered on NumPy-based data structures.
+    It supports searching and fetching data from biological databases, reading and
+    writing common sequence and structure formats, analyzing and editing biomolecular
+    data, visualizing results, and interfacing with external applications for additional
+    analysis. This combination makes it useful as a compact end-to-end toolkit for
+    sequence and structural bioinformatics tasks ranging from small scripts to larger
+    reusable software packages.
   requires_registration: false
   url: https://www.biotite-python.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/s12859-018-2367-z
+    ref_title: Biotite a unifying open-source computational biology framework in
+      Python
+    ref_authors:
+    - Kunzmann P
+    - Hamacher K
+    ref_publication_year: 2018
+    ref_journal: BMC Bioinformatics
 - id: B2AI_STANDARD:738
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -51756,5 +51840,104 @@ data_standardortools_collection:
     trajectories.
   requires_registration: false
   url: https://wiki.ros.org/Bags
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1135
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Apache Spark quick-start tutorial
+  has_relevant_organization:
+  - B2AI_ORG:5
+  is_open: true
+  name: Spark Quick Start
+  purpose_detail: This official Spark tutorial introduces users to interactive
+    analysis with the Spark shell, basic Dataset operations, caching, and the structure
+    of self-contained applications in Python, Scala, and Java. It is a practical
+    onboarding resource for learning core Spark concepts and the mechanics of running
+    analytics jobs locally before moving to larger distributed deployments.
+  requires_registration: false
+  url: https://spark.apache.org/docs/latest/quick-start.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1136
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Appyter framework documentation
+  is_open: true
+  name: Appyter Documentation
+  purpose_detail: This official documentation walks users through Appyter installation,
+    command-line usage, creation of notebook-backed web apps, template customization,
+    field definitions, and rendering behavior. It serves as the main training resource
+    for developers learning how to convert Jupyter notebooks into parameterized,
+    executable web applications using the Appyter framework.
+  requires_registration: false
+  url: https://maayanlab.github.io/appyter/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1137
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official balance quickstart tutorial notebook
+  has_relevant_organization:
+  - B2AI_ORG:55
+  is_open: true
+  name: balance Quickstart
+  purpose_detail: This official quickstart tutorial demonstrates the core balance
+    workflow with code and notebook-backed examples, including loading sample and
+    target data, fitting adjustment weights, inspecting diagnostics, and evaluating
+    weighted outcomes. It is a hands-on training resource for users learning how
+    to apply the package to biased-sample adjustment problems in practice.
+  requires_registration: false
+  url: https://import-balance.org/docs/tutorials/quickstart/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1138
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:1
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Biopython Tutorial and Cookbook
+  is_open: true
+  name: Biopython Tutorial & Cookbook
+  purpose_detail: This official Biopython tutorial and cookbook provides guided
+    instruction across the library's major capabilities, including sequence objects,
+    file parsing, alignments, BLAST, Entrez access, structural biology, phylogenetics,
+    motif analysis, and other practical tasks. It functions as the primary learning
+    resource for users adopting Biopython for bioinformatics analysis and development.
+  requires_registration: false
+  url: https://biopython.org/docs/latest/Tutorial/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1139
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:20
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Biotite tutorial documentation
+  is_open: true
+  name: Biotite Tutorial
+  purpose_detail: This official tutorial introduces Biotite through worked examples
+    and structured documentation covering its major subpackages and supported bioinformatics
+    workflows. It is the main training resource for learning how to use Biotite
+    for sequence, structure, database, visualization, and analysis tasks within
+    a consistent Python interface.
+  requires_registration: false
+  url: https://www.biotite-python.org/latest/tutorial/index.html
   publication:
     ref_url: ''
