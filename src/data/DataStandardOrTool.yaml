@@ -35459,12 +35459,33 @@ data_standardortools_collection:
   - B2AI_STANDARD:1073
   is_open: true
   name: Taverna
-  purpose_detail: Taverna is a domain-independent suite of tools used to design and
-    execute data-driven workflows.
+  purpose_detail: Taverna is a domain-independent workflow system for composing and
+    enacting data-driven analyses, especially in the life sciences. It provides
+    a workbench-style interface for assembling workflows from heterogeneous computational
+    tools, databases, and web services so users can orchestrate multi-step in silico
+    experiments without manually wiring each integration step. The platform was designed
+    to support reusable workflow definitions and graphical workflow authoring for
+    bioinformatics and other data-intensive research settings.
   requires_registration: false
   url: https://incubator.apache.org/projects/taverna.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/bioinformatics/bth361
+    ref_title: 'Taverna: a tool for the composition and enactment of bioinformatics
+      workflows'
+    ref_authors:
+    - Oinn T
+    - Addis M
+    - Ferris J
+    - Marvin D
+    - Senger M
+    - Greenwood M
+    - Carver T
+    - Glover K
+    - Pocock MR
+    - Wipat A
+    - Li P
+    ref_publication_year: 2004
+    ref_journal: Bioinformatics
 - id: B2AI_STANDARD:729
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -35621,27 +35642,70 @@ data_standardortools_collection:
     - Laussen PC
     ref_publication_year: 2020
     ref_journal: Physiol. Meas.
-  purpose_detail: A database of continuously-recorded physiological waveform data
-    and other associated clinical and medical device data. Also the platform for storage
-    and retrieval of clinical waveform data.
+  purpose_detail: AtriumDB is a platform for storing, indexing, and retrieving continuously
+    recorded physiological waveforms together with associated clinical and medical-device
+    data. It is oriented toward high-frequency bedside-monitor and device signals,
+    supporting scalable access to long-duration time-series data for downstream analytics,
+    quality review, and machine learning workflows. The system is designed to make
+    large clinical waveform repositories practical to manage and query in research
+    and operational environments.
   requires_registration: true
   url: https://laussenlabs.ca/atriumdb/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:64
     category: B2AI:Application
-    name: High-Frequency Physiological Waveform Analysis
-    description: AtriumDB is used in AI applications for managing and analyzing high-frequency
-      physiological waveform data at scale, enabling deep learning models for intensive
-      care monitoring, perioperative risk prediction, and continuous vital sign analysis.
-      The platform's efficient storage and query capabilities support training of
-      neural networks on bedside monitor data including ECG, arterial blood pressure,
-      and other high-resolution physiological signals collected over extended periods.
-      AI systems leverage AtriumDB to access synchronized multi-parameter waveforms
-      for developing early warning systems, detecting subtle physiological deterioration,
-      and predicting adverse events in critically ill patients. The database's time-series
-      optimization enables real-time AI inference on streaming waveform data.
+    name: Pediatric Arrhythmia Detection from Continuous ICU ECG
+    description: AtriumDB is used as the waveform data platform for machine-learning
+      development and deployment in pediatric critical care, particularly for real-time
+      arrhythmia detection from continuous bedside ECG. At SickKids, investigators
+      used large-scale lead II ECG data stored in AtriumDB to build expert-labeled
+      datasets, train self-supervised and supervised models, and support active-learning
+      workflows for identifying junctional arrhythmias such as junctional ectopic
+      tachycardia (JET). The same infrastructure, combined with AtriumStreams, supports
+      real-time ingestion of bedside waveforms and cross-institutional validation
+      of a silent-trial clinical decision-support model for pediatric arrhythmia
+      detection.
     used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1088/1361-6579/ab7cb5
+      ref_title: A practical approach to storage and retrieval of high-frequency
+        physiological signals
+      ref_authors:
+      - Goodwin AJ
+      - Eytan D
+      - Greer RW
+      - Mazwi M
+      - Thommandram A
+      - Goodfellow SD
+      - Assadi A
+      - Jegatheeswaran A
+      - Laussen PC
+      ref_publication_year: 2020
+      ref_journal: Physiol. Meas.
+    - ref_url: https://doi.org/10.21203/rs.3.rs-8194963/v1
+      ref_title: 'Accelerating Machine Learning in Healthcare: Addressing the Labelling
+        Bottleneck'
+      ref_authors:
+      - Vecile S
+      - Dixon W
+      - Assadi A
+      - Kim M
+      - Greer R
+      - Siddiqui A
+      - Ehrmann D
+      - Goodwin A
+      - Eytan D
+      - Mazwi M
+      - Bulic A
+      - Goodfellow SD
+      ref_publication_year: 2025
+      ref_journal: Research Square
+    - ref_url: https://www.sickkids.ca/en/news/archive/2025/machine-learning-platform-developed-at-sickkids-helps-scale-high-impact-ai-models/
+      ref_title: Machine learning platform developed at SickKids helps scale high-impact
+        AI models
+      ref_publication_year: 2025
+      ref_journal: SickKids News
 - id: B2AI_STANDARD:733
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -35715,13 +35779,28 @@ data_standardortools_collection:
   - B2AI_STANDARD:1094
   is_open: false
   name: BigQuery
-  purpose_detail: A fully managed, serverless data warehouse that enables scalable
-    analysis over petabytes of data. It is a Platform as a Service (PaaS) that supports
-    querying using ANSI SQL.
+  purpose_detail: BigQuery is a fully managed, AI-ready, serverless cloud data warehouse
+    and analytics platform in Google Cloud. It is designed for SQL-based analysis
+    of very large datasets without users provisioning or maintaining the underlying
+    infrastructure, and it supports warehouse-style analytics across batch and streaming
+    data. In practice, BigQuery is used for large-scale querying, data warehousing,
+    data marts, and integrated analytical workflows that connect SQL analysis with
+    machine learning and business intelligence tooling.
   requires_registration: true
   url: https://cloud.google.com/bigquery
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/1953122.1953148
+    ref_title: 'Dremel: interactive analysis of web-scale datasets'
+    ref_authors:
+    - Melnik S
+    - Gubarev A
+    - Long JJ
+    - Romer G
+    - Shivakumar S
+    - Tolton M
+    - Vassilakis T
+    ref_publication_year: 2011
+    ref_journal: Communications of the ACM
 - id: B2AI_STANDARD:736
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -37808,12 +37887,40 @@ data_standardortools_collection:
   - B2AI_STANDARD:961
   is_open: true
   name: Jupyter
-  purpose_detail: A web-based notebook environment for interactive computing.
+  purpose_detail: Jupyter is a web-based interactive computing environment centered
+    on notebook documents that combine live code, equations, narrative text, visualizations,
+    dashboards, and other media in a single executable record. It supports reproducible
+    computational workflows across many programming languages and is widely used for
+    exploratory analysis, scientific computing, teaching, data science, and sharable
+    research reporting. The broader Jupyter project also provides open standards
+    and web services that support interactive computing beyond the classic notebook
+    interface.
   requires_registration: false
   url: https://jupyter.org/
   used_in_bridge2ai: true
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.3233/978-1-61499-649-1-87
+    ref_title: 'Jupyter Notebooks - a publishing format for reproducible computational
+      workflows'
+    ref_authors:
+    - Kluyver T
+    - Ragan-Kelley B
+    - Perez F
+    - Granger B
+    - Bussonnier M
+    - Frederic J
+    - Kelley K
+    - Hamrick J
+    - Grout J
+    - Corlay S
+    - Ivanov P
+    - Avila D
+    - Abdalla S
+    - Willing C
+    - Jupyter Development Team
+    ref_publication_year: 2016
+    ref_journal: 'Positioning and Power in Academic Publishing: Players, Agents and
+      Agendas'
 - id: B2AI_STANDARD:780
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -42940,11 +43047,24 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:9
   is_open: true
   name: DuckDB
-  purpose_detail: A database platform designed for working with tabular data.
+  purpose_detail: DuckDB is an open-source, in-process SQL OLAP database management
+    system designed for analytical workloads on tabular data. Rather than running
+    as a separate database server, it is embedded directly in the host process, making
+    it well suited for local analytics in scripts, notebooks, applications, and
+    reproducible data workflows. It provides a feature-rich SQL interface and is
+    optimized for fast analytical queries while remaining lightweight and easy to
+    deploy.
   requires_registration: false
   url: https://duckdb.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/3299869.3320212
+    ref_title: 'DuckDB: an Embeddable Analytical Database'
+    ref_authors:
+    - Raasveldt M
+    - Muehleisen H
+    ref_publication_year: 2019
+    ref_journal: Proceedings of the 2019 International Conference on Management
+      of Data
 - id: B2AI_STANDARD:862
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
