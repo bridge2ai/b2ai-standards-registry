@@ -332,21 +332,176 @@
           ]
         },
         {
-          "data_part_name": "Survey data",
-          "data_part_description": "Data from patient surveys, including social determinants of health (SDoH), diet, lifestyle, family history, and MoCA cognitive scores.",
+          "data_part_name": "Demographics questionnaire",
+          "data_part_description": "Questionnaire responses covering participant demographic characteristics including age, sex or gender, race or ethnicity, and marital status.",
           "standards_and_tools": [
             "B2AI_STANDARD:243",
-            "B2AI_STANDARD:821",
-            "B2AI_STANDARD:1119",
-            "B2AI_STANDARD:1120"
+            "B2AI_STANDARD:821"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:6",
+            "B2AI_TOPIC:31"
+          ]
+        },
+        {
+          "data_part_name": "General health questionnaire",
+          "data_part_description": "Questionnaire responses covering general health history, self-reported medical conditions including eye conditions, and history of falls.",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821"
           ],
           "uses_data_substrates": [
             "B2AI_SUBSTRATE:80"
           ],
           "concerns_data_topics": [
             "B2AI_TOPIC:4",
+            "B2AI_TOPIC:31",
+            "B2AI_TOPIC:44"
+          ]
+        },
+        {
+          "data_part_name": "Diabetes self-care questionnaire",
+          "data_part_description": "Questionnaire responses describing diabetes self-management behaviors, including diet, fitness, and related self-care practices.",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:31",
+            "B2AI_TOPIC:43",
+            "B2AI_TOPIC:56"
+          ]
+        },
+        {
+          "data_part_name": "CES-D-10 depression questionnaire",
+          "data_part_description": "Questionnaire responses and derived scores from the 10-item Center for Epidemiologic Studies Depression Scale (CES-D-10).",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821",
+            "B2AI_STANDARD:1140"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:31",
+            "B2AI_TOPIC:50",
+            "B2AI_TOPIC:51"
+          ]
+        },
+        {
+          "data_part_name": "SDoH questionnaires",
+          "data_part_description": "Questionnaire responses covering social determinants of health, including education, housing, English proficiency, food insecurity, neighborhood environment, and racial or ethnic discrimination.",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821",
+            "B2AI_STANDARD:1120"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
             "B2AI_TOPIC:29",
-            "B2AI_TOPIC:40"
+            "B2AI_TOPIC:31"
+          ]
+        },
+        {
+          "data_part_name": "PAID-5 diabetes distress questionnaire",
+          "data_part_description": "Questionnaire responses and derived scores from the 5-item Problem Areas In Diabetes assessment of diabetes-related emotional distress.",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821",
+            "B2AI_STANDARD:1141"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:31",
+            "B2AI_TOPIC:43",
+            "B2AI_TOPIC:50"
+          ]
+        },
+        {
+          "data_part_name": "Vision and access to eye care questionnaire",
+          "data_part_description": "Questionnaire responses describing current vision, impairments, timing of eye examinations, and access to eye care professionals.",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:31",
+            "B2AI_TOPIC:44"
+          ]
+        },
+        {
+          "data_part_name": "Dietary survey",
+          "data_part_description": "Questionnaire responses covering food and drink habits relevant to nutrition and type 2 diabetes risk or management.",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:31",
+            "B2AI_TOPIC:43",
+            "B2AI_TOPIC:56"
+          ]
+        },
+        {
+          "data_part_name": "Substance use questionnaire",
+          "data_part_description": "Questionnaire responses covering tobacco, alcohol, and other substance use.",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:8",
+            "B2AI_TOPIC:31"
+          ]
+        },
+        {
+          "data_part_name": "Medication list questionnaire",
+          "data_part_description": "Participant-reported medication lists and related questionnaire responses.",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:821"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:8",
+            "B2AI_TOPIC:31"
+          ]
+        },
+        {
+          "data_part_name": "MoCA cognitive assessment",
+          "data_part_description": "Questionnaire responses and derived scores from the Montreal Cognitive Assessment (MoCA).",
+          "standards_and_tools": [
+            "B2AI_STANDARD:243",
+            "B2AI_STANDARD:1119"
+          ],
+          "uses_data_substrates": [
+            "B2AI_SUBSTRATE:80"
+          ],
+          "concerns_data_topics": [
+            "B2AI_TOPIC:31",
+            "B2AI_TOPIC:48"
           ]
         },
         {
