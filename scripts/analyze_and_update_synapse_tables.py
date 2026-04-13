@@ -52,6 +52,9 @@ DATATYPE_OVERRRIDES = {
     # maybe will only work for JSON cols, which is fine for now
     'DataStandardOrTool': {
         'has_application': ColumnType.JSON
+    },
+    'Manifest': {
+        'data_parts': ColumnType.JSON
     }
 }
 

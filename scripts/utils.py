@@ -67,6 +67,16 @@ def infer_column_type(values: pd.Series) -> ColumnType:
     if len(non_empty) == 0:
         return ColumnType.STRING
 
+    # Nested objects must be stored as JSON rather than STRING_LIST.
+    if non_empty.apply(lambda v: isinstance(v, Mapping)).any():
+        return ColumnType.JSON
+
+    nested_list_values = non_empty[non_empty.apply(lambda v: isinstance(v, list))]
+    if not nested_list_values.empty and nested_list_values.apply(
+        lambda items: any(isinstance(item, (Mapping, list)) for item in items)
+    ).any():
+        return ColumnType.JSON
+
     # Check types of non-empty values
     types = non_empty.map(type).unique()
 
