@@ -52094,6 +52094,72 @@ data_standardortools_collection:
   requires_registration: false
   url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:382
+    category: B2AI:Application
+    name: AI-READI multimodal depression phenotyping for type 2 diabetes AI/ML studies
+    description: In the Bridge2AI Salutogenesis Grand Challenge (AI-READI), CES-D-10
+      is included as a standardized depression questionnaire within a multimodal,
+      AI-ready type 2 diabetes cohort. The AI-READI protocol positions the dataset
+      as a resource for AI and machine learning research, while the questionnaire
+      documentation specifically identifies CES-D-10 as one of the collected survey
+      instruments. In this setting, CES-D-10 responses and derived scores can support
+      multimodal phenotyping, covariate adjustment, stratification, or outcome modeling
+      alongside retinal imaging, continuous glucose monitoring, wearable activity,
+      laboratory, and social determinants of health data.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1136/bmjopen-2024-097449
+      ref_title: Cross-sectional design and protocol for Artificial Intelligence Ready
+        and Equitable Atlas for Diabetes Insights (AI-READI)
+      ref_authors:
+      - Owsley C
+      - Matthies DS
+      - McGwin G
+      - Edberg JC
+      - Baxter SL
+      - Zangwill LM
+      - Owen JP
+      - Lee CS
+      - AI-READI Consortium
+      ref_publication_year: 2025
+      ref_journal: BMJ Open
+    - ref_url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
+      ref_title: Questionnaires | Documentation for the AI-READI Dataset
+      ref_publication_year: 2026
+      ref_journal: AI-READI Dataset Docs
+  - id: B2AI_APP:383
+    category: B2AI:Application
+    name: CES-D-10-defined depression-risk classification in HIV-HCV co-infection
+      using supervised machine learning
+    description: CES-D-10 has been used directly as the target definition in supervised
+      machine-learning models for depression-risk classification. In a Canadian HIV-HCV
+      co-infection cohort, participants were classified as at risk for clinical depression
+      using CES-D-10 scores of 10 or higher, and random forest models were trained
+      on demographic, behavioral, and clinical variables to predict these CES-D-10
+      classes. This application uses CES-D-10 as the structured phenotype or label
+      against which model performance is evaluated.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://pubmed.ncbi.nlm.nih.gov/35962372/
+      ref_title: Predicting the presence of depressive symptoms in the HIV-HCV co-infected
+        population in Canada using supervised machine learning
+      ref_authors:
+      - Marathe G
+      - Moodie EEM
+      - Brouillette MJ
+      - Cox J
+      - Cooper C
+      - Delaunay CL
+      - Conway B
+      - Hull M
+      - Martel-Laferriere V
+      - Vachon ML
+      - Walmsley S
+      - Wong A
+      - Klein MB
+      ref_publication_year: 2022
+      ref_journal: BMC Medical Research Methodology
   publication:
     ref_url: https://pubmed.ncbi.nlm.nih.gov/8037935/
     ref_title: 'Screening for depression in well older adults: evaluation of a short form of the CES-D (Center for Epidemiologic Studies Depression Scale)'
@@ -52120,6 +52186,8 @@ data_standardortools_collection:
   formal_specification: https://docs.aireadi.org/v2/questionnaires/paid-5.pdf
   has_relevant_organization:
   - B2AI_ORG:114
+  has_training_resource:
+  - B2AI_STANDARD:1143
   is_open: false
   name: PAID-5
   purpose_detail: The 5-item Problem Areas In Diabetes scale (PAID-5) is a brief
@@ -52137,8 +52205,42 @@ data_standardortools_collection:
   requires_registration: false
   url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:384
+    category: B2AI:Application
+    name: AI-READI multimodal diabetes-distress phenotyping for type 2 diabetes AI/ML
+      studies
+    description: In the Bridge2AI Salutogenesis Grand Challenge (AI-READI), PAID-5
+      is included as a brief standardized assessment of diabetes-related emotional
+      distress within a multimodal, AI-ready type 2 diabetes cohort. The AI-READI
+      protocol describes the project as a resource for AI and machine learning studies,
+      and the questionnaire documentation identifies PAID-5 as one of the collected
+      instruments. In this setting, PAID-5 scores can be used as structured phenotypes,
+      covariates, or stratification variables in multimodal analyses linking distress-related
+      burden to glycemic, ophthalmic, laboratory, wearable, and social-context data.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1136/bmjopen-2024-097449
+      ref_title: Cross-sectional design and protocol for Artificial Intelligence Ready
+        and Equitable Atlas for Diabetes Insights (AI-READI)
+      ref_authors:
+      - Owsley C
+      - Matthies DS
+      - McGwin G
+      - Edberg JC
+      - Baxter SL
+      - Zangwill LM
+      - Owen JP
+      - Lee CS
+      - AI-READI Consortium
+      ref_publication_year: 2025
+      ref_journal: BMJ Open
+    - ref_url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
+      ref_title: Questionnaires | Documentation for the AI-READI Dataset
+      ref_publication_year: 2026
+      ref_journal: AI-READI Dataset Docs
   publication:
-    ref_url: https://pubmed.ncbi.nlm.nih.gov/19841892/
+    ref_url: https://doi.org/10.1007/s00125-009-1559-5
     ref_title: 'Short-form measures of diabetes-related emotional distress: the Problem Areas in Diabetes Scale (PAID)-5 and PAID-1'
     ref_authors:
     - McGuire BE
@@ -52155,3 +52257,27 @@ data_standardortools_collection:
     - Snoek FJ
     ref_publication_year: 2010
     ref_journal: Diabetologia
+- id: B2AI_STANDARD:1143
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:43
+  - B2AI_TOPIC:50
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NDSS clinical guide for using and interpreting the Problem Areas In
+    Diabetes scale
+  is_open: true
+  name: NDSS PAID Scale Guide
+  purpose_detail: This National Diabetes Services Scheme health-professional guide
+    explains when to use the Problem Areas In Diabetes scale, how respondents score
+    items, how to interpret high-scoring items and total scores, and when referral
+    to additional mental-health support should be considered. Although written for
+    the full PAID family of instruments, it explicitly notes the shorter PAID-5 and
+    PAID-1 forms and serves as practical training documentation for clinicians or
+    researchers using PAID-5 as a rapid diabetes-distress screen.
+  requires_registration: false
+  url: https://www.ndss.com.au/health-professionals/supporting-emotional-health/mental-health-questionnaires/paid-scale/
+  publication:
+    ref_url: ''
