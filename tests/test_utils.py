@@ -48,6 +48,25 @@ class InferColumnTypeTests(unittest.TestCase):
         values = pd.Series(["alpha", 7])
         self.assertEqual(utils.infer_column_type(values), ColumnType.STRING)
 
+    def test_infer_column_type_returns_json_for_dict_values(self):
+        """infer_column_type should store top-level dicts as JSON."""
+        values = pd.Series([{"name": "alpha"}, {"name": "beta"}, None, ""])
+        self.assertEqual(utils.infer_column_type(values), ColumnType.JSON)
+
+    def test_infer_column_type_returns_json_for_list_of_dicts(self):
+        """infer_column_type should store nested object lists as JSON."""
+        values = pd.Series([
+            [{"data_part_name": "Cell maps"}],
+            [{"data_part_name": "Evidence"}],
+            [],
+        ])
+        self.assertEqual(utils.infer_column_type(values), ColumnType.JSON)
+
+    def test_infer_column_type_keeps_string_lists_as_string_list(self):
+        """infer_column_type should keep simple string lists as STRING_LIST."""
+        values = pd.Series([["alpha", "beta"], ["gamma"], []])
+        self.assertEqual(utils.infer_column_type(values), ColumnType.STRING_LIST)
+
 
 class ConfigureColumnFromDataTests(unittest.TestCase):
     """Verify Synapse column metadata is configured from observed data values."""

@@ -6,6 +6,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch, sentinel
 
+import pandas as pd
+from synapseclient.models import ColumnType
+
 from scripts import analyze_and_update_synapse_tables as update_module
 
 
@@ -64,6 +67,29 @@ class PopulateTableTests(unittest.TestCase):
         self.assertEqual(args[2], [sentinel.coldef])
         self.assertEqual(args[3].to_dict(orient="records"), [{"id": "B2AI_DATA:1", "name": "Dataset One"}])
         self.assertEqual(args[4], "synDataset")
+
+
+class GetColDefsTests(unittest.TestCase):
+    """Verify table-specific Synapse schema overrides."""
+
+    def test_get_col_defs_marks_manifest_data_parts_as_json(self):
+        df = pd.DataFrame(
+            [
+                {
+                    "id": "B2AI_MANIFEST:1",
+                    "data_parts": [
+                        {
+                            "data_part_name": "Cell maps",
+                            "standards_and_tools": ["B2AI_STANDARD:372"],
+                        }
+                    ],
+                }
+            ]
+        )
+
+        coldefs = {col.name: col for col in update_module.get_col_defs(df, "Manifest")}
+
+        self.assertEqual(coldefs["data_parts"].column_type, ColumnType.JSON)
 
 
 if __name__ == "__main__":

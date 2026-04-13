@@ -35145,13 +35145,16 @@ data_standardortools_collection:
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: A corpus-driven standardization framework for encoding clinical problems
-    with HL7 FHIR
+  description: OHNLP framework for standardizing free-text clinical problems into
+    SNOMED CT expressions and HL7 FHIR resources
   formal_specification: https://github.com/OHNLP/clinical-problem-standardization
   has_relevant_organization:
+  - B2AI_ORG:127
   - B2AI_ORG:40
   has_training_resource:
   - B2AI_STANDARD:845
@@ -35171,11 +35174,21 @@ data_standardortools_collection:
     ref_publication_year: 2020
     ref_journal: Journal of Biomedical Informatics
   purpose_detail: A framework for transforming free-text problem descriptions into
-    standardized Health Level 7 (HL7) Fast Healthcare Interoperability Resources (FHIR)
-    models.
+    standardized SNOMED CT expressions and Health Level 7 (HL7) Fast Healthcare
+    Interoperability Resources (FHIR) models. The OHNLP clinical-problem-standardization
+    project is designed for short clinical problem descriptions such as problem-list
+    entries and other EHR text fragments, and it uses natural language processing
+    and weak supervision to parse these free-text problems into structured clinical
+    representations. The research codebase combines terminology resources such as
+    UMLS and SNOMED CT with components including MetaMap, Snorkel, dependency parsing,
+    and biomedical language embeddings, and can expose the resulting standardization
+    workflow through a REST API that returns OWL, FHIR, SNOMED, or raw graph output
+    formats.
   related_to:
   - B2AI_STANDARD:109
   requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
   url: https://github.com/OHNLP/clinical-problem-standardization
 - id: B2AI_STANDARD:721
   category: B2AI_STANDARD:SoftwareOrTool
@@ -35397,15 +35410,40 @@ data_standardortools_collection:
   formal_specification: https://github.com/apache/spark
   has_relevant_organization:
   - B2AI_ORG:5
+  has_training_resource:
+  - B2AI_STANDARD:1135
   is_open: true
   name: Spark
   purpose_detail: Apache Spark is a unified analytics engine for large-scale data
-    processing. It provides high-level APIs in Java, Scala, Python and R, and an optimized
-    engine that supports general execution graphs.
+    processing. It provides high-level APIs in Java, Scala, Python, and R, supports
+    interactive use through shells such as `pyspark` and `spark-shell`, and can
+    run locally or across distributed environments. The Spark platform also includes
+    higher-level components such as Spark SQL for structured data, MLlib for machine
+    learning, GraphX for graph analytics, and Structured Streaming for incremental
+    stream processing, making it a general-purpose engine for batch, interactive,
+    and real-time analytics workflows.
   requires_registration: false
   url: https://spark.apache.org/docs/latest/index.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/2934664
+    ref_title: 'Apache Spark: a unified engine for big data processing'
+    ref_authors:
+    - Zaharia M
+    - Xin RS
+    - Wendell P
+    - Das T
+    - Armbrust M
+    - Dave A
+    - Meng X
+    - Rosen J
+    - Venkataraman S
+    - Franklin MJ
+    - Ghodsi A
+    - Gonzalez JE
+    - Shenker S
+    - Stoica I
+    ref_publication_year: 2016
+    ref_journal: Communications of the ACM
 - id: B2AI_STANDARD:728
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -35421,12 +35459,33 @@ data_standardortools_collection:
   - B2AI_STANDARD:1073
   is_open: true
   name: Taverna
-  purpose_detail: Taverna is a domain-independent suite of tools used to design and
-    execute data-driven workflows.
+  purpose_detail: Taverna is a domain-independent workflow system for composing and
+    enacting data-driven analyses, especially in the life sciences. It provides
+    a workbench-style interface for assembling workflows from heterogeneous computational
+    tools, databases, and web services so users can orchestrate multi-step in silico
+    experiments without manually wiring each integration step. The platform was designed
+    to support reusable workflow definitions and graphical workflow authoring for
+    bioinformatics and other data-intensive research settings.
   requires_registration: false
   url: https://incubator.apache.org/projects/taverna.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/bioinformatics/bth361
+    ref_title: 'Taverna: a tool for the composition and enactment of bioinformatics
+      workflows'
+    ref_authors:
+    - Oinn T
+    - Addis M
+    - Ferris J
+    - Marvin D
+    - Senger M
+    - Greenwood M
+    - Carver T
+    - Glover K
+    - Pocock MR
+    - Wipat A
+    - Li P
+    ref_publication_year: 2004
+    ref_journal: Bioinformatics
 - id: B2AI_STANDARD:729
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -35439,6 +35498,8 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Appyters
   formal_specification: https://github.com/MaayanLab/appyter-catalog
+  has_training_resource:
+  - B2AI_STANDARD:1136
   is_open: true
   name: Appyters
   publication:
@@ -35472,8 +35533,13 @@ data_standardortools_collection:
     ref_publication_year: 2021
     ref_journal: Patterns
   purpose_detail: Appyters extend the Jupyter Notebook language to support external,
-    end-user configurable variables. Appyters can be considered a meta Jupyter Notebook
-    language that is compatible with standard Jupyter Notebook execution.
+    end-user configurable variables. The Appyter framework turns Jupyter notebooks
+    into Jinja2 template-driven web applications that can be installed locally,
+    launched from the command line, or deployed as executable notebook-backed web
+    tools. It supports configurable fields, profiles, custom templates, filters,
+    and static assets, allowing notebook authors to build parameterized, reproducible
+    interfaces for interactive data analysis while preserving compatibility with
+    standard notebook execution.
   requires_registration: false
   url: https://appyters.maayanlab.cloud/
 - id: B2AI_STANDARD:730
@@ -35576,27 +35642,70 @@ data_standardortools_collection:
     - Laussen PC
     ref_publication_year: 2020
     ref_journal: Physiol. Meas.
-  purpose_detail: A database of continuously-recorded physiological waveform data
-    and other associated clinical and medical device data. Also the platform for storage
-    and retrieval of clinical waveform data.
+  purpose_detail: AtriumDB is a platform for storing, indexing, and retrieving continuously
+    recorded physiological waveforms together with associated clinical and medical-device
+    data. It is oriented toward high-frequency bedside-monitor and device signals,
+    supporting scalable access to long-duration time-series data for downstream analytics,
+    quality review, and machine learning workflows. The system is designed to make
+    large clinical waveform repositories practical to manage and query in research
+    and operational environments.
   requires_registration: true
   url: https://laussenlabs.ca/atriumdb/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:64
     category: B2AI:Application
-    name: High-Frequency Physiological Waveform Analysis
-    description: AtriumDB is used in AI applications for managing and analyzing high-frequency
-      physiological waveform data at scale, enabling deep learning models for intensive
-      care monitoring, perioperative risk prediction, and continuous vital sign analysis.
-      The platform's efficient storage and query capabilities support training of
-      neural networks on bedside monitor data including ECG, arterial blood pressure,
-      and other high-resolution physiological signals collected over extended periods.
-      AI systems leverage AtriumDB to access synchronized multi-parameter waveforms
-      for developing early warning systems, detecting subtle physiological deterioration,
-      and predicting adverse events in critically ill patients. The database's time-series
-      optimization enables real-time AI inference on streaming waveform data.
+    name: Pediatric Arrhythmia Detection from Continuous ICU ECG
+    description: AtriumDB is used as the waveform data platform for machine-learning
+      development and deployment in pediatric critical care, particularly for real-time
+      arrhythmia detection from continuous bedside ECG. At SickKids, investigators
+      used large-scale lead II ECG data stored in AtriumDB to build expert-labeled
+      datasets, train self-supervised and supervised models, and support active-learning
+      workflows for identifying junctional arrhythmias such as junctional ectopic
+      tachycardia (JET). The same infrastructure, combined with AtriumStreams, supports
+      real-time ingestion of bedside waveforms and cross-institutional validation
+      of a silent-trial clinical decision-support model for pediatric arrhythmia
+      detection.
     used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1088/1361-6579/ab7cb5
+      ref_title: A practical approach to storage and retrieval of high-frequency
+        physiological signals
+      ref_authors:
+      - Goodwin AJ
+      - Eytan D
+      - Greer RW
+      - Mazwi M
+      - Thommandram A
+      - Goodfellow SD
+      - Assadi A
+      - Jegatheeswaran A
+      - Laussen PC
+      ref_publication_year: 2020
+      ref_journal: Physiol. Meas.
+    - ref_url: https://doi.org/10.21203/rs.3.rs-8194963/v1
+      ref_title: 'Accelerating Machine Learning in Healthcare: Addressing the Labelling
+        Bottleneck'
+      ref_authors:
+      - Vecile S
+      - Dixon W
+      - Assadi A
+      - Kim M
+      - Greer R
+      - Siddiqui A
+      - Ehrmann D
+      - Goodwin A
+      - Eytan D
+      - Mazwi M
+      - Bulic A
+      - Goodfellow SD
+      ref_publication_year: 2025
+      ref_journal: Research Square
+    - ref_url: https://www.sickkids.ca/en/news/archive/2025/machine-learning-platform-developed-at-sickkids-helps-scale-high-impact-ai-models/
+      ref_title: Machine learning platform developed at SickKids helps scale high-impact
+        AI models
+      ref_publication_year: 2025
+      ref_journal: SickKids News
 - id: B2AI_STANDARD:733
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -35631,13 +35740,29 @@ data_standardortools_collection:
   formal_specification: https://github.com/facebookresearch/balance
   has_relevant_organization:
   - B2AI_ORG:55
+  has_training_resource:
+  - B2AI_STANDARD:1137
   is_open: true
   name: balance
-  purpose_detail: A Python package for balancing biased data samples.
+  purpose_detail: balance is a Python package for adjusting biased samples so they
+    better represent a target population. It is designed for settings such as surveys,
+    observational studies, and other selection-biased datasets where auxiliary covariates
+    are available for both the sample and a target population. The package provides
+    a workflow for loading sample and target data, diagnosing imbalance, fitting
+    adjustment weights, evaluating post-adjustment quality, and producing weighted
+    population-level estimates, making it useful for statistically grounded correction
+    of non-response, coverage, and selection bias in data science workflows.
   requires_registration: false
   url: https://import-balance.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.48550/arXiv.2307.06024
+    ref_title: balance - a Python package for balancing biased data samples
+    ref_authors:
+    - Sarig T
+    - Galili T
+    - Eilat R
+    ref_publication_year: 2023
+    ref_journal: arXiv
 - id: B2AI_STANDARD:735
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -35654,13 +35779,28 @@ data_standardortools_collection:
   - B2AI_STANDARD:1094
   is_open: false
   name: BigQuery
-  purpose_detail: A fully managed, serverless data warehouse that enables scalable
-    analysis over petabytes of data. It is a Platform as a Service (PaaS) that supports
-    querying using ANSI SQL.
+  purpose_detail: BigQuery is a fully managed, AI-ready, serverless cloud data warehouse
+    and analytics platform in Google Cloud. It is designed for SQL-based analysis
+    of very large datasets without users provisioning or maintaining the underlying
+    infrastructure, and it supports warehouse-style analytics across batch and streaming
+    data. In practice, BigQuery is used for large-scale querying, data warehousing,
+    data marts, and integrated analytical workflows that connect SQL analysis with
+    machine learning and business intelligence tooling.
   requires_registration: true
   url: https://cloud.google.com/bigquery
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/1953122.1953148
+    ref_title: 'Dremel: interactive analysis of web-scale datasets'
+    ref_authors:
+    - Melnik S
+    - Gubarev A
+    - Long JJ
+    - Romer G
+    - Shivakumar S
+    - Tolton M
+    - Vassilakis T
+    ref_publication_year: 2011
+    ref_journal: Communications of the ACM
 - id: B2AI_STANDARD:736
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -35672,18 +35812,39 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Biopython
   formal_specification: https://github.com/biopython/biopython
+  has_training_resource:
+  - B2AI_STANDARD:1138
   is_open: true
   name: Biopython
   purpose_detail: Biopython is a set of freely available tools for biological computation
-    written in Python by an international team of developers. It is a distributed
-    collaborative effort to develop Python libraries and applications which address
-    the needs of current and future work in bioinformatics. The source code is made
-    available under the Biopython License, which is extremely liberal and compatible
-    with almost every license in the world.
+    written in Python by an international team of developers. The project provides
+    libraries and applications for common bioinformatics tasks including sequence
+    input and output, alignments, BLAST and search-tool parsing, access to NCBI
+    Entrez resources, structural biology through the PDB module, phylogenetics,
+    and other downstream analysis workflows. Its tutorial and API documentation
+    are organized around practical biological data tasks, making Biopython both
+    a reusable toolkit and an entry point for building custom bioinformatics pipelines
+    in Python.
   requires_registration: false
   url: https://biopython.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/bioinformatics/btp163
+    ref_title: Biopython freely available Python tools for computational molecular
+      biology and bioinformatics
+    ref_authors:
+    - Cock PJA
+    - Antao T
+    - Chang JT
+    - Chapman BA
+    - Cox CJ
+    - Dalke A
+    - Friedberg I
+    - Hamelryck T
+    - Kauff F
+    - Wilczynski B
+    - de Hoon MJL
+    ref_publication_year: 2009
+    ref_journal: Bioinformatics
 - id: B2AI_STANDARD:737
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -35695,14 +35856,29 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Biotite
   formal_specification: https://github.com/biotite-dev/biotite
+  has_training_resource:
+  - B2AI_STANDARD:1139
   is_open: true
   name: Biotite
-  purpose_detail: This package bundles popular tasks in computational molecular biology
-    into a uniform Python library.
+  purpose_detail: Biotite is a Python library that bundles common tasks in computational
+    molecular biology into a uniform workflow centered on NumPy-based data structures.
+    It supports searching and fetching data from biological databases, reading and
+    writing common sequence and structure formats, analyzing and editing biomolecular
+    data, visualizing results, and interfacing with external applications for additional
+    analysis. This combination makes it useful as a compact end-to-end toolkit for
+    sequence and structural bioinformatics tasks ranging from small scripts to larger
+    reusable software packages.
   requires_registration: false
   url: https://www.biotite-python.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/s12859-018-2367-z
+    ref_title: Biotite a unifying open-source computational biology framework in
+      Python
+    ref_authors:
+    - Kunzmann P
+    - Hamacher K
+    ref_publication_year: 2018
+    ref_journal: BMC Bioinformatics
 - id: B2AI_STANDARD:738
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -37711,12 +37887,40 @@ data_standardortools_collection:
   - B2AI_STANDARD:961
   is_open: true
   name: Jupyter
-  purpose_detail: A web-based notebook environment for interactive computing.
+  purpose_detail: Jupyter is a web-based interactive computing environment centered
+    on notebook documents that combine live code, equations, narrative text, visualizations,
+    dashboards, and other media in a single executable record. It supports reproducible
+    computational workflows across many programming languages and is widely used for
+    exploratory analysis, scientific computing, teaching, data science, and sharable
+    research reporting. The broader Jupyter project also provides open standards
+    and web services that support interactive computing beyond the classic notebook
+    interface.
   requires_registration: false
   url: https://jupyter.org/
   used_in_bridge2ai: true
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.3233/978-1-61499-649-1-87
+    ref_title: 'Jupyter Notebooks - a publishing format for reproducible computational
+      workflows'
+    ref_authors:
+    - Kluyver T
+    - Ragan-Kelley B
+    - Perez F
+    - Granger B
+    - Bussonnier M
+    - Frederic J
+    - Kelley K
+    - Hamrick J
+    - Grout J
+    - Corlay S
+    - Ivanov P
+    - Avila D
+    - Abdalla S
+    - Willing C
+    - Jupyter Development Team
+    ref_publication_year: 2016
+    ref_journal: 'Positioning and Power in Academic Publishing: Players, Agents and
+      Agendas'
 - id: B2AI_STANDARD:780
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -42843,11 +43047,24 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:9
   is_open: true
   name: DuckDB
-  purpose_detail: A database platform designed for working with tabular data.
+  purpose_detail: DuckDB is an open-source, in-process SQL OLAP database management
+    system designed for analytical workloads on tabular data. Rather than running
+    as a separate database server, it is embedded directly in the host process, making
+    it well suited for local analytics in scripts, notebooks, applications, and
+    reproducible data workflows. It provides a feature-rich SQL interface and is
+    optimized for fast analytical queries while remaining lightweight and easy to
+    deploy.
   requires_registration: false
   url: https://duckdb.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/3299869.3320212
+    ref_title: 'DuckDB: an Embeddable Analytical Database'
+    ref_authors:
+    - Raasveldt M
+    - Muehleisen H
+    ref_publication_year: 2019
+    ref_journal: Proceedings of the 2019 International Conference on Management
+      of Data
 - id: B2AI_STANDARD:862
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -50967,5 +51184,1100 @@ data_standardortools_collection:
     hands-on guidance for preparing submissions to the CFDE ecosystem.
   requires_registration: false
   url: https://www.youtube.com/watch?v=X3DBT7FvEvY
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1119
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - diagnosticinstrument
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Montreal Cognitive Assessment cognitive screening instrument
+  formal_specification: https://mocacognition.com/paper/
+  has_relevant_organization:
+  - B2AI_ORG:114
+  has_training_resource:
+  - B2AI_STANDARD:1121
+  - B2AI_STANDARD:1122
+  - B2AI_STANDARD:1123
+  is_open: false
+  name: MoCA
+  purpose_detail: The Montreal Cognitive Assessment (MoCA) is a brief, structured
+    cognitive screening instrument designed to detect mild cognitive impairment and
+    early dementia-related deficits across multiple domains including visuospatial
+    and executive function, naming, attention, language, abstraction, delayed recall,
+    and orientation. The full paper instrument is scored on 30 points and is typically
+    administered in about 10 minutes, with alternate forms and translated versions
+    available to support repeated use and international deployment. MoCA is widely
+    used in neurology, geriatrics, primary care, stroke care, Parkinson disease,
+    and memory clinic settings for case finding, baseline assessment, longitudinal
+    follow-up, and clinical trial screening. Because the instrument yields standardized
+    scores and item-level responses, it supports structured capture of cognitive
+    status data in EHRs and research datasets. In biomedical AI and data science,
+    MoCA measurements are commonly used as phenotyping labels, outcome measures,
+    covariates, or eligibility criteria in studies of cognitive decline, neurodegenerative
+    disease, stroke recovery, and digital biomarkers. Official training and certification
+    are required for administration, scoring, and interpretation, and use is governed
+    by MoCA Cognition permissions and licensing policies.
+  requires_registration: true
+  url: https://mocacognition.com/
+  used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:373
+    category: B2AI:Application
+    name: AI-READI multimodal cognitive phenotyping for type 2 diabetes AI/ML studies
+    description: In the Bridge2AI Salutogenesis Grand Challenge (AI-READI), MoCA is
+      used as a standardized cognitive function assessment within a large, triple-balanced,
+      multimodal type 2 diabetes cohort explicitly designed to support AI/ML research
+      on salutogenesis and health resilience. The protocol administers MoCA electronically
+      on an iPad through the MoCA Duo application, and AI-READI documentation indicates
+      that the exported data include total score, section-level or task-level results,
+      Memory Index Score, and task completion times in CSV files. These MoCA-derived
+      variables are harmonized into the AI-READI clinical data structure using OMOP,
+      making them directly linkable to other modalities in the same participants including
+      retinal imaging, ECG, continuous glucose monitoring, laboratory data, physical
+      activity, and social determinants of health. This standardized representation
+      makes MoCA a useful cognitive phenotype for downstream AI/ML analyses in AI-READI,
+      such as modeling relationships between diabetes severity, multimodal biomarkers,
+      and cognitive health, and using cognition-related measures as features, outcomes,
+      or stratification variables in studies of type 2 diabetes salutogenesis.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1136/bmjopen-2024-097449
+      ref_title: Cross-sectional design and protocol for Artificial Intelligence Ready
+        and Equitable Atlas for Diabetes Insights (AI-READI)
+      ref_authors:
+      - Owsley C
+      - Matthies DS
+      - McGwin G
+      - Edberg JC
+      - Baxter SL
+      - Zangwill LM
+      - Owen JP
+      - Lee CS
+      - AI-READI Consortium
+      ref_publication_year: 2025
+      ref_journal: BMJ Open
+  - id: B2AI_APP:374
+    category: B2AI:Application
+    name: ML-enhanced interpretation of MoCA subtests for cognitive impairment and
+      dementia subtype classification
+    description: Detailed MoCA subtest profiles have been used as machine-learning
+      inputs for classifying cognitively normal versus cognitively impaired individuals
+      and for distinguishing dementia subtypes. In this application, the conventional
+      MoCA total-score cutoff functions as a benchmark comparator, while supervised
+      models such as XGBoost, random forest, SVM, logistic regression, and k-nearest
+      neighbors exploit richer subtest-level patterns together with demographics and
+      derived cognitive metrics. Reported results in a large NACC-derived cohort showed
+      improved global impairment detection over the fixed cutoff approach, and strong
+      subtype-specific discrimination for conditions such as primary progressive aphasia,
+      Lewy body dementia, and Alzheimer's disease.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fnins.2026.1679649
+      ref_title: Enhanced diagnostic interpretation of the MoCA using machine learning
+      ref_authors:
+      - Gourdeau C
+      - Gourdeau CL
+      - Bernier PJ
+      - Laforce R
+      ref_publication_year: 2026
+      ref_journal: Frontiers in Neuroscience
+  - id: B2AI_APP:375
+    category: B2AI:Application
+    name: Parkinson's disease cognitive-impairment screening using MoCA domain and
+      item data
+    description: In Parkinson's disease cohorts, machine-learning models have used
+      MoCA domain scores and item-level responses as structured input features to
+      classify cognitive impairment. Logistic regression, SVM, and random forest
+      models were compared against conventional MoCA total-score cutoffs and showed
+      greater robustness, especially when repeated measures were excluded. Adding
+      cognitive-complaint information further improved performance, illustrating how
+      MoCA's internal structure can support richer PD cognitive screening than a single
+      summary score alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.14802/jmd.22012
+      ref_title: Accuracy of Machine Learning Using the Montreal Cognitive Assessment
+        for the Diagnosis of Cognitive Impairment in Parkinson's Disease
+      ref_authors:
+      - Jeon J
+      - Kim K
+      - Baek K
+      - Chung SJ
+      - Yoon J
+      - Kim YJ
+      ref_publication_year: 2022
+      ref_journal: Journal of Movement Disorders
+  - id: B2AI_APP:376
+    category: B2AI:Application
+    name: MoCA-defined PD-MCI labels for machine-learning risk stratification in Parkinson's
+      disease
+    description: MoCA has also been used as the target definition for supervised
+      learning in Parkinson's disease, where MoCA-based MDS Level I labels distinguish
+      mild cognitive impairment from cognitively normal status. In this role, MoCA
+      is not merely an input feature but the reference cognitive endpoint used to
+      train predictive models on routinely collected clinical variables. This supports
+      risk stratification and triage workflows in which machine-learning models estimate
+      contemporaneous probability of PD-MCI, including among patients whose raw MoCA
+      scores may not yet independently trigger concern.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-025-03215-0
+      ref_title: Machine learning-based stratification of mild cognitive impairment
+        in Parkinson's disease
+      ref_authors:
+      - Liu Y
+      - Chen M
+      - Chen P
+      - Lin X
+      - Chen S
+      - Liu C
+      - Wang D
+      - Deng H
+      - Li Q
+      - Wu Y
+      ref_publication_year: 2025
+      ref_journal: BMC Medical Informatics and Decision Making
+  - id: B2AI_APP:377
+    category: B2AI:Application
+    name: Multi-test cognitive screening models that include MoCA as a predictive
+      feature
+    description: MoCA has been incorporated as one feature source within broader machine-learning
+      screening models that combine multiple neuropsychological instruments and demographic
+      variables to classify mild cognitive impairment, dementia, and general cognitive
+      dysfunction. In these systems, MoCA contributes complementary signal alongside
+      tests such as MMSE and informant questionnaires rather than acting as a standalone
+      thresholded screen. Reported models, including gradient boosting and random
+      forest, achieved substantially higher classification performance than baseline
+      screening models using demographics alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1177/0300060520936881
+      ref_title: Mild cognitive impairment, dementia, and cognitive dysfunction screening
+        using machine learning
+      ref_authors:
+      - Yim D
+      - Yeo TY
+      - Park MH
+      ref_publication_year: 2020
+      ref_journal: Journal of International Medical Research
+  - id: B2AI_APP:378
+    category: B2AI:Application
+    name: Automated scoring of the MoCA verbal-fluency subtest from speech audio
+    description: MoCA has been directly digitized through machine-learning-driven
+      automation of subtest scoring. In Thai-language work on the phonemic verbal-fluency
+      item, an ASR pipeline implemented in Kaldi with GMM-HMM and TDNN-based acoustic
+      models was used to recognize candidate words and automatically compute the MoCA
+      fluency score. This application treats MoCA as the assessment instrument being
+      automated rather than as a label or benchmark, showing how speech AI can reduce
+      manual scoring burden and support digital cognitive assessment workflows.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3390/s22041583
+      ref_title: Using Automatic Speech Recognition to Assess Thai Speech Language
+        Fluency in the Montreal Cognitive Assessment (MoCA)
+      ref_authors:
+      - Kantithammakorn P
+      - Punyabukkana P
+      - Pratanwanich PN
+      - Hemrungrojn S
+      - Chunharas C
+      - Wanvarie D
+      ref_publication_year: 2022
+      ref_journal: Sensors
+  - id: B2AI_APP:379
+    category: B2AI:Application
+    name: Hybrid gait-machine-learning systems benchmarked and combined with MoCA
+      for cerebrovascular cognitive impairment detection
+    description: In cerebrovascular disease and post-stroke contexts, MoCA has been
+      used as a benchmark and auxiliary decision signal alongside gait-based machine-learning
+      classifiers. Models trained on dual-task gait metrics from electronic walkways
+      or accelerometers were compared with optimized MoCA thresholds and, in some
+      analyses, combined with MoCA classifications through majority voting. This use
+      case positions MoCA as a clinically familiar cognitive screen that can be complemented
+      by movement-derived ML predictions to improve sensitivity-specificity tradeoffs
+      in impairment detection.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-025-02979-9
+      ref_title: Detecting cognitive impairment in cerebrovascular disease using gait,
+        dual tasks, and machine learning
+      ref_authors:
+      - Guimaraes V
+      - Sousa I
+      - Velhote Correia M
+      ref_publication_year: 2025
+      ref_journal: BMC Medical Informatics and Decision Making
+  - id: B2AI_APP:380
+    category: B2AI:Application
+    name: Multimodal deep-learning prognosis models using baseline MoCA for post-stroke
+      cognitive decline
+    description: MoCA has been used as an informative clinical covariate in multimodal
+      deep-learning models that predict post-stroke cognitive decline from imaging
+      and clinical data. In this setting, the initial MoCA score contributes to prognostic
+      modeling together with MRI-derived features such as white matter hyperintensities
+      and hippocampal atrophy, and interpretability analyses identified MoCA as one
+      of the key contributors to model predictions. This use case illustrates MoCA's
+      value as a standardized cognitive baseline that can be fused with imaging biomarkers
+      in deep-learning risk models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2174/0118749445393308250529093953
+      ref_title: Predicting Cognitive Decline in Stroke Patients Using Deep Learning
+      ref_authors:
+      - Kim S
+      ref_publication_year: 2025
+      ref_journal: Open Public Health Journal
+  publication:
+    ref_url: https://doi.org/10.1111/j.1532-5415.2005.53221.x
+    ref_title: 'The Montreal Cognitive Assessment, MoCA: a brief screening tool for mild cognitive impairment'
+    ref_authors:
+    - Nasreddine ZS
+    - Phillips NA
+    - Bedirian V
+    - Charbonneau S
+    - Whitehead V
+    - Collin I
+    - Cummings JL
+    - Chertkow H
+    ref_publication_year: 2005
+    ref_journal: Journal of the American Geriatrics Society
+- id: B2AI_STANDARD:1120
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Consensus-based social determinants of health interoperability standardization project
+  formal_specification: https://hl7.org/fhir/us/sdoh-clinicalcare/
+  has_relevant_organization:
+  - B2AI_ORG:114
+  has_training_resource:
+  - B2AI_STANDARD:1124
+  - B2AI_STANDARD:1125
+  is_open: true
+  name: Gravity Project
+  purpose_detail: The Gravity Project is a U.S. national public collaborative that
+    develops consensus-based standards for representing social determinants of health
+    and social care data so they can be documented, exchanged, aggregated, and reused
+    across healthcare, community-based, payer, public health, and research settings.
+    Launched in 2019 by the Social Interventions Research and Evaluation Network
+    (SIREN) with partners and now operating as an HL7 FHIR Accelerator, the project
+    defines use cases, common data elements, value sets, code recommendations, and
+    FHIR implementation guidance for activities such as screening, assessment and
+    diagnosis, goal setting, referral, intervention, and closed-loop feedback. Initial
+    priority domains included food insecurity, housing instability and quality, and
+    transportation access, and the published SDOH Clinical Care implementation guide
+    supports broader social risk and social need workflows. Gravity is not a single
+    vocabulary; rather, it harmonizes structured SDOH content across standards such
+    as FHIR, LOINC, and SNOMED CT, enabling interoperable capture of questionnaires,
+    observations, conditions, goals, service requests, procedures, and referral outcomes.
+    In biomedical AI and data science, Gravity helps normalize SDoH variables and
+    intervention data across sites, improving cohort identification, health equity
+    analytics, quality measurement, and predictive or causal modeling that depends
+    on consistent representation of social risk and social care activities.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:553
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:126
+  url: https://thegravityproject.net/our-work/overview/
+  used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:381
+    category: B2AI:Application
+    name: Embedding and clustering of SDOH common data elements benchmarked against
+      Gravity domains
+    description: Gravity Project social determinants of health common data elements
+      have been used directly in a machine-learning pipeline for semantic harmonization
+      of common data elements. In this application, text strings constructed from
+      Gravity question and answer concepts were embedded with a large-language-model-derived
+      embedding model and clustered with HDBSCAN, and the resulting unsupervised groupings
+      were externally validated against Gravity-defined SDOH domain labels. Gravity
+      therefore served both as source content for the embedding workflow and as the
+      benchmark or ground-truth structure for evaluating clustering quality, demonstrating
+      a concrete ML use of Gravity's standardized domain organization for SDOH harmonization.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.48550/arxiv.2506.02160
+      ref_title: A Dynamic Framework for Semantic Grouping of Common Data Elements
+        (CDE) Using Embeddings and Clustering
+      ref_authors:
+      - Krishnamurthy M
+      - Korn DR
+      - Haendel MA
+      - Mungall CJ
+      - Thessen A
+      ref_publication_year: 2025
+      ref_journal: arXiv
+  publication:
+    ref_url: https://doi.org/10.1093/jamiaopen/ooy051
+    ref_title: Documenting social determinants of health-related clinical activities
+      using standardized medical vocabularies
+    ref_authors:
+    - Arons A
+    - DeSilvey S
+    - Fichtenberg C
+    - Gottlieb L
+    ref_publication_year: 2019
+    ref_journal: JAMIA Open
+- id: B2AI_STANDARD:1121
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official MoCA online training and certification program
+  is_open: false
+  name: MoCA Training & Certification
+  purpose_detail: This official one-hour MoCA training and certification module teaches
+    clinicians and researchers how to administer, score, and interpret the Montreal
+    Cognitive Assessment with consistent technique. The program covers the cognitive
+    domains assessed by MoCA, practical administration guidance, scoring proficiency,
+    and communication of results, and it issues a certificate and MoCA ID number
+    on completion. MoCA Test Inc. states that completion of the online training and
+    certification module is required for the vast majority of professionals using
+    or planning to use paper-based MoCA tests in clinical practice or research. Training
+    is offered in multiple languages and is free for some categories of users such
+    as students, academic researchers, and full-time employees of publicly operated
+    institutions, but registration and status verification are required.
+  requires_registration: true
+  url: https://mocacognition.com/training-certification/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1122
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ACT on Alzheimer's MoCA video and webinar tutorials for medical providers
+  is_open: true
+  name: ACT on Alzheimer's MoCA Video Tutorials
+  purpose_detail: This openly accessible ACT on Alzheimer's provider resource points
+    clinicians to video and webinar tutorials on administering and scoring common
+    cognitive screening instruments including MoCA. The materials are framed as practical
+    provider tools for screening, diagnosis, and dementia care workflows, making
+    them useful introductory training resources for clinicians who want a freely
+    available overview of MoCA administration and scoring in clinical practice.
+  requires_registration: false
+  url: https://actonalz.org/video-tutorials
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1123
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:48
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official MoCA public video and webinar resource page
+  is_open: true
+  name: MoCA Video Tutorials
+  purpose_detail: This official MoCA video page is openly accessible and aggregates
+    public educational webinars and video resources related to cognitive screening
+    and MoCA use, including a specific item on how to perform MoCA by video conference.
+    It serves as a freely available orientation resource for clinicians and researchers
+    seeking practical guidance and continuing education around MoCA administration
+    and related cognitive assessment topics without requiring enrollment in the formal
+    certification module.
+  requires_registration: false
+  url: https://mocacognition.com/video
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1124
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  - B2AI_TOPIC:9
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official HL7 SDOH Clinical Care implementation guide for Gravity Project
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: SDOH Clinical Care Implementation Guide
+  purpose_detail: This official HL7 implementation guide provides the core technical
+    learning resource for implementers adopting Gravity Project standards. It includes
+    introductory background on SDOH and the Gravity Project, technical background,
+    guidance on how to read the implementation guide, workflow descriptions, assessment
+    instrument support, referral workflow patterns, value sets, example FHIR artifacts,
+    and downloadable implementation materials. Although it is specification-focused,
+    it functions as a practical training resource for developers, informaticians,
+    and program teams learning how Gravity-aligned SDOH data are represented and
+    exchanged using FHIR.
+  requires_registration: false
+  url: https://hl7.org/fhir/us/sdoh-clinicalcare/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1125
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:29
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Gravity Project HITAC ISP TF Presentation
+  has_relevant_organization:
+  - B2AI_ORG:126
+  - B2AI_ORG:40
+  is_open: true
+  name: Gravity Project Presentation
+  purpose_detail: This publicly accessible presentation deck offers a structured introduction
+    to the Gravity Project's goals, governance, terminology and FHIR workstreams,
+    published value sets, implementation-guide development, pilot activities, and
+    participation pathways. It is useful as an orientation and education resource
+    for stakeholders who need a concise walkthrough of how Gravity organizes SDOH
+    domains, clinical activities, terminology choices, and implementation work across
+    the project ecosystem.
+  requires_registration: false
+  url: https://thegravityproject.net/wp-content/uploads/2022/08/20210408-ONC-ISP-WG-2021-04-08_Gravity_Project_Presentation.pdf
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1126
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Open-source healthcare natural language processing toolkit maintained
+    by OHNLP
+  formal_specification: https://ohnlp.org/page/tool-list.html
+  has_relevant_organization:
+  - B2AI_ORG:127
+  - B2AI_ORG:115
+  has_training_resource:
+  - B2AI_STANDARD:1132
+  - B2AI_STANDARD:1133
+  is_open: true
+  name: OHNLP Toolkit
+  purpose_detail: The OHNLP Toolkit is the collection of open-source software projects
+    maintained and promoted by the Open Health Natural Language Processing Consortium
+    for biomedical and clinical text processing. The toolkit centers on Apache UIMA-based
+    clinical NLP pipelines and companion utilities for text annotation, temporal extraction,
+    medication normalization, and scalable ETL, making it useful for transforming
+    unstructured healthcare text into structured artifacts that can support cohort
+    identification, corpus development, terminology normalization, and downstream
+    biomedical AI workflows.
+  requires_registration: false
+  url: https://ohnlp.org/page/tool-list.html
+  used_in_bridge2ai: true
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1127
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP scalable ETL framework for healthcare NLP workflows
+  formal_specification: https://github.com/OHNLP/Backbone
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: Backbone
+  purpose_detail: Backbone is OHNLP's scalable extract-transform-load framework
+    for healthcare natural language processing workflows. It lets users express ETL
+    pipelines as JSON configurations, then executes those pipelines across local
+    or distributed environments by wrapping Apache Beam. Backbone is intended to
+    orchestrate practical clinical-text workflows such as extracting narratives from
+    EHR databases, converting rich text to plain text, running clinical NLP modules
+    such as MedTagger or MedXN, transforming outputs into standard schemas such as
+    OHDSI NOTE_NLP, and loading the results back into analytics-ready data stores.
+  related_to:
+  - B2AI_STANDARD:1128
+  - B2AI_STANDARD:1131
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/Backbone
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1128
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP clinical natural language processing system built on Apache
+    UIMA
+  formal_specification: https://github.com/OHNLP/MedTagger
+  has_relevant_organization:
+  - B2AI_ORG:127
+  has_training_resource:
+  - B2AI_STANDARD:1132
+  is_open: true
+  name: MedTagger
+  purpose_detail: MedTagger is a lightweight clinical natural language processing
+    system built on Apache UIMA. The OHNLP distribution includes dictionary-based
+    indexing, pattern-based information extraction, and machine-learning-based named
+    entity recognition components, with terminology resources that can map detected
+    concepts to OMOP concept identifiers and use contextual annotation to identify
+    local modifiers. It is designed for extracting structured concepts from clinical
+    narratives and can be incorporated into larger ETL and cohort-identification
+    workflows.
+  related_to:
+  - B2AI_STANDARD:1127
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/MedTagger
+  publication:
+    ref_url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3811227/
+    ref_title: An information extraction framework for cohort identification using
+      electronic health records
+    ref_authors:
+    - Liu H
+    - Bielinski SJ
+    - Sohn S
+    - Murphy S
+    - Wagholikar KB
+    - Jonnalagadda SR
+    - Ravikumar KE
+    - Wu ST
+    - Kullo IJ
+    - Chute CG
+    ref_publication_year: 2013
+    ref_journal: AMIA Joint Summits on Translational Science Proceedings
+- id: B2AI_STANDARD:1129
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP temporal information extraction system for clinical text
+  formal_specification: https://github.com/OHNLP/MedTime
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedTime
+  purpose_detail: MedTime is an Apache UIMA-based temporal information extraction
+    system developed by the Mayo Clinic NLP program and maintained within OHNLP.
+    It extracts and normalizes TIMEX3-based temporal expressions from clinical text,
+    adapting HeidelTime for the clinical domain and packaging annotators, resources,
+    and UIMA descriptors for batch processing or interactive debugging. This makes
+    it useful for recovering normalized dates, times, durations, and frequencies
+    from clinical narratives for longitudinal analysis and event-timeline construction.
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/MedTime
+  publication:
+    ref_url: https://doi.org/10.1136/amiajnl-2013-001912
+    ref_title: Comprehensive temporal information detection from clinical text medical
+      events, time, and TLINK identification
+    ref_authors:
+    - Sohn S
+    - Wagholikar KB
+    - Li D
+    - Jonnalagadda SR
+    - Tao C
+    - Komandur Elayavilli R
+    - Liu H
+    ref_publication_year: 2013
+    ref_journal: Journal of the American Medical Informatics Association
+- id: B2AI_STANDARD:1130
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP serverless text annotation tool for corpus development
+  formal_specification: https://github.com/OHNLP/MedTator
+  has_relevant_organization:
+  - B2AI_ORG:127
+  has_training_resource:
+  - B2AI_STANDARD:1133
+  is_open: true
+  name: MedTator
+  purpose_detail: MedTator is a serverless text annotation tool for corpus development
+    that runs as a lightweight web application without requiring a dedicated application
+    server or heavyweight runtime stack for annotation work. It supports annotation
+    schema design, corpus annotation, adjudication, conversion, and downstream script
+    support, making it useful for building gold-standard text corpora that can train
+    and evaluate biomedical natural language processing and machine learning systems.
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/MedTator
+  publication:
+    ref_url: https://doi.org/10.1093/bioinformatics/btab880
+    ref_title: MedTator a serverless annotation tool for corpus development
+    ref_authors:
+    - He H
+    - Fu S
+    - Wang L
+    - Liu S
+    - Wen A
+    - Liu H
+    ref_publication_year: 2022
+    ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1131
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHNLP medication extraction and normalization system for clinical text
+  formal_specification: https://github.com/OHNLP/MedXN
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedXN
+  purpose_detail: MedXN is an Apache UIMA-based medication information extraction
+    and normalization system for clinical text. It identifies medication mentions
+    and their attributes, including strength, dose, form, route, frequency, and
+    duration, then normalizes the extracted information to the most specific RxNorm
+    concept identifier using dictionary resources, abbreviation expansion, inference,
+    and flexible matching. The tool is intended to turn free-text medication documentation
+    into structured medication data suitable for analytics, interoperability, and
+    downstream AI workflows.
+  related_to:
+  - B2AI_STANDARD:1127
+  requires_registration: false
+  subclass_of:
+  - B2AI_STANDARD:1126
+  url: https://github.com/OHNLP/MedXN
+  publication:
+    ref_url: https://doi.org/10.1016/j.jbi.2015.09.012
+    ref_title: MedXN an open source medication extraction and normalization tool
+      for clinical text
+    ref_authors:
+    - Sohn S
+    - Clark C
+    - Halgrim S
+    - Murphy SP
+    - Chute CG
+    - Liu H
+    ref_publication_year: 2015
+    ref_journal: Journal of Biomedical Informatics
+- id: B2AI_STANDARD:1132
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official OHNLP MedTagger video walkthrough for installation and use
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedTagger Video Demo
+  purpose_detail: This openly accessible video demo is the main tutorial resource
+    linked from the official MedTagger repository. It complements the installation
+    and use instructions in the README by showing how the tool is configured and
+    run on example clinical-text rulesets, making it a practical onboarding resource
+    for users learning how to operate MedTagger within the OHNLP toolkit.
+  requires_registration: false
+  url: https://vimeo.com/392331446
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1133
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:32
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official MedTator quick-start tutorial for browser-based corpus annotation
+  has_relevant_organization:
+  - B2AI_ORG:127
+  is_open: true
+  name: MedTator Quick Start
+  purpose_detail: This OHNLP-maintained quick-start guide walks new users through
+    a minimal annotation task in MedTator, including loading a schema and files,
+    annotating documents, reviewing statistics, and exporting results. Because it
+    uses the public MedTator deployment and sample data to demonstrate the interface
+    step by step, it serves as a practical training resource for learning the annotation
+    workflow within the OHNLP toolkit.
+  requires_registration: false
+  url: https://github.com/OHNLP/MedTator/wiki/Quick-Start
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1134
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  concerns_data_topic:
+  - B2AI_TOPIC:37
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ROS bag message recording format
+  formal_specification: https://raw.githubusercontent.com/ros/ros_comm/noetic-devel/tools/rosbag/FORMATS
+  is_open: true
+  name: ROS Bags
+  purpose_detail: ROS Bags, commonly known as rosbag files, are the ROS message-recording
+    format used to store timestamped message streams for later playback, inspection,
+    sharing, and offline analysis. In the original ROS 1 implementation, bag files
+    use the `.bag` format and store topic metadata, message type information, message
+    definitions, timestamps, and serialized message payloads, with support for chunking,
+    indexing, and optional compression in later format versions such as `#ROSBAG
+    V2.0`. In practice, rosbag is used to capture synchronized multimodal streams
+    such as sensor readings, control messages, images, point clouds, and continuous
+    time-series or waveform-like signals produced within robotic or cyber-physical
+    systems. This makes the format useful for reproducible replay of recorded experiments,
+    debugging time-synchronized data pipelines, creating benchmark datasets, and
+    supporting machine learning workflows that depend on aligned message histories.
+    In biomedical and health-adjacent research settings, ROS Bags can serve as an
+    exchange and archival format for wearable, assistive, rehabilitation, or bedside
+    robotic systems that emit continuous physiologic or behavioral message streams,
+    enabling downstream feature extraction and model development from recorded sensor
+    trajectories.
+  requires_registration: false
+  url: https://wiki.ros.org/Bags
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1135
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Apache Spark quick-start tutorial
+  has_relevant_organization:
+  - B2AI_ORG:5
+  is_open: true
+  name: Spark Quick Start
+  purpose_detail: This official Spark tutorial introduces users to interactive
+    analysis with the Spark shell, basic Dataset operations, caching, and the structure
+    of self-contained applications in Python, Scala, and Java. It is a practical
+    onboarding resource for learning core Spark concepts and the mechanics of running
+    analytics jobs locally before moving to larger distributed deployments.
+  requires_registration: false
+  url: https://spark.apache.org/docs/latest/quick-start.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1136
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Appyter framework documentation
+  is_open: true
+  name: Appyter Documentation
+  purpose_detail: This official documentation walks users through Appyter installation,
+    command-line usage, creation of notebook-backed web apps, template customization,
+    field definitions, and rendering behavior. It serves as the main training resource
+    for developers learning how to convert Jupyter notebooks into parameterized,
+    executable web applications using the Appyter framework.
+  requires_registration: false
+  url: https://maayanlab.github.io/appyter/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1137
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:5
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official balance quickstart tutorial notebook
+  has_relevant_organization:
+  - B2AI_ORG:55
+  is_open: true
+  name: balance Quickstart
+  purpose_detail: This official quickstart tutorial demonstrates the core balance
+    workflow with code and notebook-backed examples, including loading sample and
+    target data, fitting adjustment weights, inspecting diagnostics, and evaluating
+    weighted outcomes. It is a hands-on training resource for users learning how
+    to apply the package to biased-sample adjustment problems in practice.
+  requires_registration: false
+  url: https://import-balance.org/docs/tutorials/quickstart/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1138
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:1
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Biopython Tutorial and Cookbook
+  is_open: true
+  name: Biopython Tutorial & Cookbook
+  purpose_detail: This official Biopython tutorial and cookbook provides guided
+    instruction across the library's major capabilities, including sequence objects,
+    file parsing, alignments, BLAST, Entrez access, structural biology, phylogenetics,
+    motif analysis, and other practical tasks. It functions as the primary learning
+    resource for users adopting Biopython for bioinformatics analysis and development.
+  requires_registration: false
+  url: https://biopython.org/docs/latest/Tutorial/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1139
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:20
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Biotite tutorial documentation
+  is_open: true
+  name: Biotite Tutorial
+  purpose_detail: This official tutorial introduces Biotite through worked examples
+    and structured documentation covering its major subpackages and supported bioinformatics
+    workflows. It is the main training resource for learning how to use Biotite
+    for sequence, structure, database, visualization, and analysis tasks within
+    a consistent Python interface.
+  requires_registration: false
+  url: https://www.biotite-python.org/latest/tutorial/index.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1140
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - diagnosticinstrument
+  concerns_data_topic:
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:50
+  - B2AI_TOPIC:51
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 10-item Center for Epidemiologic Studies Depression Scale questionnaire
+  formal_specification: https://docs.aireadi.org/v1/questionnaires/depression.pdf
+  has_relevant_organization:
+  - B2AI_ORG:114
+  is_open: true
+  name: CES-D-10
+  purpose_detail: The 10-item Center for Epidemiologic Studies Depression Scale
+    (CES-D-10) is a brief self-report screening instrument for depressive symptoms
+    over the prior week. It was derived as a short form of the original 20-item
+    CES-D to retain strong screening performance while reducing respondent burden,
+    and it uses a standardized response format that yields a compact summary score
+    suitable for epidemiologic studies, clinical research, and longitudinal follow-up.
+    The CES-D-10 is commonly used in population health, aging, chronic disease, and
+    community-based research where depressive symptom burden is an important covariate,
+    outcome, or screening signal but administration time is constrained. In clinical
+    and biomedical data settings, the instrument supports structured capture of patient-reported
+    mental health status and can be harmonized with other questionnaire and OMOP-style
+    observation data for downstream comparative analyses and AI or machine learning
+    workflows.
+  requires_registration: false
+  url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
+  used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:382
+    category: B2AI:Application
+    name: AI-READI multimodal depression phenotyping for type 2 diabetes AI/ML studies
+    description: In the Bridge2AI Salutogenesis Grand Challenge (AI-READI), CES-D-10
+      is included as a standardized depression questionnaire within a multimodal,
+      AI-ready type 2 diabetes cohort. The AI-READI protocol positions the dataset
+      as a resource for AI and machine learning research, while the questionnaire
+      documentation specifically identifies CES-D-10 as one of the collected survey
+      instruments. In this setting, CES-D-10 responses and derived scores can support
+      multimodal phenotyping, covariate adjustment, stratification, or outcome modeling
+      alongside retinal imaging, continuous glucose monitoring, wearable activity,
+      laboratory, and social determinants of health data.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1136/bmjopen-2024-097449
+      ref_title: Cross-sectional design and protocol for Artificial Intelligence Ready
+        and Equitable Atlas for Diabetes Insights (AI-READI)
+      ref_authors:
+      - Owsley C
+      - Matthies DS
+      - McGwin G
+      - Edberg JC
+      - Baxter SL
+      - Zangwill LM
+      - Owen JP
+      - Lee CS
+      - AI-READI Consortium
+      ref_publication_year: 2025
+      ref_journal: BMJ Open
+    - ref_url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
+      ref_title: Questionnaires | Documentation for the AI-READI Dataset
+      ref_publication_year: 2026
+      ref_journal: AI-READI Dataset Docs
+  - id: B2AI_APP:383
+    category: B2AI:Application
+    name: CES-D-10-defined depression-risk classification in HIV-HCV co-infection
+      using supervised machine learning
+    description: CES-D-10 has been used directly as the target definition in supervised
+      machine-learning models for depression-risk classification. In a Canadian HIV-HCV
+      co-infection cohort, participants were classified as at risk for clinical depression
+      using CES-D-10 scores of 10 or higher, and random forest models were trained
+      on demographic, behavioral, and clinical variables to predict these CES-D-10
+      classes. This application uses CES-D-10 as the structured phenotype or label
+      against which model performance is evaluated.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://pubmed.ncbi.nlm.nih.gov/35962372/
+      ref_title: Predicting the presence of depressive symptoms in the HIV-HCV co-infected
+        population in Canada using supervised machine learning
+      ref_authors:
+      - Marathe G
+      - Moodie EEM
+      - Brouillette MJ
+      - Cox J
+      - Cooper C
+      - Delaunay CL
+      - Conway B
+      - Hull M
+      - Martel-Laferriere V
+      - Vachon ML
+      - Walmsley S
+      - Wong A
+      - Klein MB
+      ref_publication_year: 2022
+      ref_journal: BMC Medical Research Methodology
+  publication:
+    ref_url: https://pubmed.ncbi.nlm.nih.gov/8037935/
+    ref_title: 'Screening for depression in well older adults: evaluation of a short form of the CES-D (Center for Epidemiologic Studies Depression Scale)'
+    ref_authors:
+    - Andresen EM
+    - Malmgren JA
+    - Carter WB
+    - Patrick DL
+    ref_publication_year: 1994
+    ref_journal: American Journal of Preventive Medicine
+- id: B2AI_STANDARD:1141
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - diagnosticinstrument
+  concerns_data_topic:
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:43
+  - B2AI_TOPIC:50
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 5-item Problem Areas In Diabetes questionnaire for diabetes-related
+    emotional distress
+  formal_specification: https://docs.aireadi.org/v2/questionnaires/paid-5.pdf
+  has_relevant_organization:
+  - B2AI_ORG:114
+  has_training_resource:
+  - B2AI_STANDARD:1143
+  is_open: false
+  name: PAID-5
+  purpose_detail: The 5-item Problem Areas In Diabetes scale (PAID-5) is a brief
+    self-report screening instrument for diabetes-related emotional distress. It
+    was developed from the longer PAID questionnaire to provide a rapid, psychometrically
+    robust measure of the emotional burden of living with diabetes, including fear,
+    discouragement, worries about future complications, daily mental or physical
+    burden, and coping with complications. The short form is suited to clinical care,
+    cohort studies, and multimodal diabetes research where respondent burden must
+    be minimized while preserving sensitivity to clinically meaningful distress.
+    In biomedical data settings, PAID-5 scores can be represented as structured questionnaire
+    observations that complement glycemic, ophthalmic, laboratory, and behavioral
+    data for phenotyping, risk stratification, and AI or machine learning studies
+    focused on diabetes resilience, disease burden, and patient-reported outcomes.
+  requires_registration: false
+  url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
+  used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:384
+    category: B2AI:Application
+    name: AI-READI multimodal diabetes-distress phenotyping for type 2 diabetes AI/ML
+      studies
+    description: In the Bridge2AI Salutogenesis Grand Challenge (AI-READI), PAID-5
+      is included as a brief standardized assessment of diabetes-related emotional
+      distress within a multimodal, AI-ready type 2 diabetes cohort. The AI-READI
+      protocol describes the project as a resource for AI and machine learning studies,
+      and the questionnaire documentation identifies PAID-5 as one of the collected
+      instruments. In this setting, PAID-5 scores can be used as structured phenotypes,
+      covariates, or stratification variables in multimodal analyses linking distress-related
+      burden to glycemic, ophthalmic, laboratory, wearable, and social-context data.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1136/bmjopen-2024-097449
+      ref_title: Cross-sectional design and protocol for Artificial Intelligence Ready
+        and Equitable Atlas for Diabetes Insights (AI-READI)
+      ref_authors:
+      - Owsley C
+      - Matthies DS
+      - McGwin G
+      - Edberg JC
+      - Baxter SL
+      - Zangwill LM
+      - Owen JP
+      - Lee CS
+      - AI-READI Consortium
+      ref_publication_year: 2025
+      ref_journal: BMJ Open
+    - ref_url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
+      ref_title: Questionnaires | Documentation for the AI-READI Dataset
+      ref_publication_year: 2026
+      ref_journal: AI-READI Dataset Docs
+  publication:
+    ref_url: https://doi.org/10.1007/s00125-009-1559-5
+    ref_title: 'Short-form measures of diabetes-related emotional distress: the Problem Areas in Diabetes Scale (PAID)-5 and PAID-1'
+    ref_authors:
+    - McGuire BE
+    - Morrison TG
+    - Hermanns N
+    - Skovlund S
+    - Eldrup E
+    - Gagliardino J
+    - Kokoszka A
+    - Matthews D
+    - Pibernik-Okanovic M
+    - Rodriguez-Saldana J
+    - de Wit M
+    - Snoek FJ
+    ref_publication_year: 2010
+    ref_journal: Diabetologia
+- id: B2AI_STANDARD:1143
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:43
+  - B2AI_TOPIC:50
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NDSS clinical guide for using and interpreting the Problem Areas In
+    Diabetes scale
+  is_open: true
+  name: NDSS PAID Scale Guide
+  purpose_detail: This National Diabetes Services Scheme health-professional guide
+    explains when to use the Problem Areas In Diabetes scale, how respondents score
+    items, how to interpret high-scoring items and total scores, and when referral
+    to additional mental-health support should be considered. Although written for
+    the full PAID family of instruments, it explicitly notes the shorter PAID-5 and
+    PAID-1 forms and serves as practical training documentation for clinicians or
+    researchers using PAID-5 as a rapid diabetes-distress screen.
+  requires_registration: false
+  url: https://www.ndss.com.au/health-professionals/supporting-emotional-health/mental-health-questionnaires/paid-scale/
   publication:
     ref_url: ''
