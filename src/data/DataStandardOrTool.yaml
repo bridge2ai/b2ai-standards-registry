@@ -52061,3 +52061,97 @@ data_standardortools_collection:
   url: https://www.biotite-python.org/latest/tutorial/index.html
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1140
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - diagnosticinstrument
+  concerns_data_topic:
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:50
+  - B2AI_TOPIC:51
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 10-item Center for Epidemiologic Studies Depression Scale questionnaire
+  formal_specification: https://docs.aireadi.org/v1/questionnaires/depression.pdf
+  has_relevant_organization:
+  - B2AI_ORG:114
+  is_open: true
+  name: CES-D-10
+  purpose_detail: The 10-item Center for Epidemiologic Studies Depression Scale
+    (CES-D-10) is a brief self-report screening instrument for depressive symptoms
+    over the prior week. It was derived as a short form of the original 20-item
+    CES-D to retain strong screening performance while reducing respondent burden,
+    and it uses a standardized response format that yields a compact summary score
+    suitable for epidemiologic studies, clinical research, and longitudinal follow-up.
+    The CES-D-10 is commonly used in population health, aging, chronic disease, and
+    community-based research where depressive symptom burden is an important covariate,
+    outcome, or screening signal but administration time is constrained. In clinical
+    and biomedical data settings, the instrument supports structured capture of patient-reported
+    mental health status and can be harmonized with other questionnaire and OMOP-style
+    observation data for downstream comparative analyses and AI or machine learning
+    workflows.
+  requires_registration: false
+  url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
+  used_in_bridge2ai: true
+  publication:
+    ref_url: https://pubmed.ncbi.nlm.nih.gov/8037935/
+    ref_title: 'Screening for depression in well older adults: evaluation of a short form of the CES-D (Center for Epidemiologic Studies Depression Scale)'
+    ref_authors:
+    - Andresen EM
+    - Malmgren JA
+    - Carter WB
+    - Patrick DL
+    ref_publication_year: 1994
+    ref_journal: American Journal of Preventive Medicine
+- id: B2AI_STANDARD:1141
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - diagnosticinstrument
+  concerns_data_topic:
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:43
+  - B2AI_TOPIC:50
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 5-item Problem Areas In Diabetes questionnaire for diabetes-related
+    emotional distress
+  formal_specification: https://docs.aireadi.org/v2/questionnaires/paid-5.pdf
+  has_relevant_organization:
+  - B2AI_ORG:114
+  is_open: false
+  name: PAID-5
+  purpose_detail: The 5-item Problem Areas In Diabetes scale (PAID-5) is a brief
+    self-report screening instrument for diabetes-related emotional distress. It
+    was developed from the longer PAID questionnaire to provide a rapid, psychometrically
+    robust measure of the emotional burden of living with diabetes, including fear,
+    discouragement, worries about future complications, daily mental or physical
+    burden, and coping with complications. The short form is suited to clinical care,
+    cohort studies, and multimodal diabetes research where respondent burden must
+    be minimized while preserving sensitivity to clinically meaningful distress.
+    In biomedical data settings, PAID-5 scores can be represented as structured questionnaire
+    observations that complement glycemic, ophthalmic, laboratory, and behavioral
+    data for phenotyping, risk stratification, and AI or machine learning studies
+    focused on diabetes resilience, disease burden, and patient-reported outcomes.
+  requires_registration: false
+  url: https://docs.aireadi.org/docs/2/dataset/clinical-data/questionnaires
+  used_in_bridge2ai: true
+  publication:
+    ref_url: https://pubmed.ncbi.nlm.nih.gov/19841892/
+    ref_title: 'Short-form measures of diabetes-related emotional distress: the Problem Areas in Diabetes Scale (PAID)-5 and PAID-1'
+    ref_authors:
+    - McGuire BE
+    - Morrison TG
+    - Hermanns N
+    - Skovlund S
+    - Eldrup E
+    - Gagliardino J
+    - Kokoszka A
+    - Matthews D
+    - Pibernik-Okanovic M
+    - Rodriguez-Saldana J
+    - de Wit M
+    - Snoek FJ
+    ref_publication_year: 2010
+    ref_journal: Diabetologia
