@@ -39,6 +39,7 @@ import numpy as np
 import re
 import json
 
+from scripts.create_denormalized_manifest import upload_denormalized_manifest
 from scripts.generate_tables_config import DEST_TABLES, TABLE_IDS
 from scripts.utils import DATA_PATH, PROJECT_ID, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, initialize_synapse, load_json_to_dataframe
 
@@ -174,10 +175,9 @@ def get_transform_function(transform_spec):
         'count_to_yes_no': lambda jsn_str: 'Yes' if str_to_json(jsn_str) else 'No',
         'json_to_name_strings': lambda jsn_str: [o['name'] for o in str_to_json(jsn_str)],
         'ai_app_to_markdown': lambda id, jsn_str: ai_app_to_markdown(id, jsn_str),
-
         'create_org_link': lambda id_val, name_val: f"[{name_val}](/Explore/Organization/OrganizationDetailsPage?id={id_val})",
-        'create_topic_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataTopic/DataTopicDetailsPage?id={id_val})",
-        'create_substrate_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataSubstrate/DataSubstrateDetailsPage?id={id_val})",
+        # 'create_topic_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataTopic/DataTopicDetailsPage?id={id_val})",
+        # 'create_substrate_link': lambda id_val, name_val: f"[{name_val}](/Explore/DataSubstrate/DataSubstrateDetailsPage?id={id_val})",
         'unpack_list': lambda tags: [t for tag in tags for t in tag],
     }
 
@@ -205,9 +205,11 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
     """
     syn = initialize_synapse()
     src_tables = {}
+    include_manifest = not specific_tables or 'Manifest' in specific_tables
 
     if specific_tables:
-        dest_table_defs = [DEST_TABLES[t] for t in specific_tables]
+        dest_table_defs = [DEST_TABLES[t]
+                           for t in specific_tables if t != 'Manifest']
     else:
         dest_table_defs = DEST_TABLES.values()
 
@@ -241,14 +243,17 @@ def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
                 'df': result_df,
             }
 
+    if include_manifest:
+        upload_denormalized_manifest(
+            syn=syn, table_id=TABLE_IDS['Manifest']['id'])
+
 
 def make_dest_table(syn: Synapse, dest_table: Dict[str, Any], src_tables: Dict[str, Dict[str, Any]]) -> pd.DataFrame:
     """
     Create and upload a Synapse table by joining a base table with related tables.
 
-    TODO: If this ever needs to be refactored, it would be better to get source column information from
-          registry json files (see ./analyze_and_update_synapse_tables.py) rather than from downloading
-          and extracting schema info from Synapse versions of those tables.
+    Note: Source data is now loaded from local JSON files in project/data/ when available,
+          falling back to Synapse only for tables without local files (see get_src_table()).
 
     :param syn: Authenticated Synapse client used to query and store tables
     :param dest_table: Dictionary defining the destination table configuration. Includes:
@@ -565,21 +570,6 @@ def create_join_column(
                     field_alias = field.get('alias', field_name)
                     obj[field_alias] = row[field_name]
             json_objects.append(obj)
-        return json_objects
-
-    def xcreate_json_objects(matching_rows):
-        """Helper to create JSON objects from matching rows"""
-        json_objects = []
-        for _, row in matching_rows.iterrows():
-            if dest_col.get('whole_records'):
-                obj = row.to_dict()
-            else:
-                obj = {}
-                for field in dest_col['fields']:
-                    field_name = field['name']
-                    field_alias = field.get('alias', field_name)
-                    obj[field_alias] = row[field_name]
-            json_objects.append(json.dumps(obj))
         return json_objects
 
     def process_matching_rows(matching_rows):

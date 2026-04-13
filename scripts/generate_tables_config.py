@@ -27,7 +27,7 @@ TABLE_IDS = {
     'Organization': {'name': 'Organization', 'id': 'syn63096836'},
     'Organization_denormalized': {'name': 'Organization_denormalized', 'id': 'syn69693360'},
     'UseCase': {'name': 'UseCase', 'id': 'syn63096837'},
-    # 'Manifest': { 'name': 'Manifest', 'id': 'syn72106735' }, # not sure if i'll need this
+    'Manifest': { 'name': 'Manifest', 'id': 'syn72106735' },
     # 'test': { 'name': 'test', 'id': 'syn64943432' }
 }
 

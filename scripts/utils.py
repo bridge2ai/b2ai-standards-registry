@@ -20,8 +20,8 @@ from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoC
 from synapseclient.models import Column, ColumnType, FacetType, Table
 PROJECT_ID = 'syn63096806'
 
-# Base path for JSON data files
-DATA_PATH = 'project/data'
+# Base path for JSON data files (absolute so scripts work from any cwd)
+DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'project', 'data')
 
 
 def load_json_to_dataframe(table_name: str) -> pd.DataFrame:

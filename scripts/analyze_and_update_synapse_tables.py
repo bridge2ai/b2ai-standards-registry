@@ -46,6 +46,7 @@ from argparse import ArgumentParser
 from synapseclient import Synapse
 from synapseclient.models import Column, ColumnType
 import pandas as pd
+from scripts.create_denormalized_manifest import upload_denormalized_manifest
 from scripts.utils import initialize_synapse, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, PROJECT_ID
 
 DATATYPE_OVERRRIDES = {
@@ -91,6 +92,12 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
     :param update_file: path for json file containing data to populate the table
     :param table_id: synapse id for table to populate
     """
+    table_name = file_path_to_table_name(update_file)
+
+    if table_name == 'Manifest':
+        upload_denormalized_manifest(syn=syn, table_id=table_id)
+        return
+
     with open(update_file, "r") as file:
         data = json.load(file)
     # each json file begins with a key that maps to the list of records, so we're accessing that list here
@@ -101,8 +108,6 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
         return
 
     df = pd.DataFrame(data=data)
-
-    table_name = file_path_to_table_name(update_file)
 
     coldefs = get_col_defs(df, table_name)
 
