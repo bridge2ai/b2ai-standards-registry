@@ -128,8 +128,11 @@ def generate_manifest_table(manifest_path: Path, output_path: Path):
     for manifest in manifests:
         manifest_id = manifest.get('id', 'Unknown')
 
-        # Get organization info
-        org_ids = manifest.get('organization', [])
+        # Get organization info. The 'organization' field may be a single
+        # ID string or a list of IDs depending on the manifest schema.
+        org_ids = manifest.get('organization') or []
+        if isinstance(org_ids, str):
+            org_ids = [org_ids]
         org_names = []
         for org_id in org_ids:
             if org_id in organizations:
