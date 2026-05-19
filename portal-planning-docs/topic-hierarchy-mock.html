@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Topic Hierarchy Widget — Mock v2</title>
+<style>
+  body {
+    font: 14px/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #fafafa;
+    color: #222;
+    margin: 24px;
+    max-width: 1400px;
+  }
+  h1 { font-size: 18px; margin: 0 0 8px; }
+  h2 { font-size: 15px; margin: 24px 0 6px; color: #555; }
+  h3 { font-size: 13px; margin: 14px 0 6px; color: #777; font-weight: 600; }
+  .controls {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .controls label { font-size: 12px; color: #555; }
+  .controls select { font-size: 13px; padding: 3px 6px; }
+  .note { color:#555; max-width:780px; font-size:13px; }
+
+  /* ============== TOPIC HIERARCHY WIDGET ============== */
+  .topic-hierarchy {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1f2937;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px 0;
+    white-space: nowrap;
+  }
+  .row .name {
+    flex: 0 0 auto;
+    padding-right: 8px;
+  }
+  .row .links-count {
+    color: #6b7280;
+    font-size: 11px;
+    padding-left: 6px;
+  }
+
+  /* Toggle pill: arrow + count in a single box.
+     Background uses a translucent white overlay so it appears lighter than whatever box
+     it's sitting in — no fixed color. */
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    min-width: 28px;
+    height: 18px;
+    padding: 0 5px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.65);
+    color: #1f2937;
+    font-size: 10px;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    font-family: ui-monospace, monospace;
+  }
+  .toggle:hover { background: rgba(255, 255, 255, 0.9); }
+  .toggle.expanded {
+    background: rgba(255, 255, 255, 0.9);
+    color: #111;
+    border-color: rgba(0,0,0,0.25);
+  }
+  .toggle.disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+  .toggle .arr { font-size: 9px; }
+
+  .row.current .name {
+    background: #fef3c7;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .row.dup .name {
+    background: #fef3c7;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #92400e;
+  }
+  .dup-note {
+    font-size: 11px;
+    color: #92400e;
+    font-style: italic;
+    margin-left: 4px;
+  }
+
+  /* ============== EXPANSION BOXES ============== */
+  /* A "box" sits adjacent to its triggering row:
+       .box.up    — above its row (parents revealed)
+       .box.down  — below its row (children revealed)
+     The row is OUTSIDE the box. */
+  .box {
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin: 2px 0;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  /* All monotonic schemes go LIGHTER with depth (outermost is darkest/most saturated).
+     The OUTERMOST box (.box.anchor, depth-0) wraps the whole widget — it represents
+     "anchor's neighborhood" and is rendered darker than any inner expansion box. */
+  /* Scheme 1: monotonic blue gradient — depth-0 darkest */
+  body.scheme-mono-blue .box.depth-0 { background: #93c5fd; border-color: rgba(37,99,235,0.35); }
+  body.scheme-mono-blue .box.depth-1 { background: #bfdbfe; }
+  body.scheme-mono-blue .box.depth-2 { background: #dbeafe; }
+  body.scheme-mono-blue .box.depth-3 { background: #eff6ff; }
+  body.scheme-mono-blue .box.depth-4 { background: #f5f9ff; }
+  body.scheme-mono-blue .box.depth-5 { background: #fafcff; }
+  /* Scheme 2: warm gradient — depth-0 darkest amber */
+  body.scheme-warm .box.depth-0 { background: #fbbf24; border-color: rgba(180,83,9,0.35); }
+  body.scheme-warm .box.depth-1 { background: #fcd34d; }
+  body.scheme-warm .box.depth-2 { background: #fde68a; }
+  body.scheme-warm .box.depth-3 { background: #fef3c7; }
+  body.scheme-warm .box.depth-4 { background: #fefce8; }
+  body.scheme-warm .box.depth-5 { background: #fffef5; }
+  /* Scheme 3: stacked alpha — outermost is solid tint, inner boxes are translucent white overlays */
+  body.scheme-mono-alpha .box.depth-0 {
+    background: rgba(59, 130, 246, 0.30);
+    border-color: rgba(59,130,246,0.4);
+  }
+  body.scheme-mono-alpha .box:not(.depth-0) {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(0,0,0,0.06);
+  }
+  /* Scheme 4: cycling palette — but depth-0 (anchor's box) is still distinctly darker */
+  body.scheme-palette .box.depth-0 { background: #93c5fd; border-color: rgba(37,99,235,0.35); }
+  body.scheme-palette .box.depth-1 { background: #cffafe; }   /* cyan */
+  body.scheme-palette .box.depth-2 { background: #dcfce7; }   /* green */
+  body.scheme-palette .box.depth-3 { background: #fef9c3; }   /* yellow */
+  body.scheme-palette .box.depth-4 { background: #fae8ff; }   /* purple */
+  body.scheme-palette .box.depth-5 { background: #dbeafe; }   /* blue */
+  body.scheme-palette .box.depth-6 { background: #cffafe; }
+
+  /* Indentation: the box gets a slight left indent matching its triggering row's child position. */
+  .indent { padding-left: 22px; position: relative; }
+
+  /* ============== PATH FROM ROOT ============== */
+  /* Sits at the top of the anchor box, showing the path from the root down to the
+     topmost ancestor that is rendered in the widget. Each segment is clickable to
+     navigate to that topic's details page. */
+  .path-from-root {
+    font-size: 12px;
+    color: #4b5563;
+    padding: 2px 4px 6px 2px;
+    margin-bottom: 4px;
+    font-family: ui-monospace, monospace;
+  }
+  .path-from-root .name,
+  .path-from-root .seg {
+    color: #1d4ed8;
+    cursor: pointer;
+  }
+  .path-from-root .name:hover,
+  .path-from-root .seg:hover { text-decoration: underline; }
+  .path-from-root .sep { color: #6b7280; padding: 0 2px; }
+  .path-from-root .ellipsis { color: #9ca3af; }
+
+  /* ============== RAILS (file-tree style) ============== */
+  /* Optional rails: vertical line on the left of each indented region, with corner
+     markers per row. Toggleable via the .with-rails class on the widget root. */
+  .topic-hierarchy.with-rails .indent {
+    /* Vertical line down the indent. */
+  }
+  .topic-hierarchy.with-rails .indent > .row,
+  .topic-hierarchy.with-rails .indent > .box {
+    position: relative;
+  }
+  .topic-hierarchy.with-rails .indent::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 14px;
+    width: 1px;
+    background: rgba(0,0,0,0.3);
+  }
+  .topic-hierarchy.with-rails .indent > .row::before,
+  .topic-hierarchy.with-rails .indent > .box::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 9px;
+    width: 12px;
+    height: 1px;
+    background: rgba(0,0,0,0.3);
+  }
+  .topic-hierarchy.with-rails .indent > .row:last-child::before {
+    /* Last child: cut the vertical line short via background on the wrapper.
+       We can't easily do this purely with the row's own ::before, so we add a small
+       white block to mask the rail below the corner. */
+  }
+
+  /* ============== STATE PANEL LAYOUT ============== */
+  .states {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    gap: 20px;
+  }
+  .state {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 16px 18px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .state-title {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .caption {
+    font-size: 11px;
+    color: #888;
+    margin-top: 8px;
+  }
+
+  /* ============== FULL PAGE MOCK ============== */
+  .page-mock {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px 24px 28px;
+    margin-top: 24px;
+  }
+  .page-header {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+  }
+  .page-header .breadcrumb { font-size: 12px; color: #6b7280; }
+  .page-header .title { font-size: 22px; font-weight: 700; margin: 4px 0; }
+  .page-header .desc { color: #4b5563; font-size: 14px; }
+  .page-header .ids { margin-top: 8px; font-size: 12px; color: #6b7280; }
+  .page-header .ids span { margin-right: 14px; font-family: ui-monospace, monospace; }
+  .section { margin-top: 22px; }
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .card {
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 13px;
+    background: #fafafa;
+  }
+  .card .card-type { font-size: 10px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+  .card .card-title { font-weight: 600; margin: 2px 0 4px; }
+  .card .card-desc { font-size: 12px; color: #4b5563; }
+  .row-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .row-table th, .row-table td {
+    text-align: left;
+    padding: 6px 10px;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .row-table th { color: #6b7280; font-weight: 500; width: 30%; }
+</style>
+</head>
+<body class="scheme-mono-alpha">
+
+<h1>Topic Hierarchy Widget — visual mock</h1>
+<p class="note">
+  Mockups for the topic details page hierarchy widget in the b2ai.standards portal.
+  <strong>Part D (boxless DAG) is the current direction</strong>; earlier parts (A, B, B′, C)
+  are collapsed below as historical reference — they explored a nested-colored-boxes
+  approach that ultimately couldn't handle polyhierarchy mid-tree cleanly.
+</p>
+<p class="note" style="background:#fef3c7; padding:8px 12px; border-radius:6px;">
+  <strong>Quick nav:</strong>
+  <a href="#parts-abc">Parts A/B/B′ (historical)</a> ·
+  <a href="#part-d"><strong>Part D — current direction</strong></a> ·
+  <a href="#part-c">Part C (historical full-page mock)</a>
+</p>
+
+<details id="parts-abc">
+<summary><strong>Earlier explorations — nested colored boxes (Parts A, B, B′)</strong></summary>
+
+<p class="note" style="margin-top: 12px;">
+  <strong>What we tried:</strong> Render each row's parent or child expansion as a colored adjacent
+  box, nested inside the row's containing context. The anchor T sat inside its own outermost box
+  (darkest tint), with its ↑ expansion as a lighter box above and ↓ expansion as a lighter box
+  below. Nested expansions (a child's children, etc.) produced further-lighter boxes recursively.
+</p>
+<p class="note">
+  <strong>What was good about it:</strong> The boxes made each expansion's scope visually
+  unambiguous — "this region of the page is X's expansion." Colored depth gradient gave the
+  user a strong "outer = more important" cue. Toggle pills with embedded counts (▲ N, ▼ N)
+  were intuitive. Several details from this iteration carried forward to Part D — the counts-in-toggles,
+  the highlighted-anchor styling, the secondary-parent ★ notation, breadcrumb-like path-from-root,
+  the duplicate-row indicator for polyhierarchy.
+</p>
+<p class="note">
+  <strong>Why we moved on:</strong> Polyhierarchy mid-tree (B6 case: when a child has another
+  parent whose ↑ would be expanded) required visually <em>splitting</em> a parent box around
+  the inner expansion. Two halves of the same conceptual box with a different-colored block
+  squeezed between them. That problem doesn't have a clean visual solution within the
+  box-nesting idiom. The boxless approach in Part D sidesteps it entirely by representing
+  parent-child edges with rails/glyphs instead of containment.
+</p>
+<p class="note">
+  <strong>Things worth revisiting if we return to box-style:</strong> the four color schemes
+  (stacked alpha, monotonic gradient, warm gradient, cycling palette) all have their merits;
+  the toggle-with-counts pattern; the secondary-parent note style.
+</p>
+
+<div class="controls">
+  <label>Color scheme:
+    <select id="scheme">
+      <option value="mono-alpha" selected>Stacked alpha (single blue, deeper looks lighter)</option>
+      <option value="mono-blue">Blue gradient (outer darker, deeper lighter)</option>
+      <option value="warm">Warm gradient (outer amber, deeper paler)</option>
+      <option value="palette">Cycling palette (5 distinct tints by depth)</option>
+    </select>
+  </label>
+  <label>
+    <input type="checkbox" id="rails-toggle"> show rails
+  </label>
+</div>
+
+<h2>Part A: Widget states (anchor = <em>Omics</em>, single-parent path)</h2>
+<p class="note">
+  <strong>Goal:</strong> establish the basic shape of the box-based widget on a simple
+  single-parent topic. A1 = initial render with anchor's ↑ and ↓ pre-expanded; A1b explored
+  what happens when an ancestor row also has its ↑ expanded; A2 = edge case where a child's
+  only parent is the anchor; A3/A4 = collapse experiments. Counts in toggle pills emerged
+  here and survived into Part D.
+</p>
+<p class="note">
+  Omics: 1 parent (Molecular Biology) → 1 grandparent (Data, root) · 4 children. Counts on each row:
+  ↑ parents, ↓ children, plus standards/datasets/orgs that link to this topic.
+</p>
+
+<div class="states">
+  <!-- ============== A1: INITIAL ============== -->
+  <div class="state">
+    <div class="state-title">A1 — Initial state</div>
+    <div class="topic-hierarchy">
+      <!-- OUTER anchor box: wraps the whole widget, darkest tint -->
+      <div class="box anchor depth-0">
+        <div class="path-from-root">
+          <span class="name">Data/</span>
+        </div>
+        <div class="indent">
+          <!-- ↑ box: anchor's parents revealed -->
+          <div class="box up depth-1">
+            <div class="row">
+              <span class="toggle"><span class="arr">▶</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 2</span>
+              <span class="name">Molecular Biology</span>
+              <span class="links-count">3 standards · 1 dataset</span>
+            </div>
+          </div>
+          <div class="indent">
+            <div class="row current">
+              <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+              <span class="toggle expanded"><span class="arr">▼</span> 4</span>
+              <span class="name">Omics</span>
+              <span class="links-count">24 standards · 7 datasets · 3 orgs</span>
+            </div>
+            <div class="indent">
+              <!-- ↓ box: anchor's children revealed -->
+              <div class="box down depth-1">
+                <div class="row">
+                  <span class="toggle"><span class="arr">▶</span> 1</span>
+                  <span class="toggle"><span class="arr">▶</span> 0</span>
+                  <span class="name">Genome</span>
+                  <span class="links-count">12 standards · 3 datasets</span>
+                </div>
+                <div class="row">
+                  <span class="toggle"><span class="arr">▶</span> 1</span>
+                  <span class="toggle"><span class="arr">▶</span> 0</span>
+                  <span class="name">Metabolome</span>
+                  <span class="links-count">5 standards · 1 dataset</span>
+                </div>
+                <div class="row">
+                  <span class="toggle"><span class="arr">▶</span> 1</span>
+                  <span class="toggle"><span class="arr">▶</span> 0</span>
+                  <span class="name">Proteome</span>
+                  <span class="links-count">8 standards · 2 datasets</span>
+                </div>
+                <div class="row">
+                  <span class="toggle"><span class="arr">▶</span> 1</span>
+                  <span class="toggle"><span class="arr">▶</span> 0</span>
+                  <span class="name">Transcriptome</span>
+                  <span class="links-count">9 standards · 4 datasets</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Outermost depth-0 box is the anchor's neighborhood. Inside: ↑ box with Molecular Biology, the
+      anchor row Omics, and the ↓ box with children. Anchor sits at the boundary.
+    </p>
+  </div>
+
+  <!-- ============== A1b: EXPAND Molecular Biology up ============== -->
+  <div class="state">
+    <div class="state-title">A1b — EXPAND Molecular Biology up</div>
+    <div class="topic-hierarchy">
+      <!-- OUTER anchor box: wraps the whole widget, darkest tint -->
+      <div class="box anchor depth-0">
+        <div class="path-from-root">
+          <span class="name">/</span>
+        </div>
+        <div class="indent">
+          <div class="box up depth-1">
+            <div class="row">
+              <span class="toggle"><span class="arr">▶</span> 0</span>
+              <span class="toggle"><span class="arr">▶</span> 30</span>
+              <span class="name">Data</span>
+              <span class="links-count">36 descendants (just a thought)</span>
+            </div>
+          </div>
+          <div class="indent">
+            <!-- ↑ box: anchor's parents revealed -->
+            <div class="box up depth-1">
+              <div class="row">
+                <span class="toggle"><span class="arr">▲</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 2</span>
+                <span class="name">Molecular Biology</span>
+                <span class="links-count">3 standards · 1 dataset</span>
+              </div>
+            </div>
+            <div class="indent">
+              <div class="row current">
+                <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+                <span class="toggle expanded"><span class="arr">▼</span> 4</span>
+                <span class="name">Omics</span>
+                <span class="links-count">24 standards · 7 datasets · 3 orgs</span>
+              </div>
+              <div class="indent">
+                <!-- ↓ box: anchor's children revealed -->
+                <div class="box down depth-1">
+                  <div class="row">
+                    <span class="toggle"><span class="arr">▶</span> 1</span>
+                    <span class="toggle"><span class="arr">▶</span> 0</span>
+                    <span class="name">Genome</span>
+                    <span class="links-count">12 standards · 3 datasets</span>
+                  </div>
+                  <div class="row">
+                    <span class="toggle"><span class="arr">▶</span> 1</span>
+                    <span class="toggle"><span class="arr">▶</span> 0</span>
+                    <span class="name">Metabolome</span>
+                    <span class="links-count">5 standards · 1 dataset</span>
+                  </div>
+                  <div class="row">
+                    <span class="toggle"><span class="arr">▶</span> 1</span>
+                    <span class="toggle"><span class="arr">▶</span> 0</span>
+                    <span class="name">Proteome</span>
+                    <span class="links-count">8 standards · 2 datasets</span>
+                  </div>
+                  <div class="row">
+                    <span class="toggle"><span class="arr">▶</span> 1</span>
+                    <span class="toggle"><span class="arr">▶</span> 0</span>
+                    <span class="name">Transcriptome</span>
+                    <span class="links-count">9 standards · 4 datasets</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+    </p>
+  </div>
+
+  <!-- ============== A2: EDGE — Proteome ↑ disabled ============== -->
+  <div class="state">
+    <div class="state-title">A2 — Proteome ↑ disabled (parent already shown)</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 2</span>
+            <span class="name">Molecular Biology</span>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+            <span class="toggle expanded"><span class="arr">▼</span> 4</span>
+            <span class="name">Omics</span>
+          </div>
+          <div class="indent">
+            <div class="box down depth-1">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Genome</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Metabolome</span>
+              </div>
+              <div class="row">
+                <span class="toggle disabled" title="only parent (Omics) is already shown above"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Proteome</span>
+                <span style="font-size:11px;color:#9ca3af;font-style:italic;">↑ disabled (only parent: Omics)</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Transcriptome</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Proteome's ↑ would only reveal Omics (already shown above as ancestor) — toggle disabled.
+      Same rule for ↓ when a topic has no children.
+    </p>
+  </div>
+
+  <!-- ============== A3: COLLAPSE ANCHOR ↓ ============== -->
+  <div class="state">
+    <div class="state-title">A3 — Collapse anchor's ↓</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 2</span>
+            <span class="name">Molecular Biology</span>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 4</span>
+            <span class="name">Omics</span>
+            <span class="links-count">24 standards · 7 datasets · 3 orgs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Anchor's ↓ box is hidden. "▶ 4" toggle shows children are available. Same rendering rule for
+      anchor and non-anchor rows.
+    </p>
+  </div>
+
+  <!-- ============== A4: COLLAPSE ANCHOR ↑ ============== -->
+  <div class="state">
+    <div class="state-title">A4 — Collapse anchor's ↑</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span><span class="name">Molecular Biology</span><span class="sep">/</span></div>
+        <div class="row current">
+          <span class="toggle"><span class="arr">▶</span> 1</span>
+          <span class="toggle expanded"><span class="arr">▼</span> 4</span>
+          <span class="name">Omics</span>
+          <span class="links-count">24 standards · 7 datasets · 3 orgs</span>
+        </div>
+        <div class="indent">
+          <div class="box down depth-1">
+            <div class="row">
+              <span class="toggle"><span class="arr">▶</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 0</span>
+              <span class="name">Genome</span>
+            </div>
+            <div class="row">
+              <span class="toggle"><span class="arr">▶</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 0</span>
+              <span class="name">Metabolome</span>
+            </div>
+            <div class="row">
+              <span class="toggle"><span class="arr">▶</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 0</span>
+              <span class="name">Proteome</span>
+            </div>
+            <div class="row">
+              <span class="toggle"><span class="arr">▶</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 0</span>
+              <span class="name">Transcriptome</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      No ↑ box. Anchor at top with ↓ box indented below. Symmetric with A3.
+    </p>
+  </div>
+</div>
+
+
+<h2>Part B: Polyhierarchy (anchor = <em>Neurologic Imaging</em>, 2 parents)</h2>
+<p class="note">
+  <strong>Goal:</strong> stress-test the box approach on the polyhierarchy case. Neurologic Imaging has
+  two parents (Image, Neurology) and showed how duplicate rows appear inside each parent's
+  ↓ expansion. B1 = initial, B2 = one parent expanded ↓, B3 = both ↓, B4 = mixed ↓ and ↑. The
+  ★ "also under: ..." notation and the duplicate-row indicator originated here.
+</p>
+
+<div class="states">
+  <!-- ============== B1: INITIAL ============== -->
+  <div class="state">
+    <div class="state-title">B1 — Initial (both parents collapsed)</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span><span class="ellipsis">…</span> <span style="color:#6b7280;font-style:italic;">(multiple paths)</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 3</span>
+            <span class="name">Image</span>
+            <span class="links-count">6 standards · 2 datasets</span>
+          </div>
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 2</span>
+            <span class="name">Neurology</span>
+            <span class="links-count">4 standards · 1 dataset</span>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 2</span>
+            <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+            <span class="name">Neurologic Imaging</span>
+            <span class="links-count">3 standards · 1 dataset</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Two parents inside one ↑ box. Anchor's ↓ disabled (no children). Each parent's own ↑ count
+      indicates 1 grandparent available — clicking would reveal them.
+    </p>
+  </div>
+
+  <!-- ============== B2: EXPAND IMAGE DOWN ============== -->
+  <div class="state">
+    <div class="state-title">B2 — Image ↓ expanded (sibling browse)</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span><span class="ellipsis">…</span> <span style="color:#6b7280;font-style:italic;">(multiple paths)</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle expanded"><span class="arr">▼</span> 3</span>
+            <span class="name">Image</span>
+          </div>
+          <div class="indent">
+            <div class="box down depth-2">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Microscale Imaging</span>
+              </div>
+              <div class="row dup">
+                <span class="toggle"><span class="arr">▶</span> 2</span>
+                <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+                <span class="name">Neurologic Imaging</span>
+                <span class="dup-note">(also below)</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Ophthalmic Imaging</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 2</span>
+            <span class="name">Neurology</span>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 2</span>
+            <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+            <span class="name">Neurologic Imaging</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Image's ↓ box (depth-1, lighter) nests inside the anchor's ↑ box (depth-0). Duplicate T row
+      with note. Neurology stays as a flat collapsed row next to it.
+    </p>
+  </div>
+
+  <!-- ============== B3: BOTH PARENTS ↓ EXPANDED ============== -->
+  <div class="state">
+    <div class="state-title">B3 — Both parents ↓ expanded</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span><span class="ellipsis">…</span> <span style="color:#6b7280;font-style:italic;">(multiple paths)</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle expanded"><span class="arr">▼</span> 3</span>
+            <span class="name">Image</span>
+          </div>
+          <div class="indent">
+            <div class="box down depth-2">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Microscale Imaging</span>
+              </div>
+              <div class="row dup">
+                <span class="toggle"><span class="arr">▶</span> 2</span>
+                <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+                <span class="name">Neurologic Imaging</span>
+                <span class="dup-note">(also below)</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Ophthalmic Imaging</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle expanded"><span class="arr">▼</span> 2</span>
+            <span class="name">Neurology</span>
+          </div>
+          <div class="indent">
+            <div class="box down depth-2">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Neurological Disorders</span>
+              </div>
+              <div class="row dup">
+                <span class="toggle"><span class="arr">▶</span> 2</span>
+                <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+                <span class="name">Neurologic Imaging</span>
+                <span class="dup-note">(also below)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 2</span>
+            <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+            <span class="name">Neurologic Imaging</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Three T-rows total: two duplicates (one inside each parent's ↓ box), one anchor below. The
+      nested ↓ boxes (depth-1) sit inside the anchor's ↑ box (depth-0).
+    </p>
+  </div>
+
+  <!-- ============== B4: IMAGE ↓ + NEUROLOGY ↑ ============== -->
+  <div class="state">
+    <div class="state-title">B4 — Image ↓ + Neurology ↑</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span><span class="ellipsis">…</span> <span style="color:#6b7280;font-style:italic;">(multiple paths)</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle expanded"><span class="arr">▼</span> 3</span>
+            <span class="name">Image</span>
+          </div>
+          <div class="indent">
+            <div class="box down depth-2">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Microscale Imaging</span>
+              </div>
+              <div class="row dup">
+                <span class="toggle"><span class="arr">▶</span> 2</span>
+                <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+                <span class="name">Neurologic Imaging</span>
+                <span class="dup-note">(also below)</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Ophthalmic Imaging</span>
+              </div>
+            </div>
+          </div>
+          <!-- Neurology's ↑ box appears above Neurology's row -->
+          <div class="box up depth-2">
+            <div class="row">
+              <span class="toggle"><span class="arr">▶</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 4</span>
+              <span class="name">Clinical Observations</span>
+            </div>
+          </div>
+          <div class="indent">
+            <div class="row">
+              <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 2</span>
+              <span class="name">Neurology</span>
+            </div>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 2</span>
+            <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+            <span class="name">Neurologic Imaging</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Asymmetric expansion: Image's ↓ box sits below Image (revealing children); Neurology's ↑ box
+      sits above Neurology (revealing parents). Same rule applied in both directions.
+    </p>
+  </div>
+</div>
+
+
+<h2>Part B′: Deeper nesting examples</h2>
+<p class="note">
+  <strong>Goal:</strong> probe the box-based widget on cases it hadn't handled yet. B5 fabricated a
+  topic with both multiple parents AND multiple children (real data has none). B6 attempted
+  grandchild ↓ expansion + mid-sibling ↑ expansion — and surfaced the structural problem:
+  Metabolome's ↑ expansion (revealing its other parent) needed to render at indent 1 (same
+  as Omics), which forced visually splitting the anchor's ↓ box around it. This is what
+  killed the box approach.
+</p>
+<p class="note">
+  B5 is fabricated (a polyhierarchical topic with children) — the real dataset has only leaf
+  topics with multiple parents, so we synthesize one to exercise the harder case. B6 shows what
+  happens when a child's child is expanded — recursive nesting of ↓ boxes with depth incrementing.
+</p>
+
+<div class="states">
+  <!-- ============== B5: MULTI-PARENT + MULTI-CHILD (fabricated) ============== -->
+  <div class="state">
+    <div class="state-title">B5 — Multi-parent + multi-child (fabricated)</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span><span class="ellipsis">…</span> <span style="color:#6b7280;font-style:italic;">(multiple paths)</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 3</span>
+            <span class="name">Image</span>
+          </div>
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 2</span>
+            <span class="name">Neurology</span>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 2</span>
+            <span class="toggle expanded"><span class="arr">▼</span> 3</span>
+            <span class="name">Neurologic Imaging</span>
+            <span class="links-count">3 standards · 1 dataset · 2 orgs</span>
+          </div>
+          <div class="indent">
+            <div class="box down depth-1">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">fMRI</span>
+                <span class="links-count">2 standards · 1 dataset</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">DTI</span>
+                <span class="links-count">1 standard</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">EEG</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Anchor has 2 parents AND 3 children. The anchor box wraps everything; ↑ box (depth-1) contains
+      both collapsed parents; ↓ box (depth-1) contains all three children. Same depth on opposite
+      sides of the anchor — visually symmetric.
+    </p>
+  </div>
+
+  <!-- ============== B6: GRANDCHILD ↓ + MID-SIBLING ↑ EXPANDED ============== -->
+  <div class="state">
+    <div class="state-title">B6 — Grandchild ↓ + mid-sibling ↑ expanded</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 2</span>
+            <span class="name">Molecular Biology</span>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+            <span class="toggle expanded"><span class="arr">▼</span> 4</span>
+            <span class="name">Omics</span>
+          </div>
+          <!-- Anchor's ↓ box — first half (before Metabolome) -->
+          <div class="indent">
+            <div class="box down depth-1">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle expanded"><span class="arr">▼</span> 2</span>
+                <span class="name">Genome</span>
+              </div>
+              <div class="indent">
+                <div class="box down depth-2">
+                  <div class="row">
+                    <span class="toggle"><span class="arr">▶</span> 1</span>
+                    <span class="toggle"><span class="arr">▶</span> 0</span>
+                    <span class="name">Variant Calls</span>
+                  </div>
+                  <div class="row">
+                    <span class="toggle"><span class="arr">▶</span> 1</span>
+                    <span class="toggle"><span class="arr">▶</span> 0</span>
+                    <span class="name">Gene Expression</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Metabolome's ↑ expansion breaks OUT to the anchor row's indent level.
+               It is a sibling of the anchor's ↓ box (above), NOT nested inside it.
+               Both parents of Metabolome appear here, both collapsed (rule: everything
+               in a new expansion box appears initially unexpanded). -->
+          <div class="box up depth-1">
+            <div class="row dup">
+              <span class="toggle"><span class="arr">▶</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 4</span>
+              <span class="name">Omics</span>
+              <span class="dup-note">(also the anchor above)</span>
+            </div>
+            <div class="row">
+              <span class="toggle"><span class="arr">▶</span> 1</span>
+              <span class="toggle"><span class="arr">▶</span> 3</span>
+              <span class="name">Biochemistry</span>
+              <span style="font-size:11px;color:#9ca3af;font-style:italic;">(fabricated)</span>
+            </div>
+          </div>
+          <!-- Metabolome itself, indented one level (it's a child of the things above) -->
+          <div class="indent">
+            <div class="row">
+              <span class="toggle expanded"><span class="arr">▲</span> 2</span>
+              <span class="toggle"><span class="arr">▶</span> 0</span>
+              <span class="name">Metabolome</span>
+            </div>
+          </div>
+          <!-- Anchor's ↓ box — second half (remaining siblings of Metabolome) -->
+          <div class="indent">
+            <div class="box down depth-1">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Proteome</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Transcriptome</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">
+      Two structural exceptions in one example. (1) Genome's ↓ box (depth-2) nests cleanly inside
+      the anchor's ↓ box. (2) Metabolome's ↑ box breaks OUT to indent 1 (same as Omics) — splitting
+      the anchor's ↓ box into a "before" and "after" pair around Metabolome. Both parents of
+      Metabolome (Omics duplicate + Biochemistry) appear in the ↑ box, both collapsed.
+    </p>
+  </div>
+</div>
+
+
+</details>
+
+<h2 id="part-d">Part D: Boxless arrow-DAG rendering — <em>current direction</em></h2>
+<p class="note">
+  Alternative approach: drop the colored boxes. Render every visible topic at its natural
+  position in the DAG (computed from its longest-path-to-root). Use indentation + arrow glyphs
+  to show parent-child edges. Polyhierarchy topics render under their longest-path parent and
+  get a skip-arrow connecting them to their other parent(s). Anchor isn't structurally special —
+  just highlighted.
+</p>
+
+<style>
+  /* ============== DAG WIDGET ============== */
+  .dag {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #1f2937;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+  }
+  .dag .dag-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px 0;
+    position: relative;
+    white-space: nowrap;
+  }
+  /* indentation via padding on a wrapper around the row's content */
+  .dag .dag-row .indent-pad { display: inline-block; }
+  .dag .dag-row .glyph {
+    display: inline-block;
+    width: 18px;
+    color: #9ca3af;
+    text-align: center;
+    transition: color 0.15s;
+  }
+  .dag .dag-row.hidden { display: none; }
+  .dag .dag-row.anchor .name {
+    background: #fef3c7;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+  .dag .dag-row.poly .name {
+    border-bottom: 1px dashed #d97706;
+  }
+  .dag .dag-row .also {
+    font-size: 11px;
+    color: #92400e;
+    font-style: italic;
+    margin-left: 6px;
+  }
+  .dag .dag-row .also .seg { color: #1d4ed8; cursor: pointer; }
+  .dag .dag-row .also .seg:hover { text-decoration: underline; }
+  /* arrow ↳ ↘ */
+  .dag .dag-row .arr-glyph { color: #9ca3af; padding-right: 4px; }
+  .dag .dag-row:hover .arr-glyph { color: #1f2937; }
+  .dag .dag-row .toggle {
+    /* inherit from earlier .toggle definition */
+  }
+
+  /* secondary-parent skip arrows: a styled inline element next to a row indicating
+     "this row is also reached from <something else at a higher indent>." */
+  .skip-arrow {
+    color: #d97706;
+    font-weight: 600;
+    padding: 0 4px;
+  }
+
+  /* highlight on hover: when hovering a row, all rows referenced by skip-arrows from/to it
+     get a subtle highlight. Implemented via JS in the live widget; static demo just shows the
+     hover state inline. */
+  .dag .dag-row:hover { background: rgba(59, 130, 246, 0.06); }
+
+  /* "full DAG" reference list (no expansion controls) */
+  .dag.full pre {
+    margin: 0;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1f2937;
+    white-space: pre;
+  }
+  .dag.full .star { color: #d97706; font-weight: 600; }
+  .dag.full .also-list { color: #92400e; font-style: italic; }
+</style>
+
+<h3 style="margin-top:18px;">Reference: full DAG as indented list</h3>
+<p class="note" style="margin-bottom:8px;">
+  Two orderings side-by-side. Polyhierarchy topics marked with ★. In ID-order, the special
+  override puts Image before Clinical Observations under Data, so Neurologic Imaging's
+  shorter-path parent appears above it. In alphabetical order, Image and mHealth shift to
+  later in the list, putting Neurologic Imaging's shorter-path parent below its rendering.
+</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+  <div>
+    <h3 style="margin: 0 0 6px;">By topic ID (with polyhierarchy override)</h3>
+    <div class="dag full">
+<pre>Data
+  Biology
+    Environment
+    Molecular Biology
+      Cell
+        Neuron
+        Cardiomyocyte
+      Omics
+        Genome
+          Gene
+            Variant
+        Metabolome
+        Proteome
+          Protein
+            Protein Structure Model
+        Transcriptome
+          Transcript
+    Respiration
+      Respiratory Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
+  Cheminformatics
+    Drug
+  Image
+    Microscale Imaging
+    Ophthalmic Imaging
+  Clinical Observations
+    EHR
+    Neurology
+      Neurologic Imaging <span class="star">★</span> <span class="also-list">also under: Image</span>
+      Neurological Disorders
+    Psychiatry
+      Psychiatric Disorders
+  Demographics
+    SDoH
+  Disease
+    Diabetes
+    Eye Diseases
+  Geolocation
+  mHealth
+    Glucose Monitoring
+    Activity Monitoring
+  Networks And Pathways
+  Phenotype
+  Survey
+  Text
+    Literature
+      Training
+    Social Media
+  Waveform
+    EKG
+    Voice
+      Voice Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
+  Governance</pre>
+    </div>
+  </div>
+  <div>
+    <h3 style="margin: 0 0 6px;">Pure alphabetical</h3>
+    <div class="dag full">
+<pre>Data
+  Biology
+    Environment
+    Molecular Biology
+      Cell
+        Cardiomyocyte
+        Neuron
+      Omics
+        Genome
+          Gene
+            Variant
+        Metabolome
+        Proteome
+          Protein
+            Protein Structure Model
+        Transcriptome
+          Transcript
+    Respiration
+      Respiratory Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
+  Cheminformatics
+    Drug
+  Clinical Observations
+    EHR
+    Neurology
+      Neurologic Imaging <span class="star">★</span> <span class="also-list">also under: Image</span>
+      Neurological Disorders
+    Psychiatry
+      Psychiatric Disorders
+  Demographics
+    SDoH
+  Disease
+    Diabetes
+    Eye Diseases
+  Geolocation
+  Governance
+  Image
+    Microscale Imaging
+    Ophthalmic Imaging
+  mHealth
+    Activity Monitoring
+    Glucose Monitoring
+  Networks And Pathways
+  Phenotype
+  Survey
+  Text
+    Literature
+      Training
+    Social Media
+  Waveform
+    EKG
+    Voice
+      Voice Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span></pre>
+    </div>
+  </div>
+</div>
+
+<h3 style="margin-top:24px;">Widget states (boxless, arrow-DAG)</h3>
+<p class="note" style="margin-bottom:8px;">
+  Showing only the rows in the anchor's neighborhood. All other rows from the full DAG are
+  hidden by default. The toggle pills retain their meaning — clicking expands the next layer
+  of parents (↑) or children (↓).
+</p>
+
+<div class="states">
+  <!-- ============== D1: NEUROLOGIC IMAGING INITIAL ============== -->
+  <div class="state">
+    <div class="state-title">D1 — Neurologic Imaging, initial</div>
+    <div class="dag">
+      <!-- Image at indent 1 (shorter-path parent) -->
+      <div class="dag-row">
+        <span style="padding-left: 18px;"></span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 3</span>
+        <span class="name">Image</span>
+        <span class="skip-arrow" title="connects down to Neurologic Imaging at indent 3">↘</span>
+      </div>
+      <!-- Clinical Observations at indent 1 -->
+      <div class="dag-row">
+        <span style="padding-left: 18px;"></span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 3</span>
+        <span class="name">Clinical Observations</span>
+      </div>
+      <!-- Neurology at indent 2 -->
+      <div class="dag-row">
+        <span style="padding-left: 36px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 2</span>
+        <span class="name">Neurology</span>
+      </div>
+      <!-- Neurologic Imaging at indent 3 (under Neurology, with also-under-Image note) -->
+      <div class="dag-row anchor poly">
+        <span style="padding-left: 54px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 2</span>
+        <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+        <span class="name">Neurologic Imaging</span>
+        <span class="also">★ also under: <span class="seg">Image</span></span>
+      </div>
+    </div>
+    <p class="caption">
+      Neurologic Imaging at indent 3 (under its longer-path parent Neurology). Image at indent 1,
+      with a skip-arrow (↘) indicating it also reaches Neurologic Imaging. No boxes, just rows
+      with indent + corner glyphs (└) showing parent-child edges. Anchor highlighted.
+    </p>
+  </div>
+
+  <!-- ============== D2: OMICS INITIAL ============== -->
+  <div class="state">
+    <div class="state-title">D2 — Omics, initial (single-parent path)</div>
+    <div class="dag">
+      <!-- Molecular Biology at indent 2 (Data → Biology → Molecular Biology) -->
+      <!-- Show only the anchor's immediate ancestry chain by default -->
+      <div class="dag-row">
+        <span style="padding-left: 18px;"></span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 3</span>
+        <span class="name">Biology</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 36px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 3</span>
+        <span class="name">Molecular Biology</span>
+      </div>
+      <div class="dag-row anchor">
+        <span style="padding-left: 54px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+        <span class="toggle expanded"><span class="arr">▼</span> 4</span>
+        <span class="name">Omics</span>
+        <span class="links-count">24 standards · 7 datasets · 3 orgs</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 72px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="name">Genome</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 72px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 0</span>
+        <span class="name">Metabolome</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 72px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="name">Proteome</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 72px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="name">Transcriptome</span>
+      </div>
+    </div>
+    <p class="caption">
+      Omics's ancestry chain (Biology → Molecular Biology → Omics) plus its 4 children. Each row
+      indented by its actual depth in the DAG. The chain is a tree (single parent at each level)
+      so no skip-arrows needed.
+    </p>
+  </div>
+
+  <!-- ============== D3: OMICS WITH GRANDCHILDREN ============== -->
+  <div class="state">
+    <div class="state-title">D3 — Omics with Genome ↓ + Proteome ↓ expanded</div>
+    <div class="dag">
+      <div class="dag-row">
+        <span style="padding-left: 18px;"></span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 3</span>
+        <span class="name">Biology</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 36px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 3</span>
+        <span class="name">Molecular Biology</span>
+      </div>
+      <div class="dag-row anchor">
+        <span style="padding-left: 54px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+        <span class="toggle expanded"><span class="arr">▼</span> 4</span>
+        <span class="name">Omics</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 72px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle expanded"><span class="arr">▼</span> 1</span>
+        <span class="name">Genome</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 90px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="name">Gene</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 72px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 0</span>
+        <span class="name">Metabolome</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 72px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle expanded"><span class="arr">▼</span> 1</span>
+        <span class="name">Proteome</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 90px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="name">Protein</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 72px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 1</span>
+        <span class="name">Transcriptome</span>
+      </div>
+    </div>
+    <p class="caption">
+      Two of Omics's children have their ↓ expanded — each newly-revealed grandchild appears at
+      its own indent (90px = level 5). The vertical "spine" of L-shaped glyphs makes the
+      parent-child structure visible without any color.
+    </p>
+  </div>
+
+  <!-- ============== D4: BOTH PARENT CHAINS EXPANDED TO ROOT ============== -->
+  <div class="state">
+    <div class="state-title">D4 — Neurologic Imaging, both ↑ chains to Data</div>
+    <div class="dag">
+      <div class="dag-row">
+        <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+        <span class="toggle"><span class="arr">▶</span> 14</span>
+        <span class="name">Data</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 18px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 3</span>
+        <span class="name">Image</span>
+        <span class="skip-arrow" title="connects down to Neurologic Imaging">↘</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 18px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 3</span>
+        <span class="name">Clinical Observations</span>
+      </div>
+      <div class="dag-row">
+        <span style="padding-left: 36px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+        <span class="toggle"><span class="arr">▶</span> 2</span>
+        <span class="name">Neurology</span>
+      </div>
+      <div class="dag-row anchor poly">
+        <span style="padding-left: 54px;"></span>
+        <span class="glyph">└</span>
+        <span class="toggle expanded"><span class="arr">▲</span> 2</span>
+        <span class="toggle disabled"><span class="arr">▶</span> 0</span>
+        <span class="name">Neurologic Imaging</span>
+        <span class="also">★ also reached from <span class="seg">Image</span> at indent 1</span>
+      </div>
+    </div>
+    <p class="caption">
+      Both ↑ chains expanded all the way to Data. Data appears ONCE at the root — no duplication.
+      Image and Clinical Observations are siblings under Data. Neurology is under Clinical
+      Observations. Neurologic Imaging at indent 3, with a note that it's also reached from Image
+      (which sits at indent 1, two levels up). The skip-arrow on Image (↘) reinforces this.
+    </p>
+  </div>
+</div>
+
+
+<details id="part-c">
+<summary><strong>Part C: Full page mock (anchor = Omics) — historical box-based layout</strong></summary>
+
+<p class="note" style="margin-top: 12px;">
+  <strong>What we tried:</strong> A full-page mock showing the box-based hierarchy widget in
+  context with the other sections of a topic details page (About, Related Standards, Datasets,
+  Organizations). Useful for judging visual weight of the widget relative to the rest of the page.
+</p>
+<p class="note">
+  <strong>Why we moved on:</strong> The box-based widget itself was retired in favor of
+  Part D's boxless DAG approach. A new full-page mock should be built using the boxless widget.
+</p>
+<p class="note">
+  <strong>Worth revisiting:</strong> the page structure (About on top, then widget, then related
+  things) and the card layout/styling for Related Standards/Datasets/Organizations. Those
+  decisions stand regardless of which widget rendering wins.
+</p>
+
+<h2>Part C: Full page mock (anchor = Omics)</h2>
+<p class="note">
+  Page order: About on top, then the Topic Hierarchy widget, then related stuff. Matches the pattern
+  used by other detail pages in the portal.
+</p>
+
+<div class="page-mock">
+  <div class="page-header">
+    <div class="breadcrumb">Explore › Data Topics</div>
+    <div class="title">Omics</div>
+    <div class="desc">Data describing the entire set of biological molecules of a given type in a cell or organism.</div>
+    <div class="ids">
+      <span>edam.topic:3391</span>
+      <span>mesh:D000094059</span>
+      <span>ncit:C20587</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">About</div>
+    <table class="row-table">
+      <tr><th>Name</th><td>Omics</td></tr>
+      <tr><th>Category</th><td>DataTopic</td></tr>
+      <tr><th>Description</th><td>Data describing the entire set of biological molecules of a given type in a cell or organism.</td></tr>
+      <tr><th>EDAM</th><td>edam.topic:3391</td></tr>
+      <tr><th>MeSH</th><td>D000094059</td></tr>
+      <tr><th>NCIT</th><td>C20587</td></tr>
+      <tr><th>Contributor</th><td>Harry Caufield</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Topic Hierarchy</div>
+    <div class="topic-hierarchy">
+      <div class="box anchor depth-0">
+        <div class="path-from-root"><span class="name">Data</span><span class="sep">/</span></div>
+        <div class="box up depth-1">
+          <div class="row">
+            <span class="toggle"><span class="arr">▶</span> 1</span>
+            <span class="toggle"><span class="arr">▶</span> 2</span>
+            <span class="name">Molecular Biology</span>
+            <span class="links-count">3 standards · 1 dataset</span>
+          </div>
+        </div>
+        <div class="indent">
+          <div class="row current">
+            <span class="toggle expanded"><span class="arr">▲</span> 1</span>
+            <span class="toggle expanded"><span class="arr">▼</span> 4</span>
+            <span class="name">Omics</span>
+            <span class="links-count">24 standards · 7 datasets · 3 orgs</span>
+          </div>
+          <div class="indent">
+            <div class="box down depth-1">
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Genome</span>
+                <span class="links-count">12 standards · 3 datasets</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Metabolome</span>
+                <span class="links-count">5 standards · 1 dataset</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Proteome</span>
+                <span class="links-count">8 standards · 2 datasets</span>
+              </div>
+              <div class="row">
+                <span class="toggle"><span class="arr">▶</span> 1</span>
+                <span class="toggle"><span class="arr">▶</span> 0</span>
+                <span class="name">Transcriptome</span>
+                <span class="links-count">9 standards · 4 datasets</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Related Standards (24)</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-type">Standard</div>
+        <div class="card-title">VCF — Variant Call Format</div>
+        <div class="card-desc">A text file format for storing gene sequence variations.</div>
+      </div>
+      <div class="card">
+        <div class="card-type">Standard</div>
+        <div class="card-title">FASTQ</div>
+        <div class="card-desc">A text-based format for storing biological sequence and quality scores.</div>
+      </div>
+      <div class="card">
+        <div class="card-type">Standard</div>
+        <div class="card-title">SAM/BAM</div>
+        <div class="card-desc">Sequence Alignment/Map format for storing read alignments.</div>
+      </div>
+      <div class="card">
+        <div class="card-type">Standard</div>
+        <div class="card-title">mzML</div>
+        <div class="card-desc">XML-based format for mass spectrometry data.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Related Datasets (7)</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-type">Dataset</div>
+        <div class="card-title">TCGA Pan-Cancer Atlas</div>
+        <div class="card-desc">Multi-platform genomic data across 33 cancer types.</div>
+      </div>
+      <div class="card">
+        <div class="card-type">Dataset</div>
+        <div class="card-title">GTEx</div>
+        <div class="card-desc">Transcriptome and genome data across human tissues.</div>
+      </div>
+      <div class="card">
+        <div class="card-type">Dataset</div>
+        <div class="card-title">CPTAC</div>
+        <div class="card-desc">Proteomic characterization of cancer tissues.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Related Organizations (3)</div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-type">Organization</div>
+        <div class="card-title">NIH / NHGRI</div>
+        <div class="card-desc">National Human Genome Research Institute</div>
+      </div>
+      <div class="card">
+        <div class="card-type">Organization</div>
+        <div class="card-title">Broad Institute</div>
+        <div class="card-desc">Biomedical and genomic research center.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</details>
+
+<script>
+  var bodyEl = document.body;
+  var scheme = 'mono-alpha';
+  var rails = false;
+  function applyClasses() {
+    bodyEl.className = 'scheme-' + scheme + (rails ? ' rails' : '');
+    document.querySelectorAll('.topic-hierarchy').forEach(function(el) {
+      el.classList.toggle('with-rails', rails);
+    });
+  }
+  document.getElementById('scheme').addEventListener('change', function(e) {
+    scheme = e.target.value;
+    applyClasses();
+  });
+  document.getElementById('rails-toggle').addEventListener('change', function(e) {
+    rails = e.target.checked;
+    applyClasses();
+  });
+</script>
+
+</body>
+</html>
