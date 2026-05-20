@@ -80,6 +80,15 @@
     color: #111;
     border-color: rgba(0,0,0,0.25);
   }
+  /* Partial-expand state: ancestor of the chosen topic where only the path-to-chosen
+     descendant is visible (not all children). Click ▼ → fully expanded; click ◐ →
+     restore partial state. The chosen row cannot be hidden, so an ancestor's ↓ can
+     never be fully collapsed: ▶ is impossible while the chosen row is visible. */
+  .toggle.partial {
+    background: rgba(217, 119, 6, 0.18);
+    border-color: rgba(217, 119, 6, 0.5);
+    color: #92400e;
+  }
   .toggle.disabled { opacity: 0.35; cursor: default; pointer-events: none; }
   .toggle .arr { font-size: 9px; }
 
@@ -294,17 +303,768 @@
 
 <h1>Topic Hierarchy Widget — visual mock</h1>
 <p class="note">
-  Mockups for the topic details page hierarchy widget in the b2ai.standards portal.
-  <strong>Part D (boxless DAG) is the current direction</strong>; earlier parts (A, B, B′, C)
-  are collapsed below as historical reference — they explored a nested-colored-boxes
-  approach that ultimately couldn't handle polyhierarchy mid-tree cleanly.
+  Visual mock of the topic hierarchy widget for the b2ai.standards portal's topic
+  details pages. Renders the DataTopic DAG with the user's currently-chosen topic
+  highlighted, plus the ancestry and descendants in its neighborhood. Earlier
+  iterations (Parts A/B/B′/C) are kept as collapsed history below.
 </p>
-<p class="note" style="background:#fef3c7; padding:8px 12px; border-radius:6px;">
-  <strong>Quick nav:</strong>
-  <a href="#parts-abc">Parts A/B/B′ (historical)</a> ·
-  <a href="#part-d"><strong>Part D — current direction</strong></a> ·
-  <a href="#part-c">Part C (historical full-page mock)</a>
+
+<style>
+  .legend-grid {
+    display: grid;
+    grid-template-columns: minmax(160px, max-content) 1fr;
+    gap: 6px 18px;
+    font-size: 13px;
+    margin: 6px 0 0;
+  }
+  .legend-grid > .legend-key {
+    font-family: ui-monospace, monospace;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .rules ol { margin: 4px 0 0 20px; padding: 0; }
+  .rules li { margin: 4px 0; font-size: 13px; }
+  .rules code { background: #f3f4f6; padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+</style>
+
+<h2 style="margin-top: 20px;">How it behaves</h2>
+<div class="rules">
+  <ol>
+    <li>
+      <strong>The chosen topic is the one you're viewing.</strong> It's
+      highlighted in amber. Clicking any other topic name navigates to that
+      topic's page — making <em>it</em> the new chosen topic. Switching
+      topics is like loading a new page: any expand/collapse state in the
+      widget resets.
+    </li>
+    <li>
+      <strong>The default view shows just enough.</strong> When you land on a
+      topic, the widget shows the chosen topic plus its immediate parents and
+      immediate children. Everything else is hidden until you ask for it.
+    </li>
+    <li>
+      <strong>Reveal more by expanding.</strong> Each row has a
+      <span class="toggle"><span class="arr">▶</span> N</span> toggle showing
+      how many children it has. Click to show them. Click
+      <span class="toggle expanded"><span class="arr">▼</span> N</span> to
+      hide them again.
+    </li>
+    <li>
+      <strong>Hidden ancestors show as a breadcrumb.</strong> If a row's
+      parent isn't shown in the widget, the path above it appears as a
+      clickable trail like <code>Data / Biology /</code>. Click any segment
+      to bring that ancestor into the widget as a row.
+    </li>
+    <li>
+      <strong>The chosen topic stays visible.</strong> Anything else can be
+      collapsed away, but you can't hide the row you're on. If collapsing an
+      ancestor would hide it, the toggle drops to
+      <span class="toggle partial"><span class="arr">◐</span> N</span> instead
+      — meaning "only the child on the path to the chosen topic is showing."
+    </li>
+    <li>
+      <strong>Topics with multiple parents appear once.</strong> A few topics
+      (3 of 52 in the b2ai data) have more than one parent. To avoid
+      duplication, each renders under one canonical parent, with a
+      "★ also under: <em>other-parent</em>" note and a visual rail
+      connecting it to its other parent(s) on screen.
+    </li>
+  </ol>
+</div>
+
+<details style="margin-top: 16px;">
+<summary><strong>How it works under the hood</strong> (implementation detail; not needed for design feedback)</summary>
+
+<div class="rules" style="margin-top: 12px;">
+  <ol>
+    <li>
+      <strong>Each row sits at its real DAG depth.</strong> The longest path
+      from root determines its indent level. The <code>└</code> glyph in
+      front of each row makes the parent-child edge explicit, in case the
+      indentation alone isn't enough of a cue.
+    </li>
+    <li>
+      <strong>Path-connectivity invariant.</strong> If a row and one of its
+      ancestors are both visible, every intermediate ancestor between them
+      is also visible. This is what makes ancestor rows fall back to
+      <code>◐</code> instead of disappearing when collapsed.
+    </li>
+    <li>
+      <strong>Canonical parent = longest path to root.</strong> When a topic
+      has multiple parents, it's rendered under the parent whose path to
+      root is longest. Shorter-path parents get the skip-rail. This keeps
+      the visual tree a tree, with the polyhierarchy edges drawn as
+      annotations on top.
+    </li>
+    <li>
+      <strong>Default ordering: by topic ID</strong>, with one override —
+      for the chosen topic's parents specifically, the shorter-path parent
+      is rendered above the longer-path one. Without this, polyhierarchy
+      topics would show their longer-path parent above the shorter-path
+      one and confuse the user. A user setting can switch to pure
+      alphabetical.
+    </li>
+  </ol>
+</div>
+
+</details>
+
+<h2 style="margin-top: 24px;">Legend</h2>
+<div class="legend-grid">
+  <div class="legend-key"><span class="toggle"><span class="arr">▶</span> 3</span></div>
+  <div>Collapsed children toggle — click to expand. Number = child count.</div>
+
+  <div class="legend-key"><span class="toggle expanded"><span class="arr">▼</span> 3</span></div>
+  <div>All children fully expanded — click to collapse.</div>
+
+  <div class="legend-key"><span class="toggle partial"><span class="arr">◐</span> 3</span></div>
+  <div>Partial expansion — only the child(ren) on the path to the chosen topic
+      are shown, not the other siblings. Click to expand all children. Clicking
+      again drops back to partial; you can't fully hide the chosen topic.</div>
+
+  <div class="legend-key"><span class="toggle disabled"><span class="arr">▶</span> 0</span></div>
+  <div>No children (or no parent) — disabled.</div>
+
+  <div class="legend-key">
+    <span style="background: #fef3c7; padding: 2px 6px; border-radius: 3px; font-weight: 600;">
+      Topic Name
+    </span>
+  </div>
+  <div>Chosen (current) topic. Cannot be hidden by collapsing.</div>
+
+  <div class="legend-key">
+    <span style="color:#1d4ed8; font-size:12px; font-family: ui-monospace, monospace;">
+      Data<span style="color:#9ca3af;">/</span>Biology<span style="color:#9ca3af;">/</span>
+    </span>
+  </div>
+  <div>Breadcrumb of hidden ancestors. Click a segment to expand the tree.</div>
+
+  <div class="legend-key">
+    <span style="color: #92400e; font-size: 11px; font-style: italic;">
+      ★ also under <span style="color: #1d4ed8; cursor: pointer;">Image</span>
+    </span>
+  </div>
+  <div>Polyhierarchy note: this topic has a secondary parent rendered elsewhere.
+      Click the parent name to scroll/navigate.</div>
+
+  <div class="legend-key">
+    <span style="color:#d97706;">↳ skip-rail</span>
+  </div>
+  <div>Left-gutter rail connecting a polyhierarchy topic to its secondary parent
+      (the one it isn't rendered directly under).</div>
+</div>
+
+<h2 id="widget" style="margin-top: 28px;">The widget</h2>
+
+<style>
+  /* ============== DAG WIDGET ============== */
+  .dag {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #1f2937;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+  }
+  .dag .dag-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1px 0;
+    position: relative;
+    white-space: nowrap;
+    min-height: 22px;
+  }
+  .dag .dag-row .glyph {
+    display: inline-block;
+    width: 18px;
+    color: #9ca3af;
+    text-align: center;
+    transition: color 0.15s;
+  }
+
+  /* ============== TREE RAILS ============== */
+  /* Each row begins with a sequence of 18px-wide "rail cells", one per indent
+     level. They draw a connected tree on the left side of the row content using
+     borders rather than glyphs, so vertical lines run unbroken between rows. */
+  .dag .dag-row .r {
+    width: 18px;
+    position: relative;
+    flex-shrink: 0;
+    /* stretch to fill the row's full height — important so vertical lines join
+       between adjacent rows with no gap */
+    align-self: stretch;
+  }
+  /* Vertical line continuing through this gutter column (because an ancestor
+     at this depth has a sibling visible below). Overflows -2px top/bottom to
+     bleed across the row's padding so the line joins adjacent rows. */
+  .dag .dag-row .r-vline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    bottom: -2px;
+    width: 1px;
+    background: #9ca3af;
+    transform: translateX(-0.5px);
+  }
+  /* Tee: vertical line from top, turning right at row-center toward the row. */
+  .dag .dag-row .r-tee::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    bottom: -2px;
+    width: 1px;
+    background: #9ca3af;
+    transform: translateX(-0.5px);
+  }
+  .dag .dag-row .r-tee::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    right: 0;
+    height: 1px;
+    background: #9ca3af;
+  }
+  /* Corner: vertical line from top to row-center, then turning right.
+     Used for the last visible child of a parent. */
+  .dag .dag-row .r-corner::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    height: calc(50% + 2px);
+    width: 1px;
+    background: #9ca3af;
+    transform: translateX(-0.5px);
+  }
+  .dag .dag-row .r-corner::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    right: 0;
+    height: 1px;
+    background: #9ca3af;
+  }
+  /* Empty rail cell — no ancestor's line passes through here. */
+  .dag .dag-row .r-empty { /* no ::before / ::after */ }
+  .dag .dag-row.hidden { display: none; }
+  .dag .dag-row.anchor .name {
+    background: #fef3c7;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+  .dag .dag-row.poly .name {
+    border-bottom: 1px dashed #d97706;
+  }
+  .dag .dag-row .also {
+    font-size: 11px;
+    color: #92400e;
+    font-style: italic;
+    margin-left: 6px;
+  }
+  .dag .dag-row .also .seg { color: #1d4ed8; cursor: pointer; }
+  .dag .dag-row .also .seg:hover { text-decoration: underline; }
+
+  /* highlight on hover */
+  .dag .dag-row:hover { background: rgba(59, 130, 246, 0.06); }
+
+  /* "full DAG" reference list (no expansion controls) */
+  .dag.full pre {
+    margin: 0;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #1f2937;
+    white-space: pre;
+  }
+  .dag.full .star { color: #d97706; font-weight: 600; }
+  .dag.full .also-list { color: #92400e; font-style: italic; }
+
+  /* Topic name as clickable link (click-to-switch-chosen). */
+  .dag .dag-row .name {
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 1px 4px;
+    transition: background 0.1s;
+  }
+  .dag .dag-row .name:hover {
+    background: rgba(59, 130, 246, 0.12);
+    text-decoration: underline;
+    text-decoration-color: rgba(29, 78, 216, 0.4);
+  }
+  .dag .dag-row.anchor .name:hover { text-decoration: none; }
+
+  /* Breadcrumb prefix */
+  .dag .breadcrumb {
+    font-size: 11px;
+    color: #6b7280;
+    padding-right: 4px;
+  }
+  .dag .breadcrumb .seg {
+    color: #1d4ed8;
+    cursor: pointer;
+  }
+  .dag .breadcrumb .seg:hover { text-decoration: underline; }
+  .dag .breadcrumb .sep { color: #9ca3af; padding: 0 1px; }
+
+  /* Per-row depth tint */
+  .dag .dag-row[data-depth="0"] { background: rgba(59,130,246,0.08); }
+  .dag .dag-row[data-depth="1"] { background: rgba(59,130,246,0.13); }
+  .dag .dag-row[data-depth="2"] { background: rgba(59,130,246,0.18); }
+  .dag .dag-row[data-depth="3"] { background: rgba(59,130,246,0.23); }
+  .dag .dag-row[data-depth="4"] { background: rgba(59,130,246,0.28); }
+  .dag .dag-row[data-depth="5"] { background: rgba(59,130,246,0.33); }
+  .dag .dag-row.anchor { background: #fef3c7 !important; }
+
+  /* Skip-rail gutter */
+  .dag.with-skip-rails {
+    position: relative;
+    padding-left: 24px;
+  }
+  .dag.with-skip-rails .dag-row { position: relative; }
+  .dag.with-skip-rails .dag-row[data-skip-rail]::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #d97706;
+  }
+  .dag.with-skip-rails .dag-row[data-skip-rail="origin"]::before {
+    top: 50%;
+  }
+  .dag.with-skip-rails .dag-row[data-skip-rail="origin"]::after {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    margin-top: -1px;
+    background: #d97706;
+  }
+  .dag.with-skip-rails .dag-row[data-skip-rail="dest"]::before {
+    bottom: 50%;
+  }
+  .dag.with-skip-rails .dag-row[data-skip-rail="dest"]::after {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    margin-top: -1px;
+    width: 12px;
+    height: 2px;
+    background: #d97706;
+  }
+  .dag.with-skip-rails .dag-row[data-skip-rail="dest"] .rail-arrow {
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    margin-top: -4px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid #d97706;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+  }
+</style>
+
+<details style="margin-top: 16px;">
+<summary><strong>Reference: full DAG as indented list</strong> (the full 52-topic dataset; opens in two orderings side-by-side)</summary>
+
+<p class="note" style="margin: 12px 0 8px;">
+  Polyhierarchy topics marked with ★. In ID-order, the override puts Image before
+  Clinical Observations under Data so Neurologic Imaging's shorter-path parent
+  appears above it. In alphabetical order, Image and mHealth shift later in the
+  list, putting Neurologic Imaging's shorter-path parent below its rendering.
 </p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+  <div>
+    <h3 style="margin: 0 0 6px;">By topic ID (with polyhierarchy override)</h3>
+    <div class="dag full">
+<pre>Data
+  Biology
+    Environment
+    Molecular Biology
+      Cell
+        Neuron
+        Cardiomyocyte
+      Omics
+        Genome
+          Gene
+            Variant
+        Metabolome
+        Proteome
+          Protein
+            Protein Structure Model
+        Transcriptome
+          Transcript
+    Respiration
+      Respiratory Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
+  Cheminformatics
+    Drug
+  Image
+    Microscale Imaging
+    Ophthalmic Imaging
+  Clinical Observations
+    EHR
+    Neurology
+      Neurologic Imaging <span class="star">★</span> <span class="also-list">also under: Image</span>
+      Neurological Disorders
+    Psychiatry
+      Psychiatric Disorders
+  Demographics
+    SDoH
+  Disease
+    Diabetes
+    Eye Diseases
+  Geolocation
+  mHealth
+    Glucose Monitoring
+    Activity Monitoring
+  Networks And Pathways
+  Phenotype
+  Survey
+  Text
+    Literature
+      Training
+    Social Media
+  Waveform
+    EKG
+    Voice
+      Voice Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
+  Governance</pre>
+    </div>
+  </div>
+  <div>
+    <h3 style="margin: 0 0 6px;">Pure alphabetical</h3>
+    <div class="dag full">
+<pre>Data
+  Biology
+    Environment
+    Molecular Biology
+      Cell
+        Cardiomyocyte
+        Neuron
+      Omics
+        Genome
+          Gene
+            Variant
+        Metabolome
+        Proteome
+          Protein
+            Protein Structure Model
+        Transcriptome
+          Transcript
+    Respiration
+      Respiratory Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
+  Cheminformatics
+    Drug
+  Clinical Observations
+    EHR
+    Neurology
+      Neurologic Imaging <span class="star">★</span> <span class="also-list">also under: Image</span>
+      Neurological Disorders
+    Psychiatry
+      Psychiatric Disorders
+  Demographics
+    SDoH
+  Disease
+    Diabetes
+    Eye Diseases
+  Geolocation
+  Governance
+  Image
+    Microscale Imaging
+    Ophthalmic Imaging
+  mHealth
+    Activity Monitoring
+    Glucose Monitoring
+  Networks And Pathways
+  Phenotype
+  Survey
+  Text
+    Literature
+      Training
+    Social Media
+  Waveform
+    EKG
+    Voice
+      Voice Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span></pre>
+    </div>
+  </div>
+</div>
+
+</details>
+
+<h3 style="margin-top:24px;">Widget states</h3>
+<p class="note" style="margin-bottom:8px;">
+  Each panel below shows the widget in a different state. Hover over toggle pills
+  to see what clicking will do.
+</p>
+
+<div class="states">
+  <!-- ============== W1: NEUROLOGIC IMAGING INITIAL ============== -->
+  <div class="state">
+    <div class="state-title">W1 — Neurologic Imaging, initial</div>
+    <div class="dag with-skip-rails">
+      <div class="dag-row" data-depth="0" data-skip-rail="origin">
+        <span class="breadcrumb"><span class="seg" title="Click to reveal Data as a row">Data</span><span class="sep">/</span></span>
+        <span class="toggle" title="Click to show Image's 3 children"><span class="arr">▶</span> 3</span>
+        <span class="name" title="Click to switch chosen topic to Image">Image</span>
+      </div>
+      <div class="dag-row" data-depth="0" data-skip-rail="thru">
+        <span class="breadcrumb"><span class="seg" title="Click to reveal Data as a row">Data</span><span class="sep">/</span><span class="seg" title="Click to reveal Clinical Observations as a row">Clinical Observations</span><span class="sep">/</span></span>
+        <span class="toggle partial" title="Showing only the path to the chosen topic. Click to expand all 2 children"><span class="arr">◐</span> 2</span>
+        <span class="name" title="Click to switch chosen topic to Neurology">Neurology</span>
+      </div>
+      <div class="dag-row anchor poly" data-depth="1" data-skip-rail="dest">
+        <span class="rail-arrow"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle disabled" title="No children"><span class="arr">▶</span> 0</span>
+        <span class="name" title="This is the chosen topic">Neurologic Imaging</span>
+        <span class="also">★ also under <span class="seg" title="Click to scroll/navigate to Image">Image</span></span>
+      </div>
+    </div>
+    <p class="caption">
+      Both immediate parents shown at indent 0 with breadcrumb prefixes for their
+      hidden ancestors. Chosen at indent 1 under Neurology (its canonical, longer-path
+      parent). Neurology's toggle shows <strong>◐ 2</strong> because the chosen-path
+      child (Neurologic Imaging) is visible but its sibling (Neurological Disorders)
+      isn't. Orange skip-rail connects Image → Neurologic Imaging.
+    </p>
+  </div>
+
+  <!-- ============== W2: OMICS INITIAL ============== -->
+  <div class="state">
+    <div class="state-title">W2 — Omics, initial</div>
+    <div class="dag">
+      <div class="dag-row" data-depth="0">
+        <span class="breadcrumb"><span class="seg" title="Click to reveal Data as a row">Data</span><span class="sep">/</span><span class="seg" title="Click to reveal Biology as a row">Biology</span><span class="sep">/</span></span>
+        <span class="toggle partial" title="Showing only the path to the chosen topic. Click to expand all 2 children"><span class="arr">◐</span> 2</span>
+        <span class="name" title="Click to switch chosen topic to Molecular Biology">Molecular Biology</span>
+      </div>
+      <div class="dag-row anchor" data-depth="1">
+        <span class="r r-corner"></span>
+        <span class="toggle expanded" title="Children expanded. Click to hide them"><span class="arr">▼</span> 4</span>
+        <span class="name" title="This is the chosen topic">Omics</span>
+        <span class="links-count">24 standards · 7 datasets · 3 orgs</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle" title="Click to show Genome's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Genome">Genome</span>
+        <span class="links-count">12 standards · 3 datasets</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle disabled" title="No children"><span class="arr">▶</span> 0</span>
+        <span class="name" title="Click to switch chosen topic to Metabolome">Metabolome</span>
+        <span class="links-count">5 standards · 1 dataset</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle" title="Click to show Proteome's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Proteome">Proteome</span>
+        <span class="links-count">8 standards · 2 datasets</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle" title="Click to show Transcriptome's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Transcriptome">Transcriptome</span>
+        <span class="links-count">9 standards · 4 datasets</span>
+      </div>
+    </div>
+    <p class="caption">
+      Single-parent ancestry path collapsed to a breadcrumb on Molecular Biology
+      (<code>Data / Biology /</code>). Molecular Biology's toggle is <strong>◐ 2</strong>
+      — it has 2 children but only Omics is shown. Chosen at indent 1; chosen's
+      children at indent 2.
+    </p>
+  </div>
+
+  <!-- ============== W3: OMICS WITH GRANDCHILDREN ============== -->
+  <div class="state">
+    <div class="state-title">W3 — Omics with Genome ↓ + Proteome ↓ expanded</div>
+    <div class="dag">
+      <div class="dag-row" data-depth="0">
+        <span class="breadcrumb"><span class="seg" title="Click to reveal Data as a row">Data</span><span class="sep">/</span><span class="seg" title="Click to reveal Biology as a row">Biology</span><span class="sep">/</span></span>
+        <span class="toggle partial" title="Showing only the path to the chosen topic. Click to expand all 2 children"><span class="arr">◐</span> 2</span>
+        <span class="name" title="Click to switch chosen topic to Molecular Biology">Molecular Biology</span>
+      </div>
+      <div class="dag-row anchor" data-depth="1">
+        <span class="r r-corner"></span>
+        <span class="toggle expanded" title="Children expanded. Click to hide them"><span class="arr">▼</span> 4</span>
+        <span class="name" title="This is the chosen topic">Omics</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle expanded" title="Children expanded. Click to hide them"><span class="arr">▼</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Genome">Genome</span>
+      </div>
+      <div class="dag-row" data-depth="3">
+        <span class="r r-empty"></span>
+        <span class="r r-vline"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle" title="Click to show Gene's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Gene">Gene</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle disabled" title="No children"><span class="arr">▶</span> 0</span>
+        <span class="name" title="Click to switch chosen topic to Metabolome">Metabolome</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle expanded" title="Children expanded. Click to hide them"><span class="arr">▼</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Proteome">Proteome</span>
+      </div>
+      <div class="dag-row" data-depth="3">
+        <span class="r r-empty"></span>
+        <span class="r r-vline"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle" title="Click to show Protein's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Protein">Protein</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle" title="Click to show Transcriptome's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Transcriptome">Transcriptome</span>
+      </div>
+    </div>
+    <p class="caption">
+      Two of Omics's children have their ↓ expanded. Grandchildren appear at
+      indent 3, deeper tint. Recursive expansion just keeps indenting.
+    </p>
+  </div>
+
+  <!-- ============== W4: BREADCRUMB CLICK — expand to root ============== -->
+  <div class="state">
+    <div class="state-title">W4 — After clicking <code>Data</code> in Molecular Biology's breadcrumb</div>
+    <div class="dag">
+      <div class="dag-row" data-depth="0">
+        <span class="toggle partial" title="Showing only the path to the chosen topic (Biology). Click to expand all 14 children of Data"><span class="arr">◐</span> 14</span>
+        <span class="name" title="Click to switch chosen topic to Data">Data</span>
+        <span class="links-count">root · 14 children total</span>
+      </div>
+      <div class="dag-row" data-depth="1">
+        <span class="r r-corner"></span>
+        <span class="toggle partial" title="Showing only the path to the chosen topic (Molecular Biology). Click to expand all 3 children"><span class="arr">◐</span> 3</span>
+        <span class="name" title="Click to switch chosen topic to Biology">Biology</span>
+      </div>
+      <div class="dag-row" data-depth="2">
+        <span class="r r-empty"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle partial" title="Showing only the path to the chosen topic (Omics). Click to expand all 2 children"><span class="arr">◐</span> 2</span>
+        <span class="name" title="Click to switch chosen topic to Molecular Biology">Molecular Biology</span>
+      </div>
+      <div class="dag-row anchor" data-depth="3">
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle expanded" title="Children expanded. Click to hide them"><span class="arr">▼</span> 4</span>
+        <span class="name" title="This is the chosen topic">Omics</span>
+      </div>
+      <div class="dag-row" data-depth="4">
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle" title="Click to show Genome's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Genome">Genome</span>
+      </div>
+      <div class="dag-row" data-depth="4">
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle disabled" title="No children"><span class="arr">▶</span> 0</span>
+        <span class="name" title="Click to switch chosen topic to Metabolome">Metabolome</span>
+      </div>
+      <div class="dag-row" data-depth="4">
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-tee"></span>
+        <span class="toggle" title="Click to show Proteome's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Proteome">Proteome</span>
+      </div>
+      <div class="dag-row" data-depth="4">
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle" title="Click to show Transcriptome's 1 child"><span class="arr">▶</span> 1</span>
+        <span class="name" title="Click to switch chosen topic to Transcriptome">Transcriptome</span>
+      </div>
+    </div>
+    <p class="caption">
+      Started from W2 (Omics, initial). User clicked <code>Data</code> in the
+      breadcrumb on Molecular Biology's row. Data, Biology, and Molecular Biology
+      materialize as rows; their toggles show <strong>◐</strong> (partial expand)
+      because their non-chosen-path children remain hidden. Click any ◐ to fully
+      expand that ancestor.
+    </p>
+  </div>
+
+  <!-- ============== W5: NEUROLOGIC IMAGING — both chains expanded to Data ============== -->
+  <div class="state">
+    <div class="state-title">W5 — Neurologic Imaging, both chains expanded to root</div>
+    <div class="dag with-skip-rails">
+      <div class="dag-row" data-depth="0">
+        <span class="toggle partial" title="Only chosen-path children (Image, Clinical Observations) shown. Click to expand all 14"><span class="arr">◐</span> 14</span>
+        <span class="name" title="Click to switch chosen topic to Data">Data</span>
+      </div>
+      <div class="dag-row" data-depth="1" data-skip-rail="origin">
+        <span class="r r-tee"></span>
+        <span class="toggle" title="Click to show Image's 3 children"><span class="arr">▶</span> 3</span>
+        <span class="name" title="Click to switch chosen topic to Image">Image</span>
+      </div>
+      <div class="dag-row" data-depth="1" data-skip-rail="thru">
+        <span class="r r-corner"></span>
+        <span class="toggle partial" title="Showing only the path to the chosen topic (Neurology). Click to expand all 3 children"><span class="arr">◐</span> 3</span>
+        <span class="name" title="Click to switch chosen topic to Clinical Observations">Clinical Observations</span>
+      </div>
+      <div class="dag-row" data-depth="2" data-skip-rail="thru">
+        <span class="r r-empty"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle partial" title="Showing only the path to the chosen topic (Neurologic Imaging). Click to expand all 2 children"><span class="arr">◐</span> 2</span>
+        <span class="name" title="Click to switch chosen topic to Neurology">Neurology</span>
+      </div>
+      <div class="dag-row anchor poly" data-depth="3" data-skip-rail="dest">
+        <span class="rail-arrow"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-empty"></span>
+        <span class="r r-corner"></span>
+        <span class="toggle disabled" title="No children"><span class="arr">▶</span> 0</span>
+        <span class="name" title="This is the chosen topic">Neurologic Imaging</span>
+        <span class="also">★ also under <span class="seg" title="Click to scroll/navigate to Image">Image</span></span>
+      </div>
+    </div>
+    <p class="caption">
+      Both ↑ chains expanded to root. Data appears once. The orange skip-rail
+      runs from Image through Clinical Observations and Neurology down to the
+      chosen row.
+    </p>
+  </div>
+</div>
 
 <details id="parts-abc">
 <summary><strong>Earlier explorations — nested colored boxes (Parts A, B, B′)</strong></summary>
@@ -1032,579 +1792,25 @@
 
 </details>
 
-<h2 id="part-d">Part D: Boxless arrow-DAG rendering — <em>current direction</em></h2>
+
+<h2 id="full-page" style="margin-top: 28px;">Full page in context</h2>
 <p class="note">
-  Alternative approach: drop the colored boxes. Render every visible topic at its natural
-  position in the DAG (computed from its longest-path-to-root). Use indentation + arrow glyphs
-  to show parent-child edges. Polyhierarchy topics render under their longest-path parent and
-  get a skip-arrow connecting them to their other parent(s). Anchor isn't structurally special —
-  just highlighted.
+  Screenshot of the live topic details page (anchor = Disease) running locally at
+  <code>localhost:3001</code>. Shows the hierarchy widget (placeholder for now)
+  in context with header, related topics, related standards, and related datasets.
+  The widget will replace the placeholder once the boxless-DAG implementation lands.
 </p>
 
-<style>
-  /* ============== DAG WIDGET ============== */
-  .dag {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 13px;
-    line-height: 1.7;
-    color: #1f2937;
-    background: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #e5e7eb;
-  }
-  .dag .dag-row {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 1px 0;
-    position: relative;
-    white-space: nowrap;
-  }
-  /* indentation via padding on a wrapper around the row's content */
-  .dag .dag-row .indent-pad { display: inline-block; }
-  .dag .dag-row .glyph {
-    display: inline-block;
-    width: 18px;
-    color: #9ca3af;
-    text-align: center;
-    transition: color 0.15s;
-  }
-  .dag .dag-row.hidden { display: none; }
-  .dag .dag-row.anchor .name {
-    background: #fef3c7;
-    font-weight: 600;
-    padding: 1px 6px;
-    border-radius: 3px;
-  }
-  .dag .dag-row.poly .name {
-    border-bottom: 1px dashed #d97706;
-  }
-  .dag .dag-row .also {
-    font-size: 11px;
-    color: #92400e;
-    font-style: italic;
-    margin-left: 6px;
-  }
-  .dag .dag-row .also .seg { color: #1d4ed8; cursor: pointer; }
-  .dag .dag-row .also .seg:hover { text-decoration: underline; }
-  /* arrow ↳ ↘ */
-  .dag .dag-row .arr-glyph { color: #9ca3af; padding-right: 4px; }
-  .dag .dag-row:hover .arr-glyph { color: #1f2937; }
-  .dag .dag-row .toggle {
-    /* inherit from earlier .toggle definition */
-  }
-
-  /* secondary-parent skip arrows: a styled inline element next to a row indicating
-     "this row is also reached from <something else at a higher indent>." */
-  .skip-arrow {
-    color: #d97706;
-    font-weight: 600;
-    padding: 0 4px;
-  }
-
-  /* highlight on hover: when hovering a row, all rows referenced by skip-arrows from/to it
-     get a subtle highlight. Implemented via JS in the live widget; static demo just shows the
-     hover state inline. */
-  .dag .dag-row:hover { background: rgba(59, 130, 246, 0.06); }
-
-  /* "full DAG" reference list (no expansion controls) */
-  .dag.full pre {
-    margin: 0;
-    font-family: inherit;
-    font-size: 13px;
-    line-height: 1.6;
-    color: #1f2937;
-    white-space: pre;
-  }
-  .dag.full .star { color: #d97706; font-weight: 600; }
-  .dag.full .also-list { color: #92400e; font-style: italic; }
-
-  /* ============== PART D v2 ADDITIONS ============== */
-
-  /* Topic name as clickable link (click-to-switch-anchor). */
-  .dag .dag-row .name {
-    cursor: pointer;
-    border-radius: 3px;
-    padding: 1px 4px;
-    transition: background 0.1s;
-  }
-  .dag .dag-row .name:hover {
-    background: rgba(59, 130, 246, 0.12);
-    text-decoration: underline;
-    text-decoration-color: rgba(29, 78, 216, 0.4);
-  }
-  /* Anchor name doesn't underline on hover — it's already "you are here." */
-  .dag .dag-row.anchor .name:hover { text-decoration: none; }
-
-  /* Breadcrumb prefix: shown on a row whose parents are not all visible.
-     Each segment is clickable to expand the tree to that depth. */
-  .dag .breadcrumb {
-    font-size: 11px;
-    color: #6b7280;
-    padding-right: 4px;
-  }
-  .dag .breadcrumb .seg {
-    color: #1d4ed8;
-    cursor: pointer;
-  }
-  .dag .breadcrumb .seg:hover { text-decoration: underline; }
-  .dag .breadcrumb .sep { color: #9ca3af; padding: 0 1px; }
-
-  /* Per-row depth tint — gives a clear color cue by depth. */
-  .dag .dag-row[data-depth="0"] { background: rgba(59,130,246,0.08); }
-  .dag .dag-row[data-depth="1"] { background: rgba(59,130,246,0.13); }
-  .dag .dag-row[data-depth="2"] { background: rgba(59,130,246,0.18); }
-  .dag .dag-row[data-depth="3"] { background: rgba(59,130,246,0.23); }
-  .dag .dag-row[data-depth="4"] { background: rgba(59,130,246,0.28); }
-  .dag .dag-row[data-depth="5"] { background: rgba(59,130,246,0.33); }
-  /* Anchor row override — solid amber highlight regardless of depth */
-  .dag .dag-row.anchor { background: #fef3c7 !important; }
-
-  /* ============== SKIP-RAIL GUTTER ============== */
-  /* Rails drawn as ::before/::after on rows marked with data-skip-rail.
-     Rail x-position: left: -16px relative to the row (which lives inside .with-skip-rails
-     padded-left container). Rail thickness: 2px. Arrowhead: CSS triangle aligned to rail x. */
-  .dag.with-skip-rails {
-    position: relative;
-    padding-left: 24px;
-  }
-  .dag.with-skip-rails .dag-row {
-    position: relative;
-  }
-  /* Vertical rail segment — drawn on every rail row (origin, thru, dest) so segments
-     join seamlessly. Using a positioned ::before that covers the full row height. */
-  .dag.with-skip-rails .dag-row[data-skip-rail]::before {
-    content: "";
-    position: absolute;
-    left: -16px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #d97706;
-  }
-  /* Origin: rail only covers the bottom half of the row, plus a horizontal stub going
-     left FROM the row's content to where the rail starts going down. */
-  .dag.with-skip-rails .dag-row[data-skip-rail="origin"]::before {
-    top: 50%;
-  }
-  .dag.with-skip-rails .dag-row[data-skip-rail="origin"]::after {
-    content: "";
-    position: absolute;
-    left: -16px;
-    top: 50%;
-    width: 10px;
-    height: 2px;
-    margin-top: -1px;
-    background: #d97706;
-  }
-  /* Destination: rail covers the top half of the row, ending at row-center where a
-     horizontal stub extends right toward the row content. */
-  .dag.with-skip-rails .dag-row[data-skip-rail="dest"]::before {
-    bottom: 50%;
-  }
-  .dag.with-skip-rails .dag-row[data-skip-rail="dest"]::after {
-    /* horizontal stub from the rail toward the row content */
-    content: "";
-    position: absolute;
-    left: -16px;
-    top: 50%;
-    margin-top: -1px;
-    width: 12px;
-    height: 2px;
-    background: #d97706;
-  }
-  /* Arrowhead element — placed in the row's HTML as <span class="rail-arrow">.
-     It's a CSS triangle absolutely positioned at the end of the dest stub. */
-  .dag.with-skip-rails .dag-row[data-skip-rail="dest"] .rail-arrow {
-    position: absolute;
-    left: -4px;
-    top: 50%;
-    margin-top: -4px;
-    width: 0;
-    height: 0;
-    border-left: 6px solid #d97706;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-  }
-</style>
-
-<h3 style="margin-top:18px;">Reference: full DAG as indented list</h3>
-<p class="note" style="margin-bottom:8px;">
-  Two orderings side-by-side. Polyhierarchy topics marked with ★. In ID-order, the special
-  override puts Image before Clinical Observations under Data, so Neurologic Imaging's
-  shorter-path parent appears above it. In alphabetical order, Image and mHealth shift to
-  later in the list, putting Neurologic Imaging's shorter-path parent below its rendering.
+<p style="margin: 12px 0;">
+  <a href="img/topic-details-page-live.png" target="_blank">
+    <img src="img/topic-details-page-live.png"
+         alt="Topic details page screenshot (anchor: Disease)"
+         style="max-width: 100%; border: 1px solid #e5e7eb; border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.06);">
+  </a>
 </p>
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-  <div>
-    <h3 style="margin: 0 0 6px;">By topic ID (with polyhierarchy override)</h3>
-    <div class="dag full">
-<pre>Data
-  Biology
-    Environment
-    Molecular Biology
-      Cell
-        Neuron
-        Cardiomyocyte
-      Omics
-        Genome
-          Gene
-            Variant
-        Metabolome
-        Proteome
-          Protein
-            Protein Structure Model
-        Transcriptome
-          Transcript
-    Respiration
-      Respiratory Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
-  Cheminformatics
-    Drug
-  Image
-    Microscale Imaging
-    Ophthalmic Imaging
-  Clinical Observations
-    EHR
-    Neurology
-      Neurologic Imaging <span class="star">★</span> <span class="also-list">also under: Image</span>
-      Neurological Disorders
-    Psychiatry
-      Psychiatric Disorders
-  Demographics
-    SDoH
-  Disease
-    Diabetes
-    Eye Diseases
-  Geolocation
-  mHealth
-    Glucose Monitoring
-    Activity Monitoring
-  Networks And Pathways
-  Phenotype
-  Survey
-  Text
-    Literature
-      Training
-    Social Media
-  Waveform
-    EKG
-    Voice
-      Voice Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
-  Governance</pre>
-    </div>
-  </div>
-  <div>
-    <h3 style="margin: 0 0 6px;">Pure alphabetical</h3>
-    <div class="dag full">
-<pre>Data
-  Biology
-    Environment
-    Molecular Biology
-      Cell
-        Cardiomyocyte
-        Neuron
-      Omics
-        Genome
-          Gene
-            Variant
-        Metabolome
-        Proteome
-          Protein
-            Protein Structure Model
-        Transcriptome
-          Transcript
-    Respiration
-      Respiratory Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span>
-  Cheminformatics
-    Drug
-  Clinical Observations
-    EHR
-    Neurology
-      Neurologic Imaging <span class="star">★</span> <span class="also-list">also under: Image</span>
-      Neurological Disorders
-    Psychiatry
-      Psychiatric Disorders
-  Demographics
-    SDoH
-  Disease
-    Diabetes
-    Eye Diseases
-  Geolocation
-  Governance
-  Image
-    Microscale Imaging
-    Ophthalmic Imaging
-  mHealth
-    Activity Monitoring
-    Glucose Monitoring
-  Networks And Pathways
-  Phenotype
-  Survey
-  Text
-    Literature
-      Training
-    Social Media
-  Waveform
-    EKG
-    Voice
-      Voice Disorders <span class="star">★</span> <span class="also-list">also under: Disease</span></pre>
-    </div>
-  </div>
-</div>
-
-<h3 style="margin-top:24px;">Widget states (boxless, arrow-DAG)</h3>
-<p class="note" style="margin-bottom:8px;">
-  Initial render shows the anchor + its immediate parents + its immediate children. Rows whose
-  ancestors are hidden show those ancestors as a clickable breadcrumb prefix on the row name.
-  No ↑ toggles on rows — parents are either visible or breadcrumb-prefixed. ↓ toggles work as
-  before. Click any topic name to switch the anchor to that topic.
-</p>
-
-<div class="states">
-  <!-- ============== D1: NEUROLOGIC IMAGING INITIAL ============== -->
-  <div class="state">
-    <div class="state-title">D1 — Neurologic Imaging, initial</div>
-    <div class="dag with-skip-rails">
-      <!-- Image at indent 0, breadcrumb 'Data /'.
-           Polyhierarchy secondary-parent of the anchor — skip-rail origin. -->
-      <div class="dag-row" data-depth="0" data-skip-rail="origin">
-        <span class="breadcrumb"><span class="seg">Data</span><span class="sep">/</span></span>
-        <span class="toggle"><span class="arr">▶</span> 3</span>
-        <span class="name">Image</span>
-      </div>
-      <!-- Neurology at indent 0, breadcrumb 'Data / Clinical Observations /'.
-           Canonical (longer-path) parent of the anchor. Pass-through for the skip-rail. -->
-      <div class="dag-row" data-depth="0" data-skip-rail="thru">
-        <span class="breadcrumb"><span class="seg">Data</span><span class="sep">/</span><span class="seg">Clinical Observations</span><span class="sep">/</span></span>
-        <span class="toggle"><span class="arr">▼</span> 2</span>
-        <span class="name">Neurology</span>
-      </div>
-      <!-- Anchor at indent 1 (under Neurology, the canonical parent).
-           Skip-rail destination — connects up to Image. -->
-      <div class="dag-row anchor poly" data-depth="1" data-skip-rail="dest" style="padding-left:18px;">
-        <span class="rail-arrow"></span>
-        <span class="glyph">└</span>
-        <span class="toggle disabled"><span class="arr">▶</span> 0</span>
-        <span class="name">Neurologic Imaging</span>
-        <span class="also">★ also under <span class="seg">Image</span></span>
-      </div>
-    </div>
-    <p class="caption">
-      Both immediate parents shown as topmost-visible rows at indent 0. Image's parent (Data) and
-      Neurology's parents (Clinical Observations, Data) are hidden, shown as breadcrumb prefix on
-      each row. Anchor at indent 1 under Neurology (its canonical, longer-path parent). The
-      orange skip-rail in the left gutter connects Image → Neurologic Imaging, showing Image is
-      also a parent. No ↑ toggles anywhere.
-    </p>
-  </div>
-
-  <!-- ============== D2: OMICS INITIAL ============== -->
-  <div class="state">
-    <div class="state-title">D2 — Omics, initial</div>
-    <div class="dag">
-      <!-- Molecular Biology at indent 0, breadcrumb 'Data / Biology /'. -->
-      <div class="dag-row" data-depth="0">
-        <span class="breadcrumb"><span class="seg">Data</span><span class="sep">/</span><span class="seg">Biology</span><span class="sep">/</span></span>
-        <span class="toggle"><span class="arr">▼</span> 2</span>
-        <span class="name">Molecular Biology</span>
-      </div>
-      <!-- Anchor Omics at indent 1, no breadcrumb (its parent is visible). -->
-      <div class="dag-row anchor" data-depth="1" style="padding-left:18px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 4</span>
-        <span class="name">Omics</span>
-        <span class="links-count">24 standards · 7 datasets · 3 orgs</span>
-      </div>
-      <!-- Anchor's immediate children at indent 2. -->
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Genome</span>
-        <span class="links-count">12 standards · 3 datasets</span>
-      </div>
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle disabled"><span class="arr">▶</span> 0</span>
-        <span class="name">Metabolome</span>
-        <span class="links-count">5 standards · 1 dataset</span>
-      </div>
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Proteome</span>
-        <span class="links-count">8 standards · 2 datasets</span>
-      </div>
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Transcriptome</span>
-        <span class="links-count">9 standards · 4 datasets</span>
-      </div>
-    </div>
-    <p class="caption">
-      Single-parent ancestry path collapsed to a breadcrumb on Molecular Biology
-      (<code>Data / Biology /</code>). Anchor at indent 1, children at indent 2. Subtle depth tint:
-      each row's background is slightly darker at deeper indents. Click any topic name to switch
-      to that topic; click any breadcrumb segment to expand the tree to that depth.
-    </p>
-  </div>
-
-  <!-- ============== D3: OMICS WITH GRANDCHILDREN ============== -->
-  <div class="state">
-    <div class="state-title">D3 — Omics with Genome ↓ + Proteome ↓ expanded</div>
-    <div class="dag">
-      <div class="dag-row" data-depth="0">
-        <span class="breadcrumb"><span class="seg">Data</span><span class="sep">/</span><span class="seg">Biology</span><span class="sep">/</span></span>
-        <span class="toggle"><span class="arr">▼</span> 2</span>
-        <span class="name">Molecular Biology</span>
-      </div>
-      <div class="dag-row anchor" data-depth="1" style="padding-left:18px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 4</span>
-        <span class="name">Omics</span>
-      </div>
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 1</span>
-        <span class="name">Genome</span>
-      </div>
-      <div class="dag-row" data-depth="3" style="padding-left:54px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Gene</span>
-      </div>
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle disabled"><span class="arr">▶</span> 0</span>
-        <span class="name">Metabolome</span>
-      </div>
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 1</span>
-        <span class="name">Proteome</span>
-      </div>
-      <div class="dag-row" data-depth="3" style="padding-left:54px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Protein</span>
-      </div>
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Transcriptome</span>
-      </div>
-    </div>
-    <p class="caption">
-      Two of Omics's children have their ↓ expanded. Grandchildren appear at indent 3, just deeper
-      tint. Recursive expansion just keeps indenting — no special structural rules. Counts in the
-      remaining collapsed toggles show what's available.
-    </p>
-  </div>
-
-  <!-- ============== D4: BREADCRUMB CLICK — expand to root ============== -->
-  <div class="state">
-    <div class="state-title">D4 — After clicking <code>Data</code> in Molecular Biology's breadcrumb</div>
-    <div class="dag">
-      <!-- User clicked 'Data' segment in Molecular Biology's breadcrumb. Result: Data and Biology
-           are now visible as rows; Molecular Biology no longer has a breadcrumb prefix. -->
-      <div class="dag-row" data-depth="0">
-        <span class="toggle"><span class="arr">▼</span> 14</span>
-        <span class="name">Data</span>
-        <span class="links-count">root · 14 children total</span>
-      </div>
-      <div class="dag-row" data-depth="1" style="padding-left:18px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 3</span>
-        <span class="name">Biology</span>
-      </div>
-      <div class="dag-row" data-depth="2" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 2</span>
-        <span class="name">Molecular Biology</span>
-      </div>
-      <div class="dag-row anchor" data-depth="3" style="padding-left:54px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 4</span>
-        <span class="name">Omics</span>
-      </div>
-      <div class="dag-row" data-depth="4" style="padding-left:72px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Genome</span>
-      </div>
-      <div class="dag-row" data-depth="4" style="padding-left:72px;">
-        <span class="glyph">└</span>
-        <span class="toggle disabled"><span class="arr">▶</span> 0</span>
-        <span class="name">Metabolome</span>
-      </div>
-      <div class="dag-row" data-depth="4" style="padding-left:72px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Proteome</span>
-      </div>
-      <div class="dag-row" data-depth="4" style="padding-left:72px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 1</span>
-        <span class="name">Transcriptome</span>
-      </div>
-    </div>
-    <p class="caption">
-      Started from D2 (Omics, initial). User clicked <code>Data</code> in the breadcrumb on
-      Molecular Biology's row. Result: the breadcrumb's ancestors materialize as rows. Data,
-      Biology, Molecular Biology all visible. Anchor (Omics) now at indent 3 — the same DAG depth
-      it would have if rendered from the top down.
-    </p>
-  </div>
-
-  <!-- ============== D5: NEUROLOGIC IMAGING — both chains expanded to Data ============== -->
-  <div class="state">
-    <div class="state-title">D5 — Neurologic Imaging, both chains expanded to root</div>
-    <div class="dag with-skip-rails">
-      <div class="dag-row" data-depth="0">
-        <span class="toggle"><span class="arr">▼</span> 14</span>
-        <span class="name">Data</span>
-      </div>
-      <!-- Image at indent 1, skip-rail origin -->
-      <div class="dag-row" data-depth="1" data-skip-rail="origin" style="padding-left:18px;">
-        <span class="glyph">└</span>
-        <span class="toggle"><span class="arr">▶</span> 3</span>
-        <span class="name">Image</span>
-      </div>
-      <!-- Clinical Observations at indent 1, pass-through for the skip-rail -->
-      <div class="dag-row" data-depth="1" data-skip-rail="thru" style="padding-left:18px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 3</span>
-        <span class="name">Clinical Observations</span>
-      </div>
-      <!-- Neurology at indent 2 -->
-      <div class="dag-row" data-depth="2" data-skip-rail="thru" style="padding-left:36px;">
-        <span class="glyph">└</span>
-        <span class="toggle expanded"><span class="arr">▼</span> 2</span>
-        <span class="name">Neurology</span>
-      </div>
-      <!-- Anchor at indent 3 under Neurology, skip-rail destination -->
-      <div class="dag-row anchor poly" data-depth="3" data-skip-rail="dest" style="padding-left:54px;">
-        <span class="rail-arrow"></span>
-        <span class="glyph">└</span>
-        <span class="toggle disabled"><span class="arr">▶</span> 0</span>
-        <span class="name">Neurologic Imaging</span>
-        <span class="also">★ also under <span class="seg">Image</span></span>
-      </div>
-    </div>
-    <p class="caption">
-      Both ↑ chains expanded all the way to root. Data appears once (no duplication). The
-      orange skip-rail in the left gutter runs from Image (indent 1) through Clinical Observations
-      and Neurology (pass-through rows) down to the anchor at indent 3. Compare to D1 where the
-      rail spans only one row in between.
-    </p>
-  </div>
-</div>
-
 
 <details id="part-c">
-<summary><strong>Part C: Full page mock (anchor = Omics) — historical box-based layout</strong></summary>
+<summary><strong>Earlier full-page box-based mock (historical)</strong></summary>
 
 <p class="note" style="margin-top: 12px;">
   <strong>What we tried:</strong> A full-page mock showing the box-based hierarchy widget in
@@ -1613,12 +1819,8 @@
 </p>
 <p class="note">
   <strong>Why we moved on:</strong> The box-based widget itself was retired in favor of
-  Part D's boxless DAG approach. A new full-page mock should be built using the boxless widget.
-</p>
-<p class="note">
-  <strong>Worth revisiting:</strong> the page structure (About on top, then widget, then related
-  things) and the card layout/styling for Related Standards/Datasets/Organizations. Those
-  decisions stand regardless of which widget rendering wins.
+  the current boxless DAG approach. This page mockup is preserved for the page-layout
+  decisions (section order, card styling) that survived.
 </p>
 
 <h2>Part C: Full page mock (anchor = Omics)</h2>
