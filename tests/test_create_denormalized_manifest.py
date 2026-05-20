@@ -52,7 +52,7 @@ class BuildDenormalizedDfTests(unittest.TestCase):
         df = manifest_module.build_denormalized_df(lookups)
 
         self.assertEqual(len(df), 2)
-        self.assertEqual(df.loc[0, "organization_link"], "[Org One](/Explore/Organization/OrganizationDetailsPage?id=B2AI_ORG:1)")
+        self.assertEqual(df.loc[0, "organization"], "B2AI_ORG:1")
         self.assertEqual(df.loc[0, "standards_and_tools_links"], ["[FHIR](/Explore/Standard/DetailsPage?id=B2AI_STANDARD:1)"])
         self.assertEqual(
             df.loc[0, "uses_data_substrates_links"],
@@ -64,10 +64,7 @@ class BuildDenormalizedDfTests(unittest.TestCase):
             df.loc[0, "anatomy_links"],
             ["[Retina](http://purl.obolibrary.org/obo/UBERON_0001)"],
         )
-        self.assertEqual(
-            df.loc[0, "datasets_link"],
-            "[2 datasets](/Explore/Organization/OrganizationDetailsPage?id=B2AI_ORG:1#DataSets)",
-        )
+        self.assertEqual(df.loc[0, "datasets"], ["B2AI_DATA:1", "B2AI_DATA:2"])
         self.assertEqual(df.loc[1, "standards_and_tools"], [])
 
 

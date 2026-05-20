@@ -28,6 +28,15 @@ TABLE_IDS = {
     'Organization_denormalized': {'name': 'Organization_denormalized', 'id': 'syn69693360'},
     'UseCase': {'name': 'UseCase', 'id': 'syn63096837'},
     'Manifest': { 'name': 'Manifest', 'id': 'syn72106735' },
+    # Alias pointing to the same Synapse table as 'Manifest', but with a
+    # different name so get_src_table() won't find a local JSON file and
+    # will fetch the exploded (one row per data part) version from Synapse.
+    # Note: this table is named 'Manifest' on Synapse (not 'Manifest_denormalized')
+    # because the original Manifest table had already gone through the lengthy
+    # process of being made public before we realized we actually needed a
+    # denormalized version.
+    'Manifest_denormalized': { 'name': 'Manifest_denormalized', 'id': 'syn72106735' },
+    'DataTopic_denormalized': { 'name': 'DataTopic_denormalized', 'id': 'syn75081383' },
     # 'test': { 'name': 'test', 'id': 'syn64943432' }
 }
 
@@ -202,6 +211,74 @@ DEST_TABLES = {
              'dest_cols': [
                  {'name': 'name', 'alias': 'substrates'},
                  {'name': 'substrates_json', 'alias': 'substrates_json', 'whole_records': True, }
+             ]},
+        ],
+    },
+    # Placed last so its joins to other denormalized tables (Manifest_denormalized,
+    # and indirectly DataSet_denormalized via Synapse) see freshly-uploaded data.
+    'DataTopic_denormalized': {
+        'dest_table_name': 'DataTopic_denormalized',
+        'base_table': 'DataTopic',
+        'columns': [
+            {'name': 'id', 'alias': 'id'},
+            {'name': 'category', 'alias': 'category'},
+            {'name': 'name', 'alias': 'name'},
+            {'name': 'description', 'alias': 'description'},
+            {'name': 'subclass_of', 'alias': 'subclassOf'},
+            {'name': 'related_to', 'alias': 'relatedTo'},
+            {'name': 'edam_id', 'alias': 'edamId'},
+            {'name': 'mesh_id', 'alias': 'meshId'},
+            {'name': 'ncit_id', 'alias': 'ncitId'},
+        ],
+        'join_columns': [
+            # Parent topics: topics this one is a subclass of
+            {'join_tbl': 'DataTopic', 'base_tbl_col': 'subclass_of', 'join_tbl_col': 'id',
+             'reverse_lookup': False,
+             'dest_cols': [
+                 {'alias': 'parentTopicsJson',
+                  'fields': [{'name': 'id', 'alias': 'id'},
+                             {'name': 'name', 'alias': 'name'}]},
+             ]},
+            # Child topics: other topics whose subclass_of contains this id
+            {'join_tbl': 'DataTopic', 'base_tbl_col': 'id', 'join_tbl_col': 'subclass_of',
+             'reverse_lookup': True,
+             'dest_cols': [
+                 {'alias': 'childTopicsJson',
+                  'fields': [{'name': 'id', 'alias': 'id'},
+                             {'name': 'name', 'alias': 'name'}]},
+             ]},
+            # Related topics (sibling-like links)
+            {'join_tbl': 'DataTopic', 'base_tbl_col': 'related_to', 'join_tbl_col': 'id',
+             'reverse_lookup': False,
+             'dest_cols': [
+                 {'alias': 'relatedTopicsJson',
+                  'fields': [{'name': 'id', 'alias': 'id'},
+                             {'name': 'name', 'alias': 'name'}]},
+             ]},
+            # Standards (DSTs) concerned with this topic
+            {'join_tbl': 'DataStandardOrTool', 'base_tbl_col': 'id', 'join_tbl_col': 'concerns_data_topic',
+             'reverse_lookup': True,
+             'dest_cols': [
+                 {'alias': 'standardsJson',
+                  'fields': [{'name': 'id', 'alias': 'id'},
+                             {'name': 'name', 'alias': 'name'}]},
+             ]},
+            # Datasets tagged with this topic
+            {'join_tbl': 'DataSet', 'base_tbl_col': 'id', 'join_tbl_col': 'topics',
+             'reverse_lookup': True,
+             'dest_cols': [
+                 {'alias': 'datasetsJson',
+                  'fields': [{'name': 'id', 'alias': 'id'},
+                             {'name': 'name', 'alias': 'name'}]},
+             ]},
+            # Manifest data parts that concern this topic.
+            # Uses Manifest_denormalized (exploded, one row per data part) from Synapse.
+            {'join_tbl': 'Manifest_denormalized', 'base_tbl_col': 'id', 'join_tbl_col': 'concerns_data_topics',
+             'reverse_lookup': True,
+             'dest_cols': [
+                 {'alias': 'manifestDataPartsJson',
+                  'fields': [{'name': 'id', 'alias': 'id'},
+                             {'name': 'data_part_name', 'alias': 'dataPartName'}]},
              ]},
         ],
     },

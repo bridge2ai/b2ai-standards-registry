@@ -204,6 +204,28 @@ def copy_list_omit_property(list_of_dicts, property_to_omit):
             for d in list_of_dicts]
 
 
+def _columns_equivalent(existing: Column, desired: Column) -> bool:
+    """
+    True if a Synapse-resident column matches the desired definition closely
+    enough that no re-create is needed. Compares schema-affecting fields only
+    (ignores server-assigned id) and treats None-vs-default as a match for
+    fields like maximum_size where Synapse may fill in a default.
+    """
+    if existing.column_type != desired.column_type:
+        return False
+    for attr in ('maximum_size', 'maximum_list_length', 'default_value',
+                 'enum_values', 'facet_type', 'json_sub_columns'):
+        d = getattr(desired, attr, None)
+        e = getattr(existing, attr, None)
+        # Skip comparison when the desired value wasn't specified — Synapse
+        # may have filled in a default that we shouldn't churn over.
+        if d is None:
+            continue
+        if d != e:
+            return False
+    return True
+
+
 def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: List[Column], df: pd.DataFrame, table_id: Optional[str] = None) -> None:
     """
     - Update or create Synapse table and create snapshot.
@@ -257,63 +279,39 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
         Table(id=table_id).delete_rows(
             query=f"SELECT ROW_ID, ROW_VERSION FROM {table_id}")
 
-        # Delete all existing columns so the new schema starts clean.
-        # Table.store() adds columns but doesn't remove old ones and can't
-        # change column types in place.
+        # Reconcile the schema incrementally: drop columns not in columnDefs,
+        # add new ones, and drop+re-add columns whose type/settings changed.
+        # We avoid "delete-all then add-all" because synapseclient (4.11)
+        # silently ignores a store() that would leave the table with zero
+        # columns. Same-name columns whose definitions match are left alone,
+        # which preserves their column IDs and any portal-side config.
         existing_table = Table(id=table_id).get(include_columns=True)
-        if isinstance(existing_table, str):
-            raise TypeError(
-                "Expected a table-like object with columns and delete_column() "
-                f"from Table.get(), got string: {existing_table!r}"
-            )
-        if not hasattr(existing_table, "columns"):
-            raise TypeError(
-                "Expected a table-like object with a 'columns' attribute "
-                f"from Table.get(), got {type(existing_table)!r}: {existing_table!r}"
-            )
-        if not hasattr(existing_table, "delete_column"):
-            raise TypeError(
-                "Expected a table-like object with delete_column() "
-                f"from Table.get(), got {type(existing_table)!r}: {existing_table!r}"
-            )
-        columns = existing_table.columns
-        if isinstance(columns, Mapping):
-            columns_iter = list(columns.values())
-        elif isinstance(columns, (list, tuple)):
-            columns_iter = list(columns)
-        else:
-            raise TypeError(
-                "Expected 'columns' to be a mapping or list-like collection, "
-                f"got {type(columns)!r}: {columns!r}"
-            )
-        for existing_col in columns_iter:
-            if isinstance(existing_col, Mapping):
-                if "name" not in existing_col:
-                    raise TypeError(
-                        "Expected column mapping with 'name' key, "
-                        f"got {type(existing_col)!r}: {existing_col!r}"
-                    )
-                col_name = existing_col["name"]
-            elif hasattr(existing_col, "name"):
-                col_name = existing_col.name
-            else:
-                raise TypeError(
-                    "Expected column-like object with 'name' attribute or key, "
-                    f"got {type(existing_col)!r}: {existing_col!r}"
-                )
-            if not isinstance(col_name, str) or not col_name.strip():
-                raise TypeError(
-                    "Expected column name to be a non-empty string, "
-                    f"got {type(col_name)!r}: {col_name!r}"
-                )
-            existing_table.delete_column(name=col_name)
-        existing_table.store()
-        print(f"  Cleared rows and columns from {table_name}")
+        desired_by_name = {c.name: c for c in columnDefs}
+        existing_by_name = dict(existing_table.columns)
 
-    table = Table(name=table_name, parent_id=PROJECT_ID, columns=columnDefs)
-    if table_id:
-        table.id = table_id
-    table = table.store()
+        to_delete = [n for n in existing_by_name if n not in desired_by_name]
+        to_add = [n for n in desired_by_name if n not in existing_by_name]
+        to_replace = [
+            n for n in existing_by_name
+            if n in desired_by_name and not _columns_equivalent(existing_by_name[n], desired_by_name[n])
+        ]
+
+        for n in to_delete + to_replace:
+            existing_table.delete_column(name=n)
+        for n in to_add + to_replace:
+            existing_table.columns[n] = desired_by_name[n]
+
+        if to_delete or to_add or to_replace:
+            existing_table.store()
+            print(f"  Schema diff for {table_name}: "
+                  f"deleted={to_delete} added={to_add} replaced={to_replace}")
+        else:
+            print(f"  Schema for {table_name} already matches columnDefs")
+
+        table = existing_table
+    else:
+        table = Table(name=table_name, parent_id=PROJECT_ID, columns=columnDefs)
+        table = table.store()
 
     # Synapse JSON columns need JSON strings. Replace \" with \u0022 to avoid
     # ambiguity with CSV quote-doubling during upload (\" becomes \"" in CSV,

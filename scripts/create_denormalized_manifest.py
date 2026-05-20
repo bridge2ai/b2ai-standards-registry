@@ -35,7 +35,6 @@ from id_linking import get_ontology_label, slugify
 COLUMN_DEFS: List[tuple[str, ColumnType]] = [
     ('id', ColumnType.STRING),
     ('organization', ColumnType.STRING),
-    # ('organization_link', ColumnType.STRING),
     ('data_part_name', ColumnType.STRING),
     ('data_part_description', ColumnType.STRING),
     ('standards_and_tools', ColumnType.STRING_LIST),
@@ -48,7 +47,6 @@ COLUMN_DEFS: List[tuple[str, ColumnType]] = [
     ('anatomy', ColumnType.STRING_LIST),
     ('anatomy_links', ColumnType.STRING_LIST),
     ('datasets', ColumnType.STRING_LIST),
-    # ('datasets_link', ColumnType.STRING),
 ]
 
 
@@ -148,14 +146,7 @@ def build_denormalized_df(lookups: Dict[str, Dict[str, str]]) -> pd.DataFrame:
     for _, manifest in manifest_df.iterrows():
         manifest_id = manifest['id']
         org_id = manifest['organization']
-        org_name = resolve_id(org_id, lookups['Organization'], 'Organization')
-        org_link = f"[{org_name}](/Explore/Organization/OrganizationDetailsPage?id={org_id})"
         datasets = manifest.get('datasets') or []
-        dataset_count = len(datasets)
-        datasets_link = (
-            f"[{dataset_count} datasets](/Explore/Organization/OrganizationDetailsPage?id={org_id}#DataSets)"
-            if dataset_count > 0 else ''
-        )
 
         for data_part in manifest.get('data_parts') or []:
             std_ids = data_part.get('standards_and_tools') or []
@@ -166,7 +157,6 @@ def build_denormalized_df(lookups: Dict[str, Dict[str, str]]) -> pd.DataFrame:
             rows.append({
                 'id': manifest_id,
                 'organization': org_id,
-                'organization_link': org_link,
                 'data_part_name': data_part.get('data_part_name', ''),
                 'data_part_description': data_part.get('data_part_description', ''),
                 'standards_and_tools': std_ids,
@@ -179,7 +169,6 @@ def build_denormalized_df(lookups: Dict[str, Dict[str, str]]) -> pd.DataFrame:
                 'anatomy': anatomy_ids,
                 'anatomy_links': [build_anatomy_link(aid, anatomy_cache) for aid in anatomy_ids],
                 'datasets': datasets,
-                'datasets_link': datasets_link,
             })
 
     return pd.DataFrame(rows)
