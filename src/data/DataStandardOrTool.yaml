@@ -53335,3 +53335,64 @@ data_standardortools_collection:
     ref_publication_year: 2024
     ref_journal: Proceedings of the Eighth Workshop on Data Management for End-to-End
       Machine Learning
+- id: B2AI_STANDARD:1145
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:14
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:55
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SpatioTemporal Asset Catalogs
+  formal_specification: https://github.com/radiantearth/stac-spec
+  is_open: true
+  name: STAC
+  purpose_detail: SpatioTemporal Asset Catalogs (STAC) is an open specification for
+    describing, cataloging, indexing, and searching geospatial assets with spatial
+    and temporal context. STAC uses JSON and GeoJSON-compatible structures to define
+    Items for individual assets, Catalogs for linked navigation, Collections for
+    dataset-level extents and metadata, and STAC API endpoints for searchable access
+    to Items. The specification is intentionally lightweight and extensible so providers
+    can expose imagery, SAR, point clouds, data cubes, full-motion video, and other
+    Earth-observation or geospatial assets through a common metadata model. For AI/ML,
+    STAC is useful because it standardizes discovery, filtering, provenance, and
+    asset links for large geospatial datasets that are often used in remote-sensing,
+    environmental-monitoring, agriculture, climate, and disaster-response models.
+  requires_registration: false
+  url: https://stacspec.org/en
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:420
+    category: B2AI:Application
+    name: STAC Catalogs for Geospatial ML Training Data Discovery
+    description: STAC enables geospatial machine-learning platforms to publish and
+      query imagery, labels, and other spatial-temporal assets through a common metadata
+      model and API. Radiant MLHub, for example, hosts STAC-compliant Earth-observation
+      training datasets for machine-learning tasks such as image classification,
+      object detection, semantic segmentation, road extraction, and building footprint
+      mapping. By standardizing fields such as geometry, datetime, collection metadata,
+      asset links, and extension-specific properties, STAC helps ML pipelines discover
+      suitable scenes, filter by space and time, retrieve paired imagery and labels,
+      and reproduce dataset assembly without hand-written adapters for each provider.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://stacspec.org/en
+      ref_title: STAC, SpatioTemporal Asset Catalogs
+      ref_journal: STAC Community
+    - ref_url: https://stacspec.org/en/about/stac-spec/
+      ref_title: The STAC Specification
+      ref_journal: STAC Community
+    - ref_url: https://aws.amazon.com/marketplace/pp/prodview-yvrd3g43ui7ms
+      ref_title: Radiant MLHub
+      ref_journal: AWS Marketplace
+    - ref_url: https://medium.com/radiant-earth-insights/radiant-mlhub-hosts-stac-compliant-spacenets-datasets-fdea51e8c45f
+      ref_title: Radiant MLHub Hosts STAC-Compliant SpaceNet's Datasets
+      ref_publication_year: 2020
+      ref_journal: Radiant Earth Insights
+  publication:
+    ref_url: https://stacspec.org/en/about/stac-spec/
+    ref_title: The STAC Specification
+    ref_journal: STAC Community
