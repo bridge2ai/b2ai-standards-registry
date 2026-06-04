@@ -28854,7 +28854,7 @@ data_standardortools_collection:
       evidence graphs that might propagate systematic errors into model predictions.
     used_in_bridge2ai: false
     references:
-  - ref_url: https://openreview.net/pdf?id=cYAFwjY2bY
+    - ref_url: https://openreview.net/pdf?id=cYAFwjY2bY
   publication:
     ref_url: https://doi.org/10.5281/zenodo.4630931
     ref_title: 'EVI: The Evidence Graph Ontology, OWL 2 Vocabulary'
@@ -51330,25 +51330,17 @@ data_standardortools_collection:
   - B2AI_STANDARD:1125
   is_open: true
   name: Gravity Project
-  purpose_detail: The Gravity Project is a U.S. national public collaborative that
-    develops consensus-based standards for representing social determinants of health
-    and social care data so they can be documented, exchanged, aggregated, and reused
-    across healthcare, community-based, payer, public health, and research settings.
-    Launched in 2019 by the Social Interventions Research and Evaluation Network
-    (SIREN) with partners and now operating as an HL7 FHIR Accelerator, the project
-    defines use cases, common data elements, value sets, code recommendations, and
-    FHIR implementation guidance for activities such as screening, assessment and
-    diagnosis, goal setting, referral, intervention, and closed-loop feedback. Initial
-    priority domains included food insecurity, housing instability and quality, and
-    transportation access, and the published SDOH Clinical Care implementation guide
-    supports broader social risk and social need workflows. Gravity is not a single
-    vocabulary; rather, it harmonizes structured SDOH content across standards such
-    as FHIR, LOINC, and SNOMED CT, enabling interoperable capture of questionnaires,
-    observations, conditions, goals, service requests, procedures, and referral outcomes.
-    In biomedical AI and data science, Gravity helps normalize SDoH variables and
-    intervention data across sites, improving cohort identification, health equity
-    analytics, quality measurement, and predictive or causal modeling that depends
-    on consistent representation of social risk and social care activities.
+  purpose_detail: The Gravity Project is a U.S. national public collaborative and
+    HL7 FHIR Accelerator that develops consensus-based standards for documenting
+    and exchanging social determinants of health and social care data. It defines
+    use cases, common data elements, terminology recommendations, value sets, and
+    FHIR implementation guidance for screening, assessment, diagnosis, goals, referrals,
+    interventions, and closed-loop feedback across healthcare, community, payer,
+    public health, and research settings. For biomedical AI and data science, Gravity
+    helps normalize SDoH variables and intervention data across sites, supporting
+    cohort identification, health equity analytics, quality measurement, and predictive
+    or causal modeling that depends on consistent representation of social risk and
+    social care activities.
   related_to:
   - B2AI_STANDARD:109
   - B2AI_STANDARD:187
@@ -51545,8 +51537,52 @@ data_standardortools_collection:
   requires_registration: false
   url: https://ohnlp.org/page/tool-list.html
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:386
+    category: B2AI:Application
+    name: Clinical NLP Feature Extraction for Cohort Identification
+    description: OHNLP tools such as MedTagger, MedTime, MedXN, MedTator, and Backbone
+      support AI-ready clinical text workflows by extracting structured concepts,
+      temporal expressions, medication attributes, annotations, and pipeline outputs
+      from unstructured EHR narratives. These outputs can be loaded into cohort-identification,
+      phenotyping, terminology-normalization, and machine learning pipelines, turning
+      clinical notes into reproducible features or labels while preserving links
+      to the source text and extraction rules.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3811227/
+      ref_title: An information extraction framework for cohort identification using
+        electronic health records
+      ref_authors:
+      - Liu H
+      - Bielinski SJ
+      - Sohn S
+      - Murphy S
+      - Wagholikar KB
+      - Jonnalagadda SR
+      - Ravikumar KE
+      - Wu ST
+      - Kullo IJ
+      - Chute CG
+      ref_publication_year: 2013
+      ref_journal: Journal of the American Medical Informatics Association
   publication:
-    ref_url: ''
+    ref_url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3811227/
+    ref_title: An information extraction framework for cohort identification using
+      electronic health records
+    ref_authors:
+    - Liu H
+    - Bielinski SJ
+    - Sohn S
+    - Murphy S
+    - Wagholikar KB
+    - Jonnalagadda SR
+    - Ravikumar KE
+    - Wu ST
+    - Kullo IJ
+    - Chute CG
+    ref_publication_year: 2013
+    ref_journal: Journal of the American Medical Informatics Association
 - id: B2AI_STANDARD:1127
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
