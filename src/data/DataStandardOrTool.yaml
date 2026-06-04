@@ -6739,12 +6739,16 @@ data_standardortools_collection:
   - B2AI_STANDARD:922
   is_open: true
   name: DICOM Part 6
-  purpose_detail: This Part of the DICOM Standard is PS 3.6 of a multi-part standard
-    produced to facilitate the interchange of information between digital imaging
-    computer systems in medical environments. This interchange will enhance diagnostic
-    imaging and potentially other clinical applications. The multi-part DICOM Standard
-    covers the protocols and data that shall be supplied to achieve this interchange
-    of information.
+  purpose_detail: DICOM Part 6 (PS3.6) is the DICOM Data Dictionary, the authoritative
+    registry of data elements, value representations, unique identifiers, transfer
+    syntaxes, service-object-pair classes, and related coded attributes used across
+    the DICOM standard. It defines the tags and metadata vocabulary that allow imaging
+    systems, PACS archives, viewers, de-identification tools, and AI pipelines to
+    interpret image objects consistently. For biomedical AI/ML, Part 6 is important
+    because model-ready imaging datasets often depend on DICOM metadata for modality
+    filtering, body-part and protocol identification, acquisition-parameter quality
+    control, cohort selection, provenance retention, and safe conversion from clinical
+    DICOM objects into analysis formats.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -6752,8 +6756,32 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:399
+    category: B2AI:Application
+    name: DICOM Metadata Dictionary for Medical-Imaging AI Routing and Curation
+    description: DICOM Part 6 supplies the standardized data-element dictionary used
+      to interpret metadata fields in medical-imaging AI workflows. In routing and
+      preprocessing systems, DICOM tags identify modality, body part, series description,
+      acquisition parameters, pixel spacing, patient/study context, and derivation
+      provenance so that images can be selected for the correct model, quality-checked,
+      de-identified, and transformed reproducibly. This metadata layer is used alongside
+      image pixels in AI dataset preparation and can support automated body-part
+      classification, series routing, and model-specific filtering before inference.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://www.dicomstandard.org/standards/view/data-dictionary
+      ref_title: DICOM PS3.6 Data Dictionary
+      ref_journal: DICOM Standard
+    - ref_url: https://doi.org/10.48550/arxiv.2108.06490
+      ref_title: 'DICOM Imaging Router: An Open Deep Learning Framework for Classification
+        of Body Parts from DICOM X-ray Scans'
+      ref_publication_year: 2021
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://www.dicomstandard.org/standards/view/data-dictionary
+    ref_title: DICOM PS3.6 Data Dictionary
+    ref_journal: DICOM Standard
 - id: B2AI_STANDARD:96
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -10876,15 +10904,52 @@ data_standardortools_collection:
   formal_specification: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
   is_open: true
   name: BPPC
-  purpose_detail: A mechanism to record the patient privacy consent(s) and a method
-    for Content Consumers to use to enforce the privacy consent appropriate to the
-    use.
+  purpose_detail: IHE Basic Patient Privacy Consents (BPPC) defines an interoperability
+    profile for recording a patient's privacy-consent decisions and making those
+    consent documents available to systems that retrieve, exchange, or consume health
+    information. The profile is used in IHE/XDS-style health information exchange
+    environments to associate clinical content with opt-in, opt-out, or policy-specific
+    consent assertions so that downstream content consumers can enforce the appropriate
+    access decision. For biomedical AI/ML workflows, BPPC is most relevant as a governance
+    and data-access control layer because consent status can determine whether clinical
+    documents, images, or longitudinal EHR data are eligible for cohort discovery,
+    secondary-use dataset assembly, model validation, or deployment-time decision
+    support.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:46
   url: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
+  has_application:
+  - id: B2AI_APP:400
+    category: B2AI:Application
+    name: Consent-Aware Cohort Assembly for Healthcare AI
+    description: BPPC can be used as an interoperable consent record in health information
+      exchange systems that supply data for analytics or AI/ML model development.
+      By representing whether a patient has authorized particular document-sharing
+      policies, BPPC gives data platforms a computable signal for excluding, including,
+      or restricting clinical records during cohort discovery, training-set creation,
+      and secondary-use review. This is especially important for healthcare AI projects
+      where model development depends on large EHR or imaging datasets but must still
+      respect patient privacy preferences and local data-use policies.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
+      ref_title: IHE IT Infrastructure Technical Framework Volume 1, Chapter 19 Basic
+        Patient Privacy Consents
+      ref_journal: Integrating the Healthcare Enterprise
+    - ref_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3200153/
+      ref_title: Architecture of a consent management suite and integration into
+        IHE-based regional health information networks
+      ref_publication_year: 2011
+      ref_journal: BMC Medical Informatics and Decision Making
+    - ref_url: https://www.ncbi.nlm.nih.gov/books/NBK605945/
+      ref_title: Artificial Intelligence in Health Care
+      ref_journal: National Academies Press
   publication:
-    ref_url: ''
+    ref_url: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
+    ref_title: IHE IT Infrastructure Technical Framework Volume 1, Chapter 19 Basic
+      Patient Privacy Consents
+    ref_journal: Integrating the Healthcare Enterprise
 - id: B2AI_STANDARD:163
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -12428,16 +12493,48 @@ data_standardortools_collection:
   - B2AI_STANDARD:1084
   is_open: true
   name: mmCIF
-  purpose_detail: PDBx/mmCIF became the standard PDB archive format in 2014. All PDB
-    data processing and annotation will be performed using PDBx/mmCIF at all wwPDB
-    sites. PDBx/mmCIF consists of categories of information represented as tables
-    and keyword value pairs.
+  purpose_detail: PDBx/mmCIF is the extensible macromolecular Crystallographic Information
+    Framework used as the standard archival representation for structures in the
+    worldwide Protein Data Bank. It represents coordinates, experimental context,
+    assemblies, sequences, restraints, validation information, and related annotations
+    as dictionary-defined categories and data items rather than as fixed-width text.
+    This makes mmCIF a critical structural-biology data standard for AI/ML because
+    protein-structure prediction, model validation, structural search, molecular
+    design, and computed-model deposition all require consistent machine-readable
+    representations of macromolecular entities, coordinate systems, provenance, and
+    quality metrics.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:82
   url: https://mmcif.wwpdb.org/
+  has_application:
+  - id: B2AI_APP:401
+    category: B2AI:Application
+    name: mmCIF and ModelCIF for AI-Predicted Protein Structures
+    description: PDBx/mmCIF provides the dictionary-based structural-data foundation
+      used by ModelCIF, an extension created to represent computed and AI-predicted
+      macromolecular structure models. This enables predicted structures from methods
+      such as deep-learning protein-structure prediction to carry model provenance,
+      target-template relationships, quality estimates, and coordinate data in a
+      form compatible with the wwPDB ecosystem. The standard therefore supports AI/ML
+      workflows that generate, compare, validate, archive, and reuse predicted protein
+      structures.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.jmb.2022.167599
+      ref_title: PDBx/mmCIF Ecosystem
+      ref_publication_year: 2022
+      ref_journal: Journal of Molecular Biology
+    - ref_url: https://doi.org/10.1016/j.jmb.2023.168021
+      ref_title: ModelCIF, an extension of PDBx/mmCIF data representation for computed
+        structure models
+      ref_publication_year: 2023
+      ref_journal: Journal of Molecular Biology
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.jmb.2022.167599
+    ref_title: PDBx/mmCIF Ecosystem
+    ref_publication_year: 2022
+    ref_journal: Journal of Molecular Biology
 - id: B2AI_STANDARD:189
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16143,13 +16240,39 @@ data_standardortools_collection:
   description: Newick tree Format
   is_open: true
   name: Newick
-  purpose_detail: The Newick Standard for representing trees in computer-readable
-    form makes use of the correspondence between trees and nested parentheses, noticed
-    in 1857 by the famous English mathematician Arthur Cayley.
+  purpose_detail: Newick is a compact, parenthesis-based text format for representing
+    rooted or unrooted tree topologies, optionally including branch lengths, internal
+    node labels, and leaf labels. It remains one of the most widely supported exchange
+    formats for phylogenetic trees because it can be parsed by many comparative-genomics,
+    evolutionary-biology, taxonomy, and visualization tools. In AI/ML settings, Newick
+    files often provide the tree-structured inputs or outputs used for phylogenetic
+    embedding, tree comparison, simulation, pathogen-surveillance analytics, and
+    model evaluation workflows where evolutionary relationships need to be encoded
+    reproducibly.
   requires_registration: false
   url: http://evolution.genetics.washington.edu/phylip/newicktree.html
+  has_application:
+  - id: B2AI_APP:402
+    category: B2AI:Application
+    name: Newick Phylogenies for Vector Embeddings of Evolutionary Trees
+    description: Newick-formatted trees are used as a standard machine-readable representation
+      for phylogenies that can be transformed into vector representations for machine
+      learning. Phylo2Vec, for example, encodes phylogenetic trees as vectors that
+      can be used for statistical learning and tree comparison while preserving the
+      ability to move between vectorized and tree representations. Newick provides
+      the conventional input/output layer that keeps these ML workflows interoperable
+      with existing phylogenetics software.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: http://evolution.genetics.washington.edu/phylip/newicktree.html
+      ref_title: The Newick tree format
+    - ref_url: https://doi.org/10.1093/sysbio/syae030
+      ref_title: Phylo2Vec, a vector representation for binary trees
+      ref_publication_year: 2024
+      ref_journal: Systematic Biology
   publication:
-    ref_url: ''
+    ref_url: http://evolution.genetics.washington.edu/phylip/newicktree.html
+    ref_title: The Newick tree format
 - id: B2AI_STANDARD:238
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -24033,11 +24156,42 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:19
   is_open: true
   name: PNG
-  purpose_detail: A raster-graphics file format that supports lossless data compression.
+  purpose_detail: Portable Network Graphics (PNG) is an open raster-image file format
+    designed for lossless compression, platform-independent image storage, indexed
+    or true-color images, transparency, and well-defined chunk-based metadata. Because
+    PNG preserves pixel values without JPEG-style lossy compression artifacts, it
+    is commonly used for image-derived biomedical data, microscopy figures, pathology
+    tiles, masks, segmentation labels, plots, and visual quality-control artifacts.
+    For AI/ML pipelines, PNG is useful when model inputs or outputs need reproducible
+    pixel-level representation, especially for annotations, masks, and image patches
+    where compression artifacts could change downstream measurements.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Portable_Network_Graphics
+  has_application:
+  - id: B2AI_APP:403
+    category: B2AI:Application
+    name: PNG Image Tiles and Masks in Biomedical Computer Vision
+    description: PNG is used in biomedical computer-vision workflows when lossless
+      storage of image patches, labels, or masks is important for reproducible model
+      training and evaluation. In histopathology deep-learning pipelines, source
+      slides or regions of interest may be converted into image tiles for patch-level
+      classification, segmentation, or quality-control workflows; lossless PNG storage
+      helps preserve the visual signal and annotation boundaries used by convolutional
+      or other image-analysis models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.w3.org/TR/png/
+      ref_title: Portable Network Graphics (PNG) Specification
+      ref_journal: World Wide Web Consortium
+    - ref_url: https://doi.org/10.1111/his.13844
+      ref_title: The effects of image compression on automated detection of breast
+        cancer in histopathological images
+      ref_publication_year: 2019
+      ref_journal: Histopathology
   publication:
-    ref_url: ''
+    ref_url: https://www.w3.org/TR/png/
+    ref_title: Portable Network Graphics (PNG) Specification
+    ref_journal: World Wide Web Consortium
 - id: B2AI_STANDARD:363
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -31110,12 +31264,48 @@ data_standardortools_collection:
   - B2AI_ORG:41
   is_open: true
   name: MI
-  purpose_detail: Vocabulary for the annotation of experiments concerned with protein-protein
-    interactions.
+  purpose_detail: The Molecular Interactions Controlled Vocabulary (MI, also known
+    as PSI-MI) provides standardized terms for describing molecular-interaction experiments,
+    interactors, detection methods, interaction types, biological roles, experimental
+    roles, database cross-references, and related curation metadata. It is maintained
+    by the HUPO Proteomics Standards Initiative and underpins PSI-MI exchange formats
+    used by interaction databases and molecular-network resources. For biomedical
+    AI/ML, MI is important because machine-learning-ready interaction graphs depend
+    on consistent labels for evidence type, interaction mechanism, assay provenance,
+    and molecular participants before the data can be merged across databases or
+    used to train protein-protein interaction prediction and network-analysis models.
   requires_registration: false
   url: https://github.com/HUPO-PSI/psi-mi-CV
+  has_application:
+  - id: B2AI_APP:404
+    category: B2AI:Application
+    name: PSI-MI Interaction Curation for Protein-Interaction Prediction Models
+    description: MI/PSI-MI terms provide controlled labels for interaction evidence,
+      detection method, interaction type, participant role, and cross-reference metadata
+      in curated protein-interaction resources. These standardized annotations make
+      it easier to combine records from resources such as MINT or IMEx into graph
+      datasets for machine-learning workflows that predict protein-protein interactions,
+      prioritize candidate interactions, or evaluate network-context features. The
+      vocabulary helps distinguish experimentally supported interactions from predicted
+      or lower-confidence records, which is a key step in building reliable training
+      and benchmark datasets.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://github.com/HUPO-PSI/psi-mi-CV
+      ref_title: Molecular Interactions Controlled Vocabulary
+    - ref_url: https://mint.bio.uniroma2.it/
+      ref_title: The Molecular INTeraction Database
+    - ref_url: https://doi.org/10.1016/j.jmb.2022.167530
+      ref_title: PEPPI, whole-proteome protein-protein interaction prediction through
+        structure and sequence similarity, functional association, and machine learning
+      ref_publication_year: 2022
+      ref_journal: Journal of Molecular Biology
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1038/nbt926
+    ref_title: The HUPO PSI's Molecular Interaction format, a community standard
+      for the representation of protein interaction data
+    ref_publication_year: 2004
+    ref_journal: Nature Biotechnology
 - id: B2AI_STANDARD:494
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32032,12 +32222,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/OmniSearch/omit
   is_open: true
   name: OMIT
-  purpose_detail: Data exchange standards and common data elements in the microRNA
-    (miR) domain.
+  purpose_detail: The Ontology for MIRNA Target (OMIT) is a domain ontology for representing
+    microRNAs, target genes, target-prediction evidence, disease associations, experimental
+    findings, and related concepts in the miRNA research domain. It was developed
+    to support semantic annotation, data integration, knowledge acquisition, and
+    search across miRNA-target resources and literature. For AI/ML use, OMIT provides
+    a structured vocabulary for integrating target-prediction outputs, gene and disease
+    annotations, and curated evidence into knowledge bases or feature sets that can
+    support miRNA target prioritization, biomedical text mining, and explainable
+    discovery workflows.
   requires_registration: false
   url: https://github.com/OmniSearch/omit
+  has_application:
+  - id: B2AI_APP:405
+    category: B2AI:Application
+    name: OMIT-Based Semantic Search for miRNA Target Prediction Evidence
+    description: OmniSearch applies OMIT as the semantic layer for searching and
+      integrating microRNA-target gene interaction data from prediction databases,
+      literature, gene resources, and biomedical ontologies. This provides an AI-adjacent
+      knowledge-discovery workflow in which predicted target relationships, ontology
+      terms, and external annotations can be queried together to prioritize candidate
+      miRNA-target interactions and support downstream computational analysis. OMIT's
+      explicit representation of prediction sources and miRNA-domain entities helps
+      make these integrated results more interpretable than keyword search alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-016-0064-2
+      ref_title: OmniSearch, a semantic search system based on the Ontology for MIcroRNA
+        Target (OMIT) for microRNA-target gene interaction data
+      ref_publication_year: 2016
+      ref_journal: Journal of Biomedical Semantics
+    - ref_url: https://www.mirdb.org/index.html
+      ref_title: miRDB, microRNA target prediction database
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1371/journal.pone.0100855
+    ref_title: OMIT, dynamic semi-automated ontology development for the microRNA
+      domain
+    ref_publication_year: 2014
+    ref_journal: PLoS ONE
 - id: B2AI_STANDARD:514
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32412,12 +32634,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/safisher/ornaseq
   is_open: true
   name: ORNASEQ
-  purpose_detail: An application ontology designed to annotate next-generation sequencing
-    experiments performed on RNA.
+  purpose_detail: The Ontology of RNA Sequencing (ORNASEQ) is an application ontology
+    for describing RNA sequencing assays, library preparation concepts, sequencing
+    experiment attributes, and analysis-relevant metadata. It provides controlled
+    terms that can be used to annotate next-generation sequencing experiments performed
+    on RNA and to connect assay descriptions with broader OBO Foundry vocabulary
+    ecosystems. For AI/ML, ORNASEQ is useful as a normalization layer for RNA-seq
+    metadata because harmonized assay and protocol annotations help compare datasets, control
+    batch effects, select compatible training cohorts, and document provenance for
+    gene-expression, transcriptomics, and single-cell learning workflows.
   requires_registration: false
   url: https://github.com/safisher/ornaseq
+  has_application:
+  - id: B2AI_APP:406
+    category: B2AI:Application
+    name: RNA-Seq Metadata Harmonization for Transcriptomics Machine Learning
+    description: ORNASEQ terms can support RNA-seq AI/ML workflows by providing controlled
+      annotations for assay type, library preparation, sequencing experiment context,
+      and related metadata before datasets are merged for model training or benchmarking.
+      In transcriptomics and single-cell analysis, machine-learning models are sensitive
+      to protocol, technology, and batch differences; ontology-backed metadata makes
+      it easier to select comparable datasets, represent provenance, and audit whether
+      performance differences reflect biology or experimental design. This use is
+      complementary to expression-matrix standards because it describes the experiment
+      that generated the matrix.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://obofoundry.org/ontology/ornaseq.html
+      ref_title: Ontology of RNA Sequencing
+      ref_journal: OBO Foundry
+    - ref_url: https://arxiv.org/abs/2406.05258
+      ref_title: Advances in machine learning, statistical methods, and AI for single-cell
+        RNA annotation using raw count matrices in scRNA-seq data
+      ref_publication_year: 2024
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://obofoundry.org/ontology/ornaseq.html
+    ref_title: Ontology of RNA Sequencing
+    ref_journal: OBO Foundry
 - id: B2AI_STANDARD:526
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33480,11 +33734,48 @@ data_standardortools_collection:
   - B2AI_ORG:29
   is_open: true
   name: SBO
-  purpose_detail: Terms commonly used in Systems Biology and computational modeling.
+  purpose_detail: The Systems Biology Ontology (SBO) is a controlled vocabulary for
+    the terms used to describe systems-biology models, including participant roles,
+    quantitative parameters, rate laws, mathematical expressions, modeling frameworks,
+    physical entities, interactions, and metadata. It is used with SBML and related
+    model-exchange ecosystems to make computational models more semantically explicit
+    than topology and equations alone. For AI/ML, SBO annotations help turn model
+    repositories into computable corpora by enabling retrieval, comparison, clustering,
+    feature extraction, simulation selection, and hybrid modeling workflows that combine
+    mechanistic systems-biology models with data-driven methods.
   requires_registration: false
   url: https://github.com/EBI-BioModels/SBO
+  has_application:
+  - id: B2AI_APP:407
+    category: B2AI:Application
+    name: SBO-Annotated SBML Models for Feature Extraction and Hybrid Modeling
+    description: SBO annotations provide machine-readable semantics for reactions,
+      parameters, model components, and mathematical expressions in SBML models. These
+      annotations can be used to retrieve and align models, extract ontology-derived
+      features from model repositories, and prepare mechanistic models for downstream
+      computational workflows. In AI/ML contexts, semantically annotated systems-biology
+      models can support clustering, model recommendation, knowledge-graph construction,
+      and hybrid approaches such as systems-biology-informed neural networks that
+      combine ODE-based mechanistic structure with learned parameter estimation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1002/msb.201177
+      ref_title: Controlled vocabularies and semantics in systems biology
+      ref_publication_year: 2011
+      ref_journal: Molecular Systems Biology
+    - ref_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4405863/
+      ref_title: Annotation-based feature extraction from sets of SBML models
+      ref_publication_year: 2015
+      ref_journal: Journal of Biomedical Semantics
+    - ref_url: https://arxiv.org/abs/2202.01723
+      ref_title: Systems-biology informed neural networks for parameter estimation
+      ref_publication_year: 2022
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1002/msb.201177
+    ref_title: Controlled vocabularies and semantics in systems biology
+    ref_publication_year: 2011
+    ref_journal: Molecular Systems Biology
 - id: B2AI_STANDARD:556
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -36127,14 +36418,39 @@ data_standardortools_collection:
   formal_specification: https://github.com/celery/celery
   is_open: true
   name: Celery
-  purpose_detail: Celery is a simple, flexible, and reliable distributed system to
-    process vast amounts of messages, while providing operations with the tools required
-    to maintain such a system. It's a task queue with focus on real-time processing,
-    while also supporting task scheduling.
+  purpose_detail: Celery is an open-source distributed task queue for executing work
+    asynchronously across worker processes or machines using message brokers such
+    as RabbitMQ or Redis. It supports task scheduling, retries, result backends, routing,
+    monitoring, and horizontal scaling for workloads that should not run inside a
+    single request/response process. For AI/ML and biomedical data systems, Celery
+    is useful as pipeline infrastructure for dispatching long-running preprocessing,
+    model inference, feature extraction, report generation, and batch-analysis jobs
+    while keeping web applications and data services responsive.
   requires_registration: false
   url: https://docs.celeryq.dev/en/latest/
+  has_application:
+  - id: B2AI_APP:408
+    category: B2AI:Application
+    name: Celery Task Queues for Distributed Computer-Vision and AI Services
+    description: Celery has been used as distributed task-queue infrastructure in
+      AI-enabled web systems that submit image-analysis or computer-vision jobs to
+      backend workers. In CloudCV, asynchronous workers process computer-vision tasks
+      submitted through a cloud platform, separating user-facing requests from model
+      execution and other compute-heavy work. This pattern is directly applicable
+      to biomedical AI services where image preprocessing, model inference, or batch
+      feature extraction must be queued, retried, monitored, and scaled independently
+      of the application front end.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://docs.celeryq.dev/en/latest/
+      ref_title: Celery documentation
+    - ref_url: https://doi.org/10.48550/arXiv.1506.04130
+      ref_title: CloudCV, large-scale distributed computer vision as a cloud service
+      ref_publication_year: 2015
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://docs.celeryq.dev/en/latest/
+    ref_title: Celery documentation
 - id: B2AI_STANDARD:741
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
