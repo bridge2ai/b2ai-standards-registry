@@ -11280,40 +11280,21 @@ data_standardortools_collection:
   - B2AI_STANDARD:935
   is_open: true
   name: ICD-10-CM
-  purpose_detail: ICD-10-CM (International Classification of Diseases, 10th Revision,
-    Clinical Modification) is the United States' clinical modification of the WHO's
-    ICD-10 classification system, mandated for reporting diagnoses and health conditions
-    in all healthcare settings for billing, epidemiology, quality measurement, and
-    public health surveillance since October 2015. Maintained by the National Center
-    for Health Statistics (NCHS) in collaboration with CMS, ICD-10-CM provides over
-    70,000 diagnosis codes with significantly expanded granularity compared to ICD-9-CM,
-    enabling more precise documentation of disease severity, anatomical location,
-    episode of care (initial encounter, subsequent encounter, sequela), and laterality
-    (left, right, bilateral). The coding structure uses alphanumeric format with 3-7
-    characters where the first character is alphabetic, second is numeric, third through
-    seventh provide increasing specificity of body site, etiology, severity, and clinical
-    details, with optional seventh characters as extensions for encounter context
-    or injury staging. Major chapters include infectious diseases (A00-B99), neoplasms
-    (C00-D49), endocrine and metabolic disorders (E00-E89), mental and behavioral
-    disorders (F01-F99), nervous system (G00-G99), circulatory (I00-I99), respiratory
-    (J00-J99), digestive (K00-K95), musculoskeletal (M00-M99), and external causes
-    of morbidity (V00-Y99). Critical features include combination codes that capture
-    multiple conditions or manifestations in single codes, placeholder 'x' characters
-    to allow for future expansion, and seventh character extensions for obstetric
-    outcomes, fracture healing status, and diabetes complications. ICD-10-CM drives
-    healthcare reimbursement through diagnosis-related groups (DRGs), enables clinical
-    decision support systems through structured diagnosis data, supports population
-    health analytics identifying disease trends and risk factors, powers epidemiological
-    surveillance for CDC reportable conditions tracking disease outbreaks, and provides
-    standardized terminology for electronic health record (EHR) systems ensuring interoperability.
-    Annual updates released October 1st incorporate new diseases, refined definitions,
-    and code revisions reflecting medical advances, essential for medical billing
-    specialists, clinical coders, health informaticians, public health researchers,
-    and healthcare quality officers.
+  purpose_detail: ICD-10-CM (International Classification of Diseases, Tenth Revision,
+    Clinical Modification) is the United States diagnosis code system maintained by
+    the National Center for Health Statistics for coding diseases, injuries, signs,
+    symptoms, and other reasons for healthcare encounters. It is based on WHO ICD-10
+    and is used in EHRs, claims, quality measurement, public health surveillance,
+    cohort definition, and clinical research. For AI-ready health data, ICD-10-CM
+    provides a widely implemented structured representation of diagnostic concepts
+    that can be mapped into common data models such as OMOP CDM and FHIR, used as
+    features or labels in phenotyping and risk-prediction workflows, and interpreted
+    reproducibly when code-system version, encounter context, and provenance are
+    captured.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:14
-  url: https://www.cdc.gov/nchs/icd/icd-10-cm.htm
+  url: https://www.cdc.gov/nchs/icd/icd-10-cm/index.html
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:197
@@ -11564,7 +11545,12 @@ data_standardortools_collection:
       - Munoz-Torres MC
       ref_publication_year: 2024
   publication:
-    ref_url: ''
+    ref_url: https://www.cdc.gov/nchs/icd/icd-10-cm/index.html
+    ref_title: ICD-10-CM
+    ref_authors:
+    - National Center for Health Statistics
+    ref_publication_year: 2024
+    ref_journal: Centers for Disease Control and Prevention
 - id: B2AI_STANDARD:175
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -13165,50 +13151,18 @@ data_standardortools_collection:
   - B2AI_STANDARD:936
   is_open: true
   name: WFDB Format
-  purpose_detail: The WFDB (WaveForm DataBase) format is a standardized file format
-    for storing physiological waveform data and associated metadata from the MIMIC
-    (Medical Information Mart for Intensive Care) databases, enabling standardized
-    exchange and analysis of high-frequency biomedical signal recordings including
-    electrocardiogram (ECG), blood pressure (BP), pulse oximetry, respiration, and
-    other vital sign waveforms collected from intensive care unit (ICU) patients.
-    WFDB was developed to address the need for a portable, standard way to store physiological
-    data from multiple devices and sources while maintaining temporal alignment and
-    clinical context. The format consists of header files (.hea) containing metadata
-    including number of signals, sampling rate, ADC resolution, signal names and units,
-    data start time, and patient/study identifiers, paired with binary or ASCII data
-    files (.dat) containing the actual waveform samples. Each signal can have different
-    sampling rates enabling efficient storage of signals requiring different temporal
-    resolution (e.g., 1000 Hz for ECG, 125 Hz for respiration). The format includes
-    mechanisms for storing annotations marking significant events (QRS complexes in
-    ECG, arrhythmia episodes, alarm events) enabling labeled datasets for supervised
-    machine learning. WFDB supports variable precision (8-bit to 32-bit) and data
-    compression reducing storage requirements. Applications in biomedical data science
-    and AI/ML include training deep learning models for arrhythmia detection, QRS
-    detection, heart rate variability analysis, and sepsis prediction from ICU waveforms;
-    time series analysis where physiological waveforms enable investigation of cardiovascular
-    dynamics and autonomic nervous system function; signal quality assessment where
-    algorithms identify poor-quality recordings; event detection where machine learning
-    identifies clinically significant patterns (atrial fibrillation, ventricular arrhythmias,
-    apnea events); patient acuity prediction where waveform-derived features (heart
-    rate variability, pulse pressure variation) predict patient deterioration enabling
-    early interventions; and waveform-based diagnosis where patterns in physiological
-    signals support clinical decision-making. Integration with the MIMIC-III and MIMIC-IV
-    databases provides large-scale publicly available ICU waveform datasets enabling
-    reproducible research and algorithm development. Open-source tools including PhysioNet
-    WFDB software, wfdb-python library, and specialized signal processing software
-    provide comprehensive WFDB support. The format facilitates research on physiological
-    signal analysis supporting studies of cardiovascular dynamics, respiratory mechanics,
-    and neuromuscular function. WFDB enables creation of curated datasets with precise
-    temporal annotations supporting machine learning on physiological signals. The
-    format has become standard in critical care research enabling data sharing and
-    collaborative algorithm development. Real-world clinical deployment of WFDB-based
-    algorithms improves patient monitoring in intensive care settings. Longitudinal
-    waveform analysis using WFDB data reveals circadian and longer-term physiological
-    patterns. The format supports multi-modal data collection combining waveforms
-    with laboratory results, medications, and clinical notes providing comprehensive
-    patient context for machine learning model development.
+  purpose_detail: The Waveform Database (WFDB) format is an open family of signal,
+    header, and annotation file conventions for storing physiologic time-series data
+    such as ECG, blood pressure, pulse oximetry, respiration, and event annotations.
+    WFDB records pair machine-readable metadata about channels, sampling rates, units,
+    gains, and timing with signal files and optional annotation files, making high-frequency
+    waveform data reusable across PhysioNet datasets, MIMIC waveform resources, and
+    analysis libraries in C, Python, MATLAB, and other environments. For AI applications,
+    WFDB supports reproducible preprocessing, segmentation, labeling, and benchmarking
+    for models that detect arrhythmias, estimate blood pressure, forecast patient
+    deterioration, assess signal quality, or learn multimodal physiologic representations.
   requires_registration: false
-  url: https://wfdb.io/mimic_wfdb_tutorials/mimic/formatting.html
+  url: https://wfdb.io/spec/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:39
@@ -13349,7 +13303,14 @@ data_standardortools_collection:
       ref_publication_year: 2022
       ref_journal: Cogn Comput
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.13026/gjvw-1m31
+    ref_title: WFDB Software Package
+    ref_authors:
+    - Moody G
+    - Pollard T
+    - Moody B
+    ref_publication_year: 2022
+    ref_journal: PhysioNet
 - id: B2AI_STANDARD:204
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16936,27 +16897,16 @@ data_standardortools_collection:
   - B2AI_STANDARD:916
   is_open: true
   name: Open mHealth
-  purpose_detail: Open mHealth (OMH) is a comprehensive ecosystem of data standards,
-    schemas, and tools designed to make patient-generated health data from mobile
-    devices, wearables, and sensors interoperable, meaningful, and actionable across
-    healthcare and research applications. The OMH data standards provide JSON-based
-    schemas for over 75 common health data types including physical activity (steps,
-    distance, calories burned), vital signs (heart rate, blood pressure, body temperature),
-    sleep metrics, body composition, medications, survey responses, and environmental
-    data. Each schema includes metadata for data provenance (acquisition source, temporal
-    relationship, user notes) enabling proper contextualization and interpretation.
-    OMH tools include Shimmer for integrating data from diverse sources (Fitbit, Apple
-    HealthKit, Google Fit, Withings, iHealth), libraries for data validation and storage,
-    visualization components for detecting health patterns, and FHIR integration capabilities
-    for aligning mobile health data with electronic health records. The platform supports
-    diverse use cases including randomized controlled trials with standardized mobile
-    data collection, remote patient monitoring programs, n-of-1 clinical trial analyses,
-    machine learning algorithm development on normalized health datasets, and patient-reported
-    outcomes integrated with biometric data. OMH is used by over 6,000 developers
-    and health organizations including Cornell Tech, Kaiser Permanente, Stanford Medicine,
-    UCSF, and Copenhagen Center for Health Technology, enabling research reproducibility
-    and clinical care integration by transforming heterogeneous mobile health data
-    into a unified, queryable format.
+  purpose_detail: Open mHealth is an open architecture and schema ecosystem for representing
+    patient-generated and mobile health data from apps, wearables, and sensors in
+    reusable JSON structures. Its schemas cover measures such as heart rate, physical
+    activity, sleep, blood glucose, body measures, and survey responses, with metadata
+    for acquisition source, timing, and context so heterogeneous device streams can
+    be validated, normalized, and linked to clinical or research systems. In AI workflows,
+    Open mHealth helps turn fragmented mobile and wearable feeds into consistent
+    time-series features for behavioral modeling, remote monitoring, n-of-1 studies,
+    prediction of health states, and integration with EHR-oriented standards such
+    as FHIR.
   requires_registration: false
   url: https://www.openmhealth.org/
   used_in_bridge2ai: true
@@ -17011,7 +16961,19 @@ data_standardortools_collection:
       optimization and injury prevention.
     used_in_bridge2ai: false
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.2196/jmir.2152
+    ref_title: 'Making Sense of Mobile Health Data: An Open Architecture to Improve
+      Individual- and Population-Level Health'
+    ref_authors:
+    - Chen C
+    - Haddad D
+    - Selsky J
+    - Hoffman JE
+    - Kravitz RL
+    - Estrin DE
+    - Sim I
+    ref_publication_year: 2012
+    ref_journal: Journal of Medical Internet Research
 - id: B2AI_STANDARD:247
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -20409,13 +20371,20 @@ data_standardortools_collection:
   - B2AI_STANDARD:1021
   is_open: true
   name: VCF
-  purpose_detail: Variant Call Format (VCF) is a text file format (most likely stored
-    in a compressed manner). It contains meta-information lines, a header line, and
-    then data lines each containing information about a position in the genome.
+  purpose_detail: Variant Call Format (VCF) is a tab-delimited genomics format for
+    representing sequence variants, genotypes, annotations, and per-sample call-level
+    metadata relative to a reference genome. A VCF file includes metadata lines that
+    define the file version and INFO/FORMAT fields, a header that identifies samples,
+    and records for variant or reference-call positions with chromosome, position,
+    reference and alternate alleles, quality, filters, annotations, and genotypes.
+    VCF and its binary companion BCF are central interchange formats for variant calling,
+    joint genotyping, imputation, annotation, genome-wide association studies, clinical
+    interpretation, and AI workflows that prioritize pathogenic variants, learn quality
+    filters, or build genomic prediction features from standardized variant records.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:34
-  url: https://en.wikipedia.org/wiki/Variant_Call_Format
+  url: https://samtools.github.io/hts-specs/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:51
@@ -22743,9 +22712,18 @@ data_standardortools_collection:
   - B2AI_STANDARD:969
   is_open: true
   name: JPEG
-  purpose_detail: A method of lossy compression for digital images.
+  purpose_detail: JPEG is a family of still-image coding standards best known for
+    the baseline lossy compression format used by .jpg and .jpeg image files. The
+    format applies color transformation, block-based discrete cosine transform coding,
+    quantization, and entropy coding to reduce file size while preserving perceptual
+    image quality, making it broadly useful for photographic and microscopy-derived
+    images where compact storage and web transfer matter. In biomedical AI, JPEG
+    is commonly encountered in dermatology, ophthalmology, pathology, mobile health,
+    and other image-analysis datasets; model developers must account for compression
+    artifacts, quality settings, and metadata loss when using JPEG images for training,
+    validation, or deployment.
   requires_registration: false
-  url: https://en.wikipedia.org/wiki/JPEG
+  url: https://jpeg.org/jpeg/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:53
@@ -22764,7 +22742,12 @@ data_standardortools_collection:
       techniques that preserve diagnostically relevant features.
     used_in_bridge2ai: false
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/103085.103089
+    ref_title: The JPEG Still Picture Compression Standard
+    ref_authors:
+    - Wallace GK
+    ref_publication_year: 1991
+    ref_journal: Communications of the ACM
 - id: B2AI_STANDARD:345
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
