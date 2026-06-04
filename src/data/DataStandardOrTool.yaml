@@ -16318,24 +16318,16 @@ data_standardortools_collection:
     ref_publication_year: 2015
     ref_journal: Studies in Health Technology and Informatics
   purpose_detail: The Observational Medical Outcomes Partnership (OMOP) Common Data
-    Model is an open community data standard designed to standardize the structure
-    and content of observational healthcare data from electronic health records, administrative
-    claims, registries, and other sources to enable efficient, large-scale analyses
-    that produce reliable evidence. OMOP CDM organizes patient-level data into standardized
-    tables including person, visit, condition occurrence, drug exposure, procedure
-    occurrence, measurement, observation, and device exposure, with relationships
-    linking events to patients and care episodes. The model uses standardized vocabularies
-    (SNOMED CT, RxNorm, LOINC, etc.) mapped through the OHDSI Vocabulary for semantic
-    interoperability, ensuring consistent representation of clinical concepts across
-    diverse healthcare systems. OMOP CDM supports longitudinal patient histories,
-    enables reproducible network studies where the same analytic code runs on data
-    from multiple institutions without sharing patient-level information, and provides
-    the foundation for the OHDSI open-science community's analytical tools including
-    cohort definition, characterization, population-level effect estimation, and patient-level
-    prediction. The standardized schema facilitates federated learning, multi-site
-    clinical research, comparative effectiveness studies, pharmacovigilance, and machine
-    learning applications requiring harmonized features across heterogeneous EHR systems
-    for training predictive models, phenotyping algorithms, and decision support tools.
+    Model is an open OHDSI community standard for harmonizing observational health
+    data from EHRs, claims, registries, and other sources into a consistent relational
+    structure with standardized vocabularies. It represents longitudinal patient
+    data across tables such as person, visit, condition occurrence, drug exposure,
+    procedure, measurement, observation, and device exposure, enabling the same analytic
+    code to run across multiple sites without pooling patient-level records. OMOP
+    CDM supports cohort definition, characterization, population-level effect estimation,
+    patient-level prediction, federated network studies, and AI workflows that need
+    reusable clinical features, transparent phenotype definitions, and comparable
+    validation across heterogeneous healthcare systems.
   related_to:
   - B2AI_STANDARD:733
   - B2AI_STANDARD:692
@@ -23046,21 +23038,58 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: MPEG-4 Part 14 digital multimedia container format
-  formal_specification: https://www.loc.gov/preservation/digital/formats/fdd/fdd000155.shtml
+  formal_specification: https://www.iso.org/standard/79110.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:49
   has_relevant_organization:
   - B2AI_ORG:49
-  is_open: true
+  is_open: false
   name: MPEG-4
-  purpose_detail: A digital multimedia container format most commonly used to store
-    video and audio, but it can also be used to store other data such as subtitles
-    and still images. Like most modern container formats, it allows streaming over
-    the Internet.
+  purpose_detail: MPEG-4 Part 14, commonly represented by MP4 files, is a multimedia
+    container format derived from the ISO Base Media File Format for storing timed
+    audio, video, subtitles, still images, and related metadata. MP4 is widely used
+    for streaming and archival exchange because it can carry multiple codecs and
+    tracks in a single file with indexing that supports efficient playback and seeking.
+    In biomedical AI, MP4 is common in video-based datasets from endoscopy, surgical
+    video, patient-facing mobile recordings, behavioral observation, and respiratory
+    or movement analysis, where models depend on consistent frame extraction, codec
+    handling, timestamps, and metadata-aware preprocessing.
   requires_registration: false
-  url: https://en.wikipedia.org/wiki/MP4_file_format
+  url: https://www.mpeg.org/standards/MPEG-4/14/
+  has_application:
+  - id: B2AI_APP:385
+    category: B2AI:Application
+    name: Video-Based Clinical AI from MP4 Recordings
+    description: MP4 containers are used in clinical and biomedical video pipelines
+      where recordings are decoded into frame sequences for machine learning tasks
+      such as surgical phase recognition, endoscopy finding detection, gait or activity
+      analysis, and remote patient monitoring. The format gives AI workflows a common
+      interchange layer for transporting video, audio, subtitle tracks, and timing
+      metadata, while downstream preprocessing tools extract sampled frames, clips,
+      optical flow, or synchronized audio features for deep learning models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.media.2023.102770
+      ref_title: Comparative validation of machine learning algorithms for surgical
+        workflow and skill analysis with the HeiChole benchmark
+      ref_authors:
+      - Wagner M
+      - Muller-Stich BP
+      - Kisilenko A
+      - Tran D
+      - Heger P
+      - Mundermann L
+      - Bodenstedt S
+      ref_publication_year: 2023
+      ref_journal: Medical Image Analysis
   publication:
-    ref_url: ''
+    ref_url: https://www.iso.org/standard/79110.html
+    ref_title: Information technology -- Coding of audio-visual objects -- Part 14
+      MP4 file format
+    ref_authors:
+    - ISO/IEC JTC 1/SC 29
+    ref_publication_year: 2020
+    ref_journal: ISO/IEC 14496-14:2020
 - id: B2AI_STANDARD:353
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -24500,7 +24529,7 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Research Object Crate
-  formal_specification: https://www.researchobject.org/ro-crate/specification.html
+  formal_specification: https://www.researchobject.org/ro-crate/specification
   has_relevant_organization:
   - B2AI_ORG:116
   has_training_resource:
@@ -24530,66 +24559,16 @@ data_standardortools_collection:
     - Goble C
     ref_publication_year: 2022
     ref_journal: Data Science
-  purpose_detail: 'Research Object Crate (RO-Crate) is a community-developed, lightweight
-    standard for packaging research data, code, workflows, and metadata into self-describing,
-    FAIR-compliant digital objects using Schema.org annotations serialized as JSON-LD,
-    making formal metadata description accessible and practical across diverse research
-    contexts from individual datasets to large-scale computational experiments. Emerging
-    from the Research Object movement and endorsed by communities including WorkflowHub,
-    Australian Research Data Commons (ARDC), and European Open Science Cloud (EOSC),
-    RO-Crate addresses the reproducibility crisis by bundling computational artifacts
-    with their contextual metadata--including authorship, provenance, licensing, computational
-    environment specifications, and relationships among components--in a machine-readable
-    format that enables automated validation, discovery, and reuse without requiring
-    specialized knowledge representation tools. The specification defines a structured
-    directory containing data files, software, documentation, and a standardized ro-crate-metadata.json
-    file at the root that describes the crate''s contents using Schema.org vocabulary
-    (Person, Organization, Dataset, SoftwareApplication, File, CreativeWork) extended
-    with domain-specific types for computational workflows (ComputationalWorkflow,
-    FormalParameter, WorkflowDescription Language), enabling rich representation of
-    research artifacts as connected graphs where entities link to authors, funding
-    agencies, publications, input/output data, and execution environments. RO-Crate
-    supports hierarchical composition where complex research objects nest sub-crates--for
-    example, a parent crate describing a machine learning experiment contains child
-    crates for training data, validation data, model checkpoints, inference code,
-    and evaluation results--each with its own metadata while the parent ro-crate-metadata.json
-    aggregates relationships among components, supporting modular reuse where individual
-    datasets or code components can be extracted and cited independently while maintaining
-    their connection to the larger research context. The format''s lightweight design
-    requires only JSON-LD understanding (widely supported across programming languages)
-    rather than specialized triple stores or OWL reasoners, with human-readable JSON
-    structure enabling researchers to manually create or inspect metadata using text
-    editors while automated tools (ro-crate-py Python library, ro-crate-js JavaScript
-    package, ro-crate-ruby) provide programmatic creation, validation, and parsing
-    capabilities integrating with workflow management systems (Galaxy, Nextflow, Snakemake),
-    electronic lab notebooks (RSpace), data repositories (Zenodo, OSF, institutional
-    repositories), and model registries (Hugging Face, MLflow). Integration with FAIR
-    principles is explicit Findable through required persistent identifiers (DOIs,
-    ORCIDs, ROR for organizations) and rich descriptive metadata; Accessible via standard
-    web protocols with human-readable HTML landing pages generated from JSON-LD metadata;
-    Interoperable through Schema.org''s ubiquitous vocabulary and JSON-LD''s linked
-    data semantics enabling merging and querying across crates; Reusable through explicit
-    licensing (Creative Commons, software licenses), versioning (schema.org/version),
-    and detailed provenance including software versions, parameter settings, and computational
-    environment specifications (Docker images, Conda environments, language versions).
-    RO-Crate profiles enable domain-specific metadata requirements: Workflow RO-Crate
-    for computational workflows with explicit input/output specifications and tool
-    dependencies; ML RO-Crate for machine learning models bundling training data,
-    model artifacts, performance metrics, and deployment requirements; Bioschemas
-    profiles for life sciences data integrating biological annotations. WorkflowHub
-    (workflowhub.eu), a major adopter, uses RO-Crate to package computational workflows
-    from diverse systems (Galaxy, Nextflow, CWL, Snakemake) with consistent metadata
-    enabling cross-platform workflow discovery and reuse, while FAIRSCAPE implements
-    RO-Crate for AI-readiness packaging combining datasets, evidence graphs (EVI provenance),
-    data dictionaries, and validation results in portable bundles supporting explainable
-    AI requirements. For AI/ML applications, RO-Crate enables reproducible model packaging
-    where training datasets, preprocessing scripts, model weights (Safetensors, PyTorch
-    checkpoints), evaluation notebooks, and computational environment specifications
-    travel together with metadata documenting intended use cases, known limitations,
-    bias assessments, and performance benchmarks, supporting regulatory compliance
-    in clinical AI, transparent reporting in publications, and confident model reuse
-    by downstream researchers who can verify exact software versions, hyperparameters,
-    and data provenance before adapting models to new domains.'
+  purpose_detail: Research Object Crate (RO-Crate) is a lightweight, community-developed
+    packaging standard for describing research datasets, software, workflows, outputs,
+    and their relationships using Schema.org terms serialized as JSON-LD. A crate
+    places machine-readable metadata in a root ro-crate-metadata.json file and can
+    bundle or reference files, people, organizations, licenses, identifiers, provenance,
+    workflow definitions, and domain-specific profiles. In AI-ready biomedical data
+    work, RO-Crate provides a portable way to ship datasets with processing scripts,
+    model artifacts, data dictionaries, validation results, evidence graphs, and
+    computational environment details so downstream users can discover, validate,
+    cite, reproduce, and reuse model-training resources.
   requires_registration: false
   url: https://www.researchobject.org/ro-crate/
   used_in_bridge2ai: true
@@ -28458,108 +28437,17 @@ data_standardortools_collection:
   - B2AI_STANDARD:971
   is_open: true
   name: EVI
-  purpose_detail: 'The Evidence Graph Ontology (EVI) extends core concepts from the
-    W3C Provenance Ontology (PROV-O) to provide a formal semantic framework for representing
-    evidence, provenance, and computational reproducibility in biomedical research,
-    specifically designed to support AI-readiness requirements including explainability,
-    auditability, training-data lineage, and transparent model development workflows.
-    Developed within the FAIR (Findable, Accessible, Interoperable, Reusable) data
-    ecosystem and extensively deployed in Bridge2AI projects, EVI enables machine-readable
-    representation of complete evidence chains connecting computational results to
-    their originating datasets, software versions, runtime parameters, execution environments,
-    and responsible personnel, addressing the critical gap between textual descriptions
-    of methods and formal, verifiable records of computational provenance essential
-    for reproducible science and regulatory compliance. The ontology defines classes
-    and properties for modeling Computations (executable processes with specific runtime
-    configurations), Software (versioned code with persistent identifiers), Datasets
-    (input and output data objects with checksums and format specifications), Evidence
-    Graphs (structured provenance networks capturing relationships among these entities
-    via predicates like uses, usedBy, generates, and wasGeneratedBy), and Evidence
-    Objects (nodes in provenance graphs representing specific computational artifacts
-    or data transformations). EVI supports inferential reasoning over evidence graphs
-    through OWL2 semantics, enabling automated queries such as ''trace all datasets
-    contributing to this machine learning model''s training set,'' ''identify which
-    software versions were used to generate features for classifier X,'' or ''verify
-    that all transformation steps from raw clinical data to analysis-ready datasets
-    are documented with checksums and responsible parties.'' The ontology is serialized
-    as JSON-LD for web compatibility and embedded within RO-Crate (Research Object
-    Crate) metadata packages, where EVI graphs coexist with Schema.org and DataCite
-    vocabularies to provide comprehensive dataset documentation combining human-readable
-    descriptions with machine-interpretable provenance. EVI''s integration with persistent
-    identifier systems (Archival Resource Keys/ARKs, Digital Object Identifiers/DOIs)
-    ensures that every node in an evidence graph--whether representing a dataset, software
-    release, computation run, or derived result--can be assigned a globally unique,
-    resolvable identifier, enabling long-term auditability and cross-repository citation
-    of computational artifacts. Applications span FAIRSCAPE (Framework for FAIR and
-    Scalable Computation and Analytics Processing Engine), a production biomedical
-    analytics platform that creates complete EVI evidence graphs for every computational
-    result (Spark jobs, scripts, workflows, containers) with root graph URIs embedded
-    in result metadata and all objects (datasets, software, computations) assigned
-    persistent IDs resolvable to execution details, supporting machine-interpretable
-    provenance and reproducibility; FAIRSCAPE''s AI-readiness extensions that embed
-    EVI provenance graphs within RO-Crate JSON-LD packages alongside data dictionaries,
-    schema definitions, and feature-validation results, with ARK PIDs automatically
-    assigned to RO-Crates, software components, datasets, and computation objects,
-    enabling automated generation of human-readable datasheets from machine-readable
-    provenance to support pre-model explainability (XAI) and training-data readiness
-    assessments; Bridge2AI project guidelines that explicitly recommend EVI (or PROV-O)
-    for machine-readable provenance to trace datasets back to ground-truth sources,
-    document data transformation steps with links to versioned software, identify
-    people and organizations responsible for data collection and processing, and attach
-    checksums for verifiability--practices fundamental to explainable ML, model auditability,
-    and dataset integrity validation; CM4AI (Center for Multi-modal AI) and other
-    Bridge2AI generating consortia that integrate EVI into RO-Crate metadata to connect
-    data files to specific sample identifiers, experiment protocols, and archived
-    software versions (with Zenodo DOIs), enabling reproducible dataset assembly,
-    sample-level provenance tracking, and cross-tool interoperability within ML pipelines;
-    and ML-Ops integration frameworks where EVI evidence graphs are incorporated into
-    ML workflow templates to support defeasible reasoning (reasoning with contestable
-    or revisable claims about data quality and method appropriateness), automated
-    metadata generation from computational logs to populate XAI documentation, and
-    scalable audit trails for model development, training, evaluation, and deployment
-    phases. EVI''s defeasible reasoning capabilities--distinguishing between conclusive
-    evidence and evidence subject to revision or reinterpretation--are particularly
-    valuable for AI/ML contexts where data quality assessments, feature engineering
-    decisions, and model performance evaluations may need to be updated as new validation
-    results or bias analyses become available, with the evidence graph maintaining
-    a complete historical record of all revisions and their justifications. The ontology
-    addresses practical AI/ML workflow requirements: training-data lineage tracing
-    ensures that every feature in a training matrix can be traced through transformation
-    pipelines back to raw instrument readings or clinical observations with documented
-    provenance at each step; transformation tracking links each preprocessing operation
-    (normalization, imputation, feature extraction, data augmentation) to specific
-    software versions, parameter settings, and validation results, enabling reproducibility
-    and error diagnosis; integrity verification embeds checksums, file formats, and
-    validation reports in evidence graphs, supporting automated checks that training
-    data matches expected schemas and quality thresholds before model training commences;
-    and actor attribution records which individuals, teams, or automated processes
-    performed each operation, supporting accountability, credit assignment, and regulatory
-    audits. EVI enables pre-model explainability by documenting dataset characteristics,
-    feature distributions, bias assessments, and data-quality metrics in structured
-    provenance graphs that can be queried to answer questions like ''What geographic
-    regions are represented in the training data?'' or ''Which data transformation
-    introduced missing values in feature X?''--information essential for interpreting
-    model predictions and identifying potential biases before models are trained.
-    Integration with validation frameworks (Frictionless Data for schema validation,
-    Great Expectations for data quality assertions) allows EVI graphs to incorporate
-    validation results as evidence nodes, linking features to pass/fail status on
-    distributional checks, outlier detection, or fairness metrics, and enabling automated
-    gatekeeping where ML pipelines halt if provenance graphs indicate critical validation
-    failures. The ontology''s RO-Crate packaging ensures that EVI provenance travels
-    with datasets across repositories, compute environments, and organizational boundaries,
-    supporting federated learning scenarios where multiple institutions contribute
-    training data and the combined evidence graph documents data sources, harmonization
-    procedures, privacy-preserving transformations, and institutional data use agreements,
-    all resolvable via persistent identifiers without exposing underlying sensitive
-    records. EVI''s adoption within Bridge2AI reflects its alignment with FAIR principles
-    and AI-readiness criteria: Findable through persistent identifiers and searchable
-    metadata repositories, Accessible via resolvable URIs and standard APIs, Interoperable
-    through OWL2/RDF semantics and JSON-LD serialization compatible with web frameworks,
-    and Reusable through explicit licensing, detailed provenance, and validation records
-    that enable confident reuse of datasets and computational workflows across projects
-    and institutions.'
+  purpose_detail: The Evidence Graph Ontology (EVI) is an OWL2 vocabulary that extends
+    W3C PROV-O concepts to represent scientific claims, evidence, computations, datasets,
+    software, and provenance relationships in machine-readable evidence graphs. It
+    is used with FAIRSCAPE and RO-Crate packaging to connect computational results
+    to input data, software versions, parameters, responsible agents, identifiers,
+    checksums, validation results, and supporting publications. For AI-readiness,
+    EVI supports traceable training-data lineage, reproducible feature generation,
+    audit trails for model development, pre-model explainability, and automated checks
+    that downstream users can query to understand how data and results were produced.
   requires_registration: false
-  url: https://evidencegraph.github.io/EVI/index.html
+  url: https://fairscape.github.io/EVI/index.html
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:232
@@ -28966,9 +28854,15 @@ data_standardortools_collection:
       evidence graphs that might propagate systematic errors into model predictions.
     used_in_bridge2ai: false
     references:
-    - ref_url: https://openreview.net/pdf?id=cYAFwjY2bY
+  - ref_url: https://openreview.net/pdf?id=cYAFwjY2bY
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.5281/zenodo.4630931
+    ref_title: 'EVI: The Evidence Graph Ontology, OWL 2 Vocabulary'
+    ref_authors:
+    - Al Manir S
+    - Clark T
+    ref_publication_year: 2021
+    ref_journal: Zenodo
 - id: B2AI_STANDARD:445
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -39995,47 +39889,17 @@ data_standardortools_collection:
     - Conde JG
     ref_publication_year: 2009
     ref_journal: Journal of Biomedical Informatics
-  purpose_detail: REDCap (Research Electronic Data Capture) is a mature, metadata-driven
-    software platform designed for building and managing online databases and surveys
-    for clinical and translational research studies, developed at Vanderbilt University
-    and now maintained by an international consortium of over 6,000 institutional
-    partners across 150 countries. The platform provides a comprehensive web-based
-    application with an intuitive interface for rapid development of electronic data
-    capture instruments using a data dictionary that defines field types, validation
-    rules, branching logic, and calculated fields without requiring programming expertise.
-    Core features include secure user authentication with role-based access controls,
-    audit trails tracking all data changes with timestamps and user attribution, automated
-    data quality checks through validation rules and range constraints, repeating
-    instruments and events for longitudinal data collection, survey distribution with
-    public and private links, and mobile-responsive data entry forms accessible from
-    any device. REDCap supports complex study designs through its project management
-    capabilities including multi-site studies, randomization modules, scheduling and
-    calendar features, file upload repositories, and automated survey invitations
-    with customizable reminder logic. The platform emphasizes data security and regulatory
-    compliance with HIPAA-compatible infrastructure, 21 CFR Part 11 validation documentation,
-    encrypted data transmission and storage, automatic de-identification tools for
-    exporting datasets, and comprehensive logging for audit purposes. REDCap's extensibility
-    is enabled through a robust RESTful API supporting programmatic data import/export,
-    project metadata retrieval, and integration with external systems, plus the REDCap
-    External Modules framework allowing custom functionality development. The Clinical
-    Data Interoperability Services (CDIS) extension provides FHIR-based integration
-    enabling bidirectional data exchange with electronic health records, supporting
-    real-time EHR data extraction and write-back capabilities. Data analysis features
-    include built-in descriptive statistics, graphical data visualization, data export
-    to multiple formats (CSV, SPSS, SAS, R, Stata, Excel), and the REDCap-ETL tool
-    for transforming and loading data into relational databases for advanced analytics.
-    The platform has been extensively adopted in AI and machine learning workflows
-    as a standardized data capture layer feeding training datasets, with documented
-    applications spanning multimodal ML combining clinical tabular data with imaging
-    features, federated rare disease registries supporting deep learning on aggregated
-    cohorts, in-app risk scoring and triage algorithms implemented via calculated
-    fields, reproducible ETL pipelines to SQLite/Python/scikit-learn for nuclear medicine
-    ML, FHIR-mediated interoperable AI data pipelines for oncology research, and prospective
-    ML model monitoring frameworks with continuous retraining tied to REDCap-collected
-    outcomes. REDCap's metadata-driven architecture, standardized common data elements
-    support, API-driven ETL capabilities, and integration with research informatics
-    ecosystems make it essential infrastructure for rigorous, reproducible clinical
-    research and AI-ready biomedical data collection.
+  purpose_detail: REDCap (Research Electronic Data Capture) is a metadata-driven,
+    web-based platform for building secure research databases, case report forms,
+    and surveys for clinical and translational studies. Projects are defined through
+    data dictionaries with field types, validation rules, branching logic, calculated
+    fields, longitudinal events, user roles, and audit trails, enabling non-programmers
+    to create structured data-capture workflows while preserving provenance and data
+    quality. REDCap's API, export tools, external modules, and FHIR-oriented Clinical
+    Data Interoperability Services make it a common upstream data source for AI pipelines
+    that require standardized clinical variables, multi-site cohort collection, reproducible
+    ETL, model monitoring outcomes, and links between EHR-derived and research-collected
+    data.
   requires_registration: true
   url: https://www.project-redcap.org/
   used_in_bridge2ai: true
