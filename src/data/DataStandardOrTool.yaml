@@ -53581,3 +53581,83 @@ data_standardortools_collection:
     ref_url: https://agentskills.io/specification
     ref_title: Agent Skills Specification
     ref_journal: Agent Skills
+- id: B2AI_STANDARD:1148
+  category: B2AI_STANDARD:Registry
+  collection:
+  - dataregistry
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NHGRI-EBI Catalog of human genome-wide association studies
+  formal_specification: https://www.ebi.ac.uk/gwas/docs/programmatic-access
+  has_relevant_organization:
+  - B2AI_ORG:29
+  - B2AI_ORG:73
+  is_open: true
+  name: GWAS Catalog
+  purpose_detail: The NHGRI-EBI GWAS Catalog is a curated, open, FAIR knowledgebase
+    and deposition resource for human genome-wide association study results. It captures
+    publications, studies, ancestries, traits, variants, mapped genes, association
+    statistics, genome-wide significant lead associations, and full summary-statistics
+    datasets where available, with standardized trait annotation and harmonized study
+    metadata. The Catalog supports web search, bulk downloads, summary-statistics
+    access, and programmatic APIs, making it a central registry for connecting genetic
+    variation to complex traits and diseases. For AI/ML, GWAS Catalog data can supply
+    variant-trait labels, summary statistics, locus metadata, ancestry descriptors,
+    and benchmarkable genetic evidence for causal-gene prioritization, fine mapping,
+    polygenic risk score development, drug-target discovery, and knowledge-graph
+    construction.
+  requires_registration: false
+  url: https://www.ebi.ac.uk/gwas/
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:425
+    category: B2AI:Application
+    name: GWAS Catalog Loci for Open Targets Genetics Machine-Learning Gene Prioritization
+    description: Open Targets Genetics used GWAS Catalog data together with UK Biobank
+      associations and functional genomics evidence to fine-map published human GWAS
+      loci and train a machine-learning locus-to-gene model. The workflow processed
+      GWAS Catalog lead loci, integrated transcriptomic, proteomic, epigenomic, and
+      colocalization features, and trained on curated gold-standard GWAS loci to
+      distinguish likely causal genes from neighboring genes. This demonstrates a
+      concrete AI/ML use of the GWAS Catalog because curated variant-trait associations
+      provide a standardized input layer for systematic causal variant and gene prioritization
+      across disease-associated loci.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41588-021-00945-5
+      ref_title: An open approach to systematically prioritize causal variants and
+        genes at all published human GWAS trait-associated loci
+      ref_publication_year: 2021
+      ref_journal: Nature Genetics
+    - ref_url: https://www.ebi.ac.uk/gwas/
+      ref_title: GWAS Catalog
+      ref_journal: EMBL-EBI
+    - ref_url: https://academic.oup.com/nar/article/53/D1/D998/7893318
+      ref_title: 'The NHGRI-EBI GWAS Catalog: standards for reusability, sustainability
+        and diversity'
+      ref_publication_year: 2025
+      ref_journal: Nucleic Acids Research
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkae1070
+    ref_title: 'The NHGRI-EBI GWAS Catalog: standards for reusability, sustainability
+      and diversity'
+    ref_authors:
+    - Cerezo M
+    - Sollis E
+    - Ji Y
+    - Lewis E
+    - Abid A
+    - Bircan KO
+    - Hall P
+    - Hayhurst J
+    - John S
+    - Mosaku A
+    ref_publication_year: 2025
+    ref_journal: Nucleic Acids Research
