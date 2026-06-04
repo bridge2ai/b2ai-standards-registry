@@ -53396,3 +53396,188 @@ data_standardortools_collection:
     ref_url: https://stacspec.org/en/about/stac-spec/
     ref_title: The STAC Specification
     ref_journal: STAC Community
+- id: B2AI_STANDARD:1146
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Model Context Protocol
+  formal_specification: https://modelcontextprotocol.io/specification/2025-11-25
+  is_open: true
+  name: MCP
+  purpose_detail: The Model Context Protocol (MCP) is an open protocol for connecting
+    AI applications and agents to external systems such as data sources, local files,
+    databases, tools, prompts, and workflows. The specification defines a JSON-RPC-based
+    protocol between hosts, clients, and servers, with capabilities for resources,
+    tools, prompts, roots, sampling, elicitation, progress, logging, cancellation,
+    and error handling. For biomedical AI/ML, MCP is relevant as an interoperability
+    standard for building agentic systems that can safely discover and invoke dataset
+    services, analysis tools, terminology resources, document stores, workflow engines,
+    and other specialized infrastructure through a common protocol rather than bespoke
+    integrations for each application.
+  requires_registration: false
+  url: https://modelcontextprotocol.io/
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:421
+    category: B2AI:Application
+    name: BioMCP Biomedical Database Access for Research Agents
+    description: BioMCP is an implemented MCP server and command-line toolkit that
+      exposes biomedical literature, clinical-trial, variant, gene, drug, disease,
+      pathway, protein, pharmacogenomics, adverse-event, GWAS, phenotype, and local
+      study-analysis workflows through a common command surface. Its documented entity
+      surface connects agent clients to sources such as PubMed/PubTator3 and Europe
+      PMC for articles, ClinicalTrials.gov and NCI CTS for trials, MyVariant.info,
+      ClinVar, gnomAD, CIViC, OncoKB, cBioPortal, and GWAS Catalog for variants,
+      and multiple other biomedical databases for cross-entity pivots. This makes
+      MCP concrete in biomedical AI because an assistant can search articles, retrieve
+      trial protocols or outcomes, annotate a variant such as BRAF V600E, pivot from
+      genes to trials or articles, and run local cBioPortal-style study analytics
+      through a standardized MCP interface rather than hand-built connectors.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://biomcp.org/
+      ref_title: BioMCP
+      ref_journal: BioMCP documentation
+    - ref_url: https://github.com/genomoncology/biomcp
+      ref_title: 'BioMCP: Biomedical Model Context Protocol'
+      ref_journal: GitHub
+    - ref_url: https://biomcp.org/how-to-guides/03-get-comprehensive-variant-annotations/
+      ref_title: Analyzing Variants
+      ref_journal: BioMCP documentation
+    - ref_url: https://academic.oup.com/bib/article/27/1/bbag076/8495038
+      ref_title: 'MCPmed: a call for Model Context Protocol-enabled bioinformatics
+        web services for LLM-driven discovery'
+      ref_publication_year: 2026
+      ref_journal: Briefings in Bioinformatics
+  - id: B2AI_APP:423
+    category: B2AI:Application
+    name: MCPmed Bioinformatics Web Services for LLM-Driven Discovery
+    description: MCPmed demonstrates MCP-enabled access to bioinformatics web services
+      by converting widely used resources such as Gene Expression Omnibus, STRING,
+      UCSC Cell Browser, and PLSDB into machine-actionable services for LLM agents.
+      The application addresses the gap between human-oriented web interfaces and
+      agent-driven discovery by exposing endpoints with scientific concepts, metadata,
+      and structured tool access. In practice, this lets biomedical agents explore
+      gene-expression datasets, protein interaction networks, single-cell browser
+      datasets, and plasmid resources through MCP implementations or lightweight
+      breadcrumbs, supporting more reproducible and automatable bioinformatics research
+      workflows than manual web navigation alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://academic.oup.com/bib/article/27/1/bbag076/8495038
+      ref_title: 'MCPmed: a call for Model Context Protocol-enabled bioinformatics
+        web services for LLM-driven discovery'
+      ref_publication_year: 2026
+      ref_journal: Briefings in Bioinformatics
+    - ref_url: https://pubmed.ncbi.nlm.nih.gov/41729821/
+      ref_title: 'MCPmed: a call for Model Context Protocol-enabled bioinformatics
+        web services for LLM-driven discovery'
+      ref_publication_year: 2026
+      ref_journal: PubMed
+    - ref_url: https://mcpmed.org/
+      ref_title: MCPMed, Bioinformatics Model Context Protocol Hub
+      ref_journal: MCPMed
+    - ref_url: https://www.mcpmed.org/browse
+      ref_title: Browse MCPs
+      ref_journal: MCPMed
+  publication:
+    ref_url: https://modelcontextprotocol.io/specification/2025-11-25
+    ref_title: Model Context Protocol Specification
+    ref_publication_year: 2025
+    ref_journal: Model Context Protocol
+- id: B2AI_STANDARD:1147
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:55
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Agent Skills open format
+  formal_specification: https://agentskills.io/specification
+  is_open: true
+  name: Agent Skills
+  purpose_detail: Agent Skills is a lightweight, open format for extending AI agent
+    capabilities with specialized knowledge, instructions, workflows, scripts, reference
+    materials, templates, and other resources. A skill is represented as a directory
+    containing a required SKILL.md file with YAML frontmatter and Markdown instructions,
+    plus optional directories such as scripts, references, and assets. The format
+    is designed for progressive disclosure so agents can first inspect compact metadata
+    such as name and description, then load full instructions and supporting resources
+    only when a task requires them. For biomedical AI/ML, Agent Skills can package
+    repeatable analysis, curation, documentation, and data-handling workflows so
+    agentic systems can apply domain-specific procedures consistently across compatible
+    clients.
+  related_to:
+  - B2AI_STANDARD:1146
+  requires_registration: false
+  url: https://agentskills.io/home
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:422
+    category: B2AI:Application
+    name: OpenClaw Molecule Evolution Skill for Medicinal Chemistry Agents
+    description: OpenClaw Medical Skills includes a molecule-evolution-agent skill
+      that packages a drug-discovery workflow as a SKILL.md-based agent capability.
+      The skill describes an autonomous medicinal-chemist task in which an agent
+      starts from a seed molecule, uses an LLM to suggest chemically plausible SMILES
+      modifications, scores each candidate, keeps the best molecule, and reports
+      the top candidate and evolution history for a target protein such as GPRC5D.
+      This is a concrete biomedical application of the Agent Skills pattern because
+      the workflow is represented as a discoverable skill directory with frontmatter,
+      instructions, allowed tools, and an executable Python script that an agent
+      can load and run for lead optimization, de novo molecular design, or medicinal-chemistry
+      idea generation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills/molecule-evolution-agent
+      ref_title: OpenClaw Medical Skills molecule-evolution-agent
+      ref_journal: GitHub
+    - ref_url: https://raw.githubusercontent.com/FreedomIntelligence/OpenClaw-Medical-Skills/main/skills/molecule-evolution-agent/SKILL.md
+      ref_title: molecule-evolution-agent SKILL.md
+      ref_journal: OpenClaw Medical Skills
+    - ref_url: https://raw.githubusercontent.com/FreedomIntelligence/OpenClaw-Medical-Skills/main/skills/molecule-evolution-agent/evolution_agent.py
+      ref_title: molecule-evolution-agent evolution_agent.py
+      ref_journal: OpenClaw Medical Skills
+    - ref_url: https://eliteai.tools/agent-skills/molecule-evolution-agent
+      ref_title: molecule-evolution-agent
+      ref_journal: EliteAI.tools
+  - id: B2AI_APP:424
+    category: B2AI:Application
+    name: ToolUniverse Rare Disease Diagnosis Skill for Phenotype-Driven Triage
+    description: The ToolUniverse rare-disease diagnosis skill packages a concrete
+      clinical-genomics workflow as an agent skill for suspected rare disease cases.
+      Its SKILL.md directs the agent to create a report first, convert symptoms to
+      Human Phenotype Ontology terms, search Orphanet and OMIM, cross-reference gene-disease
+      evidence, prioritize genes for testing, interpret variants with ClinVar and
+      gnomAD, and synthesize a ranked differential diagnosis with citations and next
+      steps. This is a specific biomedical use of the Agent Skills pattern because
+      phenotype standardization, disease matching, gene-panel construction, variant
+      interpretation, and evidence reporting are bundled as a reusable skill directory
+      that agents can load for rare-disease diagnostic support.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills/tooluniverse-rare-disease-diagnosis
+      ref_title: OpenClaw Medical Skills tooluniverse-rare-disease-diagnosis
+      ref_journal: GitHub
+    - ref_url: https://raw.githubusercontent.com/FreedomIntelligence/OpenClaw-Medical-Skills/main/skills/tooluniverse-rare-disease-diagnosis/SKILL.md
+      ref_title: tooluniverse-rare-disease-diagnosis SKILL.md
+      ref_journal: OpenClaw Medical Skills
+    - ref_url: https://trustedskills.dev/skills/tooluniverse-rare-disease-diagnosis
+      ref_title: Tooluniverse Rare Disease Diagnosis Agent Skill
+      ref_journal: TrustedSkills
+    - ref_url: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills
+      ref_title: OpenClaw Medical Skills
+      ref_journal: GitHub
+  publication:
+    ref_url: https://agentskills.io/specification
+    ref_title: Agent Skills Specification
+    ref_journal: Agent Skills
