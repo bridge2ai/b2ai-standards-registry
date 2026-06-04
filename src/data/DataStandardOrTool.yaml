@@ -53251,3 +53251,87 @@ data_standardortools_collection:
   url: https://www.ndss.com.au/health-professionals/supporting-emotional-health/mental-health-questionnaires/paid-scale/
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1144
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:55
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Croissant metadata standard for ML-ready datasets
+  formal_specification: https://docs.mlcommons.org/croissant/docs/croissant-spec-1.1.html
+  is_open: true
+  name: Croissant
+  purpose_detail: Croissant is an open, community-built metadata vocabulary for machine
+    learning datasets developed through MLCommons. It extends Schema.org and uses
+    JSON-LD to describe dataset-level metadata, distributions, file objects, file
+    sets, record sets, fields, provenance, usage conditions, and responsible AI documentation
+    in a way that is both discoverable on the web and actionable by machine-learning
+    tools. The standard is intended to make datasets easier to find, understand,
+    govern, load, reproduce, and reuse across repositories and frameworks such as
+    TensorFlow, JAX, and PyTorch, while remaining extensible for domains including
+    life sciences, geospatial data, digital humanities, and responsible AI.
+  related_to:
+  - B2AI_STANDARD:904
+  requires_registration: false
+  url: https://mlcommons.org/working-groups/data/croissant/
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:419
+    category: B2AI:Application
+    name: Croissant Metadata for Discoverable and Loadable ML Datasets
+    description: Croissant descriptions make ML datasets discoverable through dataset
+      search, understandable through structured documentation, and directly loadable
+      by ML tooling. A Croissant record declares dataset conformance, schema.org dataset
+      metadata, file distributions, record sets, fields, extraction rules, provenance,
+      permissions, and responsible AI attributes so that dataset repositories and
+      model-development pipelines can exchange a common machine-readable description.
+      This supports reproducible AI/ML workflows by reducing custom parsing, preserving
+      dataset context, and allowing models, agents, or data catalogs to evaluate
+      whether a dataset is suitable for a given training, evaluation, governance,
+      or audit task.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://mlcommons.org/working-groups/data/croissant/
+      ref_title: Croissant
+      ref_journal: MLCommons
+    - ref_url: https://docs.mlcommons.org/croissant/docs/croissant-spec-1.1.html
+      ref_title: Croissant Format Specification
+      ref_publication_year: 2026
+      ref_journal: MLCommons
+    - ref_url: https://doi.org/10.1145/3650203.3663326
+      ref_title: 'Croissant: A Metadata Format for ML-Ready Datasets'
+      ref_publication_year: 2024
+      ref_journal: Proceedings of the Eighth Workshop on Data Management for End-to-End
+        Machine Learning
+  publication:
+    ref_url: https://doi.org/10.1145/3650203.3663326
+    ref_title: 'Croissant: A Metadata Format for ML-Ready Datasets'
+    ref_authors:
+    - Akhtar M
+    - Benjelloun O
+    - Conforti C
+    - Gijsbers P
+    - Giner-Miguelez J
+    - Jain N
+    - Kuchnik M
+    - Lhoest Q
+    - Marcenac P
+    - Maskey M
+    - Mattson P
+    - Oala L
+    - Ruyssen P
+    - Shinde R
+    - Simperl E
+    - Thomas G
+    - Tykhonov S
+    - Vanschoren J
+    - van der Velde J
+    - Vogler S
+    - Wu CJ
+    ref_publication_year: 2024
+    ref_journal: Proceedings of the Eighth Workshop on Data Management for End-to-End
+      Machine Learning
