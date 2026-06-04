@@ -3013,6 +3013,7 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Case Report Tabulation Data Definition Specification
+  formal_specification: https://www.cdisc.org/standards/data-exchange/define-xml
   is_open: true
   name: Define
   purpose_detail: The CDISC Case Report Tabulation Data Definition Specification (define.xml)
@@ -3037,8 +3038,28 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:15
   url: https://www.cdisc.org/standards/data-exchange/define-xml
+  has_application:
+  - id: B2AI_APP:391
+    category: B2AI:Application
+    name: Machine-Readable Trial Dataset Metadata for Regulatory Review
+    description: Define-XML is used to describe the datasets, variables, controlled
+      terminology, value-level metadata, derivations, and analysis-result metadata
+      that accompany CDISC SDTM, SEND, and ADaM datasets in electronic regulatory
+      submissions. In this role, define.xml provides a machine-readable data definition
+      layer that reviewers and validation tools can use to understand how submitted
+      clinical-study data are structured and how variables should be interpreted.
+      For AI-ready clinical research data, this metadata layer supports automated
+      checks, data lineage review, feature provenance, and reproducible reuse of
+      trial datasets in downstream analytics.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.cdisc.org/standards/data-exchange/define-xml
+      ref_title: Define-XML
+      ref_journal: CDISC
   publication:
-    ref_url: ''
+    ref_url: https://www.cdisc.org/standards/data-exchange/define-xml
+    ref_title: Define-XML
+    ref_journal: CDISC
 - id: B2AI_STANDARD:41
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -6718,12 +6739,16 @@ data_standardortools_collection:
   - B2AI_STANDARD:922
   is_open: true
   name: DICOM Part 6
-  purpose_detail: This Part of the DICOM Standard is PS 3.6 of a multi-part standard
-    produced to facilitate the interchange of information between digital imaging
-    computer systems in medical environments. This interchange will enhance diagnostic
-    imaging and potentially other clinical applications. The multi-part DICOM Standard
-    covers the protocols and data that shall be supplied to achieve this interchange
-    of information.
+  purpose_detail: DICOM Part 6 (PS3.6) is the DICOM Data Dictionary, the authoritative
+    registry of data elements, value representations, unique identifiers, transfer
+    syntaxes, service-object-pair classes, and related coded attributes used across
+    the DICOM standard. It defines the tags and metadata vocabulary that allow imaging
+    systems, PACS archives, viewers, de-identification tools, and AI pipelines to
+    interpret image objects consistently. For biomedical AI/ML, Part 6 is important
+    because model-ready imaging datasets often depend on DICOM metadata for modality
+    filtering, body-part and protocol identification, acquisition-parameter quality
+    control, cohort selection, provenance retention, and safe conversion from clinical
+    DICOM objects into analysis formats.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -6731,8 +6756,32 @@ data_standardortools_collection:
   - B2AI_STANDARD:98
   url: https://www.dicomstandard.org/current
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:399
+    category: B2AI:Application
+    name: DICOM Metadata Dictionary for Medical-Imaging AI Routing and Curation
+    description: DICOM Part 6 supplies the standardized data-element dictionary used
+      to interpret metadata fields in medical-imaging AI workflows. In routing and
+      preprocessing systems, DICOM tags identify modality, body part, series description,
+      acquisition parameters, pixel spacing, patient/study context, and derivation
+      provenance so that images can be selected for the correct model, quality-checked,
+      de-identified, and transformed reproducibly. This metadata layer is used alongside
+      image pixels in AI dataset preparation and can support automated body-part
+      classification, series routing, and model-specific filtering before inference.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://www.dicomstandard.org/standards/view/data-dictionary
+      ref_title: DICOM PS3.6 Data Dictionary
+      ref_journal: DICOM Standard
+    - ref_url: https://doi.org/10.48550/arxiv.2108.06490
+      ref_title: 'DICOM Imaging Router: An Open Deep Learning Framework for Classification
+        of Body Parts from DICOM X-ray Scans'
+      ref_publication_year: 2021
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://www.dicomstandard.org/standards/view/data-dictionary
+    ref_title: DICOM PS3.6 Data Dictionary
+    ref_journal: DICOM Standard
 - id: B2AI_STANDARD:96
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -10250,18 +10299,41 @@ data_standardortools_collection:
   formal_specification: https://github.com/tdwg/guid-as
   is_open: true
   name: GUID-AS
-  purpose_detail: GUIDs are Globally Unique Identifiers which should be referentially
-    consistent and resolvable in order to support tests of uniqueness and the acquisition
-    of associated metadata. Further, permanent and robust resolution services need
-    to be available. The TDWG Globally Unique Identifiers Task Group (TDWG GUID),
-    after meeting twice in 2006, recommended the use of the Life Sciences Identifiers
-    (LSID) to uniquely identify shared data objects in the biodiversity domain.
+  purpose_detail: The TDWG GUID and Life Sciences Identifiers Applicability Statements
+    provide guidance for assigning globally unique, persistent, and resolvable identifiers
+    to biodiversity and life-science data objects. The standard explains how GUIDs
+    should support uniqueness checks, metadata retrieval, persistence, and stable
+    resolution services, and it gives LSID-specific guidance for identifying shared
+    biodiversity data objects. For computational reuse, GUID-AS helps ensure that
+    occurrence records, taxon concepts, specimens, sequence-linked observations,
+    and related biodiversity entities can be cited, dereferenced, reconciled across
+    databases, and used as stable identifiers in data integration and AI/ML pipelines.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:93
   url: http://www.tdwg.org/standards/150
+  has_application:
+  - id: B2AI_APP:392
+    category: B2AI:Application
+    name: Stable Biodiversity Object Identifiers for Data Integration
+    description: GUID-AS supports biodiversity data integration by specifying identifier
+      behavior for shared data objects that must remain uniquely identifiable across
+      distributed databases, portals, and data aggregators. In practical workflows,
+      these identifiers allow software agents to retrieve object metadata, reconcile
+      duplicate or related records, and maintain references to specimens, taxa, and
+      observations as datasets are merged or republished. This stable-identifier
+      layer is important for AI/ML workflows that combine biodiversity, genomic,
+      environmental, or ecological data because training examples and derived features
+      can be traced back to persistent source objects.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.tdwg.org/standards/guid-as/
+      ref_title: GUID and Life Sciences Identifiers Applicability Statements
+      ref_journal: TDWG
   publication:
-    ref_url: ''
+    ref_url: https://www.tdwg.org/standards/guid-as/
+    ref_title: GUID and Life Sciences Identifiers Applicability Statements
+    ref_journal: TDWG
 - id: B2AI_STANDARD:146
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -10832,15 +10904,52 @@ data_standardortools_collection:
   formal_specification: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
   is_open: true
   name: BPPC
-  purpose_detail: A mechanism to record the patient privacy consent(s) and a method
-    for Content Consumers to use to enforce the privacy consent appropriate to the
-    use.
+  purpose_detail: IHE Basic Patient Privacy Consents (BPPC) defines an interoperability
+    profile for recording a patient's privacy-consent decisions and making those
+    consent documents available to systems that retrieve, exchange, or consume health
+    information. The profile is used in IHE/XDS-style health information exchange
+    environments to associate clinical content with opt-in, opt-out, or policy-specific
+    consent assertions so that downstream content consumers can enforce the appropriate
+    access decision. For biomedical AI/ML workflows, BPPC is most relevant as a governance
+    and data-access control layer because consent status can determine whether clinical
+    documents, images, or longitudinal EHR data are eligible for cohort discovery,
+    secondary-use dataset assembly, model validation, or deployment-time decision
+    support.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:46
   url: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
+  has_application:
+  - id: B2AI_APP:400
+    category: B2AI:Application
+    name: Consent-Aware Cohort Assembly for Healthcare AI
+    description: BPPC can be used as an interoperable consent record in health information
+      exchange systems that supply data for analytics or AI/ML model development.
+      By representing whether a patient has authorized particular document-sharing
+      policies, BPPC gives data platforms a computable signal for excluding, including,
+      or restricting clinical records during cohort discovery, training-set creation,
+      and secondary-use review. This is especially important for healthcare AI projects
+      where model development depends on large EHR or imaging datasets but must still
+      respect patient privacy preferences and local data-use policies.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
+      ref_title: IHE IT Infrastructure Technical Framework Volume 1, Chapter 19 Basic
+        Patient Privacy Consents
+      ref_journal: Integrating the Healthcare Enterprise
+    - ref_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3200153/
+      ref_title: Architecture of a consent management suite and integration into
+        IHE-based regional health information networks
+      ref_publication_year: 2011
+      ref_journal: BMC Medical Informatics and Decision Making
+    - ref_url: https://www.ncbi.nlm.nih.gov/books/NBK605945/
+      ref_title: Artificial Intelligence in Health Care
+      ref_journal: National Academies Press
   publication:
-    ref_url: ''
+    ref_url: https://profiles.ihe.net/ITI/TF/Volume1/ch-19.html
+    ref_title: IHE IT Infrastructure Technical Framework Volume 1, Chapter 19 Basic
+      Patient Privacy Consents
+    ref_journal: Integrating the Healthcare Enterprise
 - id: B2AI_STANDARD:163
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -11280,40 +11389,21 @@ data_standardortools_collection:
   - B2AI_STANDARD:935
   is_open: true
   name: ICD-10-CM
-  purpose_detail: ICD-10-CM (International Classification of Diseases, 10th Revision,
-    Clinical Modification) is the United States' clinical modification of the WHO's
-    ICD-10 classification system, mandated for reporting diagnoses and health conditions
-    in all healthcare settings for billing, epidemiology, quality measurement, and
-    public health surveillance since October 2015. Maintained by the National Center
-    for Health Statistics (NCHS) in collaboration with CMS, ICD-10-CM provides over
-    70,000 diagnosis codes with significantly expanded granularity compared to ICD-9-CM,
-    enabling more precise documentation of disease severity, anatomical location,
-    episode of care (initial encounter, subsequent encounter, sequela), and laterality
-    (left, right, bilateral). The coding structure uses alphanumeric format with 3-7
-    characters where the first character is alphabetic, second is numeric, third through
-    seventh provide increasing specificity of body site, etiology, severity, and clinical
-    details, with optional seventh characters as extensions for encounter context
-    or injury staging. Major chapters include infectious diseases (A00-B99), neoplasms
-    (C00-D49), endocrine and metabolic disorders (E00-E89), mental and behavioral
-    disorders (F01-F99), nervous system (G00-G99), circulatory (I00-I99), respiratory
-    (J00-J99), digestive (K00-K95), musculoskeletal (M00-M99), and external causes
-    of morbidity (V00-Y99). Critical features include combination codes that capture
-    multiple conditions or manifestations in single codes, placeholder 'x' characters
-    to allow for future expansion, and seventh character extensions for obstetric
-    outcomes, fracture healing status, and diabetes complications. ICD-10-CM drives
-    healthcare reimbursement through diagnosis-related groups (DRGs), enables clinical
-    decision support systems through structured diagnosis data, supports population
-    health analytics identifying disease trends and risk factors, powers epidemiological
-    surveillance for CDC reportable conditions tracking disease outbreaks, and provides
-    standardized terminology for electronic health record (EHR) systems ensuring interoperability.
-    Annual updates released October 1st incorporate new diseases, refined definitions,
-    and code revisions reflecting medical advances, essential for medical billing
-    specialists, clinical coders, health informaticians, public health researchers,
-    and healthcare quality officers.
+  purpose_detail: ICD-10-CM (International Classification of Diseases, Tenth Revision,
+    Clinical Modification) is the United States diagnosis code system maintained by
+    the National Center for Health Statistics for coding diseases, injuries, signs,
+    symptoms, and other reasons for healthcare encounters. It is based on WHO ICD-10
+    and is used in EHRs, claims, quality measurement, public health surveillance,
+    cohort definition, and clinical research. For AI-ready health data, ICD-10-CM
+    provides a widely implemented structured representation of diagnostic concepts
+    that can be mapped into common data models such as OMOP CDM and FHIR, used as
+    features or labels in phenotyping and risk-prediction workflows, and interpreted
+    reproducibly when code-system version, encounter context, and provenance are
+    captured.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:14
-  url: https://www.cdc.gov/nchs/icd/icd-10-cm.htm
+  url: https://www.cdc.gov/nchs/icd/icd-10-cm/index.html
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:197
@@ -11564,7 +11654,12 @@ data_standardortools_collection:
       - Munoz-Torres MC
       ref_publication_year: 2024
   publication:
-    ref_url: ''
+    ref_url: https://www.cdc.gov/nchs/icd/icd-10-cm/index.html
+    ref_title: ICD-10-CM
+    ref_authors:
+    - National Center for Health Statistics
+    ref_publication_year: 2024
+    ref_journal: Centers for Disease Control and Prevention
 - id: B2AI_STANDARD:175
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -12398,16 +12493,48 @@ data_standardortools_collection:
   - B2AI_STANDARD:1084
   is_open: true
   name: mmCIF
-  purpose_detail: PDBx/mmCIF became the standard PDB archive format in 2014. All PDB
-    data processing and annotation will be performed using PDBx/mmCIF at all wwPDB
-    sites. PDBx/mmCIF consists of categories of information represented as tables
-    and keyword value pairs.
+  purpose_detail: PDBx/mmCIF is the extensible macromolecular Crystallographic Information
+    Framework used as the standard archival representation for structures in the
+    worldwide Protein Data Bank. It represents coordinates, experimental context,
+    assemblies, sequences, restraints, validation information, and related annotations
+    as dictionary-defined categories and data items rather than as fixed-width text.
+    This makes mmCIF a critical structural-biology data standard for AI/ML because
+    protein-structure prediction, model validation, structural search, molecular
+    design, and computed-model deposition all require consistent machine-readable
+    representations of macromolecular entities, coordinate systems, provenance, and
+    quality metrics.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:82
   url: https://mmcif.wwpdb.org/
+  has_application:
+  - id: B2AI_APP:401
+    category: B2AI:Application
+    name: mmCIF and ModelCIF for AI-Predicted Protein Structures
+    description: PDBx/mmCIF provides the dictionary-based structural-data foundation
+      used by ModelCIF, an extension created to represent computed and AI-predicted
+      macromolecular structure models. This enables predicted structures from methods
+      such as deep-learning protein-structure prediction to carry model provenance,
+      target-template relationships, quality estimates, and coordinate data in a
+      form compatible with the wwPDB ecosystem. The standard therefore supports AI/ML
+      workflows that generate, compare, validate, archive, and reuse predicted protein
+      structures.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.jmb.2022.167599
+      ref_title: PDBx/mmCIF Ecosystem
+      ref_publication_year: 2022
+      ref_journal: Journal of Molecular Biology
+    - ref_url: https://doi.org/10.1016/j.jmb.2023.168021
+      ref_title: ModelCIF, an extension of PDBx/mmCIF data representation for computed
+        structure models
+      ref_publication_year: 2023
+      ref_journal: Journal of Molecular Biology
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.jmb.2022.167599
+    ref_title: PDBx/mmCIF Ecosystem
+    ref_publication_year: 2022
+    ref_journal: Journal of Molecular Biology
 - id: B2AI_STANDARD:189
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -13165,50 +13292,18 @@ data_standardortools_collection:
   - B2AI_STANDARD:936
   is_open: true
   name: WFDB Format
-  purpose_detail: The WFDB (WaveForm DataBase) format is a standardized file format
-    for storing physiological waveform data and associated metadata from the MIMIC
-    (Medical Information Mart for Intensive Care) databases, enabling standardized
-    exchange and analysis of high-frequency biomedical signal recordings including
-    electrocardiogram (ECG), blood pressure (BP), pulse oximetry, respiration, and
-    other vital sign waveforms collected from intensive care unit (ICU) patients.
-    WFDB was developed to address the need for a portable, standard way to store physiological
-    data from multiple devices and sources while maintaining temporal alignment and
-    clinical context. The format consists of header files (.hea) containing metadata
-    including number of signals, sampling rate, ADC resolution, signal names and units,
-    data start time, and patient/study identifiers, paired with binary or ASCII data
-    files (.dat) containing the actual waveform samples. Each signal can have different
-    sampling rates enabling efficient storage of signals requiring different temporal
-    resolution (e.g., 1000 Hz for ECG, 125 Hz for respiration). The format includes
-    mechanisms for storing annotations marking significant events (QRS complexes in
-    ECG, arrhythmia episodes, alarm events) enabling labeled datasets for supervised
-    machine learning. WFDB supports variable precision (8-bit to 32-bit) and data
-    compression reducing storage requirements. Applications in biomedical data science
-    and AI/ML include training deep learning models for arrhythmia detection, QRS
-    detection, heart rate variability analysis, and sepsis prediction from ICU waveforms;
-    time series analysis where physiological waveforms enable investigation of cardiovascular
-    dynamics and autonomic nervous system function; signal quality assessment where
-    algorithms identify poor-quality recordings; event detection where machine learning
-    identifies clinically significant patterns (atrial fibrillation, ventricular arrhythmias,
-    apnea events); patient acuity prediction where waveform-derived features (heart
-    rate variability, pulse pressure variation) predict patient deterioration enabling
-    early interventions; and waveform-based diagnosis where patterns in physiological
-    signals support clinical decision-making. Integration with the MIMIC-III and MIMIC-IV
-    databases provides large-scale publicly available ICU waveform datasets enabling
-    reproducible research and algorithm development. Open-source tools including PhysioNet
-    WFDB software, wfdb-python library, and specialized signal processing software
-    provide comprehensive WFDB support. The format facilitates research on physiological
-    signal analysis supporting studies of cardiovascular dynamics, respiratory mechanics,
-    and neuromuscular function. WFDB enables creation of curated datasets with precise
-    temporal annotations supporting machine learning on physiological signals. The
-    format has become standard in critical care research enabling data sharing and
-    collaborative algorithm development. Real-world clinical deployment of WFDB-based
-    algorithms improves patient monitoring in intensive care settings. Longitudinal
-    waveform analysis using WFDB data reveals circadian and longer-term physiological
-    patterns. The format supports multi-modal data collection combining waveforms
-    with laboratory results, medications, and clinical notes providing comprehensive
-    patient context for machine learning model development.
+  purpose_detail: The Waveform Database (WFDB) format is an open family of signal,
+    header, and annotation file conventions for storing physiologic time-series data
+    such as ECG, blood pressure, pulse oximetry, respiration, and event annotations.
+    WFDB records pair machine-readable metadata about channels, sampling rates, units,
+    gains, and timing with signal files and optional annotation files, making high-frequency
+    waveform data reusable across PhysioNet datasets, MIMIC waveform resources, and
+    analysis libraries in C, Python, MATLAB, and other environments. For AI applications,
+    WFDB supports reproducible preprocessing, segmentation, labeling, and benchmarking
+    for models that detect arrhythmias, estimate blood pressure, forecast patient
+    deterioration, assess signal quality, or learn multimodal physiologic representations.
   requires_registration: false
-  url: https://wfdb.io/mimic_wfdb_tutorials/mimic/formatting.html
+  url: https://wfdb.io/spec/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:39
@@ -13349,7 +13444,14 @@ data_standardortools_collection:
       ref_publication_year: 2022
       ref_journal: Cogn Comput
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.13026/gjvw-1m31
+    ref_title: WFDB Software Package
+    ref_authors:
+    - Moody G
+    - Pollard T
+    - Moody B
+    ref_publication_year: 2022
+    ref_journal: PhysioNet
 - id: B2AI_STANDARD:204
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16138,13 +16240,39 @@ data_standardortools_collection:
   description: Newick tree Format
   is_open: true
   name: Newick
-  purpose_detail: The Newick Standard for representing trees in computer-readable
-    form makes use of the correspondence between trees and nested parentheses, noticed
-    in 1857 by the famous English mathematician Arthur Cayley.
+  purpose_detail: Newick is a compact, parenthesis-based text format for representing
+    rooted or unrooted tree topologies, optionally including branch lengths, internal
+    node labels, and leaf labels. It remains one of the most widely supported exchange
+    formats for phylogenetic trees because it can be parsed by many comparative-genomics,
+    evolutionary-biology, taxonomy, and visualization tools. In AI/ML settings, Newick
+    files often provide the tree-structured inputs or outputs used for phylogenetic
+    embedding, tree comparison, simulation, pathogen-surveillance analytics, and
+    model evaluation workflows where evolutionary relationships need to be encoded
+    reproducibly.
   requires_registration: false
   url: http://evolution.genetics.washington.edu/phylip/newicktree.html
+  has_application:
+  - id: B2AI_APP:402
+    category: B2AI:Application
+    name: Newick Phylogenies for Vector Embeddings of Evolutionary Trees
+    description: Newick-formatted trees are used as a standard machine-readable representation
+      for phylogenies that can be transformed into vector representations for machine
+      learning. Phylo2Vec, for example, encodes phylogenetic trees as vectors that
+      can be used for statistical learning and tree comparison while preserving the
+      ability to move between vectorized and tree representations. Newick provides
+      the conventional input/output layer that keeps these ML workflows interoperable
+      with existing phylogenetics software.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: http://evolution.genetics.washington.edu/phylip/newicktree.html
+      ref_title: The Newick tree format
+    - ref_url: https://doi.org/10.1093/sysbio/syae030
+      ref_title: Phylo2Vec, a vector representation for binary trees
+      ref_publication_year: 2024
+      ref_journal: Systematic Biology
   publication:
-    ref_url: ''
+    ref_url: http://evolution.genetics.washington.edu/phylip/newicktree.html
+    ref_title: The Newick tree format
 - id: B2AI_STANDARD:238
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16357,24 +16485,16 @@ data_standardortools_collection:
     ref_publication_year: 2015
     ref_journal: Studies in Health Technology and Informatics
   purpose_detail: The Observational Medical Outcomes Partnership (OMOP) Common Data
-    Model is an open community data standard designed to standardize the structure
-    and content of observational healthcare data from electronic health records, administrative
-    claims, registries, and other sources to enable efficient, large-scale analyses
-    that produce reliable evidence. OMOP CDM organizes patient-level data into standardized
-    tables including person, visit, condition occurrence, drug exposure, procedure
-    occurrence, measurement, observation, and device exposure, with relationships
-    linking events to patients and care episodes. The model uses standardized vocabularies
-    (SNOMED CT, RxNorm, LOINC, etc.) mapped through the OHDSI Vocabulary for semantic
-    interoperability, ensuring consistent representation of clinical concepts across
-    diverse healthcare systems. OMOP CDM supports longitudinal patient histories,
-    enables reproducible network studies where the same analytic code runs on data
-    from multiple institutions without sharing patient-level information, and provides
-    the foundation for the OHDSI open-science community's analytical tools including
-    cohort definition, characterization, population-level effect estimation, and patient-level
-    prediction. The standardized schema facilitates federated learning, multi-site
-    clinical research, comparative effectiveness studies, pharmacovigilance, and machine
-    learning applications requiring harmonized features across heterogeneous EHR systems
-    for training predictive models, phenotyping algorithms, and decision support tools.
+    Model is an open OHDSI community standard for harmonizing observational health
+    data from EHRs, claims, registries, and other sources into a consistent relational
+    structure with standardized vocabularies. It represents longitudinal patient
+    data across tables such as person, visit, condition occurrence, drug exposure,
+    procedure, measurement, observation, and device exposure, enabling the same analytic
+    code to run across multiple sites without pooling patient-level records. OMOP
+    CDM supports cohort definition, characterization, population-level effect estimation,
+    patient-level prediction, federated network studies, and AI workflows that need
+    reusable clinical features, transparent phenotype definitions, and comparable
+    validation across heterogeneous healthcare systems.
   related_to:
   - B2AI_STANDARD:733
   - B2AI_STANDARD:692
@@ -16936,27 +17056,16 @@ data_standardortools_collection:
   - B2AI_STANDARD:916
   is_open: true
   name: Open mHealth
-  purpose_detail: Open mHealth (OMH) is a comprehensive ecosystem of data standards,
-    schemas, and tools designed to make patient-generated health data from mobile
-    devices, wearables, and sensors interoperable, meaningful, and actionable across
-    healthcare and research applications. The OMH data standards provide JSON-based
-    schemas for over 75 common health data types including physical activity (steps,
-    distance, calories burned), vital signs (heart rate, blood pressure, body temperature),
-    sleep metrics, body composition, medications, survey responses, and environmental
-    data. Each schema includes metadata for data provenance (acquisition source, temporal
-    relationship, user notes) enabling proper contextualization and interpretation.
-    OMH tools include Shimmer for integrating data from diverse sources (Fitbit, Apple
-    HealthKit, Google Fit, Withings, iHealth), libraries for data validation and storage,
-    visualization components for detecting health patterns, and FHIR integration capabilities
-    for aligning mobile health data with electronic health records. The platform supports
-    diverse use cases including randomized controlled trials with standardized mobile
-    data collection, remote patient monitoring programs, n-of-1 clinical trial analyses,
-    machine learning algorithm development on normalized health datasets, and patient-reported
-    outcomes integrated with biometric data. OMH is used by over 6,000 developers
-    and health organizations including Cornell Tech, Kaiser Permanente, Stanford Medicine,
-    UCSF, and Copenhagen Center for Health Technology, enabling research reproducibility
-    and clinical care integration by transforming heterogeneous mobile health data
-    into a unified, queryable format.
+  purpose_detail: Open mHealth is an open architecture and schema ecosystem for representing
+    patient-generated and mobile health data from apps, wearables, and sensors in
+    reusable JSON structures. Its schemas cover measures such as heart rate, physical
+    activity, sleep, blood glucose, body measures, and survey responses, with metadata
+    for acquisition source, timing, and context so heterogeneous device streams can
+    be validated, normalized, and linked to clinical or research systems. In AI workflows,
+    Open mHealth helps turn fragmented mobile and wearable feeds into consistent
+    time-series features for behavioral modeling, remote monitoring, n-of-1 studies,
+    prediction of health states, and integration with EHR-oriented standards such
+    as FHIR.
   requires_registration: false
   url: https://www.openmhealth.org/
   used_in_bridge2ai: true
@@ -17011,7 +17120,19 @@ data_standardortools_collection:
       optimization and injury prevention.
     used_in_bridge2ai: false
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.2196/jmir.2152
+    ref_title: 'Making Sense of Mobile Health Data: An Open Architecture to Improve
+      Individual- and Population-Level Health'
+    ref_authors:
+    - Chen C
+    - Haddad D
+    - Selsky J
+    - Hoffman JE
+    - Kravitz RL
+    - Estrin DE
+    - Sim I
+    ref_publication_year: 2012
+    ref_journal: Journal of Medical Internet Research
 - id: B2AI_STANDARD:247
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -20409,13 +20530,20 @@ data_standardortools_collection:
   - B2AI_STANDARD:1021
   is_open: true
   name: VCF
-  purpose_detail: Variant Call Format (VCF) is a text file format (most likely stored
-    in a compressed manner). It contains meta-information lines, a header line, and
-    then data lines each containing information about a position in the genome.
+  purpose_detail: Variant Call Format (VCF) is a tab-delimited genomics format for
+    representing sequence variants, genotypes, annotations, and per-sample call-level
+    metadata relative to a reference genome. A VCF file includes metadata lines that
+    define the file version and INFO/FORMAT fields, a header that identifies samples,
+    and records for variant or reference-call positions with chromosome, position,
+    reference and alternate alleles, quality, filters, annotations, and genotypes.
+    VCF and its binary companion BCF are central interchange formats for variant calling,
+    joint genotyping, imputation, annotation, genome-wide association studies, clinical
+    interpretation, and AI workflows that prioritize pathogenic variants, learn quality
+    filters, or build genomic prediction features from standardized variant records.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:34
-  url: https://en.wikipedia.org/wiki/Variant_Call_Format
+  url: https://samtools.github.io/hts-specs/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:51
@@ -22225,12 +22353,46 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:49
   is_open: true
   name: FLAC
-  purpose_detail: FLAC (Free Lossless Audio Codec) is an audio coding format for lossless
-    compression of digital audio.
+  purpose_detail: FLAC (Free Lossless Audio Codec) is an open audio format and codec
+    for lossless compression of digital audio, preserving the original waveform while
+    reducing storage size relative to uncompressed PCM. It supports stream metadata,
+    seeking, error detection, and broad software support, making it useful when audio
+    must be archived, transported, or analyzed without introducing lossy compression
+    artifacts. For AI/ML workflows, FLAC is particularly relevant for speech, respiratory
+    sound, and other biomedical-acoustic datasets where models may be sensitive to
+    timing, spectral content, and low-amplitude signal features that should remain
+    reproducible across preprocessing pipelines.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/FLAC
+  has_application:
+  - id: B2AI_APP:409
+    category: B2AI:Application
+    name: Lossless FLAC Audio Corpora for Speech and Respiratory-Sound Models
+    description: FLAC is used as a storage format for large audio corpora that train
+      or evaluate machine-learning systems, including speech recognition datasets
+      and respiratory-sound resources. Because FLAC preserves waveform information
+      while reducing storage requirements, it supports reproducible extraction of
+      spectrograms, embeddings, acoustic biomarkers, and other model features without
+      codec artifacts from lossy formats. This is useful for biomedical audio tasks
+      such as cough classification, voice analysis, and clinical speech processing,
+      where small acoustic differences can affect downstream predictions.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://xiph.org/flac/format.html
+      ref_title: FLAC format
+      ref_journal: Xiph.Org Foundation
+    - ref_url: https://mlcommons.org/datasets/peoples-speech/
+      ref_title: People's Speech
+      ref_journal: MLCommons Datasets
+    - ref_url: https://doi.org/10.48550/arXiv.2009.11644
+      ref_title: The COUGHVID crowdsourcing dataset, a corpus for the study of large-scale
+        cough analysis algorithms
+      ref_publication_year: 2020
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://xiph.org/flac/format.html
+    ref_title: FLAC format
+    ref_journal: Xiph.Org Foundation
 - id: B2AI_STANDARD:332
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -22743,9 +22905,18 @@ data_standardortools_collection:
   - B2AI_STANDARD:969
   is_open: true
   name: JPEG
-  purpose_detail: A method of lossy compression for digital images.
+  purpose_detail: JPEG is a family of still-image coding standards best known for
+    the baseline lossy compression format used by .jpg and .jpeg image files. The
+    format applies color transformation, block-based discrete cosine transform coding,
+    quantization, and entropy coding to reduce file size while preserving perceptual
+    image quality, making it broadly useful for photographic and microscopy-derived
+    images where compact storage and web transfer matter. In biomedical AI, JPEG
+    is commonly encountered in dermatology, ophthalmology, pathology, mobile health,
+    and other image-analysis datasets; model developers must account for compression
+    artifacts, quality settings, and metadata loss when using JPEG images for training,
+    validation, or deployment.
   requires_registration: false
-  url: https://en.wikipedia.org/wiki/JPEG
+  url: https://jpeg.org/jpeg/
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:53
@@ -22764,7 +22935,12 @@ data_standardortools_collection:
       techniques that preserve diagnostically relevant features.
     used_in_bridge2ai: false
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/103085.103089
+    ref_title: The JPEG Still Picture Compression Standard
+    ref_authors:
+    - Wallace GK
+    ref_publication_year: 1991
+    ref_journal: Communications of the ACM
 - id: B2AI_STANDARD:345
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -23063,21 +23239,58 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: MPEG-4 Part 14 digital multimedia container format
-  formal_specification: https://www.loc.gov/preservation/digital/formats/fdd/fdd000155.shtml
+  formal_specification: https://www.iso.org/standard/79110.html
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:49
   has_relevant_organization:
   - B2AI_ORG:49
-  is_open: true
+  is_open: false
   name: MPEG-4
-  purpose_detail: A digital multimedia container format most commonly used to store
-    video and audio, but it can also be used to store other data such as subtitles
-    and still images. Like most modern container formats, it allows streaming over
-    the Internet.
+  purpose_detail: MPEG-4 Part 14, commonly represented by MP4 files, is a multimedia
+    container format derived from the ISO Base Media File Format for storing timed
+    audio, video, subtitles, still images, and related metadata. MP4 is widely used
+    for streaming and archival exchange because it can carry multiple codecs and
+    tracks in a single file with indexing that supports efficient playback and seeking.
+    In biomedical AI, MP4 is common in video-based datasets from endoscopy, surgical
+    video, patient-facing mobile recordings, behavioral observation, and respiratory
+    or movement analysis, where models depend on consistent frame extraction, codec
+    handling, timestamps, and metadata-aware preprocessing.
   requires_registration: false
-  url: https://en.wikipedia.org/wiki/MP4_file_format
+  url: https://www.mpeg.org/standards/MPEG-4/14/
+  has_application:
+  - id: B2AI_APP:385
+    category: B2AI:Application
+    name: Video-Based Clinical AI from MP4 Recordings
+    description: MP4 containers are used in clinical and biomedical video pipelines
+      where recordings are decoded into frame sequences for machine learning tasks
+      such as surgical phase recognition, endoscopy finding detection, gait or activity
+      analysis, and remote patient monitoring. The format gives AI workflows a common
+      interchange layer for transporting video, audio, subtitle tracks, and timing
+      metadata, while downstream preprocessing tools extract sampled frames, clips,
+      optical flow, or synchronized audio features for deep learning models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.media.2023.102770
+      ref_title: Comparative validation of machine learning algorithms for surgical
+        workflow and skill analysis with the HeiChole benchmark
+      ref_authors:
+      - Wagner M
+      - Muller-Stich BP
+      - Kisilenko A
+      - Tran D
+      - Heger P
+      - Mundermann L
+      - Bodenstedt S
+      ref_publication_year: 2023
+      ref_journal: Medical Image Analysis
   publication:
-    ref_url: ''
+    ref_url: https://www.iso.org/standard/79110.html
+    ref_title: Information technology -- Coding of audio-visual objects -- Part 14
+      MP4 file format
+    ref_authors:
+    - ISO/IEC JTC 1/SC 29
+    ref_publication_year: 2020
+    ref_journal: ISO/IEC 14496-14:2020
 - id: B2AI_STANDARD:353
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -23977,11 +24190,42 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:19
   is_open: true
   name: PNG
-  purpose_detail: A raster-graphics file format that supports lossless data compression.
+  purpose_detail: Portable Network Graphics (PNG) is an open raster-image file format
+    designed for lossless compression, platform-independent image storage, indexed
+    or true-color images, transparency, and well-defined chunk-based metadata. Because
+    PNG preserves pixel values without JPEG-style lossy compression artifacts, it
+    is commonly used for image-derived biomedical data, microscopy figures, pathology
+    tiles, masks, segmentation labels, plots, and visual quality-control artifacts.
+    For AI/ML pipelines, PNG is useful when model inputs or outputs need reproducible
+    pixel-level representation, especially for annotations, masks, and image patches
+    where compression artifacts could change downstream measurements.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/Portable_Network_Graphics
+  has_application:
+  - id: B2AI_APP:403
+    category: B2AI:Application
+    name: PNG Image Tiles and Masks in Biomedical Computer Vision
+    description: PNG is used in biomedical computer-vision workflows when lossless
+      storage of image patches, labels, or masks is important for reproducible model
+      training and evaluation. In histopathology deep-learning pipelines, source
+      slides or regions of interest may be converted into image tiles for patch-level
+      classification, segmentation, or quality-control workflows; lossless PNG storage
+      helps preserve the visual signal and annotation boundaries used by convolutional
+      or other image-analysis models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.w3.org/TR/png/
+      ref_title: Portable Network Graphics (PNG) Specification
+      ref_journal: World Wide Web Consortium
+    - ref_url: https://doi.org/10.1111/his.13844
+      ref_title: The effects of image compression on automated detection of breast
+        cancer in histopathological images
+      ref_publication_year: 2019
+      ref_journal: Histopathology
   publication:
-    ref_url: ''
+    ref_url: https://www.w3.org/TR/png/
+    ref_title: Portable Network Graphics (PNG) Specification
+    ref_journal: World Wide Web Consortium
 - id: B2AI_STANDARD:363
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -24517,7 +24761,7 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Research Object Crate
-  formal_specification: https://www.researchobject.org/ro-crate/specification.html
+  formal_specification: https://www.researchobject.org/ro-crate/specification
   has_relevant_organization:
   - B2AI_ORG:116
   has_training_resource:
@@ -24547,66 +24791,16 @@ data_standardortools_collection:
     - Goble C
     ref_publication_year: 2022
     ref_journal: Data Science
-  purpose_detail: 'Research Object Crate (RO-Crate) is a community-developed, lightweight
-    standard for packaging research data, code, workflows, and metadata into self-describing,
-    FAIR-compliant digital objects using Schema.org annotations serialized as JSON-LD,
-    making formal metadata description accessible and practical across diverse research
-    contexts from individual datasets to large-scale computational experiments. Emerging
-    from the Research Object movement and endorsed by communities including WorkflowHub,
-    Australian Research Data Commons (ARDC), and European Open Science Cloud (EOSC),
-    RO-Crate addresses the reproducibility crisis by bundling computational artifacts
-    with their contextual metadata--including authorship, provenance, licensing, computational
-    environment specifications, and relationships among components--in a machine-readable
-    format that enables automated validation, discovery, and reuse without requiring
-    specialized knowledge representation tools. The specification defines a structured
-    directory containing data files, software, documentation, and a standardized ro-crate-metadata.json
-    file at the root that describes the crate''s contents using Schema.org vocabulary
-    (Person, Organization, Dataset, SoftwareApplication, File, CreativeWork) extended
-    with domain-specific types for computational workflows (ComputationalWorkflow,
-    FormalParameter, WorkflowDescription Language), enabling rich representation of
-    research artifacts as connected graphs where entities link to authors, funding
-    agencies, publications, input/output data, and execution environments. RO-Crate
-    supports hierarchical composition where complex research objects nest sub-crates--for
-    example, a parent crate describing a machine learning experiment contains child
-    crates for training data, validation data, model checkpoints, inference code,
-    and evaluation results--each with its own metadata while the parent ro-crate-metadata.json
-    aggregates relationships among components, supporting modular reuse where individual
-    datasets or code components can be extracted and cited independently while maintaining
-    their connection to the larger research context. The format''s lightweight design
-    requires only JSON-LD understanding (widely supported across programming languages)
-    rather than specialized triple stores or OWL reasoners, with human-readable JSON
-    structure enabling researchers to manually create or inspect metadata using text
-    editors while automated tools (ro-crate-py Python library, ro-crate-js JavaScript
-    package, ro-crate-ruby) provide programmatic creation, validation, and parsing
-    capabilities integrating with workflow management systems (Galaxy, Nextflow, Snakemake),
-    electronic lab notebooks (RSpace), data repositories (Zenodo, OSF, institutional
-    repositories), and model registries (Hugging Face, MLflow). Integration with FAIR
-    principles is explicit Findable through required persistent identifiers (DOIs,
-    ORCIDs, ROR for organizations) and rich descriptive metadata; Accessible via standard
-    web protocols with human-readable HTML landing pages generated from JSON-LD metadata;
-    Interoperable through Schema.org''s ubiquitous vocabulary and JSON-LD''s linked
-    data semantics enabling merging and querying across crates; Reusable through explicit
-    licensing (Creative Commons, software licenses), versioning (schema.org/version),
-    and detailed provenance including software versions, parameter settings, and computational
-    environment specifications (Docker images, Conda environments, language versions).
-    RO-Crate profiles enable domain-specific metadata requirements: Workflow RO-Crate
-    for computational workflows with explicit input/output specifications and tool
-    dependencies; ML RO-Crate for machine learning models bundling training data,
-    model artifacts, performance metrics, and deployment requirements; Bioschemas
-    profiles for life sciences data integrating biological annotations. WorkflowHub
-    (workflowhub.eu), a major adopter, uses RO-Crate to package computational workflows
-    from diverse systems (Galaxy, Nextflow, CWL, Snakemake) with consistent metadata
-    enabling cross-platform workflow discovery and reuse, while FAIRSCAPE implements
-    RO-Crate for AI-readiness packaging combining datasets, evidence graphs (EVI provenance),
-    data dictionaries, and validation results in portable bundles supporting explainable
-    AI requirements. For AI/ML applications, RO-Crate enables reproducible model packaging
-    where training datasets, preprocessing scripts, model weights (Safetensors, PyTorch
-    checkpoints), evaluation notebooks, and computational environment specifications
-    travel together with metadata documenting intended use cases, known limitations,
-    bias assessments, and performance benchmarks, supporting regulatory compliance
-    in clinical AI, transparent reporting in publications, and confident model reuse
-    by downstream researchers who can verify exact software versions, hyperparameters,
-    and data provenance before adapting models to new domains.'
+  purpose_detail: Research Object Crate (RO-Crate) is a lightweight, community-developed
+    packaging standard for describing research datasets, software, workflows, outputs,
+    and their relationships using Schema.org terms serialized as JSON-LD. A crate
+    places machine-readable metadata in a root ro-crate-metadata.json file and can
+    bundle or reference files, people, organizations, licenses, identifiers, provenance,
+    workflow definitions, and domain-specific profiles. In AI-ready biomedical data
+    work, RO-Crate provides a portable way to ship datasets with processing scripts,
+    model artifacts, data dictionaries, validation results, evidence graphs, and
+    computational environment details so downstream users can discover, validate,
+    cite, reproduce, and reuse model-training resources.
   requires_registration: false
   url: https://www.researchobject.org/ro-crate/
   used_in_bridge2ai: true
@@ -25746,11 +25940,40 @@ data_standardortools_collection:
   description: X PixMap image format
   is_open: true
   name: XPM
-  purpose_detail: X PixMap (XPM) is an image file format used by the X Window System.
+  purpose_detail: X PixMap (XPM) is a text-based raster image format originally designed
+    for color pixmaps and icons in the X Window System. XPM files encode image dimensions,
+    color maps, and pixel rows using ASCII text or C-language syntax, which makes
+    them directly embeddable in source code and easy to inspect with text tools.
+    Although now mostly a legacy desktop-image format, XPM remains relevant in some
+    scientific software ecosystems because text-encoded matrices and heatmaps can
+    be generated, parsed, converted to numeric arrays, and reused in downstream visualization
+    or feature-extraction workflows.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/X_PixMap
+  has_application:
+  - id: B2AI_APP:410
+    category: B2AI:Application
+    name: GROMACS XPM Matrices as Molecular-Dynamics Features for ML
+    description: GROMACS writes some molecular-dynamics analysis outputs as XPM-compatible
+      matrix files, including distance, RMSD, secondary-structure, and other residue-by-time
+      or frame-by-frame summaries. Python tools such as GromacsWrapper parse these
+      XPM matrices into NumPy arrays, making them available for clustering, dimensionality
+      reduction, anomaly detection, and other machine-learning analyses of simulation
+      trajectories. In this use, XPM acts less as an end-user graphics format and
+      more as a bridge from molecular-simulation output to numeric matrices that
+      can be used in AI/ML feature engineering.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.x.org/docs/XPM/xpm.pdf
+      ref_title: XPM Manual, The X PixMap Format
+    - ref_url: https://manual.gromacs.org/5.1-current/user-guide/file-formats.html#xpm
+      ref_title: GROMACS XPM file format
+      ref_journal: GROMACS documentation
+    - ref_url: https://gromacswrapper.readthedocs.io/en/latest/gromacs/core/fileformats/xpm.html
+      ref_title: GromacsWrapper XPM file format reader
   publication:
-    ref_url: ''
+    ref_url: https://www.x.org/docs/XPM/xpm.pdf
+    ref_title: XPM Manual, The X PixMap Format
 - id: B2AI_STANDARD:392
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -28149,12 +28372,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/DiseaseOntology/DiseaseDriversOntology
   is_open: true
   name: DISDRIV
-  purpose_detail: Ontology for drivers and triggers of human diseases, built to classify
-    ExO ontology exposure stressors. An application ontology.
+  purpose_detail: The Disease Drivers Ontology (DISDRIV) is an application ontology
+    for classifying environmental, biological, behavioral, and other drivers or triggers
+    of human disease. It was developed in connection with the Human Disease Ontology
+    to capture disease-relevant stressors while keeping detailed environmental-stressor
+    content out of the upper-level exposure models in ExO and ECTO. DISDRIV supports
+    computable representation of factors such as environmental exposures, infectious
+    or chemical stressors, and contextual drivers that can be linked to diseases,
+    phenotypes, and exposure events in knowledge graphs. For AI-ready environmental
+    health and disease data, it provides a controlled vocabulary for harmonizing
+    disease-driver features across curated knowledge bases, literature-derived assertions,
+    and exposure-outcome datasets.
+  related_to:
+  - B2AI_STANDARD:447
   requires_registration: false
   url: https://github.com/DiseaseOntology/DiseaseDriversOntology
+  has_application:
+  - id: B2AI_APP:393
+    category: B2AI:Application
+    name: Environmental Stressor Classification for Disease Knowledge Graphs
+    description: DISDRIV is used to represent environmental stressors and other
+      disease drivers as ontology classes that can be connected to Human Disease
+      Ontology disease terms and exposure models. This enables disease knowledge
+      graphs to encode not only disease names and phenotypes, but also computable
+      driver categories that may contribute to disease onset or progression. Such
+      structured driver annotations can support environmental-health feature engineering,
+      disease-risk modeling, exposure-outcome retrieval, and evidence review workflows
+      where AI/ML systems need normalized representations of disease-relevant stressors.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/nar/gkab1063
+      ref_title: The Human Disease Ontology 2022 update
+      ref_publication_year: 2022
+      ref_journal: Nucleic Acids Research
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/nar/gkab1063
+    ref_title: The Human Disease Ontology 2022 update
+    ref_publication_year: 2022
+    ref_journal: Nucleic Acids Research
 - id: B2AI_STANDARD:437
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -28370,12 +28625,47 @@ data_standardortools_collection:
   formal_specification: https://github.com/jannahastings/emotion-ontology
   is_open: true
   name: MFOEM
-  purpose_detail: Affective phenomena such as emotions, moods, appraisals and subjective
-    feelings.
+  purpose_detail: The Emotion Ontology (MFOEM) provides a formal vocabulary for affective
+    phenomena such as emotions, moods, appraisals, subjective feelings, dispositions,
+    and related mental processes. It was developed to support interdisciplinary affective
+    science by giving researchers shared, logically organized terms for representing
+    emotional experiences and their components across psychology, neuroscience, psychiatry,
+    and human-computer interaction. For AI/ML work, MFOEM can help normalize emotion
+    labels and affective constructs used in multimodal emotion recognition, sentiment
+    analysis, patient-provider interaction research, mental-health phenotyping, and
+    explainable affective-computing systems.
   requires_registration: false
   url: https://github.com/jannahastings/emotion-ontology
+  has_application:
+  - id: B2AI_APP:411
+    category: B2AI:Application
+    name: Ontology-Grounded Emotion Labels for Affective Computing
+    description: MFOEM provides a structured reference vocabulary for emotion and
+      affect concepts that can be used to harmonize labels across datasets for affective
+      computing and biomedical interaction analysis. Emotion-recognition models often
+      learn from heterogeneous annotations derived from facial expression, speech,
+      text, physiology, or self-report; ontology-grounded labels can make these targets
+      more comparable and interpretable. This supports AI/ML workflows that integrate
+      multimodal affective data, connect observed cues to psychological constructs,
+      and audit whether model outputs correspond to well-defined emotion concepts.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1007/978-3-642-24279-3_14
+      ref_title: The Emotion Ontology, enabling interdisciplinary research in the
+        affective sciences
+      ref_publication_year: 2011
+      ref_journal: Modeling and Using Context
+    - ref_url: https://doi.org/10.1186/s12911-018-0634-6
+      ref_title: Visualized Emotion Ontology, a model for representing visual cues
+        of emotions
+      ref_publication_year: 2018
+      ref_journal: BMC Medical Informatics and Decision Making
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1007/978-3-642-24279-3_14
+    ref_title: The Emotion Ontology, enabling interdisciplinary research in the affective
+      sciences
+    ref_publication_year: 2011
+    ref_journal: Modeling and Using Context
 - id: B2AI_STANDARD:442
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -28452,11 +28742,76 @@ data_standardortools_collection:
   - B2AI_STANDARD:928
   is_open: true
   name: ECTO
-  purpose_detail: Exposures to experimental treatments of plants and model organisms.
+  purpose_detail: The Environmental Conditions, Treatments, and Exposures Ontology
+    (ECTO) is an OBO Foundry ontology for representing exposure events involving
+    organisms, populations, organism parts, environmental conditions, treatments,
+    stimuli, media, routes, and exposure outcomes. ECTO provides standardized exposure
+    classes for natural and experimental settings, including toxicology, environmental
+    epidemiology, model-organism studies, public health monitoring, clinical exposure
+    documentation, diet, workplace, and research-treatment contexts. It composes
+    exposure terms from interoperable biomedical ontologies such as ENVO, ChEBI,
+    FoodOn, NCIt, HPO, Mondo, MAxO, GO, and ExO, enabling exposure descriptions
+    to be linked with chemical entities, environments, phenotypes, diseases, actions,
+    and biological processes. For AI-ready data and computational analysis, ECTO
+    supports harmonized exposure annotations, queryable exposure-health knowledge
+    graphs, integration of heterogeneous survey, EHR, toxicology, and environmental
+    datasets, and reusable feature definitions for models that need explicit exposure
+    context.
+  related_to:
+  - B2AI_STANDARD:447
   requires_registration: false
   url: https://github.com/EnvironmentOntology/environmental-exposure-ontology
+  has_application:
+  - id: B2AI_APP:387
+    category: B2AI:Application
+    name: Exposure Knowledge Graph Harmonization for Toxicology and Environmental
+      Health
+    description: ECTO is used as a formal exposure vocabulary for aligning heterogeneous
+      toxicology, environmental health, clinical, and survey-derived exposure data
+      into computable knowledge graph structures. Its exposure-event model connects
+      receptors, stimuli, media, routes, and outcomes, allowing exposure annotations
+      to be queried and integrated with phenotype, disease, chemical, environment,
+      and biological-process ontologies. This provides a practical data-standardization
+      layer for downstream AI/ML workflows that depend on comparable exposure features,
+      such as environmental-health risk modeling, cohort stratification, exposure-outcome
+      discovery, and literature- or database-derived exposure knowledge graphs.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-023-00283-x
+      ref_title: 'The Environmental Conditions, Treatments, and Exposures Ontology
+        (ECTO): connecting toxicology and exposure to human health and beyond'
+      ref_authors:
+      - Chan LE
+      - Thessen AE
+      - Duncan WD
+      - Matentzoglu N
+      - Schmitt C
+      - Grondin CJ
+      - Vasilevsky N
+      - McMurry JA
+      - Robinson PN
+      - Mungall CJ
+      - Haendel MA
+      ref_publication_year: 2023
+      ref_journal: Journal of Biomedical Semantics
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/s13326-023-00283-x
+    ref_title: 'The Environmental Conditions, Treatments, and Exposures Ontology
+      (ECTO): connecting toxicology and exposure to human health and beyond'
+    ref_authors:
+    - Chan LE
+    - Thessen AE
+    - Duncan WD
+    - Matentzoglu N
+    - Schmitt C
+    - Grondin CJ
+    - Vasilevsky N
+    - McMurry JA
+    - Robinson PN
+    - Mungall CJ
+    - Haendel MA
+    ref_publication_year: 2023
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:444
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -28475,108 +28830,17 @@ data_standardortools_collection:
   - B2AI_STANDARD:971
   is_open: true
   name: EVI
-  purpose_detail: 'The Evidence Graph Ontology (EVI) extends core concepts from the
-    W3C Provenance Ontology (PROV-O) to provide a formal semantic framework for representing
-    evidence, provenance, and computational reproducibility in biomedical research,
-    specifically designed to support AI-readiness requirements including explainability,
-    auditability, training-data lineage, and transparent model development workflows.
-    Developed within the FAIR (Findable, Accessible, Interoperable, Reusable) data
-    ecosystem and extensively deployed in Bridge2AI projects, EVI enables machine-readable
-    representation of complete evidence chains connecting computational results to
-    their originating datasets, software versions, runtime parameters, execution environments,
-    and responsible personnel, addressing the critical gap between textual descriptions
-    of methods and formal, verifiable records of computational provenance essential
-    for reproducible science and regulatory compliance. The ontology defines classes
-    and properties for modeling Computations (executable processes with specific runtime
-    configurations), Software (versioned code with persistent identifiers), Datasets
-    (input and output data objects with checksums and format specifications), Evidence
-    Graphs (structured provenance networks capturing relationships among these entities
-    via predicates like uses, usedBy, generates, and wasGeneratedBy), and Evidence
-    Objects (nodes in provenance graphs representing specific computational artifacts
-    or data transformations). EVI supports inferential reasoning over evidence graphs
-    through OWL2 semantics, enabling automated queries such as ''trace all datasets
-    contributing to this machine learning model''s training set,'' ''identify which
-    software versions were used to generate features for classifier X,'' or ''verify
-    that all transformation steps from raw clinical data to analysis-ready datasets
-    are documented with checksums and responsible parties.'' The ontology is serialized
-    as JSON-LD for web compatibility and embedded within RO-Crate (Research Object
-    Crate) metadata packages, where EVI graphs coexist with Schema.org and DataCite
-    vocabularies to provide comprehensive dataset documentation combining human-readable
-    descriptions with machine-interpretable provenance. EVI''s integration with persistent
-    identifier systems (Archival Resource Keys/ARKs, Digital Object Identifiers/DOIs)
-    ensures that every node in an evidence graph--whether representing a dataset, software
-    release, computation run, or derived result--can be assigned a globally unique,
-    resolvable identifier, enabling long-term auditability and cross-repository citation
-    of computational artifacts. Applications span FAIRSCAPE (Framework for FAIR and
-    Scalable Computation and Analytics Processing Engine), a production biomedical
-    analytics platform that creates complete EVI evidence graphs for every computational
-    result (Spark jobs, scripts, workflows, containers) with root graph URIs embedded
-    in result metadata and all objects (datasets, software, computations) assigned
-    persistent IDs resolvable to execution details, supporting machine-interpretable
-    provenance and reproducibility; FAIRSCAPE''s AI-readiness extensions that embed
-    EVI provenance graphs within RO-Crate JSON-LD packages alongside data dictionaries,
-    schema definitions, and feature-validation results, with ARK PIDs automatically
-    assigned to RO-Crates, software components, datasets, and computation objects,
-    enabling automated generation of human-readable datasheets from machine-readable
-    provenance to support pre-model explainability (XAI) and training-data readiness
-    assessments; Bridge2AI project guidelines that explicitly recommend EVI (or PROV-O)
-    for machine-readable provenance to trace datasets back to ground-truth sources,
-    document data transformation steps with links to versioned software, identify
-    people and organizations responsible for data collection and processing, and attach
-    checksums for verifiability--practices fundamental to explainable ML, model auditability,
-    and dataset integrity validation; CM4AI (Center for Multi-modal AI) and other
-    Bridge2AI generating consortia that integrate EVI into RO-Crate metadata to connect
-    data files to specific sample identifiers, experiment protocols, and archived
-    software versions (with Zenodo DOIs), enabling reproducible dataset assembly,
-    sample-level provenance tracking, and cross-tool interoperability within ML pipelines;
-    and ML-Ops integration frameworks where EVI evidence graphs are incorporated into
-    ML workflow templates to support defeasible reasoning (reasoning with contestable
-    or revisable claims about data quality and method appropriateness), automated
-    metadata generation from computational logs to populate XAI documentation, and
-    scalable audit trails for model development, training, evaluation, and deployment
-    phases. EVI''s defeasible reasoning capabilities--distinguishing between conclusive
-    evidence and evidence subject to revision or reinterpretation--are particularly
-    valuable for AI/ML contexts where data quality assessments, feature engineering
-    decisions, and model performance evaluations may need to be updated as new validation
-    results or bias analyses become available, with the evidence graph maintaining
-    a complete historical record of all revisions and their justifications. The ontology
-    addresses practical AI/ML workflow requirements: training-data lineage tracing
-    ensures that every feature in a training matrix can be traced through transformation
-    pipelines back to raw instrument readings or clinical observations with documented
-    provenance at each step; transformation tracking links each preprocessing operation
-    (normalization, imputation, feature extraction, data augmentation) to specific
-    software versions, parameter settings, and validation results, enabling reproducibility
-    and error diagnosis; integrity verification embeds checksums, file formats, and
-    validation reports in evidence graphs, supporting automated checks that training
-    data matches expected schemas and quality thresholds before model training commences;
-    and actor attribution records which individuals, teams, or automated processes
-    performed each operation, supporting accountability, credit assignment, and regulatory
-    audits. EVI enables pre-model explainability by documenting dataset characteristics,
-    feature distributions, bias assessments, and data-quality metrics in structured
-    provenance graphs that can be queried to answer questions like ''What geographic
-    regions are represented in the training data?'' or ''Which data transformation
-    introduced missing values in feature X?''--information essential for interpreting
-    model predictions and identifying potential biases before models are trained.
-    Integration with validation frameworks (Frictionless Data for schema validation,
-    Great Expectations for data quality assertions) allows EVI graphs to incorporate
-    validation results as evidence nodes, linking features to pass/fail status on
-    distributional checks, outlier detection, or fairness metrics, and enabling automated
-    gatekeeping where ML pipelines halt if provenance graphs indicate critical validation
-    failures. The ontology''s RO-Crate packaging ensures that EVI provenance travels
-    with datasets across repositories, compute environments, and organizational boundaries,
-    supporting federated learning scenarios where multiple institutions contribute
-    training data and the combined evidence graph documents data sources, harmonization
-    procedures, privacy-preserving transformations, and institutional data use agreements,
-    all resolvable via persistent identifiers without exposing underlying sensitive
-    records. EVI''s adoption within Bridge2AI reflects its alignment with FAIR principles
-    and AI-readiness criteria: Findable through persistent identifiers and searchable
-    metadata repositories, Accessible via resolvable URIs and standard APIs, Interoperable
-    through OWL2/RDF semantics and JSON-LD serialization compatible with web frameworks,
-    and Reusable through explicit licensing, detailed provenance, and validation records
-    that enable confident reuse of datasets and computational workflows across projects
-    and institutions.'
+  purpose_detail: The Evidence Graph Ontology (EVI) is an OWL2 vocabulary that extends
+    W3C PROV-O concepts to represent scientific claims, evidence, computations, datasets,
+    software, and provenance relationships in machine-readable evidence graphs. It
+    is used with FAIRSCAPE and RO-Crate packaging to connect computational results
+    to input data, software versions, parameters, responsible agents, identifiers,
+    checksums, validation results, and supporting publications. For AI-readiness,
+    EVI supports traceable training-data lineage, reproducible feature generation,
+    audit trails for model development, pre-model explainability, and automated checks
+    that downstream users can query to understand how data and results were produced.
   requires_registration: false
-  url: https://evidencegraph.github.io/EVI/index.html
+  url: https://fairscape.github.io/EVI/index.html
   used_in_bridge2ai: true
   has_application:
   - id: B2AI_APP:232
@@ -28985,7 +29249,13 @@ data_standardortools_collection:
     references:
     - ref_url: https://openreview.net/pdf?id=cYAFwjY2bY
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.5281/zenodo.4630931
+    ref_title: 'EVI: The Evidence Graph Ontology, OWL 2 Vocabulary'
+    ref_authors:
+    - Al Manir S
+    - Clark T
+    ref_publication_year: 2021
+    ref_journal: Zenodo
 - id: B2AI_STANDARD:445
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -29018,9 +29288,58 @@ data_standardortools_collection:
     - Giglio M
     ref_publication_year: 2022
     ref_journal: Nucleic Acids Research
-  purpose_detail: An ontology for experimental and other evidence statements.
+  purpose_detail: The Evidence and Conclusion Ontology (ECO) is a community ontology
+    for representing the kinds of evidence and assertion methods that support biological
+    annotations, scientific conclusions, and curated statements. ECO distinguishes
+    evidence types such as experimental, computational, sequence similarity, mutant
+    phenotype, author statement, and curator inference evidence, and combines these
+    with manual or automatic assertion methods. It is tightly connected to Gene Ontology
+    evidence codes and is used by major biological knowledge resources including
+    UniProt, the Gene Ontology Consortium, model organism databases, CollecTF, and
+    DisProt. For AI-ready biomedical data, ECO supports provenance-aware annotation,
+    evidence-based filtering of training labels, quality control over automated versus
+    manually reviewed assertions, evidence-aware data mining, and text-mining corpora
+    that train or evaluate systems extracting evidence-backed claims from biomedical
+    literature.
+  related_to:
+  - B2AI_STANDARD:454
   requires_registration: false
   url: https://www.evidenceontology.org/
+  has_application:
+  - id: B2AI_APP:388
+    category: B2AI:Application
+    name: ECO-CollecTF Evidence Corpus for Biomedical Text Mining
+    description: ECO terms are used in ECO-CollecTF, a biomedical corpus designed
+      for text-mining and machine-learning systems that identify evidence-backed
+      assertions in scientific articles. The corpus annotates evidence statements
+      with ECO mappings, assertion categories, assertion strength, and related metadata,
+      giving NLP developers a gold-standard resource for training and evaluating
+      models that must distinguish experimental evidence, computational evidence,
+      and other evidence types in context. This supports evidence-aware biocuration
+      and automated literature-mining workflows where extracted claims need provenance
+      and evidence qualification rather than bare entity or method mentions.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/frma.2021.674205
+      ref_title: 'ECO-CollecTF: A Corpus of Annotated Evidence-Based Assertions in
+        Biomedical Manuscripts'
+      ref_authors:
+      - Hobbs ET
+      - Goralski SM
+      - Mitchell A
+      - Simpson A
+      - Leka D
+      - Kotey E
+      - Sekira M
+      - Munro JB
+      - Nadendla S
+      - Jackson R
+      - Gonzalez-Aguirre A
+      - Krallinger M
+      - Giglio M
+      - Erill I
+      ref_publication_year: 2021
+      ref_journal: Frontiers in Research Metrics and Analytics
 - id: B2AI_STANDARD:446
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -29522,7 +29841,30 @@ data_standardortools_collection:
     proteomics, systems biology, and translational research. GO facilitates reproducible
     research through standardized functional terminology. Continuous community curation
     maintains GO accuracy as biological knowledge advances.'
+  requires_registration: false
   url: http://geneontology.org/
+  has_application:
+  - id: B2AI_APP:389
+    category: B2AI:Application
+    name: DeepGOPlus Protein Function Prediction with Gene Ontology Classes
+    description: DeepGOPlus uses GO annotations as the functional label space for
+      supervised protein-function prediction from amino-acid sequence. The model
+      combines a convolutional neural network over protein sequences with sequence-similarity-based
+      predictions, then evaluates performance separately over GO's biological process,
+      molecular function, and cellular component branches using CAFA-style measures.
+      In this application, GO provides the standardized multi-label target vocabulary,
+      the hierarchical functional structure, and the experimentally supported annotation
+      set used to train and benchmark predictions, making GO central to reproducible
+      AI/ML evaluation of computational protein annotation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btz595
+      ref_title: 'DeepGOPlus: improved protein function prediction from sequence'
+      ref_authors:
+      - Kulmanov M
+      - Hoehndorf R
+      ref_publication_year: 2020
+      ref_journal: Bioinformatics
 - id: B2AI_STANDARD:455
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -31020,12 +31362,48 @@ data_standardortools_collection:
   - B2AI_ORG:41
   is_open: true
   name: MI
-  purpose_detail: Vocabulary for the annotation of experiments concerned with protein-protein
-    interactions.
+  purpose_detail: The Molecular Interactions Controlled Vocabulary (MI, also known
+    as PSI-MI) provides standardized terms for describing molecular-interaction experiments,
+    interactors, detection methods, interaction types, biological roles, experimental
+    roles, database cross-references, and related curation metadata. It is maintained
+    by the HUPO Proteomics Standards Initiative and underpins PSI-MI exchange formats
+    used by interaction databases and molecular-network resources. For biomedical
+    AI/ML, MI is important because machine-learning-ready interaction graphs depend
+    on consistent labels for evidence type, interaction mechanism, assay provenance,
+    and molecular participants before the data can be merged across databases or
+    used to train protein-protein interaction prediction and network-analysis models.
   requires_registration: false
   url: https://github.com/HUPO-PSI/psi-mi-CV
+  has_application:
+  - id: B2AI_APP:404
+    category: B2AI:Application
+    name: PSI-MI Interaction Curation for Protein-Interaction Prediction Models
+    description: MI/PSI-MI terms provide controlled labels for interaction evidence,
+      detection method, interaction type, participant role, and cross-reference metadata
+      in curated protein-interaction resources. These standardized annotations make
+      it easier to combine records from resources such as MINT or IMEx into graph
+      datasets for machine-learning workflows that predict protein-protein interactions,
+      prioritize candidate interactions, or evaluate network-context features. The
+      vocabulary helps distinguish experimentally supported interactions from predicted
+      or lower-confidence records, which is a key step in building reliable training
+      and benchmark datasets.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://github.com/HUPO-PSI/psi-mi-CV
+      ref_title: Molecular Interactions Controlled Vocabulary
+    - ref_url: https://mint.bio.uniroma2.it/
+      ref_title: The Molecular INTeraction Database
+    - ref_url: https://doi.org/10.1016/j.jmb.2022.167530
+      ref_title: PEPPI, whole-proteome protein-protein interaction prediction through
+        structure and sequence similarity, functional association, and machine learning
+      ref_publication_year: 2022
+      ref_journal: Journal of Molecular Biology
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1038/nbt926
+    ref_title: The HUPO PSI's Molecular Interaction format, a community standard
+      for the representation of protein interaction data
+    ref_publication_year: 2004
+    ref_journal: Nature Biotechnology
 - id: B2AI_STANDARD:494
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -31780,11 +32158,45 @@ data_standardortools_collection:
   formal_specification: https://github.com/information-artifact-ontology/ontology-metadata
   is_open: true
   name: OMO
-  purpose_detail: Terms that are used to annotate ontology terms for all OBO ontologies.
+  purpose_detail: The OBO Metadata Ontology (OMO) defines annotation properties and
+    metadata terms used to describe ontology terms and ontology products across the
+    OBO Foundry ecosystem. It covers metadata such as synonyms, definitions, contributors,
+    provenance, creation dates, cross-references, term status, and other annotations
+    that make ontology content easier to curate, validate, search, and reuse. For
+    AI/ML and knowledge-graph workflows, OMO is important because consistent ontology
+    metadata improves feature construction, entity normalization, ontology alignment,
+    provenance tracking, and quality control when biomedical ontologies are transformed
+    into graph datasets or used as semantic labels for learning systems.
   requires_registration: false
   url: https://github.com/information-artifact-ontology/ontology-metadata
+  has_application:
+  - id: B2AI_APP:412
+    category: B2AI:Application
+    name: OMO Metadata for OBO-Derived Biomedical Knowledge Graphs
+    description: OMO supplies standardized annotation properties that help preserve
+      definitions, synonyms, cross-references, provenance, and term status when OBO
+      ontologies are converted into biomedical knowledge graphs. KG-OBO and related
+      Knowledge Graph Hub workflows transform OBO ontologies into graph artifacts
+      that can be reused for graph machine learning, link prediction, node classification,
+      and embedding generation. In those settings, OMO-backed metadata helps make
+      ontology-derived nodes and edges more interpretable, auditable, and comparable
+      across ontology releases.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://obofoundry.org/ontology/omo.html
+      ref_title: OBO Metadata Ontology
+      ref_journal: OBO Foundry
+    - ref_url: https://kghub.org/kg_obo/
+      ref_title: KG-OBO
+      ref_journal: Knowledge Graph Hub
+    - ref_url: https://doi.org/10.48550/arXiv.2302.10800
+      ref_title: KG-Hub, building and exchanging biological knowledge graphs
+      ref_publication_year: 2023
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://obofoundry.org/ontology/omo.html
+    ref_title: OBO Metadata Ontology
+    ref_journal: OBO Foundry
 - id: B2AI_STANDARD:508
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -31798,12 +32210,47 @@ data_standardortools_collection:
   formal_specification: https://github.com/ontoneo-project/Ontoneo
   is_open: true
   name: ONTONEO
-  purpose_detail: A structured controlled vocabulary to provide a representation of
-    the data from electronic health records involved in the care of pregnancy.
+  purpose_detail: The Obstetric and Neonatal Ontology (ONTONEO) is a structured controlled
+    vocabulary for representing electronic health record data involved in the care
+    of pregnant people and newborns. It models obstetric and neonatal clinical information,
+    documents, encounters, anatomy, developmental stages, and care-context concepts
+    using OBO Foundry-aligned ontology-development practices. For biomedical AI/ML,
+    ONTONEO is useful as a semantic harmonization layer for maternal-child health
+    data because pregnancy and neonatal prediction tasks often require consistent
+    representation of gestational timing, prenatal events, delivery context, newborn
+    outcomes, and source-document provenance across heterogeneous EHR systems.
   requires_registration: false
   url: https://github.com/ontoneo-project/Ontoneo
+  has_application:
+  - id: B2AI_APP:413
+    category: B2AI:Application
+    name: OntONeo-Guided Maternal and Neonatal EHR Feature Harmonization
+    description: ONTONEO can support AI/ML studies in obstetrics and neonatology by
+      grounding EHR variables in a shared ontology before cohort construction, feature
+      extraction, or model evaluation. Predictive models for pregnancy complications,
+      gestational age, delivery events, or neonatal outcomes require consistent meanings
+      for clinical events and timing across institutions. ONTONEO provides domain
+      terms that can help map local EHR fields and documents to common concepts,
+      improving interoperability, auditability, and reuse of maternal-child health
+      datasets used for statistical modeling or machine-learning pipelines.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://ontoneo.com/wp-content/uploads/2016/11/ontoneo_paper_icbo2016.pdf
+      ref_title: OntONeo, The Obstetric and Neonatal Ontology
+      ref_publication_year: 2016
+      ref_journal: International Conference on Biomedical Ontology
+    - ref_url: https://obofoundry.org/ontology/ontoneo.html
+      ref_title: Obstetric and Neonatal Ontology
+      ref_journal: OBO Foundry
+    - ref_url: https://doi.org/10.48550/arXiv.2205.02933
+      ref_title: Temporal Events Detector for Pregnancy Care
+      ref_publication_year: 2022
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://ontoneo.com/wp-content/uploads/2016/11/ontoneo_paper_icbo2016.pdf
+    ref_title: OntONeo, The Obstetric and Neonatal Ontology
+    ref_publication_year: 2016
+    ref_journal: International Conference on Biomedical Ontology
 - id: B2AI_STANDARD:509
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -31942,12 +32389,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/OmniSearch/omit
   is_open: true
   name: OMIT
-  purpose_detail: Data exchange standards and common data elements in the microRNA
-    (miR) domain.
+  purpose_detail: The Ontology for MIRNA Target (OMIT) is a domain ontology for representing
+    microRNAs, target genes, target-prediction evidence, disease associations, experimental
+    findings, and related concepts in the miRNA research domain. It was developed
+    to support semantic annotation, data integration, knowledge acquisition, and
+    search across miRNA-target resources and literature. For AI/ML use, OMIT provides
+    a structured vocabulary for integrating target-prediction outputs, gene and disease
+    annotations, and curated evidence into knowledge bases or feature sets that can
+    support miRNA target prioritization, biomedical text mining, and explainable
+    discovery workflows.
   requires_registration: false
   url: https://github.com/OmniSearch/omit
+  has_application:
+  - id: B2AI_APP:405
+    category: B2AI:Application
+    name: OMIT-Based Semantic Search for miRNA Target Prediction Evidence
+    description: OmniSearch applies OMIT as the semantic layer for searching and
+      integrating microRNA-target gene interaction data from prediction databases,
+      literature, gene resources, and biomedical ontologies. This provides an AI-adjacent
+      knowledge-discovery workflow in which predicted target relationships, ontology
+      terms, and external annotations can be queried together to prioritize candidate
+      miRNA-target interactions and support downstream computational analysis. OMIT's
+      explicit representation of prediction sources and miRNA-domain entities helps
+      make these integrated results more interpretable than keyword search alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-016-0064-2
+      ref_title: OmniSearch, a semantic search system based on the Ontology for MIcroRNA
+        Target (OMIT) for microRNA-target gene interaction data
+      ref_publication_year: 2016
+      ref_journal: Journal of Biomedical Semantics
+    - ref_url: https://www.mirdb.org/index.html
+      ref_title: miRDB, microRNA target prediction database
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1371/journal.pone.0100855
+    ref_title: OMIT, dynamic semi-automated ontology development for the microRNA
+      domain
+    ref_publication_year: 2014
+    ref_journal: PLoS ONE
 - id: B2AI_STANDARD:514
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32322,12 +32801,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/safisher/ornaseq
   is_open: true
   name: ORNASEQ
-  purpose_detail: An application ontology designed to annotate next-generation sequencing
-    experiments performed on RNA.
+  purpose_detail: The Ontology of RNA Sequencing (ORNASEQ) is an application ontology
+    for describing RNA sequencing assays, library preparation concepts, sequencing
+    experiment attributes, and analysis-relevant metadata. It provides controlled
+    terms that can be used to annotate next-generation sequencing experiments performed
+    on RNA and to connect assay descriptions with broader OBO Foundry vocabulary
+    ecosystems. For AI/ML, ORNASEQ is useful as a normalization layer for RNA-seq
+    metadata because harmonized assay and protocol annotations help compare datasets, control
+    batch effects, select compatible training cohorts, and document provenance for
+    gene-expression, transcriptomics, and single-cell learning workflows.
   requires_registration: false
   url: https://github.com/safisher/ornaseq
+  has_application:
+  - id: B2AI_APP:406
+    category: B2AI:Application
+    name: RNA-Seq Metadata Harmonization for Transcriptomics Machine Learning
+    description: ORNASEQ terms can support RNA-seq AI/ML workflows by providing controlled
+      annotations for assay type, library preparation, sequencing experiment context,
+      and related metadata before datasets are merged for model training or benchmarking.
+      In transcriptomics and single-cell analysis, machine-learning models are sensitive
+      to protocol, technology, and batch differences; ontology-backed metadata makes
+      it easier to select comparable datasets, represent provenance, and audit whether
+      performance differences reflect biology or experimental design. This use is
+      complementary to expression-matrix standards because it describes the experiment
+      that generated the matrix.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://obofoundry.org/ontology/ornaseq.html
+      ref_title: Ontology of RNA Sequencing
+      ref_journal: OBO Foundry
+    - ref_url: https://arxiv.org/abs/2406.05258
+      ref_title: Advances in machine learning, statistical methods, and AI for single-cell
+        RNA annotation using raw count matrices in scRNA-seq data
+      ref_publication_year: 2024
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://obofoundry.org/ontology/ornaseq.html
+    ref_title: Ontology of RNA Sequencing
+    ref_journal: OBO Foundry
 - id: B2AI_STANDARD:526
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32916,13 +33427,47 @@ data_standardortools_collection:
   - B2AI_ORG:99
   is_open: true
   name: SSN
-  purpose_detail: An ontology for describing sensors and their observations, the involved
-    procedures, the studied features of interest, the samples used to do so, and the
-    observed properties, as well as actuators.
+  purpose_detail: The Semantic Sensor Network Ontology (SSN) is a W3C and OGC ontology
+    for describing sensors, observations, actuators, procedures, features of interest,
+    samples, observed properties, deployments, and related measurement context. Its
+    lightweight SOSA core supports broad adoption while the fuller SSN modules provide
+    richer axioms for semantic interoperability across sensor-web, environmental,
+    industrial, smart-city, and scientific-monitoring systems. For AI/ML workflows,
+    SSN helps make sensor streams and sensor metadata machine-readable so that models
+    can account for measurement procedure, device type, deployment context, observed
+    property, units, sampling provenance, and heterogeneity across data sources.
   requires_registration: false
   url: https://www.w3.org/TR/vocab-ssn/
+  has_application:
+  - id: B2AI_APP:414
+    category: B2AI:Application
+    name: SSN-Semantic Sensor Streams for IoT Machine Learning
+    description: SSN and SOSA can provide semantic descriptions for heterogeneous
+      sensor observations used in machine-learning pipelines, including the sensor,
+      observed property, feature of interest, sampling procedure, and deployment context.
+      Semantic-enhanced IoT machine-learning frameworks use ontology annotations
+      to attach meaning to sensor streams rather than treating model labels as opaque
+      categories. This supports event detection, feature selection, model interpretation,
+      and reuse of sensor data across environments where different devices observe
+      similar phenomena under different procedures.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.w3.org/TR/vocab-ssn/
+      ref_title: Semantic Sensor Network Ontology
+      ref_journal: W3C Recommendation
+    - ref_url: https://doi.org/10.1016/j.websem.2012.05.003
+      ref_title: The SSN ontology of the W3C semantic sensor network incubator group
+      ref_publication_year: 2012
+      ref_journal: Journal of Web Semantics
+    - ref_url: https://doi.org/10.3233/SW-180314
+      ref_title: Machine learning in the Internet of Things, a semantic-enhanced
+        approach
+      ref_publication_year: 2018
+      ref_journal: Semantic Web
   publication:
-    ref_url: ''
+    ref_url: https://www.w3.org/TR/vocab-ssn/
+    ref_title: Semantic Sensor Network Ontology
+    ref_journal: W3C Recommendation
 - id: B2AI_STANDARD:547
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33390,11 +33935,48 @@ data_standardortools_collection:
   - B2AI_ORG:29
   is_open: true
   name: SBO
-  purpose_detail: Terms commonly used in Systems Biology and computational modeling.
+  purpose_detail: The Systems Biology Ontology (SBO) is a controlled vocabulary for
+    the terms used to describe systems-biology models, including participant roles,
+    quantitative parameters, rate laws, mathematical expressions, modeling frameworks,
+    physical entities, interactions, and metadata. It is used with SBML and related
+    model-exchange ecosystems to make computational models more semantically explicit
+    than topology and equations alone. For AI/ML, SBO annotations help turn model
+    repositories into computable corpora by enabling retrieval, comparison, clustering,
+    feature extraction, simulation selection, and hybrid modeling workflows that combine
+    mechanistic systems-biology models with data-driven methods.
   requires_registration: false
   url: https://github.com/EBI-BioModels/SBO
+  has_application:
+  - id: B2AI_APP:407
+    category: B2AI:Application
+    name: SBO-Annotated SBML Models for Feature Extraction and Hybrid Modeling
+    description: SBO annotations provide machine-readable semantics for reactions,
+      parameters, model components, and mathematical expressions in SBML models. These
+      annotations can be used to retrieve and align models, extract ontology-derived
+      features from model repositories, and prepare mechanistic models for downstream
+      computational workflows. In AI/ML contexts, semantically annotated systems-biology
+      models can support clustering, model recommendation, knowledge-graph construction,
+      and hybrid approaches such as systems-biology-informed neural networks that
+      combine ODE-based mechanistic structure with learned parameter estimation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1002/msb.201177
+      ref_title: Controlled vocabularies and semantics in systems biology
+      ref_publication_year: 2011
+      ref_journal: Molecular Systems Biology
+    - ref_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4405863/
+      ref_title: Annotation-based feature extraction from sets of SBML models
+      ref_publication_year: 2015
+      ref_journal: Journal of Biomedical Semantics
+    - ref_url: https://arxiv.org/abs/2202.01723
+      ref_title: Systems-biology informed neural networks for parameter estimation
+      ref_publication_year: 2022
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1002/msb.201177
+    ref_title: Controlled vocabularies and semantics in systems biology
+    ref_publication_year: 2011
+    ref_journal: Molecular Systems Biology
 - id: B2AI_STANDARD:556
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33519,11 +34101,52 @@ data_standardortools_collection:
   formal_specification: https://bitbucket.org/hegroup/ogg/src/master/
   is_open: true
   name: OGG
-  purpose_detail: A formal ontology of genes and genomes of biological organisms.
+  purpose_detail: The Ontology of Genes and Genomes (OGG) is an OBO Foundry ontology
+    for representing specific genes, gene types, genomes, and their organismal context.
+    OGG aligns with Basic Formal Ontology and maps ontology identifiers to NCBI
+    Taxonomy and NCBI Gene identifiers, allowing gene and genome entities from humans,
+    viruses, bacteria, and model organisms to be represented as interoperable ontology
+    classes. It complements functional ontologies such as GO by representing the
+    gene and genome entities themselves rather than only their processes, functions,
+    or cellular locations. OGG supports SPARQL queries, term reuse in other ontologies,
+    organism-specific subsets, and integration of gene-centered data in biomedical
+    knowledge graphs used for comparative genomics, infectious disease, vaccine,
+    and AI/ML feature annotation workflows.
   requires_registration: false
   url: https://bitbucket.org/hegroup/ogg/src/master/
+  has_application:
+  - id: B2AI_APP:394
+    category: B2AI:Application
+    name: Gene and Genome Entity Representation in Biomedical Ontology Integration
+    description: OGG has been reused by biomedical ontologies to represent specific
+      organismal genes and genomes as interoperable ontology entities rather than
+      local ad hoc identifiers. In host-pathogen and vaccine-related ontology work,
+      OGG identifiers can be imported for pathogen genes and linked to proteins,
+      virulence factors, organisms, and phenotypes, enabling integrated queries over
+      gene-centered knowledge graphs. This supports AI/ML data preparation by giving
+      gene features stable ontology identifiers that can be joined with functional,
+      phenotype, pathogen, and literature-derived annotations across species.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://ceur-ws.org/Vol-1327/icbo2014_submission_19.pdf
+      ref_title: 'OGG: a biological ontology for representing genes and genomes in
+        specific organisms'
+      ref_authors:
+      - He Y
+      - Liu Y
+      - Zhao B
+      ref_publication_year: 2014
+      ref_journal: CEUR Workshop Proceedings
   publication:
-    ref_url: ''
+    ref_url: https://ceur-ws.org/Vol-1327/icbo2014_submission_19.pdf
+    ref_title: 'OGG: a biological ontology for representing genes and genomes in
+      specific organisms'
+    ref_authors:
+    - He Y
+    - Liu Y
+    - Zhao B
+    ref_publication_year: 2014
+    ref_journal: CEUR Workshop Proceedings
 - id: B2AI_STANDARD:561
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -35479,6 +36102,45 @@ data_standardortools_collection:
     bioinformatics and other data-intensive research settings.
   requires_registration: false
   url: https://incubator.apache.org/projects/taverna.html
+  has_application:
+  - id: B2AI_APP:395
+    category: B2AI:Application
+    name: Reusable Bioinformatics Workflow Composition and Execution
+    description: Taverna has been used to compose and execute reusable bioinformatics
+      workflows that combine web services, local tools, databases, and analysis
+      steps into documented computational protocols. Workflows can be shared through
+      repositories such as myExperiment, reused by other investigators, and inspected
+      as executable descriptions of multi-step analyses such as sequence search,
+      alignment, phylogenetic analysis, and data integration. For AI/ML and data
+      science, this workflow representation supports reproducible feature-generation
+      pipelines, provenance capture, and workflow mining or annotation efforts that
+      classify computational steps and services for reuse.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/nar/gkt328
+      ref_title: 'Taverna workflow suite: designing and executing workflows of Web
+        Services on the desktop, web or in the cloud'
+      ref_authors:
+      - Wolstencroft K
+      - Haines R
+      - Fellows D
+      - Williams A
+      - Withers D
+      - Owen S
+      - Soiland-Reyes S
+      - Dunlop I
+      - Nenadic A
+      - Fisher P
+      - Bhagat J
+      - Belhajjame K
+      - Bacall F
+      - Hardisty A
+      - Nieva de la Hidalga A
+      - Balcazar Vargas MP
+      - Sufi S
+      - Goble C
+      ref_publication_year: 2013
+      ref_journal: Nucleic Acids Research
   publication:
     ref_url: https://doi.org/10.1093/bioinformatics/bth361
     ref_title: 'Taverna: a tool for the composition and enactment of bioinformatics
@@ -35957,14 +36619,39 @@ data_standardortools_collection:
   formal_specification: https://github.com/celery/celery
   is_open: true
   name: Celery
-  purpose_detail: Celery is a simple, flexible, and reliable distributed system to
-    process vast amounts of messages, while providing operations with the tools required
-    to maintain such a system. It's a task queue with focus on real-time processing,
-    while also supporting task scheduling.
+  purpose_detail: Celery is an open-source distributed task queue for executing work
+    asynchronously across worker processes or machines using message brokers such
+    as RabbitMQ or Redis. It supports task scheduling, retries, result backends, routing,
+    monitoring, and horizontal scaling for workloads that should not run inside a
+    single request/response process. For AI/ML and biomedical data systems, Celery
+    is useful as pipeline infrastructure for dispatching long-running preprocessing,
+    model inference, feature extraction, report generation, and batch-analysis jobs
+    while keeping web applications and data services responsive.
   requires_registration: false
   url: https://docs.celeryq.dev/en/latest/
+  has_application:
+  - id: B2AI_APP:408
+    category: B2AI:Application
+    name: Celery Task Queues for Distributed Computer-Vision and AI Services
+    description: Celery has been used as distributed task-queue infrastructure in
+      AI-enabled web systems that submit image-analysis or computer-vision jobs to
+      backend workers. In CloudCV, asynchronous workers process computer-vision tasks
+      submitted through a cloud platform, separating user-facing requests from model
+      execution and other compute-heavy work. This pattern is directly applicable
+      to biomedical AI services where image preprocessing, model inference, or batch
+      feature extraction must be queued, retried, monitored, and scaled independently
+      of the application front end.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://docs.celeryq.dev/en/latest/
+      ref_title: Celery documentation
+    - ref_url: https://doi.org/10.48550/arXiv.1506.04130
+      ref_title: CloudCV, large-scale distributed computer vision as a cloud service
+      ref_publication_year: 2015
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://docs.celeryq.dev/en/latest/
+    ref_title: Celery documentation
 - id: B2AI_STANDARD:741
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -36191,14 +36878,42 @@ data_standardortools_collection:
   is_open: true
   name: CML library
   purpose_detail: Continuous Machine Learning (CML) is an open-source library for
-    implementing continuous integration & delivery (CI/CD) in machine learning projects.
-    Use it to automate parts of your development workflow, including model training
-    and evaluation, comparing ML experiments across your project history, and monitoring
-    changing datasets.
+    implementing continuous integration and delivery patterns in machine-learning
+    projects. It runs inside systems such as GitHub Actions, GitLab CI, and Bitbucket
+    Pipelines to automate model training, evaluation, report generation, metric comparison,
+    data or model retrieval, and experiment feedback on code changes. For biomedical
+    AI/ML teams, CML is useful as MLOps infrastructure because it can make model-development
+    checks repeatable, expose performance changes during review, and connect CI workflows
+    to data-versioning tools without requiring a separate proprietary model platform.
   requires_registration: false
   url: https://cml.dev/
+  has_application:
+  - id: B2AI_APP:415
+    category: B2AI:Application
+    name: CML-Based Continuous Evaluation for Reproducible ML Pipelines
+    description: CML enables machine-learning projects to run training or evaluation
+      jobs automatically when code changes, then publish metrics, plots, and model
+      comparisons back into pull requests or merge requests. This supports AI/ML
+      quality control by making regression checks, drift checks, and benchmark comparisons
+      visible during routine software review. In biomedical AI settings, the same
+      pattern can be used to rerun validation on controlled datasets, compare model
+      performance across commits, and document whether preprocessing or feature changes
+      altered clinically relevant metrics.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://cml.dev/
+      ref_title: CML documentation
+    - ref_url: https://dvc.org/blog/cml-release
+      ref_title: New Release, Continuous Machine Learning is CI/CD for ML
+      ref_publication_year: 2020
+      ref_journal: DVC Blog
+    - ref_url: https://doi.org/10.48550/arXiv.2209.11453
+      ref_title: A preliminary investigation of MLOps practices in GitHub
+      ref_publication_year: 2022
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://cml.dev/
+    ref_title: CML documentation
 - id: B2AI_STANDARD:747
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -37969,10 +38684,55 @@ data_standardortools_collection:
     list, and well-tested recipes make it accessible for both research and production
     deployment despite its complexity, bridging traditional statistical ASR approaches
     with modern deep learning methods.
+  related_to:
+  - B2AI_STANDARD:1119
   requires_registration: false
   url: https://kaldi-asr.org/
+  has_application:
+  - id: B2AI_APP:390
+    category: B2AI:Application
+    name: Kaldi ASR for Automated MoCA Verbal-Fluency Scoring
+    description: Kaldi has been used as the ASR engine for automated scoring of the
+      language-fluency component of the Montreal Cognitive Assessment in Thai. The
+      workflow trained and evaluated GMM-HMM and TDNN-based Kaldi acoustic models
+      with a task-specific language model to recognize spoken fluency responses,
+      then used post-processing and confidence handling to compute MoCA fluency scores
+      from recognized candidate words. This demonstrates a biomedical speech-AI use
+      of Kaldi where automatic recognition supports digital cognitive assessment
+      and reduces manual scoring burden for standardized neuropsychological testing.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3390/s22041583
+      ref_title: Using Automatic Speech Recognition to Assess Thai Speech Language
+        Fluency in the Montreal Cognitive Assessment (MoCA)
+      ref_authors:
+      - Kantithammakorn P
+      - Punyabukkana P
+      - Pratanwanich PN
+      - Hemrungrojn S
+      - Chunharas C
+      - Wanvarie D
+      ref_publication_year: 2022
+      ref_journal: Sensors
   publication:
-    ref_url: ''
+    ref_url: https://www.danielpovey.com/files/2011_asru_kaldi.pdf
+    ref_title: The Kaldi Speech Recognition Toolkit
+    ref_authors:
+    - Povey D
+    - Ghoshal A
+    - Boulianne G
+    - Burget L
+    - Glembek O
+    - Goel N
+    - Hannemann M
+    - Motlicek P
+    - Qian Y
+    - Schwarz P
+    - Silovsky J
+    - Stemmer G
+    - Vesely K
+    ref_publication_year: 2011
+    ref_journal: IEEE 2011 Workshop on Automatic Speech Recognition and Understanding
 - id: B2AI_STANDARD:781
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -39777,12 +40537,46 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:8
   is_open: true
   name: pandas
-  purpose_detail: An open source data analysis and manipulation tool built on top
-    of the Python programming language.
+  purpose_detail: pandas is an open-source Python library that provides high-level
+    data structures and operations for tabular, time-series, and heterogeneous data
+    analysis. Its DataFrame and Series abstractions support indexing, joins, reshaping,
+    missing-data handling, grouping, aggregation, file import and export, and integration
+    with NumPy, scikit-learn, plotting libraries, and broader scientific Python workflows.
+    For AI/ML, pandas is often the first structured-data layer used to clean datasets,
+    construct features, inspect cohort or label distributions, merge metadata, prepare
+    train-test splits, and convert tabular data into arrays or matrices consumed
+    by modeling libraries.
   requires_registration: false
   url: https://pandas.pydata.org/
+  has_application:
+  - id: B2AI_APP:416
+    category: B2AI:Application
+    name: pandas DataFrames for ML Feature Engineering and Cohort Tables
+    description: pandas is widely used to prepare structured datasets before machine-learning
+      model training, including loading tabular files, joining clinical or experimental
+      metadata, imputing or flagging missing values, aggregating longitudinal measurements,
+      and creating feature matrices. In Python ML workflows, pandas DataFrames often
+      serve as the interface between raw files and scikit-learn, PyTorch, TensorFlow,
+      or specialized biomedical analysis packages. This makes pandas a practical
+      tool for reproducible feature engineering, exploratory data analysis, and model-ready
+      cohort table construction.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.25080/Majora-92bf1922-00a
+      ref_title: Data structures for statistical computing in Python
+      ref_publication_year: 2010
+      ref_journal: Proceedings of the Python in Science Conference
+    - ref_url: https://pandas.pydata.org/
+      ref_title: pandas, Python Data Analysis Library
+    - ref_url: https://doi.org/10.48550/arXiv.1201.0490
+      ref_title: Scikit-learn, machine learning in Python
+      ref_publication_year: 2012
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.25080/Majora-92bf1922-00a
+    ref_title: Data structures for statistical computing in Python
+    ref_publication_year: 2010
+    ref_journal: Proceedings of the Python in Science Conference
 - id: B2AI_STANDARD:814
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -40012,47 +40806,17 @@ data_standardortools_collection:
     - Conde JG
     ref_publication_year: 2009
     ref_journal: Journal of Biomedical Informatics
-  purpose_detail: REDCap (Research Electronic Data Capture) is a mature, metadata-driven
-    software platform designed for building and managing online databases and surveys
-    for clinical and translational research studies, developed at Vanderbilt University
-    and now maintained by an international consortium of over 6,000 institutional
-    partners across 150 countries. The platform provides a comprehensive web-based
-    application with an intuitive interface for rapid development of electronic data
-    capture instruments using a data dictionary that defines field types, validation
-    rules, branching logic, and calculated fields without requiring programming expertise.
-    Core features include secure user authentication with role-based access controls,
-    audit trails tracking all data changes with timestamps and user attribution, automated
-    data quality checks through validation rules and range constraints, repeating
-    instruments and events for longitudinal data collection, survey distribution with
-    public and private links, and mobile-responsive data entry forms accessible from
-    any device. REDCap supports complex study designs through its project management
-    capabilities including multi-site studies, randomization modules, scheduling and
-    calendar features, file upload repositories, and automated survey invitations
-    with customizable reminder logic. The platform emphasizes data security and regulatory
-    compliance with HIPAA-compatible infrastructure, 21 CFR Part 11 validation documentation,
-    encrypted data transmission and storage, automatic de-identification tools for
-    exporting datasets, and comprehensive logging for audit purposes. REDCap's extensibility
-    is enabled through a robust RESTful API supporting programmatic data import/export,
-    project metadata retrieval, and integration with external systems, plus the REDCap
-    External Modules framework allowing custom functionality development. The Clinical
-    Data Interoperability Services (CDIS) extension provides FHIR-based integration
-    enabling bidirectional data exchange with electronic health records, supporting
-    real-time EHR data extraction and write-back capabilities. Data analysis features
-    include built-in descriptive statistics, graphical data visualization, data export
-    to multiple formats (CSV, SPSS, SAS, R, Stata, Excel), and the REDCap-ETL tool
-    for transforming and loading data into relational databases for advanced analytics.
-    The platform has been extensively adopted in AI and machine learning workflows
-    as a standardized data capture layer feeding training datasets, with documented
-    applications spanning multimodal ML combining clinical tabular data with imaging
-    features, federated rare disease registries supporting deep learning on aggregated
-    cohorts, in-app risk scoring and triage algorithms implemented via calculated
-    fields, reproducible ETL pipelines to SQLite/Python/scikit-learn for nuclear medicine
-    ML, FHIR-mediated interoperable AI data pipelines for oncology research, and prospective
-    ML model monitoring frameworks with continuous retraining tied to REDCap-collected
-    outcomes. REDCap's metadata-driven architecture, standardized common data elements
-    support, API-driven ETL capabilities, and integration with research informatics
-    ecosystems make it essential infrastructure for rigorous, reproducible clinical
-    research and AI-ready biomedical data collection.
+  purpose_detail: REDCap (Research Electronic Data Capture) is a metadata-driven,
+    web-based platform for building secure research databases, case report forms,
+    and surveys for clinical and translational studies. Projects are defined through
+    data dictionaries with field types, validation rules, branching logic, calculated
+    fields, longitudinal events, user roles, and audit trails, enabling non-programmers
+    to create structured data-capture workflows while preserving provenance and data
+    quality. REDCap's API, export tools, external modules, and FHIR-oriented Clinical
+    Data Interoperability Services make it a common upstream data source for AI pipelines
+    that require standardized clinical variables, multi-site cohort collection, reproducible
+    ETL, model monitoring outcomes, and links between EHR-derived and research-collected
+    data.
   requires_registration: true
   url: https://www.project-redcap.org/
   used_in_bridge2ai: true
@@ -42275,12 +43039,41 @@ data_standardortools_collection:
   - B2AI_STANDARD:963
   is_open: true
   name: R
-  purpose_detail: A free software environment for statistical computing and graphics.
+  purpose_detail: R is a free, open-source programming language and software environment
+    for statistical computing, graphics, data analysis, simulation, and reproducible
+    research. It includes a core language and interpreter, the CRAN package ecosystem,
+    tools for statistical modeling and visualization, and extensive support for literate
+    analysis through notebooks and reports. For AI/ML, R is used for exploratory
+    analysis, feature engineering, classical statistical learning, predictive modeling,
+    resampling, model interpretation, bioinformatics workflows, and production-quality
+    reporting where statistical methods and data provenance need to be explicit.
   requires_registration: false
   url: https://www.r-project.org/
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:417
+    category: B2AI:Application
+    name: R caret Workflows for Predictive Modeling and Model Evaluation
+    description: R supports machine-learning workflows through packages such as caret,
+      tidymodels, mlr3, randomForest, xgboost, and Bioconductor analysis tools. The
+      caret package illustrates R's role as an integrated predictive-modeling environment
+      by providing consistent interfaces for preprocessing, feature selection, resampling,
+      hyperparameter tuning, model comparison, and performance estimation across
+      many algorithms. In biomedical data science, these capabilities support reproducible
+      risk models, omics classifiers, clinical prediction studies, and transparent
+      statistical reporting.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://www.r-project.org/
+      ref_title: The R Project for Statistical Computing
+    - ref_url: https://doi.org/10.18637/jss.v028.i05
+      ref_title: Building predictive models in R using the caret package
+      ref_publication_year: 2008
+      ref_journal: Journal of Statistical Software
   publication:
-    ref_url: ''
+    ref_url: https://www.r-project.org/
+    ref_title: The R Project for Statistical Computing
+    ref_journal: R Foundation for Statistical Computing
 - id: B2AI_STANDARD:834
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -42732,14 +43525,22 @@ data_standardortools_collection:
   - B2AI_ORG:40
   is_open: true
   name: Udemy FHIR
-  purpose_detail: This course will help you understand the basics of FHIR. It is a
-    FREE sample of a comprehensive hands-on introductory course (details inside).
-    The full course includes direct access to the course creator via a private members-only
-    Slack room.
+  purpose_detail: This introductory Udemy course teaches basic FHIR concepts through
+    a short hands-on workflow using Mirth Connect. The lesson introduces installation
+    and use of Mirth Connect, FHIR resource handling, and transformation between
+    a FHIR Patient resource in XML and an HL7 v2 ADT message. It functions as an
+    entry-level training resource for developers, interface analysts, and informatics
+    learners who need practical exposure to FHIR message transformation before working
+    with more complete FHIR implementation guides or production health-data exchange
+    workflows.
+  related_to:
+  - B2AI_STANDARD:109
   requires_registration: true
   url: https://www.udemy.com/course/introduction-to-fhir/
   publication:
-    ref_url: ''
+    ref_url: https://www.udemy.com/course/introduction-to-fhir/
+    ref_title: Introduction to FHIR
+    ref_journal: Udemy
 - id: B2AI_STANDARD:851
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -43119,12 +43920,48 @@ data_standardortools_collection:
   formal_specification: https://github.com/pyvandenbussche/lov
   is_open: true
   name: LOV
-  purpose_detail: A collection of searchable ontologies and vocabularies, spanning
-    multiple fields.
+  purpose_detail: Linked Open Vocabularies (LOV) is a registry and search service
+    for RDF, RDFS, OWL, and other linked-data vocabularies used to publish and describe
+    data on the Web. It provides vocabulary metadata, term search, reuse information,
+    inter-vocabulary links, and quality signals that help data publishers choose
+    existing semantic terms instead of creating incompatible local schemas. For AI/ML
+    and knowledge-graph work, LOV supports vocabulary discovery, ontology reuse,
+    schema alignment, feature semantics, and linked-data integration when constructing
+    machine-readable corpora or graph datasets from heterogeneous sources.
   requires_registration: false
   url: https://lov.linkeddata.es/
+  has_application:
+  - id: B2AI_APP:418
+    category: B2AI:Application
+    name: LOV Vocabulary Discovery for Knowledge-Graph Construction
+    description: LOV helps knowledge-graph and AI teams discover reusable vocabularies,
+      inspect term metadata, and identify links among semantic schemas before building
+      RDF datasets or graph-based features. This reduces schema fragmentation and
+      supports more consistent graph construction for machine-learning tasks such
+      as link prediction, entity normalization, semantic search, and retrieval-augmented
+      question answering over linked data. LOV's registry role is especially useful
+      when integrating cross-domain sources because it exposes existing classes and
+      properties that can be reused or aligned instead of inventing new terms.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3233/SW-160213
+      ref_title: Linked Open Vocabularies, a gateway to reusable semantic vocabularies
+        on the Web
+      ref_publication_year: 2016
+      ref_journal: Semantic Web
+    - ref_url: https://lov.linkeddata.es/dataset/lov/about/
+      ref_title: About Linked Open Vocabularies
+    - ref_url: https://doi.org/10.48550/arXiv.2310.20475
+      ref_title: Linked Papers With Code, the latest in machine learning as an RDF
+        knowledge graph
+      ref_publication_year: 2023
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.3233/SW-160213
+    ref_title: Linked Open Vocabularies, a gateway to reusable semantic vocabularies
+      on the Web
+    ref_publication_year: 2016
+    ref_journal: Semantic Web
 - id: B2AI_STANDARD:864
   category: B2AI_STANDARD:Registry
   concerns_data_topic:
@@ -45217,6 +46054,26 @@ data_standardortools_collection:
     microscopy, spatial transcriptomics imaging, and high-throughput phenotypic screening.
   requires_registration: false
   url: https://docs.google.com/spreadsheets/d/1Ck1NeLp-ZN4eMGdNYo2nV6KLEdSfN6oQBKnnWU6Npeo/edit?gid=1023506919#gid=1023506919
+  has_application:
+  - id: B2AI_APP:396
+    category: B2AI:Application
+    name: AI-Ready Bioimage Repository Metadata and Ground Truth Reuse
+    description: REMBI is used as a metadata framework for biological-image repositories
+      and imaging-data management systems that need enough acquisition, sample,
+      preparation, and processing context to make microscopy images reusable. For
+      machine-learning workflows, REMBI-relevant metadata helps users identify appropriate
+      training and benchmark data by documenting imaging modality, specimen context,
+      channel information, labels, segmentations, treatments, and processing provenance.
+      This supports AI-ready bioimage publication because models trained for segmentation,
+      phenotyping, denoising, or classification can be assessed against the imaging
+      conditions and ground-truth annotations that produced the source datasets.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41592-021-01166-8
+      ref_title: 'REMBI: Recommended Metadata for Biological Images--enabling reuse
+        of microscopy data in biology'
+      ref_publication_year: 2021
+      ref_journal: Nature Methods
 - id: B2AI_STANDARD:894
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -45330,8 +46187,28 @@ data_standardortools_collection:
   requires_registration: false
   url: https://www.earthdata.nasa.gov/about/esdis/esco/standards-practices/ascii-file-format-guidelines-earth-science-data
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:397
+    category: B2AI:Application
+    name: Self-Describing Environmental Exposure Files for Earth-Health Data Reuse
+    description: NASA's ASCII File Format Guidelines for Earth Science Data support
+      reusable plain-text environmental datasets by recommending consistent headers,
+      variable descriptions, units, missing-data conventions, geospatial and temporal
+      context, and file naming practices. These conventions make ASCII files easier
+      to parse, validate, archive, and combine with epidemiological or public-health
+      datasets that are often exchanged as delimited text. In AI/ML workflows, the
+      guidelines help preserve the metadata needed to transform environmental measurements
+      such as air quality, weather, land use, or climate observations into documented
+      exposure features for modeling and cross-study comparison.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://www.earthdata.nasa.gov/s3fs-public/imported/ESDS-RFC-027v1.1.pdf
+      ref_title: ASCII File Format Guidelines for Earth Science Data
+      ref_journal: NASA Earth Science Data Systems
   publication:
-    ref_url: ''
+    ref_url: https://www.earthdata.nasa.gov/s3fs-public/imported/ESDS-RFC-027v1.1.pdf
+    ref_title: ASCII File Format Guidelines for Earth Science Data
+    ref_journal: NASA Earth Science Data Systems
 - id: B2AI_STANDARD:896
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -49734,14 +50611,45 @@ data_standardortools_collection:
   - B2AI_STANDARD:1043
   is_open: false
   name: Aspera
-  purpose_detail: IBM Aspera is a platform for secure, reliable transfer of large
-    datasets over wide-area networks using FASP technology to move files much faster
-    than conventional transfer methods while supporting cloud, hybrid, and on-premises
-    deployments.
+  purpose_detail: IBM Aspera is a secure high-speed data-transfer platform built
+    around FASP technology for moving very large files and datasets across wide-area
+    networks, cloud storage, hybrid infrastructure, and on-premises systems. It is
+    designed to maintain high throughput across distance, latency, packet loss,
+    and variable network conditions, while providing authentication, encryption,
+    resumable transfer behavior, and workflow automation for controlled data exchange.
+    In biomedical data operations, Aspera is used by large repositories and submission
+    pipelines to move sequencing, proteomics, imaging, and other high-volume research
+    files where ordinary browser, FTP, or HTTP transfer can become a bottleneck for
+    AI/ML-scale data reuse.
   requires_registration: true
   url: https://www.ibm.com/products/aspera
+  has_application:
+  - id: B2AI_APP:398
+    category: B2AI:Application
+    name: High-Speed Repository Transfer for Large Omics Datasets
+    description: Aspera is used as a high-speed file-transfer option by biomedical
+      data repositories and submission systems that handle large omics files. PRIDE
+      Archive has supported Aspera alongside FTP for downloading proteomics datasets,
+      while sequence archives have used FASP-based transfer to reduce the burden
+      of submitting and retrieving high-throughput sequencing files. In AI/ML data
+      preparation, this transfer layer matters because large training or benchmark
+      collections often consist of many raw and processed files that must be moved
+      reliably before feature extraction, model training, or reproducible reanalysis
+      can occur.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/nar/gkv368
+      ref_title: Introducing the PRIDE Archive RESTful web services
+      ref_publication_year: 2015
+      ref_journal: Nucleic Acids Research
+    - ref_url: https://doi.org/10.1093/nar/gkp1078
+      ref_title: Archiving next generation sequencing data
+      ref_publication_year: 2010
+      ref_journal: Nucleic Acids Research
   publication:
-    ref_url: ''
+    ref_url: https://www.ibm.com/products/aspera
+    ref_title: IBM Aspera
+    ref_journal: IBM
 - id: B2AI_STANDARD:1038
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -50174,13 +51082,22 @@ data_standardortools_collection:
     the Hub
   is_open: true
   name: The Hugging Face Hub
-  purpose_detail: This Hugging Face course lesson teaches how to find models, inspect
-    model cards, use the Hub interface, and connect hosted models to downstream machine
-    learning workflows.
+  purpose_detail: This Hugging Face course lesson teaches users how to discover,
+    inspect, and use machine-learning models hosted on the Hugging Face Hub. It
+    covers the Hub interface, model pages, model cards, task and library metadata,
+    hosted inference widgets, and ways to connect model repositories to downstream
+    machine-learning workflows. As a training resource, it helps users evaluate
+    whether a hosted model is appropriate for a task by checking documentation,
+    licenses, intended use, limitations, and reproducibility metadata before downloading,
+    fine-tuning, or deploying the model.
+  related_to:
+  - B2AI_STANDARD:398
   requires_registration: false
   url: https://huggingface.co/learn/llm-course/chapter4/1
   publication:
-    ref_url: ''
+    ref_url: https://huggingface.co/learn/llm-course/chapter4/1
+    ref_title: The Hugging Face Hub
+    ref_journal: Hugging Face Course
 - id: B2AI_STANDARD:1059
   category: B2AI_STANDARD:TrainingProgram
   concerns_data_topic:
@@ -51483,25 +52400,17 @@ data_standardortools_collection:
   - B2AI_STANDARD:1125
   is_open: true
   name: Gravity Project
-  purpose_detail: The Gravity Project is a U.S. national public collaborative that
-    develops consensus-based standards for representing social determinants of health
-    and social care data so they can be documented, exchanged, aggregated, and reused
-    across healthcare, community-based, payer, public health, and research settings.
-    Launched in 2019 by the Social Interventions Research and Evaluation Network
-    (SIREN) with partners and now operating as an HL7 FHIR Accelerator, the project
-    defines use cases, common data elements, value sets, code recommendations, and
-    FHIR implementation guidance for activities such as screening, assessment and
-    diagnosis, goal setting, referral, intervention, and closed-loop feedback. Initial
-    priority domains included food insecurity, housing instability and quality, and
-    transportation access, and the published SDOH Clinical Care implementation guide
-    supports broader social risk and social need workflows. Gravity is not a single
-    vocabulary; rather, it harmonizes structured SDOH content across standards such
-    as FHIR, LOINC, and SNOMED CT, enabling interoperable capture of questionnaires,
-    observations, conditions, goals, service requests, procedures, and referral outcomes.
-    In biomedical AI and data science, Gravity helps normalize SDoH variables and
-    intervention data across sites, improving cohort identification, health equity
-    analytics, quality measurement, and predictive or causal modeling that depends
-    on consistent representation of social risk and social care activities.
+  purpose_detail: The Gravity Project is a U.S. national public collaborative and
+    HL7 FHIR Accelerator that develops consensus-based standards for documenting
+    and exchanging social determinants of health and social care data. It defines
+    use cases, common data elements, terminology recommendations, value sets, and
+    FHIR implementation guidance for screening, assessment, diagnosis, goals, referrals,
+    interventions, and closed-loop feedback across healthcare, community, payer,
+    public health, and research settings. For biomedical AI and data science, Gravity
+    helps normalize SDoH variables and intervention data across sites, supporting
+    cohort identification, health equity analytics, quality measurement, and predictive
+    or causal modeling that depends on consistent representation of social risk and
+    social care activities.
   related_to:
   - B2AI_STANDARD:109
   - B2AI_STANDARD:187
@@ -51698,8 +52607,52 @@ data_standardortools_collection:
   requires_registration: false
   url: https://ohnlp.org/page/tool-list.html
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:386
+    category: B2AI:Application
+    name: Clinical NLP Feature Extraction for Cohort Identification
+    description: OHNLP tools such as MedTagger, MedTime, MedXN, MedTator, and Backbone
+      support AI-ready clinical text workflows by extracting structured concepts,
+      temporal expressions, medication attributes, annotations, and pipeline outputs
+      from unstructured EHR narratives. These outputs can be loaded into cohort-identification,
+      phenotyping, terminology-normalization, and machine learning pipelines, turning
+      clinical notes into reproducible features or labels while preserving links
+      to the source text and extraction rules.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3811227/
+      ref_title: An information extraction framework for cohort identification using
+        electronic health records
+      ref_authors:
+      - Liu H
+      - Bielinski SJ
+      - Sohn S
+      - Murphy S
+      - Wagholikar KB
+      - Jonnalagadda SR
+      - Ravikumar KE
+      - Wu ST
+      - Kullo IJ
+      - Chute CG
+      ref_publication_year: 2013
+      ref_journal: Journal of the American Medical Informatics Association
   publication:
-    ref_url: ''
+    ref_url: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3811227/
+    ref_title: An information extraction framework for cohort identification using
+      electronic health records
+    ref_authors:
+    - Liu H
+    - Bielinski SJ
+    - Sohn S
+    - Murphy S
+    - Wagholikar KB
+    - Jonnalagadda SR
+    - Ravikumar KE
+    - Wu ST
+    - Kullo IJ
+    - Chute CG
+    ref_publication_year: 2013
+    ref_journal: Journal of the American Medical Informatics Association
 - id: B2AI_STANDARD:1127
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -52298,3 +53251,413 @@ data_standardortools_collection:
   url: https://www.ndss.com.au/health-professionals/supporting-emotional-health/mental-health-questionnaires/paid-scale/
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1144
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:55
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Croissant metadata standard for ML-ready datasets
+  formal_specification: https://docs.mlcommons.org/croissant/docs/croissant-spec-1.1.html
+  is_open: true
+  name: Croissant
+  purpose_detail: Croissant is an open, community-built metadata vocabulary for machine
+    learning datasets developed through MLCommons. It extends Schema.org and uses
+    JSON-LD to describe dataset-level metadata, distributions, file objects, file
+    sets, record sets, fields, provenance, usage conditions, and responsible AI documentation
+    in a way that is both discoverable on the web and actionable by machine-learning
+    tools. The standard is intended to make datasets easier to find, understand,
+    govern, load, reproduce, and reuse across repositories and frameworks such as
+    TensorFlow, JAX, and PyTorch, while remaining extensible for domains including
+    life sciences, geospatial data, digital humanities, and responsible AI.
+  related_to:
+  - B2AI_STANDARD:904
+  requires_registration: false
+  url: https://mlcommons.org/working-groups/data/croissant/
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:419
+    category: B2AI:Application
+    name: Croissant Metadata for Discoverable and Loadable ML Datasets
+    description: Croissant descriptions make ML datasets discoverable through dataset
+      search, understandable through structured documentation, and directly loadable
+      by ML tooling. A Croissant record declares dataset conformance, schema.org dataset
+      metadata, file distributions, record sets, fields, extraction rules, provenance,
+      permissions, and responsible AI attributes so that dataset repositories and
+      model-development pipelines can exchange a common machine-readable description.
+      This supports reproducible AI/ML workflows by reducing custom parsing, preserving
+      dataset context, and allowing models, agents, or data catalogs to evaluate
+      whether a dataset is suitable for a given training, evaluation, governance,
+      or audit task.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://mlcommons.org/working-groups/data/croissant/
+      ref_title: Croissant
+      ref_journal: MLCommons
+    - ref_url: https://docs.mlcommons.org/croissant/docs/croissant-spec-1.1.html
+      ref_title: Croissant Format Specification
+      ref_publication_year: 2026
+      ref_journal: MLCommons
+    - ref_url: https://doi.org/10.1145/3650203.3663326
+      ref_title: 'Croissant: A Metadata Format for ML-Ready Datasets'
+      ref_publication_year: 2024
+      ref_journal: Proceedings of the Eighth Workshop on Data Management for End-to-End
+        Machine Learning
+  publication:
+    ref_url: https://doi.org/10.1145/3650203.3663326
+    ref_title: 'Croissant: A Metadata Format for ML-Ready Datasets'
+    ref_authors:
+    - Akhtar M
+    - Benjelloun O
+    - Conforti C
+    - Gijsbers P
+    - Giner-Miguelez J
+    - Jain N
+    - Kuchnik M
+    - Lhoest Q
+    - Marcenac P
+    - Maskey M
+    - Mattson P
+    - Oala L
+    - Ruyssen P
+    - Shinde R
+    - Simperl E
+    - Thomas G
+    - Tykhonov S
+    - Vanschoren J
+    - van der Velde J
+    - Vogler S
+    - Wu CJ
+    ref_publication_year: 2024
+    ref_journal: Proceedings of the Eighth Workshop on Data Management for End-to-End
+      Machine Learning
+- id: B2AI_STANDARD:1145
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:14
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:55
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SpatioTemporal Asset Catalogs
+  formal_specification: https://github.com/radiantearth/stac-spec
+  is_open: true
+  name: STAC
+  purpose_detail: SpatioTemporal Asset Catalogs (STAC) is an open specification for
+    describing, cataloging, indexing, and searching geospatial assets with spatial
+    and temporal context. STAC uses JSON and GeoJSON-compatible structures to define
+    Items for individual assets, Catalogs for linked navigation, Collections for
+    dataset-level extents and metadata, and STAC API endpoints for searchable access
+    to Items. The specification is intentionally lightweight and extensible so providers
+    can expose imagery, SAR, point clouds, data cubes, full-motion video, and other
+    Earth-observation or geospatial assets through a common metadata model. For AI/ML,
+    STAC is useful because it standardizes discovery, filtering, provenance, and
+    asset links for large geospatial datasets that are often used in remote-sensing,
+    environmental-monitoring, agriculture, climate, and disaster-response models.
+  requires_registration: false
+  url: https://stacspec.org/en
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:420
+    category: B2AI:Application
+    name: STAC Catalogs for Geospatial ML Training Data Discovery
+    description: STAC enables geospatial machine-learning platforms to publish and
+      query imagery, labels, and other spatial-temporal assets through a common metadata
+      model and API. Radiant MLHub, for example, hosts STAC-compliant Earth-observation
+      training datasets for machine-learning tasks such as image classification,
+      object detection, semantic segmentation, road extraction, and building footprint
+      mapping. By standardizing fields such as geometry, datetime, collection metadata,
+      asset links, and extension-specific properties, STAC helps ML pipelines discover
+      suitable scenes, filter by space and time, retrieve paired imagery and labels,
+      and reproduce dataset assembly without hand-written adapters for each provider.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://stacspec.org/en
+      ref_title: STAC, SpatioTemporal Asset Catalogs
+      ref_journal: STAC Community
+    - ref_url: https://stacspec.org/en/about/stac-spec/
+      ref_title: The STAC Specification
+      ref_journal: STAC Community
+    - ref_url: https://aws.amazon.com/marketplace/pp/prodview-yvrd3g43ui7ms
+      ref_title: Radiant MLHub
+      ref_journal: AWS Marketplace
+    - ref_url: https://medium.com/radiant-earth-insights/radiant-mlhub-hosts-stac-compliant-spacenets-datasets-fdea51e8c45f
+      ref_title: Radiant MLHub Hosts STAC-Compliant SpaceNet's Datasets
+      ref_publication_year: 2020
+      ref_journal: Radiant Earth Insights
+  publication:
+    ref_url: https://stacspec.org/en/about/stac-spec/
+    ref_title: The STAC Specification
+    ref_journal: STAC Community
+- id: B2AI_STANDARD:1146
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Model Context Protocol
+  formal_specification: https://modelcontextprotocol.io/specification/2025-11-25
+  is_open: true
+  name: MCP
+  purpose_detail: The Model Context Protocol (MCP) is an open protocol for connecting
+    AI applications and agents to external systems such as data sources, local files,
+    databases, tools, prompts, and workflows. The specification defines a JSON-RPC-based
+    protocol between hosts, clients, and servers, with capabilities for resources,
+    tools, prompts, roots, sampling, elicitation, progress, logging, cancellation,
+    and error handling. For biomedical AI/ML, MCP is relevant as an interoperability
+    standard for building agentic systems that can safely discover and invoke dataset
+    services, analysis tools, terminology resources, document stores, workflow engines,
+    and other specialized infrastructure through a common protocol rather than bespoke
+    integrations for each application.
+  requires_registration: false
+  url: https://modelcontextprotocol.io/
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:421
+    category: B2AI:Application
+    name: BioMCP Biomedical Database Access for Research Agents
+    description: BioMCP is an implemented MCP server and command-line toolkit that
+      exposes biomedical literature, clinical-trial, variant, gene, drug, disease,
+      pathway, protein, pharmacogenomics, adverse-event, GWAS, phenotype, and local
+      study-analysis workflows through a common command surface. Its documented entity
+      surface connects agent clients to sources such as PubMed/PubTator3 and Europe
+      PMC for articles, ClinicalTrials.gov and NCI CTS for trials, MyVariant.info,
+      ClinVar, gnomAD, CIViC, OncoKB, cBioPortal, and GWAS Catalog for variants,
+      and multiple other biomedical databases for cross-entity pivots. This makes
+      MCP concrete in biomedical AI because an assistant can search articles, retrieve
+      trial protocols or outcomes, annotate a variant such as BRAF V600E, pivot from
+      genes to trials or articles, and run local cBioPortal-style study analytics
+      through a standardized MCP interface rather than hand-built connectors.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://biomcp.org/
+      ref_title: BioMCP
+      ref_journal: BioMCP documentation
+    - ref_url: https://github.com/genomoncology/biomcp
+      ref_title: 'BioMCP: Biomedical Model Context Protocol'
+      ref_journal: GitHub
+    - ref_url: https://biomcp.org/how-to-guides/03-get-comprehensive-variant-annotations/
+      ref_title: Analyzing Variants
+      ref_journal: BioMCP documentation
+    - ref_url: https://academic.oup.com/bib/article/27/1/bbag076/8495038
+      ref_title: 'MCPmed: a call for Model Context Protocol-enabled bioinformatics
+        web services for LLM-driven discovery'
+      ref_publication_year: 2026
+      ref_journal: Briefings in Bioinformatics
+  - id: B2AI_APP:423
+    category: B2AI:Application
+    name: MCPmed Bioinformatics Web Services for LLM-Driven Discovery
+    description: MCPmed demonstrates MCP-enabled access to bioinformatics web services
+      by converting widely used resources such as Gene Expression Omnibus, STRING,
+      UCSC Cell Browser, and PLSDB into machine-actionable services for LLM agents.
+      The application addresses the gap between human-oriented web interfaces and
+      agent-driven discovery by exposing endpoints with scientific concepts, metadata,
+      and structured tool access. In practice, this lets biomedical agents explore
+      gene-expression datasets, protein interaction networks, single-cell browser
+      datasets, and plasmid resources through MCP implementations or lightweight
+      breadcrumbs, supporting more reproducible and automatable bioinformatics research
+      workflows than manual web navigation alone.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://academic.oup.com/bib/article/27/1/bbag076/8495038
+      ref_title: 'MCPmed: a call for Model Context Protocol-enabled bioinformatics
+        web services for LLM-driven discovery'
+      ref_publication_year: 2026
+      ref_journal: Briefings in Bioinformatics
+    - ref_url: https://pubmed.ncbi.nlm.nih.gov/41729821/
+      ref_title: 'MCPmed: a call for Model Context Protocol-enabled bioinformatics
+        web services for LLM-driven discovery'
+      ref_publication_year: 2026
+      ref_journal: PubMed
+    - ref_url: https://mcpmed.org/
+      ref_title: MCPMed, Bioinformatics Model Context Protocol Hub
+      ref_journal: MCPMed
+    - ref_url: https://www.mcpmed.org/browse
+      ref_title: Browse MCPs
+      ref_journal: MCPMed
+  publication:
+    ref_url: https://modelcontextprotocol.io/specification/2025-11-25
+    ref_title: Model Context Protocol Specification
+    ref_publication_year: 2025
+    ref_journal: Model Context Protocol
+- id: B2AI_STANDARD:1147
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:55
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Agent Skills open format
+  formal_specification: https://agentskills.io/specification
+  is_open: true
+  name: Agent Skills
+  purpose_detail: Agent Skills is a lightweight, open format for extending AI agent
+    capabilities with specialized knowledge, instructions, workflows, scripts, reference
+    materials, templates, and other resources. A skill is represented as a directory
+    containing a required SKILL.md file with YAML frontmatter and Markdown instructions,
+    plus optional directories such as scripts, references, and assets. The format
+    is designed for progressive disclosure so agents can first inspect compact metadata
+    such as name and description, then load full instructions and supporting resources
+    only when a task requires them. For biomedical AI/ML, Agent Skills can package
+    repeatable analysis, curation, documentation, and data-handling workflows so
+    agentic systems can apply domain-specific procedures consistently across compatible
+    clients.
+  related_to:
+  - B2AI_STANDARD:1146
+  requires_registration: false
+  url: https://agentskills.io/home
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:422
+    category: B2AI:Application
+    name: OpenClaw Molecule Evolution Skill for Medicinal Chemistry Agents
+    description: OpenClaw Medical Skills includes a molecule-evolution-agent skill
+      that packages a drug-discovery workflow as a SKILL.md-based agent capability.
+      The skill describes an autonomous medicinal-chemist task in which an agent
+      starts from a seed molecule, uses an LLM to suggest chemically plausible SMILES
+      modifications, scores each candidate, keeps the best molecule, and reports
+      the top candidate and evolution history for a target protein such as GPRC5D.
+      This is a concrete biomedical application of the Agent Skills pattern because
+      the workflow is represented as a discoverable skill directory with frontmatter,
+      instructions, allowed tools, and an executable Python script that an agent
+      can load and run for lead optimization, de novo molecular design, or medicinal-chemistry
+      idea generation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills/molecule-evolution-agent
+      ref_title: OpenClaw Medical Skills molecule-evolution-agent
+      ref_journal: GitHub
+    - ref_url: https://raw.githubusercontent.com/FreedomIntelligence/OpenClaw-Medical-Skills/main/skills/molecule-evolution-agent/SKILL.md
+      ref_title: molecule-evolution-agent SKILL.md
+      ref_journal: OpenClaw Medical Skills
+    - ref_url: https://raw.githubusercontent.com/FreedomIntelligence/OpenClaw-Medical-Skills/main/skills/molecule-evolution-agent/evolution_agent.py
+      ref_title: molecule-evolution-agent evolution_agent.py
+      ref_journal: OpenClaw Medical Skills
+    - ref_url: https://eliteai.tools/agent-skills/molecule-evolution-agent
+      ref_title: molecule-evolution-agent
+      ref_journal: EliteAI.tools
+  - id: B2AI_APP:424
+    category: B2AI:Application
+    name: ToolUniverse Rare Disease Diagnosis Skill for Phenotype-Driven Triage
+    description: The ToolUniverse rare-disease diagnosis skill packages a concrete
+      clinical-genomics workflow as an agent skill for suspected rare disease cases.
+      Its SKILL.md directs the agent to create a report first, convert symptoms to
+      Human Phenotype Ontology terms, search Orphanet and OMIM, cross-reference gene-disease
+      evidence, prioritize genes for testing, interpret variants with ClinVar and
+      gnomAD, and synthesize a ranked differential diagnosis with citations and next
+      steps. This is a specific biomedical use of the Agent Skills pattern because
+      phenotype standardization, disease matching, gene-panel construction, variant
+      interpretation, and evidence reporting are bundled as a reusable skill directory
+      that agents can load for rare-disease diagnostic support.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills/tree/main/skills/tooluniverse-rare-disease-diagnosis
+      ref_title: OpenClaw Medical Skills tooluniverse-rare-disease-diagnosis
+      ref_journal: GitHub
+    - ref_url: https://raw.githubusercontent.com/FreedomIntelligence/OpenClaw-Medical-Skills/main/skills/tooluniverse-rare-disease-diagnosis/SKILL.md
+      ref_title: tooluniverse-rare-disease-diagnosis SKILL.md
+      ref_journal: OpenClaw Medical Skills
+    - ref_url: https://trustedskills.dev/skills/tooluniverse-rare-disease-diagnosis
+      ref_title: Tooluniverse Rare Disease Diagnosis Agent Skill
+      ref_journal: TrustedSkills
+    - ref_url: https://github.com/FreedomIntelligence/OpenClaw-Medical-Skills
+      ref_title: OpenClaw Medical Skills
+      ref_journal: GitHub
+  publication:
+    ref_url: https://agentskills.io/specification
+    ref_title: Agent Skills Specification
+    ref_journal: Agent Skills
+- id: B2AI_STANDARD:1148
+  category: B2AI_STANDARD:Registry
+  collection:
+  - dataregistry
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NHGRI-EBI Catalog of human genome-wide association studies
+  formal_specification: https://www.ebi.ac.uk/gwas/docs/programmatic-access
+  has_relevant_organization:
+  - B2AI_ORG:29
+  - B2AI_ORG:73
+  is_open: true
+  name: GWAS Catalog
+  purpose_detail: The NHGRI-EBI GWAS Catalog is a curated, open, FAIR knowledgebase
+    and deposition resource for human genome-wide association study results. It captures
+    publications, studies, ancestries, traits, variants, mapped genes, association
+    statistics, genome-wide significant lead associations, and full summary-statistics
+    datasets where available, with standardized trait annotation and harmonized study
+    metadata. The Catalog supports web search, bulk downloads, summary-statistics
+    access, and programmatic APIs, making it a central registry for connecting genetic
+    variation to complex traits and diseases. For AI/ML, GWAS Catalog data can supply
+    variant-trait labels, summary statistics, locus metadata, ancestry descriptors,
+    and benchmarkable genetic evidence for causal-gene prioritization, fine mapping,
+    polygenic risk score development, drug-target discovery, and knowledge-graph
+    construction.
+  requires_registration: false
+  url: https://www.ebi.ac.uk/gwas/
+  used_in_bridge2ai: false
+  has_application:
+  - id: B2AI_APP:425
+    category: B2AI:Application
+    name: GWAS Catalog Loci for Open Targets Genetics Machine-Learning Gene Prioritization
+    description: Open Targets Genetics used GWAS Catalog data together with UK Biobank
+      associations and functional genomics evidence to fine-map published human GWAS
+      loci and train a machine-learning locus-to-gene model. The workflow processed
+      GWAS Catalog lead loci, integrated transcriptomic, proteomic, epigenomic, and
+      colocalization features, and trained on curated gold-standard GWAS loci to
+      distinguish likely causal genes from neighboring genes. This demonstrates a
+      concrete AI/ML use of the GWAS Catalog because curated variant-trait associations
+      provide a standardized input layer for systematic causal variant and gene prioritization
+      across disease-associated loci.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41588-021-00945-5
+      ref_title: An open approach to systematically prioritize causal variants and
+        genes at all published human GWAS trait-associated loci
+      ref_publication_year: 2021
+      ref_journal: Nature Genetics
+    - ref_url: https://www.ebi.ac.uk/gwas/
+      ref_title: GWAS Catalog
+      ref_journal: EMBL-EBI
+    - ref_url: https://academic.oup.com/nar/article/53/D1/D998/7893318
+      ref_title: 'The NHGRI-EBI GWAS Catalog: standards for reusability, sustainability
+        and diversity'
+      ref_publication_year: 2025
+      ref_journal: Nucleic Acids Research
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkae1070
+    ref_title: 'The NHGRI-EBI GWAS Catalog: standards for reusability, sustainability
+      and diversity'
+    ref_authors:
+    - Cerezo M
+    - Sollis E
+    - Ji Y
+    - Lewis E
+    - Abid A
+    - Bircan KO
+    - Hall P
+    - Hayhurst J
+    - John S
+    - Mosaku A
+    ref_publication_year: 2025
+    ref_journal: Nucleic Acids Research
