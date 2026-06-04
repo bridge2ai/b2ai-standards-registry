@@ -22353,12 +22353,46 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:49
   is_open: true
   name: FLAC
-  purpose_detail: FLAC (Free Lossless Audio Codec) is an audio coding format for lossless
-    compression of digital audio.
+  purpose_detail: FLAC (Free Lossless Audio Codec) is an open audio format and codec
+    for lossless compression of digital audio, preserving the original waveform while
+    reducing storage size relative to uncompressed PCM. It supports stream metadata,
+    seeking, error detection, and broad software support, making it useful when audio
+    must be archived, transported, or analyzed without introducing lossy compression
+    artifacts. For AI/ML workflows, FLAC is particularly relevant for speech, respiratory
+    sound, and other biomedical-acoustic datasets where models may be sensitive to
+    timing, spectral content, and low-amplitude signal features that should remain
+    reproducible across preprocessing pipelines.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/FLAC
+  has_application:
+  - id: B2AI_APP:409
+    category: B2AI:Application
+    name: Lossless FLAC Audio Corpora for Speech and Respiratory-Sound Models
+    description: FLAC is used as a storage format for large audio corpora that train
+      or evaluate machine-learning systems, including speech recognition datasets
+      and respiratory-sound resources. Because FLAC preserves waveform information
+      while reducing storage requirements, it supports reproducible extraction of
+      spectrograms, embeddings, acoustic biomarkers, and other model features without
+      codec artifacts from lossy formats. This is useful for biomedical audio tasks
+      such as cough classification, voice analysis, and clinical speech processing,
+      where small acoustic differences can affect downstream predictions.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://xiph.org/flac/format.html
+      ref_title: FLAC format
+      ref_journal: Xiph.Org Foundation
+    - ref_url: https://mlcommons.org/datasets/peoples-speech/
+      ref_title: People's Speech
+      ref_journal: MLCommons Datasets
+    - ref_url: https://doi.org/10.48550/arXiv.2009.11644
+      ref_title: The COUGHVID crowdsourcing dataset, a corpus for the study of large-scale
+        cough analysis algorithms
+      ref_publication_year: 2020
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://xiph.org/flac/format.html
+    ref_title: FLAC format
+    ref_journal: Xiph.Org Foundation
 - id: B2AI_STANDARD:332
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -25906,11 +25940,40 @@ data_standardortools_collection:
   description: X PixMap image format
   is_open: true
   name: XPM
-  purpose_detail: X PixMap (XPM) is an image file format used by the X Window System.
+  purpose_detail: X PixMap (XPM) is a text-based raster image format originally designed
+    for color pixmaps and icons in the X Window System. XPM files encode image dimensions,
+    color maps, and pixel rows using ASCII text or C-language syntax, which makes
+    them directly embeddable in source code and easy to inspect with text tools.
+    Although now mostly a legacy desktop-image format, XPM remains relevant in some
+    scientific software ecosystems because text-encoded matrices and heatmaps can
+    be generated, parsed, converted to numeric arrays, and reused in downstream visualization
+    or feature-extraction workflows.
   requires_registration: false
   url: https://en.wikipedia.org/wiki/X_PixMap
+  has_application:
+  - id: B2AI_APP:410
+    category: B2AI:Application
+    name: GROMACS XPM Matrices as Molecular-Dynamics Features for ML
+    description: GROMACS writes some molecular-dynamics analysis outputs as XPM-compatible
+      matrix files, including distance, RMSD, secondary-structure, and other residue-by-time
+      or frame-by-frame summaries. Python tools such as GromacsWrapper parse these
+      XPM matrices into NumPy arrays, making them available for clustering, dimensionality
+      reduction, anomaly detection, and other machine-learning analyses of simulation
+      trajectories. In this use, XPM acts less as an end-user graphics format and
+      more as a bridge from molecular-simulation output to numeric matrices that
+      can be used in AI/ML feature engineering.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.x.org/docs/XPM/xpm.pdf
+      ref_title: XPM Manual, The X PixMap Format
+    - ref_url: https://manual.gromacs.org/5.1-current/user-guide/file-formats.html#xpm
+      ref_title: GROMACS XPM file format
+      ref_journal: GROMACS documentation
+    - ref_url: https://gromacswrapper.readthedocs.io/en/latest/gromacs/core/fileformats/xpm.html
+      ref_title: GromacsWrapper XPM file format reader
   publication:
-    ref_url: ''
+    ref_url: https://www.x.org/docs/XPM/xpm.pdf
+    ref_title: XPM Manual, The X PixMap Format
 - id: B2AI_STANDARD:392
   category: B2AI_STANDARD:DataStandard
   concerns_data_topic:
@@ -28562,12 +28625,47 @@ data_standardortools_collection:
   formal_specification: https://github.com/jannahastings/emotion-ontology
   is_open: true
   name: MFOEM
-  purpose_detail: Affective phenomena such as emotions, moods, appraisals and subjective
-    feelings.
+  purpose_detail: The Emotion Ontology (MFOEM) provides a formal vocabulary for affective
+    phenomena such as emotions, moods, appraisals, subjective feelings, dispositions,
+    and related mental processes. It was developed to support interdisciplinary affective
+    science by giving researchers shared, logically organized terms for representing
+    emotional experiences and their components across psychology, neuroscience, psychiatry,
+    and human-computer interaction. For AI/ML work, MFOEM can help normalize emotion
+    labels and affective constructs used in multimodal emotion recognition, sentiment
+    analysis, patient-provider interaction research, mental-health phenotyping, and
+    explainable affective-computing systems.
   requires_registration: false
   url: https://github.com/jannahastings/emotion-ontology
+  has_application:
+  - id: B2AI_APP:411
+    category: B2AI:Application
+    name: Ontology-Grounded Emotion Labels for Affective Computing
+    description: MFOEM provides a structured reference vocabulary for emotion and
+      affect concepts that can be used to harmonize labels across datasets for affective
+      computing and biomedical interaction analysis. Emotion-recognition models often
+      learn from heterogeneous annotations derived from facial expression, speech,
+      text, physiology, or self-report; ontology-grounded labels can make these targets
+      more comparable and interpretable. This supports AI/ML workflows that integrate
+      multimodal affective data, connect observed cues to psychological constructs,
+      and audit whether model outputs correspond to well-defined emotion concepts.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1007/978-3-642-24279-3_14
+      ref_title: The Emotion Ontology, enabling interdisciplinary research in the
+        affective sciences
+      ref_publication_year: 2011
+      ref_journal: Modeling and Using Context
+    - ref_url: https://doi.org/10.1186/s12911-018-0634-6
+      ref_title: Visualized Emotion Ontology, a model for representing visual cues
+        of emotions
+      ref_publication_year: 2018
+      ref_journal: BMC Medical Informatics and Decision Making
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1007/978-3-642-24279-3_14
+    ref_title: The Emotion Ontology, enabling interdisciplinary research in the affective
+      sciences
+    ref_publication_year: 2011
+    ref_journal: Modeling and Using Context
 - id: B2AI_STANDARD:442
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32060,11 +32158,45 @@ data_standardortools_collection:
   formal_specification: https://github.com/information-artifact-ontology/ontology-metadata
   is_open: true
   name: OMO
-  purpose_detail: Terms that are used to annotate ontology terms for all OBO ontologies.
+  purpose_detail: The OBO Metadata Ontology (OMO) defines annotation properties and
+    metadata terms used to describe ontology terms and ontology products across the
+    OBO Foundry ecosystem. It covers metadata such as synonyms, definitions, contributors,
+    provenance, creation dates, cross-references, term status, and other annotations
+    that make ontology content easier to curate, validate, search, and reuse. For
+    AI/ML and knowledge-graph workflows, OMO is important because consistent ontology
+    metadata improves feature construction, entity normalization, ontology alignment,
+    provenance tracking, and quality control when biomedical ontologies are transformed
+    into graph datasets or used as semantic labels for learning systems.
   requires_registration: false
   url: https://github.com/information-artifact-ontology/ontology-metadata
+  has_application:
+  - id: B2AI_APP:412
+    category: B2AI:Application
+    name: OMO Metadata for OBO-Derived Biomedical Knowledge Graphs
+    description: OMO supplies standardized annotation properties that help preserve
+      definitions, synonyms, cross-references, provenance, and term status when OBO
+      ontologies are converted into biomedical knowledge graphs. KG-OBO and related
+      Knowledge Graph Hub workflows transform OBO ontologies into graph artifacts
+      that can be reused for graph machine learning, link prediction, node classification,
+      and embedding generation. In those settings, OMO-backed metadata helps make
+      ontology-derived nodes and edges more interpretable, auditable, and comparable
+      across ontology releases.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://obofoundry.org/ontology/omo.html
+      ref_title: OBO Metadata Ontology
+      ref_journal: OBO Foundry
+    - ref_url: https://kghub.org/kg_obo/
+      ref_title: KG-OBO
+      ref_journal: Knowledge Graph Hub
+    - ref_url: https://doi.org/10.48550/arXiv.2302.10800
+      ref_title: KG-Hub, building and exchanging biological knowledge graphs
+      ref_publication_year: 2023
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://obofoundry.org/ontology/omo.html
+    ref_title: OBO Metadata Ontology
+    ref_journal: OBO Foundry
 - id: B2AI_STANDARD:508
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32078,12 +32210,47 @@ data_standardortools_collection:
   formal_specification: https://github.com/ontoneo-project/Ontoneo
   is_open: true
   name: ONTONEO
-  purpose_detail: A structured controlled vocabulary to provide a representation of
-    the data from electronic health records involved in the care of pregnancy.
+  purpose_detail: The Obstetric and Neonatal Ontology (ONTONEO) is a structured controlled
+    vocabulary for representing electronic health record data involved in the care
+    of pregnant people and newborns. It models obstetric and neonatal clinical information,
+    documents, encounters, anatomy, developmental stages, and care-context concepts
+    using OBO Foundry-aligned ontology-development practices. For biomedical AI/ML,
+    ONTONEO is useful as a semantic harmonization layer for maternal-child health
+    data because pregnancy and neonatal prediction tasks often require consistent
+    representation of gestational timing, prenatal events, delivery context, newborn
+    outcomes, and source-document provenance across heterogeneous EHR systems.
   requires_registration: false
   url: https://github.com/ontoneo-project/Ontoneo
+  has_application:
+  - id: B2AI_APP:413
+    category: B2AI:Application
+    name: OntONeo-Guided Maternal and Neonatal EHR Feature Harmonization
+    description: ONTONEO can support AI/ML studies in obstetrics and neonatology by
+      grounding EHR variables in a shared ontology before cohort construction, feature
+      extraction, or model evaluation. Predictive models for pregnancy complications,
+      gestational age, delivery events, or neonatal outcomes require consistent meanings
+      for clinical events and timing across institutions. ONTONEO provides domain
+      terms that can help map local EHR fields and documents to common concepts,
+      improving interoperability, auditability, and reuse of maternal-child health
+      datasets used for statistical modeling or machine-learning pipelines.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://ontoneo.com/wp-content/uploads/2016/11/ontoneo_paper_icbo2016.pdf
+      ref_title: OntONeo, The Obstetric and Neonatal Ontology
+      ref_publication_year: 2016
+      ref_journal: International Conference on Biomedical Ontology
+    - ref_url: https://obofoundry.org/ontology/ontoneo.html
+      ref_title: Obstetric and Neonatal Ontology
+      ref_journal: OBO Foundry
+    - ref_url: https://doi.org/10.48550/arXiv.2205.02933
+      ref_title: Temporal Events Detector for Pregnancy Care
+      ref_publication_year: 2022
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://ontoneo.com/wp-content/uploads/2016/11/ontoneo_paper_icbo2016.pdf
+    ref_title: OntONeo, The Obstetric and Neonatal Ontology
+    ref_publication_year: 2016
+    ref_journal: International Conference on Biomedical Ontology
 - id: B2AI_STANDARD:509
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33260,13 +33427,47 @@ data_standardortools_collection:
   - B2AI_ORG:99
   is_open: true
   name: SSN
-  purpose_detail: An ontology for describing sensors and their observations, the involved
-    procedures, the studied features of interest, the samples used to do so, and the
-    observed properties, as well as actuators.
+  purpose_detail: The Semantic Sensor Network Ontology (SSN) is a W3C and OGC ontology
+    for describing sensors, observations, actuators, procedures, features of interest,
+    samples, observed properties, deployments, and related measurement context. Its
+    lightweight SOSA core supports broad adoption while the fuller SSN modules provide
+    richer axioms for semantic interoperability across sensor-web, environmental,
+    industrial, smart-city, and scientific-monitoring systems. For AI/ML workflows,
+    SSN helps make sensor streams and sensor metadata machine-readable so that models
+    can account for measurement procedure, device type, deployment context, observed
+    property, units, sampling provenance, and heterogeneity across data sources.
   requires_registration: false
   url: https://www.w3.org/TR/vocab-ssn/
+  has_application:
+  - id: B2AI_APP:414
+    category: B2AI:Application
+    name: SSN-Semantic Sensor Streams for IoT Machine Learning
+    description: SSN and SOSA can provide semantic descriptions for heterogeneous
+      sensor observations used in machine-learning pipelines, including the sensor,
+      observed property, feature of interest, sampling procedure, and deployment context.
+      Semantic-enhanced IoT machine-learning frameworks use ontology annotations
+      to attach meaning to sensor streams rather than treating model labels as opaque
+      categories. This supports event detection, feature selection, model interpretation,
+      and reuse of sensor data across environments where different devices observe
+      similar phenomena under different procedures.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.w3.org/TR/vocab-ssn/
+      ref_title: Semantic Sensor Network Ontology
+      ref_journal: W3C Recommendation
+    - ref_url: https://doi.org/10.1016/j.websem.2012.05.003
+      ref_title: The SSN ontology of the W3C semantic sensor network incubator group
+      ref_publication_year: 2012
+      ref_journal: Journal of Web Semantics
+    - ref_url: https://doi.org/10.3233/SW-180314
+      ref_title: Machine learning in the Internet of Things, a semantic-enhanced
+        approach
+      ref_publication_year: 2018
+      ref_journal: Semantic Web
   publication:
-    ref_url: ''
+    ref_url: https://www.w3.org/TR/vocab-ssn/
+    ref_title: Semantic Sensor Network Ontology
+    ref_journal: W3C Recommendation
 - id: B2AI_STANDARD:547
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -36677,14 +36878,42 @@ data_standardortools_collection:
   is_open: true
   name: CML library
   purpose_detail: Continuous Machine Learning (CML) is an open-source library for
-    implementing continuous integration & delivery (CI/CD) in machine learning projects.
-    Use it to automate parts of your development workflow, including model training
-    and evaluation, comparing ML experiments across your project history, and monitoring
-    changing datasets.
+    implementing continuous integration and delivery patterns in machine-learning
+    projects. It runs inside systems such as GitHub Actions, GitLab CI, and Bitbucket
+    Pipelines to automate model training, evaluation, report generation, metric comparison,
+    data or model retrieval, and experiment feedback on code changes. For biomedical
+    AI/ML teams, CML is useful as MLOps infrastructure because it can make model-development
+    checks repeatable, expose performance changes during review, and connect CI workflows
+    to data-versioning tools without requiring a separate proprietary model platform.
   requires_registration: false
   url: https://cml.dev/
+  has_application:
+  - id: B2AI_APP:415
+    category: B2AI:Application
+    name: CML-Based Continuous Evaluation for Reproducible ML Pipelines
+    description: CML enables machine-learning projects to run training or evaluation
+      jobs automatically when code changes, then publish metrics, plots, and model
+      comparisons back into pull requests or merge requests. This supports AI/ML
+      quality control by making regression checks, drift checks, and benchmark comparisons
+      visible during routine software review. In biomedical AI settings, the same
+      pattern can be used to rerun validation on controlled datasets, compare model
+      performance across commits, and document whether preprocessing or feature changes
+      altered clinically relevant metrics.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://cml.dev/
+      ref_title: CML documentation
+    - ref_url: https://dvc.org/blog/cml-release
+      ref_title: New Release, Continuous Machine Learning is CI/CD for ML
+      ref_publication_year: 2020
+      ref_journal: DVC Blog
+    - ref_url: https://doi.org/10.48550/arXiv.2209.11453
+      ref_title: A preliminary investigation of MLOps practices in GitHub
+      ref_publication_year: 2022
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://cml.dev/
+    ref_title: CML documentation
 - id: B2AI_STANDARD:747
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -40308,12 +40537,46 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:8
   is_open: true
   name: pandas
-  purpose_detail: An open source data analysis and manipulation tool built on top
-    of the Python programming language.
+  purpose_detail: pandas is an open-source Python library that provides high-level
+    data structures and operations for tabular, time-series, and heterogeneous data
+    analysis. Its DataFrame and Series abstractions support indexing, joins, reshaping,
+    missing-data handling, grouping, aggregation, file import and export, and integration
+    with NumPy, scikit-learn, plotting libraries, and broader scientific Python workflows.
+    For AI/ML, pandas is often the first structured-data layer used to clean datasets,
+    construct features, inspect cohort or label distributions, merge metadata, prepare
+    train-test splits, and convert tabular data into arrays or matrices consumed
+    by modeling libraries.
   requires_registration: false
   url: https://pandas.pydata.org/
+  has_application:
+  - id: B2AI_APP:416
+    category: B2AI:Application
+    name: pandas DataFrames for ML Feature Engineering and Cohort Tables
+    description: pandas is widely used to prepare structured datasets before machine-learning
+      model training, including loading tabular files, joining clinical or experimental
+      metadata, imputing or flagging missing values, aggregating longitudinal measurements,
+      and creating feature matrices. In Python ML workflows, pandas DataFrames often
+      serve as the interface between raw files and scikit-learn, PyTorch, TensorFlow,
+      or specialized biomedical analysis packages. This makes pandas a practical
+      tool for reproducible feature engineering, exploratory data analysis, and model-ready
+      cohort table construction.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.25080/Majora-92bf1922-00a
+      ref_title: Data structures for statistical computing in Python
+      ref_publication_year: 2010
+      ref_journal: Proceedings of the Python in Science Conference
+    - ref_url: https://pandas.pydata.org/
+      ref_title: pandas, Python Data Analysis Library
+    - ref_url: https://doi.org/10.48550/arXiv.1201.0490
+      ref_title: Scikit-learn, machine learning in Python
+      ref_publication_year: 2012
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.25080/Majora-92bf1922-00a
+    ref_title: Data structures for statistical computing in Python
+    ref_publication_year: 2010
+    ref_journal: Proceedings of the Python in Science Conference
 - id: B2AI_STANDARD:814
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -42776,12 +43039,41 @@ data_standardortools_collection:
   - B2AI_STANDARD:963
   is_open: true
   name: R
-  purpose_detail: A free software environment for statistical computing and graphics.
+  purpose_detail: R is a free, open-source programming language and software environment
+    for statistical computing, graphics, data analysis, simulation, and reproducible
+    research. It includes a core language and interpreter, the CRAN package ecosystem,
+    tools for statistical modeling and visualization, and extensive support for literate
+    analysis through notebooks and reports. For AI/ML, R is used for exploratory
+    analysis, feature engineering, classical statistical learning, predictive modeling,
+    resampling, model interpretation, bioinformatics workflows, and production-quality
+    reporting where statistical methods and data provenance need to be explicit.
   requires_registration: false
   url: https://www.r-project.org/
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:417
+    category: B2AI:Application
+    name: R caret Workflows for Predictive Modeling and Model Evaluation
+    description: R supports machine-learning workflows through packages such as caret,
+      tidymodels, mlr3, randomForest, xgboost, and Bioconductor analysis tools. The
+      caret package illustrates R's role as an integrated predictive-modeling environment
+      by providing consistent interfaces for preprocessing, feature selection, resampling,
+      hyperparameter tuning, model comparison, and performance estimation across
+      many algorithms. In biomedical data science, these capabilities support reproducible
+      risk models, omics classifiers, clinical prediction studies, and transparent
+      statistical reporting.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://www.r-project.org/
+      ref_title: The R Project for Statistical Computing
+    - ref_url: https://doi.org/10.18637/jss.v028.i05
+      ref_title: Building predictive models in R using the caret package
+      ref_publication_year: 2008
+      ref_journal: Journal of Statistical Software
   publication:
-    ref_url: ''
+    ref_url: https://www.r-project.org/
+    ref_title: The R Project for Statistical Computing
+    ref_journal: R Foundation for Statistical Computing
 - id: B2AI_STANDARD:834
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -43628,12 +43920,48 @@ data_standardortools_collection:
   formal_specification: https://github.com/pyvandenbussche/lov
   is_open: true
   name: LOV
-  purpose_detail: A collection of searchable ontologies and vocabularies, spanning
-    multiple fields.
+  purpose_detail: Linked Open Vocabularies (LOV) is a registry and search service
+    for RDF, RDFS, OWL, and other linked-data vocabularies used to publish and describe
+    data on the Web. It provides vocabulary metadata, term search, reuse information,
+    inter-vocabulary links, and quality signals that help data publishers choose
+    existing semantic terms instead of creating incompatible local schemas. For AI/ML
+    and knowledge-graph work, LOV supports vocabulary discovery, ontology reuse,
+    schema alignment, feature semantics, and linked-data integration when constructing
+    machine-readable corpora or graph datasets from heterogeneous sources.
   requires_registration: false
   url: https://lov.linkeddata.es/
+  has_application:
+  - id: B2AI_APP:418
+    category: B2AI:Application
+    name: LOV Vocabulary Discovery for Knowledge-Graph Construction
+    description: LOV helps knowledge-graph and AI teams discover reusable vocabularies,
+      inspect term metadata, and identify links among semantic schemas before building
+      RDF datasets or graph-based features. This reduces schema fragmentation and
+      supports more consistent graph construction for machine-learning tasks such
+      as link prediction, entity normalization, semantic search, and retrieval-augmented
+      question answering over linked data. LOV's registry role is especially useful
+      when integrating cross-domain sources because it exposes existing classes and
+      properties that can be reused or aligned instead of inventing new terms.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3233/SW-160213
+      ref_title: Linked Open Vocabularies, a gateway to reusable semantic vocabularies
+        on the Web
+      ref_publication_year: 2016
+      ref_journal: Semantic Web
+    - ref_url: https://lov.linkeddata.es/dataset/lov/about/
+      ref_title: About Linked Open Vocabularies
+    - ref_url: https://doi.org/10.48550/arXiv.2310.20475
+      ref_title: Linked Papers With Code, the latest in machine learning as an RDF
+        knowledge graph
+      ref_publication_year: 2023
+      ref_journal: arXiv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.3233/SW-160213
+    ref_title: Linked Open Vocabularies, a gateway to reusable semantic vocabularies
+      on the Web
+    ref_publication_year: 2016
+    ref_journal: Semantic Web
 - id: B2AI_STANDARD:864
   category: B2AI_STANDARD:Registry
   concerns_data_topic:
