@@ -3013,6 +3013,7 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: CDISC Case Report Tabulation Data Definition Specification
+  formal_specification: https://www.cdisc.org/standards/data-exchange/define-xml
   is_open: true
   name: Define
   purpose_detail: The CDISC Case Report Tabulation Data Definition Specification (define.xml)
@@ -3037,8 +3038,28 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:15
   url: https://www.cdisc.org/standards/data-exchange/define-xml
+  has_application:
+  - id: B2AI_APP:391
+    category: B2AI:Application
+    name: Machine-Readable Trial Dataset Metadata for Regulatory Review
+    description: Define-XML is used to describe the datasets, variables, controlled
+      terminology, value-level metadata, derivations, and analysis-result metadata
+      that accompany CDISC SDTM, SEND, and ADaM datasets in electronic regulatory
+      submissions. In this role, define.xml provides a machine-readable data definition
+      layer that reviewers and validation tools can use to understand how submitted
+      clinical-study data are structured and how variables should be interpreted.
+      For AI-ready clinical research data, this metadata layer supports automated
+      checks, data lineage review, feature provenance, and reproducible reuse of
+      trial datasets in downstream analytics.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.cdisc.org/standards/data-exchange/define-xml
+      ref_title: Define-XML
+      ref_journal: CDISC
   publication:
-    ref_url: ''
+    ref_url: https://www.cdisc.org/standards/data-exchange/define-xml
+    ref_title: Define-XML
+    ref_journal: CDISC
 - id: B2AI_STANDARD:41
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -10250,18 +10271,41 @@ data_standardortools_collection:
   formal_specification: https://github.com/tdwg/guid-as
   is_open: true
   name: GUID-AS
-  purpose_detail: GUIDs are Globally Unique Identifiers which should be referentially
-    consistent and resolvable in order to support tests of uniqueness and the acquisition
-    of associated metadata. Further, permanent and robust resolution services need
-    to be available. The TDWG Globally Unique Identifiers Task Group (TDWG GUID),
-    after meeting twice in 2006, recommended the use of the Life Sciences Identifiers
-    (LSID) to uniquely identify shared data objects in the biodiversity domain.
+  purpose_detail: The TDWG GUID and Life Sciences Identifiers Applicability Statements
+    provide guidance for assigning globally unique, persistent, and resolvable identifiers
+    to biodiversity and life-science data objects. The standard explains how GUIDs
+    should support uniqueness checks, metadata retrieval, persistence, and stable
+    resolution services, and it gives LSID-specific guidance for identifying shared
+    biodiversity data objects. For computational reuse, GUID-AS helps ensure that
+    occurrence records, taxon concepts, specimens, sequence-linked observations,
+    and related biodiversity entities can be cited, dereferenced, reconciled across
+    databases, and used as stable identifiers in data integration and AI/ML pipelines.
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:93
   url: http://www.tdwg.org/standards/150
+  has_application:
+  - id: B2AI_APP:392
+    category: B2AI:Application
+    name: Stable Biodiversity Object Identifiers for Data Integration
+    description: GUID-AS supports biodiversity data integration by specifying identifier
+      behavior for shared data objects that must remain uniquely identifiable across
+      distributed databases, portals, and data aggregators. In practical workflows,
+      these identifiers allow software agents to retrieve object metadata, reconcile
+      duplicate or related records, and maintain references to specimens, taxa, and
+      observations as datasets are merged or republished. This stable-identifier
+      layer is important for AI/ML workflows that combine biodiversity, genomic,
+      environmental, or ecological data because training examples and derived features
+      can be traced back to persistent source objects.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.tdwg.org/standards/guid-as/
+      ref_title: GUID and Life Sciences Identifiers Applicability Statements
+      ref_journal: TDWG
   publication:
-    ref_url: ''
+    ref_url: https://www.tdwg.org/standards/guid-as/
+    ref_title: GUID and Life Sciences Identifiers Applicability Statements
+    ref_journal: TDWG
 - id: B2AI_STANDARD:146
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -28111,12 +28155,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/DiseaseOntology/DiseaseDriversOntology
   is_open: true
   name: DISDRIV
-  purpose_detail: Ontology for drivers and triggers of human diseases, built to classify
-    ExO ontology exposure stressors. An application ontology.
+  purpose_detail: The Disease Drivers Ontology (DISDRIV) is an application ontology
+    for classifying environmental, biological, behavioral, and other drivers or triggers
+    of human disease. It was developed in connection with the Human Disease Ontology
+    to capture disease-relevant stressors while keeping detailed environmental-stressor
+    content out of the upper-level exposure models in ExO and ECTO. DISDRIV supports
+    computable representation of factors such as environmental exposures, infectious
+    or chemical stressors, and contextual drivers that can be linked to diseases,
+    phenotypes, and exposure events in knowledge graphs. For AI-ready environmental
+    health and disease data, it provides a controlled vocabulary for harmonizing
+    disease-driver features across curated knowledge bases, literature-derived assertions,
+    and exposure-outcome datasets.
+  related_to:
+  - B2AI_STANDARD:447
   requires_registration: false
   url: https://github.com/DiseaseOntology/DiseaseDriversOntology
+  has_application:
+  - id: B2AI_APP:393
+    category: B2AI:Application
+    name: Environmental Stressor Classification for Disease Knowledge Graphs
+    description: DISDRIV is used to represent environmental stressors and other
+      disease drivers as ontology classes that can be connected to Human Disease
+      Ontology disease terms and exposure models. This enables disease knowledge
+      graphs to encode not only disease names and phenotypes, but also computable
+      driver categories that may contribute to disease onset or progression. Such
+      structured driver annotations can support environmental-health feature engineering,
+      disease-risk modeling, exposure-outcome retrieval, and evidence review workflows
+      where AI/ML systems need normalized representations of disease-relevant stressors.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/nar/gkab1063
+      ref_title: The Human Disease Ontology 2022 update
+      ref_publication_year: 2022
+      ref_journal: Nucleic Acids Research
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/nar/gkab1063
+    ref_title: The Human Disease Ontology 2022 update
+    ref_publication_year: 2022
+    ref_journal: Nucleic Acids Research
 - id: B2AI_STANDARD:437
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33533,11 +33609,52 @@ data_standardortools_collection:
   formal_specification: https://bitbucket.org/hegroup/ogg/src/master/
   is_open: true
   name: OGG
-  purpose_detail: A formal ontology of genes and genomes of biological organisms.
+  purpose_detail: The Ontology of Genes and Genomes (OGG) is an OBO Foundry ontology
+    for representing specific genes, gene types, genomes, and their organismal context.
+    OGG aligns with Basic Formal Ontology and maps ontology identifiers to NCBI
+    Taxonomy and NCBI Gene identifiers, allowing gene and genome entities from humans,
+    viruses, bacteria, and model organisms to be represented as interoperable ontology
+    classes. It complements functional ontologies such as GO by representing the
+    gene and genome entities themselves rather than only their processes, functions,
+    or cellular locations. OGG supports SPARQL queries, term reuse in other ontologies,
+    organism-specific subsets, and integration of gene-centered data in biomedical
+    knowledge graphs used for comparative genomics, infectious disease, vaccine,
+    and AI/ML feature annotation workflows.
   requires_registration: false
   url: https://bitbucket.org/hegroup/ogg/src/master/
+  has_application:
+  - id: B2AI_APP:394
+    category: B2AI:Application
+    name: Gene and Genome Entity Representation in Biomedical Ontology Integration
+    description: OGG has been reused by biomedical ontologies to represent specific
+      organismal genes and genomes as interoperable ontology entities rather than
+      local ad hoc identifiers. In host-pathogen and vaccine-related ontology work,
+      OGG identifiers can be imported for pathogen genes and linked to proteins,
+      virulence factors, organisms, and phenotypes, enabling integrated queries over
+      gene-centered knowledge graphs. This supports AI/ML data preparation by giving
+      gene features stable ontology identifiers that can be joined with functional,
+      phenotype, pathogen, and literature-derived annotations across species.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://ceur-ws.org/Vol-1327/icbo2014_submission_19.pdf
+      ref_title: 'OGG: a biological ontology for representing genes and genomes in
+        specific organisms'
+      ref_authors:
+      - He Y
+      - Liu Y
+      - Zhao B
+      ref_publication_year: 2014
+      ref_journal: CEUR Workshop Proceedings
   publication:
-    ref_url: ''
+    ref_url: https://ceur-ws.org/Vol-1327/icbo2014_submission_19.pdf
+    ref_title: 'OGG: a biological ontology for representing genes and genomes in
+      specific organisms'
+    ref_authors:
+    - He Y
+    - Liu Y
+    - Zhao B
+    ref_publication_year: 2014
+    ref_journal: CEUR Workshop Proceedings
 - id: B2AI_STANDARD:561
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -35493,6 +35610,45 @@ data_standardortools_collection:
     bioinformatics and other data-intensive research settings.
   requires_registration: false
   url: https://incubator.apache.org/projects/taverna.html
+  has_application:
+  - id: B2AI_APP:395
+    category: B2AI:Application
+    name: Reusable Bioinformatics Workflow Composition and Execution
+    description: Taverna has been used to compose and execute reusable bioinformatics
+      workflows that combine web services, local tools, databases, and analysis
+      steps into documented computational protocols. Workflows can be shared through
+      repositories such as myExperiment, reused by other investigators, and inspected
+      as executable descriptions of multi-step analyses such as sequence search,
+      alignment, phylogenetic analysis, and data integration. For AI/ML and data
+      science, this workflow representation supports reproducible feature-generation
+      pipelines, provenance capture, and workflow mining or annotation efforts that
+      classify computational steps and services for reuse.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/nar/gkt328
+      ref_title: 'Taverna workflow suite: designing and executing workflows of Web
+        Services on the desktop, web or in the cloud'
+      ref_authors:
+      - Wolstencroft K
+      - Haines R
+      - Fellows D
+      - Williams A
+      - Withers D
+      - Owen S
+      - Soiland-Reyes S
+      - Dunlop I
+      - Nenadic A
+      - Fisher P
+      - Bhagat J
+      - Belhajjame K
+      - Bacall F
+      - Hardisty A
+      - Nieva de la Hidalga A
+      - Balcazar Vargas MP
+      - Sufi S
+      - Goble C
+      ref_publication_year: 2013
+      ref_journal: Nucleic Acids Research
   publication:
     ref_url: https://doi.org/10.1093/bioinformatics/bth361
     ref_title: 'Taverna: a tool for the composition and enactment of bioinformatics
@@ -42761,14 +42917,22 @@ data_standardortools_collection:
   - B2AI_ORG:40
   is_open: true
   name: Udemy FHIR
-  purpose_detail: This course will help you understand the basics of FHIR. It is a
-    FREE sample of a comprehensive hands-on introductory course (details inside).
-    The full course includes direct access to the course creator via a private members-only
-    Slack room.
+  purpose_detail: This introductory Udemy course teaches basic FHIR concepts through
+    a short hands-on workflow using Mirth Connect. The lesson introduces installation
+    and use of Mirth Connect, FHIR resource handling, and transformation between
+    a FHIR Patient resource in XML and an HL7 v2 ADT message. It functions as an
+    entry-level training resource for developers, interface analysts, and informatics
+    learners who need practical exposure to FHIR message transformation before working
+    with more complete FHIR implementation guides or production health-data exchange
+    workflows.
+  related_to:
+  - B2AI_STANDARD:109
   requires_registration: true
   url: https://www.udemy.com/course/introduction-to-fhir/
   publication:
-    ref_url: ''
+    ref_url: https://www.udemy.com/course/introduction-to-fhir/
+    ref_title: Introduction to FHIR
+    ref_journal: Udemy
 - id: B2AI_STANDARD:851
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -45246,6 +45410,26 @@ data_standardortools_collection:
     microscopy, spatial transcriptomics imaging, and high-throughput phenotypic screening.
   requires_registration: false
   url: https://docs.google.com/spreadsheets/d/1Ck1NeLp-ZN4eMGdNYo2nV6KLEdSfN6oQBKnnWU6Npeo/edit?gid=1023506919#gid=1023506919
+  has_application:
+  - id: B2AI_APP:396
+    category: B2AI:Application
+    name: AI-Ready Bioimage Repository Metadata and Ground Truth Reuse
+    description: REMBI is used as a metadata framework for biological-image repositories
+      and imaging-data management systems that need enough acquisition, sample,
+      preparation, and processing context to make microscopy images reusable. For
+      machine-learning workflows, REMBI-relevant metadata helps users identify appropriate
+      training and benchmark data by documenting imaging modality, specimen context,
+      channel information, labels, segmentations, treatments, and processing provenance.
+      This supports AI-ready bioimage publication because models trained for segmentation,
+      phenotyping, denoising, or classification can be assessed against the imaging
+      conditions and ground-truth annotations that produced the source datasets.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41592-021-01166-8
+      ref_title: 'REMBI: Recommended Metadata for Biological Images--enabling reuse
+        of microscopy data in biology'
+      ref_publication_year: 2021
+      ref_journal: Nature Methods
 - id: B2AI_STANDARD:894
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -45359,8 +45543,28 @@ data_standardortools_collection:
   requires_registration: false
   url: https://www.earthdata.nasa.gov/about/esdis/esco/standards-practices/ascii-file-format-guidelines-earth-science-data
   used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:397
+    category: B2AI:Application
+    name: Self-Describing Environmental Exposure Files for Earth-Health Data Reuse
+    description: NASA's ASCII File Format Guidelines for Earth Science Data support
+      reusable plain-text environmental datasets by recommending consistent headers,
+      variable descriptions, units, missing-data conventions, geospatial and temporal
+      context, and file naming practices. These conventions make ASCII files easier
+      to parse, validate, archive, and combine with epidemiological or public-health
+      datasets that are often exchanged as delimited text. In AI/ML workflows, the
+      guidelines help preserve the metadata needed to transform environmental measurements
+      such as air quality, weather, land use, or climate observations into documented
+      exposure features for modeling and cross-study comparison.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://www.earthdata.nasa.gov/s3fs-public/imported/ESDS-RFC-027v1.1.pdf
+      ref_title: ASCII File Format Guidelines for Earth Science Data
+      ref_journal: NASA Earth Science Data Systems
   publication:
-    ref_url: ''
+    ref_url: https://www.earthdata.nasa.gov/s3fs-public/imported/ESDS-RFC-027v1.1.pdf
+    ref_title: ASCII File Format Guidelines for Earth Science Data
+    ref_journal: NASA Earth Science Data Systems
 - id: B2AI_STANDARD:896
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -49763,14 +49967,45 @@ data_standardortools_collection:
   - B2AI_STANDARD:1043
   is_open: false
   name: Aspera
-  purpose_detail: IBM Aspera is a platform for secure, reliable transfer of large
-    datasets over wide-area networks using FASP technology to move files much faster
-    than conventional transfer methods while supporting cloud, hybrid, and on-premises
-    deployments.
+  purpose_detail: IBM Aspera is a secure high-speed data-transfer platform built
+    around FASP technology for moving very large files and datasets across wide-area
+    networks, cloud storage, hybrid infrastructure, and on-premises systems. It is
+    designed to maintain high throughput across distance, latency, packet loss,
+    and variable network conditions, while providing authentication, encryption,
+    resumable transfer behavior, and workflow automation for controlled data exchange.
+    In biomedical data operations, Aspera is used by large repositories and submission
+    pipelines to move sequencing, proteomics, imaging, and other high-volume research
+    files where ordinary browser, FTP, or HTTP transfer can become a bottleneck for
+    AI/ML-scale data reuse.
   requires_registration: true
   url: https://www.ibm.com/products/aspera
+  has_application:
+  - id: B2AI_APP:398
+    category: B2AI:Application
+    name: High-Speed Repository Transfer for Large Omics Datasets
+    description: Aspera is used as a high-speed file-transfer option by biomedical
+      data repositories and submission systems that handle large omics files. PRIDE
+      Archive has supported Aspera alongside FTP for downloading proteomics datasets,
+      while sequence archives have used FASP-based transfer to reduce the burden
+      of submitting and retrieving high-throughput sequencing files. In AI/ML data
+      preparation, this transfer layer matters because large training or benchmark
+      collections often consist of many raw and processed files that must be moved
+      reliably before feature extraction, model training, or reproducible reanalysis
+      can occur.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/nar/gkv368
+      ref_title: Introducing the PRIDE Archive RESTful web services
+      ref_publication_year: 2015
+      ref_journal: Nucleic Acids Research
+    - ref_url: https://doi.org/10.1093/nar/gkp1078
+      ref_title: Archiving next generation sequencing data
+      ref_publication_year: 2010
+      ref_journal: Nucleic Acids Research
   publication:
-    ref_url: ''
+    ref_url: https://www.ibm.com/products/aspera
+    ref_title: IBM Aspera
+    ref_journal: IBM
 - id: B2AI_STANDARD:1038
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -50203,13 +50438,22 @@ data_standardortools_collection:
     the Hub
   is_open: true
   name: The Hugging Face Hub
-  purpose_detail: This Hugging Face course lesson teaches how to find models, inspect
-    model cards, use the Hub interface, and connect hosted models to downstream machine
-    learning workflows.
+  purpose_detail: This Hugging Face course lesson teaches users how to discover,
+    inspect, and use machine-learning models hosted on the Hugging Face Hub. It
+    covers the Hub interface, model pages, model cards, task and library metadata,
+    hosted inference widgets, and ways to connect model repositories to downstream
+    machine-learning workflows. As a training resource, it helps users evaluate
+    whether a hosted model is appropriate for a task by checking documentation,
+    licenses, intended use, limitations, and reproducibility metadata before downloading,
+    fine-tuning, or deploying the model.
+  related_to:
+  - B2AI_STANDARD:398
   requires_registration: false
   url: https://huggingface.co/learn/llm-course/chapter4/1
   publication:
-    ref_url: ''
+    ref_url: https://huggingface.co/learn/llm-course/chapter4/1
+    ref_title: The Hugging Face Hub
+    ref_journal: Hugging Face Course
 - id: B2AI_STANDARD:1059
   category: B2AI_STANDARD:TrainingProgram
   concerns_data_topic:
