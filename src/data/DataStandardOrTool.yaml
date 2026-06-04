@@ -28414,11 +28414,76 @@ data_standardortools_collection:
   - B2AI_STANDARD:928
   is_open: true
   name: ECTO
-  purpose_detail: Exposures to experimental treatments of plants and model organisms.
+  purpose_detail: The Environmental Conditions, Treatments, and Exposures Ontology
+    (ECTO) is an OBO Foundry ontology for representing exposure events involving
+    organisms, populations, organism parts, environmental conditions, treatments,
+    stimuli, media, routes, and exposure outcomes. ECTO provides standardized exposure
+    classes for natural and experimental settings, including toxicology, environmental
+    epidemiology, model-organism studies, public health monitoring, clinical exposure
+    documentation, diet, workplace, and research-treatment contexts. It composes
+    exposure terms from interoperable biomedical ontologies such as ENVO, ChEBI,
+    FoodOn, NCIt, HPO, Mondo, MAxO, GO, and ExO, enabling exposure descriptions
+    to be linked with chemical entities, environments, phenotypes, diseases, actions,
+    and biological processes. For AI-ready data and computational analysis, ECTO
+    supports harmonized exposure annotations, queryable exposure-health knowledge
+    graphs, integration of heterogeneous survey, EHR, toxicology, and environmental
+    datasets, and reusable feature definitions for models that need explicit exposure
+    context.
+  related_to:
+  - B2AI_STANDARD:447
   requires_registration: false
   url: https://github.com/EnvironmentOntology/environmental-exposure-ontology
+  has_application:
+  - id: B2AI_APP:387
+    category: B2AI:Application
+    name: Exposure Knowledge Graph Harmonization for Toxicology and Environmental
+      Health
+    description: ECTO is used as a formal exposure vocabulary for aligning heterogeneous
+      toxicology, environmental health, clinical, and survey-derived exposure data
+      into computable knowledge graph structures. Its exposure-event model connects
+      receptors, stimuli, media, routes, and outcomes, allowing exposure annotations
+      to be queried and integrated with phenotype, disease, chemical, environment,
+      and biological-process ontologies. This provides a practical data-standardization
+      layer for downstream AI/ML workflows that depend on comparable exposure features,
+      such as environmental-health risk modeling, cohort stratification, exposure-outcome
+      discovery, and literature- or database-derived exposure knowledge graphs.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-023-00283-x
+      ref_title: 'The Environmental Conditions, Treatments, and Exposures Ontology
+        (ECTO): connecting toxicology and exposure to human health and beyond'
+      ref_authors:
+      - Chan LE
+      - Thessen AE
+      - Duncan WD
+      - Matentzoglu N
+      - Schmitt C
+      - Grondin CJ
+      - Vasilevsky N
+      - McMurry JA
+      - Robinson PN
+      - Mungall CJ
+      - Haendel MA
+      ref_publication_year: 2023
+      ref_journal: Journal of Biomedical Semantics
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/s13326-023-00283-x
+    ref_title: 'The Environmental Conditions, Treatments, and Exposures Ontology
+      (ECTO): connecting toxicology and exposure to human health and beyond'
+    ref_authors:
+    - Chan LE
+    - Thessen AE
+    - Duncan WD
+    - Matentzoglu N
+    - Schmitt C
+    - Grondin CJ
+    - Vasilevsky N
+    - McMurry JA
+    - Robinson PN
+    - Mungall CJ
+    - Haendel MA
+    ref_publication_year: 2023
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:444
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -28895,9 +28960,58 @@ data_standardortools_collection:
     - Giglio M
     ref_publication_year: 2022
     ref_journal: Nucleic Acids Research
-  purpose_detail: An ontology for experimental and other evidence statements.
+  purpose_detail: The Evidence and Conclusion Ontology (ECO) is a community ontology
+    for representing the kinds of evidence and assertion methods that support biological
+    annotations, scientific conclusions, and curated statements. ECO distinguishes
+    evidence types such as experimental, computational, sequence similarity, mutant
+    phenotype, author statement, and curator inference evidence, and combines these
+    with manual or automatic assertion methods. It is tightly connected to Gene Ontology
+    evidence codes and is used by major biological knowledge resources including
+    UniProt, the Gene Ontology Consortium, model organism databases, CollecTF, and
+    DisProt. For AI-ready biomedical data, ECO supports provenance-aware annotation,
+    evidence-based filtering of training labels, quality control over automated versus
+    manually reviewed assertions, evidence-aware data mining, and text-mining corpora
+    that train or evaluate systems extracting evidence-backed claims from biomedical
+    literature.
+  related_to:
+  - B2AI_STANDARD:454
   requires_registration: false
   url: https://www.evidenceontology.org/
+  has_application:
+  - id: B2AI_APP:388
+    category: B2AI:Application
+    name: ECO-CollecTF Evidence Corpus for Biomedical Text Mining
+    description: ECO terms are used in ECO-CollecTF, a biomedical corpus designed
+      for text-mining and machine-learning systems that identify evidence-backed
+      assertions in scientific articles. The corpus annotates evidence statements
+      with ECO mappings, assertion categories, assertion strength, and related metadata,
+      giving NLP developers a gold-standard resource for training and evaluating
+      models that must distinguish experimental evidence, computational evidence,
+      and other evidence types in context. This supports evidence-aware biocuration
+      and automated literature-mining workflows where extracted claims need provenance
+      and evidence qualification rather than bare entity or method mentions.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/frma.2021.674205
+      ref_title: 'ECO-CollecTF: A Corpus of Annotated Evidence-Based Assertions in
+        Biomedical Manuscripts'
+      ref_authors:
+      - Hobbs ET
+      - Goralski SM
+      - Mitchell A
+      - Simpson A
+      - Leka D
+      - Kotey E
+      - Sekira M
+      - Munro JB
+      - Nadendla S
+      - Jackson R
+      - Gonzalez-Aguirre A
+      - Krallinger M
+      - Giglio M
+      - Erill I
+      ref_publication_year: 2021
+      ref_journal: Frontiers in Research Metrics and Analytics
 - id: B2AI_STANDARD:446
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -29399,7 +29513,30 @@ data_standardortools_collection:
     proteomics, systems biology, and translational research. GO facilitates reproducible
     research through standardized functional terminology. Continuous community curation
     maintains GO accuracy as biological knowledge advances.'
+  requires_registration: false
   url: http://geneontology.org/
+  has_application:
+  - id: B2AI_APP:389
+    category: B2AI:Application
+    name: DeepGOPlus Protein Function Prediction with Gene Ontology Classes
+    description: DeepGOPlus uses GO annotations as the functional label space for
+      supervised protein-function prediction from amino-acid sequence. The model
+      combines a convolutional neural network over protein sequences with sequence-similarity-based
+      predictions, then evaluates performance separately over GO's biological process,
+      molecular function, and cellular component branches using CAFA-style measures.
+      In this application, GO provides the standardized multi-label target vocabulary,
+      the hierarchical functional structure, and the experimentally supported annotation
+      set used to train and benchmark predictions, making GO central to reproducible
+      AI/ML evaluation of computational protein annotation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btz595
+      ref_title: 'DeepGOPlus: improved protein function prediction from sequence'
+      ref_authors:
+      - Kulmanov M
+      - Hoehndorf R
+      ref_publication_year: 2020
+      ref_journal: Bioinformatics
 - id: B2AI_STANDARD:455
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -37846,10 +37983,55 @@ data_standardortools_collection:
     list, and well-tested recipes make it accessible for both research and production
     deployment despite its complexity, bridging traditional statistical ASR approaches
     with modern deep learning methods.
+  related_to:
+  - B2AI_STANDARD:1119
   requires_registration: false
   url: https://kaldi-asr.org/
+  has_application:
+  - id: B2AI_APP:390
+    category: B2AI:Application
+    name: Kaldi ASR for Automated MoCA Verbal-Fluency Scoring
+    description: Kaldi has been used as the ASR engine for automated scoring of the
+      language-fluency component of the Montreal Cognitive Assessment in Thai. The
+      workflow trained and evaluated GMM-HMM and TDNN-based Kaldi acoustic models
+      with a task-specific language model to recognize spoken fluency responses,
+      then used post-processing and confidence handling to compute MoCA fluency scores
+      from recognized candidate words. This demonstrates a biomedical speech-AI use
+      of Kaldi where automatic recognition supports digital cognitive assessment
+      and reduces manual scoring burden for standardized neuropsychological testing.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3390/s22041583
+      ref_title: Using Automatic Speech Recognition to Assess Thai Speech Language
+        Fluency in the Montreal Cognitive Assessment (MoCA)
+      ref_authors:
+      - Kantithammakorn P
+      - Punyabukkana P
+      - Pratanwanich PN
+      - Hemrungrojn S
+      - Chunharas C
+      - Wanvarie D
+      ref_publication_year: 2022
+      ref_journal: Sensors
   publication:
-    ref_url: ''
+    ref_url: https://www.danielpovey.com/files/2011_asru_kaldi.pdf
+    ref_title: The Kaldi Speech Recognition Toolkit
+    ref_authors:
+    - Povey D
+    - Ghoshal A
+    - Boulianne G
+    - Burget L
+    - Glembek O
+    - Goel N
+    - Hannemann M
+    - Motlicek P
+    - Qian Y
+    - Schwarz P
+    - Silovsky J
+    - Stemmer G
+    - Vesely K
+    ref_publication_year: 2011
+    ref_journal: IEEE 2011 Workshop on Automatic Speech Recognition and Understanding
 - id: B2AI_STANDARD:781
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
