@@ -58,6 +58,8 @@ flowchart LR
     B2AI_TOPIC_53[Ontology]
     B2AI_TOPIC_54[Metadata]
     B2AI_TOPIC_55[Data Packaging]
+    B2AI_TOPIC_56[Nutrition]
+    B2AI_TOPIC_57[Pediatric Medicine]
     B2AI_TOPIC_1 --> B2AI_TOPIC_11
     B2AI_TOPIC_1 --> B2AI_TOPIC_20
     B2AI_TOPIC_1 --> B2AI_TOPIC_46
@@ -67,6 +69,7 @@ flowchart LR
     B2AI_TOPIC_4 --> B2AI_TOPIC_9
     B2AI_TOPIC_4 --> B2AI_TOPIC_48
     B2AI_TOPIC_4 --> B2AI_TOPIC_50
+    B2AI_TOPIC_4 --> B2AI_TOPIC_57
     B2AI_TOPIC_5 --> B2AI_TOPIC_1
     B2AI_TOPIC_5 --> B2AI_TOPIC_3
     B2AI_TOPIC_5 --> B2AI_TOPIC_4
@@ -83,6 +86,7 @@ flowchart LR
     B2AI_TOPIC_5 --> B2AI_TOPIC_40
     B2AI_TOPIC_5 --> B2AI_TOPIC_54
     B2AI_TOPIC_5 --> B2AI_TOPIC_55
+    B2AI_TOPIC_5 --> B2AI_TOPIC_56
     B2AI_TOPIC_6 --> B2AI_TOPIC_29
     B2AI_TOPIC_7 --> B2AI_TOPIC_43
     B2AI_TOPIC_7 --> B2AI_TOPIC_44
@@ -171,6 +175,8 @@ flowchart LR
     click B2AI_TOPIC_53 "topics/Ontology/" "Ontology"
     click B2AI_TOPIC_54 "topics/Metadata/" "Metadata"
     click B2AI_TOPIC_55 "topics/DataPackaging/" "Data Packaging"
+    click B2AI_TOPIC_56 "topics/Nutrition/" "Nutrition"
+    click B2AI_TOPIC_57 "topics/PediatricMedicine/" "Pediatric Medicine"
 ```
 <!-- TOPIC_DIAGRAM_END -->
 
