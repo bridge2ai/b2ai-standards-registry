@@ -23,3 +23,5 @@
 - [B2AI_TOPIC:22](../topics/NeurologicImaging.markdown) (Neurologic Imaging)
 
 - [B2AI_TOPIC:24](../topics/OphthalmicImaging.markdown) (Ophthalmic Imaging)
+
+- [B2AI_TOPIC:65](../topics/RadiologicImaging.markdown) (Radiologic Imaging)

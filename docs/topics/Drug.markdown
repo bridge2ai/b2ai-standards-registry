@@ -17,3 +17,7 @@
 **subclass of:**
 
 - [B2AI_TOPIC:3](../topics/Cheminformatics.markdown) (Cheminformatics)
+
+**parent of:**
+
+- [B2AI_TOPIC:70](../topics/Vaccine.markdown) (Vaccine)

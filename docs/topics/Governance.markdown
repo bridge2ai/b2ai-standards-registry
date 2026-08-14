@@ -13,3 +13,7 @@
 **subclass of:**
 
 - [B2AI_TOPIC:5](../topics/Data.markdown) (Data)
+
+**parent of:**
+
+- [B2AI_TOPIC:77](../topics/PrivacyandSecurity.markdown) (Privacy and Security)

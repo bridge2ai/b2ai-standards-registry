@@ -18,10 +18,24 @@
 
 **parent of:**
 
+- [B2AI_TOPIC:80](../topics/Behavior.markdown) (Behavior)
+
+- [B2AI_TOPIC:67](../topics/Biospecimen.markdown) (Biospecimen)
+
+- [B2AI_TOPIC:66](../topics/ClinicalTrials.markdown) (Clinical Trials)
+
 - [B2AI_TOPIC:9](../topics/EHR.markdown) (EHR)
 
+- [B2AI_TOPIC:68](../topics/Epidemiology.markdown) (Epidemiology)
+
+- [B2AI_TOPIC:79](../topics/MedicalDevices.markdown) (Medical Devices)
+
 - [B2AI_TOPIC:48](../topics/Neurology.markdown) (Neurology)
+
+- [B2AI_TOPIC:81](../topics/Oncology.markdown) (Oncology)
 
 - [B2AI_TOPIC:57](../topics/PediatricMedicine.markdown) (Pediatric Medicine)
 
 - [B2AI_TOPIC:50](../topics/Psychiatry.markdown) (Psychiatry)
+
+- [B2AI_TOPIC:65](../topics/RadiologicImaging.markdown) (Radiologic Imaging)
