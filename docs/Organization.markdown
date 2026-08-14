@@ -11,7 +11,7 @@ These include the Bridge2AI Grand Challenges described below:
 |AI/ML for Clinical Care|CHoRUS|B2AI_ORG:115|[CHoRUS for Equitable AI](https://github.com/chorus-ai#table-of-contents)|[Data Manifest for CHoRUS](https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/XNBOPG)|
 |Functional Genomics|CM4AI|B2AI_ORG:116|[CM4AI Product Documentation](https://cm4ai.org/product-documentation/)|[CM4AI June 2026 Data Release](https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/HIGT4C)|
 |Precision Public Health|Voice|B2AI_ORG:117|[Flagship Dataset of Voice as a Biomarker of Health](https://docs.b2ai-voice.org/)| |
-|Salutogenesis|AI-READI|B2AI_ORG:114|[Flagship Dataset of Type 2 Diabetes from the AI-READI Project](https://fairhub.io/datasets/2)| |
+|Salutogenesis|AI-READI|B2AI_ORG:114|[Flagship Dataset of Type 2 Diabetes from the AI-READI Project](https://fairhub.io/datasets/3)| |
 
 Where possible, organizations are accompanied by the following identifiers:
 
