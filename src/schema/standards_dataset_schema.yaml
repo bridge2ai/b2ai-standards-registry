@@ -43,6 +43,7 @@ classes:
       - data_url
       - documentation_url
       - datasheet_url
+      - ro_crate_url
       - is_public
       - substrates
       - topics
@@ -86,6 +87,19 @@ slots:
       can be accessed.
     domain: DataSet
     range: uriorcurie
+
+  ro_crate_url:
+    is_a: node_property
+    description: >-
+      URL where an RO-Crate (Research Object Crate) package
+      for the data set can be accessed. This may be a link to
+      the package itself or to the repository landing page
+      from which it may be retrieved.
+    domain: DataSet
+    range: uriorcurie
+    multivalued: true
+    examples:
+    - value: https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/XNBOPG
 
   has_files:
     is_a: related_to
