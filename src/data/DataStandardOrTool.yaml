@@ -55091,3 +55091,171 @@ data_standardortools_collection:
     - Mosaku A
     ref_publication_year: 2025
     ref_journal: Nucleic Acids Research
+- id: B2AI_STANDARD:1149
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:36
+  - B2AI_TOPIC:58
+  - B2AI_TOPIC:60
+  contribution_date: '2026-08-14'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ppgs package
+  formal_specification: https://github.com/interactiveaudiolab/ppgs
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: ppgs
+  purpose_detail: ppgs is a Python package for computing high-fidelity neural phonetic
+    posteriorgrams (PPGs), a time-varying categorical distribution over the acoustic
+    units of speech (typically phonemes) computed at a fixed frame rate. Because a
+    PPG describes what phonetic content is present at each instant while discarding
+    speaker identity and much of the acoustic detail, it is widely used as an intermediate
+    representation for speech editing, voice conversion, pronunciation assessment,
+    and speech quality analysis. In the Bridge2AI-Voice releases, ppgs is used to
+    generate the ppgs.parquet feature file at 100Hz, providing an AI-ready phonetic
+    representation of each recording that can be shared without distributing the original
+    audio.
+  requires_registration: false
+  url: https://github.com/interactiveaudiolab/ppgs
+  used_in_bridge2ai: true
+  publication:
+    ref_url: https://doi.org/10.1109/icasspw62465.2024.10669905
+    ref_title: High-Fidelity Neural Phonetic Posteriorgrams
+    ref_authors:
+    - Churchwell C
+    - Morrison M
+    - Pardo B
+    ref_publication_year: 2024
+    ref_journal: 2024 IEEE International Conference on Acoustics, Speech, and Signal
+      Processing Workshops (ICASSPW)
+- id: B2AI_STANDARD:1150
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:36
+  - B2AI_TOPIC:60
+  contribution_date: '2026-08-14'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Speech Articulatory Coding (SPARC) package
+  formal_specification: https://github.com/Berkeley-Speech-Group/Speech-Articulatory-Coding
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: SPARC
+  purpose_detail: SPARC (Speech Articulatory Coding) is a Python package that recovers
+    vocal tract kinematics from a speech signal, inverting the acoustic waveform into
+    the movements of the articulators that produced it. It generates electromagnetic
+    articulography (EMA) style kinematic traces together with source features including
+    loudness, periodicity, and pitch, yielding an interpretable, speaker-independent
+    encoding of speech that can be resynthesized. This articulatory representation
+    is useful for analyses where the physical mechanism of speech production matters,
+    such as characterizing voice and speech disorders. In the Bridge2AI-Voice releases,
+    SPARC produces the sparc_ema, sparc_loudness, sparc_periodicity, and sparc_pitch
+    feature files.
+  requires_registration: false
+  url: https://berkeley-speech-group.github.io/sparc-demo
+  used_in_bridge2ai: true
+  publication:
+    ref_url: https://doi.org/10.48550/arxiv.2406.12998
+    ref_title: Coding Speech through Vocal Tract Kinematics
+    ref_authors:
+    - Cho CJ
+    - Wu P
+    - Prabhune TS
+    - Agarwal D
+    - Anumanchipalli GK
+    ref_publication_year: 2024
+    ref_journal: arXiv
+- id: B2AI_STANDARD:1151
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  - machinelearningframework
+  concerns_data_topic:
+  - B2AI_TOPIC:32
+  - B2AI_TOPIC:36
+  - B2AI_TOPIC:58
+  - B2AI_TOPIC:60
+  contribution_date: '2026-08-14'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Whisper automatic speech recognition model
+  formal_specification: https://github.com/openai/whisper
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: Whisper
+  purpose_detail: Whisper is an automatic speech recognition (ASR) model trained on
+    a large and diverse corpus of weakly supervised multilingual audio. It performs
+    transcription, translation, and language identification, and is distributed in
+    several model sizes under an open license, making it a common default for converting
+    research speech recordings into text. Its robustness to accents, background noise,
+    and technical vocabulary makes it particularly suitable for clinical and field
+    recordings that depart from clean read speech. In the Bridge2AI-Voice adult release,
+    transcriptions were generated using the Whisper Large model.
+  requires_registration: false
+  url: https://github.com/openai/whisper
+  used_in_bridge2ai: true
+  publication:
+    ref_url: https://doi.org/10.48550/arxiv.2212.04356
+    ref_title: Robust Speech Recognition via Large-Scale Weak Supervision
+    ref_authors:
+    - Radford A
+    - Kim JW
+    - Xu T
+    - Brockman G
+    - McLeavey C
+    - Sutskever I
+    ref_publication_year: 2022
+    ref_journal: arXiv
+- id: B2AI_STANDARD:1152
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_pilot
+  concerns_data_topic:
+  - B2AI_TOPIC:36
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:60
+  contribution_date: '2026-08-14'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: b2aiprep library
+  formal_specification: https://github.com/sensein/b2aiprep
+  has_relevant_organization:
+  - B2AI_ORG:117
+  is_open: true
+  name: b2aiprep
+  purpose_detail: b2aiprep is a Python package for preparing acoustic data for the
+    Bridge2AI Precision Public Health (Voice) project. It assembles the release pipeline
+    that turns raw collected recordings and questionnaire responses into the published,
+    AI-ready derivatives, coordinating feature extraction across tools such as openSMILE,
+    Praat, Parselmouth, torchaudio, SPARC, and ppgs, and organizing the results together
+    with their data dictionaries and metadata. It is the reference implementation
+    of the Bridge2AI-Voice data preparation workflow, and is noted by its maintainers
+    as under active development with interfaces that may change.
+  related_to:
+  - B2AI_STANDARD:881
+  requires_registration: false
+  url: https://github.com/sensein/b2aiprep
+  used_in_bridge2ai: true
+  publication:
+    ref_url: https://github.com/sensein/b2aiprep
+    ref_title: b2aiprep library
+    ref_authors:
+    - Bevers I
+    - Ghosh S
+    - Johnson A
+    - Brito R
+    - Bedrick S
+    - Catania F
+    - Ng E
+    ref_publication_year: 2024
