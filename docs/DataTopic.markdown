@@ -60,9 +60,40 @@ flowchart LR
     B2AI_TOPIC_55[Data Packaging]
     B2AI_TOPIC_56[Nutrition]
     B2AI_TOPIC_57[Pediatric Medicine]
+    B2AI_TOPIC_58[Machine Learning Model]
+    B2AI_TOPIC_59[Workflow]
+    B2AI_TOPIC_60[Software]
+    B2AI_TOPIC_61[Computing Infrastructure]
+    B2AI_TOPIC_62[Database]
+    B2AI_TOPIC_63[Provenance]
+    B2AI_TOPIC_64[Identifiers]
+    B2AI_TOPIC_65[Radiologic Imaging]
+    B2AI_TOPIC_66[Clinical Trials]
+    B2AI_TOPIC_67[Biospecimen]
+    B2AI_TOPIC_68[Epidemiology]
+    B2AI_TOPIC_69[Microbiology]
+    B2AI_TOPIC_70[Vaccine]
+    B2AI_TOPIC_71[Anatomy]
+    B2AI_TOPIC_72[Organism Taxonomy]
+    B2AI_TOPIC_73[Units and Measurement]
+    B2AI_TOPIC_74[Statistics]
+    B2AI_TOPIC_75[Knowledge Graph]
+    B2AI_TOPIC_76[Toxicology]
+    B2AI_TOPIC_77[Privacy and Security]
+    B2AI_TOPIC_78[Data Quality]
+    B2AI_TOPIC_79[Medical Devices]
+    B2AI_TOPIC_80[Behavior]
+    B2AI_TOPIC_81[Oncology]
+    B2AI_TOPIC_82[Immunology]
     B2AI_TOPIC_1 --> B2AI_TOPIC_11
     B2AI_TOPIC_1 --> B2AI_TOPIC_20
     B2AI_TOPIC_1 --> B2AI_TOPIC_46
+    B2AI_TOPIC_1 --> B2AI_TOPIC_67
+    B2AI_TOPIC_1 --> B2AI_TOPIC_69
+    B2AI_TOPIC_1 --> B2AI_TOPIC_71
+    B2AI_TOPIC_1 --> B2AI_TOPIC_72
+    B2AI_TOPIC_1 --> B2AI_TOPIC_80
+    B2AI_TOPIC_1 --> B2AI_TOPIC_82
     B2AI_TOPIC_2 --> B2AI_TOPIC_41
     B2AI_TOPIC_2 --> B2AI_TOPIC_42
     B2AI_TOPIC_3 --> B2AI_TOPIC_8
@@ -70,6 +101,13 @@ flowchart LR
     B2AI_TOPIC_4 --> B2AI_TOPIC_48
     B2AI_TOPIC_4 --> B2AI_TOPIC_50
     B2AI_TOPIC_4 --> B2AI_TOPIC_57
+    B2AI_TOPIC_4 --> B2AI_TOPIC_65
+    B2AI_TOPIC_4 --> B2AI_TOPIC_66
+    B2AI_TOPIC_4 --> B2AI_TOPIC_67
+    B2AI_TOPIC_4 --> B2AI_TOPIC_68
+    B2AI_TOPIC_4 --> B2AI_TOPIC_79
+    B2AI_TOPIC_4 --> B2AI_TOPIC_80
+    B2AI_TOPIC_4 --> B2AI_TOPIC_81
     B2AI_TOPIC_5 --> B2AI_TOPIC_1
     B2AI_TOPIC_5 --> B2AI_TOPIC_3
     B2AI_TOPIC_5 --> B2AI_TOPIC_4
@@ -87,16 +125,28 @@ flowchart LR
     B2AI_TOPIC_5 --> B2AI_TOPIC_54
     B2AI_TOPIC_5 --> B2AI_TOPIC_55
     B2AI_TOPIC_5 --> B2AI_TOPIC_56
+    B2AI_TOPIC_5 --> B2AI_TOPIC_58
+    B2AI_TOPIC_5 --> B2AI_TOPIC_59
+    B2AI_TOPIC_5 --> B2AI_TOPIC_60
+    B2AI_TOPIC_5 --> B2AI_TOPIC_61
+    B2AI_TOPIC_5 --> B2AI_TOPIC_62
+    B2AI_TOPIC_5 --> B2AI_TOPIC_74
+    B2AI_TOPIC_5 --> B2AI_TOPIC_75
+    B2AI_TOPIC_5 --> B2AI_TOPIC_78
     B2AI_TOPIC_6 --> B2AI_TOPIC_29
     B2AI_TOPIC_7 --> B2AI_TOPIC_43
     B2AI_TOPIC_7 --> B2AI_TOPIC_44
     B2AI_TOPIC_7 --> B2AI_TOPIC_45
     B2AI_TOPIC_7 --> B2AI_TOPIC_47
+    B2AI_TOPIC_7 --> B2AI_TOPIC_81
+    B2AI_TOPIC_8 --> B2AI_TOPIC_70
+    B2AI_TOPIC_11 --> B2AI_TOPIC_76
     B2AI_TOPIC_12 --> B2AI_TOPIC_35
     B2AI_TOPIC_13 --> B2AI_TOPIC_12
     B2AI_TOPIC_15 --> B2AI_TOPIC_19
     B2AI_TOPIC_15 --> B2AI_TOPIC_22
     B2AI_TOPIC_15 --> B2AI_TOPIC_24
+    B2AI_TOPIC_15 --> B2AI_TOPIC_65
     B2AI_TOPIC_16 --> B2AI_TOPIC_52
     B2AI_TOPIC_18 --> B2AI_TOPIC_38
     B2AI_TOPIC_18 --> B2AI_TOPIC_39
@@ -114,11 +164,15 @@ flowchart LR
     B2AI_TOPIC_36 --> B2AI_TOPIC_45
     B2AI_TOPIC_37 --> B2AI_TOPIC_10
     B2AI_TOPIC_37 --> B2AI_TOPIC_36
+    B2AI_TOPIC_40 --> B2AI_TOPIC_77
     B2AI_TOPIC_46 --> B2AI_TOPIC_47
     B2AI_TOPIC_48 --> B2AI_TOPIC_22
     B2AI_TOPIC_48 --> B2AI_TOPIC_49
     B2AI_TOPIC_50 --> B2AI_TOPIC_51
     B2AI_TOPIC_54 --> B2AI_TOPIC_53
+    B2AI_TOPIC_54 --> B2AI_TOPIC_63
+    B2AI_TOPIC_54 --> B2AI_TOPIC_64
+    B2AI_TOPIC_54 --> B2AI_TOPIC_73
 
     click B2AI_TOPIC_1 "topics/Biology/" "Biology"
     click B2AI_TOPIC_2 "topics/Cell/" "Cell"
@@ -177,6 +231,31 @@ flowchart LR
     click B2AI_TOPIC_55 "topics/DataPackaging/" "Data Packaging"
     click B2AI_TOPIC_56 "topics/Nutrition/" "Nutrition"
     click B2AI_TOPIC_57 "topics/PediatricMedicine/" "Pediatric Medicine"
+    click B2AI_TOPIC_58 "topics/MachineLearningModel/" "Machine Learning Model"
+    click B2AI_TOPIC_59 "topics/Workflow/" "Workflow"
+    click B2AI_TOPIC_60 "topics/Software/" "Software"
+    click B2AI_TOPIC_61 "topics/ComputingInfrastructure/" "Computing Infrastructure"
+    click B2AI_TOPIC_62 "topics/Database/" "Database"
+    click B2AI_TOPIC_63 "topics/Provenance/" "Provenance"
+    click B2AI_TOPIC_64 "topics/Identifiers/" "Identifiers"
+    click B2AI_TOPIC_65 "topics/RadiologicImaging/" "Radiologic Imaging"
+    click B2AI_TOPIC_66 "topics/ClinicalTrials/" "Clinical Trials"
+    click B2AI_TOPIC_67 "topics/Biospecimen/" "Biospecimen"
+    click B2AI_TOPIC_68 "topics/Epidemiology/" "Epidemiology"
+    click B2AI_TOPIC_69 "topics/Microbiology/" "Microbiology"
+    click B2AI_TOPIC_70 "topics/Vaccine/" "Vaccine"
+    click B2AI_TOPIC_71 "topics/Anatomy/" "Anatomy"
+    click B2AI_TOPIC_72 "topics/OrganismTaxonomy/" "Organism Taxonomy"
+    click B2AI_TOPIC_73 "topics/UnitsandMeasurement/" "Units and Measurement"
+    click B2AI_TOPIC_74 "topics/Statistics/" "Statistics"
+    click B2AI_TOPIC_75 "topics/KnowledgeGraph/" "Knowledge Graph"
+    click B2AI_TOPIC_76 "topics/Toxicology/" "Toxicology"
+    click B2AI_TOPIC_77 "topics/PrivacyandSecurity/" "Privacy and Security"
+    click B2AI_TOPIC_78 "topics/DataQuality/" "Data Quality"
+    click B2AI_TOPIC_79 "topics/MedicalDevices/" "Medical Devices"
+    click B2AI_TOPIC_80 "topics/Behavior/" "Behavior"
+    click B2AI_TOPIC_81 "topics/Oncology/" "Oncology"
+    click B2AI_TOPIC_82 "topics/Immunology/" "Immunology"
 ```
 <!-- TOPIC_DIAGRAM_END -->
 

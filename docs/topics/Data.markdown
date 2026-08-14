@@ -22,7 +22,13 @@
 
 - [B2AI_TOPIC:4](../topics/ClinicalObservations.markdown) (Clinical Observations)
 
+- [B2AI_TOPIC:61](../topics/ComputingInfrastructure.markdown) (Computing Infrastructure)
+
 - [B2AI_TOPIC:55](../topics/DataPackaging.markdown) (Data Packaging)
+
+- [B2AI_TOPIC:78](../topics/DataQuality.markdown) (Data Quality)
+
+- [B2AI_TOPIC:62](../topics/Database.markdown) (Database)
 
 - [B2AI_TOPIC:6](../topics/Demographics.markdown) (Demographics)
 
@@ -34,6 +40,10 @@
 
 - [B2AI_TOPIC:15](../topics/Image.markdown) (Image)
 
+- [B2AI_TOPIC:75](../topics/KnowledgeGraph.markdown) (Knowledge Graph)
+
+- [B2AI_TOPIC:58](../topics/MachineLearningModel.markdown) (Machine Learning Model)
+
 - [B2AI_TOPIC:54](../topics/Metadata.markdown) (Metadata)
 
 - [B2AI_TOPIC:21](../topics/NetworksAndPathways.markdown) (Networks And Pathways)
@@ -42,10 +52,16 @@
 
 - [B2AI_TOPIC:25](../topics/Phenotype.markdown) (Phenotype)
 
+- [B2AI_TOPIC:60](../topics/Software.markdown) (Software)
+
+- [B2AI_TOPIC:74](../topics/Statistics.markdown) (Statistics)
+
 - [B2AI_TOPIC:31](../topics/Survey.markdown) (Survey)
 
 - [B2AI_TOPIC:32](../topics/Text.markdown) (Text)
 
 - [B2AI_TOPIC:37](../topics/Waveform.markdown) (Waveform)
+
+- [B2AI_TOPIC:59](../topics/Workflow.markdown) (Workflow)
 
 - [B2AI_TOPIC:18](../topics/mHealth.markdown) (mHealth)

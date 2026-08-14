@@ -20,8 +20,20 @@
 
 **parent of:**
 
+- [B2AI_TOPIC:71](../topics/Anatomy.markdown) (Anatomy)
+
+- [B2AI_TOPIC:80](../topics/Behavior.markdown) (Behavior)
+
+- [B2AI_TOPIC:67](../topics/Biospecimen.markdown) (Biospecimen)
+
 - [B2AI_TOPIC:11](../topics/Environment.markdown) (Environment)
 
+- [B2AI_TOPIC:82](../topics/Immunology.markdown) (Immunology)
+
+- [B2AI_TOPIC:69](../topics/Microbiology.markdown) (Microbiology)
+
 - [B2AI_TOPIC:20](../topics/MolecularBiology.markdown) (Molecular Biology)
+
+- [B2AI_TOPIC:72](../topics/OrganismTaxonomy.markdown) (Organism Taxonomy)
 
 - [B2AI_TOPIC:46](../topics/Respiration.markdown) (Respiration)

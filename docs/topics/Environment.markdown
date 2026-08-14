@@ -17,3 +17,7 @@
 **subclass of:**
 
 - [B2AI_TOPIC:1](../topics/Biology.markdown) (Biology)
+
+**parent of:**
+
+- [B2AI_TOPIC:76](../topics/Toxicology.markdown) (Toxicology)
