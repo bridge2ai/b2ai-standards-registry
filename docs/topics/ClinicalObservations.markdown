@@ -22,4 +22,6 @@
 
 - [B2AI_TOPIC:48](../topics/Neurology.markdown) (Neurology)
 
+- [B2AI_TOPIC:57](../topics/PediatricMedicine.markdown) (Pediatric Medicine)
+
 - [B2AI_TOPIC:50](../topics/Psychiatry.markdown) (Psychiatry)

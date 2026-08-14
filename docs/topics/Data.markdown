@@ -38,6 +38,8 @@
 
 - [B2AI_TOPIC:21](../topics/NetworksAndPathways.markdown) (Networks And Pathways)
 
+- [B2AI_TOPIC:56](../topics/Nutrition.markdown) (Nutrition)
+
 - [B2AI_TOPIC:25](../topics/Phenotype.markdown) (Phenotype)
 
 - [B2AI_TOPIC:31](../topics/Survey.markdown) (Survey)
