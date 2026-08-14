@@ -13756,6 +13756,7 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "used_in_bridge2ai": true,
       "has_application": [
         {
           "id": "B2AI_APP:364",
@@ -13854,6 +13855,9 @@
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:31"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:117"
       ],
       "purpose_detail": "ReproSchema is an ecosystem for standardizing survey-based and structured data collection in biomedical, clinical, behavioral, and social science research. Built on JSON-LD and structured around a three-level hierarchy--Items (individual questions with response options, visibility conditions, and data types), Activities (collections of related items with scoring algorithms and branching logic), and Protocols (complete study designs combining multiple activities)--ReproSchema enables declarative specification of data collection workflows. ReproSchema provides Git-based version control for persistent URIs, supports diverse question types (text, numeric, multiple choice, conditional), and includes computable elements for automated scoring and validation. The ecosystem provides comprehensive tooling: a core schema defining structure, an assessment library with standardized instruments (PHQ-9, GAD-7, PSQI, etc.), Python CLI tools for validation and format conversion, and web-based deployment interfaces. ReproSchema ensures interoperability with widely-used clinical research platforms through bidirectional conversion tools for REDCap and FHIR formats. In machine learning and biomedical AI, ReproSchema standardizes structured data collection supporting reproducible feature engineering. The specification enables automated validation preventing data quality issues at collection time. ReproSchema's explicit data element definitions facilitate integration with machine learning pipelines through standardized variable names, data types, ranges, and missing value codes. Multisite studies using ReproSchema protocols ensure consistent data collection across institutions, enabling meta-analyses and large-scale model development. ReproSchema supports longitudinal studies where repeated measures follow standardized assessment protocols. The ecosystem enhances research reproducibility by documenting complete assessment specifications enabling others to replicate data collection and supporting international harmonization of research data.",
       "is_open": true,
@@ -17404,7 +17408,8 @@
         "B2AI_TOPIC:55"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:114"
+        "B2AI_ORG:114",
+        "B2AI_ORG:117"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:970"
