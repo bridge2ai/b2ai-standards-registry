@@ -164,6 +164,8 @@ data_collection:
     for Equitable AI (Pre-Release)
   produced_by:
   - B2AI_ORG:115
+  ro_crate_url:
+  - https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/XNBOPG
   substrates:
   - B2AI_SUBSTRATE:11
   - B2AI_SUBSTRATE:57
@@ -1341,3 +1343,56 @@ data_collection:
   is_public: true
   name: DANDI
   documentation_url: https://www.dandiarchive.org/
+- id: B2AI_DATA:113
+  category: B2AI_DATA:DataSet
+  data_url: https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/HIGT4C
+  description: This dataset is the June 2026 Data Release of Cell Maps for Artificial
+    Intelligence (CM4AI; CM4AI.org), the Functional Genomics Grand Challenge in the
+    NIH Bridge2AI program. CM4AI is generating multi-modal data including protein-protein
+    interaction (PPI), spatial localization, and genetic perturbation data in MDA-MB-468
+    breast cancer cells (+/- paclitaxel or vorinostat) and iPSCs (+/- differentiation).
+    This Beta release includes perturb-seq data for MDA-MB-468 breast cancer cells
+    +/- treatment and undifferentiated (parental) KOLF2.1J iPSCs; SEC-MS data for
+    MDA-MB-468 breast cancer cells +/- treatment, undifferentiated KOLF2.1J iPSCs,
+    and iPSC-derived neuron progenitor cells (NPCs), neurons, and cardiomyocytes;
+    AP-MS data for MDA-MB-468 breast cancer cells + treatment; and IF images in MDA-MB-468
+    breast cancer cells +/- treatment. CM4AI output data are packaged with provenance
+    graphs and rich metadata as AI-ready datasets in RO-Crate format using the FAIRSCAPE
+    framework. Some datasets are under temporary pre-publication embargo, and computed
+    cell maps are not included in this release. Data will be augmented on a quarterly
+    basis through the end of the project in November 2026. Dataset licensed for reuse
+    under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+    license (https://creativecommons.org/licenses/by-nc-sa/4.0/). (2026-07-15)
+  documentation_url: https://cm4ai.org/product-documentation/
+  has_files:
+  - cm4ai_apms_MDA-MB-468_paclitaxel.zip
+  - cm4ai_apms_MDA-MB-468_vorinostat.zip
+  - cm4ai_ifimages_MDA-MB-468_paclitaxel.zip
+  - cm4ai_ifimages_MDA-MB-468_untreated.zip
+  - cm4ai_ifimages_MDA-MB-468_vorinostat.zip
+  - cm4ai_mass-spec_KOLF2.zip
+  - cm4ai_mass-spec_MDA-MB-468.zip
+  - cm4ai_perturb-seq_KOLF2_cell_atlas.zip
+  - cm4ai_perturb-seq_KOLF2_raw_sra.zip
+  - cm4ai_release_metadata.zip
+  is_public: true
+  name: Cell Maps for Artificial Intelligence - June 2026 Data Release (Beta)
+  produced_by:
+  - B2AI_ORG:116
+  ro_crate_url:
+  - https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/HIGT4C
+  substrates:
+  - B2AI_SUBSTRATE:56
+  - B2AI_SUBSTRATE:58
+  - B2AI_SUBSTRATE:59
+  - B2AI_SUBSTRATE:64
+  topics:
+  - B2AI_TOPIC:2
+  - B2AI_TOPIC:26
+  - B2AI_TOPIC:33
+  - B2AI_TOPIC:41
+  - B2AI_TOPIC:42
+  availability_description: This dataset is publicly available for research purposes
+    and licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+    International license (https://creativecommons.org/licenses/by-nc-sa/4.0/). All
+    data may be accessed through the UVA Dataverse platform at https://doi.org/10.18130/V3/HIGT4C

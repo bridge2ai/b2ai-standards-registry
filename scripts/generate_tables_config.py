@@ -195,6 +195,7 @@ DEST_TABLES = {
             {'name': 'produced_by', 'alias': 'producedByOrgId'},
             {'name': 'data_url', 'alias': 'DataURL'},
             {'name': 'documentation_url', 'alias': 'DocumentationURL'},
+            {'name': 'ro_crate_url', 'alias': 'ROCrateURL'},
             {'name': 'is_public', 'alias': 'isPublic'},
             {'name': 'substrates', 'alias': 'substrateIds'},
         ],
