@@ -152,9 +152,11 @@ poetry run b2aisr update-synapse (a list of JSON data filepaths)
 poetry run b2aisr create-denormalized-tables --specific-tables (a list of tables to update, e.g., DST_denormalized)
 ```
 
-**Important note:** These scripts will not work if the schema has changed. This includes added columns, deleted columns, or if columns have changed order.
+**Note on schema changes:** Added, removed, and retyped columns are handled automatically. Column definitions for the source tables are inferred from the JSON data being uploaded, and `clear_populate_snapshot_table` reconciles them against the live table, adding new columns, dropping ones no longer present, and re-adding any whose type or settings changed. Columns whose definitions already match are left in place so their column IDs and any portal-side configuration survive.
 
-If the schema has changed, update and run the `scripts/modify_synapse_schema.py` script to update the table schemas in Synapse.
+Columns for the denormalized tables come from `scripts/generate_tables_config.py`, so a new source column must be listed there to appear in a denormalized table.
+
+An earlier version of these instructions directed you to run `scripts/modify_synapse_schema.py` after a schema change. That script was removed in May 2025, once schema reconciliation became automatic.
 
 ## Accessing Registry Data
 
