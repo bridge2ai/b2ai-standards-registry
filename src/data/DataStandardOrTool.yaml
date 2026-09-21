@@ -1148,6 +1148,7 @@ data_standardortools_collection:
   is_open: true
   has_relevant_organization:
   - B2AI_ORG:138
+  - B2AI_ORG:141
   name: bigWig
   purpose_detail: The bigWig format is an indexed binary file format developed by
     UCSC for efficient storage and visualization of dense, continuous genomic data
@@ -1320,6 +1321,7 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:128
   - B2AI_ORG:138
+  - B2AI_ORG:141
   name: BAM
   purpose_detail: The BAM (Binary Alignment/Map) format is the standardized binary
     encoding for DNA sequence alignment data, representing the compressed, indexed,
@@ -4617,6 +4619,7 @@ data_standardortools_collection:
   - B2AI_ORG:128
   - B2AI_ORG:138
   - B2AI_ORG:131
+  - B2AI_ORG:141
   name: CFDE C2M2
   purpose_detail: The Common Fund Data Ecosystem (CFDE) Crosscut Metadata Model (C2M2)
     is a flexible, extensible data model designed to harmonize metadata across NIH
@@ -8435,6 +8438,7 @@ data_standardortools_collection:
   - B2AI_ORG:114
   - B2AI_ORG:131
   - B2AI_ORG:138
+  - B2AI_ORG:141
   has_training_resource:
   - B2AI_STANDARD:953
   - B2AI_STANDARD:1021
@@ -15085,6 +15089,8 @@ data_standardortools_collection:
   has_training_resource:
   - B2AI_STANDARD:1083
   is_open: true
+  has_relevant_organization:
+  - B2AI_ORG:141
   name: mzML
   publication:
     ref_url: https://doi.org/10.1007/978-1-60761-444-9_22
@@ -26314,6 +26320,8 @@ data_standardortools_collection:
   has_training_resource:
   - B2AI_STANDARD:1095
   is_open: true
+  has_relevant_organization:
+  - B2AI_ORG:141
   name: WDL
   purpose_detail: The Workflow Description Language (WDL) is a way to specify data
     processing workflows with a human-readable and -writeable syntax. WDL makes it
@@ -30530,6 +30538,7 @@ data_standardortools_collection:
   formal_specification: https://github.com/ufbmi/geographical-entity-ontology/
   has_relevant_organization:
   - B2AI_ORG:96
+  - B2AI_ORG:141
   is_open: true
   name: GEO
   purpose_detail: The Geographical Entity Ontology (GEO) is a domain ontology developed
@@ -37706,6 +37715,8 @@ data_standardortools_collection:
   description: Cromwell Workflow Management System
   formal_specification: https://github.com/broadinstitute/cromwell
   is_open: true
+  has_relevant_organization:
+  - B2AI_ORG:141
   name: Cromwell
   publication:
     ref_url: https://doi.org/10.7490/f1000research.1114634.1
@@ -38640,6 +38651,7 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:37
   - B2AI_ORG:115
+  - B2AI_ORG:141
   has_training_resource:
   - B2AI_STANDARD:960
   - B2AI_STANDARD:1102
@@ -42227,6 +42239,8 @@ data_standardortools_collection:
   description: Spliced Transcripts Alignment to a Reference
   formal_specification: https://github.com/alexdobin/STAR
   is_open: true
+  has_relevant_organization:
+  - B2AI_ORG:141
   name: STAR
   publication:
     ref_url: https://doi.org/10.1093/bioinformatics/bts635
@@ -43979,6 +43993,8 @@ data_standardortools_collection:
   has_training_resource:
   - B2AI_STANDARD:963
   is_open: true
+  has_relevant_organization:
+  - B2AI_ORG:141
   name: R
   purpose_detail: R is a free, open-source programming language and software environment
     for statistical computing, graphics, data analysis, simulation, and reproducible
@@ -55517,6 +55533,7 @@ data_standardortools_collection:
   - B2AI_ORG:128
   - B2AI_ORG:131
   - B2AI_ORG:138
+  - B2AI_ORG:141
   is_open: true
   name: dbGaP
   purpose_detail: The database of Genotypes and Phenotypes (dbGaP) is the NIH repository for
@@ -57029,3 +57046,569 @@ data_standardortools_collection:
     - Parkinson H
     ref_publication_year: 2010
     ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1184
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - cloudservice
+  - datavisualization
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MoTrPAC Data Hub
+  formal_specification: https://github.com/MoTrPAC/motrpac-frontend
+  is_open: true
+  name: MoTrPAC Data Hub
+  purpose_detail: The MoTrPAC Data Hub (motrpac-data.org) is the public data portal of the NIH
+    Common Fund Molecular Transducers of Physical Activity Consortium, which maps the
+    molecular responses to acute exercise and to endurance and resistance training
+    across tissues in rats and in humans. It is designed and maintained by the MoTrPAC
+    Bioinformatics Center (BIC) at Stanford University. Data are organized by study
+    (rat acute exercise, rat endurance training, human pre-COVID acute exercise, human
+    main study) and within a study by release stage (public, consortium, early access)
+    and by type, with quant-ID sample-level results, analysis results, and phenotype
+    data as separate downloads or one combined file, each with QC reports and
+    metadata, and files also held in Google Cloud Storage buckets. Omes covered are
+    transcriptomics, chromatin accessibility (ATAC-seq), DNA methylation (RRBS),
+    global and phospho-, acetyl-, and ubiquityl-proteomics, targeted and untargeted
+    metabolomics, immunoassays, and clinical chemistry. Interactive views draw on the
+    same processed data, and a data-viz service serves the rat training study. Rat
+    data are CC BY 4.0. Downloading requires registration and acceptance of a data use
+    agreement, which for some releases carries a publication embargo. Individual-level
+    human data are controlled and are obtained through dbGaP. Raw and processed
+    animal data are also deposited in SRA, GEO, MassIVE, ImmPort, and Metabolomics
+    Workbench. MoTrPAC is a CFDE data coordinating center and submits C2M2 packages.
+    The multi-omic, multi-tissue harmonization across omes on one sample design is
+    the pattern several Bridge2AI Grand Challenges also attempt.
+  related_to:
+  - B2AI_STANDARD:63
+  - B2AI_STANDARD:458
+  - B2AI_STANDARD:1157
+  - B2AI_STANDARD:1185
+  - B2AI_STANDARD:1186
+  - B2AI_STANDARD:1187
+  - B2AI_STANDARD:1188
+  - B2AI_STANDARD:1189
+  - B2AI_STANDARD:1191
+  - B2AI_STANDARD:1192
+  - B2AI_STANDARD:1193
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://motrpac-data.org/
+  publication:
+    ref_url: https://doi.org/10.1016/j.cell.2020.06.004
+    ref_title: 'Molecular Transducers of Physical Activity Consortium (MoTrPAC): Mapping the Dynamic Responses to Exercise'
+    ref_authors:
+    - Sanford JA
+    - Nogiec CD
+    - Lindholm ME
+    - Adkins JN
+    - Amar D
+    - Dasari S
+    - Drugan JK
+    - Fernández FM
+    - Radom-Aizik S
+    - Schenk S
+    - Snyder MP
+    - Tracy RP
+    - Vanderboom P
+    - Trappe S
+    - Walsh MJ
+    ref_publication_year: 2020
+    ref_journal: Cell
+- id: B2AI_STANDARD:1185
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:55
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacRatTraining6moData R data package for the MoTrPAC rat endurance training study
+  formal_specification: https://github.com/MoTrPAC/MotrpacRatTraining6moData
+  is_open: true
+  name: MotrpacRatTraining6moData
+  purpose_detail: MotrpacRatTraining6moData is an R data package that ships the processed data
+    and downstream analysis results of the first MoTrPAC endurance exercise training
+    study in six-month-old rats, published in Nature in 2024. Each data object is a
+    documented R object named by ome, tissue, and content, for example
+    TRNSCRPT_LIVER_DA for liver transcriptomics differential analysis, and the package
+    index lists every object with its documentation. Sample-level normalized data and
+    differential analysis results are included for transcriptomics, proteomics and
+    its post-translational modification omes, metabolomics, and immunoassays. For
+    chromatin accessibility and DNA methylation only training-regulated features are
+    bundled because of size, and the full epigenetic results are fetched from public
+    Google Cloud Storage URLs or through functions in the companion
+    MotrpacRatTraining6mo package. The package is installed from GitHub with devtools,
+    the code is MIT licensed and the data are CC BY 4.0, and version 2.1.0 was
+    released in August 2025. Releases can change the data, so users are told to watch
+    the repository. It is the most directly reusable MoTrPAC artifact and a model for
+    shipping a harmonized multi-omic study as a versioned package.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1186
+  - B2AI_STANDARD:1187
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://motrpac.github.io/MotrpacRatTraining6moData/
+  publication:
+    ref_url: https://doi.org/10.1038/s41586-023-06877-w
+    ref_title: Temporal dynamics of the multi-omic response to endurance exercise training
+    ref_authors:
+    - MoTrPAC Study Group
+    ref_publication_year: 2024
+    ref_journal: Nature
+- id: B2AI_STANDARD:1186
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:74
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacRatTraining6mo R analysis package for the MoTrPAC rat endurance training study
+  formal_specification: https://github.com/MoTrPAC/MotrpacRatTraining6mo
+  is_open: true
+  name: MotrpacRatTraining6mo
+  purpose_detail: MotrpacRatTraining6mo is the R analysis package that accompanies the
+    MotrpacRatTraining6moData package. It provides functions to fetch, explore, and
+    reproduce the processed data and analysis results of the MoTrPAC six-month-old
+    rat endurance training study, including load_sample_data for one tissue and ome,
+    combine_normalized_data and combine_da_results for pulling several tissues or
+    omes into one table, and loaders for the epigenetic results that live outside the
+    data package. It is written against the data package's object naming and is the
+    documented route to the differential analysis, clustering, and enrichment results
+    in the Nature paper. The package is MIT licensed, is installed from GitHub, and
+    version 1.6.6 was released in September 2024 with no pushes since. Use of the
+    data is subject to the MoTrPAC data use agreement.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1185
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://motrpac.github.io/MotrpacRatTraining6mo/
+  publication:
+    ref_url: https://doi.org/10.1038/s41586-023-06877-w
+    ref_title: Temporal dynamics of the multi-omic response to endurance exercise training
+    ref_authors:
+    - MoTrPAC Study Group
+    ref_publication_year: 2024
+    ref_journal: Nature
+- id: B2AI_STANDARD:1187
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MoTrPAC Bioinformatics Center data processing pipelines in WDL
+  formal_specification: https://github.com/MoTrPAC
+  is_open: true
+  name: MoTrPAC BIC Pipelines
+  purpose_detail: The MoTrPAC Bioinformatics Center processes every consortium omic with a
+    harmonized pipeline written in the Workflow Description Language, run with caper
+    (a Cromwell wrapper the BIC maintains) on the Google Cloud Platform from Docker
+    images, and each pipeline is its own GitHub repository with a manual of procedures,
+    QC thresholds, and organism-specific genome builds (rat rn6, rn7, and rn8, human
+    hg38). This entry covers the set as one item because they share packaging,
+    executor, and cloud. The RNA-seq pipeline runs STAR, RSEM, featureCounts, bowtie2,
+    FastQC, and MultiQC. The ATAC-seq pipeline wraps the ENCODE ATAC-seq pipeline
+    version 1.7.0 and adds MoTrPAC configuration, QC flagging, and count matrix
+    scripts, writing narrowPeak, BAM, and bigWig signal outputs. The RRBS pipeline is
+    built on Bismark. The proteomics pipeline converts Thermo .raw files to mzML with
+    MSConvert and runs MASIC, MS-GF+, and PlexedPiper for TMT and label-free
+    quantification with AScore localization of phosphorylation, acetylation, and
+    ubiquitination. The four pipeline repositories were all pushed in August 2026 and
+    are MIT licensed. Primary and secondary QC of metabolomics, proteomics, Olink,
+    and clinical chemistry submissions is done with the MotrpacBicQC R package.
+  related_to:
+  - B2AI_STANDARD:20
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:221
+  - B2AI_STANDARD:389
+  - B2AI_STANDARD:747
+  - B2AI_STANDARD:767
+  - B2AI_STANDARD:828
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1188
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://github.com/MoTrPAC/motrpac-rna-seq-pipeline
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1188
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacBicQC R package for QC of MoTrPAC metabolomics, proteomics, Olink, and clinical chemistry submissions
+  formal_specification: https://github.com/MoTrPAC/MotrpacBicQC
+  is_open: true
+  name: MotrpacBicQC
+  purpose_detail: MotrpacBicQC is an R package from the MoTrPAC Bioinformatics Center for primary
+    and secondary QC of datasets submitted by the consortium's Chemical Analysis
+    Sites. It validates metadata, results, and sample files for named and unnamed
+    metabolomics batches, checks untargeted proteomics submissions including ratio
+    and RII files and vial metadata, validates Olink proteomics and lab-based
+    clinical chemistry files, checks consistency across the files of one submission,
+    and draws QC plots. Metabolite names are validated against RefMet through the
+    Metabolomics Workbench API, which is how MoTrPAC harmonizes metabolomics naming
+    across sites. The package encodes the submission file conventions the BIC
+    expects, so it doubles as the executable data dictionary for those omes. It
+    requires R 4.1 or later, is installed from GitHub, is MIT licensed, and version
+    1.8.0 was released in August 2026.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1187
+  - B2AI_STANDARD:1189
+  - B2AI_STANDARD:1190
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://motrpac.github.io/MotrpacBicQC/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1189
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:3
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Metabolomics Workbench, the NIH Common Fund National Metabolomics Data Repository
+  formal_specification: https://github.com/MetabolomicsWorkbench
+  has_relevant_organization:
+  - B2AI_ORG:141
+  is_open: true
+  name: Metabolomics Workbench
+  purpose_detail: The Metabolomics Workbench is the public portal of the NIH Common Fund
+    Metabolomics Program's National Metabolomics Data Repository (NMDR), housed at
+    the San Diego Supercomputer Center at UC San Diego. It archives mass spectrometry
+    and NMR metabolomics studies with their raw data, processed results, and study
+    and sample metadata, assigns each study a DOI, and offers browse, search, and
+    online analysis over the deposited studies. Alongside the repository it carries
+    the RefMet metabolite nomenclature, a metabolite structure database, a human
+    metabolome gene and protein database, protocols, and tutorials, and exposes a
+    REST service for programmatic access. Deposition requires an account and public
+    data are open. MoTrPAC deposits its untargeted and targeted metabolomics raw and
+    results files here under project PR001020, and the MoTrPAC BIC validates
+    metabolite names against RefMet through the Workbench API.
+  related_to:
+  - B2AI_STANDARD:221
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1188
+  - B2AI_STANDARD:1190
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:142
+  url: https://www.metabolomicsworkbench.org/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkv1042
+    ref_title: 'Metabolomics Workbench: An international repository for metabolomics data and metadata, metabolite standards, protocols, tutorials and training, and analysis tools'
+    ref_authors:
+    - Sud M
+    - Fahy E
+    - Cotter D
+    - Azam K
+    - Vadivelu I
+    - Burant C
+    - Edison A
+    - Fiehn O
+    - Higashi R
+    - Nair KS
+    - Sumner S
+    - Subramaniam S
+    ref_publication_year: 2016
+    ref_journal: Nucleic Acids Research
+- id: B2AI_STANDARD:1190
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:3
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:64
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: RefMet reference nomenclature for metabolite names
+  has_relevant_organization:
+  - B2AI_ORG:141
+  is_open: true
+  name: RefMet
+  purpose_detail: RefMet (Reference list of Metabolite names) is a standardized nomenclature for
+    the metabolite structures and metabolite species reported in metabolomics
+    experiments, maintained by the Metabolomics Workbench. It exists because
+    identifiers such as PubChem compound ids and InChIKeys change with salt form and
+    stereochemical detail, and because many species, above all lipids, are reported
+    by mass spectrometry as isobaric mixtures such as PC 34:1 rather than as discrete
+    structures. RefMet was built by curating more than 700,000 names from over 3,500
+    MS and NMR studies on the Workbench into an analytical chemistry-centric list of
+    common names, most of them linked to a classification that combines LIPID MAPS
+    and ClassyFire. A name-conversion interface and the Workbench REST service map
+    submitted names to RefMet names, with the stated caveat that many experimental
+    names will not yet map. MoTrPAC harmonizes metabolite naming across its analysis
+    sites against RefMet and the MotrpacBicQC package checks every submission
+    against it, which makes RefMet the naming layer that lets MoTrPAC metabolomics
+    be compared with other studies.
+  related_to:
+  - B2AI_STANDARD:1188
+  - B2AI_STANDARD:1189
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:142
+  url: https://www.metabolomicsworkbench.org/databases/refmet/index.php
+  publication:
+    ref_url: https://doi.org/10.1038/s41592-020-01009-y
+    ref_title: 'RefMet: a reference nomenclature for metabolomics'
+    ref_authors:
+    - Fahy E
+    - Subramaniam S
+    ref_publication_year: 2020
+    ref_journal: Nature Methods
+- id: B2AI_STANDARD:1191
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCBI Sequence Read Archive (SRA)
+  has_relevant_organization:
+  - B2AI_ORG:141
+  is_open: true
+  name: SRA
+  purpose_detail: The Sequence Read Archive (SRA) is the NIH archive of raw high-throughput
+    sequencing data, run by the National Center for Biotechnology Information as the
+    NCBI member of the International Nucleotide Sequence Database Collaboration
+    alongside the EBI and DDBJ archives, which mirror each other. It stores reads and
+    alignments from all sequencing platforms under a data model of BioProject,
+    BioSample, experiment, and run, with SRR run accessions as the citable unit, and
+    data are also served from cloud buckets through the SRA Toolkit. Submission
+    requires an NCBI account and public data are open, with human data that fall
+    under controlled access held in dbGaP instead. SRA is the raw-data deposition
+    target named by many NIH data coordinating centers. MoTrPAC deposits raw
+    transcriptomic and epigenomic reads for its rat studies under BioProject
+    PRJNA908279, with processed outputs going to GEO.
+  related_to:
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:111
+  - B2AI_STANDARD:274
+  - B2AI_STANDARD:458
+  - B2AI_STANDARD:1157
+  - B2AI_STANDARD:1184
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:120
+  url: https://www.ncbi.nlm.nih.gov/sra
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkq1019
+    ref_title: The Sequence Read Archive
+    ref_authors:
+    - Leinonen R
+    - Sugawara H
+    - Shumway M
+    - on behalf of the International Nucleotide Sequence Database Collaboration
+    ref_publication_year: 2011
+    ref_journal: Nucleic Acids Research
+- id: B2AI_STANDARD:1192
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:26
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MassIVE mass spectrometry data repository
+  has_relevant_organization:
+  - B2AI_ORG:141
+  is_open: true
+  name: MassIVE
+  purpose_detail: MassIVE (Mass Spectrometry Interactive Virtual Environment) is a public
+    repository for mass spectrometry data developed by the NIH-funded Center for
+    Computational Mass Spectrometry at UC San Diego. Datasets are deposited with raw
+    files, search results, and metadata, receive MSV accessions, and can be assigned
+    ProteomeXchange identifiers to meet journal requirements, since MassIVE is a full
+    member of the ProteomeXchange consortium. The site supports browsing of submitted
+    identifications, universal spectrum identifier lookup, dataset subscriptions,
+    and reanalysis workflows, and MassIVE.quant is its layer of quantitative
+    reanalyses. Submission requires an account and public datasets are open. MoTrPAC
+    deposits its rat global, phospho-, acetyl-, and ubiquityl-proteomics here as six
+    MSV datasets (MSV000092911, MSV000092922 to MSV000092925, and MSV000092931)
+    rather than in PRIDE.
+  related_to:
+  - B2AI_STANDARD:221
+  - B2AI_STANDARD:894
+  - B2AI_STANDARD:1184
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:143
+  url: https://massive.ucsd.edu/
+  publication:
+    ref_url: https://doi.org/10.1038/s41592-020-0955-0
+    ref_title: 'MassIVE.quant: a community resource of quantitative mass spectrometry-based proteomics datasets'
+    ref_authors:
+    - Choi M
+    - Carver J
+    - Chiva C
+    - Tzouros M
+    - Huang T
+    - Tsai TH
+    - Pullman B
+    - Bernhardt OM
+    - Hüttenhain R
+    - Teo GC
+    - Perez-Riverol Y
+    - Muntel J
+    - Müller M
+    - Goetze S
+    - Pavlou M
+    - Verschueren E
+    - Wollscheid B
+    - Nesvizhskii AI
+    - Reiter L
+    - Dunkley T
+    - Sabidó E
+    - Bandeira N
+    - Vitek O
+    ref_publication_year: 2020
+    ref_journal: Nature Methods
+- id: B2AI_STANDARD:1193
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:62
+  - B2AI_TOPIC:66
+  - B2AI_TOPIC:82
+  contribution_date: '2026-09-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ImmPort, the NIAID Immunology Database and Analysis Portal
+  has_relevant_organization:
+  - B2AI_ORG:141
+  is_open: true
+  name: ImmPort
+  purpose_detail: ImmPort (Immunology Database and Analysis Portal) is the NIAID Division of
+    Allergy, Immunology, and Transplantation archive for immunology research and
+    clinical study data, developed under contract by Peraton with the University of
+    California San Francisco. Its core is a data warehouse of study-level experimental
+    data and metadata, including subjects, biosamples, assays such as flow cytometry,
+    ELISA, multiplex immunoassays, and gene expression, and study design, held in a
+    published data model with submission templates, and shared studies carry SDY
+    accessions. Data are released in versioned shared data releases, are downloadable
+    with an account, and are served through APIs. MoTrPAC deposits the readouts and
+    results of its rat immunoassay panels in ImmPort as study SDY2193.
+  related_to:
+  - B2AI_STANDARD:1184
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:118
+  url: https://www.immport.org/
+  publication:
+    ref_url: https://doi.org/10.1038/sdata.2018.15
+    ref_title: ImmPort, toward repurposing of open access immunological assay data for translational and clinical research
+    ref_authors:
+    - Bhattacharya S
+    - Dunn P
+    - Thomas CG
+    - Smith B
+    - Schaefer H
+    - Chen J
+    - Hu Z
+    - Zalocusky KA
+    - Shankar RD
+    - Shen-Orr SS
+    - Thomson E
+    - Wiser J
+    - Butte AJ
+    ref_publication_year: 2018
+    ref_journal: Scientific Data
