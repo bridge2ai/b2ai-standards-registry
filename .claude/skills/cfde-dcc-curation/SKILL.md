@@ -32,6 +32,15 @@ before writing anything. Sources that have paid off:
   model, schema, ETL, and API repositories. `gh api repos/<org>/<repo>/readme --jq
   .content | base64 -d` reads a README without a browser.
 - The CFDE DCC page https://cfde.cloud/info/dcc for the one-line program description.
+  The per-DCC page https://cfde.cloud/info/dcc/<ABBR> (4DN, SPARC, KidsFirst, ...) lists
+  the DCC's C2M2 submission files with dates. That is the evidence for annotating C2M2
+  (`B2AI_STANDARD:63`). The DCC's own docs rarely mention C2M2 at all.
+- Portals built on the ENCODE `encoded` codebase (4DN, and any Fourfront or SMaHT
+  portal) answer `?format=json` on every page, including help pages. Static text lives
+  in `/static-sections/<uuid>/?format=json` under `body`. `/search/?type=FileFormat`
+  lists every file format the portal registers, and `/search/?type=File&
+  file_format.file_format=<fmt>&limit=1` gives a count per format. That settles
+  "does the DCC use format X" without a browser.
 - Crossref for every citation: `curl -s https://api.crossref.org/works/<doi>`. Never
   write a reference from memory. This has caught wrong author lists before.
 - ROR (`https://api.ror.org/v2/organizations?query=...`) and Wikidata
