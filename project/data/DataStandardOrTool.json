@@ -4993,7 +4993,8 @@
       "has_relevant_organization": [
         "B2AI_ORG:115",
         "B2AI_ORG:114",
-        "B2AI_ORG:117"
+        "B2AI_ORG:117",
+        "B2AI_ORG:131"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:849",
@@ -5962,7 +5963,8 @@
       ],
       "has_relevant_organization": [
         "B2AI_ORG:116",
-        "B2AI_ORG:114"
+        "B2AI_ORG:114",
+        "B2AI_ORG:131"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:953",
@@ -11018,6 +11020,9 @@
         "B2AI_TOPIC:41",
         "B2AI_TOPIC:54"
       ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
       "has_training_resource": [
         "B2AI_STANDARD:910"
       ],
@@ -11663,6 +11668,9 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:22",
         "B2AI_TOPIC:65"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
       ],
       "purpose_detail": "The Neuroimaging Informatics Technology Initiative (NIfTI) file format is a standardized, widely-adopted file format for storing and exchanging neuroimaging data including structural, functional, and diffusion MRI, PET, SPECT, and MEG/EEG data. NIfTI was developed to address critical limitations in earlier formats (particularly Analyze 7.5) by providing unambiguous spatial orientation information, comprehensive metadata support, and compatibility across neuroimaging software platforms. The format defines binary file structures storing imaging data arrays (3D or 4D) with associated metadata in a header specifying data dimensions, voxel dimensions, data type, orientation and position in stereotactic space (subject-specific, MNI, or Talairach coordinates), temporal information for fMRI/dynamic acquisitions, scaling parameters, and intent codes indicating data semantics (anatomical, functional, tensor, etc.). NIfTI files (.nii, .nii.gz for compressed) include both data and header information in a single file improving portability and reducing file management overhead. The format is fully documented with multiple versions (NIfTI-1, NIfTI-2) supporting different precision levels and large file support. Applications in biomedical data science and AI/ML include standardized neuroimaging data archiving where NIfTI enables long-term preservation and sharing of brain imaging studies; machine learning model development where NIfTI data feeds deep learning pipelines for brain tumor segmentation, stroke lesion identification, Alzheimer's disease classification, and neuropsychiatric disorder prediction; neuroimaging processing pipelines where NIfTI serves as the standard interchange format between analysis tools (FSL, SPM, AFNI, ANTs) enabling reproducible multi-tool workflows; fMRI studies where NIfTI time series data enables resting-state and task-based connectivity analyses; diffusion MRI where NIfTI supports tensor field storage enabling white matter tractography and microstructural analysis; and brain atlases where NIfTI encodes anatomical segmentations in standard spaces facilitating cross-subject group analyses. Integration with major neuroimaging data repositories including the Human Connectome Project, UK Biobank, ADNI, and OpenNeuro enables NIfTI as the standard data format supporting large-scale neuroimaging research. Open-source tools including FSL, SPM, AFNI, MRtrix, ANTs, and Python libraries (nibabel, nilearn, nipype) provide comprehensive NIfTI support enabling programmatic data access and manipulation. NIfTI facilitates FAIR data principles by enabling machine-readable spatial and temporal metadata improving data Findability and Interoperability across institutions and studies. The format supports derivative data including statistical maps, probability maps, regions of interest (ROIs), atlases, and connectivity matrices enabling layered data annotation. NIfTI has become a standard for neuroimaging data exchange in research and increasingly in clinical settings, enabling global collaboration and meta-analyses in neuroscience and clinical neuroimaging. Adoption extends to pediatric neuroimaging, aging research, psychiatric neuroimaging, and translational neuroscience where standardized data format improves cross-study comparisons and hypothesis testing.",
       "is_open": true,
@@ -12553,6 +12561,9 @@
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:19"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
       ],
       "purpose_detail": "OME-TIFF (Open Microscopy Environment TIFF) is a file format specification that combines standard TIFF image files with OME-XML metadata embedded in the TIFF header, enabling storage of complex multi-dimensional microscopy datasets including multi-channel fluorescence, z-stacks, time series, and multi-position acquisitions. Each OME-TIFF file contains one or more standard TIFF images with rich microscopy metadata encoded as OME-XML in the ImageDescription tag of the first IFD (Image File Directory), describing acquisition parameters, instrument settings, channel information, dimensions, physical pixel sizes, timestamps, and experimental context. The format supports large datasets by allowing data to span multiple TIFF files while maintaining metadata consistency through the OME-XML master file that references all constituent files. OME-TIFF balances the advantages of widespread TIFF support in image processing software with the semantic richness of OME-XML metadata, making microscopy data accessible to both OME-aware applications (Bio-Formats, OMERO, ImageJ/Fiji) and standard image viewers. This dual compatibility facilitates data sharing, long-term archiving, interoperability across microscopy platforms, and integration into computational workflows including machine learning pipelines for image analysis, segmentation, and feature extraction in biological imaging applications.",
       "is_open": true,
@@ -16820,7 +16831,8 @@
         "B2AI_TOPIC:55"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:116"
+        "B2AI_ORG:116",
+        "B2AI_ORG:131"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:938"
@@ -17197,7 +17209,8 @@
         "B2AI_TOPIC:55"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:56"
+        "B2AI_ORG:56",
+        "B2AI_ORG:131"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:984"
@@ -25641,6 +25654,9 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:71"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
       ],
       "purpose_detail": "UBERON is an OBO Foundry ontology providing an integrated cross-species anatomy ontology covering anatomical structures in animals, with a focus on multi-species interoperability. The ontology enables semantic annotation of anatomical entities across diverse species, supporting comparative anatomy research, phenotype studies, and integration with specialized anatomies. UBERON is tightly integrated with the Gene Ontology (GO) and the Cell Ontology (CL), using formal ontology design patterns to represent anatomical locations and relationships. It follows FAIR principles and is released in standard formats (OWL, OBO, JSON obographs) with resolvable version IRIs. UBERON is integrated into standard tools including Ubergraph for logical queries (e.g., finding cell types by location), the Ontology Access Kit (OAK), and major browsers (OLS, Ontobee, BioPortal). The ontology supports AI/ML applications by providing standardized anatomical annotations for training data across species and enabling cross-species knowledge transfer in biomedical machine learning models.",
       "is_open": true,
@@ -39032,6 +39048,9 @@
         "B2AI_TOPIC:61",
         "B2AI_TOPIC:64"
       ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
       "has_training_resource": [
         "B2AI_STANDARD:1042"
       ],
@@ -39156,6 +39175,9 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:54",
         "B2AI_TOPIC:64"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:1045"
@@ -42481,7 +42503,7 @@
       "has_relevant_organization": [
         "B2AI_ORG:117"
       ],
-      "purpose_detail": "SPARC (Speech Articulatory Coding) is a Python package that recovers vocal tract kinematics from a speech signal, inverting the acoustic waveform into the movements of the articulators that produced it. It generates electromagnetic articulography (EMA) style kinematic traces together with source features including loudness, periodicity, and pitch, yielding an interpretable, speaker-independent encoding of speech that can be resynthesized. This articulatory representation is useful for analyses where the physical mechanism of speech production matters, such as characterizing voice and speech disorders. In the Bridge2AI-Voice releases, SPARC produces the sparc_ema, sparc_loudness, sparc_periodicity, and sparc_pitch feature files.",
+      "purpose_detail": "SPARC (Speech Articulatory Coding) is a Python package that recovers vocal tract kinematics from a speech signal, inverting the acoustic waveform into the movements of the articulators that produced it. It generates electromagnetic articulography (EMA) style kinematic traces together with source features including loudness, periodicity, and pitch, yielding an interpretable, speaker-independent encoding of speech that can be resynthesized. This articulatory representation is useful for analyses where the physical mechanism of speech production matters, such as characterizing voice and speech disorders. In the Bridge2AI-Voice releases, SPARC produces the sparc_ema, sparc_loudness, sparc_periodicity, and sparc_pitch feature files. This package is unrelated to the NIH Common Fund SPARC program (Stimulating Peripheral Activity to Relieve Conditions), whose portal, dataset structure, and tools are listed under the NIH SPARC organization in this registry.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://berkeley-speech-group.github.io/sparc-demo",
@@ -42771,7 +42793,8 @@
         "B2AI_TOPIC:77"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:128"
+        "B2AI_ORG:128",
+        "B2AI_ORG:131"
       ],
       "purpose_detail": "The database of Genotypes and Phenotypes (dbGaP) is the NIH repository for individual-level data from studies of the interaction of genotype and phenotype in humans, operated by the National Center for Biotechnology Information at the National Library of Medicine. It archives and distributes de-identified phenotype data, genotype and sequence data, study documents and protocols, and summary-level results, and assigns each study a phs accession that is used across NIH data resources as the study identifier. Individual-level data are controlled access. Investigators apply through the dbGaP Authorized Access system with an eRA Commons account, requests are reviewed by NIH Data Access Committees against the study's consent groups, and approved users must follow the NIH Genomic Data Sharing Policy and its security requirements. Summary data and study descriptions are open. dbGaP is the access authority behind controlled-tier data at many NIH resources, including the Kids First Data Resource Center, AnVIL, BioData Catalyst, and the Cancer Research Data Commons, which verify a user's dbGaP approvals rather than managing their own. Study accessions and consent codes from dbGaP are therefore common metadata fields in downstream data models.",
       "is_open": true,
@@ -42873,6 +42896,678 @@
         "ref_url": ""
       },
       "formal_specification": "https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/"
+    },
+    {
+      "id": "B2AI_STANDARD:1160",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "SPARC Dataset Structure",
+      "description": "SPARC Dataset Structure (SDS)",
+      "related_to": [
+        "B2AI_STANDARD:33",
+        "B2AI_STANDARD:349",
+        "B2AI_STANDARD:1039",
+        "B2AI_STANDARD:1161",
+        "B2AI_STANDARD:1162",
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1165",
+        "B2AI_STANDARD:1170"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "datamodel",
+        "guidelines",
+        "implementation_maturity_production",
+        "standards_process_maturity_final"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5",
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:37",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:55",
+        "B2AI_TOPIC:63",
+        "B2AI_TOPIC:67",
+        "B2AI_TOPIC:71"
+      ],
+      "purpose_detail": "The SPARC Dataset Structure (SDS) is the required folder layout, file naming convention, and metadata file set for every dataset published on the NIH SPARC Portal. It was designed by the SPARC Curation Team, modeled on the Brain Imaging Data Structure (BIDS), to hold the anatomical, physiological, imaging, omics, modeling, and device data that SPARC investigators produce. A dataset has a required primary folder for experimental data organized by subject and sample, an optional source folder for unconverted raw files, a derivative folder for processed outputs, and optional code, protocol, and docs folders. Subject, sample, and performance folders carry the prefixes sub-, sam-, and perf- and must match the identifiers in the metadata files exactly. Every dataset carries a dataset_description file (study, funding, contributor ORCIDs, related protocol and paper identifiers, and standards version), a README, and a manifest for each top-level folder, plus subjects, samples, performances, and sites files when the design calls for them. Metadata files are supplied as xlsx, csv, or json from versioned templates. SDS 2.0 was endorsed by INCF in December 2023. SDS 3.0 (2024) added the sites and code_description files, a data-modality column in the manifest, data dictionary references, stricter file naming rules, and a .dss file naming the structure version, and the current template release is 3.0.2 (May 2025). SDS 2.1 remains supported. Compliance is checked by the sparcur validator in the sparc-curation repository, and the SODA desktop application builds SDS-compliant datasets for upload to Pennsieve. The SDS is a direct precedent for dataset structure conventions in other consortia and can be adopted outside SPARC.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.sparc.science/docs/sparc-dataset-structure",
+      "publication": {
+        "ref_url": "https://doi.org/10.1101/2021.02.10.430563",
+        "ref_title": "SPARC Data Structure: Rationale and Design of a FAIR Standard for Biomedical Research Data",
+        "ref_authors": [
+          "Bandrowski A",
+          "Grethe JS",
+          "Pilko A",
+          "Gillespie T",
+          "Pine G",
+          "Patel B",
+          "Surles-Zeigler M",
+          "Martone ME"
+        ],
+        "ref_publication_year": 2021,
+        "ref_journal": "bioRxiv"
+      },
+      "formal_specification": "https://github.com/SciCrunch/sparc-curation",
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1161",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "SODA for SPARC",
+      "description": "SODA (Software to Organize Data Automatically) for SPARC",
+      "related_to": [
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1162",
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1170"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:55",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:78"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "SODA (Software to Organize Data Automatically) for SPARC is a free, open source desktop application for Windows, macOS, and Ubuntu that walks a researcher through preparing a dataset in the SPARC Dataset Structure and uploading it to the Pennsieve platform for curation and publication on the SPARC Portal. It generates the SDS metadata files (dataset_description, subjects, samples, manifests) from guided forms, organizes local files into the required folders, validates the result against the SDS validator, and drives the Pennsieve and protocols.io APIs for upload and protocol linking. SODA began at the SPARC Hackathon in December 2018 and is developed by the FAIR Data Innovations Hub at the California Medical Innovations Institute with NIH support. The SPARC documentation names it the preferred submission route, and the project reports installs on more than 1500 computers since 2021. It is released under the MIT license.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.sodaforsparc.io/",
+      "publication": {
+        "ref_url": "https://doi.org/10.21105/joss.06140",
+        "ref_title": "SODA: Software to Support the Curation and Sharing of FAIR Autonomic Nervous System Data",
+        "ref_authors": [
+          "Marroquin C",
+          "Clark J",
+          "Portillo D",
+          "Soundarajan S",
+          "Ngo T",
+          "Patel B"
+        ],
+        "ref_publication_year": 2024,
+        "ref_journal": "Journal of Open Source Software"
+      },
+      "formal_specification": "https://github.com/fairdataihub/SODA-for-SPARC",
+      "responsible_organization": [
+        "B2AI_ORG:137"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1162",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Pennsieve",
+      "description": "Pennsieve scientific data management platform",
+      "related_to": [
+        "B2AI_STANDARD:904",
+        "B2AI_STANDARD:324",
+        "B2AI_STANDARD:345",
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1161",
+        "B2AI_STANDARD:1163"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "cloudplatform",
+        "dataregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5",
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:37",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:55",
+        "B2AI_TOPIC:61",
+        "B2AI_TOPIC:62"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "Pennsieve is a cloud-based scientific data management platform for storing, curating, sharing, and publishing datasets. It is the repository behind the NIH SPARC Portal, where the SPARC Data Coordination Core (DAT-Core) is the team that runs it, and it also hosts other repositories and private workspaces under a single multi-tenant service. Investigators receive a workspace, create datasets, upload files with the web application, the Pennsieve Agent, or the Python client, attach metadata through JSON Schema defined models, and share datasets privately before publication. Publishing snapshots a dataset to a public Amazon S3 bucket under the Pennsieve Data Publishing Schema, which serializes a readme, a banner image, a changelog, a schema.org JSON-LD manifest.json listing every file, a files folder, and the metadata graph as CSV, and assigns a DOI. Published datasets are browsable on Pennsieve Discover and, for SPARC, on the SPARC Portal. The platform began as the Blackfynn Data Management Platform, a University of Pennsylvania spinout, and moved to open source under the University of Pennsylvania in 2021. The API is public and is what SODA and the SPARC Portal build on. Uploading requires an account and workspace access, and public datasets can be read without one.",
+      "is_open": true,
+      "requires_registration": true,
+      "url": "https://app.pennsieve.io/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41597-025-06075-5",
+        "ref_title": "Pennsieve: A Collaborative Platform for Translational Neuroscience and Beyond",
+        "ref_authors": [
+          "Goldblum Z",
+          "Xu Z",
+          "Shi H",
+          "Orzechowski P",
+          "Spence J",
+          "Davis KA",
+          "Litt B",
+          "Sinha N",
+          "Wagenaar J"
+        ],
+        "ref_publication_year": 2025,
+        "ref_journal": "Scientific Data"
+      },
+      "formal_specification": "https://github.com/Pennsieve/pennsieve-api",
+      "responsible_organization": [
+        "B2AI_ORG:133"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1163",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "SPARC Portal",
+      "description": "NIH SPARC Portal (sparc.science)",
+      "related_to": [
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1162",
+        "B2AI_STANDARD:1164",
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1170",
+        "B2AI_STANDARD:1171",
+        "B2AI_STANDARD:1172"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "dataregistry",
+        "cloudservice",
+        "datavisualization",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5",
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:37",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:48",
+        "B2AI_TOPIC:71",
+        "B2AI_TOPIC:79"
+      ],
+      "purpose_detail": "The SPARC Portal (sparc.science) is the public data, map, and tool hub of the NIH Common Fund Stimulating Peripheral Activity to Relieve Conditions (SPARC) program, which maps the peripheral nervous system and its connections to organs to support neuromodulation therapies. It is built and run by the SPARC Data and Resource Center (DRC), whose four cores cover data coordination (DAT-Core, on Pennsieve), curation and knowledge management (K-Core, at UCSD SciCrunch), map synthesis (MAP-Core, at the Auckland Bioengineering Institute and MBF Bioscience), and modeling and simulation (SIM-Core, o2S2PARC at the IT'IS Foundation). The portal surfaces datasets curated to the SPARC Dataset Structure and published through Pennsieve, anatomical organ scaffolds, connectivity flatmaps drawn from SCKAN, computational models on o2S2PARC, protocols on protocols.io, and viewers for images, segmentations, plots, scaffolds, and simulations. Since 2023 it operates as an open repository that accepts peripheral nervous system datasets from any contributor. Public datasets are open under CC-BY and can be downloaded, read from a public AWS S3 bucket, or accessed through the sparc.client Python package and the SPARC Portal API. Embargoed datasets and submission require a Pennsieve account. The DRC keeps the SPARC name and no longer expands the acronym. SPARC is one of the NIH Common Fund Data Ecosystem (CFDE) data coordinating centers. This is unrelated to the Speech Articulatory Coding package, also named SPARC, from Bridge2AI-Voice.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://sparc.science/",
+      "publication": {
+        "ref_url": "https://doi.org/10.3389/fphys.2021.693735",
+        "ref_title": "The SPARC DRC: Building a Resource for the Autonomic Nervous System Community",
+        "ref_authors": [
+          "Osanlouy M",
+          "Bandrowski A",
+          "de Bono B",
+          "Brooks D",
+          "Cassarà AM",
+          "Christie R",
+          "Ebrahimi N",
+          "Gillespie T",
+          "Grethe JS",
+          "Guercio LA",
+          "Heal M",
+          "Lin M",
+          "Kuster N",
+          "Martone ME",
+          "Neufeld E",
+          "Nickerson DP",
+          "Soltani EG",
+          "Tappan S",
+          "Wagenaar JB",
+          "Zhuang K",
+          "Hunter PJ"
+        ],
+        "ref_publication_year": 2021,
+        "ref_journal": "Frontiers in Physiology"
+      },
+      "formal_specification": "https://github.com/nih-sparc/sparc-app-2",
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1164",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "o2S2PARC",
+      "description": "o2S2PARC (Open Online Simulations for Stimulating Peripheral Activity to Relieve Conditions) modeling and simulation platform",
+      "related_to": [
+        "B2AI_STANDARD:358",
+        "B2AI_STANDARD:345",
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1172"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "cloudplatform",
+        "notebookplatform",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:61",
+        "B2AI_TOPIC:71",
+        "B2AI_TOPIC:79"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "o2S2PARC (Open Online Simulations for Stimulating Peripheral Activity to Relieve Conditions, written with superscript twos) is the cloud simulation platform of the SPARC Data and Resource Center's SIM-Core, developed and hosted by the IT'IS Foundation in Zurich at osparc.io. It hosts computational models and solvers as containerized services with declared inputs and outputs, which users chain into pipelines or package as guided step-by-step applications for non-modelers. The catalog exceeds 70 services and covers neural interface and nerve stimulation models, anatomical models for electromagnetic, acoustic, and thermal exposure, organ physiology models, image segmentation, neural network training, and JupyterLab and Voila sessions for analysis. Studies preserve their run-time environments and service versions, can be shared by link or permission, and can be published with a DOI and surfaced on the SPARC Portal, where published simulations run without an account. The platform is open source (osparc-simcore, MIT license) and exposes an OpenAPI and JSON Schema described API with Python clients. Running one's own studies requires an account.",
+      "is_open": true,
+      "requires_registration": true,
+      "url": "https://osparc.io/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/ITISFoundation/osparc-simcore",
+      "responsible_organization": [
+        "B2AI_ORG:134"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1165",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "RRID",
+      "description": "Research Resource Identifiers (RRID)",
+      "related_to": [
+        "B2AI_STANDARD:324",
+        "B2AI_STANDARD:1039",
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1166"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "dataregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:5",
+        "B2AI_TOPIC:16",
+        "B2AI_TOPIC:26",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:63",
+        "B2AI_TOPIC:64"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "Research Resource Identifiers (RRIDs) are persistent, unique identifiers for the key resources used in a study, including antibodies, cell lines, model organisms, plasmids, software tools, databases, instruments, and core facilities, written in the form RRID plus a prefixed accession such as RRID:AB_10618531 or RRID:SCR_002427. Each identifier wraps an accession from a community authority (Antibody Registry, Cellosaurus, model organism stock centers, the SciCrunch software and database registry, and others) and resolves through the RRID portal and resolver run by SciCrunch at UCSD, so that a resource can be traced even when catalog numbers change or the vendor disappears. The Resource Identification Initiative began in 2014 through FORCE11 and the Neuroscience Information Framework and RRIDs are now required or recommended by hundreds of journals and by the ARRIVE, STAR Methods, and MDAR checklists, are tagged in NISO JATS, and are carried in the DataCite metadata schema from version 4.6. The SPARC Dataset Structure requires RRIDs for code and software in its code_description file and uses them in its resources file and protocols. The identifier scheme and the resolver are open and adding a new resource requires a SciCrunch account.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://www.rrids.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1007/s12021-015-9284-3",
+        "ref_title": "The Resource Identification Initiative: A Cultural Shift in Publishing",
+        "ref_authors": [
+          "RINL Resource Identification Initiative",
+          "Bandrowski A",
+          "Brush M",
+          "Grethe JS",
+          "Haendel MA",
+          "Kennedy DN",
+          "Hill S",
+          "Hof PR",
+          "Martone ME",
+          "Pols M",
+          "Tan SS",
+          "Washington N",
+          "Zudilova-Seinstra E",
+          "Vasilevsky N"
+        ],
+        "ref_publication_year": 2015,
+        "ref_journal": "Neuroinformatics"
+      },
+      "formal_specification": "https://docs.scicrunch.io/elasticsearch-metadata-services/resource-information-network-rin-services",
+      "responsible_organization": [
+        "B2AI_ORG:132"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1166",
+      "category": "B2AI_STANDARD:OntologyOrVocabulary",
+      "name": "InterLex",
+      "description": "InterLex dynamic lexicon of biomedical terms and common data elements",
+      "related_to": [
+        "B2AI_STANDARD:563",
+        "B2AI_STANDARD:1165",
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1169"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "ontologyregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:1",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:48",
+        "B2AI_TOPIC:53",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:71"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "InterLex is a dynamic lexicon of biomedical terms and common data elements run by SciCrunch (the FAIR Data Informatics Laboratory at UCSD). It grew out of NeuroLex and sits as a stable layer over existing terminologies, ontologies, and CDE collections, holding inter-lexical mappings and mappings from data fields and values to terms so that resources such as the Neuroscience Information Framework and SPARC can integrate data across sources. Each term has an ILX identifier. For SPARC it is the working vocabulary. Curators and investigators add anatomical and other terms in InterLex, the SPARC Anatomical Working Group reviews them, and approved terms flow into the NIF Standard Ontology (NIFSTD) and the SciGraph knowledge graph service that feeds the SPARC vocabulary lists in MBF Bioscience segmentation software and the SCKAN connectivity knowledge base. Terms are searched and edited through the scicrunch.org web interface and through the InterLex API on the SciCrunch API gateway, which requires a free API key. The interlex code repository on GitHub was last pushed in May 2025.",
+      "is_open": true,
+      "requires_registration": true,
+      "url": "https://docs.scicrunch.io/terminology-services/interlex",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/SciCrunch/interlex",
+      "responsible_organization": [
+        "B2AI_ORG:132"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1167",
+      "category": "B2AI_STANDARD:OntologyOrVocabulary",
+      "name": "SCKAN",
+      "description": "SPARC Connectivity Knowledge base of the Autonomic Nervous system (SCKAN)",
+      "related_to": [
+        "B2AI_STANDARD:563",
+        "B2AI_STANDARD:1036",
+        "B2AI_STANDARD:1166",
+        "B2AI_STANDARD:1168",
+        "B2AI_STANDARD:1171"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "graphdataplatform",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:1",
+        "B2AI_TOPIC:21",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:48",
+        "B2AI_TOPIC:53",
+        "B2AI_TOPIC:71",
+        "B2AI_TOPIC:75"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:132"
+      ],
+      "purpose_detail": "SCKAN (SPARC Connectivity Knowledge base of the Autonomic Nervous system) is a semantic knowledge base of nerve to end organ connectivity in the autonomic and peripheral nervous systems, built by the SPARC K-Core at UCSD with the SPARC Anatomical Working Group. It holds two kinds of content. Detailed circuits, with the topology of neuron populations and the structures they pass through, are authored by domain experts as ApiNATOMY models. Individual connections drawn from the literature and textbooks are modeled with the Neuron Phenotype Ontology. Anatomical locations are grounded in UBERON, InterLex, and the NIF Standard Ontology, and species, sex, and provenance are recorded per connection. SCKAN is what the connectivity flatmaps on the SPARC Portal draw from. It is released as OWL and RDF through the NIF-Ontology repository and Zenodo, with a containerized store that answers SPARQL and Cypher queries, and releases are dated (for example sckan-2026-06-23). Browsing tools include SCKANNER, SCKAN Explorer, a natural language interface, and the SPARC maps, and SCKAN Composer is the authoring tool. The content is licensed CC-BY 4.0.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.sparc.science/docs/sckan",
+      "publication": {
+        "ref_url": "https://doi.org/10.3389/fninf.2025.1541184",
+        "ref_title": "Developing a multiscale neural connectivity knowledgebase of the autonomic nervous system",
+        "ref_authors": [
+          "Imam FT",
+          "Gillespie TH",
+          "Ziogas I",
+          "Surles-Zeigler MC",
+          "Tappan S",
+          "Ozyurt BI",
+          "Boline J",
+          "de Bono B",
+          "Grethe JS",
+          "Martone ME"
+        ],
+        "ref_publication_year": 2025,
+        "ref_journal": "Frontiers in Neuroinformatics"
+      },
+      "formal_specification": "https://github.com/SciCrunch/NIF-Ontology/releases",
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1168",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "ApiNATOMY",
+      "description": "ApiNATOMY knowledge model and JSON schema for multiscale anatomical connectivity",
+      "related_to": [
+        "B2AI_STANDARD:345",
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1171"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "datamodel",
+        "datavisualization",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:1",
+        "B2AI_TOPIC:21",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:53",
+        "B2AI_TOPIC:71",
+        "B2AI_TOPIC:75"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "ApiNATOMY is a knowledge model and modeling method for the scale, parthood, and connectivity of anatomical compartments, and for the physiological processes and measurements that pass through them. A model describes the body as nested compartments (lyphs) joined by routes of flow along which neurons, vessels, and other conduits run, so that a circuit can be stated at organ, tissue, and cellular scale in one representation. Models are written in JSON against the ApiNATOMY JSON Schema defined in the open-physiology-viewer repository, which also provides the lyph viewer that lays a model out as a force-directed graph. The method was first published in 2012 by de Bono and colleagues and predates SPARC. Within SPARC it is the authoring format for the expert-curated circuits in SCKAN. The SPARC curation pipelines convert ApiNATOMY JSON to OWL and RDF for loading into the knowledge base, and the anatomical flatmaps on the SPARC Portal render the resulting connectivity. The viewer and schema are released under the Apache 2.0 license.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://apinatomy.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.3389/fphys.2022.795303",
+        "ref_title": "Representing Normal and Abnormal Physiology as Routes of Flow in ApiNATOMY",
+        "ref_authors": [
+          "de Bono B",
+          "Gillespie T",
+          "Surles-Zeigler MC",
+          "Kokash N",
+          "Grethe JS",
+          "Martone M"
+        ],
+        "ref_publication_year": 2022,
+        "ref_journal": "Frontiers in Physiology"
+      },
+      "formal_specification": "https://github.com/open-physiology/open-physiology-viewer"
+    },
+    {
+      "id": "B2AI_STANDARD:1169",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Neuromorphological File Format",
+      "description": "Neuromorphological File Format (MBF Bioscience XML) for microscopy segmentation and reconstruction data",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1166",
+        "B2AI_STANDARD:1171"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "fileformat",
+        "markuplanguage",
+        "implementation_maturity_production",
+        "standards_process_maturity_final"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:71"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "The Neuromorphological File Format (NMF), often called MBF XML, is the XML format that MBF Bioscience software such as Neurolucida and Neurolucida 360 writes for digital reconstructions and segmentations of microscopic anatomy, including neuron trees with spines, somas, varicosities, and puncta, vascular networks, contours, markers, regions, and free text annotations. The specification is published openly on Read the Docs (version 4.0.1 is current) and its development is governed by an elected editorial board and a central developer team at MBF Bioscience, and the INCF Standards and Best Practices committee endorsed it in 2022. NIH SPARC adopted it as the standard for morphology and segmentation data. Its file format guidance says SWC can carry a neuron tree but has no support for the other structure types or annotations, and MBF tools read SWC and convert it. In SPARC workflows the MBF software pulls anatomical term lists from the SciCrunch vocabulary services, so every contour is tagged with an approved ontology term and the file carries organ, species, parcellation, and subject metadata. The SPARC mapmaker also reads MBF segmented images as a flatmap source.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://neuromorphological-file-specification.readthedocs.io/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://neuromorphological-file-specification.readthedocs.io/",
+      "responsible_organization": [
+        "B2AI_ORG:135"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1170",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "protocols.io",
+      "description": "protocols.io platform for developing, sharing, and citing research protocols",
+      "related_to": [
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1161",
+        "B2AI_STANDARD:1165"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "dataregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:5",
+        "B2AI_TOPIC:16",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:63"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "protocols.io is a web platform for writing, versioning, sharing, and publishing step-by-step research protocols. Protocols are authored as structured steps with reagents, materials, and RRIDs, can be kept private to a lab or workspace, and can be published with a DOI so that a paper can cite the exact method version. The platform was cofounded in 2014 by Lenny Teytelman. A public API is available. NIH SPARC requires every dataset to have its experimental protocol created in the SPARC (or RE-JOIN) workspace on protocols.io and linked from the dataset_description file, which SODA automates, and the SPARC protocols collection is public. Reading public protocols is open and authoring requires an account.",
+      "is_open": true,
+      "requires_registration": true,
+      "url": "https://www.protocols.io/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1371/journal.pbio.1002538",
+        "ref_title": "Protocols.io: Virtual Communities for Protocol Development and Discussion",
+        "ref_authors": [
+          "Teytelman L",
+          "Stoliartchouk A",
+          "Kindler L",
+          "Hurwitz BL"
+        ],
+        "ref_publication_year": 2016,
+        "ref_journal": "PLOS Biology"
+      },
+      "responsible_organization": [
+        "B2AI_ORG:136"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1171",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "SPARC Flatmaps",
+      "description": "SPARC anatomical connectivity flatmaps and the flatmap-maker, server, and viewer tools",
+      "related_to": [
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1168",
+        "B2AI_STANDARD:1169",
+        "B2AI_STANDARD:1172"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "datavisualization",
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:21",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:48",
+        "B2AI_TOPIC:71",
+        "B2AI_TOPIC:75"
+      ],
+      "purpose_detail": "SPARC flatmaps are interactive two-dimensional anatomical maps that show nerve to organ connectivity across scales using the same tiling and navigation as web geographic maps. A flatmap is defined by a source diagram (a PowerPoint slide, an SVG, a CellDL diagram, or an MBF segmented image) whose shapes are marked up with anatomical identifiers and listed in a JSON manifest. The flatmap-maker (mapmaker) Python application converts the shapes to GeoJSON features in pseudo-Mercator coordinates, joins them to connectivity from SCKAN, and emits Mapbox vector tiles and raster background tiles. The flatmap-server archives generated maps, serves them through a web map tile service with metadata and annotation, holds a local SCKAN knowledge cache queryable by SQL, and exposes a make/map endpoint that builds a map from a manifest held in the Physiome Model Repository. The MapLibre based flatmap-viewer and the flatmapvuer Vue component render maps in the SPARC Portal and in other sites. Flatmaps and their sources are published as SPARC datasets. The tools are developed for the SPARC MAP-Core by David Brooks and colleagues at the Auckland Bioengineering Institute and are Apache 2.0 licensed, with flatmap-maker 2.0.0 released in September 2026.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/AnatomicMaps/flatmap-maker",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://flatmap-maker.readthedocs.io/",
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1172",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "SPARC Organ Scaffolds",
+      "description": "SPARC organ scaffolds and the scaffoldmaker and MAP Client scaffold mapping tools",
+      "related_to": [
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1164",
+        "B2AI_STANDARD:1169",
+        "B2AI_STANDARD:1171"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "datavisualization",
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:71",
+        "B2AI_TOPIC:72"
+      ],
+      "purpose_detail": "SPARC organ scaffolds are finite element models of visceral organs that define a permanent three-dimensional material coordinate system, so that data from different specimens and species can be registered to the same anatomical location regardless of how the organ is deformed. Generic scaffolds exist for the bladder, brainstem, cecum, colon, esophagus, gastrointestinal tract, heart, lung, small intestine, and stomach in human, mouse, rat, pig, cat, and sheep as the anatomy allows, and a whole body scaffold embeds them. Scaffolds are generated by the scaffoldmaker Python library on the Zinc library from the Auckland Bioengineering Institute and each generic scaffold is published as a SPARC dataset with a DOI and a Physiome Model Repository exposure, holding the provenance and settings files that reproduce it in the primary folder and webGL, STL, and VTK exports in the derivative folder. The Scaffold Mapping Tools, a packaged release of the MAP Client workflow application with plugins such as Scaffold Creator, Argon Viewer, and Argon Scene Exporter, let investigators fit a scaffold to their own segmented image or physiological data and write the visualization files the SPARC Portal scaffold viewer needs. The mapping tools are at version 0.25.0 and scaffoldmaker at 0.21.0 as of mid 2026.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.sparc.science/docs/organ-scaffolds",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://abi-mapping-tools.readthedocs.io/",
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
     }
   ],
   "@type": "DataStandardOrToolContainer"
