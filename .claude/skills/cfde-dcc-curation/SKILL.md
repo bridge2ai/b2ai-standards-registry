@@ -205,8 +205,12 @@ for pair in DataStandardOrTool:DataStandardOrToolContainer Organization:Organiza
   done
 done
 cd ../..
-make -f project.Makefile src/all_ids.tsv
+poetry run python ./utils/combine_data.py && mv all_ids.tsv src/all_ids.tsv
 ```
+
+`make -f project.Makefile src/all_ids.tsv` does not rebuild the file. The target has no
+prerequisites, so make reports it up to date, and its recipe calls bare `python`, which
+is not the poetry environment. Run the combiner directly as above.
 
 `PYTHONHASHSEED=281` matters. The TSV serializer (`json_flattener`) orders the
 `has_application_*` columns by set iteration, which follows Python's hash seed.
