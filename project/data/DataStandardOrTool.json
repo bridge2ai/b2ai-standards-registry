@@ -722,6 +722,9 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:12"
       ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
+      ],
       "purpose_detail": "The bigBed format is an indexed binary format for storing genome annotation data, developed by UCSC Genome Browser as a high-performance alternative to text-based BED files for large datasets. BigBed files store annotation items representing either simple genomic features or linked collections of exons, maintaining BED semantics while enabling efficient region-specific data transfer. Files are created using the bedToBigBed utility which converts sorted BED files into compressed binary format with built-in indexing, requiring chromosome sizes files and optionally AutoSql (.as) format definitions for describing standard and custom fields. The format supports BED3 through BED12 plus additional user-defined fields, with features including itemRgb color specification, extra searchable indices via the -extraIndex parameter for track hub item searches, and trackDb settings for mouseOver labels, field filtering, and URL transformations. Only the portions of bigBed files needed for the currently displayed chromosomal region are transferred to the browser, dramatically improving performance compared to full BED file loading. The format supports web-accessible hosting via HTTP, HTTPS, or FTP with sparse file caching, and includes utilities (bigBedToBed, bigBedInfo, bigBedSummary) for extracting and querying data. BigBed files are widely used in UCSC Genome Browser custom tracks, track hubs for consortia data sharing, and integrated with genome analysis workflows requiring scalable annotation storage and rapid genomic region queries.",
       "is_open": true,
       "requires_registration": false,
@@ -750,6 +753,9 @@
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:12"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
       ],
       "purpose_detail": "The bigWig format is an indexed binary file format developed by UCSC for efficient storage and visualization of dense, continuous genomic data displayed as graphs in genome browsers. Created from wiggle (wig) or bedGraph files using the wigToBigWig or bedGraphToBigWig utilities, bigWig files enable rapid data access by transferring only the portions needed to display specific genomic regions, rather than entire datasets. This sparse file caching mechanism provides dramatically faster performance than text-based formats when working with large-scale datasets such as ChIP-seq, RNA-seq coverage, methylation levels, or conservation scores. The format supports various visualization options including customizable graph types (bar or points), scaling parameters, smoothing windows, logarithmic transformations, and color schemes. BigWig files can also display sequence logos using the dynseq feature, which scales nucleotide characters by base-resolution scores. The format includes utilities for data extraction (bigWigToBedGraph, bigWigToWig, bigWigSummary, bigWigAverageOverBed) and file inspection (bigWigInfo), making it suitable for both visualization and downstream computational analysis.",
       "is_open": true,
@@ -903,7 +909,8 @@
         "B2AI_TOPIC:55"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:128"
+        "B2AI_ORG:128",
+        "B2AI_ORG:138"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:965",
@@ -2079,6 +2086,9 @@
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:12"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:1085"
@@ -3303,7 +3313,9 @@
         "B2AI_TOPIC:55"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:128"
+        "B2AI_ORG:128",
+        "B2AI_ORG:138",
+        "B2AI_ORG:131"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:930",
@@ -5964,7 +5976,8 @@
       "has_relevant_organization": [
         "B2AI_ORG:116",
         "B2AI_ORG:114",
-        "B2AI_ORG:131"
+        "B2AI_ORG:131",
+        "B2AI_ORG:138"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:953",
@@ -12563,7 +12576,8 @@
         "B2AI_TOPIC:19"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:131"
+        "B2AI_ORG:131",
+        "B2AI_ORG:138"
       ],
       "purpose_detail": "OME-TIFF (Open Microscopy Environment TIFF) is a file format specification that combines standard TIFF image files with OME-XML metadata embedded in the TIFF header, enabling storage of complex multi-dimensional microscopy datasets including multi-channel fluorescence, z-stacks, time series, and multi-position acquisitions. Each OME-TIFF file contains one or more standard TIFF images with rich microscopy metadata encoded as OME-XML in the ImageDescription tag of the first IFD (Image File Directory), describing acquisition parameters, instrument settings, channel information, dimensions, physical pixel sizes, timestamps, and experimental context. The format supports large datasets by allowing data to span multiple TIFF files while maintaining metadata consistency through the OME-XML master file that references all constituent files. OME-TIFF balances the advantages of widespread TIFF support in image processing software with the semantic richness of OME-XML metadata, making microscopy data accessible to both OME-aware applications (Bio-Formats, OMERO, ImageJ/Fiji) and standard image viewers. This dual compatibility facilitates data sharing, long-term archiving, interoperability across microscopy platforms, and integration into computational workflows including machine learning pipelines for image analysis, segmentation, and feature extraction in biological imaging applications.",
       "is_open": true,
@@ -16174,6 +16188,9 @@
         "B2AI_TOPIC:59",
         "B2AI_TOPIC:60"
       ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
+      ],
       "has_training_resource": [
         "B2AI_STANDARD:1014",
         "B2AI_STANDARD:1016"
@@ -16832,7 +16849,8 @@
       ],
       "has_relevant_organization": [
         "B2AI_ORG:116",
-        "B2AI_ORG:131"
+        "B2AI_ORG:131",
+        "B2AI_ORG:138"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:938"
@@ -17043,6 +17061,9 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:54",
         "B2AI_TOPIC:78"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:1059"
@@ -18920,7 +18941,8 @@
         "B2AI_TOPIC:15"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:116"
+        "B2AI_ORG:116",
+        "B2AI_ORG:138"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:969"
@@ -23850,6 +23872,9 @@
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:66"
       ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
+      ],
       "purpose_detail": "Description of life-science and clinical investigations.",
       "is_open": true,
       "requires_registration": false,
@@ -25109,6 +25134,9 @@
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:12"
       ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
+      ],
       "purpose_detail": "The Sequence Ontology (SO) is a collaborative structured controlled vocabulary and ontology for the definition of sequence features and attributes used in biological sequence annotation, initially developed by the Gene Ontology Consortium and maintained as a founding member of the Open Biomedical Ontologies (OBO) Foundry. SO provides standardized terms and hierarchical relationships for describing genomic, transcriptomic, and protein sequence elements including genes (SO:0000704), transcripts (SO:0000673), exons (SO:0000147), introns (SO:0000188), regulatory regions (promoters SO:0000167, enhancers SO:0000165, silencers SO:0000625), binding sites (SO:0000409), repeat regions (SO:0000657), and transposable elements (SO:0000101), along with molecular attributes such as polycistronic (SO:0000170) and maternally_imprinted (SO:0000945). The ontology encompasses over 2,400 terms organized in a directed acyclic graph structure with is_a (subsumption), part_of (mereological), and derives_from (transformational) relationships, enabling computational reasoning about sequence feature hierarchies where specific terms like missense_variant (SO:0001583) inherit properties from parent classes sequence_variant (SO:0001060) and coding_sequence_variant (SO:0001580). SO defines three major categories of features including biological features (defined by disposition to participate in biological processes, e.g., splice_donor_site SO:0000163, transcription_start_site SO:0000315), biomaterial features (intended for experimental use, e.g., PCR_product SO:0000006, primer_binding_site SO:0005850), and experimental features (results of experiments, e.g., read SO:0000150, consensus_region SO:0000845). The ontology provides comprehensive vocabulary for genetic variation annotation with over 500 variant consequence terms spanning sequence alterations (substitution SO:1000002, insertion SO:0000667, deletion SO:0000159), coding sequence effects (synonymous_variant SO:0001819, missense_variant SO:0001583, frameshift_variant SO:0001589, stop_gained SO:0001587, stop_lost SO:0001578, start_lost SO:0002012), transcript effects (splice_acceptor_variant SO:0001574, splice_donor_variant SO:0001575, splice_region_variant SO:0001630, intron_variant SO:0001627), regulatory impacts (5_prime_UTR_variant SO:0001623, 3_prime_UTR_variant SO:0001624, upstream_gene_variant SO:0001631, downstream_gene_variant SO:0001632), and structural variations (copy_number_variation SO:0001019, chromosomal_translocation SO:1000044, inversion SO:1000036). SO is distributed in multiple formats including OBO (native format edited in Protégé ontology editor), OWL (Web Ontology Language for semantic web applications), JSON (JavaScript Object Notation for web APIs), and OBO-JSON (hybrid format), with files generated via OWLTools Ontology Release Tool (OORT) from the canonical so-edit.obo source, and migrating to Ontology Development Kit (ODK) workflow. The ontology is accessible through multiple browsers including MISO (Sequence Ontology's custom browser at sequenceontology.org/browser), Ontology Lookup Service (OLS at EMBL-EBI), Ontobee, and BioPortal, enabling web-based term search, visualization of hierarchical relationships, and programmatic API access for computational integration. SO terms are extensively used in genome annotation pipelines and standards including GFF3 (Generic Feature Format version 3) where feature types (column 3) are restricted to SO terms or accessions (e.g., gene, mRNA, exon, CDS with SO IDs), GVF (Genome Variation Format) for variant annotation with Variant_effect attributes specifying SO consequence terms and sequence_variant accessions, and by annotation databases including Ensembl, NCBI RefSeq, WormBase, FlyBase, and Mouse Genome Informatics. The ontology integrates with complementary biomedical ontologies including Gene Ontology (GO) for molecular functions and biological processes, Uberon for anatomical structures, Cell Ontology (CL) for cell types, and NCBI Taxonomy for organism classification, enabling cross-domain queries such as 'transcripts expressed in liver cells that undergo alternative splicing in Homo sapiens' by linking SO splice variant terms with anatomical and species ontologies. SO development follows OBO Foundry principles including open license (Creative Commons Attribution-ShareAlike 4.0), unique persistent identifiers (SO: prefix with seven-digit numbers like SO:0000001), textual definitions with citations, term deprecation policies, and collaborative governance with contributions from GMOD (Generic Model Organism Database) community, model organism databases (WormBase, FlyBase, Saccharomyces Genome Database), genome centers (Sanger Institute, EMBL-EBI, NCBI), and clinical genomics consortia (ClinGen, ClinVar). The ontology supports use cases including primary sequence annotation in DAS (Distributed Annotation System) servers, structured database representations in Chado (modular database schema for model organism data), standardized mutation descriptions in clinical genomics databases connecting genotypes to phenotypes, and interoperability in multi-omics data integration where transcriptomic, proteomic, and epigenomic features are annotated with consistent SO terminology enabling federated queries across heterogeneous biological databases. SO maintenance involves GitHub-based collaborative development (github.com/The-Sequence-Ontology/SO-Ontologies) with issue tracking for new term requests, pull requests for community contributions, automated continuous integration testing, and regular releases (currently version 3.1 released February 2018 with ongoing updates), supported by ID ranges assigned to contributing groups to prevent identifier conflicts and ensuring sustainability through institutional commitments and community engagement with regular workshops and training materials for ontology editors and users.",
       "is_open": true,
       "requires_registration": false,
@@ -25656,7 +25684,8 @@
         "B2AI_TOPIC:71"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:131"
+        "B2AI_ORG:131",
+        "B2AI_ORG:138"
       ],
       "purpose_detail": "UBERON is an OBO Foundry ontology providing an integrated cross-species anatomy ontology covering anatomical structures in animals, with a focus on multi-species interoperability. The ontology enables semantic annotation of anatomical entities across diverse species, supporting comparative anatomy research, phenotype studies, and integration with specialized anatomies. UBERON is tightly integrated with the Gene Ontology (GO) and the Cell Ontology (CL), using formal ontology design patterns to represent anatomical locations and relationships. It follows FAIR principles and is released in standard formats (OWL, OBO, JSON obographs) with resolvable version IRIs. UBERON is integrated into standard tools including Ubergraph for logical queries (e.g., finding cell types by location), the Ontology Access Kit (OAK), and major browsers (OLS, Ontobee, BioPortal). The ontology supports AI/ML applications by providing standardized anatomical annotations for training data across species and enabling cross-species knowledge transfer in biomedical machine learning models.",
       "is_open": true,
@@ -28091,7 +28120,8 @@
       ],
       "has_relevant_organization": [
         "B2AI_ORG:34",
-        "B2AI_ORG:128"
+        "B2AI_ORG:128",
+        "B2AI_ORG:138"
       ],
       "purpose_detail": "The Data Repository Service (DRS) is a standard for describing and accessing data objects in a data repository. The DRS provides a RESTful API for accessing data objects, as well as a set of metadata fields for describing the data objects. The DRS is designed to be used in conjunction with the GA4GH Data Repository Service API, which provides a standard way to access data objects in a data repository.",
       "is_open": true,
@@ -42794,7 +42824,8 @@
       ],
       "has_relevant_organization": [
         "B2AI_ORG:128",
-        "B2AI_ORG:131"
+        "B2AI_ORG:131",
+        "B2AI_ORG:138"
       ],
       "purpose_detail": "The database of Genotypes and Phenotypes (dbGaP) is the NIH repository for individual-level data from studies of the interaction of genotype and phenotype in humans, operated by the National Center for Biotechnology Information at the National Library of Medicine. It archives and distributes de-identified phenotype data, genotype and sequence data, study documents and protocols, and summary-level results, and assigns each study a phs accession that is used across NIH data resources as the study identifier. Individual-level data are controlled access. Investigators apply through the dbGaP Authorized Access system with an eRA Commons account, requests are reviewed by NIH Data Access Committees against the study's consent groups, and approved users must follow the NIH Genomic Data Sharing Policy and its security requirements. Summary data and study descriptions are open. dbGaP is the access authority behind controlled-tier data at many NIH resources, including the Kids First Data Resource Center, AnVIL, BioData Catalyst, and the Cancer Research Data Commons, which verify a user's dbGaP approvals rather than managing their own. Study accessions and consent codes from dbGaP are therefore common metadata fields in downstream data models.",
       "is_open": true,
@@ -43567,6 +43598,587 @@
       "formal_specification": "https://abi-mapping-tools.readthedocs.io/",
       "responsible_organization": [
         "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1173",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "pairs format",
+      "description": "4DN pairs file format for chromatin contact pairs",
+      "related_to": [
+        "B2AI_STANDARD:22",
+        "B2AI_STANDARD:1174",
+        "B2AI_STANDARD:1175",
+        "B2AI_STANDARD:1178"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production",
+        "standards_process_maturity_final"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:12",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:23",
+        "B2AI_TOPIC:55"
+      ],
+      "purpose_detail": "The pairs format is a text format for lists of chromatin contacts from chromosome conformation experiments such as Hi-C, defined by the 4D Nucleome Omics Data Standards Working Group as pairs format v1.0. Each line is one contact given as two genomic 1 bp point positions, with seven reserved columns (readID, chr1, pos1, chr2, pos2, strand1, strand2), four of them required, and any number of optional columns such as frag1 and frag2, mate identifiers, or mapping quality. A header opens with the line \"## pairs format v1.0\" and carries the column list, one chromsize line per chromosome in the order that defines mate ordering, and optional sorted, shape, command, and genome_assembly lines. Contacts must be nonredundant and are stored in upper triangle form by default. The standard file is bgzip compressed with the extension .pairs.gz and indexed with pairix, the 4DN DCIC indexer that supports 1D and 2D range queries on a pair of genomic coordinates. In the 4DN Hi-C processing pipeline the pairs file is produced by pairtools from the aligned BAM and is the single input from which both the .mcool and .hic contact matrices are built, and every pairs file on the 4DN Data Portal follows this specification. The pairix repository is MIT licensed and was last pushed in January 2025.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/4dn-dcic/pairix",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btab870",
+        "ref_title": "Pairs and Pairix: a file format and a tool for efficient storage and retrieval for Hi-C read pairs",
+        "ref_authors": [
+          "Lee S",
+          "Bakker CR",
+          "Vitzthum C",
+          "Alver BH",
+          "Park PJ"
+        ],
+        "ref_publication_year": 2022,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/4dn-dcic/pairix/blob/master/pairs_format_specification.md",
+      "responsible_organization": [
+        "B2AI_ORG:138"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1174",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "cooler",
+      "description": "cooler (.cool and .mcool) sparse contact matrix format",
+      "related_to": [
+        "B2AI_STANDARD:339",
+        "B2AI_STANDARD:1173",
+        "B2AI_STANDARD:1175",
+        "B2AI_STANDARD:1178",
+        "B2AI_STANDARD:1180"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production",
+        "standards_process_maturity_final"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:12",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:23",
+        "B2AI_TOPIC:55"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
+      ],
+      "purpose_detail": "cooler is an HDF5 based storage format and Python library for genomically labeled sparse matrices, used above all for Hi-C contact matrices. A cooler data collection holds four groups of one-dimensional arrays, chroms (names and lengths), bins (chrom, start, end, and balancing weights), pixels (bin1_id, bin2_id, count) in compressed sparse row order, and indexes (bin1_offset, chrom_offset), plus metadata attributes. The schema is at version 3, which added a storage-mode attribute for non-symmetric matrices, and the multi-resolution layout is standardized as the .mcool file flavor with one cooler per resolution. Collections are addressed by a URI of the form path.cool::/group. The cooler package (version 0.10.4) creates, aggregates, balances, coarsens, and queries these files and loads pairs, pairix, and tabix inputs. It is developed by the Open Chromosome Collective (Open2C), which grew out of the Mirny lab, under the BSD 3-clause license. The 4DN DCIC Hi-C pipeline writes an .mcool at thirteen resolutions from 1 kb to 10 Mb, ICE balanced and carrying the Juicer normalization vectors as well, and the 4DN Data Portal visualizes .mcool files in HiGlass.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://cooler.readthedocs.io/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btz540",
+        "ref_title": "Cooler: scalable storage for Hi-C data and other genomically labeled arrays",
+        "ref_authors": [
+          "Abdennur N",
+          "Mirny LA"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://cooler.readthedocs.io/en/latest/schema.html",
+      "responsible_organization": [
+        "B2AI_ORG:139"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1175",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "hic format",
+      "description": ".hic binary contact matrix format from Juicer and Juicebox",
+      "related_to": [
+        "B2AI_STANDARD:1173",
+        "B2AI_STANDARD:1174",
+        "B2AI_STANDARD:1178"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production",
+        "standards_process_maturity_final"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:12",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:23",
+        "B2AI_TOPIC:55"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
+      ],
+      "purpose_detail": "The .hic format is the binary contact matrix format written by the Juicer Hi-C pipeline and read by Juicebox, Straw, and other tools from the Aiden Lab. A file holds a header with the magic string HIC, a version number, the genome identifier, a key-value attribute list, and the chromosome list, a body of contact matrices stored as blocks for every chromosome pair at every resolution, and a footer with the master index, expected value vectors, and normalization vectors. The specification is published per version in the hic-format repository, with version 9 current and versions 7 and 8 kept alongside. The 4DN DCIC Hi-C pipeline produces a .hic file with Juicer Tools from the same pairs file as its .mcool, at the same thirteen resolutions, normalized with the VC, VC_SQRT, and KR methods after filtering intra-fragment contacts, so the two matrix formats on the 4DN Data Portal are interchangeable views of one contact list. Juicer, Juicebox, and Straw are MIT licensed.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/aidenlab/hic-format",
+      "publication": {
+        "ref_url": "https://doi.org/10.1016/j.cels.2016.07.002",
+        "ref_title": "Juicer Provides a One-Click System for Analyzing Loop-Resolution Hi-C Experiments",
+        "ref_authors": [
+          "Durand NC",
+          "Shamim MS",
+          "Machol I",
+          "Rao SSP",
+          "Huntley MH",
+          "Lander ES",
+          "Aiden EL"
+        ],
+        "ref_publication_year": 2016,
+        "ref_journal": "Cell Systems"
+      },
+      "formal_specification": "https://github.com/aidenlab/hic-format",
+      "responsible_organization": [
+        "B2AI_ORG:140"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1176",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "4DN Data Portal",
+      "description": "4D Nucleome Data Portal",
+      "related_to": [
+        "B2AI_STANDARD:63",
+        "B2AI_STANDARD:751",
+        "B2AI_STANDARD:1157",
+        "B2AI_STANDARD:1173",
+        "B2AI_STANDARD:1174",
+        "B2AI_STANDARD:1175",
+        "B2AI_STANDARD:1177",
+        "B2AI_STANDARD:1178",
+        "B2AI_STANDARD:1180"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "dataregistry",
+        "cloudservice",
+        "datavisualization",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:12",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:23",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:62"
+      ],
+      "purpose_detail": "The 4D Nucleome Data Portal (data.4dnucleome.org) hosts the data of the NIH Common Fund 4D Nucleome (4DN) Network, which studies the three-dimensional organization of the nucleus over time, together with reference nucleomics datasets from outside the network. It is developed and run by the 4DN Data Coordination and Integration Center (DCIC) at Harvard Medical School on Fourfront, a fork of the ENCODE DCC portal software. Data are organized as experiments and replicate experiment sets over genomics assays (Hi-C and its variants, Micro-C, ChIA-PET, Capture-C, Repli-seq, ChIP-seq, ATAC-seq, RNA-seq, CUT&RUN, iMARGI) and imaging assays (DNA and RNA FISH, multiplexed FISH chromatin tracing, single particle tracking, immunofluorescence, electron tomography). Raw sequencing data are processed at the portal with the DCIC pipelines and the results, including pairs, .mcool, .hic, and bigWig files, are viewable in HiGlass. Files have 4DNFI accessions and are served by download, by a REST API, by the GA4GH DRS API, and from an AWS Open Data S3 bucket that needs no account. Metadata follow the 4DN metadata model and use EFO, UBERON, OBI, and the Sequence Ontology. Human genomic raw reads and alignments that fall under the NIH Genomic Data Sharing Policy are restricted and the generating lab registers them with dbGaP. 4DN is a CFDE data coordinating center and submits C2M2 metadata packages.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://data.4dnucleome.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41467-022-29697-4",
+        "ref_title": "The 4D Nucleome Data Portal as a resource for searching and visualizing curated nucleomics data",
+        "ref_authors": [
+          "Reiff SB",
+          "Schroeder AJ",
+          "Kırlı K",
+          "Cosolo A",
+          "Bakker C",
+          "Mercado L",
+          "Lee S",
+          "Veit AD",
+          "Balashov AK",
+          "Vitzthum C",
+          "Ronchetti W",
+          "Pitman KM",
+          "Johnson J",
+          "Ehmsen SR",
+          "Kerpedjiev P",
+          "Abdennur N",
+          "Imakaev M",
+          "Öztürk SU",
+          "Çamoğlu U",
+          "Mirny LA",
+          "Gehlenborg N",
+          "Alver BH",
+          "Park PJ"
+        ],
+        "ref_publication_year": 2022,
+        "ref_journal": "Nature Communications"
+      },
+      "formal_specification": "https://github.com/4dn-dcic/fourfront",
+      "responsible_organization": [
+        "B2AI_ORG:138"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1177",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "4DN Metadata Model",
+      "description": "4DN DCIC metadata model, published as JSON Schema",
+      "related_to": [
+        "B2AI_STANDARD:345",
+        "B2AI_STANDARD:511",
+        "B2AI_STANDARD:547",
+        "B2AI_STANDARD:563",
+        "B2AI_STANDARD:1176",
+        "B2AI_STANDARD:1183"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "datamodel",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:63",
+        "B2AI_TOPIC:67"
+      ],
+      "purpose_detail": "The 4DN metadata model is the object schema the 4DN DCIC uses to describe biological samples, experimental methods, data files, analysis steps, and their relations, defined with input from the 4DN Network working groups and based on the ENCODE DCC metadata framework. Each object type has a JSON Schema in the Fourfront codebase and a profile page on the portal (for example /profiles/experiment_hi_c. json). Types include biosource, biosample, and biosample cell culture, individual human and mouse, an experiment type per assay (Hi-C, Capture-C, ChIA-PET, ATAC-seq, Repli-seq, microscopy, and generic sequencing), experiment set and replicate experiment set, file types for fastq, processed, reference, and calibration files, workflow and analysis step, quality metrics, ontology term, protocol, publication, lab, and award. Objects link to each other by identifier, accessions are assigned on submission, and calculated fields are appended. Submitters fill the same fields through spreadsheet workbooks, the online form, or the REST API, and the model determines what the C2M2 export and the DRS records can carry.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://data.4dnucleome.org/help/user-guide/data-model",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/4dn-dcic/fourfront/tree/master/src/encoded/schemas",
+      "responsible_organization": [
+        "B2AI_ORG:138"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1178",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "4DN Processing Pipelines",
+      "description": "4DN DCIC data processing pipelines in CWL with Docker images",
+      "related_to": [
+        "B2AI_STANDARD:20",
+        "B2AI_STANDARD:22",
+        "B2AI_STANDARD:320",
+        "B2AI_STANDARD:1173",
+        "B2AI_STANDARD:1174",
+        "B2AI_STANDARD:1175",
+        "B2AI_STANDARD:1179"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:12",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:23",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:63"
+      ],
+      "purpose_detail": "The 4DN DCIC processes raw sequencing data at the portal with a set of open pipelines, each packaged as a Docker image and described in the Common Workflow Language, so that every processed file on the 4DN Data Portal has a logged workflow run. This entry covers the set as one item because they share one packaging, one execution system, and one CWL repository. The Hi-C pipeline aligns with bwa mem, filters with pairtools into a pairs file, and aggregates into .mcool and .hic matrices. The Repli-seq, ATAC-seq, RNA-seq, CUT&RUN, and iMARGI pipelines and the domain calling pipelines for insulation scores and compartments are documented step by step on the portal, and the ChIP-seq and ATAC-seq pipelines wrap the ENCODE pipelines. CWL files are versioned with the pipelines-cwl repository, Docker images live on Docker Hub, and the pipelines run on AWS through Tibanna. The pipelines-cwl repository was last pushed in July 2024 and the Hi-C Docker source in November 2024.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://data.4dnucleome.org/resources/data-analysis",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/4dn-dcic/pipelines-cwl",
+      "responsible_organization": [
+        "B2AI_ORG:138"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1179",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Tibanna",
+      "description": "Tibanna workflow execution system for AWS",
+      "related_to": [
+        "B2AI_STANDARD:320",
+        "B2AI_STANDARD:1178"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "cloudservice",
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:12",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:61",
+        "B2AI_TOPIC:63"
+      ],
+      "purpose_detail": "Tibanna is a workflow execution system built by the 4DN DCIC to run portable pipelines on Amazon Web Services. It launches an EC2 instance per run, executes a CWL or WDL workflow with Docker, a Snakemake workflow with conda, or a plain Docker or shell command, monitors the run through AWS Step Functions and Lambda, and records logs and resource use. The 4DN DCIC uses it to execute and monitor all of its data processing pipelines and to feed the resulting workflow run records back to the 4DN Data Portal. It is installed from PyPI, is MIT licensed, and was last pushed in August 2026.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://tibanna.readthedocs.io/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btz379",
+        "ref_title": "Tibanna: software for scalable execution of portable pipelines on the cloud",
+        "ref_authors": [
+          "Lee S",
+          "Johnson J",
+          "Vitzthum C",
+          "Kırlı K",
+          "Alver BH",
+          "Park PJ"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/4dn-dcic/tibanna",
+      "responsible_organization": [
+        "B2AI_ORG:138"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1180",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "HiGlass",
+      "description": "HiGlass multiscale genome and contact map browser",
+      "related_to": [
+        "B2AI_STANDARD:19",
+        "B2AI_STANDARD:20",
+        "B2AI_STANDARD:36",
+        "B2AI_STANDARD:1174",
+        "B2AI_STANDARD:1176"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "datavisualization",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:12",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:23",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
+      ],
+      "purpose_detail": "HiGlass is a web based viewer for multiscale genomic data, built on the tiling idea of online maps so that contact matrices and 1D tracks can be zoomed and panned across resolutions and arranged in linked views. It consists of the higlass.js client library, the higlass-server Django application that serves tiles from an API, clodius for aggregation and tile generation, higlass-python for Jupyter notebooks, and a Docker container that bundles them. It reads .mcool contact matrices, bigWig, bigBed, and bed-like interval files, gene annotations, and other track types. HiGlass was developed at Harvard Medical School by members of the 4DN DCIC and the Gehlenborg lab and is the embedded viewer for Hi-C and Micro-C data on the 4DN Data Portal. The client is MIT licensed and was last pushed in June 2026. The public instance at higlass.io did not answer from this network when checked, so the documentation site is used as the landing page.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.higlass.io/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1186/s13059-018-1486-1",
+        "ref_title": "HiGlass: web-based visual exploration and analysis of genome interaction maps",
+        "ref_authors": [
+          "Kerpedjiev P",
+          "Abdennur N",
+          "Lekschas F",
+          "McCallum C",
+          "Dinkla K",
+          "Strobelt H",
+          "Luber JM",
+          "Ouellette SB",
+          "Azhir A",
+          "Kumar N",
+          "Hwang J",
+          "Lee S",
+          "Alver BH",
+          "Pfister H",
+          "Mirny LA",
+          "Park PJ",
+          "Gehlenborg N"
+        ],
+        "ref_publication_year": 2018,
+        "ref_journal": "Genome Biology"
+      },
+      "formal_specification": "https://github.com/higlass/higlass"
+    },
+    {
+      "id": "B2AI_STANDARD:1181",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "4DN-BINA-OME Microscopy Metadata Specifications",
+      "description": "4DN-BINA-OME (NBO) tiered microscopy metadata specifications extending the OME data model",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:248",
+        "B2AI_STANDARD:893",
+        "B2AI_STANDARD:1182"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "datamodel",
+        "minimuminformationschema",
+        "implementation_maturity_production",
+        "standards_process_maturity_development"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:63",
+        "B2AI_TOPIC:78"
+      ],
+      "purpose_detail": "The 4DN-BINA-OME (NBO) Microscopy Metadata Specifications are a tiered set of guidelines for recording the provenance and quality of light microscopy image data, developed by the 4D Nucleome Imaging Standards Working Group with the BioImaging North America Quality Control and Data Management Working Group and QUAREP-LiMi. They extend the Open Microscopy Environment (OME) data model while staying compatible with it, in four parts, a proposed revision of the OME core model, a Basic extension, an Advanced plus Confocal extension, and a Calibration extension, covering microscope hardware, image acquisition settings, and optical, power, wavelength, mechanical, and detector calibration. Imaging experiments are placed in one of five tiers of complexity and each tier names the subset of metadata that must be recorded. The model is expressed as XML Schema (XSD) so that software can be generated from it, and the Micro-Meta App, a companion desktop and web tool, collects the metadata interactively and writes it out. Version 2.10 is in draft in the repository, which was last pushed in June 2023. The specification is LGPL 3.0 licensed.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/WU-BIMAC/NBOMicroscopyMetadataSpecs",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41592-021-01327-9",
+        "ref_title": "Towards community-driven metadata standards for light microscopy: tiered specifications extending the OME model",
+        "ref_authors": [
+          "Hammer M",
+          "Huisman M",
+          "Rigano A",
+          "Boehm U",
+          "Chambers JJ",
+          "Gaudreault N",
+          "North AJ",
+          "Pimentel JA",
+          "Sudar D",
+          "Bajcsy P",
+          "Brown CM",
+          "Corbett AD",
+          "Faklaris O",
+          "Lacoste J",
+          "Laude A",
+          "Nelson G",
+          "Nitschke R",
+          "Farzam F",
+          "Smith CS",
+          "Grunwald D",
+          "Strambio-De-Castillia C"
+        ],
+        "ref_publication_year": 2021,
+        "ref_journal": "Nature Methods"
+      },
+      "formal_specification": "https://github.com/WU-BIMAC/NBOMicroscopyMetadataSpecs",
+      "responsible_organization": [
+        "B2AI_ORG:138"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1182",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "FISH Omics Format",
+      "description": "4DN FISH Omics Format for Chromatin Tracing (FOF-CT)",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:893",
+        "B2AI_STANDARD:1176",
+        "B2AI_STANDARD:1181"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_pilot",
+        "standards_process_maturity_development"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:55"
+      ],
+      "purpose_detail": "The FISH Omics Format for Chromatin Tracing (FOF-CT) is a 4DN community data format for exchanging the results of multiplexed DNA FISH chromosome imaging experiments, in which polymer tracing strings together the localizations of individual DNA bright spots to reconstruct the three-dimensional path of a chromatin fiber. Version 1.0 is organized as twelve tables. The mandatory DNA-Spot/Trace Data core table defines traces as ordered lists of spots, and optional tables carry spot demultiplexing, trace data, RNA spot data, spot and RNA spot quality, spot biological data, cell data, sub-cell and extra-cell regions of interest, and cell to ROI mapping. Each table has required header lines and defined columns, with downloadable templates. It is compatible with ball-and-stick methods including ORCA, MINA, Hi-M, seqFISH+, OligoFISSEQ, DNA-MERFISH, and in situ genomic sequencing, and is designed to extend to volumetric methods such as OligoSTORM and OligoDNA-PAINT. Modified genomes are described with an accompanying VCF. The 4DN steering committee has provisionally approved the format, and the portal lists further imaging formats for single particle tracking (approved), DNA FISH, and segmentation (draft). Datasets in FOF-CT are published on the 4DN Data Portal and in the OME Image Data Resource.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://fish-omics-format.readthedocs.io/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://fish-omics-format.readthedocs.io/",
+      "responsible_organization": [
+        "B2AI_ORG:138"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1183",
+      "category": "B2AI_STANDARD:OntologyOrVocabulary",
+      "name": "EFO",
+      "description": "Experimental Factor Ontology (EFO)",
+      "related_to": [
+        "B2AI_STANDARD:511",
+        "B2AI_STANDARD:563",
+        "B2AI_STANDARD:1177"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-21",
+      "collection": [
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:1",
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:7",
+        "B2AI_TOPIC:53",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:67"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:138"
+      ],
+      "purpose_detail": "The Experimental Factor Ontology (EFO) is an application ontology from the EMBL-EBI Samples, Phenotypes and Ontologies team that gives a systematic description of the experimental variables found in EBI databases, such as assays, cell types and cell lines, anatomy, diseases, chemical compounds, and other sample attributes. It combines parts of several domain ontologies, including UBERON, ChEBI, the Cell Ontology, and, since EFO 3, the Mondo Disease Ontology, whose disease terms EFO imports and cross references. EFO is the core ontology of the NHGRI-EBI GWAS Catalog and Open Targets and is used across EBI resources, and terms are added on request from external users. The 4DN Data Portal maps its experiment types to EFO. The ontology is browsed in the EMBL-EBI Ontology Lookup Service and released from the EBISPOT GitHub repository, which carries no license file.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://www.ebi.ac.uk/ols4/ontologies/efo",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btq099",
+        "ref_title": "Modeling sample variables with an Experimental Factor Ontology",
+        "ref_authors": [
+          "Malone J",
+          "Holloway E",
+          "Adamusiak T",
+          "Kapushesky M",
+          "Zheng J",
+          "Kolesnikov N",
+          "Zhukova A",
+          "Brazma A",
+          "Parkinson H"
+        ],
+        "ref_publication_year": 2010,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/EBISPOT/efo",
+      "responsible_organization": [
+        "B2AI_ORG:29"
       ]
     }
   ],
