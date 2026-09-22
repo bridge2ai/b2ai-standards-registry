@@ -21322,6 +21322,7 @@ data_standardortools_collection:
   description: Variant Effect Predictor format
   has_relevant_organization:
   - B2AI_ORG:29
+  - B2AI_ORG:128
   is_open: true
   name: VEP
   purpose_detail: Variant Effect Predictor (VEP) format is a tab-delimited text format
@@ -22202,6 +22203,7 @@ data_standardortools_collection:
   is_open: true
   has_relevant_organization:
   - B2AI_ORG:138
+  - B2AI_ORG:128
   name: CWL
   publication:
     ref_url: https://doi.org/10.48550/arXiv.2105.07028
@@ -23465,6 +23467,8 @@ data_standardortools_collection:
   - B2AI_SUBSTRATE:6
   has_relevant_organization:
   - B2AI_ORG:116
+  - B2AI_ORG:128
+  - B2AI_ORG:144
   has_training_resource:
   - B2AI_STANDARD:957
   is_open: true
@@ -36798,6 +36802,7 @@ data_standardortools_collection:
   formal_specification: https://github.com/apache/spark
   has_relevant_organization:
   - B2AI_ORG:5
+  - B2AI_ORG:128
   has_training_resource:
   - B2AI_STANDARD:1135
   is_open: true
@@ -39467,6 +39472,8 @@ data_standardortools_collection:
   has_training_resource:
   - B2AI_STANDARD:961
   is_open: true
+  has_relevant_organization:
+  - B2AI_ORG:128
   name: Jupyter
   purpose_detail: Jupyter is a web-based interactive computing environment centered
     on notebook documents that combine live code, equations, narrative text, visualizations,
@@ -42241,6 +42248,7 @@ data_standardortools_collection:
   is_open: true
   has_relevant_organization:
   - B2AI_ORG:141
+  - B2AI_ORG:128
   name: STAR
   publication:
     ref_url: https://doi.org/10.1093/bioinformatics/bts635
@@ -55349,6 +55357,9 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Kids First Data Resource Portal
   formal_specification: https://github.com/kids-first/kf-portal-ui
+  has_training_resource:
+  - B2AI_STANDARD:1203
+  - B2AI_STANDARD:1205
   is_open: true
   name: Kids First Data Resource Portal
   purpose_detail: The Kids First Data Resource Portal is the discovery and access interface of the
@@ -55366,7 +55377,9 @@ data_standardortools_collection:
     on login. Controlled-tier files require dbGaP approval, which the portal verifies by
     linking an eRA Commons identity through Gen3. Files are analyzed by pushing them to
     a connected Cavatica project or by exporting them locally. The portal user interface
-    is open source and is built on the Arranger GraphQL layer over Elasticsearch. Kids
+    is open source and is built on the Ferlab UI component library. Its GraphQL API over
+    Elasticsearch (kf-api-arranger) is shared with the INCLUDE Data Hub and used the Overture
+    Arranger libraries until a rewrite in July 2026 replaced them. Kids
     First is one of the NIH Common Fund Data Ecosystem (CFDE) data coordinating centers
     and submits C2M2 metadata describing its studies.
   related_to:
@@ -55389,6 +55402,152 @@ data_standardortools_collection:
     - Daee D
     ref_publication_year: 2023
     ref_journal: JNCI Cancer Spectrum
+  has_application:
+  - id: B2AI_APP:426
+    category: B2AI:Application
+    name: Multimodal deep learning for brain tumor prognosis
+    description: Steyaert and colleagues trained deep learning models that fuse whole
+      slide histopathology images with gene expression to predict survival in adult and
+      pediatric brain tumors, comparing early, late, and joint fusion strategies. The
+      pediatric cohort of 305 samples came from the Pediatric Brain Tumor Atlas through
+      the Kids First Data Resource Portal, and the authors used transfer learning to
+      carry models trained on adult tumors over to the rarer pediatric cases.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s43856-023-00276-y
+      ref_title: Multimodal deep learning to predict prognosis in adult and pediatric brain tumors
+      ref_authors:
+      - Steyaert S
+      - Qiu YL
+      - Zheng Y
+      - Mukherjee P
+      - Vogel H
+      - Gevaert O
+      ref_publication_year: 2023
+      ref_journal: Communications Medicine
+  - id: B2AI_APP:427
+    category: B2AI:Application
+    name: Radiomic subgroups of pediatric low-grade glioma by K-means clustering
+    description: Haldar and colleagues extracted 881 radiomic features from
+      multiparametric MRI of pediatric low-grade gliomas, reduced them with principal
+      component analysis, and clustered them with K-means into imaging subgroups that
+      track BRAF status and other molecular markers. Raw genomic and imaging data from
+      the Children's Brain Tumor Network were accessed through the Kids First portal,
+      processed genomic data came from OpenPBTA, and clinical data came from
+      PedcBioPortal.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.neo.2022.100869
+      ref_title: Unsupervised machine learning using K-means identifies radiomic subgroups of pediatric low-grade gliomas that correlate with key molecular markers
+      ref_authors:
+      - Haldar D
+      - Kazerooni AF
+      - Arif S
+      - Familiar A
+      - Madhogarhia R
+      - Khalili N
+      - Bagheri S
+      - Anderson H
+      - Shaikh IS
+      - Mahtabfar A
+      - Kim MC
+      - Tu W
+      - Ware J
+      - Vossough A
+      - Davatzikos C
+      - Storm PB
+      - Resnick A
+      - Nabavizadeh A
+      ref_publication_year: 2023
+      ref_journal: Neoplasia
+  - id: B2AI_APP:428
+    category: B2AI:Application
+    name: ALLCatchR2 gene expression classifier for T-ALL subtypes
+    description: ALLCatchR2 is an R package with machine learning classifiers that
+      assign T-cell acute lymphoblastic leukemia samples to 20 molecular subtypes from
+      gene expression, reported with validation accuracy between 0.995 and 1.0 across
+      cohorts and age groups. The cohorts analyzed include the Pölönen et al. data,
+      which the paper's data availability statement places in the Kids First Data
+      Resource Center as the Kids First T-cell Acute Lymphoblastic Leukemia (KF-TALL)
+      study.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1002/hem3.70475
+      ref_title: The machine‐learning classifier ALLCatchR2 identifies 20 T‐ALL subtypes across cohorts and age groups
+      ref_authors:
+      - Beder T
+      - Wolgast N
+      - Walter W
+      - Bendig S
+      - Hartmann AM
+      - Barz MJ
+      - Zaliova M
+      - Reitzel E
+      - Baden D
+      - Schwartz S
+      - Gökbuget N
+      - Kester L
+      - Trka J
+      - Haferlach C
+      - Brüggemann M
+      - Baldus CD
+      - Neumann M
+      - Bastian L
+      ref_publication_year: 2026
+      ref_journal: HemaSphere
+  - id: B2AI_APP:429
+    category: B2AI:Application
+    name: Deep learning on WGS for anxiety markers in Down syndrome
+    description: Liu and colleagues applied neural network models to 30x whole genome
+      sequencing from 1,479 individuals with Down syndrome and their family members,
+      sequenced as part of the Gabriella Miller Kids First program, and identified 29
+      variant biomarkers specific to anxiety disorder. The same group has published
+      several related deep learning studies on the Kids First Down syndrome and
+      pediatric cancer cohorts.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41380-025-03065-2
+      ref_title: Deep learning algorithms reveal genomic markers for anxiety disorder in a large cohort of children with down syndrome
+      ref_authors:
+      - Liu Y
+      - Qu HQ
+      - Chang X
+      - Mentch FD
+      - Qiu H
+      - Torkamandi S
+      - Nguyen K
+      - Ostberg K
+      - Wang T
+      - Glessner J
+      - Hakonarson H
+      ref_publication_year: 2025
+      ref_journal: Molecular Psychiatry
+  - id: B2AI_APP:430
+    category: B2AI:Application
+    name: Deep learning on WGS for CNS drug repurposing
+    description: Liu and colleagues trained a neural network on whole genome sequencing
+      from 4,392 individuals across 92 central nervous system diagnoses to infer the
+      importance of biological pathways for each condition, then matched those pathway
+      weights to KEGG drug signatures to rank candidates for drug repurposing. Part of
+      the sequencing is in dbGaP and the rest is accessible through the Kids First Data
+      Resource Portal.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.neurot.2026.e00976
+      ref_title: Drug repurposing opportunities across 92 CNS-related conditions using deep learning and whole-genome sequencing
+      ref_authors:
+      - Liu Y
+      - Qu HQ
+      - Mentch FD
+      - Chang X
+      - Kim J
+      - Qiu H
+      - Ostberg K
+      - Nguyen K
+      - Glessner J
+      - Hakonarson H
+      ref_publication_year: 2026
+      ref_journal: Neurotherapeutics
 - id: B2AI_STANDARD:1154
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -55450,6 +55609,8 @@ data_standardortools_collection:
   description: NIH Cloud Platform Interoperability FHIR Implementation Guide
   formal_specification: https://github.com/NIH-NCPI/ncpi-fhir-ig
   is_open: true
+  has_relevant_organization:
+  - B2AI_ORG:144
   name: NCPI FHIR IG
   purpose_detail: The NIH Cloud Platform Interoperability (NCPI) FHIR Implementation Guide is an HL7
     FHIR R4 (4.0.1) implementation guide that defines a shared representation of
@@ -57612,3 +57773,817 @@ data_standardortools_collection:
     - Butte AJ
     ref_publication_year: 2018
     ref_journal: Scientific Data
+
+- id: B2AI_STANDARD:1194
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:81
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Kids First Data Resource Center bioinformatic harmonization workflows
+  formal_specification: https://github.com/kids-first/kf-alignment-workflow
+  has_training_resource:
+  - B2AI_STANDARD:1204
+  is_open: true
+  name: Kids First DRC Harmonization Workflows
+  purpose_detail: The Kids First Data Resource Center harmonizes the genomic data it
+    releases with a shared set of bioinformatic workflows written in the Common Workflow
+    Language (CWL). Each workflow lives in its own repository in the kids-first GitHub
+    organization and is published as a public app on CAVATICA, so users can run the same
+    processing on their own data. The alignment workflow (kf-alignment-workflow, release
+    v2.11.4) aligns reads with BWA following GATK best practices, with a Sentieon
+    alternative, and produces aligned reads and per-sample gVCFs. The joint genotyping
+    workflow calls variants across families from gVCFs and checks relatedness with
+    Peddy. The somatic workflow (kf-somatic-workflow, release v5.5.0) runs Strelka2,
+    Mutect2, Lancet, VarDict, Control-FREEC, CNVkit, Manta, and AmpliconArchitect,
+    annotates calls with VEP, and writes MAF files with a Kids First port of the MSKCC
+    vcf2maf tool. The RNA-seq workflow (kf-rnaseq-workflow, release v5.2.0) quantifies
+    expression with STAR, RSEM, and Kallisto, calls fusions with Arriba and STAR-Fusion,
+    and calls splicing events with rMATS. Further repositories cover germline copy
+    number and structural variants, tumor-only calling, and PacBio and Oxford Nanopore
+    long reads. The Kids First help center page on the DRC data process names these
+    workflows as the source of the harmonized files in the Kids First Data Resource
+    Portal. A Nextflow port of the RNA-seq workflow exists and its README calls it a
+    development project, not yet in production. Most of the repositories are released
+    under Apache 2.0, and the somatic and germline repositories carry no license file.
+    There is no single landing repository, and the older kf-workflows repository was
+    archived in 2017. OpenPBTA and OpenPedCan built their harmonized data on these
+    workflows.
+  related_to:
+  - B2AI_STANDARD:320
+  - B2AI_STANDARD:739
+  - B2AI_STANDARD:300
+  - B2AI_STANDARD:828
+  - B2AI_STANDARD:1159
+  - B2AI_STANDARD:21
+  - B2AI_STANDARD:299
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:1201
+  - B2AI_STANDARD:1202
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:128
+  url: https://kidsfirstdrc.org/help-center/our-data-process/
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1195
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:62
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:25
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Kids First Data Ingest Library (kf-lib-data-ingest)
+  formal_specification: https://github.com/kids-first/kf-lib-data-ingest
+  is_open: true
+  name: Kids First Data Ingest Library
+  purpose_detail: The Kids First Data Ingest Library is the extract, transform, and load
+    framework that the Kids First Data Resource Center uses to bring raw study data from
+    contributing investigators into Kids First services. Each study is described by an
+    ingest package, a set of Python configuration files that say how to fetch the source
+    files, select and clean the needed fields, and map them onto standard Kids First
+    concepts. A command line app creates, tests, and runs ingest packages, and target
+    services are reached through a load plugin interface. The only supported target is
+    the Kids First Data Service. The library is written in Python with pandas, released
+    under Apache 2.0, and reached release 1.26.0 in November 2025. Two other Kids First
+    services sit on either side of it. The Kids First Study Creator
+    (kf-api-study-creator, also called the Data Tracker) is where studies are created
+    and investigators upload files for ingestion. The Kids First FHIR ETL task service
+    (kf-task-fhir-etl) was built on this library to extract tables from the Data Service
+    database, transform them into FHIR resources following the Kids First FHIR data
+    model, and load them into a Kids First FHIR server. That repository was last updated
+    in March 2024, and newer FHIR pipelines for Kids First and INCLUDE are developed in
+    the carrollaboratory GitHub organization.
+  related_to:
+  - B2AI_STANDARD:1156
+  - B2AI_STANDARD:1154
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:1197
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:128
+  url: https://kids-first.github.io/kf-lib-data-ingest/
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1196
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:67
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:62
+  - B2AI_TOPIC:57
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Kids First Gen3 data dictionary
+  formal_specification: https://github.com/uc-cdis/kf-dictionary
+  is_open: true
+  name: Kids First Data Dictionary
+  purpose_detail: The Kids First Data Dictionary is the Gen3 data dictionary that
+    defines the graph data model for genomic data and minimal clinical elements managed
+    by the Kids First Data Resource Center. Its README describes it as the first level
+    of validation for those data. The dictionary is written as YAML JSON schemas, one
+    per node type, and derives its structure from the NCI GDC Data Dictionary. Nodes are
+    grouped into categories such as biospecimen and analysis and hang from a Program
+    root through typed links with labels, back references, and multiplicities, with
+    separate strongly typed nodes for things such as submitted aligned and unaligned
+    reads. It serves the Kids First Gen3 data commons that handles file indexing and
+    controlled access for the Kids First Data Resource Portal. The repository is
+    maintained by the University of Chicago Center for Translational Data Science under
+    Apache 2.0 and was last updated in April 2025. The copy in the kids-first
+    organization is archived. The pypfb documentation uses a published version of this
+    dictionary as its worked example of building a PFB schema. No Kids First page or
+    repository says that the Kids First portal exports PFB.
+  related_to:
+  - B2AI_STANDARD:1158
+  - B2AI_STANDARD:1156
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:261
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:129
+  - B2AI_ORG:128
+  url: https://github.com/uc-cdis/kf-dictionary
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1197
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  - implementation_maturity_pilot
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:67
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Internal access data model for the Kids First Data Resource Center, in LinkML
+  formal_specification: https://github.com/carrollaboratory/kf-access-model
+  has_relevant_organization:
+  - B2AI_ORG:144
+  is_open: true
+  name: Kids First Access Model
+  purpose_detail: The Kids First Access Model is a LinkML schema that its repository
+    describes as the internal access model for the Kids First Data Resource Center. It
+    defines no classes of its own and instead imports the INCLUDE Common Access Model, a
+    shared warehouse model for research data maintained by the INCLUDE Data Coordinating
+    Center, and declares prefixes for MONDO, HPO, NCIT, SNOMED CT, MeSH, and the CDC
+    race and ethnicity codes. It is built from the LinkML project template, published as
+    generated documentation, and released under the MIT license. It sits alongside a
+    companion schema for Kids First and INCLUDE FHIR input (kfi-fhir-input) and dbt
+    models that project warehouse tables into FHIR, all developed in the
+    carrollaboratory GitHub organization at Vanderbilt University Medical Center. These
+    repositories were active in 2026. No Kids First source states that they have
+    replaced the older Kids First FHIR ETL task service. The model is under active
+    development.
+  related_to:
+  - B2AI_STANDARD:347
+  - B2AI_STANDARD:1156
+  - B2AI_STANDARD:1154
+  - B2AI_STANDARD:1155
+  - B2AI_STANDARD:1195
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:128
+  url: https://carrollaboratory.github.io/kf-access-model/
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1198
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - notebookplatform
+  - cloudservice
+  concerns_data_topic:
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Kids First Variant Workbench on CAVATICA
+  formal_specification: https://github.com/kids-first/variant-workbench-migration
+  is_open: true
+  name: Kids First Variant Workbench
+  purpose_detail: The Kids First Variant Workbench is a public CAVATICA project that
+    combines Kids First participant conditions, genomic variants, and variant
+    annotations such as ClinVar and CADD into a set of tables linked with PySpark SQL.
+    The help center reports more than 400 million unique variants across the Kids First
+    cohorts. Users copy the public project into their own CAVATICA workspace and query
+    it from JupyterLab through CAVATICA Data Studio. Controlled-access occurrence tables
+    are imported for each user from the Kids First Data Resource Portal through DRS
+    after dbGaP authorization. The help center page is the main documentation. The
+    public repository variant-workbench-migration was last updated in November 2023 and
+    its README calls it a beta release for approved testers.
+  related_to:
+  - B2AI_STANDARD:739
+  - B2AI_STANDARD:727
+  - B2AI_STANDARD:779
+  - B2AI_STANDARD:751
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:1194
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:128
+  url: https://kidsfirstdrc.org/help-center/variant-workbench/
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1199
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - datavisualization
+  - fileformat
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: cBioPortal for Cancer Genomics
+  formal_specification: https://docs.cbioportal.org/file-formats/
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:145
+  is_open: true
+  name: cBioPortal
+  purpose_detail: cBioPortal is an open source web platform for interactive exploration
+    of cancer genomics data, first released by Memorial Sloan Kettering Cancer Center.
+    It displays mutations, copy number alterations, structural variants, gene
+    expression, and clinical attributes for samples and patients, and supports cohort
+    comparison, survival analysis, and oncoprint views. Data are loaded as studies built
+    from a documented set of tab-delimited file formats for clinical data, mutations in
+    MAF, discrete and continuous copy number, expression, and structural variants, each
+    paired with a meta file. That file specification is the reason this entry is also
+    tagged as a file format. Anyone can run their own instance. The public site at
+    cbioportal.org hosts TCGA and many other studies. The Kids First Data Resource
+    Center and D3b run a pediatric instance, PedcBioPortal, and convert Kids First
+    harmonized outputs into cBioPortal load files with the kf-cbioportal-etl repository.
+  related_to:
+  - B2AI_STANDARD:1159
+  - B2AI_STANDARD:1200
+  requires_registration: false
+  url: https://www.cbioportal.org/
+  publication:
+    ref_url: https://doi.org/10.1158/2159-8290.CD-12-0095
+    ref_title: 'The cBio Cancer Genomics Portal: An Open Platform for Exploring Multidimensional Cancer Genomics Data'
+    ref_authors:
+    - Cerami E
+    - Gao J
+    - Dogrusoz U
+    - Gross BE
+    - Sumer SO
+    - Aksoy BA
+    - Jacobsen A
+    - Byrne CJ
+    - Heuer ML
+    - Larsson E
+    - Antipin Y
+    - Reva B
+    - Goldberg AP
+    - Sander C
+    - Schultz N
+    ref_publication_year: 2012
+    ref_journal: Cancer Discovery
+
+- id: B2AI_STANDARD:1200
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - datavisualization
+  - dataregistry
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:4
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Pediatric cBioPortal instance for Kids First and partner pediatric cancer data
+  formal_specification: https://github.com/kids-first/kf-cbioportal-etl
+  has_relevant_organization:
+  - B2AI_ORG:128
+  is_open: true
+  name: PedcBioPortal
+  purpose_detail: PedcBioPortal is a cBioPortal instance for pediatric cancer genomics
+    that the Kids First help center calls a partner platform to the Kids First Data
+    Resource Portal. It hosts harmonized genomic and clinical data from Kids First
+    pediatric cancer studies, and OpenPedCan releases are queryable there. Users sign in
+    through the Kids First identity service. Kids First outputs are converted into
+    cBioPortal study files by the kf-cbioportal-etl repository, which pulls metadata
+    from the Kids First Data Service and processed files from CAVATICA and the D3b data
+    warehouse. That repository is released under Apache 2.0 and was updated in September
+    2026. No dedicated publication for PedcBioPortal was found.
+  related_to:
+  - B2AI_STANDARD:1199
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:1156
+  - B2AI_STANDARD:1194
+  - B2AI_STANDARD:1201
+  - B2AI_STANDARD:1202
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:145
+  url: https://pedcbioportal.org/
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1201
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:58
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Open Pediatric Brain Tumor Atlas
+  formal_specification: https://github.com/AlexsLemonade/OpenPBTA-analysis
+  has_relevant_organization:
+  - B2AI_ORG:128
+  is_open: true
+  name: OpenPBTA
+  purpose_detail: OpenPBTA, the Open Pediatric Brain Tumor Atlas, is an open,
+    reproducible, and collaborative analysis of genomic and transcriptomic data from
+    1,074 pediatric brain tumors from the Children's Brain Tumor Network and the Pacific
+    Pediatric Neuro-Oncology Consortium. The input data were harmonized with Kids First
+    DRC workflows on CAVATICA and are available through the Kids First Data Resource
+    Portal. Analyses were contributed openly to a public GitHub repository and the
+    manuscript was also developed in the open. Among its analyses are machine learning
+    classifiers for TP53 inactivation and medulloblastoma subtype. It was led by the
+    Childhood Cancer Data Lab of Alex's Lemonade Stand Foundation and D3b at Children's
+    Hospital of Philadelphia. The repository was archived in June 2023 and its work
+    continues in OpenPedCan.
+  related_to:
+  - B2AI_STANDARD:1194
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:1200
+  - B2AI_STANDARD:1202
+  - B2AI_STANDARD:739
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:146
+  - B2AI_ORG:145
+  url: https://github.com/AlexsLemonade/OpenPBTA-analysis
+  publication:
+    ref_url: https://doi.org/10.1016/j.xgen.2023.100340
+    ref_title: 'OpenPBTA: The Open Pediatric Brain Tumor Atlas'
+    ref_authors:
+    - Shapiro JA
+    - Gaonkar KS
+    - Spielman SJ
+    - Savonen CL
+    - Bethell CJ
+    - Jin R
+    - Rathi KS
+    - Zhu Y
+    - Egolf LE
+    - Farrow BK
+    - Miller DP
+    - Yang Y
+    - Koganti T
+    - Noureen N
+    - Koptyra MP
+    - Duong N
+    - Santi M
+    - Kim J
+    - Robins S
+    - Storm PB
+    - Mack SC
+    - Lilly JV
+    - Xie HM
+    - Jain P
+    - Raman P
+    - Rood BR
+    - Lulla RR
+    - Nazarian J
+    - Kraya AA
+    - Vaksman Z
+    - Heath AP
+    - Kline C
+    - Scolaro L
+    - Viaene AN
+    - Huang X
+    - Way GP
+    - Foltz SM
+    - Zhang B
+    - Poetsch AR
+    - Mueller S
+    - Ennis BM
+    - Prados M
+    - Diskin SJ
+    - Zheng S
+    - Guo Y
+    - Kannan S
+    - Waanders AJ
+    - Margol AS
+    - Kim MC
+    - Hanson D
+    - Van Kuren N
+    - Wong J
+    - Kaufman RS
+    - Coleman N
+    - Blackden C
+    - Cole KA
+    - Mason JL
+    - Madsen PJ
+    - Koschmann CJ
+    - Stewart DR
+    - Wafula E
+    - Brown MA
+    - Resnick AC
+    - Greene CS
+    - Rokita JL
+    - Taroni JN
+    ref_publication_year: 2023
+    ref_journal: Cell Genomics
+  has_application:
+  - id: B2AI_APP:431
+    category: B2AI:Application
+    name: TP53 inactivation and medulloblastoma subtype classifiers in OpenPBTA
+    description: OpenPBTA applied a TP53 inactivation classifier trained on TCGA
+      expression data to pediatric brain tumors, reaching an AUROC of 0.86 on
+      rRNA-depleted stranded RNA-seq, and used the scores to study TP53 function across
+      histologies. It also subtyped medulloblastomas from RNA-seq with the
+      MedulloClassifier and MM2S classifiers, which agreed with clinical subtypes in 41
+      and 39 of 43 samples. The inputs were Kids First harmonized data from the
+      Pediatric Brain Tumor Atlas.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.xgen.2023.100340
+      ref_title: 'OpenPBTA: The Open Pediatric Brain Tumor Atlas'
+      ref_authors:
+      - Shapiro JA
+      - Gaonkar KS
+      - Spielman SJ
+      - Savonen CL
+      - Bethell CJ
+      - Jin R
+      - Rathi KS
+      - Zhu Y
+      - Egolf LE
+      - Farrow BK
+      - Miller DP
+      - Yang Y
+      - Koganti T
+      - Noureen N
+      - Koptyra MP
+      - Duong N
+      - Santi M
+      - Kim J
+      - Robins S
+      - Storm PB
+      - Mack SC
+      - Lilly JV
+      - Xie HM
+      - Jain P
+      - Raman P
+      - Rood BR
+      - Lulla RR
+      - Nazarian J
+      - Kraya AA
+      - Vaksman Z
+      - Heath AP
+      - Kline C
+      - Scolaro L
+      - Viaene AN
+      - Huang X
+      - Way GP
+      - Foltz SM
+      - Zhang B
+      - Poetsch AR
+      - Mueller S
+      - Ennis BM
+      - Prados M
+      - Diskin SJ
+      - Zheng S
+      - Guo Y
+      - Kannan S
+      - Waanders AJ
+      - Margol AS
+      - Kim MC
+      - Hanson D
+      - Van Kuren N
+      - Wong J
+      - Kaufman RS
+      - Coleman N
+      - Blackden C
+      - Cole KA
+      - Mason JL
+      - Madsen PJ
+      - Koschmann CJ
+      - Stewart DR
+      - Wafula E
+      - Brown MA
+      - Resnick AC
+      - Greene CS
+      - Rokita JL
+      - Taroni JN
+      ref_publication_year: 2023
+      ref_journal: Cell Genomics
+
+- id: B2AI_STANDARD:1202
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:58
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Open Pediatric Cancer Project
+  formal_specification: https://github.com/d3b-center/OpenPedCan-analysis
+  has_relevant_organization:
+  - B2AI_ORG:128
+  is_open: true
+  name: OpenPedCan
+  purpose_detail: OpenPedCan, the Open Pediatric Cancer Project, extends OpenPBTA to
+    about 6,112 patients and more than 100 pediatric cancer histologies, adding data
+    from Kids First studies including Kids First neuroblastoma. The authors used Kids
+    First workflows to harmonize whole genome, whole exome, RNA-seq, and targeted
+    sequencing data. Releases are available through CAVATICA and AWS S3 and are
+    queryable through PedcBioPortal. OpenPedCan also fed the NCI pediatric Molecular
+    Targets Platform, whose frontend repository is now archived. An API over the data is
+    developed in the PediatricOpenTargets organization. The analysis repository is
+    maintained by D3b at Children's Hospital of Philadelphia and was last updated in
+    July 2025.
+  related_to:
+  - B2AI_STANDARD:1201
+  - B2AI_STANDARD:1194
+  - B2AI_STANDARD:1200
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:739
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:145
+  url: https://d3b-center.github.io/OpenPedCan-analysis/
+  publication:
+    ref_url: https://doi.org/10.1093/gigascience/giaf093
+    ref_title: The Open Pediatric Cancer Project
+    ref_authors:
+    - Geng Z
+    - Wafula E
+    - Corbett RJ
+    - Zhang Y
+    - Jin R
+    - Gaonkar KS
+    - Shukla S
+    - Rathi KS
+    - Hill D
+    - Lahiri A
+    - Miller DP
+    - Sickler A
+    - Keith K
+    - Blackden C
+    - Chroni A
+    - Brown MA
+    - Kraya AA
+    - Clark KL
+    - Rood BR
+    - Resnick AC
+    - Van Kuren N
+    - Maris JM
+    - Farrel A
+    - Koptyra MP
+    - Trooskin GR
+    - Coleman N
+    - Zhu Y
+    - Stefankiewicz S
+    - Abdullaev Z
+    - Chinwalla AT
+    - Santi M
+    - Naqvi AS
+    - Mason JL
+    - Koschmann CJ
+    - Huang X
+    - Diskin SJ
+    - Aldape K
+    - Farrow BK
+    - Ma W
+    - Zhang B
+    - Ennis BM
+    - Tasian S
+    - Phul S
+    - Lueder MR
+    - Zhong C
+    - Dybas JM
+    - Wang P
+    - Taylor D
+    - Rokita JL
+    ref_publication_year: 2025
+    ref_journal: GigaScience
+  has_application:
+  - id: B2AI_APP:432
+    category: B2AI:Application
+    name: MRI radiomics and machine learning for pediatric low-grade glioma prognosis
+    description: Fathi Kazerooni and colleagues combined multiparametric MRI radiomics
+      with RNA-seq expression from OpenPedCan release v12, quantified with the Kids
+      First STAR and RSEM workflow, to build machine learning models for pediatric
+      low-grade glioma. A radiomic signature predicted immune clusters with more than 80
+      percent accuracy, and a clinicoradiomic model predicted progression-free survival.
+      The work was funded in part by a Kids First Data Resource Center supplement.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41467-024-55659-z
+      ref_title: Multiparametric MRI along with machine learning predicts prognosis and treatment response in pediatric low-grade glioma
+      ref_authors:
+      - Fathi Kazerooni A
+      - Kraya A
+      - Rathi KS
+      - Kim MC
+      - Vossough A
+      - Khalili N
+      - Familiar AM
+      - Gandhi D
+      - Khalili N
+      - Kesherwani V
+      - Haldar D
+      - Anderson H
+      - Jin R
+      - Mahtabfar A
+      - Bagheri S
+      - Guo Y
+      - Li Q
+      - Huang X
+      - Zhu Y
+      - Sickler A
+      - Lueder MR
+      - Phul S
+      - Koptyra M
+      - Storm PB
+      - Ware JB
+      - Song Y
+      - Davatzikos C
+      - Foster JB
+      - Mueller S
+      - Fisher MJ
+      - Resnick AC
+      - Nabavizadeh A
+      ref_publication_year: 2025
+      ref_journal: Nature Communications
+
+- id: B2AI_STANDARD:1203
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:62
+  - B2AI_TOPIC:35
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Help center, video tutorials, and support sessions of the Kids First Data Resource Center
+  is_open: true
+  name: Kids First DRC Help Center
+  purpose_detail: The Kids First DRC Help Center is the user documentation for the Kids
+    First Data Resource Portal and its connected platforms. Its guides cover a quick
+    start, the studies tool, the DRC data process and harmonization workflows, applying
+    for controlled data through dbGaP, linking eRA Commons and CAVATICA accounts, cohort
+    filters, variant search, the portal data dictionary, analysis on CAVATICA, the
+    Variant Workbench, local export, cloud credits, and costs. A video tutorial series
+    covers getting started, data access, portal integrations, CAVATICA analysis,
+    PedcBioPortal, variant discovery, biospecimen requests to the Children's Brain Tumor
+    Network, and an example project. The DRC also runs live support sessions, a monthly
+    group session for new users called SupportU and one-to-one MasterClass appointments.
+    A separate cloud credits guide is kept in the kf-cloud-credits repository.
+  related_to:
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:1194
+  - B2AI_STANDARD:1198
+  - B2AI_STANDARD:739
+  - B2AI_STANDARD:1157
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:128
+  url: https://kidsfirstdrc.org/help-center/
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1204
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:61
+  - B2AI_TOPIC:13
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Five-day training course on bioinformatic workflow creation for Kids First and INCLUDE data
+  formal_specification: https://github.com/NIH-NICHD/Kids-First-Elements-of-Style-Workflow-Creation-Maintenance
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:144
+  is_open: true
+  name: Kids First Elements of Style in Workflow Creation and Maintenance
+  purpose_detail: Elements of Style in Workflow Creation and Maintenance is a five-day
+    training course that Kids First and INCLUDE offered jointly, organized through the
+    NIH NICHD GitHub organization. Its sessions cover reasoning about an analysis, code
+    versioning, containerization, workflow development, and running workflows on
+    CAVATICA against Kids First and INCLUDE data. The materials are released under the
+    MIT license and the repository was last updated in February 2023. A 2023 BioIT
+    hackathon project on MYC amplification in congenital heart disease and cancer
+    applied the course approach to Kids First and INCLUDE data.
+  related_to:
+  - B2AI_STANDARD:320
+  - B2AI_STANDARD:739
+  - B2AI_STANDARD:1194
+  requires_registration: false
+  url: https://nih-nichd.github.io/
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1205
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:13
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: CFDE training lessons on the Kids First portal and CAVATICA
+  has_relevant_organization:
+  - B2AI_ORG:128
+  is_open: true
+  name: CFDE Kids First and Cavatica Lessons
+  purpose_detail: The CFDE Training and Engagement team wrote a series of lessons whose
+    stated goal is to enable clinician researchers to use the Kids First Data Resource
+    Portal to build cohorts and to move those data to CAVATICA for analysis. A companion
+    lesson walks through a differential gene expression analysis on CAVATICA starting
+    from a Kids First cohort, and is marked as a lesson in development. The rendered
+    CFDE training site now redirects to the CFDE Workbench, so the lessons are cited
+    here by their source in the nih-cfde training-and-engagement repository, last
+    updated in January 2024.
+  related_to:
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:739
+  - B2AI_STANDARD:63
+  requires_registration: false
+  url: https://github.com/nih-cfde/training-and-engagement/tree/dev/docs/Common-Fund-Tools/Kids-First
+  publication:
+    ref_url: ''
