@@ -59182,6 +59182,8 @@ data_standardortools_collection:
   formal_specification: https://pdc.cancer.gov/data-dictionary/dictionary.html
   has_relevant_organization:
   - B2AI_ORG:128
+  - B2AI_ORG:156
+  - B2AI_ORG:157
   is_open: true
   name: PDC
   purpose_detail: The Proteomic Data Commons (PDC) is the proteomics repository of the
@@ -59214,6 +59216,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:832
   - B2AI_STANDARD:1153
   - B2AI_STANDARD:1201
+  - B2AI_STANDARD:1219
+  - B2AI_STANDARD:1220
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:71
@@ -59251,3 +59255,117 @@ data_standardortools_collection:
     - Zhang X
     ref_publication_year: 2024
     ref_journal: Cancer Research Communications
+
+- id: B2AI_STANDARD:1219
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - cloudservice
+  concerns_data_topic:
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:67
+  - B2AI_TOPIC:62
+  - B2AI_TOPIC:13
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: CCDI Data Federation API specification for federated pediatric cancer data
+  formal_specification: https://github.com/CBIIT/ccdi-federation-api
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:71
+  is_open: true
+  name: CCDI Federation API
+  purpose_detail: The CCDI Federation API is an OpenAPI 3.0 specification for querying
+    pediatric cancer data held by independent data sources in the NCI Childhood Cancer
+    Data Initiative (CCDI) Federation. Each participating node implements the same REST
+    endpoints for subjects, samples, and files, with summary and count queries by field,
+    subject and sample diagnoses, the metadata fields each node exposes, and the
+    organizations and namespaces that own the records. Records are identified by
+    organization, namespace, and name. A separate aggregation service, the CCDI Data
+    Federation Resource, sends one query to every node and merges the responses. The
+    specification is generated from Rust code with utoipa, changes are proposed through
+    GitHub discussions among the implementers, and each release of the tooling produces
+    the same version of the API. Release v1.3.0 came out in May 2026. It is
+    dual-licensed under Apache 2.0 and MIT. The Kids First DRC describes itself as a
+    participant in the CCDI Federation, working to provide better APIs across members
+    that include St. Jude Cloud, Treehouse, and the Pediatric Cancer Data Commons.
+  related_to:
+  - B2AI_STANDARD:1153
+  - B2AI_STANDARD:1218
+  - B2AI_STANDARD:751
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:157
+  url: https://cbiit.github.io/ccdi-federation-api/
+  publication:
+    ref_url: ''
+
+- id: B2AI_STANDARD:1220
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - cloudplatform
+  concerns_data_topic:
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:61
+  - B2AI_TOPIC:59
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Seven Bridges Cancer Genomics Cloud (CGC), an NCI Cancer Research Data Commons cloud resource
+  has_relevant_organization:
+  - B2AI_ORG:71
+  is_open: false
+  name: Seven Bridges Cancer Genomics Cloud
+  purpose_detail: The Seven Bridges Cancer Genomics Cloud (CGC) is a cloud platform
+    funded by the NCI and powered by Velsera, formerly Seven Bridges, for storing,
+    sharing, and analyzing large cancer datasets where they live. It is one of the cloud
+    resources of the NCI Cancer Research Data Commons (CRDC) and gives access to more
+    than 3 petabytes of CRDC data, from the Genomic Data Commons (TCGA, TARGET, MMRF),
+    the Proteomic Data Commons (CPTAC, APOLLO), the Integrated Canine Data Commons, and
+    the General Commons (HTAN, CCDI, and others). It offers more than 900 public tools
+    and workflows and a visual workflow composer, and runs on the same Seven Bridges
+    platform as CAVATICA, the analysis platform connected to the Kids First Data
+    Resource Portal. Users need an account and pay for cloud compute, and new users can
+    apply for 300 dollars of cloud credits. PDC users can build a cohort in the PDC
+    portal and analyze its files on the CGC.
+  related_to:
+  - B2AI_STANDARD:739
+  - B2AI_STANDARD:1218
+  - B2AI_STANDARD:832
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:1
+  url: https://www.cancergenomicscloud.org/
+  publication:
+    ref_url: https://doi.org/10.1158/0008-5472.CAN-17-0387
+    ref_title: 'The Cancer Genomics Cloud: Collaborative, Reproducible, and Democratized--A New Paradigm in Large-Scale Computational Research'
+    ref_authors:
+    - Lau JW
+    - Lehnert E
+    - Sethi A
+    - Malhotra R
+    - Kaushik G
+    - Onder Z
+    - Groves-Kirkby N
+    - Mihajlovic A
+    - DiGiovanna J
+    - Srdic M
+    - Bajcic D
+    - Radenkovic J
+    - Mladenovic V
+    - Krstanovic D
+    - Arsenijevic V
+    - Klisic D
+    - Mitrovic M
+    - Bogicevic I
+    - Kural D
+    - Davis-Dusenbery B
+    ref_publication_year: 2017
+    ref_journal: Cancer Research
