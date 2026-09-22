@@ -195,7 +195,10 @@ make -f project.Makefile sanitize-data
 ```
 
 `validate` must print `No issues found` for every file. `sanitize-data` normalizes
-typographic Unicode in the YAML.
+typographic Unicode in the YAML. It turns a curly apostrophe into a straight one
+without escaping it, so a single-quoted title such as `'NCI’s Proteomic Data Commons:
+...'` stops parsing after sanitizing. Write straight apostrophes doubled (`''`) inside
+single-quoted strings before running it.
 
 `make -f project.Makefile all-data` is the intended way to rebuild
 `project/data/*.json` and `project/data/*.tsv`, and as of 2026-09-02 it fails from the
