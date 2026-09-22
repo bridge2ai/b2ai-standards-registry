@@ -55817,6 +55817,7 @@ data_standardortools_collection:
     abbreviation and file extension.
   related_to:
   - B2AI_STANDARD:299
+  - B2AI_STANDARD:1221
   requires_registration: false
   url: https://docs.gdc.cancer.gov/Data/File_Formats/MAF_Format/
   publication:
@@ -57937,6 +57938,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:1156
   - B2AI_STANDARD:1153
   - B2AI_STANDARD:261
+  - B2AI_STANDARD:1221
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:129
@@ -59218,6 +59220,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:1201
   - B2AI_STANDARD:1219
   - B2AI_STANDARD:1220
+  - B2AI_STANDARD:1221
+  - B2AI_STANDARD:1222
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:71
@@ -59339,6 +59343,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:739
   - B2AI_STANDARD:1218
   - B2AI_STANDARD:832
+  - B2AI_STANDARD:1221
+  - B2AI_STANDARD:1222
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:1
@@ -59368,4 +59374,221 @@ data_standardortools_collection:
     - Kural D
     - Davis-Dusenbery B
     ref_publication_year: 2017
+    ref_journal: Cancer Research
+
+- id: B2AI_STANDARD:1221
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:62
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCI Genomic Data Commons
+  formal_specification: https://github.com/NCI-GDC/gdcdictionary
+  has_relevant_organization:
+  - B2AI_ORG:129
+  is_open: true
+  name: GDC
+  purpose_detail: The Genomic Data Commons (GDC) is the NCI research program and
+    repository that gives the cancer research community a unified store of cancer
+    genomic and clinical data, launched in 2016. It holds NCI-generated datasets
+    including The Cancer Genome Atlas (TCGA) and TARGET and accepts submissions from
+    other programs. Submitted data are reprocessed with common bioinformatics pipelines
+    so that datasets can be compared directly. DNA sequencing reads are aligned to the
+    GRCh38.d1.vd1 reference, which adds decoy and viral sequences, and higher-level
+    outputs include somatic variant calls from tools such as GATK4 Mutect2, mutation
+    annotation format (MAF) files, copy number segments, and gene expression
+    quantifications. Metadata follow the GDC data model and data dictionary, published
+    as YAML JSON schemas in the gdcdictionary repository under Apache 2.0. The Kids
+    First Data Dictionary derives its structure from it. Users reach the data through
+    the GDC Data Portal with its cohort builder and analysis center, a REST API, the GDC
+    Data Transfer Tool, and a Data Submission Portal. Open-access files need no login.
+    Controlled-access files need eRA Commons authentication and dbGaP authorization. The
+    GDC is one of the data commons of the NCI Cancer Research Data Commons. The 2021
+    paper describing it is by authors at NCI, Children's Hospital of Philadelphia, and
+    the University of Chicago Center for Translational Data Science, among others.
+  related_to:
+  - B2AI_STANDARD:1222
+  - B2AI_STANDARD:1159
+  - B2AI_STANDARD:1157
+  - B2AI_STANDARD:1196
+  - B2AI_STANDARD:1211
+  - B2AI_STANDARD:1220
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:71
+  url: https://gdc.cancer.gov/
+  publication:
+    ref_url: https://doi.org/10.1038/s41588-021-00791-5
+    ref_title: The NCI Genomic Data Commons
+    ref_authors:
+    - Heath AP
+    - Ferretti V
+    - Agrawal S
+    - An M
+    - Angelakos JC
+    - Arya R
+    - Bajari R
+    - Baqar B
+    - Barnowski JHB
+    - Burt J
+    - Catton A
+    - Chan BF
+    - Chu F
+    - Cullion K
+    - Davidsen T
+    - Do PM
+    - Dompierre C
+    - Ferguson ML
+    - Fitzsimons MS
+    - Ford M
+    - Fukuma M
+    - Gaheen S
+    - Ganji GL
+    - Garcia TI
+    - George SS
+    - Gerhard DS
+    - Gerthoffert F
+    - Gomez F
+    - Han K
+    - Hernandez KM
+    - Issac B
+    - Jackson R
+    - Jensen MA
+    - Joshi S
+    - Kadam A
+    - Khurana A
+    - Kim KMJ
+    - Kraft VE
+    - Li S
+    - Lichtenberg TM
+    - Lodato J
+    - Lolla L
+    - Martinov P
+    - Mazzone JA
+    - Miller DP
+    - Miller I
+    - Miller JS
+    - Miyauchi K
+    - Murphy MW
+    - Nullet T
+    - Ogwara RO
+    - Ortuño FM
+    - Pedrosa J
+    - Pham PL
+    - Popov MY
+    - Porter JJ
+    - Powell R
+    - Rademacher K
+    - Reid CP
+    - Rich S
+    - Rogel B
+    - Sahni H
+    - Savage JH
+    - Schmitt KA
+    - Simmons TJ
+    - Sislow J
+    - Spring J
+    - Stein L
+    - Sullivan S
+    - Tang Y
+    - Thiagarajan M
+    - Troyer HD
+    - Wang C
+    - Wang Z
+    - West BL
+    - Wilmer A
+    - Wilson S
+    - Wu K
+    - Wysocki WP
+    - Xiang L
+    - Yamada JT
+    - Yang L
+    - Yu C
+    - Yung CK
+    - Zenklusen JC
+    - Zhang J
+    - Zhang Z
+    - Zhao Y
+    - Zubair A
+    - Staudt LM
+    - Grossman RL
+    ref_publication_year: 2021
+    ref_journal: Nature Genetics
+
+- id: B2AI_STANDARD:1222
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - cloudplatform
+  concerns_data_topic:
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:62
+  - B2AI_TOPIC:61
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCI Cancer Research Data Commons
+  has_relevant_organization:
+  - B2AI_ORG:128
+  is_open: true
+  name: CRDC
+  purpose_detail: The NCI Cancer Research Data Commons (CRDC) is a cloud-based data
+    science infrastructure for submitting, sharing, accessing, and analyzing cancer
+    research data. It makes more than 10 petabytes of data accessible from hundreds of
+    NCI-funded programs and studies and from select external programs. It has three
+    parts. Data commons collect and manage the data, including the Genomic Data Commons,
+    the Proteomic Data Commons, the Integrated Canine Data Commons, and the General
+    Commons, formerly the Cancer Data Service, which holds data from programs such as
+    HTAN and CCDI. Cloud resources provide secure workspaces and analysis tools, among
+    them the Seven Bridges Cancer Genomics Cloud and Terra. An underlying layer supplies
+    a common data model, data standards, and core services that aggregate descriptive
+    metadata from many studies into a single search interface and provide one access
+    method across the data commons. The CRDC is run by the Data Ecosystem Branch of the
+    NCI Center for Biomedical Informatics and Information Technology. Kids First and the
+    CRDC both take part in the NIH Cloud Platform Interoperability (NCPI) effort, and
+    Kids First proteomic studies are held in the CRDC Proteomic Data Commons.
+  related_to:
+  - B2AI_STANDARD:1221
+  - B2AI_STANDARD:1218
+  - B2AI_STANDARD:1220
+  - B2AI_STANDARD:832
+  - B2AI_STANDARD:1155
+  - B2AI_STANDARD:1219
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:71
+  url: https://datacommons.cancer.gov/
+  publication:
+    ref_url: https://doi.org/10.1158/0008-5472.CAN-23-2655
+    ref_title: 'NCI Cancer Research Data Commons: Core Standards and Services'
+    ref_authors:
+    - Brady A
+    - Charbonneau A
+    - Grossman RL
+    - Creasy HH
+    - Renner R
+    - Pihl T
+    - Otridge J
+    - Kim E
+    - the CRDC Program
+    - Barnholtz-Sloan JS
+    - Kerlavage AR
+    ref_publication_year: 2024
     ref_journal: Cancer Research
