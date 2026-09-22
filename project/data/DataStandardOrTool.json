@@ -15508,7 +15508,8 @@
         "B2AI_TOPIC:35"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:29"
+        "B2AI_ORG:29",
+        "B2AI_ORG:128"
       ],
       "purpose_detail": "Variant Effect Predictor (VEP) format is a tab-delimited text format devised by Ensembl for representing functional annotations and predicted effects of genetic variants on genes, transcripts, proteins, and regulatory regions, serving as the primary output format for Ensembl VEP--the widely-adopted variant annotation tool that processes millions of variants from whole-genome and exome sequencing studies to predict biological consequences ranging from synonymous changes to loss-of-function mutations, splice site disruptions, and regulatory element modifications. The format consists of a header section with metadata (VEP version, command-line options, annotation sources, database versions, analysis timestamp) followed by variant records in rows with dozens of tab-separated columns, with a default minimal set including Uploaded_variation (original variant identifier from input VCF), Location (chromosome:position), Allele (alternate allele), Gene (Ensembl stable gene ID like ENSG00000139618 for BRCA2), Feature (transcript ID like ENST00000380152), Feature_type (Transcript/RegulatoryFeature/MotifFeature), Consequence (standardized Sequence Ontology terms like missense_variant, stop_gained, splice_donor_variant), cDNA_position (position in transcript cDNA), CDS_position (position in coding sequence), Protein_position (position in protein), Amino_acids (reference/alternate amino acids), Codons (reference/alternate codons), Existing_variation (dbSNP rsIDs, ClinVar/COSMIC identifiers for known variants), and Extra column containing semicolon-separated key=value pairs for additional annotations. VEP's extensibility allows augmentation with plugin-based annotations including SIFT scores (predicting whether amino acid substitutions affect protein function, threshold <0.05 indicating deleterious), PolyPhen-2 scores (predicting pathogenicity with benign/possibly damaging/probably damaging classifications), CADD scores (Combined Annotation Dependent Depletion ranking variant deleteriousness on phred-scaled 0-99 scale where >20 suggests top 1% most deleterious variants), gnomAD allele frequencies (population frequencies from 125,748 exomes and 71,702 genomes enabling filtering of common benign variants), ClinVar clinical significance (pathogenic/likely pathogenic/benign/likely benign/uncertain significance classifications from expert-curated database), conservation scores (PhyloP/PhastCons measuring evolutionary conservation across species), splicing predictions (dbscSNV/MaxEntScan/SpliceAI scores identifying cryptic splice sites and branchpoint disruptions), regulatory annotations (chromatin states, transcription factor binding sites, enhancer/promoter overlaps from ENCODE/Roadmap Epigenomics), and custom annotations from user-provided VCF/BED/GFF files or remote databases. VEP format supports multi-allelic sites where each alternate allele receives a separate row with consequences calculated independently, accommodates multiple transcript annotations per variant (showing effects across canonical transcript, MANE Select transcript, Ensembl/RefSeq transcripts with varying severities), and handles complex consequences with comma-separated lists (e.g., \"missense_variant,splice_region_variant\" when variant affects both coding and splicing). The format integrates with standard genomic workflows VEP input accepts VCF, JSON, or Ensembl region notation; output VEP format can be converted back to VCF with consequence annotations in INFO/CSQ field using --vcf flag, exported to JSON with --json flag for programmatic parsing, or consumed by downstream tools including Ensembl Variant Recoder, VAtools for precision oncology, OpenCRAVAT for clinical interpretation, and custom parsers in R/Python for machine learning feature extraction. For AI/ML applications, VEP format serves as rich feature representation for variant effect prediction models training supervised classifiers (random forests, gradient boosting, deep neural networks) on labeled pathogenic/benign variants using VEP consequence types, conservation scores, population frequencies, and in silico predictions as features to build ensemble models outperforming individual predictors; variant prioritization pipelines ranking candidate disease-causing variants by aggregating VEP annotation scores with inheritance patterns and phenotype matching; splice variant analysis models using VEP's splice predictions combined with RNA-seq junction reads to train deep learning models identifying cryptic splicing events; cancer driver identification algorithms integrating VEP consequences, COSMIC mutation frequencies, and protein domain annotations to distinguish driver mutations from passenger variants in tumor sequencing; and pharmacogenomics models correlating VEP-annotated variants in drug metabolism genes (CYP2D6, CYP2C19, TPMT) with clinical outcomes to predict drug response, enabling precision medicine applications where genetic variants inform treatment decisions and supporting large-scale variant interpretation in clinical genomics, population genetics, and functional genomics research where systematic annotation of millions of variants requires standardized, comprehensive, machine-readable output capturing diverse biological effects and predictive scores.",
       "is_open": true,
@@ -16196,7 +16197,8 @@
         "B2AI_TOPIC:60"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:138"
+        "B2AI_ORG:138",
+        "B2AI_ORG:128"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:1014",
@@ -17142,7 +17144,9 @@
         "B2AI_TOPIC:78"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:116"
+        "B2AI_ORG:116",
+        "B2AI_ORG:128",
+        "B2AI_ORG:144"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:957"
@@ -27174,7 +27178,8 @@
         "B2AI_TOPIC:61"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:5"
+        "B2AI_ORG:5",
+        "B2AI_ORG:128"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:1135"
@@ -29269,6 +29274,9 @@
       "concerns_data_topic": [
         "B2AI_TOPIC:54",
         "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:961"
@@ -31638,7 +31646,8 @@
         "B2AI_TOPIC:60"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:141"
+        "B2AI_ORG:141",
+        "B2AI_ORG:128"
       ],
       "purpose_detail": "Software based on an RNA-seq alignment algorithm that uses sequential maximum mappable seed search in uncompressed suffix arrays followed by seed clustering and stitching procedure.",
       "is_open": true,
@@ -42676,6 +42685,156 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2026-09-02",
+      "has_application": [
+        {
+          "id": "B2AI_APP:426",
+          "category": "B2AI:Application",
+          "name": "Multimodal deep learning for brain tumor prognosis",
+          "description": "Steyaert and colleagues trained deep learning models that fuse whole slide histopathology images with gene expression to predict survival in adult and pediatric brain tumors, comparing early, late, and joint fusion strategies. The pediatric cohort of 305 samples came from the Pediatric Brain Tumor Atlas through the Kids First Data Resource Portal, and the authors used transfer learning to carry models trained on adult tumors over to the rarer pediatric cases.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s43856-023-00276-y",
+              "ref_title": "Multimodal deep learning to predict prognosis in adult and pediatric brain tumors",
+              "ref_authors": [
+                "Steyaert S",
+                "Qiu YL",
+                "Zheng Y",
+                "Mukherjee P",
+                "Vogel H",
+                "Gevaert O"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "Communications Medicine"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:427",
+          "category": "B2AI:Application",
+          "name": "Radiomic subgroups of pediatric low-grade glioma by K-means clustering",
+          "description": "Haldar and colleagues extracted 881 radiomic features from multiparametric MRI of pediatric low-grade gliomas, reduced them with principal component analysis, and clustered them with K-means into imaging subgroups that track BRAF status and other molecular markers. Raw genomic and imaging data from the Children's Brain Tumor Network were accessed through the Kids First portal, processed genomic data came from OpenPBTA, and clinical data came from PedcBioPortal.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1016/j.neo.2022.100869",
+              "ref_title": "Unsupervised machine learning using K-means identifies radiomic subgroups of pediatric low-grade gliomas that correlate with key molecular markers",
+              "ref_authors": [
+                "Haldar D",
+                "Kazerooni AF",
+                "Arif S",
+                "Familiar A",
+                "Madhogarhia R",
+                "Khalili N",
+                "Bagheri S",
+                "Anderson H",
+                "Shaikh IS",
+                "Mahtabfar A",
+                "Kim MC",
+                "Tu W",
+                "Ware J",
+                "Vossough A",
+                "Davatzikos C",
+                "Storm PB",
+                "Resnick A",
+                "Nabavizadeh A"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "Neoplasia"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:428",
+          "category": "B2AI:Application",
+          "name": "ALLCatchR2 gene expression classifier for T-ALL subtypes",
+          "description": "ALLCatchR2 is an R package with machine learning classifiers that assign T-cell acute lymphoblastic leukemia samples to 20 molecular subtypes from gene expression, reported with validation accuracy between 0.995 and 1.0 across cohorts and age groups. The cohorts analyzed include the Pölönen et al. data, which the paper's data availability statement places in the Kids First Data Resource Center as the Kids First T-cell Acute Lymphoblastic Leukemia (KF-TALL) study.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1002/hem3.70475",
+              "ref_title": "The machine‐learning classifier ALLCatchR2 identifies 20 T‐ALL subtypes across cohorts and age groups",
+              "ref_authors": [
+                "Beder T",
+                "Wolgast N",
+                "Walter W",
+                "Bendig S",
+                "Hartmann AM",
+                "Barz MJ",
+                "Zaliova M",
+                "Reitzel E",
+                "Baden D",
+                "Schwartz S",
+                "Gökbuget N",
+                "Kester L",
+                "Trka J",
+                "Haferlach C",
+                "Brüggemann M",
+                "Baldus CD",
+                "Neumann M",
+                "Bastian L"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "HemaSphere"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:429",
+          "category": "B2AI:Application",
+          "name": "Deep learning on WGS for anxiety markers in Down syndrome",
+          "description": "Liu and colleagues applied neural network models to 30x whole genome sequencing from 1,479 individuals with Down syndrome and their family members, sequenced as part of the Gabriella Miller Kids First program, and identified 29 variant biomarkers specific to anxiety disorder. The same group has published several related deep learning studies on the Kids First Down syndrome and pediatric cancer cohorts.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41380-025-03065-2",
+              "ref_title": "Deep learning algorithms reveal genomic markers for anxiety disorder in a large cohort of children with down syndrome",
+              "ref_authors": [
+                "Liu Y",
+                "Qu HQ",
+                "Chang X",
+                "Mentch FD",
+                "Qiu H",
+                "Torkamandi S",
+                "Nguyen K",
+                "Ostberg K",
+                "Wang T",
+                "Glessner J",
+                "Hakonarson H"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "Molecular Psychiatry"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:430",
+          "category": "B2AI:Application",
+          "name": "Deep learning on WGS for CNS drug repurposing",
+          "description": "Liu and colleagues trained a neural network on whole genome sequencing from 4,392 individuals across 92 central nervous system diagnoses to infer the importance of biological pathways for each condition, then matched those pathway weights to KEGG drug signatures to rank candidates for drug repurposing. Part of the sequencing is in dbGaP and the rest is accessible through the Kids First Data Resource Portal.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1016/j.neurot.2026.e00976",
+              "ref_title": "Drug repurposing opportunities across 92 CNS-related conditions using deep learning and whole-genome sequencing",
+              "ref_authors": [
+                "Liu Y",
+                "Qu HQ",
+                "Mentch FD",
+                "Chang X",
+                "Kim J",
+                "Qiu H",
+                "Ostberg K",
+                "Nguyen K",
+                "Glessner J",
+                "Hakonarson H"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "Neurotherapeutics"
+            }
+          ]
+        }
+      ],
       "collection": [
         "dataregistry",
         "cloudservice"
@@ -42690,7 +42849,11 @@
         "B2AI_TOPIC:67",
         "B2AI_TOPIC:81"
       ],
-      "purpose_detail": "The Kids First Data Resource Portal is the discovery and access interface of the Gabriella Miller Kids First Pediatric Research Program Data Resource Center (Kids First DRC), an NIH Common Fund program that generates whole genome sequencing and harmonized clinical data for childhood cancer and structural birth defect cohorts. The portal organizes data as studies, participants, biospecimens, and data files, and lets users build cohorts by filtering on demographics, diagnoses coded to the Mondo Disease Ontology, phenotypes coded to the Human Phenotype Ontology, anatomical sites and histologies coded to the NCI Thesaurus, and file attributes such as experimental strategy and format. Harmonized genomic outputs from the DRC's standard pipelines include aligned reads (BAM and CRAM), germline gVCF and joint-called VCF files, somatic variant calls including MAF files, RNA-seq expression and fusion calls, and long-read alignments and variants. Registration-tier files are available on login. Controlled-tier files require dbGaP approval, which the portal verifies by linking an eRA Commons identity through Gen3. Files are analyzed by pushing them to a connected Cavatica project or by exporting them locally. The portal user interface is open source and is built on the Arranger GraphQL layer over Elasticsearch. Kids First is one of the NIH Common Fund Data Ecosystem (CFDE) data coordinating centers and submits C2M2 metadata describing its studies.",
+      "has_training_resource": [
+        "B2AI_STANDARD:1203",
+        "B2AI_STANDARD:1205"
+      ],
+      "purpose_detail": "The Kids First Data Resource Portal is the discovery and access interface of the Gabriella Miller Kids First Pediatric Research Program Data Resource Center (Kids First DRC), an NIH Common Fund program that generates whole genome sequencing and harmonized clinical data for childhood cancer and structural birth defect cohorts. The portal organizes data as studies, participants, biospecimens, and data files, and lets users build cohorts by filtering on demographics, diagnoses coded to the Mondo Disease Ontology, phenotypes coded to the Human Phenotype Ontology, anatomical sites and histologies coded to the NCI Thesaurus, and file attributes such as experimental strategy and format. Harmonized genomic outputs from the DRC's standard pipelines include aligned reads (BAM and CRAM), germline gVCF and joint-called VCF files, somatic variant calls including MAF files, RNA-seq expression and fusion calls, and long-read alignments and variants. Registration-tier files are available on login. Controlled-tier files require dbGaP approval, which the portal verifies by linking an eRA Commons identity through Gen3. Files are analyzed by pushing them to a connected Cavatica project or by exporting them locally. The portal user interface is open source and is built on the Ferlab UI component library. Its GraphQL API over Elasticsearch (kf-api-arranger) is shared with the INCLUDE Data Hub and used the Overture Arranger libraries until a rewrite in July 2026 replaced them. Kids First is one of the NIH Common Fund Data Ecosystem (CFDE) data coordinating centers and submits C2M2 metadata describing its studies.",
       "is_open": true,
       "requires_registration": true,
       "url": "https://portal.kidsfirstdrc.org/",
@@ -42772,6 +42935,9 @@
         "B2AI_TOPIC:25",
         "B2AI_TOPIC:54",
         "B2AI_TOPIC:67"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:144"
       ],
       "purpose_detail": "The NIH Cloud Platform Interoperability (NCPI) FHIR Implementation Guide is an HL7 FHIR R4 (4.0.1) implementation guide that defines a shared representation of research study structure and semantics across NIH cloud platforms. It specifies profiles and extensions for research studies, participants and their consent, family relationships, biospecimens, assays and genomic files, and phenotype and disease observations, organized into modules with worked use cases in genomic analysis, rare disease, and childhood cancer. The guide was produced by the NCPI FHIR working group with contributions from the Kids First Data Resource Center, the INCLUDE Data Coordinating Center, the NHGRI AnVIL, and the NCI Cancer Research Data Commons, so that the same participant and file metadata can be queried through FHIR servers at each platform. The current published version is 0.2.0, a draft that its authors note may change in backward-incompatible ways.",
       "is_open": true,
@@ -42923,7 +43089,8 @@
       "name": "MAF (Mutation Annotation Format)",
       "description": "Mutation Annotation Format",
       "related_to": [
-        "B2AI_STANDARD:299"
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1221"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -44723,6 +44890,1731 @@
       },
       "responsible_organization": [
         "B2AI_ORG:118"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1194",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Kids First DRC Harmonization Workflows",
+      "description": "Kids First Data Resource Center bioinformatic harmonization workflows",
+      "related_to": [
+        "B2AI_STANDARD:320",
+        "B2AI_STANDARD:739",
+        "B2AI_STANDARD:300",
+        "B2AI_STANDARD:828",
+        "B2AI_STANDARD:1159",
+        "B2AI_STANDARD:21",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:1201",
+        "B2AI_STANDARD:1202",
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:1207",
+        "B2AI_STANDARD:1208",
+        "B2AI_STANDARD:1209",
+        "B2AI_STANDARD:1210",
+        "B2AI_STANDARD:1211",
+        "B2AI_STANDARD:1212",
+        "B2AI_STANDARD:1213",
+        "B2AI_STANDARD:1214",
+        "B2AI_STANDARD:1215",
+        "B2AI_STANDARD:1216",
+        "B2AI_STANDARD:1217"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:81"
+      ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1204"
+      ],
+      "purpose_detail": "The Kids First Data Resource Center harmonizes the genomic data it releases with a shared set of bioinformatic workflows written in the Common Workflow Language (CWL). Each workflow lives in its own repository in the kids-first GitHub organization and is published as a public app on CAVATICA, so users can run the same processing on their own data. The alignment workflow (kf-alignment-workflow, release v2.11.4) aligns reads with BWA following GATK best practices, with a Sentieon alternative, and produces aligned reads and per-sample gVCFs. The joint genotyping workflow calls variants across families from gVCFs and checks relatedness with Peddy. The somatic workflow (kf-somatic-workflow, release v5.5.0) runs Strelka2, Mutect2, Lancet, VarDict, Control-FREEC, CNVkit, Manta, and AmpliconArchitect, annotates calls with VEP, and writes MAF files with a Kids First port of the MSKCC vcf2maf tool. The RNA-seq workflow (kf-rnaseq-workflow, release v5.2.0) quantifies expression with STAR, RSEM, and Kallisto, calls fusions with Arriba and STAR-Fusion, and calls splicing events with rMATS. Further repositories cover germline copy number and structural variants, tumor-only calling, and PacBio and Oxford Nanopore long reads. The Kids First help center page on the DRC data process names these workflows as the source of the harmonized files in the Kids First Data Resource Portal. A Nextflow port of the RNA-seq workflow exists and its README calls it a development project, not yet in production. Most of the repositories are released under Apache 2.0, and the somatic and germline repositories carry no license file. There is no single landing repository, and the older kf-workflows repository was archived in 2017. OpenPBTA and OpenPedCan built their harmonized data on these workflows.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://kidsfirstdrc.org/help-center/our-data-process/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/kids-first/kf-alignment-workflow",
+      "responsible_organization": [
+        "B2AI_ORG:128"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1195",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Kids First Data Ingest Library",
+      "description": "Kids First Data Ingest Library (kf-lib-data-ingest)",
+      "related_to": [
+        "B2AI_STANDARD:1156",
+        "B2AI_STANDARD:1154",
+        "B2AI_STANDARD:109",
+        "B2AI_STANDARD:1197"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "toolkit"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:25"
+      ],
+      "purpose_detail": "The Kids First Data Ingest Library is the extract, transform, and load framework that the Kids First Data Resource Center uses to bring raw study data from contributing investigators into Kids First services. Each study is described by an ingest package, a set of Python configuration files that say how to fetch the source files, select and clean the needed fields, and map them onto standard Kids First concepts. A command line app creates, tests, and runs ingest packages, and target services are reached through a load plugin interface. The only supported target is the Kids First Data Service. The library is written in Python with pandas, released under Apache 2.0, and reached release 1.26.0 in November 2025. Two other Kids First services sit on either side of it. The Kids First Study Creator (kf-api-study-creator, also called the Data Tracker) is where studies are created and investigators upload files for ingestion. The Kids First FHIR ETL task service (kf-task-fhir-etl) was built on this library to extract tables from the Data Service database, transform them into FHIR resources following the Kids First FHIR data model, and load them into a Kids First FHIR server. That repository was last updated in March 2024, and newer FHIR pipelines for Kids First and INCLUDE are developed in the carrollaboratory GitHub organization.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://kids-first.github.io/kf-lib-data-ingest/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/kids-first/kf-lib-data-ingest",
+      "responsible_organization": [
+        "B2AI_ORG:128"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1196",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Kids First Data Dictionary",
+      "description": "Kids First Gen3 data dictionary",
+      "related_to": [
+        "B2AI_STANDARD:1158",
+        "B2AI_STANDARD:1156",
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:261",
+        "B2AI_STANDARD:1221"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "datamodel"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:67",
+        "B2AI_TOPIC:25",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:57"
+      ],
+      "purpose_detail": "The Kids First Data Dictionary is the Gen3 data dictionary that defines the graph data model for genomic data and minimal clinical elements managed by the Kids First Data Resource Center. Its README describes it as the first level of validation for those data. The dictionary is written as YAML JSON schemas, one per node type, and derives its structure from the NCI GDC Data Dictionary. Nodes are grouped into categories such as biospecimen and analysis and hang from a Program root through typed links with labels, back references, and multiplicities, with separate strongly typed nodes for things such as submitted aligned and unaligned reads. It serves the Kids First Gen3 data commons that handles file indexing and controlled access for the Kids First Data Resource Portal. The repository is maintained by the University of Chicago Center for Translational Data Science under Apache 2.0 and was last updated in April 2025. The copy in the kids-first organization is archived. The pypfb documentation uses a published version of this dictionary as its worked example of building a PFB schema. No Kids First page or repository says that the Kids First portal exports PFB.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/uc-cdis/kf-dictionary",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/uc-cdis/kf-dictionary",
+      "responsible_organization": [
+        "B2AI_ORG:129",
+        "B2AI_ORG:128"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1197",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Kids First Access Model",
+      "description": "Internal access data model for the Kids First Data Resource Center, in LinkML",
+      "related_to": [
+        "B2AI_STANDARD:347",
+        "B2AI_STANDARD:1156",
+        "B2AI_STANDARD:1154",
+        "B2AI_STANDARD:1155",
+        "B2AI_STANDARD:1195"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "datamodel",
+        "implementation_maturity_pilot"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:25",
+        "B2AI_TOPIC:67",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:62"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:144"
+      ],
+      "purpose_detail": "The Kids First Access Model is a LinkML schema that its repository describes as the internal access model for the Kids First Data Resource Center. It defines no classes of its own and instead imports the INCLUDE Common Access Model, a shared warehouse model for research data maintained by the INCLUDE Data Coordinating Center, and declares prefixes for MONDO, HPO, NCIT, SNOMED CT, MeSH, and the CDC race and ethnicity codes. It is built from the LinkML project template, published as generated documentation, and released under the MIT license. It sits alongside a companion schema for Kids First and INCLUDE FHIR input (kfi-fhir-input) and dbt models that project warehouse tables into FHIR, all developed in the carrollaboratory GitHub organization at Vanderbilt University Medical Center. These repositories were active in 2026. No Kids First source states that they have replaced the older Kids First FHIR ETL task service. The model is under active development.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://carrollaboratory.github.io/kf-access-model/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/carrollaboratory/kf-access-model",
+      "responsible_organization": [
+        "B2AI_ORG:128"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1198",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Kids First Variant Workbench",
+      "description": "Kids First Variant Workbench on CAVATICA",
+      "related_to": [
+        "B2AI_STANDARD:739",
+        "B2AI_STANDARD:727",
+        "B2AI_STANDARD:779",
+        "B2AI_STANDARD:751",
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "notebookplatform",
+        "cloudservice"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:25",
+        "B2AI_TOPIC:7",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:62"
+      ],
+      "purpose_detail": "The Kids First Variant Workbench is a public CAVATICA project that combines Kids First participant conditions, genomic variants, and variant annotations such as ClinVar and CADD into a set of tables linked with PySpark SQL. The help center reports more than 400 million unique variants across the Kids First cohorts. Users copy the public project into their own CAVATICA workspace and query it from JupyterLab through CAVATICA Data Studio. Controlled-access occurrence tables are imported for each user from the Kids First Data Resource Portal through DRS after dbGaP authorization. The help center page is the main documentation. The public repository variant-workbench-migration was last updated in November 2023 and its README calls it a beta release for approved testers.",
+      "is_open": true,
+      "requires_registration": true,
+      "url": "https://kidsfirstdrc.org/help-center/variant-workbench/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/kids-first/variant-workbench-migration",
+      "responsible_organization": [
+        "B2AI_ORG:128"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1199",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "cBioPortal",
+      "description": "cBioPortal for Cancer Genomics",
+      "related_to": [
+        "B2AI_STANDARD:1159",
+        "B2AI_STANDARD:1200"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "datavisualization",
+        "fileformat"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:4",
+        "B2AI_TOPIC:62"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128",
+        "B2AI_ORG:145"
+      ],
+      "purpose_detail": "cBioPortal is an open source web platform for interactive exploration of cancer genomics data, first released by Memorial Sloan Kettering Cancer Center. It displays mutations, copy number alterations, structural variants, gene expression, and clinical attributes for samples and patients, and supports cohort comparison, survival analysis, and oncoprint views. Data are loaded as studies built from a documented set of tab-delimited file formats for clinical data, mutations in MAF, discrete and continuous copy number, expression, and structural variants, each paired with a meta file. That file specification is the reason this entry is also tagged as a file format. Anyone can run their own instance. The public site at cbioportal.org hosts TCGA and many other studies. The Kids First Data Resource Center and D3b run a pediatric instance, PedcBioPortal, and convert Kids First harmonized outputs into cBioPortal load files with the kf-cbioportal-etl repository.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://www.cbioportal.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1158/2159-8290.CD-12-0095",
+        "ref_title": "The cBio Cancer Genomics Portal: An Open Platform for Exploring Multidimensional Cancer Genomics Data",
+        "ref_authors": [
+          "Cerami E",
+          "Gao J",
+          "Dogrusoz U",
+          "Gross BE",
+          "Sumer SO",
+          "Aksoy BA",
+          "Jacobsen A",
+          "Byrne CJ",
+          "Heuer ML",
+          "Larsson E",
+          "Antipin Y",
+          "Reva B",
+          "Goldberg AP",
+          "Sander C",
+          "Schultz N"
+        ],
+        "ref_publication_year": 2012,
+        "ref_journal": "Cancer Discovery"
+      },
+      "formal_specification": "https://docs.cbioportal.org/file-formats/",
+      "responsible_organization": [
+        "B2AI_ORG:155"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1200",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "PedcBioPortal",
+      "description": "Pediatric cBioPortal instance for Kids First and partner pediatric cancer data",
+      "related_to": [
+        "B2AI_STANDARD:1199",
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:1156",
+        "B2AI_STANDARD:1194",
+        "B2AI_STANDARD:1201",
+        "B2AI_STANDARD:1202"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "datavisualization",
+        "dataregistry"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:4"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "PedcBioPortal is a cBioPortal instance for pediatric cancer genomics that the Kids First help center calls a partner platform to the Kids First Data Resource Portal. It hosts harmonized genomic and clinical data from Kids First pediatric cancer studies, and OpenPedCan releases are queryable there. Users sign in through the Kids First identity service. Kids First outputs are converted into cBioPortal study files by the kf-cbioportal-etl repository, which pulls metadata from the Kids First Data Service and processed files from CAVATICA and the D3b data warehouse. That repository is released under Apache 2.0 and was updated in September 2026. No dedicated publication for PedcBioPortal was found.",
+      "is_open": true,
+      "requires_registration": true,
+      "url": "https://pedcbioportal.org/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/kids-first/kf-cbioportal-etl",
+      "responsible_organization": [
+        "B2AI_ORG:145"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1201",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "OpenPBTA",
+      "description": "Open Pediatric Brain Tumor Atlas",
+      "related_to": [
+        "B2AI_STANDARD:1194",
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:1200",
+        "B2AI_STANDARD:1202",
+        "B2AI_STANDARD:739"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "has_application": [
+        {
+          "id": "B2AI_APP:431",
+          "category": "B2AI:Application",
+          "name": "TP53 inactivation and medulloblastoma subtype classifiers in OpenPBTA",
+          "description": "OpenPBTA applied a TP53 inactivation classifier trained on TCGA expression data to pediatric brain tumors, reaching an AUROC of 0.86 on rRNA-depleted stranded RNA-seq, and used the scores to study TP53 function across histologies. It also subtyped medulloblastomas from RNA-seq with the MedulloClassifier and MM2S classifiers, which agreed with clinical subtypes in 41 and 39 of 43 samples. The inputs were Kids First harmonized data from the Pediatric Brain Tumor Atlas.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1016/j.xgen.2023.100340",
+              "ref_title": "OpenPBTA: The Open Pediatric Brain Tumor Atlas",
+              "ref_authors": [
+                "Shapiro JA",
+                "Gaonkar KS",
+                "Spielman SJ",
+                "Savonen CL",
+                "Bethell CJ",
+                "Jin R",
+                "Rathi KS",
+                "Zhu Y",
+                "Egolf LE",
+                "Farrow BK",
+                "Miller DP",
+                "Yang Y",
+                "Koganti T",
+                "Noureen N",
+                "Koptyra MP",
+                "Duong N",
+                "Santi M",
+                "Kim J",
+                "Robins S",
+                "Storm PB",
+                "Mack SC",
+                "Lilly JV",
+                "Xie HM",
+                "Jain P",
+                "Raman P",
+                "Rood BR",
+                "Lulla RR",
+                "Nazarian J",
+                "Kraya AA",
+                "Vaksman Z",
+                "Heath AP",
+                "Kline C",
+                "Scolaro L",
+                "Viaene AN",
+                "Huang X",
+                "Way GP",
+                "Foltz SM",
+                "Zhang B",
+                "Poetsch AR",
+                "Mueller S",
+                "Ennis BM",
+                "Prados M",
+                "Diskin SJ",
+                "Zheng S",
+                "Guo Y",
+                "Kannan S",
+                "Waanders AJ",
+                "Margol AS",
+                "Kim MC",
+                "Hanson D",
+                "Van Kuren N",
+                "Wong J",
+                "Kaufman RS",
+                "Coleman N",
+                "Blackden C",
+                "Cole KA",
+                "Mason JL",
+                "Madsen PJ",
+                "Koschmann CJ",
+                "Stewart DR",
+                "Wafula E",
+                "Brown MA",
+                "Resnick AC",
+                "Greene CS",
+                "Rokita JL",
+                "Taroni JN"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "Cell Genomics"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "toolkit"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:58",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "OpenPBTA, the Open Pediatric Brain Tumor Atlas, is an open, reproducible, and collaborative analysis of genomic and transcriptomic data from 1,074 pediatric brain tumors from the Children's Brain Tumor Network and the Pacific Pediatric Neuro-Oncology Consortium. The input data were harmonized with Kids First DRC workflows on CAVATICA and are available through the Kids First Data Resource Portal. Analyses were contributed openly to a public GitHub repository and the manuscript was also developed in the open. Among its analyses are machine learning classifiers for TP53 inactivation and medulloblastoma subtype. It was led by the Childhood Cancer Data Lab of Alex's Lemonade Stand Foundation and D3b at Children's Hospital of Philadelphia. The repository was archived in June 2023 and its work continues in OpenPedCan.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/AlexsLemonade/OpenPBTA-analysis",
+      "publication": {
+        "ref_url": "https://doi.org/10.1016/j.xgen.2023.100340",
+        "ref_title": "OpenPBTA: The Open Pediatric Brain Tumor Atlas",
+        "ref_authors": [
+          "Shapiro JA",
+          "Gaonkar KS",
+          "Spielman SJ",
+          "Savonen CL",
+          "Bethell CJ",
+          "Jin R",
+          "Rathi KS",
+          "Zhu Y",
+          "Egolf LE",
+          "Farrow BK",
+          "Miller DP",
+          "Yang Y",
+          "Koganti T",
+          "Noureen N",
+          "Koptyra MP",
+          "Duong N",
+          "Santi M",
+          "Kim J",
+          "Robins S",
+          "Storm PB",
+          "Mack SC",
+          "Lilly JV",
+          "Xie HM",
+          "Jain P",
+          "Raman P",
+          "Rood BR",
+          "Lulla RR",
+          "Nazarian J",
+          "Kraya AA",
+          "Vaksman Z",
+          "Heath AP",
+          "Kline C",
+          "Scolaro L",
+          "Viaene AN",
+          "Huang X",
+          "Way GP",
+          "Foltz SM",
+          "Zhang B",
+          "Poetsch AR",
+          "Mueller S",
+          "Ennis BM",
+          "Prados M",
+          "Diskin SJ",
+          "Zheng S",
+          "Guo Y",
+          "Kannan S",
+          "Waanders AJ",
+          "Margol AS",
+          "Kim MC",
+          "Hanson D",
+          "Van Kuren N",
+          "Wong J",
+          "Kaufman RS",
+          "Coleman N",
+          "Blackden C",
+          "Cole KA",
+          "Mason JL",
+          "Madsen PJ",
+          "Koschmann CJ",
+          "Stewart DR",
+          "Wafula E",
+          "Brown MA",
+          "Resnick AC",
+          "Greene CS",
+          "Rokita JL",
+          "Taroni JN"
+        ],
+        "ref_publication_year": 2023,
+        "ref_journal": "Cell Genomics"
+      },
+      "formal_specification": "https://github.com/AlexsLemonade/OpenPBTA-analysis",
+      "responsible_organization": [
+        "B2AI_ORG:146",
+        "B2AI_ORG:145"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1202",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "OpenPedCan",
+      "description": "Open Pediatric Cancer Project",
+      "related_to": [
+        "B2AI_STANDARD:1201",
+        "B2AI_STANDARD:1194",
+        "B2AI_STANDARD:1200",
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:739"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "has_application": [
+        {
+          "id": "B2AI_APP:432",
+          "category": "B2AI:Application",
+          "name": "MRI radiomics and machine learning for pediatric low-grade glioma prognosis",
+          "description": "Fathi Kazerooni and colleagues combined multiparametric MRI radiomics with RNA-seq expression from OpenPedCan release v12, quantified with the Kids First STAR and RSEM workflow, to build machine learning models for pediatric low-grade glioma. A radiomic signature predicted immune clusters with more than 80 percent accuracy, and a clinicoradiomic model predicted progression-free survival. The work was funded in part by a Kids First Data Resource Center supplement.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41467-024-55659-z",
+              "ref_title": "Multiparametric MRI along with machine learning predicts prognosis and treatment response in pediatric low-grade glioma",
+              "ref_authors": [
+                "Fathi Kazerooni A",
+                "Kraya A",
+                "Rathi KS",
+                "Kim MC",
+                "Vossough A",
+                "Khalili N",
+                "Familiar AM",
+                "Gandhi D",
+                "Khalili N",
+                "Kesherwani V",
+                "Haldar D",
+                "Anderson H",
+                "Jin R",
+                "Mahtabfar A",
+                "Bagheri S",
+                "Guo Y",
+                "Li Q",
+                "Huang X",
+                "Zhu Y",
+                "Sickler A",
+                "Lueder MR",
+                "Phul S",
+                "Koptyra M",
+                "Storm PB",
+                "Ware JB",
+                "Song Y",
+                "Davatzikos C",
+                "Foster JB",
+                "Mueller S",
+                "Fisher MJ",
+                "Resnick AC",
+                "Nabavizadeh A"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "Nature Communications"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "toolkit"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:58",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "OpenPedCan, the Open Pediatric Cancer Project, extends OpenPBTA to about 6,112 patients and more than 100 pediatric cancer histologies, adding data from Kids First studies including Kids First neuroblastoma. The authors used Kids First workflows to harmonize whole genome, whole exome, RNA-seq, and targeted sequencing data. Releases are available through CAVATICA and AWS S3 and are queryable through PedcBioPortal. OpenPedCan also fed the NCI pediatric Molecular Targets Platform, whose frontend repository is now archived. An API over the data is developed in the PediatricOpenTargets organization. The analysis repository is maintained by D3b at Children's Hospital of Philadelphia and was last updated in July 2025.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://d3b-center.github.io/OpenPedCan-analysis/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/gigascience/giaf093",
+        "ref_title": "The Open Pediatric Cancer Project",
+        "ref_authors": [
+          "Geng Z",
+          "Wafula E",
+          "Corbett RJ",
+          "Zhang Y",
+          "Jin R",
+          "Gaonkar KS",
+          "Shukla S",
+          "Rathi KS",
+          "Hill D",
+          "Lahiri A",
+          "Miller DP",
+          "Sickler A",
+          "Keith K",
+          "Blackden C",
+          "Chroni A",
+          "Brown MA",
+          "Kraya AA",
+          "Clark KL",
+          "Rood BR",
+          "Resnick AC",
+          "Van Kuren N",
+          "Maris JM",
+          "Farrel A",
+          "Koptyra MP",
+          "Trooskin GR",
+          "Coleman N",
+          "Zhu Y",
+          "Stefankiewicz S",
+          "Abdullaev Z",
+          "Chinwalla AT",
+          "Santi M",
+          "Naqvi AS",
+          "Mason JL",
+          "Koschmann CJ",
+          "Huang X",
+          "Diskin SJ",
+          "Aldape K",
+          "Farrow BK",
+          "Ma W",
+          "Zhang B",
+          "Ennis BM",
+          "Tasian S",
+          "Phul S",
+          "Lueder MR",
+          "Zhong C",
+          "Dybas JM",
+          "Wang P",
+          "Taylor D",
+          "Rokita JL"
+        ],
+        "ref_publication_year": 2025,
+        "ref_journal": "GigaScience"
+      },
+      "formal_specification": "https://github.com/d3b-center/OpenPedCan-analysis",
+      "responsible_organization": [
+        "B2AI_ORG:145"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1203",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "Kids First DRC Help Center",
+      "description": "Help center, video tutorials, and support sessions of the Kids First Data Resource Center",
+      "related_to": [
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:1194",
+        "B2AI_STANDARD:1198",
+        "B2AI_STANDARD:739",
+        "B2AI_STANDARD:1157"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:35"
+      ],
+      "purpose_detail": "The Kids First DRC Help Center is the user documentation for the Kids First Data Resource Portal and its connected platforms. Its guides cover a quick start, the studies tool, the DRC data process and harmonization workflows, applying for controlled data through dbGaP, linking eRA Commons and CAVATICA accounts, cohort filters, variant search, the portal data dictionary, analysis on CAVATICA, the Variant Workbench, local export, cloud credits, and costs. A video tutorial series covers getting started, data access, portal integrations, CAVATICA analysis, PedcBioPortal, variant discovery, biospecimen requests to the Children's Brain Tumor Network, and an example project. The DRC also runs live support sessions, a monthly group session for new users called SupportU and one-to-one MasterClass appointments. A separate cloud credits guide is kept in the kf-cloud-credits repository.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://kidsfirstdrc.org/help-center/",
+      "publication": {
+        "ref_url": ""
+      },
+      "responsible_organization": [
+        "B2AI_ORG:128"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1204",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "Kids First Elements of Style in Workflow Creation and Maintenance",
+      "description": "Five-day training course on bioinformatic workflow creation for Kids First and INCLUDE data",
+      "related_to": [
+        "B2AI_STANDARD:320",
+        "B2AI_STANDARD:739",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:61",
+        "B2AI_TOPIC:13"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128",
+        "B2AI_ORG:144"
+      ],
+      "purpose_detail": "Elements of Style in Workflow Creation and Maintenance is a five-day training course that Kids First and INCLUDE offered jointly, organized through the NIH NICHD GitHub organization. Its sessions cover reasoning about an analysis, code versioning, containerization, workflow development, and running workflows on CAVATICA against Kids First and INCLUDE data. The materials are released under the MIT license and the repository was last updated in February 2023. A 2023 BioIT hackathon project on MYC amplification in congenital heart disease and cancer applied the course approach to Kids First and INCLUDE data.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://nih-nichd.github.io/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/NIH-NICHD/Kids-First-Elements-of-Style-Workflow-Creation-Maintenance"
+    },
+    {
+      "id": "B2AI_STANDARD:1205",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "CFDE Kids First and Cavatica Lessons",
+      "description": "CFDE training lessons on the Kids First portal and CAVATICA",
+      "related_to": [
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:739",
+        "B2AI_STANDARD:63"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:13"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "The CFDE Training and Engagement team wrote a series of lessons whose stated goal is to enable clinician researchers to use the Kids First Data Resource Portal to build cohorts and to move those data to CAVATICA for analysis. A companion lesson walks through a differential gene expression analysis on CAVATICA starting from a Kids First cohort, and is marked as a lesson in development. The rendered CFDE training site now redirects to the CFDE Workbench, so the lessons are cited here by their source in the nih-cfde training-and-engagement repository, last updated in January 2024.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/nih-cfde/training-and-engagement/tree/dev/docs/Common-Fund-Tools/Kids-First",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1206",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "GATK",
+      "description": "Genome Analysis Toolkit",
+      "related_to": [
+        "B2AI_STANDARD:1211",
+        "B2AI_STANDARD:1207",
+        "B2AI_STANDARD:1208",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:81"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "The Genome Analysis Toolkit (GATK) is the Broad Institute's software package for variant discovery in high-throughput sequencing data. It includes tools for base quality recalibration, germline short variant calling with HaplotypeCaller, joint genotyping from gVCFs, somatic short variant calling with Mutect2, and copy number variant calling, together with the published GATK Best Practices workflows that chain them. GATK 4 and later are released under the Apache 2.0 license. The original paper describes the MapReduce framework on which the toolkit was first built. The Kids First DRC alignment workflow follows BWA and GATK best practices and emits HaplotypeCaller gVCFs, the joint genotyping workflow uses GATK, and the somatic workflow runs Mutect2 v4.1.1.0 and GATK CNV v4.2.4.1 against a panel of normals.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/broadinstitute/gatk",
+      "publication": {
+        "ref_url": "https://doi.org/10.1101/gr.107524.110",
+        "ref_title": "The Genome Analysis Toolkit: A MapReduce framework for analyzing next-generation DNA sequencing data",
+        "ref_authors": [
+          "McKenna A",
+          "Hanna M",
+          "Banks E",
+          "Sivachenko A",
+          "Cibulskis K",
+          "Kernytsky A",
+          "Garimella K",
+          "Altshuler D",
+          "Gabriel S",
+          "Daly M",
+          "DePristo MA"
+        ],
+        "ref_publication_year": 2010,
+        "ref_journal": "Genome Research"
+      },
+      "formal_specification": "https://github.com/broadinstitute/gatk",
+      "responsible_organization": [
+        "B2AI_ORG:147"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1207",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "BWA",
+      "description": "Burrows-Wheeler Aligner",
+      "related_to": [
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:1208",
+        "B2AI_STANDARD:21",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:59"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "BWA, the Burrows-Wheeler Aligner, maps short sequencing reads against a large reference genome such as the human genome using a Burrows-Wheeler transform index. It provides the BWA-backtrack, BWA-SW, and BWA-MEM algorithms, with BWA-MEM the usual choice for reads of 70 bp and longer. It is written by Heng Li, released under GPL 3.0, and writes alignments in SAM format. A separate project, bwa-mem2, is a faster reimplementation of BWA-MEM. The Kids First DRC alignment workflow is named for BWA and GATK and aligns reads with BWA before GATK processing.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/lh3/bwa",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btp324",
+        "ref_title": "Fast and accurate short read alignment with Burrows-Wheeler transform",
+        "ref_authors": [
+          "Li H",
+          "Durbin R"
+        ],
+        "ref_publication_year": 2009,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/lh3/bwa"
+    },
+    {
+      "id": "B2AI_STANDARD:1208",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Sentieon",
+      "description": "Sentieon Genomics Tools",
+      "related_to": [
+        "B2AI_STANDARD:1207",
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:59"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Sentieon Genomics Tools are commercial software from Sentieon Inc. that reimplement the BWA alignment and GATK variant calling algorithms with faster, more efficient code, and aim to produce results equivalent to the open source tools they replace. The suite covers alignment, germline calling and joint genotyping, and somatic calling. Use requires a paid license from Sentieon. The helper scripts in the Sentieon GitHub organization are released under BSD 2-Clause, and the tools themselves are not open source. The Kids First DRC alignment workflow repository includes a Sentieon version of its BWA and GATK pipeline, and Kids First also maintains a Sentieon joint cohort genotyping workflow.",
+      "is_open": false,
+      "requires_registration": true,
+      "url": "https://www.sentieon.com/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1101/115717",
+        "ref_title": "The Sentieon Genomics Tools - A fast and accurate solution to variant calling from next-generation sequence data",
+        "ref_authors": [
+          "Freed D",
+          "Aldana R",
+          "Weber JA",
+          "Edwards JS"
+        ],
+        "ref_publication_year": 2017,
+        "ref_journal": "bioRxiv"
+      },
+      "formal_specification": "https://github.com/Sentieon/sentieon-scripts",
+      "responsible_organization": [
+        "B2AI_ORG:151"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1209",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Peddy",
+      "description": "Pedigree and sample quality checks from VCF",
+      "related_to": [
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:78",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:6"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Peddy compares the genotypes in a multi-sample VCF against a PED pedigree file to find sample errors. It checks that stated sex matches the genotypes on the X chromosome, that stated family relationships match estimated relatedness, and predicts ancestry from a projection onto 1000 Genomes samples, producing an interactive HTML report. It was written by Brent Pedersen and Aaron Quinlan and is released under the MIT license. The Kids First DRC joint genotyping workflow runs Peddy on trios and families after joint calling.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/brentp/peddy",
+      "publication": {
+        "ref_url": "https://doi.org/10.1016/j.ajhg.2017.01.017",
+        "ref_title": "Who's Who? Detecting and Resolving Sample Anomalies in Human DNA Sequencing Studies with Peddy",
+        "ref_authors": [
+          "Pedersen BS",
+          "Quinlan AR"
+        ],
+        "ref_publication_year": 2017,
+        "ref_journal": "The American Journal of Human Genetics"
+      },
+      "formal_specification": "https://github.com/brentp/peddy"
+    },
+    {
+      "id": "B2AI_STANDARD:1210",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Strelka2",
+      "description": "Strelka2 germline and somatic small variant caller",
+      "related_to": [
+        "B2AI_STANDARD:1216",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Strelka2 is Illumina's caller for germline and somatic single nucleotide variants and small indels from mapped sequencing reads. For tumor and normal pairs it models tumor purity and uses candidate indels from Manta to improve indel calling. Its source is provided under the PolyForm Strict License 1.0.0, which allows noncommercial use but not modification or redistribution, and the GitHub repository is archived. The Kids First DRC somatic workflow runs Strelka2 v2.9.3 as one of its four small variant callers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/Illumina/strelka",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41592-018-0051-x",
+        "ref_title": "Strelka2: fast and accurate calling of germline and somatic variants",
+        "ref_authors": [
+          "Kim S",
+          "Scheffler K",
+          "Halpern AL",
+          "Bekritsky MA",
+          "Noh E",
+          "Källberg M",
+          "Chen X",
+          "Kim Y",
+          "Beyter D",
+          "Krusche P",
+          "Saunders CT"
+        ],
+        "ref_publication_year": 2018,
+        "ref_journal": "Nature Methods"
+      },
+      "formal_specification": "https://github.com/Illumina/strelka",
+      "responsible_organization": [
+        "B2AI_ORG:148"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1211",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Mutect2",
+      "description": "GATK somatic short variant caller",
+      "related_to": [
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Mutect2 is the GATK tool for calling somatic single nucleotide variants and indels. It assembles local haplotypes in active regions, as HaplotypeCaller does, and then applies a somatic likelihood model suited to tumor samples with low allele fractions and subclonal variants. It supports tumor and matched normal pairs, tumor-only calling with a panel of normals, and filtering with FilterMutectCalls. It is distributed as part of GATK under the Apache 2.0 license. The Kids First DRC somatic workflow runs Mutect2 v4.1.1.0 as one of its four small variant callers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/broadinstitute/gatk/tree/master/docs/mutect",
+      "publication": {
+        "ref_url": "https://doi.org/10.1101/861054",
+        "ref_title": "Calling Somatic SNVs and Indels with Mutect2",
+        "ref_authors": [
+          "Benjamin D",
+          "Sato T",
+          "Cibulskis K",
+          "Getz G",
+          "Stewart C",
+          "Lichtenstein L"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "bioRxiv"
+      },
+      "formal_specification": "https://github.com/broadinstitute/gatk",
+      "responsible_organization": [
+        "B2AI_ORG:147"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1212",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Lancet",
+      "description": "Lancet somatic variant caller",
+      "related_to": [
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Lancet is a somatic variant caller from the New York Genome Center that calls single nucleotide variants and indels by joint microassembly of tumor and normal reads with localized colored de Bruijn graphs. Version 1 is released under a New York Genome Center software license for not-for-profit use. A rewrite, Lancet2, is developed in a separate repository under the BSD 3-Clause license. The Kids First DRC somatic workflow runs Lancet v1.0.7 as one of its four small variant callers. For whole genome data it calls only coding regions and adds candidate sites from Mutect2 and Strelka2, because whole-genome intervals lead to extreme runtime and cost.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/nygenome/lancet",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s42003-018-0023-9",
+        "ref_title": "Genome-wide somatic variant calling using localized colored de Bruijn graphs",
+        "ref_authors": [
+          "Narzisi G",
+          "Corvelo A",
+          "Arora K",
+          "Bergmann EA",
+          "Shah M",
+          "Musunuri R",
+          "Emde AK",
+          "Robine N",
+          "Vacic V",
+          "Zody MC"
+        ],
+        "ref_publication_year": 2018,
+        "ref_journal": "Communications Biology"
+      },
+      "formal_specification": "https://github.com/nygenome/lancet",
+      "responsible_organization": [
+        "B2AI_ORG:149"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1213",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "VarDict",
+      "description": "VarDict variant caller",
+      "related_to": [
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "VarDict is a variant caller from AstraZeneca for single nucleotide variants, multi-nucleotide variants, indels, and complex and structural variants in single samples and tumor and normal pairs, designed for the high depth and low allele fractions of cancer sequencing. VarDict Java is a faster port of the original Perl implementation. Both repositories are released under the MIT license, and both are archived with no updates since January 2024. The Kids First DRC somatic workflow runs VarDict Java v1.7.0 as one of its four small variant callers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/AstraZeneca-NGS/VarDictJava",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/nar/gkw227",
+        "ref_title": "VarDict: a novel and versatile variant caller for next-generation sequencing in cancer research",
+        "ref_authors": [
+          "Lai Z",
+          "Markovets A",
+          "Ahdesmaki M",
+          "Chapman B",
+          "Hofmann O",
+          "McEwen R",
+          "Johnson J",
+          "Dougherty B",
+          "Barrett JC",
+          "Dry JR"
+        ],
+        "ref_publication_year": 2016,
+        "ref_journal": "Nucleic Acids Research"
+      },
+      "formal_specification": "https://github.com/AstraZeneca-NGS/VarDictJava",
+      "responsible_organization": [
+        "B2AI_ORG:150"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1214",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Control-FREEC",
+      "description": "Control-FREEC copy number and allelic content caller",
+      "related_to": [
+        "B2AI_STANDARD:1215",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Control-FREEC detects copy number changes and allelic imbalance, including loss of heterozygosity, from whole genome, whole exome, and targeted sequencing data. It normalizes read counts by GC content and mappability, with or without a matched control sample, and segments the profile to assign copy number and genotype status. It comes from the Bioinformatics Laboratory of Institut Curie and the Boeva lab, and its GitHub repository carries no license file. The Kids First DRC somatic workflow runs Control-FREEC v11.6 as one of its copy number callers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/BoevaLab/FREEC",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btr670",
+        "ref_title": "Control-FREEC: a tool for assessing copy number and allelic content using next-generation sequencing data",
+        "ref_authors": [
+          "Boeva V",
+          "Popova T",
+          "Bleakley K",
+          "Chiche P",
+          "Cappo J",
+          "Schleiermacher G",
+          "Janoueix-Lerosey I",
+          "Delattre O",
+          "Barillot E"
+        ],
+        "ref_publication_year": 2011,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/BoevaLab/FREEC",
+      "responsible_organization": [
+        "B2AI_ORG:152"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1215",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "CNVkit",
+      "description": "Copy number detection from targeted DNA sequencing",
+      "related_to": [
+        "B2AI_STANDARD:1214",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "CNVkit infers and visualizes copy number from targeted DNA sequencing using both on-target reads and the nonspecifically captured off-target reads, and it also handles whole genome data. It provides segmentation, calling with purity and ploidy adjustment, and plots. It was developed at UCSF, is written in Python, and is released under the Apache 2.0 license. The Kids First DRC somatic workflow runs CNVkit v0.9.3 and adjusts its calls with purity estimates from THetA2.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://cnvkit.readthedocs.io/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1371/journal.pcbi.1004873",
+        "ref_title": "CNVkit: Genome-Wide Copy Number Detection and Visualization from Targeted DNA Sequencing",
+        "ref_authors": [
+          "Talevich E",
+          "Shain AH",
+          "Botton T",
+          "Bastian BC"
+        ],
+        "ref_publication_year": 2016,
+        "ref_journal": "PLOS Computational Biology"
+      },
+      "formal_specification": "https://github.com/etal/cnvkit",
+      "responsible_organization": [
+        "B2AI_ORG:153"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1216",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Manta",
+      "description": "Manta structural variant and indel caller",
+      "related_to": [
+        "B2AI_STANDARD:1210",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Manta is Illumina's caller for structural variants and medium-sized indels from paired-end sequencing reads, for germline samples and for tumor and normal pairs. It combines paired-read and split-read evidence with local assembly and writes calls in VCF. Its candidate indels are used as input to Strelka2. Its source is provided under the PolyForm Strict License 1.0.0 and the GitHub repository is archived. The Kids First DRC somatic workflow runs Manta v1.4.0 for structural variants and annotates the passing calls with AnnotSV.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/Illumina/manta",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btv710",
+        "ref_title": "Manta: rapid detection of structural variants and indels for germline and cancer sequencing applications",
+        "ref_authors": [
+          "Chen X",
+          "Schulz-Trieglaff O",
+          "Shaw R",
+          "Barnes B",
+          "Schlesinger F",
+          "Källberg M",
+          "Cox AJ",
+          "Kruglyak S",
+          "Saunders CT"
+        ],
+        "ref_publication_year": 2015,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/Illumina/manta",
+      "responsible_organization": [
+        "B2AI_ORG:148"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1217",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "AmpliconArchitect",
+      "description": "Reconstruction of focal amplifications from WGS",
+      "related_to": [
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "AmpliconArchitect reconstructs the structure of focally amplified regions from whole genome sequencing, combining copy number and structural variant evidence into breakpoint graphs, and is used to find extrachromosomal DNA (ecDNA) in tumors. The AmpliconSuite-pipeline wraps the preparatory steps and the AmpliconClassifier tool that labels each amplicon. It is copyright the Regents of the University of California and licensed for educational, research, and non-profit use. The Kids First DRC somatic workflow runs AmpliconArchitect to predict ecDNA in whole genome tumor samples only, seeded from its CNVkit calls, and disables it in exome mode.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/AmpliconSuite/AmpliconArchitect",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41467-018-08200-y",
+        "ref_title": "Exploring the landscape of focal amplifications in cancer using AmpliconArchitect",
+        "ref_authors": [
+          "Deshpande V",
+          "Luebeck J",
+          "Nguyen NPD",
+          "Bakhtiari M",
+          "Turner KM",
+          "Schwab R",
+          "Carter H",
+          "Mischel PS",
+          "Bafna V"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "Nature Communications"
+      },
+      "formal_specification": "https://github.com/AmpliconSuite/AmpliconArchitect",
+      "responsible_organization": [
+        "B2AI_ORG:154"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1218",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "PDC",
+      "description": "NCI Proteomic Data Commons",
+      "related_to": [
+        "B2AI_STANDARD:221",
+        "B2AI_STANDARD:894",
+        "B2AI_STANDARD:832",
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:1201",
+        "B2AI_STANDARD:1219",
+        "B2AI_STANDARD:1220",
+        "B2AI_STANDARD:1221",
+        "B2AI_STANDARD:1222"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "dataregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:26",
+        "B2AI_TOPIC:28",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:67",
+        "B2AI_TOPIC:4"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128",
+        "B2AI_ORG:156",
+        "B2AI_ORG:157"
+      ],
+      "purpose_detail": "The Proteomic Data Commons (PDC) is the proteomics repository of the NCI Cancer Research Data Commons (CRDC). It holds mass spectrometry proteomic data from cancer studies with their biospecimen, clinical, and experimental metadata, structured by the PDC data model and data dictionary. Submitted data are processed through a common data analysis pipeline and harmonized. Files include vendor raw mass spectra, processed spectra in mzML, peptide spectrum matches in TSV and mzIdentML, protein assembly tables, and quality metric reports. All proteomic data in the PDC are open access. Users filter, query, and download data through the portal or a GraphQL API, and can analyze files in the CRDC cloud resources, the Seven Bridges Cancer Genomics Cloud and Terra. The portal also offers JBrowse, PepQuery, and Morpheus for peptide mapping, novel peptide validation, and visualization. Records for the same samples link to genomic and imaging data in other CRDC nodes. Datasets come from the NCI Clinical Proteomic Tumor Analysis Consortium (CPTAC), the Children's Brain Tumor Tissue Consortium, the International Cancer Proteogenomic Consortium, and other programs, and the API listed 9 programs and 255 studies in September 2026. Kids First partnered with CPTAC to generate proteomic data paired with existing Kids First genomic sequencing. The PDC program CPTAC-Kids First-Childhood Cancer Data Initiative holds proteome and phosphoproteome studies of pediatric acute myeloid leukemia, pediatric T-cell acute lymphoblastic leukemia, and pediatric brain cancers including medulloblastoma, ependymoma, atypical teratoid rhabdoid tumor, high-grade glioma, and craniopharyngioma. A separate Pediatric Brain Tumor Atlas program holds the pediatric brain cancer pilot study (PDC000176 and PDC000180) published by Petralia and colleagues in Cell in 2020 (doi 10.1016/j.cell.2020.10.044).",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://pdc.cancer.gov/pdc/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1158/2767-9764.CRC-24-0243",
+        "ref_title": "NCI's Proteomic Data Commons: A Cloud-Based Proteomics Repository Empowering Comprehensive Cancer Analysis through Cross-Referencing with Genomic and Imaging Data",
+        "ref_authors": [
+          "Thangudu RR",
+          "Holck M",
+          "Singhal D",
+          "Pilozzi A",
+          "Edwards N",
+          "Rudnick PA",
+          "Domagalski MJ",
+          "Chilappagari P",
+          "Ma L",
+          "Xin Y",
+          "Le T",
+          "Nyce K",
+          "Chaudhary R",
+          "Ketchum KA",
+          "Maurais A",
+          "Connolly B",
+          "Riffle M",
+          "Chambers MC",
+          "MacLean B",
+          "MacCoss MJ",
+          "McGarvey PB",
+          "Basu A",
+          "Otridge J",
+          "Casas-Silva E",
+          "Venkatachari S",
+          "Rodriguez H",
+          "Zhang X"
+        ],
+        "ref_publication_year": 2024,
+        "ref_journal": "Cancer Research Communications"
+      },
+      "formal_specification": "https://pdc.cancer.gov/data-dictionary/dictionary.html",
+      "responsible_organization": [
+        "B2AI_ORG:71"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1219",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "CCDI Federation API",
+      "description": "CCDI Data Federation API specification for federated pediatric cancer data",
+      "related_to": [
+        "B2AI_STANDARD:1153",
+        "B2AI_STANDARD:1218",
+        "B2AI_STANDARD:751"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "cloudservice"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:57",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:67",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:13"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128",
+        "B2AI_ORG:71"
+      ],
+      "purpose_detail": "The CCDI Federation API is an OpenAPI 3.0 specification for querying pediatric cancer data held by independent data sources in the NCI Childhood Cancer Data Initiative (CCDI) Federation. Each participating node implements the same REST endpoints for subjects, samples, and files, with summary and count queries by field, subject and sample diagnoses, the metadata fields each node exposes, and the organizations and namespaces that own the records. Records are identified by organization, namespace, and name. A separate aggregation service, the CCDI Data Federation Resource, sends one query to every node and merges the responses. The specification is generated from Rust code with utoipa, changes are proposed through GitHub discussions among the implementers, and each release of the tooling produces the same version of the API. Release v1.3.0 came out in May 2026. It is dual-licensed under Apache 2.0 and MIT. The Kids First DRC describes itself as a participant in the CCDI Federation, working to provide better APIs across members that include St. Jude Cloud, Treehouse, and the Pediatric Cancer Data Commons.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://cbiit.github.io/ccdi-federation-api/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/CBIIT/ccdi-federation-api",
+      "responsible_organization": [
+        "B2AI_ORG:157"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1220",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Seven Bridges Cancer Genomics Cloud",
+      "description": "Seven Bridges Cancer Genomics Cloud (CGC), an NCI Cancer Research Data Commons cloud resource",
+      "related_to": [
+        "B2AI_STANDARD:739",
+        "B2AI_STANDARD:1218",
+        "B2AI_STANDARD:832",
+        "B2AI_STANDARD:1221",
+        "B2AI_STANDARD:1222"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "cloudplatform"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:28",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:61",
+        "B2AI_TOPIC:59"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:71"
+      ],
+      "purpose_detail": "The Seven Bridges Cancer Genomics Cloud (CGC) is a cloud platform funded by the NCI and powered by Velsera, formerly Seven Bridges, for storing, sharing, and analyzing large cancer datasets where they live. It is one of the cloud resources of the NCI Cancer Research Data Commons (CRDC) and gives access to more than 3 petabytes of CRDC data, from the Genomic Data Commons (TCGA, TARGET, MMRF), the Proteomic Data Commons (CPTAC, APOLLO), the Integrated Canine Data Commons, and the General Commons (HTAN, CCDI, and others). It offers more than 900 public tools and workflows and a visual workflow composer, and runs on the same Seven Bridges platform as CAVATICA, the analysis platform connected to the Kids First Data Resource Portal. Users need an account and pay for cloud compute, and new users can apply for 300 dollars of cloud credits. PDC users can build a cohort in the PDC portal and analyze its files on the CGC.",
+      "is_open": false,
+      "requires_registration": true,
+      "url": "https://www.cancergenomicscloud.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1158/0008-5472.CAN-17-0387",
+        "ref_title": "The Cancer Genomics Cloud: Collaborative, Reproducible, and Democratized--A New Paradigm in Large-Scale Computational Research",
+        "ref_authors": [
+          "Lau JW",
+          "Lehnert E",
+          "Sethi A",
+          "Malhotra R",
+          "Kaushik G",
+          "Onder Z",
+          "Groves-Kirkby N",
+          "Mihajlovic A",
+          "DiGiovanna J",
+          "Srdic M",
+          "Bajcic D",
+          "Radenkovic J",
+          "Mladenovic V",
+          "Krstanovic D",
+          "Arsenijevic V",
+          "Klisic D",
+          "Mitrovic M",
+          "Bogicevic I",
+          "Kural D",
+          "Davis-Dusenbery B"
+        ],
+        "ref_publication_year": 2017,
+        "ref_journal": "Cancer Research"
+      },
+      "responsible_organization": [
+        "B2AI_ORG:1"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1221",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "GDC",
+      "description": "NCI Genomic Data Commons",
+      "related_to": [
+        "B2AI_STANDARD:1222",
+        "B2AI_STANDARD:1159",
+        "B2AI_STANDARD:1157",
+        "B2AI_STANDARD:1196",
+        "B2AI_STANDARD:1211",
+        "B2AI_STANDARD:1220"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "dataregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:4",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:129"
+      ],
+      "purpose_detail": "The Genomic Data Commons (GDC) is the NCI research program and repository that gives the cancer research community a unified store of cancer genomic and clinical data, launched in 2016. It holds NCI-generated datasets including The Cancer Genome Atlas (TCGA) and TARGET and accepts submissions from other programs. Submitted data are reprocessed with common bioinformatics pipelines so that datasets can be compared directly. DNA sequencing reads are aligned to the GRCh38.d1.vd1 reference, which adds decoy and viral sequences, and higher-level outputs include somatic variant calls from tools such as GATK4 Mutect2, mutation annotation format (MAF) files, copy number segments, and gene expression quantifications. Metadata follow the GDC data model and data dictionary, published as YAML JSON schemas in the gdcdictionary repository under Apache 2.0. The Kids First Data Dictionary derives its structure from it. Users reach the data through the GDC Data Portal with its cohort builder and analysis center, a REST API, the GDC Data Transfer Tool, and a Data Submission Portal. Open-access files need no login. Controlled-access files need eRA Commons authentication and dbGaP authorization. The GDC is one of the data commons of the NCI Cancer Research Data Commons. The 2021 paper describing it is by authors at NCI, Children's Hospital of Philadelphia, and the University of Chicago Center for Translational Data Science, among others.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://gdc.cancer.gov/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41588-021-00791-5",
+        "ref_title": "The NCI Genomic Data Commons",
+        "ref_authors": [
+          "Heath AP",
+          "Ferretti V",
+          "Agrawal S",
+          "An M",
+          "Angelakos JC",
+          "Arya R",
+          "Bajari R",
+          "Baqar B",
+          "Barnowski JHB",
+          "Burt J",
+          "Catton A",
+          "Chan BF",
+          "Chu F",
+          "Cullion K",
+          "Davidsen T",
+          "Do PM",
+          "Dompierre C",
+          "Ferguson ML",
+          "Fitzsimons MS",
+          "Ford M",
+          "Fukuma M",
+          "Gaheen S",
+          "Ganji GL",
+          "Garcia TI",
+          "George SS",
+          "Gerhard DS",
+          "Gerthoffert F",
+          "Gomez F",
+          "Han K",
+          "Hernandez KM",
+          "Issac B",
+          "Jackson R",
+          "Jensen MA",
+          "Joshi S",
+          "Kadam A",
+          "Khurana A",
+          "Kim KMJ",
+          "Kraft VE",
+          "Li S",
+          "Lichtenberg TM",
+          "Lodato J",
+          "Lolla L",
+          "Martinov P",
+          "Mazzone JA",
+          "Miller DP",
+          "Miller I",
+          "Miller JS",
+          "Miyauchi K",
+          "Murphy MW",
+          "Nullet T",
+          "Ogwara RO",
+          "Ortuño FM",
+          "Pedrosa J",
+          "Pham PL",
+          "Popov MY",
+          "Porter JJ",
+          "Powell R",
+          "Rademacher K",
+          "Reid CP",
+          "Rich S",
+          "Rogel B",
+          "Sahni H",
+          "Savage JH",
+          "Schmitt KA",
+          "Simmons TJ",
+          "Sislow J",
+          "Spring J",
+          "Stein L",
+          "Sullivan S",
+          "Tang Y",
+          "Thiagarajan M",
+          "Troyer HD",
+          "Wang C",
+          "Wang Z",
+          "West BL",
+          "Wilmer A",
+          "Wilson S",
+          "Wu K",
+          "Wysocki WP",
+          "Xiang L",
+          "Yamada JT",
+          "Yang L",
+          "Yu C",
+          "Yung CK",
+          "Zenklusen JC",
+          "Zhang J",
+          "Zhang Z",
+          "Zhao Y",
+          "Zubair A",
+          "Staudt LM",
+          "Grossman RL"
+        ],
+        "ref_publication_year": 2021,
+        "ref_journal": "Nature Genetics"
+      },
+      "formal_specification": "https://github.com/NCI-GDC/gdcdictionary",
+      "responsible_organization": [
+        "B2AI_ORG:71"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1222",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "CRDC",
+      "description": "NCI Cancer Research Data Commons",
+      "related_to": [
+        "B2AI_STANDARD:1221",
+        "B2AI_STANDARD:1218",
+        "B2AI_STANDARD:1220",
+        "B2AI_STANDARD:832",
+        "B2AI_STANDARD:1155",
+        "B2AI_STANDARD:1219"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "collection": [
+        "dataregistry",
+        "cloudplatform"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:28",
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:4",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:61",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "The NCI Cancer Research Data Commons (CRDC) is a cloud-based data science infrastructure for submitting, sharing, accessing, and analyzing cancer research data. It makes more than 10 petabytes of data accessible from hundreds of NCI-funded programs and studies and from select external programs. It has three parts. Data commons collect and manage the data, including the Genomic Data Commons, the Proteomic Data Commons, the Integrated Canine Data Commons, and the General Commons, formerly the Cancer Data Service, which holds data from programs such as HTAN and CCDI. Cloud resources provide secure workspaces and analysis tools, among them the Seven Bridges Cancer Genomics Cloud and Terra. An underlying layer supplies a common data model, data standards, and core services that aggregate descriptive metadata from many studies into a single search interface and provide one access method across the data commons. The CRDC is run by the Data Ecosystem Branch of the NCI Center for Biomedical Informatics and Information Technology. Kids First and the CRDC both take part in the NIH Cloud Platform Interoperability (NCPI) effort, and Kids First proteomic studies are held in the CRDC Proteomic Data Commons.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://datacommons.cancer.gov/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1158/0008-5472.CAN-23-2655",
+        "ref_title": "NCI Cancer Research Data Commons: Core Standards and Services",
+        "ref_authors": [
+          "Brady A",
+          "Charbonneau A",
+          "Grossman RL",
+          "Creasy HH",
+          "Renner R",
+          "Pihl T",
+          "Otridge J",
+          "Kim E",
+          "the CRDC Program",
+          "Barnholtz-Sloan JS",
+          "Kerlavage AR"
+        ],
+        "ref_publication_year": 2024,
+        "ref_journal": "Cancer Research"
+      },
+      "responsible_organization": [
+        "B2AI_ORG:71"
       ]
     }
   ],
