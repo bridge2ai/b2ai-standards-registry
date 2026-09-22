@@ -44906,7 +44906,19 @@
         "B2AI_STANDARD:299",
         "B2AI_STANDARD:1153",
         "B2AI_STANDARD:1201",
-        "B2AI_STANDARD:1202"
+        "B2AI_STANDARD:1202",
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:1207",
+        "B2AI_STANDARD:1208",
+        "B2AI_STANDARD:1209",
+        "B2AI_STANDARD:1210",
+        "B2AI_STANDARD:1211",
+        "B2AI_STANDARD:1212",
+        "B2AI_STANDARD:1213",
+        "B2AI_STANDARD:1214",
+        "B2AI_STANDARD:1215",
+        "B2AI_STANDARD:1216",
+        "B2AI_STANDARD:1217"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -45649,6 +45661,535 @@
       "publication": {
         "ref_url": ""
       }
+    },
+    {
+      "id": "B2AI_STANDARD:1206",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "GATK",
+      "description": "Genome Analysis Toolkit",
+      "related_to": [
+        "B2AI_STANDARD:1211",
+        "B2AI_STANDARD:1207",
+        "B2AI_STANDARD:1208",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:81"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "The Genome Analysis Toolkit (GATK) is the Broad Institute's software package for variant discovery in high-throughput sequencing data. It includes tools for base quality recalibration, germline short variant calling with HaplotypeCaller, joint genotyping from gVCFs, somatic short variant calling with Mutect2, and copy number variant calling, together with the published GATK Best Practices workflows that chain them. GATK 4 and later are released under the Apache 2.0 license. The original paper describes the MapReduce framework on which the toolkit was first built. The Kids First DRC alignment workflow follows BWA and GATK best practices and emits HaplotypeCaller gVCFs, the joint genotyping workflow uses GATK, and the somatic workflow runs Mutect2 v4.1.1.0 and GATK CNV v4.2.4.1 against a panel of normals.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/broadinstitute/gatk",
+      "publication": {
+        "ref_url": "https://doi.org/10.1101/gr.107524.110",
+        "ref_title": "The Genome Analysis Toolkit: A MapReduce framework for analyzing next-generation DNA sequencing data",
+        "ref_authors": [
+          "McKenna A",
+          "Hanna M",
+          "Banks E",
+          "Sivachenko A",
+          "Cibulskis K",
+          "Kernytsky A",
+          "Garimella K",
+          "Altshuler D",
+          "Gabriel S",
+          "Daly M",
+          "DePristo MA"
+        ],
+        "ref_publication_year": 2010,
+        "ref_journal": "Genome Research"
+      },
+      "formal_specification": "https://github.com/broadinstitute/gatk"
+    },
+    {
+      "id": "B2AI_STANDARD:1207",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "BWA",
+      "description": "Burrows-Wheeler Aligner",
+      "related_to": [
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:1208",
+        "B2AI_STANDARD:21",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:59"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "BWA, the Burrows-Wheeler Aligner, maps short sequencing reads against a large reference genome such as the human genome using a Burrows-Wheeler transform index. It provides the BWA-backtrack, BWA-SW, and BWA-MEM algorithms, with BWA-MEM the usual choice for reads of 70 bp and longer. It is written by Heng Li, released under GPL 3.0, and writes alignments in SAM format. A separate project, bwa-mem2, is a faster reimplementation of BWA-MEM. The Kids First DRC alignment workflow is named for BWA and GATK and aligns reads with BWA before GATK processing.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/lh3/bwa",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btp324",
+        "ref_title": "Fast and accurate short read alignment with Burrows-Wheeler transform",
+        "ref_authors": [
+          "Li H",
+          "Durbin R"
+        ],
+        "ref_publication_year": 2009,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/lh3/bwa"
+    },
+    {
+      "id": "B2AI_STANDARD:1208",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Sentieon",
+      "description": "Sentieon Genomics Tools",
+      "related_to": [
+        "B2AI_STANDARD:1207",
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:59"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Sentieon Genomics Tools are commercial software from Sentieon Inc. that reimplement the BWA alignment and GATK variant calling algorithms with faster, more efficient code, and aim to produce results equivalent to the open source tools they replace. The suite covers alignment, germline calling and joint genotyping, and somatic calling. Use requires a paid license from Sentieon. The helper scripts in the Sentieon GitHub organization are released under BSD 2-Clause, and the tools themselves are not open source. The Kids First DRC alignment workflow repository includes a Sentieon version of its BWA and GATK pipeline, and Kids First also maintains a Sentieon joint cohort genotyping workflow.",
+      "is_open": false,
+      "requires_registration": true,
+      "url": "https://www.sentieon.com/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1101/115717",
+        "ref_title": "The Sentieon Genomics Tools - A fast and accurate solution to variant calling from next-generation sequence data",
+        "ref_authors": [
+          "Freed D",
+          "Aldana R",
+          "Weber JA",
+          "Edwards JS"
+        ],
+        "ref_publication_year": 2017,
+        "ref_journal": "bioRxiv"
+      },
+      "formal_specification": "https://github.com/Sentieon/sentieon-scripts"
+    },
+    {
+      "id": "B2AI_STANDARD:1209",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Peddy",
+      "description": "Pedigree and sample quality checks from VCF",
+      "related_to": [
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:78",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:6"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Peddy compares the genotypes in a multi-sample VCF against a PED pedigree file to find sample errors. It checks that stated sex matches the genotypes on the X chromosome, that stated family relationships match estimated relatedness, and predicts ancestry from a projection onto 1000 Genomes samples, producing an interactive HTML report. It was written by Brent Pedersen and Aaron Quinlan and is released under the MIT license. The Kids First DRC joint genotyping workflow runs Peddy on trios and families after joint calling.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/brentp/peddy",
+      "publication": {
+        "ref_url": "https://doi.org/10.1016/j.ajhg.2017.01.017",
+        "ref_title": "Who's Who? Detecting and Resolving Sample Anomalies in Human DNA Sequencing Studies with Peddy",
+        "ref_authors": [
+          "Pedersen BS",
+          "Quinlan AR"
+        ],
+        "ref_publication_year": 2017,
+        "ref_journal": "The American Journal of Human Genetics"
+      },
+      "formal_specification": "https://github.com/brentp/peddy"
+    },
+    {
+      "id": "B2AI_STANDARD:1210",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Strelka2",
+      "description": "Strelka2 germline and somatic small variant caller",
+      "related_to": [
+        "B2AI_STANDARD:1216",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Strelka2 is Illumina's caller for germline and somatic single nucleotide variants and small indels from mapped sequencing reads. For tumor and normal pairs it models tumor purity and uses candidate indels from Manta to improve indel calling. Its source is provided under the PolyForm Strict License 1.0.0, which allows noncommercial use but not modification or redistribution, and the GitHub repository is archived. The Kids First DRC somatic workflow runs Strelka2 v2.9.3 as one of its four small variant callers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/Illumina/strelka",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41592-018-0051-x",
+        "ref_title": "Strelka2: fast and accurate calling of germline and somatic variants",
+        "ref_authors": [
+          "Kim S",
+          "Scheffler K",
+          "Halpern AL",
+          "Bekritsky MA",
+          "Noh E",
+          "Källberg M",
+          "Chen X",
+          "Kim Y",
+          "Beyter D",
+          "Krusche P",
+          "Saunders CT"
+        ],
+        "ref_publication_year": 2018,
+        "ref_journal": "Nature Methods"
+      },
+      "formal_specification": "https://github.com/Illumina/strelka"
+    },
+    {
+      "id": "B2AI_STANDARD:1211",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Mutect2",
+      "description": "GATK somatic short variant caller",
+      "related_to": [
+        "B2AI_STANDARD:1206",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Mutect2 is the GATK tool for calling somatic single nucleotide variants and indels. It assembles local haplotypes in active regions, as HaplotypeCaller does, and then applies a somatic likelihood model suited to tumor samples with low allele fractions and subclonal variants. It supports tumor and matched normal pairs, tumor-only calling with a panel of normals, and filtering with FilterMutectCalls. It is distributed as part of GATK under the Apache 2.0 license. The Kids First DRC somatic workflow runs Mutect2 v4.1.1.0 as one of its four small variant callers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/broadinstitute/gatk/tree/master/docs/mutect",
+      "publication": {
+        "ref_url": "https://doi.org/10.1101/861054",
+        "ref_title": "Calling Somatic SNVs and Indels with Mutect2",
+        "ref_authors": [
+          "Benjamin D",
+          "Sato T",
+          "Cibulskis K",
+          "Getz G",
+          "Stewart C",
+          "Lichtenstein L"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "bioRxiv"
+      },
+      "formal_specification": "https://github.com/broadinstitute/gatk"
+    },
+    {
+      "id": "B2AI_STANDARD:1212",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Lancet",
+      "description": "Lancet somatic variant caller",
+      "related_to": [
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Lancet is a somatic variant caller from the New York Genome Center that calls single nucleotide variants and indels by joint microassembly of tumor and normal reads with localized colored de Bruijn graphs. Version 1 is released under a New York Genome Center software license for not-for-profit use. A rewrite, Lancet2, is developed in a separate repository under the BSD 3-Clause license. The Kids First DRC somatic workflow runs Lancet v1.0.7 as one of its four small variant callers. For whole genome data it calls only coding regions and adds candidate sites from Mutect2 and Strelka2, because whole-genome intervals lead to extreme runtime and cost.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/nygenome/lancet",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s42003-018-0023-9",
+        "ref_title": "Genome-wide somatic variant calling using localized colored de Bruijn graphs",
+        "ref_authors": [
+          "Narzisi G",
+          "Corvelo A",
+          "Arora K",
+          "Bergmann EA",
+          "Shah M",
+          "Musunuri R",
+          "Emde AK",
+          "Robine N",
+          "Vacic V",
+          "Zody MC"
+        ],
+        "ref_publication_year": 2018,
+        "ref_journal": "Communications Biology"
+      },
+      "formal_specification": "https://github.com/nygenome/lancet"
+    },
+    {
+      "id": "B2AI_STANDARD:1213",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "VarDict",
+      "description": "VarDict variant caller",
+      "related_to": [
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "VarDict is a variant caller from AstraZeneca for single nucleotide variants, multi-nucleotide variants, indels, and complex and structural variants in single samples and tumor and normal pairs, designed for the high depth and low allele fractions of cancer sequencing. VarDict Java is a faster port of the original Perl implementation. Both repositories are released under the MIT license, and both are archived with no updates since January 2024. The Kids First DRC somatic workflow runs VarDict Java v1.7.0 as one of its four small variant callers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/AstraZeneca-NGS/VarDictJava",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/nar/gkw227",
+        "ref_title": "VarDict: a novel and versatile variant caller for next-generation sequencing in cancer research",
+        "ref_authors": [
+          "Lai Z",
+          "Markovets A",
+          "Ahdesmaki M",
+          "Chapman B",
+          "Hofmann O",
+          "McEwen R",
+          "Johnson J",
+          "Dougherty B",
+          "Barrett JC",
+          "Dry JR"
+        ],
+        "ref_publication_year": 2016,
+        "ref_journal": "Nucleic Acids Research"
+      },
+      "formal_specification": "https://github.com/AstraZeneca-NGS/VarDictJava"
+    },
+    {
+      "id": "B2AI_STANDARD:1214",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Control-FREEC",
+      "description": "Control-FREEC copy number and allelic content caller",
+      "related_to": [
+        "B2AI_STANDARD:1215",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Control-FREEC detects copy number changes and allelic imbalance, including loss of heterozygosity, from whole genome, whole exome, and targeted sequencing data. It normalizes read counts by GC content and mappability, with or without a matched control sample, and segments the profile to assign copy number and genotype status. It comes from the Bioinformatics Laboratory of Institut Curie and the Boeva lab, and its GitHub repository carries no license file. The Kids First DRC somatic workflow runs Control-FREEC v11.6 as one of its copy number callers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/BoevaLab/FREEC",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btr670",
+        "ref_title": "Control-FREEC: a tool for assessing copy number and allelic content using next-generation sequencing data",
+        "ref_authors": [
+          "Boeva V",
+          "Popova T",
+          "Bleakley K",
+          "Chiche P",
+          "Cappo J",
+          "Schleiermacher G",
+          "Janoueix-Lerosey I",
+          "Delattre O",
+          "Barillot E"
+        ],
+        "ref_publication_year": 2011,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/BoevaLab/FREEC"
+    },
+    {
+      "id": "B2AI_STANDARD:1215",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "CNVkit",
+      "description": "Copy number detection from targeted DNA sequencing",
+      "related_to": [
+        "B2AI_STANDARD:1214",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "CNVkit infers and visualizes copy number from targeted DNA sequencing using both on-target reads and the nonspecifically captured off-target reads, and it also handles whole genome data. It provides segmentation, calling with purity and ploidy adjustment, and plots. It was developed at UCSF, is written in Python, and is released under the Apache 2.0 license. The Kids First DRC somatic workflow runs CNVkit v0.9.3 and adjusts its calls with purity estimates from THetA2.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://cnvkit.readthedocs.io/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1371/journal.pcbi.1004873",
+        "ref_title": "CNVkit: Genome-Wide Copy Number Detection and Visualization from Targeted DNA Sequencing",
+        "ref_authors": [
+          "Talevich E",
+          "Shain AH",
+          "Botton T",
+          "Bastian BC"
+        ],
+        "ref_publication_year": 2016,
+        "ref_journal": "PLOS Computational Biology"
+      },
+      "formal_specification": "https://github.com/etal/cnvkit"
+    },
+    {
+      "id": "B2AI_STANDARD:1216",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Manta",
+      "description": "Manta structural variant and indel caller",
+      "related_to": [
+        "B2AI_STANDARD:1210",
+        "B2AI_STANDARD:299",
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "Manta is Illumina's caller for structural variants and medium-sized indels from paired-end sequencing reads, for germline samples and for tumor and normal pairs. It combines paired-read and split-read evidence with local assembly and writes calls in VCF. Its candidate indels are used as input to Strelka2. Its source is provided under the PolyForm Strict License 1.0.0 and the GitHub repository is archived. The Kids First DRC somatic workflow runs Manta v1.4.0 for structural variants and annotates the passing calls with AnnotSV.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/Illumina/manta",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btv710",
+        "ref_title": "Manta: rapid detection of structural variants and indels for germline and cancer sequencing applications",
+        "ref_authors": [
+          "Chen X",
+          "Schulz-Trieglaff O",
+          "Shaw R",
+          "Barnes B",
+          "Schlesinger F",
+          "Källberg M",
+          "Cox AJ",
+          "Kruglyak S",
+          "Saunders CT"
+        ],
+        "ref_publication_year": 2015,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/Illumina/manta"
+    },
+    {
+      "id": "B2AI_STANDARD:1217",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "AmpliconArchitect",
+      "description": "Reconstruction of focal amplifications from WGS",
+      "related_to": [
+        "B2AI_STANDARD:1194"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:128"
+      ],
+      "purpose_detail": "AmpliconArchitect reconstructs the structure of focally amplified regions from whole genome sequencing, combining copy number and structural variant evidence into breakpoint graphs, and is used to find extrachromosomal DNA (ecDNA) in tumors. The AmpliconSuite-pipeline wraps the preparatory steps and the AmpliconClassifier tool that labels each amplicon. It is copyright the Regents of the University of California and licensed for educational, research, and non-profit use. The Kids First DRC somatic workflow runs AmpliconArchitect to predict ecDNA in whole genome tumor samples only, seeded from its CNVkit calls, and disables it in exome mode.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/AmpliconSuite/AmpliconArchitect",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41467-018-08200-y",
+        "ref_title": "Exploring the landscape of focal amplifications in cancer using AmpliconArchitect",
+        "ref_authors": [
+          "Deshpande V",
+          "Luebeck J",
+          "Nguyen NPD",
+          "Bakhtiari M",
+          "Turner KM",
+          "Schwab R",
+          "Carter H",
+          "Mischel PS",
+          "Bafna V"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "Nature Communications"
+      },
+      "formal_specification": "https://github.com/AmpliconSuite/AmpliconArchitect"
     }
   ],
   "@type": "DataStandardOrToolContainer"
