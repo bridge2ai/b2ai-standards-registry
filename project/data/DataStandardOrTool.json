@@ -46361,7 +46361,8 @@
         "B2AI_STANDARD:1221",
         "B2AI_STANDARD:1222",
         "B2AI_STANDARD:1223",
-        "B2AI_STANDARD:1224"
+        "B2AI_STANDARD:1224",
+        "B2AI_STANDARD:1225"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -46571,7 +46572,9 @@
         "B2AI_STANDARD:1155",
         "B2AI_STANDARD:1219",
         "B2AI_STANDARD:1223",
-        "B2AI_STANDARD:1224"
+        "B2AI_STANDARD:1224",
+        "B2AI_STANDARD:1225",
+        "B2AI_STANDARD:1226"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -46707,7 +46710,9 @@
         "B2AI_STANDARD:714",
         "B2AI_STANDARD:1221",
         "B2AI_STANDARD:1218",
-        "B2AI_STANDARD:1223"
+        "B2AI_STANDARD:1223",
+        "B2AI_STANDARD:1225",
+        "B2AI_STANDARD:1226"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -46772,6 +46777,170 @@
       "formal_specification": "https://github.com/CBIIT/cds-model",
       "responsible_organization": [
         "B2AI_ORG:71"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1225",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "HTAN Data Portal",
+      "description": "Human Tumor Atlas Network Data Portal",
+      "related_to": [
+        "B2AI_STANDARD:1226",
+        "B2AI_STANDARD:1224",
+        "B2AI_STANDARD:1222",
+        "B2AI_STANDARD:822",
+        "B2AI_STANDARD:1157",
+        "B2AI_STANDARD:735",
+        "B2AI_STANDARD:1199",
+        "B2AI_STANDARD:1220"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-23",
+      "collection": [
+        "dataregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:67",
+        "B2AI_TOPIC:4",
+        "B2AI_TOPIC:62"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:86",
+        "B2AI_ORG:155"
+      ],
+      "purpose_detail": "The HTAN Data Portal is the public web portal of the NCI Human Tumor Atlas Network (HTAN) and the interface through which all HTAN data access starts. HTAN began in September 2018 as an NCI Cancer Moonshot initiative. It builds 3-dimensional atlases of the cellular, morphological, and molecular features of human cancers as they evolve from precancerous lesions to advanced disease. Phase 1 ran from 2018 to 2025 and Phase 2 began in 2025 with ten research centers and a Data Coordinating Center (DCC). The portal lets users filter cases, biospecimens, and files by atlas, organ, assay, and data level, and download metadata as CSV without an account. Data release V8.0 in August 2026 was the first to include Phase 2 data and covered 15 atlases, 20 organs, 2383 cases, and 10608 biospecimens profiled with 34 assay types, including scRNA-seq, CyCIF, CODEX, MIBI, 10X Visium, 10X Xenium, and H&E imaging. All metadata are open access. Open access assay files, such as processed genomic data and multiplex images, are stored on the Synapse platform of Sage Bionetworks. Access-controlled files, such as FASTQ and BAM, are held in the CRDC General Commons and need dbGaP authorization under phs002371. The portal links to CELLxGENE, Minerva, Xena, and cBioPortal for visualization, to Google BigQuery tables of metadata and processed data, to the NCI Imaging Data Commons for images, and to the Seven Bridges Cancer Genomics Cloud for analysis. HTAN imaging data carry a CC-BY 4.0 license. The site is a Next.js application that loads metadata from Synapse into a ClickHouse database. The HTAN DCC runs it, and the 2025 paper describing the DCC lists authors at Sage Bionetworks, Memorial Sloan Kettering Cancer Center, the Institute for Systems Biology, Dana-Farber Cancer Institute, and Harvard Medical School. That paper describes the Phase 1 data as 8,425 biospecimens from 2,042 participants.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://data.humantumoratlas.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41592-025-02643-0",
+        "ref_title": "Sharing data from the Human Tumor Atlas Network through standards, infrastructure and community engagement",
+        "ref_authors": [
+          "de Bruijn I",
+          "Nikolov M",
+          "Lau C",
+          "Clayton A",
+          "Gibbs DL",
+          "Mitraka E",
+          "Pozhidayeva D",
+          "Lash A",
+          "Sumer SO",
+          "Altreuter J",
+          "Anton K",
+          "DeFelice M",
+          "Li X",
+          "Lisman A",
+          "Longabaugh WJR",
+          "Muhlich J",
+          "Santagata S",
+          "Nandakumar S",
+          "Sorger PK",
+          "Suver C",
+          "Doan X",
+          "Guinney J",
+          "Schultz N",
+          "Taylor AJ",
+          "Thorsson V",
+          "Cerami E",
+          "Eddy JA"
+        ],
+        "ref_publication_year": 2025,
+        "ref_journal": "Nature Methods"
+      },
+      "formal_specification": "https://github.com/ncihtan/htan-portal",
+      "responsible_organization": [
+        "B2AI_ORG:158"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1226",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "HTAN Data Model",
+      "description": "Human Tumor Atlas Network Data Model for clinical, biospecimen, and assay metadata",
+      "related_to": [
+        "B2AI_STANDARD:1225",
+        "B2AI_STANDARD:1224",
+        "B2AI_STANDARD:347",
+        "B2AI_STANDARD:904",
+        "B2AI_STANDARD:1221",
+        "B2AI_STANDARD:899",
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:563",
+        "B2AI_STANDARD:111",
+        "B2AI_STANDARD:22",
+        "B2AI_STANDARD:299"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-23",
+      "collection": [
+        "datamodel",
+        "standards_process_maturity_development"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:67",
+        "B2AI_TOPIC:4",
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:2"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:86"
+      ],
+      "purpose_detail": "The HTAN Data Model is the common model in which every Human Tumor Atlas Network (HTAN) research center must encode its data and metadata. It covers clinical, biospecimen, genomic, transcriptomic, proteomic, imaging, and spatial profiling data and has four parts, namely metadata standards, file standards, identifiers, and a relationship model that links specimens to the assay files made from them. It grows through a community Request for Comment process with participation from all HTAN centers. The Phase 1 model, used from 2018 to August 2025, was kept as a CSV and converted to JSON-LD with the Sage Bionetworks schematic tool, which also generated metadata manifest templates for the Data Curator App. It drew on standards from the NCI Genomic Data Commons, the Human Cell Atlas, HuBMAP, and the Minimum Information about Tissue Imaging (MITI) reporting guidelines. Its final release was v25.2.1, archived on Zenodo under doi 10.5281/zenodo.7838214. The Phase 2 model is written in LinkML, which generates Python classes and JSON schemas. Its repository calls it in active development and warns of frequent changes until a stable release. It aims to align HTAN with the standards of the NCI Cancer Research Data Commons and takes input from the Cancer Data Standards initiative. A Core File module holds attributes shared by all file-based modules. Record-based modules cover clinical and biospecimen data, with biospecimen classifications drawn from ICD-10, ICD-O-3, and UBERON. File-based modules cover whole exome sequencing, scRNA-seq, scATAC-seq, digital pathology, multiplex microscopy, and spatial omics. Assay data are divided into levels from raw to processed, and level 1 and 2 sequencing data are access-controlled. Accepted formats include FASTQ, BAM or CRAM, VCF, pyramidal OME- TIFF with channel metadata in CSV, and h5ad files that must follow the AnnData schema for single-cell level 3 and 4 data. Both model repositories are MIT licensed.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://htan2-data-model.readthedocs.io/en/main/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41592-025-02643-0",
+        "ref_title": "Sharing data from the Human Tumor Atlas Network through standards, infrastructure and community engagement",
+        "ref_authors": [
+          "de Bruijn I",
+          "Nikolov M",
+          "Lau C",
+          "Clayton A",
+          "Gibbs DL",
+          "Mitraka E",
+          "Pozhidayeva D",
+          "Lash A",
+          "Sumer SO",
+          "Altreuter J",
+          "Anton K",
+          "DeFelice M",
+          "Li X",
+          "Lisman A",
+          "Longabaugh WJR",
+          "Muhlich J",
+          "Santagata S",
+          "Nandakumar S",
+          "Sorger PK",
+          "Suver C",
+          "Doan X",
+          "Guinney J",
+          "Schultz N",
+          "Taylor AJ",
+          "Thorsson V",
+          "Cerami E",
+          "Eddy JA"
+        ],
+        "ref_publication_year": 2025,
+        "ref_journal": "Nature Methods"
+      },
+      "formal_specification": "https://github.com/ncihtan/htan2-data-model",
+      "responsible_organization": [
+        "B2AI_ORG:158"
       ]
     }
   ],
