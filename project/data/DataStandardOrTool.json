@@ -12584,7 +12584,8 @@
       ],
       "has_relevant_organization": [
         "B2AI_ORG:131",
-        "B2AI_ORG:138"
+        "B2AI_ORG:138",
+        "B2AI_ORG:158"
       ],
       "purpose_detail": "OME-TIFF (Open Microscopy Environment TIFF) is a file format specification that combines standard TIFF image files with OME-XML metadata embedded in the TIFF header, enabling storage of complex multi-dimensional microscopy datasets including multi-channel fluorescence, z-stacks, time series, and multi-position acquisitions. Each OME-TIFF file contains one or more standard TIFF images with rich microscopy metadata encoded as OME-XML in the ImageDescription tag of the first IFD (Image File Directory), describing acquisition parameters, instrument settings, channel information, dimensions, physical pixel sizes, timestamps, and experimental context. The format supports large datasets by allowing data to span multiple TIFF files while maintaining metadata consistency through the OME-XML master file that references all constituent files. OME-TIFF balances the advantages of widespread TIFF support in image processing software with the semantic richness of OME-XML metadata, making microscopy data accessible to both OME-aware applications (Bio-Formats, OMERO, ImageJ/Fiji) and standard image viewers. This dual compatibility facilitates data sharing, long-term archiving, interoperability across microscopy platforms, and integration into computational workflows including machine learning pipelines for image analysis, segmentation, and feature extraction in biological imaging applications.",
       "is_open": true,
@@ -17146,7 +17147,8 @@
       "has_relevant_organization": [
         "B2AI_ORG:116",
         "B2AI_ORG:128",
-        "B2AI_ORG:144"
+        "B2AI_ORG:144",
+        "B2AI_ORG:158"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:957"
@@ -27586,7 +27588,8 @@
         "B2AI_TOPIC:62"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:37"
+        "B2AI_ORG:37",
+        "B2AI_ORG:158"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:1094"
@@ -30725,7 +30728,8 @@
         "B2AI_TOPIC:60"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:90"
+        "B2AI_ORG:90",
+        "B2AI_ORG:158"
       ],
       "purpose_detail": "Enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages.",
       "is_open": true,
@@ -31429,7 +31433,8 @@
         "B2AI_TOPIC:61"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:86"
+        "B2AI_ORG:86",
+        "B2AI_ORG:158"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:931"
@@ -35389,7 +35394,8 @@
         "B2AI_TOPIC:55"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:116"
+        "B2AI_ORG:116",
+        "B2AI_ORG:158"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:976"
@@ -35775,7 +35781,8 @@
         "B2AI_TOPIC:53"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:116"
+        "B2AI_ORG:116",
+        "B2AI_ORG:158"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:980",
@@ -43013,7 +43020,8 @@
         "B2AI_ORG:128",
         "B2AI_ORG:131",
         "B2AI_ORG:138",
-        "B2AI_ORG:141"
+        "B2AI_ORG:141",
+        "B2AI_ORG:158"
       ],
       "purpose_detail": "The database of Genotypes and Phenotypes (dbGaP) is the NIH repository for individual-level data from studies of the interaction of genotype and phenotype in humans, operated by the National Center for Biotechnology Information at the National Library of Medicine. It archives and distributes de-identified phenotype data, genotype and sequence data, study documents and protocols, and summary-level results, and assigns each study a phs accession that is used across NIH data resources as the study identifier. Individual-level data are controlled access. Investigators apply through the dbGaP Authorized Access system with an eRA Commons account, requests are reviewed by NIH Data Access Committees against the study's consent groups, and approved users must follow the NIH Genomic Data Sharing Policy and its security requirements. Summary data and study descriptions are open. dbGaP is the access authority behind controlled-tier data at many NIH resources, including the Kids First Data Resource Center, AnVIL, BioData Catalyst, and the Cancer Research Data Commons, which verify a user's dbGaP approvals rather than managing their own. Study accessions and consent codes from dbGaP are therefore common metadata fields in downstream data models.",
       "is_open": true,
@@ -43069,7 +43077,8 @@
         "B2AI_TOPIC:77"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:128"
+        "B2AI_ORG:128",
+        "B2AI_ORG:158"
       ],
       "purpose_detail": "Gen3 is an open-source platform for building data commons and data meshes, developed by the Center for Translational Data Science at the University of Chicago. It is a set of microservices with open APIs. Fence handles authentication and authorization, including linking of eRA Commons and other identities and issuing of access tokens. Indexd assigns globally unique identifiers and location records to data objects and also serves the GA4GH Data Repository Service API. Sheepdog and Peregrine handle submission and GraphQL query of graph-structured metadata. Arborist provides policy- based authorization, Guppy provides Elasticsearch-backed exploration, and a metadata service holds study-level records. A Gen3 commons is defined by a data dictionary, a graph data model expressed as JSON Schema that describes nodes such as program, project, subject, sample, and file and the links between them. Cohorts selected in a Gen3 commons can be exported in the Portable Format for Bioinformatics (PFB), which carries the data dictionary with the data. Gen3 underlies AnVIL, NHLBI BioData Catalyst, the NCI Cancer Research Data Commons, the HEAL data platform, and the file indexing and controlled-access login of the Kids First Data Resource Center.",
       "is_open": true,
@@ -45142,7 +45151,8 @@
       ],
       "has_relevant_organization": [
         "B2AI_ORG:128",
-        "B2AI_ORG:145"
+        "B2AI_ORG:145",
+        "B2AI_ORG:158"
       ],
       "purpose_detail": "cBioPortal is an open source web platform for interactive exploration of cancer genomics data, first released by Memorial Sloan Kettering Cancer Center. It displays mutations, copy number alterations, structural variants, gene expression, and clinical attributes for samples and patients, and supports cohort comparison, survival analysis, and oncoprint views. Data are loaded as studies built from a documented set of tab-delimited file formats for clinical data, mutations in MAF, discrete and continuous copy number, expression, and structural variants, each paired with a meta file. That file specification is the reason this entry is also tagged as a file format. Anyone can run their own instance. The public site at cbioportal.org hosts TCGA and many other studies. The Kids First Data Resource Center and D3b run a pediatric instance, PedcBioPortal, and convert Kids First harmonized outputs into cBioPortal load files with the kf-cbioportal-etl repository.",
       "is_open": true,
@@ -46380,7 +46390,8 @@
         "B2AI_TOPIC:59"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:71"
+        "B2AI_ORG:71",
+        "B2AI_ORG:158"
       ],
       "purpose_detail": "The Seven Bridges Cancer Genomics Cloud (CGC) is a cloud platform funded by the NCI and powered by Velsera, formerly Seven Bridges, for storing, sharing, and analyzing large cancer datasets where they live. It is one of the cloud resources of the NCI Cancer Research Data Commons (CRDC) and gives access to more than 3 petabytes of CRDC data, from the Genomic Data Commons (TCGA, TARGET, MMRF), the Proteomic Data Commons (CPTAC, APOLLO), the Integrated Canine Data Commons, and the General Commons (HTAN, CCDI, and others). It offers more than 900 public tools and workflows and a visual workflow composer, and runs on the same Seven Bridges platform as CAVATICA, the analysis platform connected to the Kids First Data Resource Portal. Users need an account and pay for cloud compute, and new users can apply for 300 dollars of cloud credits. PDC users can build a cohort in the PDC portal and analyze its files on the CGC.",
       "is_open": false,
@@ -46595,7 +46606,8 @@
         "B2AI_TOPIC:54"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:128"
+        "B2AI_ORG:128",
+        "B2AI_ORG:158"
       ],
       "purpose_detail": "The NCI Cancer Research Data Commons (CRDC) is a cloud-based data science infrastructure for submitting, sharing, accessing, and analyzing cancer research data. It makes more than 10 petabytes of data accessible from hundreds of NCI-funded programs and studies and from select external programs. It has three parts. Data commons collect and manage the data, including the Genomic Data Commons, the Proteomic Data Commons, the Integrated Canine Data Commons, and the General Commons, formerly the Cancer Data Service, which holds data from programs such as HTAN and CCDI. Cloud resources provide secure workspaces and analysis tools, among them the Seven Bridges Cancer Genomics Cloud and Terra. An underlying layer supplies a common data model, data standards, and core services that aggregate descriptive metadata from many studies into a single search interface and provide one access method across the data commons. The CRDC is run by the Data Ecosystem Branch of the NCI Center for Biomedical Informatics and Information Technology. Kids First and the CRDC both take part in the NIH Cloud Platform Interoperability (NCPI) effort, and Kids First proteomic studies are held in the CRDC Proteomic Data Commons.",
       "is_open": true,
