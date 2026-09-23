@@ -59943,6 +59943,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:111
   - B2AI_STANDARD:22
   - B2AI_STANDARD:299
+  - B2AI_STANDARD:1227
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:158
@@ -59979,4 +59980,106 @@ data_standardortools_collection:
     - Cerami E
     - Eddy JA
     ref_publication_year: 2025
+    ref_journal: Nature Methods
+- id: B2AI_STANDARD:1227
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - minimuminformationschema
+  - standards_process_maturity_final
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:67
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:2
+  contribution_date: '2026-09-23'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Minimum Information about Tissue Imaging reporting guidelines for highly multiplexed tissue images
+  formal_specification: https://github.com/miti-consortium/MITI
+  has_relevant_organization:
+  - B2AI_ORG:158
+  - B2AI_ORG:86
+  is_open: true
+  name: MITI
+  purpose_detail: MITI (Minimum Information about Tissue Imaging) is a set of reporting
+    guidelines giving the minimal metadata for highly multiplexed tissue images. It was
+    developed with methods developers, experts in imaging metadata such as DICOM and
+    OME, and several large-scale atlasing projects, is guided by existing standards, and
+    accommodates most multiplexed imaging technologies and both centralized and
+    distributed data storage. The specification is a set of YAML files in the miti-
+    consortium/MITI repository, one each for clinical, biospecimen, file, channel, OME-
+    TIFF header, processed data, cell, and cell state attributes. Each attribute has a
+    description, a category, a data type, valid values, and a significance of required
+    or recommended. Data types include boolean, integer, float, string, POSIX-portable
+    filename, ISO 8601 date, DOI, and Research Resource Identifier (RRID). Valid values
+    are keyword sets for strings and optional minimum and maximum bounds for numbers, so
+    files can be checked automatically, and the repository includes a validation schema
+    and script. Release v1.0.0 came out in June 2022 under the MIT license, and the
+    repository was last updated in October 2023. MITI is a consensus-based community
+    standard. Changes are proposed as GitHub issues and pull requests and discussed for
+    at least 30 days, and a governance board resolves disputes. As of October 2023 the
+    board was chaired by Denis Schapiro of Heidelberg University, with Adam Taylor of
+    Sage Bionetworks and Sarah Arena of Harvard Medical School. The Human Tumor Atlas
+    Network is an author of the reference paper, and the HTAN Phase 1 data model
+    captured imaging metadata following MITI.
+  related_to:
+  - B2AI_STANDARD:247
+  - B2AI_STANDARD:248
+  - B2AI_STANDARD:98
+  - B2AI_STANDARD:1165
+  - B2AI_STANDARD:893
+  - B2AI_STANDARD:1181
+  - B2AI_STANDARD:1226
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:159
+  url: https://www.miti-consortium.org/
+  publication:
+    ref_url: https://doi.org/10.1038/s41592-022-01415-4
+    ref_title: MITI minimum information guidelines for highly multiplexed tissue images
+    ref_authors:
+    - Schapiro D
+    - Yapp C
+    - Sokolov A
+    - Reynolds SM
+    - Chen YA
+    - Sudar D
+    - Xie Y
+    - Muhlich J
+    - Arias-Camison R
+    - Arena S
+    - Taylor AJ
+    - Nikolov M
+    - Tyler M
+    - Lin JR
+    - Burlingame EA
+    - Human Tumor Atlas Network
+    - Chang YH
+    - Farhi SL
+    - Thorsson V
+    - Venkatamohan N
+    - Drewes JL
+    - Pe'er D
+    - Gutman DA
+    - Herrmann MD
+    - Gehlenborg N
+    - Bankhead P
+    - Roland JT
+    - Herndon JM
+    - Snyder MP
+    - Angelo M
+    - Nolan G
+    - Swedlow JR
+    - Schultz N
+    - Merrick DT
+    - Mazzili SA
+    - Cerami E
+    - Rodig SJ
+    - Santagata S
+    - Sorger PK
+    ref_publication_year: 2022
     ref_journal: Nature Methods
