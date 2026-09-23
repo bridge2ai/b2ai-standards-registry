@@ -59345,6 +59345,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:832
   - B2AI_STANDARD:1221
   - B2AI_STANDARD:1222
+  - B2AI_STANDARD:1223
+  - B2AI_STANDARD:1224
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:1
@@ -59571,6 +59573,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:832
   - B2AI_STANDARD:1155
   - B2AI_STANDARD:1219
+  - B2AI_STANDARD:1223
+  - B2AI_STANDARD:1224
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:71
@@ -59587,6 +59591,181 @@ data_standardortools_collection:
     - Pihl T
     - Otridge J
     - Kim E
+    - the CRDC Program
+    - Barnholtz-Sloan JS
+    - Kerlavage AR
+    ref_publication_year: 2024
+    ref_journal: Cancer Research
+- id: B2AI_STANDARD:1223
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:66
+  - B2AI_TOPIC:67
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-23'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCI Integrated Canine Data Commons
+  formal_specification: https://github.com/CBIIT/icdc-model-tool
+  is_open: true
+  name: ICDC
+  purpose_detail: The Integrated Canine Data Commons (ICDC) is the data commons of the NCI
+    Cancer Research Data Commons (CRDC) for canine cancer data. It exists to further
+    research on human cancers through comparative analysis with cancers of pet dogs.
+    Dogs share many cancer-related genes with humans, develop cancers spontaneously,
+    respond to treatment much as humans do, and take part in clinical trials. Data in
+    the ICDC are structured by the ICDC data model, a graph model written in the Bento
+    Model Description Format (MDF) and kept in the icdc-model-tool repository. Its nodes
+    include program, study, case, canine individual, diagnosis, enrollment, visit,
+    sample, and file, and selected properties carry caDSR common data element codes.
+    Version 2.1.0 of the model came out in May 2026. Submitted data are harmonized for
+    consistency with the rest of the CRDC. Data types are clinical and biospecimen
+    metadata in JSON, RNA-seq, whole genome and whole exome sequencing as BAM and VCF,
+    genotyping arrays, and DNA methylation. Studies include the clinical trials
+    COTC007B, COTC022, and UBC01, a trial of vemurafenib in dogs with BRAF-mutant
+    bladder cancer, and genomic studies such as GLIOMA01 on spontaneous canine and human
+    gliomas and several osteosarcoma and urothelial carcinoma studies. All ICDC data are
+    open access. Users query the data through the portal or a GraphQL API, and can build
+    a cohort in the ICDC and analyze its files on the Seven Bridges Cancer Genomics
+    Cloud. The portal and its backend are built from the NCI CBIIT Bento codebase. The
+    Frederick National Laboratory for Cancer Research develops the ICDC for the NCI
+    Division of Cancer Treatment and Diagnosis.
+  related_to:
+  - B2AI_STANDARD:1222
+  - B2AI_STANDARD:1220
+  - B2AI_STANDARD:1224
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:299
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:71
+  url: https://caninecommons.cancer.gov/
+  publication:
+    ref_url: https://doi.org/10.1158/0008-5472.CAN-23-2468
+    ref_title: 'NCI Cancer Research Data Commons: Resources to Share Key Cancer Data'
+    ref_authors:
+    - Wang Z
+    - Davidsen TM
+    - Kuffel GR
+    - Addepalli K
+    - Bell A
+    - Casas-Silva E
+    - Dingerdissen H
+    - Farahani K
+    - Fedorov A
+    - Gaheen S
+    - Grossman RL
+    - Kikinis R
+    - Kim E
+    - Otridge J
+    - Pihl T
+    - Porter M
+    - Rodriguez H
+    - Staudt LM
+    - Thangudu RR
+    - Venkatachari S
+    - Zenklusen JC
+    - Zhang X
+    - the CRDC Program
+    - Barnholtz-Sloan JS
+    - Kerlavage AR
+    ref_publication_year: 2024
+    ref_journal: Cancer Research
+- id: B2AI_STANDARD:1224
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:57
+  - B2AI_TOPIC:67
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-23'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NCI Cancer Research Data Commons General Commons, formerly the Cancer Data Service
+  formal_specification: https://github.com/CBIIT/cds-model
+  has_relevant_organization:
+  - B2AI_ORG:157
+  - B2AI_ORG:158
+  - B2AI_ORG:156
+  is_open: true
+  name: General Commons
+  purpose_detail: The General Commons (GC) is a data commons of the NCI Cancer Research
+    Data Commons (CRDC). It was named the Cancer Data Service (CDS) until 2025. It
+    stores and shares NCI-funded cancer data from studies whose data type or metadata do
+    not fit any other CRDC data commons. It holds mostly genomic and imaging data and
+    some proteomic data. Its studies include many from the NCI Childhood Cancer Data
+    Initiative (CCDI), among them the Molecular Characterization Initiative (phs002790),
+    and the Human Tumor Atlas Network (phs002371), the CPTAC proteogenomic study,
+    patient-derived xenograft trial centers, and inherited cancer risk studies. Metadata
+    follow the GC data model, a graph model written in the Bento Model Description
+    Format and kept in the cds-model repository, with caDSR common data element codes on
+    its properties. The model is data type agnostic, divides its nodes into core and
+    extended sets, and marks properties as required or optional. Version 12.0.0 came out
+    in 2026. The GC holds open and controlled access data. Anyone can search the portal
+    without a login. Controlled access data need authorization from the NCI Data Access
+    Committee through dbGaP. Submissions go through the CRDC Data Submission Portal
+    after review by the CRDC Submission Review Committee. Users build cohorts and file
+    manifests in the portal and export them to the Seven Bridges Cancer Genomics Cloud.
+    The portal also answers a GraphQL API, and the HTAN manual documents download of GC
+    files with the Gen3 client against the NCI CRDC data commons framework. HTAN uploads
+    its data to the GC with a Nextflow pipeline.
+  related_to:
+  - B2AI_STANDARD:1222
+  - B2AI_STANDARD:1220
+  - B2AI_STANDARD:1157
+  - B2AI_STANDARD:1158
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:1221
+  - B2AI_STANDARD:1218
+  - B2AI_STANDARD:1223
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:71
+  url: https://general.datacommons.cancer.gov/
+  publication:
+    ref_url: https://doi.org/10.1158/0008-5472.CAN-23-2468
+    ref_title: 'NCI Cancer Research Data Commons: Resources to Share Key Cancer Data'
+    ref_authors:
+    - Wang Z
+    - Davidsen TM
+    - Kuffel GR
+    - Addepalli K
+    - Bell A
+    - Casas-Silva E
+    - Dingerdissen H
+    - Farahani K
+    - Fedorov A
+    - Gaheen S
+    - Grossman RL
+    - Kikinis R
+    - Kim E
+    - Otridge J
+    - Pihl T
+    - Porter M
+    - Rodriguez H
+    - Staudt LM
+    - Thangudu RR
+    - Venkatachari S
+    - Zenklusen JC
+    - Zhang X
     - the CRDC Program
     - Barnholtz-Sloan JS
     - Kerlavage AR
