@@ -59850,6 +59850,10 @@ data_standardortools_collection:
   - B2AI_STANDARD:735
   - B2AI_STANDARD:1199
   - B2AI_STANDARD:1220
+  - B2AI_STANDARD:1228
+  - B2AI_STANDARD:1230
+  - B2AI_STANDARD:1231
+  - B2AI_STANDARD:1232
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:158
@@ -60038,6 +60042,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:893
   - B2AI_STANDARD:1181
   - B2AI_STANDARD:1226
+  - B2AI_STANDARD:1231
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:159
@@ -60264,3 +60269,239 @@ data_standardortools_collection:
     - Kerlavage AR
     ref_publication_year: 2024
     ref_journal: Cancer Research
+- id: B2AI_STANDARD:1230
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - datavisualization
+  - scrnaseqanalysis
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:2
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:62
+  - B2AI_TOPIC:71
+  contribution_date: '2026-09-23'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Chan Zuckerberg Initiative single-cell data platform
+  formal_specification: https://github.com/chanzuckerberg/single-cell-curation
+  has_relevant_organization:
+  - B2AI_ORG:158
+  is_open: true
+  name: CZ CELLxGENE
+  purpose_detail: CZ CELLxGENE is a suite of tools from the Chan Zuckerberg Initiative for
+    finding, downloading, exploring, analyzing, annotating, and publishing single-cell
+    data. CELLxGENE Discover is the portal for published datasets, CELLxGENE Explorer
+    gives an interactive view of one dataset, Gene Expression shows expression by cell
+    type across the corpus, and Census is a free API and data service for querying the
+    whole corpus from Python or R. CELLxGENE Annotate, the original desktop cellxgene
+    package, explores and annotates a user's own data. In September 2026 the curation
+    API listed 2,234 datasets in 393 collections. Every dataset is an AnnData h5ad file
+    that must follow the CELLxGENE dataset schema, which is kept in the single-cell-
+    curation repository and checked with the cellxgene-schema validator. Schema 7.1.0
+    was approved in June 2026. It requires terms from the Cell Ontology, UBERON, EFO,
+    MONDO, HANCESTRO, HsapDv, NCBITaxon, PATO, and other ontologies and covers Visium,
+    spatial, and scATAC-seq data. Seurat rds downloads were deprecated in late 2024.
+    Browsing and download need no login. The code is MIT licensed, and Census data are
+    released under CC BY. Through a collaboration with the Chan Zuckerberg Initiative,
+    HTAN makes single-cell RNA-seq data available in CELLxGENE and marks those datasets
+    on the HTAN Data Portal.
+  related_to:
+  - B2AI_STANDARD:899
+  - B2AI_STANDARD:416
+  - B2AI_STANDARD:563
+  - B2AI_STANDARD:1183
+  - B2AI_STANDARD:495
+  - B2AI_STANDARD:465
+  - B2AI_STANDARD:1225
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:162
+  url: https://cellxgene.cziscience.com/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkae1142
+    ref_title: 'CZ CELLxGENE Discover: a single-cell data platform for scalable exploration, analysis and modeling of aggregated data'
+    ref_authors:
+    - CZI Cell Science Program
+    - Abdulla S
+    - Aevermann B
+    - Assis P
+    - Badajoz S
+    - Bell SM
+    - Bezzi E
+    - Cakir B
+    - Chaffer J
+    - Chambers S
+    - Cherry JM
+    - Chi T
+    - Chien J
+    - Dorman L
+    - Garcia-Nieto P
+    - Gloria N
+    - Hastie M
+    - Hegeman D
+    - Hilton J
+    - Huang T
+    - Infeld A
+    - Istrate AM
+    - Jelic I
+    - Katsuya K
+    - Kim YJ
+    - Liang K
+    - Lin M
+    - Lombardo M
+    - Marshall B
+    - Martin B
+    - McDade F
+    - Megill C
+    - Patel N
+    - Predeus A
+    - Raymor B
+    - Robatmili B
+    - Rogers D
+    - Rutherford E
+    - Sadgat D
+    - Shin A
+    - Small C
+    - Smith T
+    - Sridharan P
+    - Tarashansky A
+    - Tavares N
+    - Thomas H
+    - Tolopko A
+    - Urisko M
+    - Yan J
+    - Yeretssian G
+    - Zamanian J
+    - Mani A
+    - Cool J
+    - Carr A
+    ref_publication_year: 2025
+    ref_journal: Nucleic Acids Research
+- id: B2AI_STANDARD:1231
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - datavisualization
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-23'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Minerva narrative image viewer and authoring tools for multiplexed tissue images
+  formal_specification: https://github.com/labsyspharm/minerva-story
+  has_relevant_organization:
+  - B2AI_ORG:158
+  is_open: true
+  name: Minerva
+  purpose_detail: Minerva is a suite of lightweight tools for viewing and sharing large
+    tissue images, built for tissue atlases and digital pathology by the Laboratory of
+    Systems Pharmacology at Harvard Medical School. Minerva Author is a local
+    application that reads an OME-TIFF image, builds an image pyramid when the file
+    lacks one, and lets a user group and tune channels, add segmentation masks, and
+    write a story with narrated waypoints and curated fields of view. Saving writes a
+    story JSON file, and publishing writes a static folder of HTML, a JSON exhibit, and
+    a rendered JPEG pyramid that can be copied to any web host. Minerva Story is the
+    browser viewer for those stories, made for non-expert users. The Minerva site
+    recommends MITI for story metadata. All core repositories are MIT licensed, and
+    Minerva Author v1.24.0 came out in September 2026. HTAN uses Minerva through a
+    collaboration with the Laboratory of Systems Pharmacology. Most HTAN images get a
+    default story generated by Auto Minerva, some centers provide curated stories, and
+    the HTAN Data Portal links to them from each image thumbnail.
+  related_to:
+  - B2AI_STANDARD:247
+  - B2AI_STANDARD:248
+  - B2AI_STANDARD:1227
+  - B2AI_STANDARD:1225
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:164
+  url: https://www.minerva.im/
+  publication:
+    ref_url: https://doi.org/10.1038/s41551-021-00789-8
+    ref_title: Narrative online guides for the interpretation of digital-pathology images and tissue-atlas data
+    ref_authors:
+    - Rashid R
+    - Chen YA
+    - Hoffer J
+    - Muhlich JL
+    - Lin JR
+    - Krueger R
+    - Pfister H
+    - Mitchell R
+    - Santagata S
+    - Sorger PK
+    ref_publication_year: 2021
+    ref_journal: Nature Biomedical Engineering
+- id: B2AI_STANDARD:1232
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - datavisualization
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:23
+  contribution_date: '2026-09-23'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: UCSC Xena platform for exploring multi-omic and clinical data
+  formal_specification: https://ucsc-xena.gitbook.io/project/local-xena-hub/data-format-specifications
+  has_relevant_organization:
+  - B2AI_ORG:158
+  - B2AI_ORG:128
+  is_open: true
+  name: UCSC Xena
+  purpose_detail: UCSC Xena is an online tool for exploring public and private multi-omic
+    and clinical or phenotype data, built at the University of California, Santa Cruz.
+    The Xena Browser shows data in a visual spreadsheet with Kaplan-Meier plots, charts
+    and statistics, differential expression, GSEA, and transcript views, and the site
+    reports more than 1500 datasets across more than 50 cancer types. Public hubs serve
+    TCGA, the GDC, ICGC, PCAWG, the Pan-Cancer Atlas, the UCSC Toil recompute of TCGA,
+    TARGET, and GTEx, Treehouse, and Kids First data. Users can run a local Xena hub, a
+    Java server whose data are visible only on the same computer, or an institutional
+    hub with its own access control. Hubs load tab-delimited genomic matrix, phenotype,
+    segmented, and position-based mutation files with JSON metadata sidecars, and raw
+    FASTQ and BAM files are not supported. Xena Single Cell shows spatial layouts and
+    UMAP or t-SNE embeddings for hosted single-cell data. A subset of HTAN single-cell
+    RNA-seq and t-CyCIF data is available in Xena. Xena generates no data of its own, so
+    the original providers' terms apply. The code is Apache 2.0 licensed.
+  related_to:
+  - B2AI_STANDARD:1221
+  - B2AI_STANDARD:1199
+  - B2AI_STANDARD:1225
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:119
+  url: https://xenabrowser.net/
+  publication:
+    ref_url: https://doi.org/10.1038/s41587-020-0546-8
+    ref_title: Visualizing and interpreting cancer genomics data via the Xena platform
+    ref_authors:
+    - Goldman MJ
+    - Craft B
+    - Hastie M
+    - Repečka K
+    - McDade F
+    - Kamath A
+    - Banerjee A
+    - Luo Y
+    - Rogers D
+    - Brooks AN
+    - Zhu J
+    - Haussler D
+    ref_publication_year: 2020
+    ref_journal: Nature Biotechnology
