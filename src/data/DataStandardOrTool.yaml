@@ -36651,6 +36651,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:959
   - B2AI_STANDARD:1101
   is_open: false
+  has_relevant_organization:
+  - B2AI_ORG:138
   name: AWS
   purpose_detail: Amazon Web Services (AWS) is the world's most comprehensive and
     broadly adopted cloud computing platform, providing 200+ fully managed services
@@ -42258,6 +42260,7 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:141
   - B2AI_ORG:128
+  - B2AI_ORG:138
   name: STAR
   publication:
     ref_url: https://doi.org/10.1093/bioinformatics/bts635
@@ -56642,6 +56645,27 @@ data_standardortools_collection:
     - Park PJ
     ref_publication_year: 2022
     ref_journal: Bioinformatics
+  has_application:
+  - id: B2AI_APP:434
+    category: B2AI:Application
+    name: Higashi hypergraph neural network for single-cell Hi-C
+    description: Zhang, Zhou, and Ma developed Higashi, which represents single-cell Hi-C
+      data as a hypergraph and uses a hypergraph neural network to learn cell
+      embeddings and impute sparse single-cell contact maps. Contact pairs are its
+      direct input. It was trained and evaluated on 4DN sci-Hi-C data from five cell
+      lines (4DNES4D5MWEZ and related sets) and on new 4DN single-cell Hi-C from
+      WTC-11 cells (4DNESF829JOW and 4DNESJQ4RXY5), with 4DN bulk Hi-C and CTCF
+      ChIA-PET used for validation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41587-021-01034-y
+      ref_title: Multiscale and integrative single-cell Hi-C analysis with Higashi
+      ref_authors:
+      - Zhang R
+      - Zhou T
+      - Ma J
+      ref_publication_year: 2021
+      ref_journal: Nature Biotechnology
 - id: B2AI_STANDARD:1174
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -56697,6 +56721,25 @@ data_standardortools_collection:
     - Mirny LA
     ref_publication_year: 2019
     ref_journal: Bioinformatics
+  has_application:
+  - id: B2AI_APP:433
+    category: B2AI:Application
+    name: Orca multiscale sequence-based 3D genome model
+    description: Zhou built Orca, a deep learning model that predicts chromatin contact
+      maps from DNA sequence at scales from 4 kb up to a whole 256 Mb chromosome and
+      uses it for in silico structural variant analysis and virtual genetic screens.
+      The sequence models were trained on 4DN Data Portal Micro-C data for H1-ESC and
+      HFF cells (4DNFI9GMP2J8 and 4DNFI643OYP9) and on cohesin-depleted HCT116 Hi-C
+      (4DNFILP99QJS), with matrices balanced using the cooler and cooltools
+      packages.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41588-022-01065-4
+      ref_title: Sequence-based modeling of three-dimensional genome architecture from kilobase to chromosome scale
+      ref_authors:
+      - Zhou J
+      ref_publication_year: 2022
+      ref_journal: Nature Genetics
 - id: B2AI_STANDARD:1175
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -56753,6 +56796,30 @@ data_standardortools_collection:
     - Aiden EL
     ref_publication_year: 2016
     ref_journal: Cell Systems
+  has_application:
+  - id: B2AI_APP:435
+    category: B2AI:Application
+    name: Epiphany prediction of Hi-C maps from epigenomic tracks
+    description: Yang and colleagues built Epiphany, a neural network with adversarial
+      training that predicts cell-type-specific Hi-C contact maps from five 1D
+      epigenomic tracks (DNase, CTCF, H3K27ac, H3K27me3, H3K4me3). The Hi-C targets for
+      all human and mouse cell lines were downloaded in the .hic format from the 4DN
+      Data Portal (for example 4DNFI1UEG1HD for GM12878 and 4DNFIQYQWPF5 for H1-hESC),
+      and predictions were also saved as .hic files.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13059-023-02934-9
+      ref_title: 'Epiphany: predicting Hi-C contact maps from 1D epigenomic signals'
+      ref_authors:
+      - Yang R
+      - Das A
+      - Gao VR
+      - Karbalayghareh A
+      - Noble WS
+      - Bilmes JA
+      - Leslie CS
+      ref_publication_year: 2023
+      ref_journal: Genome Biology
 - id: B2AI_STANDARD:1176
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -56838,6 +56905,103 @@ data_standardortools_collection:
     - Park PJ
     ref_publication_year: 2022
     ref_journal: Nature Communications
+  has_application:
+  - id: B2AI_APP:436
+    category: B2AI:Application
+    name: Akita sequence-to-3D-genome-folding model
+    description: Fudenberg, Kelley, and Pollard trained Akita, a convolutional neural
+      network that predicts Hi-C and Micro-C contact maps at about 2 kb resolution from
+      roughly 1 Mb of DNA sequence and scores how variants would disrupt genome
+      folding. It was trained jointly on five datasets, two of which were HFF and
+      H1hESC Micro-C from the 4DN Data Portal (4DNESWST3UBH and 4DNES14CNC1I).
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41592-020-0958-x
+      ref_title: Predicting 3D genome folding from DNA sequence with Akita
+      ref_authors:
+      - Fudenberg G
+      - Kelley DR
+      - Pollard KS
+      ref_publication_year: 2020
+      ref_journal: Nature Methods
+  - id: B2AI_APP:437
+    category: B2AI:Application
+    name: ChromaFold contact map prediction from single-cell ATAC-seq
+    description: Gao and colleagues built ChromaFold, a deep learning model that predicts
+      3D contact maps at 10 kb resolution from single-cell ATAC-seq co-accessibility
+      and CTCF motifs, so a contact map can be inferred without running Hi-C. Its Hi-C
+      training and evaluation targets came from the 4DN Data Portal, including
+      GM12878 (4DNFI1UEG1HD), K562 (4DNFITUOMFUQ), and human ESC (4DNFI2TK7L2F)
+      data.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41467-024-53628-0
+      ref_title: ChromaFold predicts the 3D contact map from single-cell chromatin accessibility
+      ref_authors:
+      - Gao VR
+      - Yang R
+      - Das A
+      - Luo R
+      - Luo H
+      - McNally DR
+      - Karagiannidis I
+      - Rivas MA
+      - Wang ZM
+      - Barisic D
+      - Karbalayghareh A
+      - Wong W
+      - Zhan YA
+      - Chin CR
+      - Noble WS
+      - Bilmes JA
+      - Apostolou E
+      - Kharas MG
+      - Béguelin W
+      - Viny AD
+      - Huangfu D
+      - Rudensky AY
+      - Melnick AM
+      - Leslie CS
+      ref_publication_year: 2024
+      ref_journal: Nature Communications
+  - id: B2AI_APP:438
+    category: B2AI:Application
+    name: HiC2Self self-supervised denoising of Hi-C maps
+    description: Yang, Karbalayghareh, and Leslie developed HiC2Self, a self-supervised
+      denoiser that turns low-coverage bulk or single-cell Hi-C and Micro-C into
+      high-coverage-like contact maps without paired deep data for training. It used
+      low- and high-coverage 4DN Micro-C libraries (4DNESP4MARXG and 4DNESW1SPPTD)
+      and deeply sequenced 4DN K562 in situ Hi-C (4DNESI7DEJTM) from the 4DN Data
+      Portal.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1126/sciadv.adu8060
+      ref_title: 'HiC2Self: Self-supervised denoising for bulk and single-cell Hi-C contact maps'
+      ref_authors:
+      - Yang R
+      - Karbalayghareh A
+      - Leslie CS
+      ref_publication_year: 2026
+      ref_journal: Science Advances
+  - id: B2AI_APP:439
+    category: B2AI:Application
+    name: Sphinx imputation of missing 4DN contact maps
+    description: Min, Schreiber, Kundaje, and Noble systematically downloaded every contact
+      map dataset on the 4DN Data Portal and arranged them as a matrix of 11
+      biosamples by 8 assay types, then trained a deep model to predict the missing
+      biosample and assay combinations and imputed the unobserved 4DN experiments.
+      All of its data come from the 4DN Data Portal.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1371/journal.pone.0331124
+      ref_title: Predicting chromatin conformation contact maps
+      ref_authors:
+      - Min A
+      - Schreiber J
+      - Kundaje A
+      - Noble WS
+      ref_publication_year: 2025
+      ref_journal: PLOS One
 - id: B2AI_STANDARD:1177
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -58689,6 +58853,7 @@ data_standardortools_collection:
   formal_specification: https://github.com/lh3/bwa
   has_relevant_organization:
   - B2AI_ORG:128
+  - B2AI_ORG:138
   is_open: true
   name: BWA
   purpose_detail: BWA, the Burrows-Wheeler Aligner, maps short sequencing reads against
@@ -61048,5 +61213,652 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:141
   url: https://motrpac.github.io/MotrpacHumanPreSuspensionAnalysis/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1242
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: pairtools command-line framework for extracting and processing Hi-C contact pairs
+  formal_specification: https://github.com/open2c/pairtools
+  has_relevant_organization:
+  - B2AI_ORG:138
+  is_open: true
+  name: pairtools
+  purpose_detail: pairtools is a command-line framework from the Open Chromosome Collective
+    (Open2C) that turns paired-end alignments of Hi-C and related chromosome
+    conformation libraries into lists of contacts. It detects ligation junctions in
+    aligned read pairs, sorts pairs files, detects, tags, and removes PCR and optical
+    duplicates, computes library statistics, selects pairs by flexible criteria,
+    restores SAM alignments from pairs, annotates restriction sites, and reports
+    mutated positions. Its output complies with the 4DN pairs format, and it also
+    defines the .pairsam extension, a pairs file that carries the SAM alignments of
+    each molecule, plus extra columns for phase, mutations, restriction fragments,
+    and complex walks. It is installed from PyPI or bioconda and is MIT licensed.
+    Version 1.1.3 was released in January 2025 and the repository was last pushed in
+    July 2026. The 4DN DCIC Hi-C pipeline runs pairtools to go from the aligned BAM
+    to the pairs file, and the 4DN Data Portal registers pairtools 1.1.0 and 0.2.2
+    and its predecessor pairsamtools as workflow software.
+  related_to:
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:1173
+  - B2AI_STANDARD:1174
+  - B2AI_STANDARD:1178
+  - B2AI_STANDARD:1243
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:139
+  url: https://pairtools.readthedocs.io/
+  publication:
+    ref_url: https://doi.org/10.1371/journal.pcbi.1012164
+    ref_title: 'Pairtools: From sequencing data to chromosome contacts'
+    ref_authors:
+    - Open2C
+    - Abdennur N
+    - Fudenberg G
+    - Flyamer IM
+    - Galitsyna AA
+    - Goloborodko A
+    - Imakaev M
+    - Venev SV
+    ref_publication_year: 2024
+    ref_journal: PLOS Computational Biology
+- id: B2AI_STANDARD:1243
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:74
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: cooltools Python library and command-line suite for analysis of Hi-C data stored in cooler files
+  formal_specification: https://github.com/open2c/cooltools
+  has_relevant_organization:
+  - B2AI_ORG:138
+  is_open: true
+  name: cooltools
+  purpose_detail: cooltools is the Open2C analysis suite for high-resolution Hi-C data stored in
+    the cooler format, with a paired Python API and command-line interface so that
+    the same analysis runs on a cluster or in a notebook. It computes contact
+    frequency as a function of genomic distance, compartment eigenvectors and
+    saddle plots, insulation profiles and boundary calls, pileups and average
+    patterns around features such as CTCF sites. Its documentation is built from
+    interactive notebooks kept in
+    the open2c_examples repository, which serve as a tutorial for Hi-C analysis and
+    currently focus on mammalian interphase data. It requires Python 3.7 or later,
+    is installed from PyPI, and is MIT licensed. Version 0.7.1 was released in July
+    2024 and the repository was last pushed in March 2026. The 4DN Data Portal
+    registers cooltools 0.2.0 as the software behind its compartment and insulation
+    score and boundary calling workflows, which read .mcool files.
+  related_to:
+  - B2AI_STANDARD:1174
+  - B2AI_STANDARD:1178
+  - B2AI_STANDARD:1242
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:139
+  url: https://cooltools.readthedocs.io/
+  publication:
+    ref_url: https://doi.org/10.1371/journal.pcbi.1012067
+    ref_title: 'Cooltools: Enabling high-resolution Hi-C analysis in Python'
+    ref_authors:
+    - Open2C
+    - Abdennur N
+    - Abraham S
+    - Fudenberg G
+    - Flyamer IM
+    - Galitsyna AA
+    - Goloborodko A
+    - Imakaev M
+    - Oksuz BA
+    - Venev SV
+    - Xiao Y
+    ref_publication_year: 2024
+    ref_journal: PLOS Computational Biology
+- id: B2AI_STANDARD:1244
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:59
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Juicer pipeline and Juicer Tools for building and analyzing loop-resolution Hi-C maps
+  formal_specification: https://github.com/aidenlab/juicer
+  has_relevant_organization:
+  - B2AI_ORG:138
+  is_open: true
+  name: Juicer
+  purpose_detail: Juicer is the Aiden Lab platform for analyzing kilobase resolution Hi-C data.
+    It includes a pipeline that goes from raw FASTQ files to Hi-C maps in the .hic
+    format, with scripts for SLURM and a single CPU (the AWS and Univa scripts are
+    deprecated), and Juicer Tools, the command-line tools that build .hic files
+    (Pre), add normalizations, and annotate features such as loops with HiCCUPS,
+    domains with Arrowhead, and aggregate peak analysis (APA). Juicer 1.6 is the
+    last stable release, from June 2020, and the main branch now holds Juicer 2,
+    which is in active development and was last pushed in September 2026. The
+    tools are being split into separate HiCTools and JuicerTools repositories. For
+    cloud use the authors point to the ENCODE Hi-C uniform processing pipeline,
+    which is built on Juicer. It is MIT licensed. The 4DN DCIC Hi-C pipeline
+    builds its .hic files with Juicer Tools Pre version 1.8.9, normalized with the
+    VC, VC_SQRT, and KR methods, and the .mcool files carry the same Juicer Tools
+    normalization vectors. The 4DN Data Portal also registers juicer 1.5.5 as
+    workflow software.
+  related_to:
+  - B2AI_STANDARD:111
+  - B2AI_STANDARD:1175
+  - B2AI_STANDARD:1178
+  - B2AI_STANDARD:1245
+  - B2AI_STANDARD:1246
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:140
+  url: https://github.com/aidenlab/juicer/wiki
+  publication:
+    ref_url: https://doi.org/10.1016/j.cels.2016.07.002
+    ref_title: Juicer Provides a One-Click System for Analyzing Loop-Resolution Hi-C Experiments
+    ref_authors:
+    - Durand NC
+    - Shamim MS
+    - Machol I
+    - Rao SSP
+    - Huntley MH
+    - Lander ES
+    - Aiden EL
+    ref_publication_year: 2016
+    ref_journal: Cell Systems
+- id: B2AI_STANDARD:1245
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - datavisualization
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Juicebox desktop and juicebox.js web viewers for Hi-C contact maps in the .hic format
+  formal_specification: https://github.com/aidenlab/Juicebox
+  has_relevant_organization:
+  - B2AI_ORG:138
+  is_open: true
+  name: Juicebox
+  purpose_detail: Juicebox is the Aiden Lab visualization software for Hi-C contact maps stored
+    in the .hic format, with zooming across resolutions of the map. The desktop application is written in
+    Java, and its repository has also carried Juicer Tools and the Assembly Tools
+    used for genome assembly correction. That codebase is being split into
+    JuiceboxGUI, HiCTools, JuicerTools, and Java Straw, and Straw reads .hic files
+    from C++, Python, R, and MATLAB. The last desktop release is v2.20.00, from
+    October 2022. juicebox.js is the embeddable JavaScript viewer derived from it,
+    distributed on npm, and its version 4.5.0 was released in September 2026. This
+    entry covers both viewers. Both are MIT licensed. The 4DN Data Portal's Hi-C
+    processing documentation names Juicebox as the viewer for its .hic files, and
+    the portal registers juicebox 1.6.2 as workflow software.
+  related_to:
+  - B2AI_STANDARD:1175
+  - B2AI_STANDARD:1176
+  - B2AI_STANDARD:1180
+  - B2AI_STANDARD:1244
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:140
+  url: https://aidenlab.org/juicebox/
+  publication:
+    ref_url: https://doi.org/10.1016/j.cels.2015.07.012
+    ref_title: Juicebox Provides a Visualization System for Hi-C Contact Maps with Unlimited Zoom
+    ref_authors:
+    - Durand NC
+    - Robinson JT
+    - Shamim MS
+    - Machol I
+    - Mesirov JP
+    - Lander ES
+    - Aiden EL
+    ref_publication_year: 2016
+    ref_journal: Cell Systems
+- id: B2AI_STANDARD:1246
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:55
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: hic2cool converter from .hic files to single and multi-resolution cooler files
+  formal_specification: https://github.com/4dn-dcic/hic2cool
+  is_open: true
+  name: hic2cool
+  purpose_detail: hic2cool is a lightweight Python package and command-line tool from the 4DN
+    DCIC that converts Hi-C contact matrices from the Juicer .hic format into the
+    cooler format, either one resolution to a .cool file or all resolutions to a
+    multi-resolution .mcool file. It has three modes. convert does the conversion,
+    extract-norms copies the .hic normalization vectors into an existing cooler that
+    shares its resolutions, and update upgrades coolers made by versions before
+    0.5.0. Since 0.5.0 the normalization vectors are no longer inverted, for
+    consistency with the 4DN processing pipeline and HiGlass, where they are applied
+    as transforms. Only multi-resolution output is HiGlass compatible. Its .hic
+    parsing is based on the Aiden Lab straw project and its writing on the cooler
+    code. It is installed from PyPI, is MIT licensed, dropped Python 2.7 at version
+    0.8.0, and version 1.0.1 was released in November 2023. The repository was last
+    pushed in July 2024. The 4DN Data Portal registers hic2cool 0.4.1, 0.5.1, and
+    1.0.1 as workflow software, and it is the bridge that lets one pairs file yield
+    matching .hic and .mcool matrices.
+  related_to:
+  - B2AI_STANDARD:1174
+  - B2AI_STANDARD:1175
+  - B2AI_STANDARD:1178
+  - B2AI_STANDARD:1180
+  - B2AI_STANDARD:1244
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:138
+  url: https://github.com/4dn-dcic/hic2cool
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1247
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_pilot
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:63
+  - B2AI_TOPIC:79
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Micro-Meta App for collecting light microscopy metadata based on the 4DN-BINA-OME specifications
+  formal_specification: https://github.com/WU-BIMAC/MicroMetaApp-Electron
+  has_relevant_organization:
+  - B2AI_ORG:138
+  - B2AI_ORG:166
+  is_open: true
+  name: Micro-Meta App
+  purpose_detail: Micro-Meta App is an open software tool that gives a visual guide for capturing
+    and managing light microscopy metadata according to the 4DN-BINA-OME (NBO)
+    Microscopy Metadata Specifications, which extend the OME data model. Its Manage
+    Instrument module documents the hardware of transmitted light, epifluorescence,
+    structured light, and TIRF microscopes, and its Manage Settings module records
+    the acquisition settings for a specific image dataset, importing what it can from
+    image file headers with Bio-Formats and from existing microscope JSON files and
+    writing a JSON summary. It is distributed as an Electron desktop application,
+    with a React implementation and a prototype OMERO plugin, and it is GPL-3.0
+    licensed. The latest Electron release is 1.7.25-b1, a beta from October 2022,
+    and the Electron repository was last pushed in August 2026. Tutorials are on
+    protocols.io, ReadTheDocs, and YouTube, with example JSON files on Zenodo. It was
+    developed by the UMass Chan Medical School BioImage Data Management and Sharing
+    group with the 4D Nucleome Imaging Working Group, the BioImaging North America
+    Quality Control and Data Management Working Group, and QUAREP-LiMi.
+  related_to:
+  - B2AI_STANDARD:247
+  - B2AI_STANDARD:1181
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:167
+  url: https://wu-bimac.github.io/MicroMetaApp.github.io/
+  publication:
+    ref_url: https://doi.org/10.1038/s41592-021-01315-z
+    ref_title: 'Micro-Meta App: an interactive tool for collecting microscopy metadata based on community specifications'
+    ref_authors:
+    - Rigano A
+    - Ehmsen S
+    - Öztürk SU
+    - Ryan J
+    - Balashov A
+    - Hammer M
+    - Kirli K
+    - Boehm U
+    - Brown CM
+    - Bellve K
+    - Chambers JJ
+    - Cosolo A
+    - Coleman RA
+    - Faklaris O
+    - Fogarty KE
+    - Guilbert T
+    - Hamacher AB
+    - Itano MS
+    - Keeley DP
+    - Kunis S
+    - Lacoste J
+    - Laude A
+    - Ma WY
+    - Marcello M
+    - Montero-Llopis P
+    - Nelson G
+    - Nitschke R
+    - Pimentel JA
+    - Weidtkamp-Peters S
+    - Park PJ
+    - Alver BH
+    - Grunwald D
+    - Strambio-De-Castillia C
+    ref_publication_year: 2021
+    ref_journal: Nature Methods
+- id: B2AI_STANDARD:1248
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - implementation_maturity_production
+  - standards_process_maturity_final
+  concerns_data_topic:
+  - B2AI_TOPIC:2
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 4DN Single Particle Tracking (SPT) tabular format for trajectory data
+  formal_specification: https://data.4dnucleome.org/documents/3e4f8a0f-7f06-41ab-b83c-88de2d6c53f1/@@download/attachment/4DN_SPT_format.pdf
+  is_open: true
+  name: 4DN SPT format
+  purpose_detail: The 4DN Single Particle Tracking (SPT) format is a tab-delimited text format for
+    the results of single particle tracking experiments, in which particles are
+    localized in each frame of a movie and linked across frames into trajectories. A
+    header opens with the line "## SPT format v1.0" and carries required fields for
+    the time unit, the XYZ unit, the time increment between frames, and the column
+    list, localization error fields that are required when errors are given, and
+    optional fields for channels, fluorophores, pixel size, photon count
+    calibration, and the localization and linking algorithms. Four data columns are
+    required (Trajectory_ID, t, X, Y) and others are optional. The design is
+    deliberately minimalist so that files are easy to write without special
+    software, and in March 2018 its field names were aligned with MIAPTE (Minimum
+    Information About Particle Tracking Experiments), a more complete metadata
+    framework by Rigano and Strambio-De-Castillia. Version 1.0 is approved by the 4DN
+    Imaging Working Group, spt is a registered file format on the 4DN Data Portal,
+    and the portal held 298 SPT files when checked.
+  related_to:
+  - B2AI_STANDARD:1176
+  - B2AI_STANDARD:1181
+  - B2AI_STANDARD:1182
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:138
+  url: https://data.4dnucleome.org/resources/experimental-resources/imaging_file_formats
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1249
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - standards_process_maturity_draft
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 4DN DNA FISH tabular format for spot localizations (draft)
+  formal_specification: https://data.4dnucleome.org/documents/7950fd7e-d77c-4bf6-9724-d6b62829c7c6/@@download/attachment/4DN_DNA_FISH_format_DRAFT.pdf
+  is_open: true
+  name: 4DN DNA FISH format
+  purpose_detail: The 4DN DNA FISH format is a draft tab-delimited text format for DNA FISH spot
+    localizations, written by Caterina Strambio De Castillia as draft v01 in April
+    2018 on the same pattern as the 4DN SPT format. A header opens with the line
+    "## DNA FISH format v1.0" and requires the XYZ unit, with localization error
+    fields required when errors are given, and optional fields describe channels,
+    pixel size, photon count calibration, and the localization algorithm. Four data
+    columns are required (Localization_ID, C for channel, X, Y), and optional
+    columns include Z, T, frame, intensity, background, and photon count. The 4DN
+    Data Portal lists it as a DRAFT and does not register it as a file format.
+    Multiplexed DNA FISH chromatin tracing data are exchanged in the FISH Omics
+    Format for Chromatin Tracing (FOF-CT) instead.
+  related_to:
+  - B2AI_STANDARD:1182
+  - B2AI_STANDARD:1248
+  - B2AI_STANDARD:1250
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:138
+  url: https://data.4dnucleome.org/resources/experimental-resources/imaging_file_formats
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1250
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - standards_process_maturity_draft
+  concerns_data_topic:
+  - B2AI_TOPIC:2
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 4DN Segmentation tabular format for imaging regions of interest (draft)
+  formal_specification: https://data.4dnucleome.org/documents/530b4c39-db2a-4d6c-b43b-b4915b6ad336/@@download/attachment/4DN_DNA_SEGMENTATION_format_DRAFT.pdf
+  is_open: true
+  name: 4DN Segmentation format
+  purpose_detail: The 4DN Segmentation format is a draft tab-delimited text format that lists the
+    four-dimensional regions of interest (ROIs) identified or used in an imaging
+    experiment, whether drawn by hand or produced by a segmentation algorithm. It was
+    written by Caterina Strambio De Castillia as draft v01 in April 2018 and its ROI
+    model follows the OME ROI model from the OME-XML schema, with point, line,
+    polyline, polygon, ellipse, rectangle, and mask shapes, each with its own
+    attributes and coordinates in pixel units. A header opens with the line
+    "## SEGMENTATION format v1.0", requires the XYZ unit, and optionally describes
+    channels and each ROI by identifier, name, and a description of how it was
+    segmented. The 4DN Data Portal lists it as a DRAFT and does not register it as
+    a file format.
+  related_to:
+  - B2AI_STANDARD:247
+  - B2AI_STANDARD:1182
+  - B2AI_STANDARD:1249
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:138
+  url: https://data.4dnucleome.org/resources/experimental-resources/imaging_file_formats
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1251
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ENCODE transcription factor and histone ChIP-seq processing pipeline in WDL
+  formal_specification: https://github.com/ENCODE-DCC/chip-seq-pipeline2
+  has_relevant_organization:
+  - B2AI_ORG:138
+  is_open: true
+  name: ENCODE ChIP-seq pipeline
+  purpose_detail: The ENCODE ChIP-seq pipeline is the ENCODE Data Coordination Center's WDL
+    pipeline for transcription factor and histone ChIP-seq, built from the ENCODE
+    phase 3 pipeline specifications by Anshul Kundaje. It takes FASTQ files and a
+    genome database named in an input JSON file and calls peaks, and it writes an
+    HTML and JSON QC report with alignment and peak statistics, FRiP, IDR, and
+    cross-correlation measures. Genome databases are provided for hg38, hg19, mm10,
+    and mm9, with a builder for other genomes. It runs through caper on Google Cloud,
+    AWS, DNAnexus, or SLURM, SGE, and PBS clusters and is MIT licensed. Version 2.2.2
+    was released in February 2024, the last push to the repository. The 4DN DCIC
+    keeps a fork, 4dn-dcic/chip-seq-pipeline2, whose last tag is 4dn-v1.1.1 from
+    February 2019. The 4DN Data Portal registers encode-chipseq workflows split into
+    align-only steps for ChIP and control and a post-alignment step, in versions
+    1.1.1 and 2.1.6, in the same way it registers the ENCODE ATAC-seq pipeline.
+  related_to:
+  - B2AI_STANDARD:111
+  - B2AI_STANDARD:389
+  - B2AI_STANDARD:1178
+  - B2AI_STANDARD:1233
+  - B2AI_STANDARD:1234
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:165
+  url: https://github.com/ENCODE-DCC/chip-seq-pipeline2
+  publication:
+    ref_url: https://doi.org/10.1038/s41586-020-2493-4
+    ref_title: Expanded encyclopaedias of DNA elements in the human and mouse genomes
+    ref_authors:
+    - The ENCODE Project Consortium
+    ref_publication_year: 2020
+    ref_journal: Nature
+- id: B2AI_STANDARD:1252
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Hi-C Data Analysis Bootcamp, a 2018 4DN DCIC workshop with notebooks and slides on processing, analyzing, and visualizing Hi-C data
+  formal_specification: https://github.com/hms-dbmi/hic-data-analysis-bootcamp
+  has_relevant_organization:
+  - B2AI_ORG:139
+  is_open: true
+  name: Hi-C Data Analysis Bootcamp
+  purpose_detail: The Hi-C Data Analysis Bootcamp is a tutorial on measuring, analyzing, and
+    visualizing the 3D genome with Hi-C, from a workshop that the 4D Nucleome Data
+    Coordination and Integration Center and the Center for 3D Structure and Physics
+    of the Genome hosted at Harvard Medical School on May 8, 2018, and it credits
+    Harvard, MIT, and UMass Medical School. It has slides on the Hi-C protocol
+    and eight Jupyter notebooks. One goes from FASTQ to contact pairs and matrices,
+    two introduce the cooler command line and Python API, and five run cooltools
+    analyses of scaling curves, expected contacts, compartment eigenvectors and
+    saddle plots, insulation scores, and snipping and pileups. The materials also
+    cover HiGlass and HiPiler for visualization. The goal stated in the README is that
+    participants can obtain, process, analyze, and visualize 3D genome data on their
+    own. The materials are MIT licensed, the repository was last pushed in May 2018,
+    and the notebooks use 2018 versions of cooler and cooltools, so they may not run
+    unchanged on current releases. The 4DN outreach page lists it under tutorial
+    materials.
+  related_to:
+  - B2AI_STANDARD:1173
+  - B2AI_STANDARD:1174
+  - B2AI_STANDARD:1180
+  - B2AI_STANDARD:1242
+  - B2AI_STANDARD:1243
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:138
+  url: https://hms-dbmi.github.io/hic-data-analysis-bootcamp/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1253
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Open2C example notebooks, the tutorial set for Hi-C analysis with cooler and cooltools
+  formal_specification: https://github.com/open2c/open2c_examples
+  is_open: true
+  name: Open2C example notebooks
+  purpose_detail: The Open2C example notebooks are a set of Jupyter notebooks that cover typical
+    Hi-C analyses with the Open2C code ecosystem, written on the principle that an
+    example is worth a thousand docstrings. They teach loading and visualizing
+    .cool and .mcool files, contact frequency as a function of genomic distance,
+    insulation and boundary calling, dot calling, pileups around CTCF sites,
+    compartments and saddle plots, and the cooltools command line interface. The
+    cooltools documentation is built from these notebooks and lists them as its
+    tutorials, so they track cooltools releases. They focus on mammalian interphase
+    Hi-C and download their example data through cooltools. The repository has an
+    environment file and no license file, and it was last pushed in March 2024.
+  related_to:
+  - B2AI_STANDARD:1174
+  - B2AI_STANDARD:1243
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:139
+  url: https://cooltools.readthedocs.io/en/latest/notebooks/viz.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1254
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: 4DN Education and Outreach video playlist from the 4DN Organizational Hub
+  is_open: true
+  name: 4DN Education and Outreach videos
+  purpose_detail: The 4DN Education and Outreach playlist is a YouTube playlist from the 4D
+    Nucleome Organizational Hub, linked from the 4DN outreach page. It mixes training
+    videos with news clips and science explainers. The training videos include a
+    tutorial for new 4DN members on the tools and services the Organizational Hub
+    provides (November 2020), 4DN Phase 2 onboarding, a hands-on demo of the WashU
+    Epigenome Browser (December 2019), a walkthrough of the 4DN Data Portal
+    (September 2022), multimodal visualization of 4DN data with Nucleome Browser and
+    OME (November 2022), and a 2017 4DN imaging workshop on microscopy
+    standardization. The newest video seen was from November 2022. No license is
+    stated. The separate 4D Nucleome Scientific Webinar Series playlist carries
+    research talks rather than training.
+  related_to:
+  - B2AI_STANDARD:1176
+  - B2AI_STANDARD:1181
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:138
+  url: https://www.youtube.com/playlist?list=PLiJ0I11RAJ2qR9PQcB4xhIpOv4RcFwGoT
   publication:
     ref_url: ''
