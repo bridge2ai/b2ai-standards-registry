@@ -63178,3 +63178,102 @@ data_standardortools_collection:
   url: https://github.com/SciCrunch/sparc-curation
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1278
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - minimuminformationschema
+  - implementation_maturity_production
+  - standards_process_maturity_final
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SPARC standard for required optical microscopy imaging metadata and image file formats
+  formal_specification: https://doi.org/10.5281/zenodo.5347993
+  has_relevant_organization:
+  - B2AI_ORG:132
+  - B2AI_ORG:135
+  is_open: true
+  name: SPARC Optical Microscopy Imaging Data and Metadata Standard
+  purpose_detail: The SPARC Optical Microscopy Imaging Data and Imaging Metadata Standard makes
+    sure that primary and derived optical microscopy images in SPARC datasets carry
+    a consistent set of imaging metadata, so that the images can be understood and
+    reused. It defines 21 required metadata fields out of 47 commonly written fields
+    based on the OME-TIFF specification, grouped as file, sample, and acquisition
+    metadata, covering items such as acquisition date, source file, image size, pixel
+    counts in X, Y, and Z, physical pixel size, channel count, and the label or stain
+    in each channel. Of the 21 required fields, 14 are usually written to the file
+    header by the imaging device, so with a typical configuration only 7 need manual
+    entry. All primary imaging data used for analysis must also be made available in
+    OME-TIFF and JPEG 2000 with the required metadata, which MicroFile+ is built to
+    produce. It covers only images that are data products for analysis, not
+    ancillary display images, and is used together with the SPARC Dataset Structure
+    minimum information standard. Version 1.0, written by Susan Tappan of MBF
+    Bioscience and Maryann Martone of UC San Diego for the SPARC Data and Resource
+    Center, was approved by the SPARC Data Standards Committee on March 3, 2021 and
+    published on Zenodo under CC-BY-4.0 in August 2021.
+  related_to:
+  - B2AI_STANDARD:247
+  - B2AI_STANDARD:248
+  - B2AI_STANDARD:1160
+  - B2AI_STANDARD:1267
+  - B2AI_STANDARD:1268
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:131
+  url: https://zenodo.org/records/5347993
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1279
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - datavisualization
+  - implementation_maturity_pilot
+  concerns_data_topic:
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:48
+  - B2AI_TOPIC:71
+  - B2AI_TOPIC:75
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SCKANNER web tool for exploring nerve to end organ connectivity in SCKAN
+  formal_specification: https://github.com/MetaCell/sckan-explorer
+  has_relevant_organization:
+  - B2AI_ORG:131
+  - B2AI_ORG:169
+  is_open: true
+  name: SCKANNER
+  purpose_detail: SCKANNER (RRID SCR_027206) is a web tool for exploring the current contents of
+    SCKAN, the SPARC knowledge base of autonomic and peripheral nervous system
+    connectivity from nerves to end organs, built from SPARC experts, SPARC data,
+    literature, and textbooks. It shows connections as a grid with heatmaps and a
+    summary heatmap. Selecting a cell or cluster shows the details of each
+    connection, including its URI, species, sex, graph, and triples, and filters
+    narrow the grid, for example by anatomical structure. The displayed data can be
+    exported as PDF or CSV. SPARC's tutorial uses it to answer questions such as
+    which connections terminate in the bladder, what neuron populations travel
+    through the vagus, and what structures a perturbation of the inferior mesenteric
+    ganglion might affect. It was developed by the UCSD FAIR Data Informatics lab and
+    MetaCell and is in beta at sckanner.scicrunch.io. Its code is a Django-Ninja and
+    React application in the applications/sckanner folder of MetaCell's
+    sckan-explorer repository, which declares no license and was last pushed in
+    April 2026. In October 2025 the SPARC docs noted a known bug that miscategorized
+    some ganglia as other.
+  related_to:
+  - B2AI_STANDARD:1167
+  - B2AI_STANDARD:1272
+  - B2AI_STANDARD:1274
+  - B2AI_STANDARD:1276
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:132
+  url: https://sckanner.scicrunch.io
+  publication:
+    ref_url: ''
