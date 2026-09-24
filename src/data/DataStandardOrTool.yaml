@@ -63343,3 +63343,251 @@ data_standardortools_collection:
     - Ebrahimi T
     ref_publication_year: 2001
     ref_journal: IEEE Signal Processing Magazine
+- id: B2AI_STANDARD:1281
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Zeiss CZI (Carl Zeiss Image) microscopy file format
+  formal_specification: https://github.com/ZEISS/libczi
+  has_relevant_organization:
+  - B2AI_ORG:131
+  is_open: false
+  name: Zeiss CZI
+  purpose_detail: CZI is the file format ZEISS developed for microscopy imaging, written by ZEN
+    software and ZEISS microscope systems, with the extension .czi. One file holds
+    the image data with its metadata. A CZI file is a single binary file, not TIFF,
+    that begins with the bytes ZISRAWFILE and stores image tiles as subblocks at
+    arbitrary pixel positions. Each subblock carries pixel data, a small XML
+    metadata fragment, and a directory entry, and a slide may hold several scenes,
+    each with its own resolution pyramid. It offers Zstandard and JPEG XR
+    compression. The specification documents exist, but Bio-Formats notes it
+    cannot redistribute them. ZEISS supports reading on other platforms through
+    libCZI, an open-source C++ library under LGPL-3.0 or later for reading and
+    writing CZI, a Python wrapper, and command-line tools for compressing and
+    checking CZI files. Bio-Formats reads CZI with its ZeissCZIReader and rates the
+    format 5 of 5 for pixel and metadata support and 4 of 5 for openness, OpenSlide
+    reads CZI slides, Biolucida 5 accepts CZI, and MicroFile+ converts CZI to
+    OME-TIFF or JPEG 2000 for SPARC submission.
+  related_to:
+  - B2AI_STANDARD:247
+  - B2AI_STANDARD:1267
+  - B2AI_STANDARD:1268
+  - B2AI_STANDARD:1278
+  - B2AI_STANDARD:1280
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:101
+  url: https://www.zeiss.com/microscopy/en/products/software/zeiss-zen/czi-image-file-format.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1282
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Leica LIF (Leica Image File) microscopy file format from Leica Application Suite
+  has_relevant_organization:
+  - B2AI_ORG:131
+  is_open: false
+  name: Leica LIF
+  purpose_detail: LIF (Leica Image File Format) is the file format written by Leica Microsystems
+    acquisition software, Leica Application Suite Advanced Fluorescence (LAS AF) and
+    LAS X, with the extension .lif. Leica has issued specification
+    documents at versions 1 (2006), 2 (2007), and 3.2 (2016), the last covering the
+    related XLLF, XLEF, and LOF formats, and Bio-Formats holds them but cannot
+    redistribute them. Bio-Formats lists Leica Application Suite X as freely
+    available software.
+    Bio-Formats reads LIF with its LIFReader, supports versions 1.0 and 2.0
+    officially, and rates it 5 of 5 for pixel and metadata support and 4 of 5 for
+    openness. Bio-Formats versions before 5.3.3 computed physical pixel sizes from
+    LIF files incorrectly. Commercial tools including Imaris, SVI Huygens, and Amira
+    also read LIF, and MicroFile+ converts LIF to OME-TIFF or JPEG 2000 for SPARC
+    submission.
+  related_to:
+  - B2AI_STANDARD:247
+  - B2AI_STANDARD:1268
+  - B2AI_STANDARD:1278
+  - B2AI_STANDARD:1280
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:170
+  url: https://bio-formats.readthedocs.io/en/latest/formats/leica-lif.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1283
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Nikon NIS-Elements ND2 microscopy file format
+  has_relevant_organization:
+  - B2AI_ORG:131
+  is_open: false
+  name: Nikon ND2
+  purpose_detail: ND2 is the file format written by Nikon NIS-Elements microscopy software, with
+    the extension .nd2. There are two distinct versions, an older one that
+    compresses images with JPEG 2000 and a newer one that is uncompressed or
+    Zip-compressed, and Bio-Formats knows neither version number nor release date.
+    No official specification document is available to Bio-Formats, which lists one
+    as wanted and rates the format 2 of 5 for openness, 4 of 5 for pixel support,
+    and 3 of 5 for metadata support. Nikon distributes the free NIS-Elements Viewer.
+    Bio-Formats reads ND2 with its ND2Reader and uses the JAI Image I/O Tools
+    library for the JPEG 2000 variant, and MicroFile+ converts ND2 to OME-TIFF or
+    JPEG 2000 for SPARC submission.
+  related_to:
+  - B2AI_STANDARD:247
+  - B2AI_STANDARD:1268
+  - B2AI_STANDARD:1278
+  - B2AI_STANDARD:1280
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:172
+  url: https://bio-formats.readthedocs.io/en/latest/formats/nikon-nis-elements-nd2.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1284
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Hamamatsu NDPI whole slide image file format
+  has_relevant_organization:
+  - B2AI_ORG:131
+  is_open: false
+  name: Hamamatsu NDPI
+  purpose_detail: NDPI is the whole slide image format of Hamamatsu slide scanners, with the
+    extensions .ndpi and .ndpis. It is one of three Hamamatsu variants, next to the
+    multi-file VMS and VMU formats. An NDPI file is a single TIFF-like file with
+    custom TIFF tags and proprietary metadata that stores its images as JPEG, and
+    because JPEG allows at most 65535 pixels on a side, NDPI packs large levels into
+    one JPEG and sets the overflowed width and height fields to 0. Hamamatsu
+    provides the free
+    NDP.view2 viewer, and OpenSlide reads NDPI but only focal plane 0. Bio-Formats
+    reads it with its NDPIReader and NDPISReader and rates it 3 of 5 for openness.
+    MicroFile+ converts NDPI to OME-TIFF or JPEG 2000 for SPARC submission.
+  related_to:
+  - B2AI_STANDARD:344
+  - B2AI_STANDARD:383
+  - B2AI_STANDARD:1268
+  - B2AI_STANDARD:1286
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:173
+  url: https://openslide.org/formats/hamamatsu/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1285
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Imaris IMS microscopy file format, a multiresolution HDF5 layout
+  formal_specification: https://imaris.oxinst.com/support/imaris-file-format
+  has_relevant_organization:
+  - B2AI_ORG:131
+  is_open: true
+  name: Imaris IMS
+  purpose_detail: IMS is the file format of Imaris, image visualization and analysis software
+    now owned by Oxford Instruments (formerly Bitplane), with the
+    extension .ims. The current format, introduced with Imaris 5.5, is built on
+    HDF5 and designed for fast visualization of very large images. It stores lower
+    resolution versions alongside the original data and keeps image data in
+    contiguous 3D HDF5 chunks, so software can load only the resolution and the
+    region in view. A file has three main groups, DataSet for the image across
+    slices, channels, time points, and resolution levels, DataSetInfo for metadata
+    such as voxel size, and Scene or Scene8 for objects and annotations. The
+    specification is published openly by Oxford Instruments, and the older Imaris
+    Classic binary and Imaris 3 TIFF formats are not HDF5 and are not covered by it.
+    Bio-Formats reads all three variants and rates the format 4 of 5 for openness,
+    and MicroFile+ converts IMS to OME-TIFF or JPEG 2000 for SPARC submission.
+  related_to:
+  - B2AI_STANDARD:339
+  - B2AI_STANDARD:1268
+  - B2AI_STANDARD:1278
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:174
+  url: https://imaris.oxinst.com/support/imaris-file-format
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1286
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Aperio SVS whole slide image file format, a pyramidal tiled TIFF variant
+  has_relevant_organization:
+  - B2AI_ORG:131
+  is_open: false
+  name: Aperio SVS
+  purpose_detail: SVS is the whole slide image format of Aperio slide scanners, a product line
+    now owned by Leica Biosystems, with the extension .svs. An SVS file is a single
+    pyramidal tiled TIFF with non-standard metadata and compression. The first image
+    is the full-resolution baseline, later images hold downsampled levels and the
+    label and macro images, and the ImageDescription tag begins with Aperio and
+    carries key-value pairs. Tiles may use two nonstandard TIFF compression codes,
+    33003 and 33005, which mark specific kinds of JPEG 2000 compression. Bio-Formats
+    holds an
+    SVS specification but cannot redistribute it, officially supports versions 8.0,
+    8.2, and 9.0, and rates the format 4 of 5 for openness. OpenSlide reads SVS,
+    Bio-Formats points to Aperio ImageScope for viewing it, and MicroFile+ converts it to OME-TIFF or JPEG 2000 for SPARC submission.
+  related_to:
+  - B2AI_STANDARD:383
+  - B2AI_STANDARD:1268
+  - B2AI_STANDARD:1280
+  - B2AI_STANDARD:1284
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:171
+  url: https://openslide.org/formats/aperio/
+  publication:
+    ref_url: ''
