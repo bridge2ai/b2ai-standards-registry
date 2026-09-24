@@ -16041,6 +16041,9 @@
         "B2AI_TOPIC:2",
         "B2AI_TOPIC:21"
       ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
       "has_training_resource": [
         "B2AI_STANDARD:1096"
       ],
@@ -17012,6 +17015,9 @@
       "category": "B2AI_STANDARD:DataStandard",
       "name": "JPEG",
       "description": "Joint Photographic Experts Group Format",
+      "related_to": [
+        "B2AI_STANDARD:1280"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -43264,6 +43270,44 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2026-09-21",
+      "has_application": [
+        {
+          "id": "B2AI_APP:446",
+          "category": "B2AI:Application",
+          "name": "UNITO automated cytometric gating",
+          "description": "Chen and colleagues developed UNITO, which recasts cytometry gating as a series of bivariate image segmentation tasks and trains deep learning models that match expert human gating. The training and evaluation data are published on Pennsieve (10.26275/864r-dv00), and a Pennsieve-integrated version taking raw FCS files is in development. These are immunology data, not SPARC program data.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41467-025-56622-2",
+              "ref_title": "Automated cytometric gating with human-level performance using bivariate segmentation",
+              "ref_authors": [
+                "Chen J",
+                "Ionita M",
+                "Feng Y",
+                "Lu Y",
+                "Orzechowski P",
+                "Garai S",
+                "Hassinger K",
+                "Bao J",
+                "Wen J",
+                "Duong-Tran D",
+                "Wagenaar J",
+                "McKeague ML",
+                "Painter MM",
+                "Mathew D",
+                "Pattekar A",
+                "Meyer NJ",
+                "Wherry EJ",
+                "Greenplate AR",
+                "Shen L"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "Nature Communications"
+            }
+          ]
+        }
+      ],
       "collection": [
         "cloudplatform",
         "dataregistry",
@@ -43325,6 +43369,147 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2026-09-21",
+      "has_application": [
+        {
+          "id": "B2AI_APP:440",
+          "category": "B2AI:Application",
+          "name": "Gut Analysis Toolbox for enteric neuron segmentation",
+          "description": "Sorensen and colleagues built the Gut Analysis Toolbox, a Fiji-based tool that counts and characterizes enteric neurons in 2D images of wholemount gut preparations with custom StarDist deep learning models for neurons and neuronal subtypes and a deepImageJ model for ganglia. Mouse and human myenteric plexus datasets from the SPARC Portal, produced by other SPARC groups, were used to curate the training data for the neuron, neuronal subset, and ganglia segmentation models.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1242/jcs.261950",
+              "ref_title": "Gut Analysis Toolbox - automating quantitative analysis of enteric neurons",
+              "ref_authors": [
+                "Sorensen L",
+                "Humenick A",
+                "Poon SSB",
+                "Han MN",
+                "Mahdavian NS",
+                "Rowe MC",
+                "Hamnett R",
+                "Gómez-de-Mariscal E",
+                "Neckel PH",
+                "Saito A",
+                "Mutunduwe K",
+                "Glennan C",
+                "Haase R",
+                "McQuade RM",
+                "Foong JPP",
+                "Brookes SJH",
+                "Kaltschmidt JA",
+                "Muñoz-Barrutia A",
+                "King SK",
+                "Veldhuis NA",
+                "Carbone SE",
+                "Poole DP",
+                "Rajasekhar P"
+              ],
+              "ref_publication_year": 2024,
+              "ref_journal": "Journal of Cell Science"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:441",
+          "category": "B2AI:Application",
+          "name": "AxonML surrogate model of neural fiber responses",
+          "description": "Hussain, Grill, and Pelot trained a differentiable surrogate of the MRG myelinated fiber model by backpropagation and gradient descent, reproducing NEURON simulations orders of magnitude faster on GPUs, and used it to optimize selective vagus nerve stimulation. The pig and human nerve models were built from vagus nerve histology published on the SPARC Portal (10.26275/maq2-eii4 and 10.26275/ofja-ghoz).",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41467-024-51709-8",
+              "ref_title": "Highly efficient modeling and optimization of neural fiber responses to electrical stimulation",
+              "ref_authors": [
+                "Hussain MA",
+                "Grill WM",
+                "Pelot NA"
+              ],
+              "ref_publication_year": 2024,
+              "ref_journal": "Nature Communications"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:442",
+          "category": "B2AI:Application",
+          "name": "3D U-Net segmentation of human vagus nerve microCT",
+          "description": "Zhang and colleagues built a multi-class 3D U-Net with an anatomy-aware loss function to segment fascicles and epineurium in microCT volumes of human vagus nerve from the SPARC REVA project. The training and evaluation microCT data and the trained network weights are published as SPARC dataset 10.26275/wfud-am1l. The authors belong to the team that produced the data.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1088/1741-2552/ae33f6",
+              "ref_title": "Automated 3D segmentation of human vagus nerve fascicles and epineurium from micro-computed tomography images using anatomy-aware neural networks",
+              "ref_authors": [
+                "Zhang J",
+                "Lapierre-Landry M",
+                "Kalpatthi H",
+                "Jenkins MW",
+                "Wilson DL",
+                "Pelot NA",
+                "Shoffstall AJ"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "Journal of Neural Engineering"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:443",
+          "category": "B2AI:Application",
+          "name": "U-Net segmentation of unmyelinated axons",
+          "description": "Plebani and colleagues trained a U-Net to segment unmyelinated axons in transmission electron micrographs of rat autonomic nerves, replacing slow manual annotation. The images and annotations were collected in the SPARC program and are available on the SPARC Portal under CC-BY 4.0 (10.26275/K0MX-JCTH), and the model later served as a benchmark for other nerve segmentation tools.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41598-022-04854-3",
+              "ref_title": "High-throughput segmentation of unmyelinated axons by deep learning",
+              "ref_authors": [
+                "Plebani E",
+                "Biscola NP",
+                "Havton LA",
+                "Rajwa B",
+                "Shemonti AS",
+                "Jaffey D",
+                "Powley T",
+                "Keast JR",
+                "Lu KH",
+                "Dundar MM"
+              ],
+              "ref_publication_year": 2022,
+              "ref_journal": "Scientific Reports"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:444",
+          "category": "B2AI:Application",
+          "name": "Machine learning prediction of emesis from gastric signals",
+          "description": "Nanivadekar and colleagues recorded gastrointestinal myoelectric signals in ferrets with implanted serosal electrode arrays and used k-nearest neighbors and support vector machine classifiers to predict gastric state and the onset of retching and emesis with more than 75 percent accuracy. The recordings were deposited as SPARC dataset 41 (10.26275/8zga-gpkd), an early SPARC example of machine learning on the authors' own deposited data.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1371/journal.pone.0223279",
+              "ref_title": "Machine learning prediction of emesis and gastrointestinal state in ferrets",
+              "ref_authors": [
+                "Nanivadekar AC",
+                "Miller DM",
+                "Fulton S",
+                "Wong L",
+                "Ogren J",
+                "Chitnis G",
+                "McLaughlin B",
+                "Zhai S",
+                "Fisher LE",
+                "Yates BJ",
+                "Horn CC"
+              ],
+              "ref_publication_year": 2019,
+              "ref_journal": "PLOS ONE"
+            }
+          ]
+        }
+      ],
       "collection": [
         "dataregistry",
         "cloudservice",
@@ -43394,6 +43579,40 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2026-09-21",
+      "has_application": [
+        {
+          "id": "B2AI_APP:445",
+          "category": "B2AI:Application",
+          "name": "Precision non-invasive brain stimulation pipeline on o2S2PARC",
+          "description": "Karimi and colleagues built an in silico pipeline for personalized non-invasive brain stimulation that runs as services on o2S2PARC. A convolutional neural network segments MRI into subject-specific head models with up to 40 tissue types, which feed electromagnetic simulations and neural mass models of brain dynamics. The authors are from the IT'IS Foundation, which builds o2S2PARC.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1088/1741-2552/adb88f",
+              "ref_title": "Precision non-invasive brain stimulation: an in silico pipeline for personalized control of brain dynamics",
+              "ref_authors": [
+                "Karimi F",
+                "Steiner M",
+                "Newton T",
+                "Lloyd BA",
+                "Cassara AM",
+                "de Fontenay P",
+                "Farcito S",
+                "Paul Triebkorn J",
+                "Beanato E",
+                "Wang H",
+                "Iavarone E",
+                "Hummel FC",
+                "Kuster N",
+                "Jirsa V",
+                "Neufeld E"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "Journal of Neural Engineering"
+            }
+          ]
+        }
+      ],
       "collection": [
         "cloudplatform",
         "notebookplatform",
@@ -49267,6 +49486,838 @@
       "formal_specification": "https://github.com/ucscGenomeBrowser/kent",
       "responsible_organization": [
         "B2AI_ORG:119"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1267",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Biolucida",
+      "description": "Biolucida image server and web viewer for large 2D and 3D microscopy images",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1268"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "datavisualization",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:62"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "Biolucida is MBF Bioscience's server and web viewer for large 2D and 3D microscopy image data and metadata. It stores images from slide scanners and microscope systems in a permanent location reachable over the web, serves them through a streaming viewer, and lets users share images with collaborators, publish large image sets, and open them for analysis in MBF tools such as Neurolucida 360 and Stereo Investigator. Version 5.0, the current version, added a cross-platform HTML5 viewer, MBF's own JPEG 2000 streaming for large 3D slides, and support for Zeiss CZI, Olympus VSI, and BigTIFF files. It is proprietary commercial software built on a WAMP or LAMP stack with proprietary C++ components, and it has a documented REST API. It is the image back end of the SPARC Portal. Thumbnails of microscopy data in a SPARC dataset open the Biolucida Web Viewer, the SPARC API retrieves images and image metadata from Biolucida, and viewing SPARC images is free for portal users.",
+      "is_open": false,
+      "requires_registration": false,
+      "url": "https://www.mbfbioscience.com/products/biolucida-research",
+      "publication": {
+        "ref_url": ""
+      },
+      "responsible_organization": [
+        "B2AI_ORG:135"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1268",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "MicroFile+",
+      "description": "MicroFile+ converter from proprietary microscopy formats to JPEG 2000 and OME-TIFF with metadata",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:248",
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1267"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:55"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "MicroFile+ is a free Windows tool from MBF Bioscience that converts large multidimensional microscopy images from most imaging sources, including CZI, LIF, ND2, NDPI, IMS, SVS, and OIB/OIF files, into the JPEG 2000 standard or the OME-TIFF format. It preserves instrumental and experimental metadata, following the OME schema, and has functions for adding and curating metadata. It is free of charge but closed source, and the current version is 2021. It was developed with support from the SPARC program, and SPARC recommends that raw, primary, and derivative image data be shared in JPEG 2000 and OME-TIFF and points submitters to MicroFile+ to produce them with the essential metadata in the file header. The converted files load directly in Biolucida and other MBF software.",
+      "is_open": false,
+      "requires_registration": false,
+      "url": "https://www.mbfbioscience.com/products/microfileplus",
+      "publication": {
+        "ref_url": ""
+      },
+      "responsible_organization": [
+        "B2AI_ORG:135"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1269",
+      "category": "B2AI_STANDARD:ModelRepository",
+      "name": "Physiome Model Repository",
+      "description": "Physiome Model Repository (PMR) for version-controlled CellML and FieldML models and related data",
+      "related_to": [
+        "B2AI_STANDARD:318",
+        "B2AI_STANDARD:330",
+        "B2AI_STANDARD:1171",
+        "B2AI_STANDARD:1172",
+        "B2AI_STANDARD:1270"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "dataregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:58",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:63",
+        "B2AI_TOPIC:71"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "The Physiome Model Repository (PMR) is the IUPS Physiome Project's public repository for computational physiology models, built on the PMR2 software from the Auckland Bioengineering Institute. It stores models and related files in version-controlled workspaces and publishes curated exposures of them, with CellML models grouped by category such as electrophysiology, FieldML models, and musculoskeletal scaffolds, and despite its name it can track changes to any data a user deposits. The pmr2.app code is tri-licensed under MPL, GPL, and LGPL, its latest tag is 0.14.1 from October 2022, and the PMR2 GitHub organization was still being updated in September 2026. SPARC relies on it heavily. The source files for the flatmaps on the SPARC Portal live in PMR workspaces, every generic organ scaffold DOI links to its PMR source, the functional connectivity map is archived in a PMR workspace, and the flatmap server builds maps from source manifests on PMR.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://models.physiomeproject.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btq723",
+        "ref_title": "The Physiome Model Repository 2",
+        "ref_authors": [
+          "Yu T",
+          "Lloyd CM",
+          "Nickerson DP",
+          "Cooling MT",
+          "Miller AK",
+          "Garny A",
+          "Terkildsen JR",
+          "Lawson J",
+          "Britten RD",
+          "Hunter PJ",
+          "Nielsen PMF"
+        ],
+        "ref_publication_year": 2011,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/PMR2/pmr2.app",
+      "responsible_organization": [
+        "B2AI_ORG:168"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1270",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "OpenCOR",
+      "description": "OpenCOR modelling environment for organizing, editing, simulating, and analyzing CellML models",
+      "related_to": [
+        "B2AI_STANDARD:318",
+        "B2AI_STANDARD:1164",
+        "B2AI_STANDARD:1269"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:58",
+        "B2AI_TOPIC:60"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "OpenCOR is an open source, cross-platform modelling environment for organizing, editing, simulating, and analyzing CellML files, and a replacement for the earlier COR tool. It is moving to the web. The current OpenCOR is a front end to the libOpenCOR library, released as a desktop application for Windows, Linux, and macOS and as a web app at opencor.ws/app, both Apache-2.0 licensed, and the web app's latest release is v1.20260815.0 from August 2026. The legacy desktop application, GPL-3.0 licensed, reached v0.8.3 in July 2025 and its repository is now archived. SPARC runs CellML simulations either on o2S2PARC through its OpenCOR plugin or in the browser, the SPARC Portal simulation viewer previews simulation datasets that can then be studied further in OpenCOR or o2S2PARC, and SPARC lists the opencor GitHub organization as the home of its simulation tools.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://opencor.ws/",
+      "publication": {
+        "ref_url": "https://doi.org/10.3389/fphys.2015.00026",
+        "ref_title": "OpenCOR: a modular and interoperable approach to computational biology",
+        "ref_authors": [
+          "Garny A",
+          "Hunter PJ"
+        ],
+        "ref_publication_year": 2015,
+        "ref_journal": "Frontiers in Physiology"
+      },
+      "formal_specification": "https://github.com/opencor/libopencor",
+      "responsible_organization": [
+        "B2AI_ORG:168"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1271",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "sparc.client",
+      "description": "sparc.client Python client for finding, downloading, and working with NIH SPARC data",
+      "related_to": [
+        "B2AI_STANDARD:1162",
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1164",
+        "B2AI_STANDARD:1172"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "toolkit",
+        "implementation_maturity_pilot"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:62"
+      ],
+      "purpose_detail": "sparc.client is SPARC's own Python library. Without authorization it browses and queries publicly available SPARC datasets, lists records and files, and downloads data, and its modular structure has service modules for Pennsieve, o2S2PARC, and dataset metadata, with use cases that include uploading and managing datasets and organ scaffold mapping. Two Jupyter notebook tutorials in the repository show how to use the client and how to analyze and export organ scaffolds to other mesh formats with Zinc. It is Apache-2.0 licensed and installed from PyPI, and version 0.4.1 was released in September 2025 with no pushes since. The SPARC Portal's own Flask back end, the sparc-api service, points Python users to sparc.client.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.sparc.science/docs/sparc-python-client",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/nih-sparc/sparc.client",
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1272",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "SPARC Tutorials",
+      "description": "SPARC Tutorials, step-by-step guides to the SPARC Portal, o2S2PARC, scaffold mapping, and SPARC data tools",
+      "related_to": [
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1164",
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1172",
+        "B2AI_STANDARD:1271"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:62"
+      ],
+      "purpose_detail": "SPARC Tutorials is the SPARC Data and Resource Center's hub of step-by-step tutorials on docs.sparc.science, part of its Learning Center of webinars, interviews, tutorials, and guides to SPARC tools. It covers a walkthrough of the SPARC Portal, using o2S2PARC with SPARC and running a cardiovascular system model on it, using JupyterLab with SPARC, downloading datasets with AWS, the Scaffold Mapping Tools for image data, physiological data, and flat preparations, the SCKANNER overview, the SDS Viewer, and Jupyter notebook tutorials for the SPARC Python client. The pages carry no open license and fall under the SPARC Portal terms of service, and the hub was last updated in August 2025.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.sparc.science/docs/sparc-tutorials",
+      "publication": {
+        "ref_url": ""
+      },
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1273",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "FAIR DOs",
+      "description": "FAIR DOs, a graduate research education program in modeling and simulation of digestive and renal neurobiology with SPARC resources",
+      "related_to": [
+        "B2AI_STANDARD:318",
+        "B2AI_STANDARD:1163",
+        "B2AI_STANDARD:1168",
+        "B2AI_STANDARD:1171",
+        "B2AI_STANDARD:1269",
+        "B2AI_STANDARD:1270"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:20",
+        "B2AI_TOPIC:48",
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:58",
+        "B2AI_TOPIC:71"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:168"
+      ],
+      "purpose_detail": "FAIR DOs (Findable, Accessible, Interoperable, Reusable. Development Of Simulations) is a research education program in the modeling and simulation of digestive and renal neurobiology. It trains researchers and clinicians in the neural regulation of digestive and renal epithelia through taught modules and supervised modeling projects that use SPARC datasets, maps, and models. It runs as a graduate course at Case Western Reserve University, with a four-week recorded lecture and tutorial module followed by an eleven-week mentored research module, and its organizing committee includes members from Auckland, UC San Diego, and Indiana University. Topics include bond graphs, ordinary differential equations, CellML, OpenCOR, the Physiome Model Repository, the SPARC Portal and knowledge graph, flatmaps, ApiNATOMY, and optionally o2S2PARC. The site in the nih-sparc GitHub organization hosts syllabi for 2025 through 2027, was last updated in July 2026, and declares no license.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://nih-sparc.github.io/FAIR-DOs/",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/nih-sparc/FAIR-DOs",
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1274",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "SciGraph",
+      "description": "SciGraph, a Neo4j store and REST service for ontologies and ontology-encoded knowledge",
+      "related_to": [
+        "B2AI_STANDARD:1166",
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1275"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "graphdataplatform",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:53",
+        "B2AI_TOPIC:62",
+        "B2AI_TOPIC:75"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "SciGraph represents ontologies and ontology-encoded knowledge in a Neo4j graph. It reads ontologies with the OWL API, so it ingests OWL, RDF, OBO, Turtle, and other formats the OWL API supports, and its vocabulary layer resolves labels to graph nodes, offers autocomplete and OpenRefine resolution services, and resolves CURIEs to IRIs. It also runs as a stand-alone Dropwizard web service. It is OWL-centric and leaves ontology creation and reasoning out of scope. It is Apache-2.0 licensed, its last release is 1.5 from November 2016, and the last commit to its default branch was in December 2020. SPARC describes SciGraph as the open-source Neo4j ontology store that serves the SPARC vocabularies and provides their API, SciCrunch runs the SPARC deployment behind an API key, and each SCKAN release ships as a zipped SciGraph Neo4j database that gives developers a REST API over the knowledge base.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/SciGraph/SciGraph",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/SciGraph/SciGraph",
+      "responsible_organization": [
+        "B2AI_ORG:132"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1275",
+      "category": "B2AI_STANDARD:OntologyOrVocabulary",
+      "name": "NIFSTD",
+      "description": "NIF Standard Ontology (NIFSTD), a neuroscience ontology and the backbone of the SPARC vocabularies",
+      "related_to": [
+        "B2AI_STANDARD:563",
+        "B2AI_STANDARD:1166",
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1274",
+        "B2AI_STANDARD:1276"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:48",
+        "B2AI_TOPIC:53",
+        "B2AI_TOPIC:71"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "The NIF Standard Ontology (NIFSTD) is a neuroscience ontology that keeps an extensive set of terms and concepts for neuroscience and biology. It comes from the Neuroscience Information Framework, and its repository is in the SciCrunch GitHub organization. It imports UBERON, the Human Disease Ontology, the Protein Ontology, and subsets of ChEBI, NCBITaxon, and NCBIGene. New terms are requested through the issue tracker or created in InterLex and reach the ontology after a delay, and the easiest way to query it is the SciGraph REST API with a SciCrunch API key. It is CC-BY-4.0 licensed. Its GitHub releases are now named for SCKAN, the latest being sckan-2026-06-23, and the repository was last pushed in July 2026. SPARC calls NIFSTD the backbone of the SPARC vocabularies, and the NIF-Ontology is the foundation of the ontology used for SCKAN, which combines SPARC content, the NIF-Ontology, and community ontologies.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "http://ontology.neuinfo.org/docs",
+      "publication": {
+        "ref_url": "https://doi.org/10.1007/s12021-008-9032-z",
+        "ref_title": "The NIFSTD and BIRNLex Vocabularies: Building Comprehensive Ontologies for Neuroscience",
+        "ref_authors": [
+          "Bug WJ",
+          "Ascoli GA",
+          "Grethe JS",
+          "Gupta A",
+          "Fennema-Notestine C",
+          "Laird AR",
+          "Larson SD",
+          "Rubin D",
+          "Shepherd GM",
+          "Turner JA",
+          "Martone ME"
+        ],
+        "ref_publication_year": 2008,
+        "ref_journal": "Neuroinformatics"
+      },
+      "formal_specification": "https://github.com/SciCrunch/NIF-Ontology",
+      "responsible_organization": [
+        "B2AI_ORG:132"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1276",
+      "category": "B2AI_STANDARD:OntologyOrVocabulary",
+      "name": "Neuron Phenotype Ontology",
+      "description": "Neuron Phenotype Ontology (NPO) for naming neuron types by their measurable phenotypes",
+      "related_to": [
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1168",
+        "B2AI_STANDARD:1275"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:48",
+        "B2AI_TOPIC:53",
+        "B2AI_TOPIC:71"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "The Neuron Phenotype Ontology (NPO) is an ontology of neuron types based on the phenotypic dimensions of cells that can be measured experimentally. It gives a standardized, automatable way to name cell types and to normalize their constituent phenotypes with identifiers from community ontologies, and it was evaluated against three independent cortical neuron classifications that span molecular, morphological, electrophysiological, and synaptic properties. It has no repository of its own. Its Turtle files, npo.ttl and related phenotype files, live on the dev branch of the NIF-Ontology repository under CC-BY-4.0, and the version in the file header is 2026-03-19. SPARC models the individual neuron populations in SCKAN with the NPO, and for the SPARC populations the defining properties are the locations of their somas, axons, and dendrites.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/SciCrunch/NIF-Ontology",
+      "publication": {
+        "ref_url": "https://doi.org/10.1007/s12021-022-09566-7",
+        "ref_title": "The Neuron Phenotype Ontology: A FAIR Approach to Proposing and Classifying Neuronal Types",
+        "ref_authors": [
+          "Gillespie TH",
+          "Tripathy SJ",
+          "Sy MF",
+          "Martone ME",
+          "Hill SL"
+        ],
+        "ref_publication_year": 2022,
+        "ref_journal": "Neuroinformatics"
+      },
+      "formal_specification": "https://raw.githubusercontent.com/SciCrunch/NIF-Ontology/dev/ttl/npo.ttl",
+      "responsible_organization": [
+        "B2AI_ORG:132"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1277",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "sparcur",
+      "description": "sparcur, the SPARC Dataset Structure validator and SPARC curation and SCKAN release tooling",
+      "related_to": [
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1161",
+        "B2AI_STANDARD:1167"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "toolkit",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:55",
+        "B2AI_TOPIC:63",
+        "B2AI_TOPIC:78"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "sparcur is a Python implementation of a validator for the SPARC Dataset Structure (SDS), kept in the sparc-curation repository together with code, files, and documentation for the curation and knowledge management workflows of SPARC datasets, protocols, and anatomical connectivity. Running python -m sparcur.simple.validate on a dataset writes the result to a curation-export.json file, and a Racket curation viewer gives curators a graphical interface. The repository also holds the core of the SCKAN release pipelines and publishes the SDS dataset templates as its GitHub releases, the latest being dataset-template-3.0.2 from May 2025. It is MIT licensed and was last pushed in August 2026, while the sparcur package on PyPI has not been updated since a 0.0.1.dev5 release in January 2023. SPARC enforces SDS compliance with this automated validator and lists the repository as its SDS and SCKAN curation tools.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/SciCrunch/sparc-curation",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/SciCrunch/sparc-curation",
+      "responsible_organization": [
+        "B2AI_ORG:132"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1278",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "SPARC Optical Microscopy Imaging Data and Metadata Standard",
+      "description": "SPARC standard for required optical microscopy imaging metadata and image file formats",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:248",
+        "B2AI_STANDARD:1160",
+        "B2AI_STANDARD:1267",
+        "B2AI_STANDARD:1268"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "minimuminformationschema",
+        "implementation_maturity_production",
+        "standards_process_maturity_final"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54",
+        "B2AI_TOPIC:73"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:132",
+        "B2AI_ORG:135"
+      ],
+      "purpose_detail": "The SPARC Optical Microscopy Imaging Data and Imaging Metadata Standard makes sure that primary and derived optical microscopy images in SPARC datasets carry a consistent set of imaging metadata, so that the images can be understood and reused. It defines 21 required metadata fields out of 47 commonly written fields based on the OME-TIFF specification, grouped as file, sample, and acquisition metadata, covering items such as acquisition date, source file, image size, pixel counts in X, Y, and Z, physical pixel size, channel count, and the label or stain in each channel. Of the 21 required fields, 14 are usually written to the file header by the imaging device, so with a typical configuration only 7 need manual entry. All primary imaging data used for analysis must also be made available in OME-TIFF and JPEG 2000 with the required metadata, which MicroFile+ is built to produce. It covers only images that are data products for analysis, not ancillary display images, and is used together with the SPARC Dataset Structure minimum information standard. Version 1.0, written by Susan Tappan of MBF Bioscience and Maryann Martone of UC San Diego for the SPARC Data and Resource Center, was approved by the SPARC Data Standards Committee on March 3, 2021 and published on Zenodo under CC-BY-4.0 in August 2021.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://zenodo.org/records/5347993",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://doi.org/10.5281/zenodo.5347993",
+      "responsible_organization": [
+        "B2AI_ORG:131"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1279",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "SCKANNER",
+      "description": "SCKANNER web tool for exploring nerve to end organ connectivity in SCKAN",
+      "related_to": [
+        "B2AI_STANDARD:1167",
+        "B2AI_STANDARD:1272",
+        "B2AI_STANDARD:1274",
+        "B2AI_STANDARD:1276"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "datavisualization",
+        "implementation_maturity_pilot"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:21",
+        "B2AI_TOPIC:48",
+        "B2AI_TOPIC:71",
+        "B2AI_TOPIC:75"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131",
+        "B2AI_ORG:169"
+      ],
+      "purpose_detail": "SCKANNER (RRID SCR_027206) is a web tool for exploring the current contents of SCKAN, the SPARC knowledge base of autonomic and peripheral nervous system connectivity from nerves to end organs, built from SPARC experts, SPARC data, literature, and textbooks. It shows connections as a grid with heatmaps and a summary heatmap. Selecting a cell or cluster shows the details of each connection, including its URI, species, sex, graph, and triples, and filters narrow the grid, for example by anatomical structure. The displayed data can be exported as PDF or CSV. SPARC's tutorial uses it to answer questions such as which connections terminate in the bladder, what neuron populations travel through the vagus, and what structures a perturbation of the inferior mesenteric ganglion might affect. It was developed by the UCSD FAIR Data Informatics lab and MetaCell and is in beta at sckanner.scicrunch.io. Its code is a Django-Ninja and React application in the applications/sckanner folder of MetaCell's sckan-explorer repository, which declares no license and was last pushed in April 2026. In October 2025 the SPARC docs noted a known bug that miscategorized some ganglia as other.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://sckanner.scicrunch.io",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/MetaCell/sckan-explorer",
+      "responsible_organization": [
+        "B2AI_ORG:132"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1280",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "JPEG 2000",
+      "description": "JPEG 2000 (ISO/IEC 15444, ITU-T T.800) wavelet-based image coding system and its JP2 file format, a separate standard from JPEG",
+      "related_to": [
+        "B2AI_STANDARD:98",
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:344",
+        "B2AI_STANDARD:1267",
+        "B2AI_STANDARD:1268",
+        "B2AI_STANDARD:1278"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "fileformat",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:65"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "JPEG 2000 is an image coding system published jointly by ITU-T and ISO/IEC as Rec. ITU-T T.800 and ISO/IEC 15444, with its first edition in 2001 and a royalty-free objective. It is a different standard from JPEG (ISO/IEC 10918, ITU-T T.81, from 1992), which is the format of ordinary .jpg files. Both come from the Joint Photographic Experts Group committee, and they share little else. JPEG codes images with a block-based discrete cosine transform and Huffman coding, and JPEG 2000 codes them with a discrete wavelet transform. JPEG 2000 handles lossy and lossless coding in the same framework, up to 16384 components, bit depths up to 38 bits per sample, and terapixel images, and it adds resolution and quality scalability, progressive decoding, and region-of-interest access, so a viewer can pull a low-resolution overview or one region of a huge image without decoding the whole file. The two formats are not interchangeable. A JPEG 2000 codestream or .jp2 file cannot be read by a JPEG decoder, and converting between them means decoding and re-encoding. Part 1 defines the core codestream and the basic JP2 file format, which carries color space and other metadata. Other parts add the JPX extended file format (Part 2), Motion JPEG 2000 (Part 3), the JPIP client-server protocol for interactive remote browsing (Part 9), and High-Throughput JPEG 2000 (Part 15), a block coder about ten times faster that converts losslessly to the original coder at about 5 percent larger size. OpenJPEG, a BSD 2-clause C codec from UCLouvain whose version 2.5.4 was released in September 2025, is one open-source implementation. DICOM defines transfer syntaxes that encapsulate JPEG 2000 for lossless and lossy compression of medical images. SPARC requires primary optical microscopy data to be shared in JPEG 2000 as well as OME-TIFF, MicroFile+ converts microscopy files to it, and Biolucida streams large 3D slides with its own JPEG 2000 streaming.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://jpeg.org/jpeg2000/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1109/79.952804",
+        "ref_title": "The JPEG 2000 still image compression standard",
+        "ref_authors": [
+          "Skodras A",
+          "Christopoulos C",
+          "Ebrahimi T"
+        ],
+        "ref_publication_year": 2001,
+        "ref_journal": "IEEE Signal Processing Magazine"
+      },
+      "formal_specification": "https://www.itu.int/rec/T-REC-T.800"
+    },
+    {
+      "id": "B2AI_STANDARD:1281",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Zeiss CZI",
+      "description": "Zeiss CZI (Carl Zeiss Image) microscopy file format",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:1267",
+        "B2AI_STANDARD:1268",
+        "B2AI_STANDARD:1278",
+        "B2AI_STANDARD:1280"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "CZI is the file format ZEISS developed for microscopy imaging, written by ZEN software and ZEISS microscope systems, with the extension .czi. One file holds the image data with its metadata. A CZI file is a single binary file, not TIFF, that begins with the bytes ZISRAWFILE and stores image tiles as subblocks at arbitrary pixel positions. Each subblock carries pixel data, a small XML metadata fragment, and a directory entry, and a slide may hold several scenes, each with its own resolution pyramid. It offers Zstandard and JPEG XR compression. The specification documents exist, but Bio-Formats notes it cannot redistribute them. ZEISS supports reading on other platforms through libCZI, an open-source C++ library under LGPL-3.0 or later for reading and writing CZI, a Python wrapper, and command-line tools for compressing and checking CZI files. Bio-Formats reads CZI with its ZeissCZIReader and rates the format 5 of 5 for pixel and metadata support and 4 of 5 for openness, OpenSlide reads CZI slides, Biolucida 5 accepts CZI, and MicroFile+ converts CZI to OME-TIFF or JPEG 2000 for SPARC submission.",
+      "is_open": false,
+      "requires_registration": false,
+      "url": "https://www.zeiss.com/microscopy/en/products/software/zeiss-zen/czi-image-file-format.html",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/ZEISS/libczi",
+      "responsible_organization": [
+        "B2AI_ORG:101"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1282",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Leica LIF",
+      "description": "Leica LIF (Leica Image File) microscopy file format from Leica Application Suite",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:1268",
+        "B2AI_STANDARD:1278",
+        "B2AI_STANDARD:1280"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "LIF (Leica Image File Format) is the file format written by Leica Microsystems acquisition software, Leica Application Suite Advanced Fluorescence (LAS AF) and LAS X, with the extension .lif. Leica has issued specification documents at versions 1 (2006), 2 (2007), and 3.2 (2016), the last covering the related XLLF, XLEF, and LOF formats, and Bio-Formats holds them but cannot redistribute them. Bio-Formats lists Leica Application Suite X as freely available software. Bio-Formats reads LIF with its LIFReader, supports versions 1.0 and 2.0 officially, and rates it 5 of 5 for pixel and metadata support and 4 of 5 for openness. Bio-Formats versions before 5.3.3 computed physical pixel sizes from LIF files incorrectly. Commercial tools including Imaris, SVI Huygens, and Amira also read LIF, and MicroFile+ converts LIF to OME-TIFF or JPEG 2000 for SPARC submission.",
+      "is_open": false,
+      "requires_registration": false,
+      "url": "https://bio-formats.readthedocs.io/en/latest/formats/leica-lif.html",
+      "publication": {
+        "ref_url": ""
+      },
+      "responsible_organization": [
+        "B2AI_ORG:170"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1283",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Nikon ND2",
+      "description": "Nikon NIS-Elements ND2 microscopy file format",
+      "related_to": [
+        "B2AI_STANDARD:247",
+        "B2AI_STANDARD:1268",
+        "B2AI_STANDARD:1278",
+        "B2AI_STANDARD:1280"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "ND2 is the file format written by Nikon NIS-Elements microscopy software, with the extension .nd2. There are two distinct versions, an older one that compresses images with JPEG 2000 and a newer one that is uncompressed or Zip-compressed, and Bio-Formats knows neither version number nor release date. No official specification document is available to Bio-Formats, which lists one as wanted and rates the format 2 of 5 for openness, 4 of 5 for pixel support, and 3 of 5 for metadata support. Nikon distributes the free NIS-Elements Viewer. Bio-Formats reads ND2 with its ND2Reader and uses the JAI Image I/O Tools library for the JPEG 2000 variant, and MicroFile+ converts ND2 to OME-TIFF or JPEG 2000 for SPARC submission.",
+      "is_open": false,
+      "requires_registration": false,
+      "url": "https://bio-formats.readthedocs.io/en/latest/formats/nikon-nis-elements-nd2.html",
+      "publication": {
+        "ref_url": ""
+      },
+      "responsible_organization": [
+        "B2AI_ORG:172"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1284",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Hamamatsu NDPI",
+      "description": "Hamamatsu NDPI whole slide image file format",
+      "related_to": [
+        "B2AI_STANDARD:344",
+        "B2AI_STANDARD:383",
+        "B2AI_STANDARD:1268",
+        "B2AI_STANDARD:1286"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "NDPI is the whole slide image format of Hamamatsu slide scanners, with the extensions .ndpi and .ndpis. It is one of three Hamamatsu variants, next to the multi-file VMS and VMU formats. An NDPI file is a single TIFF-like file with custom TIFF tags and proprietary metadata that stores its images as JPEG, and because JPEG allows at most 65535 pixels on a side, NDPI packs large levels into one JPEG and sets the overflowed width and height fields to 0. Hamamatsu provides the free NDP.view2 viewer, and OpenSlide reads NDPI but only focal plane 0. Bio-Formats reads it with its NDPIReader and NDPISReader and rates it 3 of 5 for openness. MicroFile+ converts NDPI to OME-TIFF or JPEG 2000 for SPARC submission.",
+      "is_open": false,
+      "requires_registration": false,
+      "url": "https://openslide.org/formats/hamamatsu/",
+      "publication": {
+        "ref_url": ""
+      },
+      "responsible_organization": [
+        "B2AI_ORG:173"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1285",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Imaris IMS",
+      "description": "Imaris IMS microscopy file format, a multiresolution HDF5 layout",
+      "related_to": [
+        "B2AI_STANDARD:339",
+        "B2AI_STANDARD:1268",
+        "B2AI_STANDARD:1278"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "IMS is the file format of Imaris, image visualization and analysis software now owned by Oxford Instruments (formerly Bitplane), with the extension .ims. The current format, introduced with Imaris 5.5, is built on HDF5 and designed for fast visualization of very large images. It stores lower resolution versions alongside the original data and keeps image data in contiguous 3D HDF5 chunks, so software can load only the resolution and the region in view. A file has three main groups, DataSet for the image across slices, channels, time points, and resolution levels, DataSetInfo for metadata such as voxel size, and Scene or Scene8 for objects and annotations. The specification is published openly by Oxford Instruments, and the older Imaris Classic binary and Imaris 3 TIFF formats are not HDF5 and are not covered by it. Bio-Formats reads all three variants and rates the format 4 of 5 for openness, and MicroFile+ converts IMS to OME-TIFF or JPEG 2000 for SPARC submission.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://imaris.oxinst.com/support/imaris-file-format",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://imaris.oxinst.com/support/imaris-file-format",
+      "responsible_organization": [
+        "B2AI_ORG:174"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1286",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Aperio SVS",
+      "description": "Aperio SVS whole slide image file format, a pyramidal tiled TIFF variant",
+      "related_to": [
+        "B2AI_STANDARD:383",
+        "B2AI_STANDARD:1268",
+        "B2AI_STANDARD:1280",
+        "B2AI_STANDARD:1284"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-09-24",
+      "collection": [
+        "fileformat",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:131"
+      ],
+      "purpose_detail": "SVS is the whole slide image format of Aperio slide scanners, a product line now owned by Leica Biosystems, with the extension .svs. An SVS file is a single pyramidal tiled TIFF with non-standard metadata and compression. The first image is the full-resolution baseline, later images hold downsampled levels and the label and macro images, and the ImageDescription tag begins with Aperio and carries key-value pairs. Tiles may use two nonstandard TIFF compression codes, 33003 and 33005, which mark specific kinds of JPEG 2000 compression. Bio-Formats holds an SVS specification but cannot redistribute it, officially supports versions 8.0, 8.2, and 9.0, and rates the format 4 of 5 for openness. OpenSlide reads SVS, Bio-Formats points to Aperio ImageScope for viewing it, and MicroFile+ converts it to OME-TIFF or JPEG 2000 for SPARC submission.",
+      "is_open": false,
+      "requires_registration": false,
+      "url": "https://openslide.org/formats/aperio/",
+      "publication": {
+        "ref_url": ""
+      },
+      "responsible_organization": [
+        "B2AI_ORG:171"
       ]
     }
   ],
