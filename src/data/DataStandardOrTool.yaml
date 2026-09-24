@@ -26328,6 +26328,7 @@ data_standardortools_collection:
   is_open: true
   has_relevant_organization:
   - B2AI_ORG:141
+  - B2AI_ORG:165
   name: WDL
   purpose_detail: The Workflow Description Language (WDL) is a way to specify data
     processing workflows with a human-readable and -writeable syntax. WDL makes it
@@ -35976,6 +35977,8 @@ data_standardortools_collection:
   has_relevant_data_substrate:
   - B2AI_SUBSTRATE:40
   is_open: true
+  has_relevant_organization:
+  - B2AI_ORG:141
   name: Bioconductor
   purpose_detail: Bioconductor is an open-source ecosystem providing software packages,
     workflows, and educational resources for analyzing genomic and biomedical data
@@ -37725,6 +37728,7 @@ data_standardortools_collection:
   is_open: true
   has_relevant_organization:
   - B2AI_ORG:141
+  - B2AI_ORG:165
   name: Cromwell
   publication:
     ref_url: https://doi.org/10.7490/f1000research.1114634.1
@@ -60505,3 +60509,544 @@ data_standardortools_collection:
     - Haussler D
     ref_publication_year: 2020
     ref_journal: Nature Biotechnology
+- id: B2AI_STANDARD:1233
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:61
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Caper (Cromwell Assisted Pipeline ExecutoR), a Python wrapper that runs WDL pipelines with Cromwell
+  formal_specification: https://github.com/ENCODE-DCC/caper
+  has_relevant_organization:
+  - B2AI_ORG:141
+  is_open: true
+  name: caper
+  purpose_detail: Caper (Cromwell Assisted Pipeline ExecutoR) is a Python package from the
+    ENCODE Data Coordination Center that wraps the Cromwell workflow engine so that
+    WDL pipelines can be run with one command on Google Cloud Platform, AWS, a local
+    machine, or an HPC scheduler (SLURM, SGE, PBS/Torque, or LSF). It composes the
+    Cromwell configuration and input files for the chosen backend, runs each task in
+    Docker, Singularity, or Conda, and localizes every file named in the input JSON to
+    that backend, transferring s3, gs, and http(s) URIs between storage as needed. On
+    HPCs it submits a leader job that in turn submits the task jobs, and a file-based
+    metadata database gives call caching so that a failed workflow can resume. It is
+    installed from PyPI, `caper init` downloads the Cromwell and Womtool jars, and it is
+    MIT licensed. Version 2.3.2 was released in July 2023 and the repository was last
+    pushed in February 2026. All ENCODE pipelines, including the ENCODE ATAC-seq
+    pipeline, are documented to run through caper, and the MoTrPAC Bioinformatics
+    Center runs its WDL pipelines with it on Google Cloud.
+  related_to:
+  - B2AI_STANDARD:389
+  - B2AI_STANDARD:723
+  - B2AI_STANDARD:747
+  - B2AI_STANDARD:767
+  - B2AI_STANDARD:1187
+  - B2AI_STANDARD:1234
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:165
+  url: https://github.com/ENCODE-DCC/caper
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1234
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ENCODE ATAC-seq and DNase-seq processing pipeline in WDL
+  formal_specification: https://github.com/ENCODE-DCC/atac-seq-pipeline
+  has_relevant_organization:
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  is_open: true
+  name: ENCODE ATAC-seq pipeline
+  purpose_detail: The ENCODE ATAC-seq pipeline is the ENCODE Data Coordination Center's WDL
+    pipeline for end-to-end quality control and processing of ATAC-seq and DNase-seq
+    data, from raw FASTQ files through alignment, filtering, peak calling, and signal
+    track generation, and it can also start from intermediate files such as BAM. It
+    handles single-end and paired-end reads and replicated or unreplicated
+    experiments, and it produces an HTML and JSON QC report (alignment and peak
+    statistics, FRiP, TSS enrichment, IDR), a reproducibility analysis, stringent and
+    relaxed thresholded peak sets, and fold-enrichment and p-value bigWig signal
+    tracks. Genome databases are provided for hg38, hg19, mm10, and mm9, and a builder
+    makes one for any other genome from FASTA. It runs through caper on cloud
+    platforms or HPC clusters, the protocol specification is published by ENCODE with
+    its data quality standards, and it is MIT licensed. Version 2.2.3 was released in
+    February 2024 and the repository was last pushed in July 2024. Two CFDE DCCs reuse
+    it. MoTrPAC pins version 1.7.0 and adds its own configuration, QC flagging, and
+    count matrix scripts in motrpac-atac-seq-pipeline, and the 4DN portal registers the
+    encode-atacseq-aln and encode-atacseq-postaln workflows from a 4DN fork.
+  related_to:
+  - B2AI_STANDARD:20
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:111
+  - B2AI_STANDARD:389
+  - B2AI_STANDARD:747
+  - B2AI_STANDARD:1187
+  - B2AI_STANDARD:1233
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:165
+  url: https://www.encodeproject.org/atac-seq/
+  publication:
+    ref_url: https://doi.org/10.1038/s41586-020-2493-4
+    ref_title: Expanded encyclopaedias of DNA elements in the human and mouse genomes
+    ref_authors:
+    - The ENCODE Project Consortium
+    ref_publication_year: 2020
+    ref_journal: Nature
+- id: B2AI_STANDARD:1235
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - fileformat
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:26
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:73
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Olink Normalized Protein eXpression (NPX) data, the output unit and export format of Olink proximity extension assay proteomics
+  formal_specification: https://github.com/Olink-Proteomics/OlinkRPackage
+  has_relevant_organization:
+  - B2AI_ORG:141
+  is_open: false
+  name: Olink NPX
+  purpose_detail: NPX (Normalized Protein eXpression) is the relative, log2-scale protein
+    abundance unit reported by Olink proximity extension assay panels and the name of
+    the tabular data files that Olink software exports, with one row per sample and
+    assay carrying the Olink assay identifier, UniProt accession, panel name, panel
+    lot, plate, QC warning, and normalization fields. Olink is now part of Thermo
+    Fisher Scientific. The assays and the export software are proprietary. The open
+    reference for reading NPX files is the Olink Analyze R package (OlinkAnalyze on
+    CRAN, AGPL-3 licensed, version 5.1.0 released in September 2026), whose read_NPX
+    function parses NPX exports and whose functions cover QC plots, bridging and
+    normalization between projects, and statistical testing. It also accepts
+    log-transformed Olink QUANT data. MoTrPAC measures plasma proteins with Olink in
+    the human study (the prot-ol ome in MotrpacHumanPreSuspensionAnalysis), and the
+    MotrpacBicQC package validates Olink submissions against required columns that
+    include olink_id, uniprot_entry, assay, panel_name, panel_lot_nr, and
+    normalization.
+  related_to:
+  - B2AI_STANDARD:1188
+  - B2AI_STANDARD:1241
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:123
+  url: https://olink.com/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1236
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:74
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacRatTraining6moQCRep post-quantification QC reports for the MoTrPAC rat endurance training study
+  formal_specification: https://github.com/MoTrPAC/MotrpacRatTraining6moQCRep
+  is_open: true
+  name: MotrpacRatTraining6moQCRep
+  purpose_detail: MotrpacRatTraining6moQCRep is a repository of R Markdown scripts and rendered
+    HTML reports holding the post-quantification analyses of each ome in the MoTrPAC
+    endurance training study in six-month-old rats published in Nature in 2024. The
+    analyses are exploratory. They served as sanity checks and QA and identified
+    flagged samples such as extreme PCA outliers, and there is one report per ome
+    including chromatin accessibility, transcriptomics, proteomics, and
+    metabolomics. The reports were written for internal use, and code that read
+    from MoTrPAC's internal cloud was replaced with an ADDPATH token, so most
+    analyses are reproduced by downloading data from the MoTrPAC Data Hub and
+    pointing the code at the local copy. The repository has tools, reports, and
+    ext_data folders, a Zenodo DOI badge, and a v1.0 release from April 2023, and
+    it was last pushed in January 2025. It declares no license. It records the QC
+    decisions upstream of the data in MotrpacRatTraining6moData.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1185
+  - B2AI_STANDARD:1187
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://github.com/MoTrPAC/MotrpacRatTraining6moQCRep
+  publication:
+    ref_url: https://doi.org/10.1038/s41586-023-06877-w
+    ref_title: Temporal dynamics of the multi-omic response to endurance exercise training
+    ref_authors:
+    - MoTrPAC Study Group
+    ref_publication_year: 2024
+    ref_journal: Nature
+- id: B2AI_STANDARD:1237
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:55
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacRatTraining6moWATData R data package for the MoTrPAC rat subcutaneous white adipose tissue analysis
+  formal_specification: https://github.com/MoTrPAC/MotrpacRatTraining6moWATData
+  is_open: true
+  name: MotrpacRatTraining6moWATData
+  purpose_detail: MotrpacRatTraining6moWATData is an R data package holding the data and code
+    needed to reproduce the MoTrPAC analysis of sexual dimorphism in the response of
+    rat subcutaneous white adipose tissue to endurance training, published in Nature
+    Metabolism in 2024. It carries differential analysis of the transcriptomics,
+    proteomics, phosphoproteomics, and metabolomics datasets, FGSEA or KSEA
+    enrichment for each ome, weighted gene co-expression network analysis (WGCNA)
+    for every ome but proteomics, and over-representation analysis of the WGCNA
+    modules. The data-raw folder has the scripts that build each object, most named
+    after the object they create. The input data come from the MoTrPAC PASS1B study
+    as distributed in MotrpacRatTraining6moData, and the helper functions used to
+    build it live in the companion MotrpacRatTraining6moWAT package. It is installed
+    from GitHub, is MIT licensed, and version 2.0.0 was released in March 2024.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1185
+  - B2AI_STANDARD:1238
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://motrpac.github.io/MotrpacRatTraining6moWATData/
+  publication:
+    ref_url: https://doi.org/10.1038/s42255-023-00959-9
+    ref_title: Sexual dimorphism and the multi-omic response to exercise training in rat subcutaneous white adipose tissue
+    ref_authors:
+    - Many GM
+    - Sanford JA
+    - Sagendorf TJ
+    - Hou Z
+    - Nigro P
+    - Whytock KL
+    - Amar D
+    - Caputo T
+    - Gay NR
+    - Gaul DA
+    - Hirshman MF
+    - Jimenez-Morales D
+    - Lindholm ME
+    - Muehlbauer MJ
+    - Vamvini M
+    - Bergman BC
+    - Fernández FM
+    - Goodyear LJ
+    - Hevener AL
+    - Ortlund EA
+    - Sparks LM
+    - Xia A
+    - Adkins JN
+    - Bodine SC
+    - Newgard CB
+    - Schenk S
+    - The MoTrPAC Study Group
+    ref_publication_year: 2024
+    ref_journal: Nature Metabolism
+- id: B2AI_STANDARD:1238
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:74
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacRatTraining6moWAT R package of helper functions for the MoTrPAC rat white adipose tissue data
+  formal_specification: https://github.com/MoTrPAC/MotrpacRatTraining6moWAT
+  is_open: true
+  name: MotrpacRatTraining6moWAT
+  purpose_detail: MotrpacRatTraining6moWAT is an R package of functions for analysis and
+    visualization of the MoTrPAC PASS1B white adipose tissue data as provided in
+    MotrpacRatTraining6moData. It was built to generate the
+    MotrpacRatTraining6moWATData package and much of it is tailored to those
+    datasets. Its general pieces are differential analysis with limma and edgeR,
+    fast gene set enrichment analysis with fgsea and msigdbr, kinase-substrate
+    enrichment analysis with PhosphoSitePlus, and over-representation analysis. It
+    is installed from GitHub, is MIT licensed, and version 1.0.1 was released in
+    March 2024 with no pushes since.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1185
+  - B2AI_STANDARD:1237
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://motrpac.github.io/MotrpacRatTraining6moWAT/
+  publication:
+    ref_url: https://doi.org/10.1038/s42255-023-00959-9
+    ref_title: Sexual dimorphism and the multi-omic response to exercise training in rat subcutaneous white adipose tissue
+    ref_authors:
+    - Many GM
+    - Sanford JA
+    - Sagendorf TJ
+    - Hou Z
+    - Nigro P
+    - Whytock KL
+    - Amar D
+    - Caputo T
+    - Gay NR
+    - Gaul DA
+    - Hirshman MF
+    - Jimenez-Morales D
+    - Lindholm ME
+    - Muehlbauer MJ
+    - Vamvini M
+    - Bergman BC
+    - Fernández FM
+    - Goodyear LJ
+    - Hevener AL
+    - Ortlund EA
+    - Sparks LM
+    - Xia A
+    - Adkins JN
+    - Bodine SC
+    - Newgard CB
+    - Schenk S
+    - The MoTrPAC Study Group
+    ref_publication_year: 2024
+    ref_journal: Nature Metabolism
+- id: B2AI_STANDARD:1239
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:55
+  - B2AI_TOPIC:71
+  - B2AI_TOPIC:74
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacRatTrainingPhysiologyData R data package for the MoTrPAC rat endurance training physiology study
+  formal_specification: https://github.com/MoTrPAC/MotrpacRatTrainingPhysiologyData
+  is_open: true
+  name: MotrpacRatTrainingPhysiologyData
+  purpose_detail: MotrpacRatTrainingPhysiologyData is an R data package with the input data,
+    analysis steps, and results of the MoTrPAC study of physiological adaptations to
+    progressive endurance training in adult and aged rats, published in Function in
+    2024. It covers male and female Fischer 344 rats that stayed sedentary or trained
+    for 1, 2, 4, or 8 weeks starting at 6 or 18 months of age. Vignettes hold the
+    statistical analyses of body composition and VO2max testing, muscle fiber area
+    and fiber counts by muscle and fiber type, muscle-specific measures, plasma
+    clinical analytes, and weekly body mass, and objects ending in _STATS or _EMM
+    carry the statistical results. The data-raw directory has the scripts that
+    build the exported datasets, and the pkgdown site has the data documentation
+    and the articles that draw the manuscript figures. It is GPL-3 licensed, is
+    installed from GitHub, and version 2.0.0 was released in January 2024. It is
+    the phenotype counterpart to the molecular data in MotrpacRatTraining6moData.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1185
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://motrpac.github.io/MotrpacRatTrainingPhysiologyData/
+  publication:
+    ref_url: https://doi.org/10.1093/function/zqae014
+    ref_title: 'Physiological Adaptations to Progressive Endurance Exercise Training in Adult and Aged Rats: Insights from the Molecular Transducers of Physical Activity Consortium (MoTrPAC)'
+    ref_authors:
+    - Schenk S
+    - Sagendorf TJ
+    - Many GM
+    - Lira AK
+    - de Sousa LGO
+    - Bae D
+    - Cicha M
+    - Kramer KS
+    - Muehlbauer M
+    - Hevener AL
+    - Rector RS
+    - Thyfault JP
+    - Williams JP
+    - Goodyear LJ
+    - Esser KA
+    - Newgard CB
+    - Bodine SC
+    - The MoTrPAC Study Group
+    ref_publication_year: 2024
+    ref_journal: Function
+- id: B2AI_STANDARD:1240
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_pilot
+  concerns_data_topic:
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:55
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacRatTraining6moMuscleData R data package for the MoTrPAC rat skeletal muscle analysis
+  formal_specification: https://github.com/MoTrPAC/MotrpacRatTraining6moMuscleData
+  is_open: true
+  name: MotrpacRatTraining6moMuscleData
+  purpose_detail: MotrpacRatTraining6moMuscleData is an R data package with the data and code to
+    reproduce the MoTrPAC analysis of sex-biased molecular programs in rat skeletal
+    muscle adaptation to endurance training, published in Cell Reports in 2026. It
+    follows the layout of MotrpacRatTraining6moWATData, with differential analysis
+    of transcriptomics, proteomics, phosphoproteomics, and metabolomics, FGSEA or
+    KSEA enrichment for each ome, and WGCNA for every ome but proteomics. Its README
+    still describes these datasets as subcutaneous white adipose tissue, a sentence
+    carried over from the WAT package. Vignettes draw the enrichment figures and
+    summarize features per ome and missingness across proteomics platforms, and a
+    regenerate_figures.sh script rebuilds the whole project in order, for example
+    after a new genome annotation. It is installed from GitHub with vignettes
+    recommended, is MIT licensed, and is at version 0.1.1.2 with no GitHub release
+    and no pkgdown site yet. The repository was last pushed in May 2026.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1185
+  - B2AI_STANDARD:1237
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://github.com/MoTrPAC/MotrpacRatTraining6moMuscleData
+  publication:
+    ref_url: https://doi.org/10.1016/j.celrep.2026.117823
+    ref_title: Temporal multi-omic analysis uncovers sex-biased molecular programs underlying skeletal muscle adaptation to endurance training
+    ref_authors:
+    - Many GM
+    - Jin C
+    - Day NJ
+    - Iyer G
+    - Smith G
+    - Voos K
+    - Sanford JA
+    - Bareja A
+    - Jimenez-Morales D
+    - Leach DT
+    - Sagendorf TJ
+    - Ahmed A
+    - Li X
+    - Gaffrey MJ
+    - Attah IK
+    - Mitchell HD
+    - Viggars MR
+    - Gaul D
+    - Huffman KM
+    - Fernández F
+    - Snyder MP
+    - Ortlund E
+    - Kohrt W
+    - Wheeler MT
+    - Kraus WE
+    - Esser KA
+    - Goodpaster BH
+    - Goodyear LJ
+    - Burant CF
+    - Newgard CB
+    - Hevener AL
+    - Bodine SC
+    - Qian WJ
+    - Schenk S
+    - Adkins JN
+    - Lindholm ME
+    ref_publication_year: 2026
+    ref_journal: Cell Reports
+- id: B2AI_STANDARD:1241
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_pilot
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:17
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:66
+  - B2AI_TOPIC:74
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MotrpacHumanPreSuspensionAnalysis R package of summary statistics and modeling results from the MoTrPAC human pre-COVID suspension cohort
+  formal_specification: https://github.com/MoTrPAC/MotrpacHumanPreSuspensionAnalysis
+  is_open: true
+  name: MotrpacHumanPreSuspensionAnalysis
+  purpose_detail: MotrpacHumanPreSuspensionAnalysis is the R package for the public release of
+    MoTrPAC's first human results, from the cohort of sedentary adults enrolled
+    before the study was suspended for COVID-19 (N=175) and randomized to endurance
+    exercise, resistance exercise, or non-exercise control. It covers the acute
+    exercise bout, with samples from blood, muscle, and adipose tissue at timepoints
+    from baseline through 24 hours after exercise, and seven assay types
+    (transcriptomics, global proteomics, phosphoproteomics, Olink proteomics,
+    metabolomics across 14 targeted and untargeted platforms, ATAC-seq, and
+    MethylCap-seq) plus clinical values. It ships differential analysis results,
+    group-level summary statistics, CAMERA-PR enrichment, fuzzy c-means clustering,
+    significant splicing results, and a feature-to-gene map built on Ensembl 105 and
+    GENCODE 39, with metabolites named by RefMet and epigenetic files served from an
+    AWS CDN. Individual-level data are not included and are available only by
+    request to the consortium, and two functions need the private
+    MotrpacHumanPreSuspensionData package. It requires R 4.4 or later and matching
+    Bioconductor, is MIT licensed, and version 0.2.4 was tagged in July 2026. Version
+    0.2.0 matches the bioRxiv preprint and the README warns later versions may change
+    during review. The broader post-suspension cohort is still being analyzed.
+  related_to:
+  - B2AI_STANDARD:705
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1184
+  - B2AI_STANDARD:1190
+  - B2AI_STANDARD:1235
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:141
+  url: https://motrpac.github.io/MotrpacHumanPreSuspensionAnalysis/
+  publication:
+    ref_url: ''
