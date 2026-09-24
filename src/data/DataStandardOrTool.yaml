@@ -61862,3 +61862,615 @@ data_standardortools_collection:
   url: https://www.youtube.com/playlist?list=PLiJ0I11RAJ2qR9PQcB4xhIpOv4RcFwGoT
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1255
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SAMtools utilities for reading, writing, and manipulating SAM, BAM, and CRAM alignment files
+  formal_specification: https://github.com/samtools/samtools
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  - B2AI_ORG:165
+  is_open: true
+  name: samtools
+  purpose_detail: SAMtools is a suite of command-line utilities for handling sequence alignments
+    in the SAM, BAM, and CRAM formats, covering format conversion and manipulation,
+    sorting, indexing, querying, statistics, and pileup. The original package was
+    split into three coordinated projects, HTSlib (the C library for high-throughput
+    sequencing data), samtools (alignment tools), and BCFtools (variant calling and
+    VCF and BCF tools), and samtools builds against HTSlib. Copyright is held by
+    Genome Research Ltd, it is MIT licensed, and version 1.24 was released in July
+    2026. The 4DN Data Portal registers samtools 1.2 and
+    1.4, the ENCODE ATAC-seq and ChIP-seq pipelines install samtools 1.9, the MoTrPAC
+    RNA-seq and RRBS pipelines run samtools 1.3.1 in their WDL tasks, and the Kids
+    First DRC alignment, RNA-seq, somatic, and germline workflows call it for
+    indexing, flagstat, BAM to CRAM conversion, pileup, and depth.
+  related_to:
+  - B2AI_STANDARD:17
+  - B2AI_STANDARD:21
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:273
+  - B2AI_STANDARD:299
+  requires_registration: false
+  url: http://www.htslib.org/
+  publication:
+    ref_url: https://doi.org/10.1093/gigascience/giab008
+    ref_title: Twelve years of SAMtools and BCFtools
+    ref_authors:
+    - Danecek P
+    - Bonfield JK
+    - Liddle J
+    - Marshall J
+    - Ohan V
+    - Pollard MO
+    - Whitwham A
+    - Keane T
+    - McCarthy SA
+    - Davies RM
+    - Li H
+    ref_publication_year: 2021
+    ref_journal: GigaScience
+- id: B2AI_STANDARD:1256
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: BEDTools suite of utilities for genome arithmetic on genomic intervals
+  formal_specification: https://github.com/arq5x/bedtools2
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  - B2AI_ORG:165
+  is_open: true
+  name: bedtools
+  purpose_detail: bedtools is a suite of command-line utilities for genome arithmetic, meaning
+    set operations on genomic intervals. It can intersect, merge, count, complement,
+    and shuffle intervals from files in BAM, BED, GFF/GTF, and VCF, and quite
+    sophisticated analyses are built by chaining its operations on the Unix command
+    line. It is maintained by the Quinlan Laboratory at the University of Virginia,
+    is MIT licensed, and version 2.31.1 was released in November 2023, with the
+    repository last pushed in June 2026. The 4DN Data Portal registers bedtools
+    2.26.0, the ENCODE ATAC-seq and ChIP-seq pipelines install bedtools 2.29.0 for
+    overlap, TSS enrichment, and BAM to tagAlign steps, the MoTrPAC ATAC-seq
+    post-processing scripts use it to build peak count matrices, and the Kids First
+    DRC alignment, somatic, and RNA-seq workflows call its intersect and subtract
+    tools.
+  related_to:
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:36
+  - B2AI_STANDARD:299
+  requires_registration: false
+  url: https://bedtools.readthedocs.io/
+  publication:
+    ref_url: https://doi.org/10.1093/bioinformatics/btq033
+    ref_title: 'BEDTools: a flexible suite of utilities for comparing genomic features'
+    ref_authors:
+    - Quinlan AR
+    - Hall IM
+    ref_publication_year: 2010
+    ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1257
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Sambamba parallel tool and library for working with SAM and BAM files
+  formal_specification: https://github.com/biod/sambamba
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:138
+  - B2AI_ORG:165
+  is_open: true
+  name: sambamba
+  purpose_detail: Sambamba is a highly parallel tool and library written in the D programming
+    language for working with SAM and BAM files. It implements an important subset
+    of samtools functionality, including view, index, sort, and depth, plus
+    markdup, a fast implementation of the Picard duplicate marking algorithm. CRAM
+    support was removed at version 0.8. It is GPL-2.0 or later licensed, version
+    1.0.1 was released in August 2023, and the repository was last pushed in
+    December 2024. The 4DN Data Portal registers sambamba 0.6.6, the ENCODE ATAC-seq
+    and ChIP-seq pipelines install 0.6.6 as an optional duplicate marker with Picard
+    as the default, and the Kids First DRC alignment workflow uses it to index,
+    sort, and merge BAM files.
+  related_to:
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:273
+  - B2AI_STANDARD:1255
+  - B2AI_STANDARD:1258
+  requires_registration: false
+  url: https://lomereiter.github.io/sambamba/
+  publication:
+    ref_url: https://doi.org/10.1093/bioinformatics/btv098
+    ref_title: 'Sambamba: fast processing of NGS alignment formats'
+    ref_authors:
+    - Tarasov A
+    - Vilella AJ
+    - Cuppen E
+    - Nijman IJ
+    - Prins P
+    ref_publication_year: 2015
+    ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1258
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Picard Java command-line tools for manipulating high-throughput sequencing data and formats
+  formal_specification: https://github.com/broadinstitute/picard
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  - B2AI_ORG:165
+  is_open: true
+  name: Picard
+  purpose_detail: Picard is a set of Java command-line tools from the Broad Institute for
+    manipulating high-throughput sequencing data and formats such as SAM and VCF,
+    built on the HTSJDK library. Its tools include duplicate marking, BAM gathering,
+    quality yield, hybrid selection, whole genome, and RNA-seq metrics, and sample
+    fingerprint checks. Since version 3.0 it requires
+    Java 17. It is MIT licensed, user support goes through the GATK forum, and
+    version 3.5.0 was released in July 2026. There is no paper, and the maintainers
+    ask users to cite the repository as the Picard Toolkit (RRID SCR_006525). The
+    4DN Data Portal registers Picard 2.10.6, the ENCODE ATAC-seq and ChIP-seq
+    pipelines install 2.20.7 and use it as the default duplicate marker, the
+    MoTrPAC RNA-seq pipeline runs CollectRnaSeqMetrics from Picard 2.18.16, and the
+    Kids First DRC alignment and germline workflows call MarkDuplicates, metrics,
+    fingerprint, and VCF merging tools from Picard 2.18.9.
+  related_to:
+  - B2AI_STANDARD:21
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:273
+  - B2AI_STANDARD:299
+  - B2AI_STANDARD:1206
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:147
+  url: https://broadinstitute.github.io/picard/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1259
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:20
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:74
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: MACS (Model-based Analysis of ChIP-Seq) peak caller, versions 2 and 3
+  formal_specification: https://github.com/macs3-project/MACS
+  has_relevant_organization:
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  - B2AI_ORG:165
+  is_open: true
+  name: MACS
+  purpose_detail: MACS (Model-based Analysis of ChIP-Seq) is a peak caller that evaluates the
+    significance of enriched regions while accounting for genome complexity and
+    sharpens binding site resolution by combining tag position and orientation. It
+    runs on ChIP-seq data alone or with a control sample, and as a general peak
+    caller it applies to any DNA enrichment assay, including ATAC-seq. MACS2 and
+    MACS3 are successive major versions in the same repository. MACS 3.0.0 (November
+    2023) added the callvar command for calling SNVs and indels in peak regions and
+    the hmmratac subcommand for ATAC-seq. MACS2 remains on PyPI as a separate package
+    whose last release is 2.2.9.1 (July 2023). MACS3 3.0.4 was released in February
+    2026, and 3.0.5 was described in the changelog but not yet tagged in September
+    2026. It is BSD-3-Clause licensed. The 4DN Data Portal registers MACS2
+    2.1.1.20160309, the ENCODE ATAC-seq and ChIP-seq pipelines install MACS2 2.2.4
+    for peak calling and signal tracks, and the MoTrPAC ATAC-seq pipeline reports
+    the MACS2 fold-change and p-value signal tracks produced by the ENCODE pipeline
+    it wraps.
+  related_to:
+  - B2AI_STANDARD:20
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:36
+  - B2AI_STANDARD:1234
+  - B2AI_STANDARD:1251
+  - B2AI_STANDARD:1260
+  requires_registration: false
+  url: https://macs3-project.github.io/MACS/
+  publication:
+    ref_url: https://doi.org/10.1093/gpbjnl/qzag097
+    ref_title: 'MACS3: A Peak-calling Platform for Bulk and Single-cell Regulatory Genomics'
+    ref_authors:
+    - Doherty P
+    - Hu Q
+    - Zhuang Z
+    - Zhang H
+    - Penikalapati SC
+    - Liu S
+    - Liu T
+    ref_publication_year: 2026
+    ref_journal: Genomics, Proteomics & Bioinformatics
+- id: B2AI_STANDARD:1260
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:74
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: IDR (Irreproducible Discovery Rate) framework for measuring reproducibility across replicate experiments
+  formal_specification: https://github.com/kundajelab/idr
+  has_relevant_organization:
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  - B2AI_ORG:165
+  is_open: true
+  name: IDR
+  purpose_detail: The Irreproducible Discovery Rate (IDR) framework measures the reproducibility
+    of findings from replicate experiments and gives stable thresholds based on
+    reproducibility. It compares a pair of ranked lists of identifications, such as
+    ChIP-seq peaks that have not been pre-thresholded, fits the bivariate rank
+    distributions over the replicates to separate signal from noise, and draws a
+    curve that shows where findings stop being consistent across replicates. The
+    method was developed by Qunhua Li and Peter Bickel's group and is part of the
+    ENCODE and modENCODE ChIP-seq guidelines and standards. The kundajelab
+    implementation is a Python 3 program, GPL-2.0 licensed, with no GitHub
+    releases. Its latest tag is 2.0.4.2 from April 2018 and the repository was
+    last pushed in March 2023. The 4DN Data Portal registers IDR 2.0.4.2, the ENCODE
+    ATAC-seq and ChIP-seq pipelines install 2.0.4.2 and run it on MACS2 narrowPeak
+    calls, with IDR enabled by default in the ATAC-seq pipeline, and the MoTrPAC ATAC-seq pipeline reports IDR optimal peaks
+    and IDR QC metrics from the ENCODE pipeline it wraps.
+  related_to:
+  - B2AI_STANDARD:1234
+  - B2AI_STANDARD:1251
+  - B2AI_STANDARD:1259
+  requires_registration: false
+  url: https://github.com/kundajelab/idr
+  publication:
+    ref_url: https://doi.org/10.1214/11-aoas466
+    ref_title: Measuring reproducibility of high-throughput experiments
+    ref_authors:
+    - Li Q
+    - Brown JB
+    - Huang H
+    - Bickel PJ
+    ref_publication_year: 2011
+    ref_journal: The Annals of Applied Statistics
+- id: B2AI_STANDARD:1261
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SPP R package for ChIP-seq analysis, strand cross-correlation, and peak calling
+  formal_specification: https://github.com/hms-dbmi/spp
+  has_relevant_organization:
+  - B2AI_ORG:138
+  - B2AI_ORG:165
+  is_open: true
+  name: SPP
+  purpose_detail: SPP is an R package by Peter Kharchenko for analysis of ChIP-seq and other
+    functional sequencing data. ENCODE uses it through phantompeakqualtools, the
+    Kundaje lab wrapper (run_spp.R) that uses a modified SPP to compute the
+    predominant fragment length from the strand cross-correlation peak, compute data
+    quality measures from the relative phantom peak, and call peaks and regions for
+    punctate binding datasets from single-end reads in tagAlign or BAM format. SPP is
+    GPL-2 licensed per its DESCRIPTION file. The hms-dbmi repository was last
+    pushed in July 2021, its latest release is 1.15.2 from February 2018, and CRAN
+    archived the package in November 2022 because issues were not corrected.
+    phantompeakqualtools is BSD-3-Clause licensed and its latest release is 1.2.2
+    from December 2019. The 4DN Data Portal registers SPP 1.13, and the ENCODE
+    ATAC-seq and ChIP-seq pipelines install SPP 1.15 and run_spp.R from
+    phantompeakqualtools 1.2.2 for cross-correlation QC, with SPP also a peak caller
+    option in the ChIP-seq pipeline.
+  related_to:
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:1234
+  - B2AI_STANDARD:1251
+  requires_registration: false
+  url: https://github.com/hms-dbmi/spp
+  publication:
+    ref_url: https://doi.org/10.1038/nbt.1508
+    ref_title: Design and analysis of ChIP-seq experiments for DNA-binding proteins
+    ref_authors:
+    - Kharchenko PV
+    - Tolstorukov MY
+    - Park PJ
+    ref_publication_year: 2008
+    ref_journal: Nature Biotechnology
+- id: B2AI_STANDARD:1262
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Bowtie 2 short read aligner
+  formal_specification: https://github.com/BenLangmead/bowtie2
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  - B2AI_ORG:165
+  is_open: true
+  name: Bowtie 2
+  purpose_detail: Bowtie 2 is a fast, memory-efficient tool for aligning sequencing reads to long
+    reference sequences, best suited to reads from about 50 to 1,000 or more
+    characters and to long genomes such as mammalian ones. It indexes the genome
+    with an FM index, which keeps the memory footprint to about 3.2 GB for the human
+    genome, and supports gapped, local, and paired-end alignment modes. It is
+    GPL-3.0 licensed, distributed through Bioconda and as binaries for Linux, macOS,
+    and Windows, and version 2.5.5 was released in February 2026. The 4DN Data
+    Portal registers bowtie2 2.2.6, the ENCODE ATAC-seq and ChIP-seq pipelines align
+    with bowtie2 2.3.4.3, the MoTrPAC RNA-seq pipeline uses 2.3.4.3 to align reads to
+    globin, rRNA, and PhiX references for contamination QC and its RRBS pipeline
+    uses it for PhiX, and the Kids First RNA-seq Nextflow workflow runs it in its
+    circular RNA subworkflow.
+  related_to:
+  - B2AI_STANDARD:111
+  - B2AI_STANDARD:273
+  - B2AI_STANDARD:1234
+  - B2AI_STANDARD:1251
+  requires_registration: false
+  url: https://bowtie-bio.sourceforge.net/bowtie2/
+  publication:
+    ref_url: https://doi.org/10.1038/nmeth.1923
+    ref_title: Fast gapped-read alignment with Bowtie 2
+    ref_authors:
+    - Langmead B
+    - Salzberg SL
+    ref_publication_year: 2012
+    ref_journal: Nature Methods
+- id: B2AI_STANDARD:1263
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: FastQC quality control reports for high-throughput sequencing reads
+  formal_specification: https://github.com/s-andrews/FastQC
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  is_open: true
+  name: FastQC
+  purpose_detail: FastQC is a Java program from Babraham Bioinformatics that spots potential
+    problems in high-throughput sequencing datasets. It runs a set of analyses on raw
+    sequence files in FASTQ or BAM format and writes an HTML report per file, and each
+    test is flagged as a pass, warning, or fail depending on how far it departs from a
+    normal large dataset with no significant biases. It is not tied to one
+    sequencing technique and runs either as an interactive application or
+    non-interactively in a pipeline. It is GPL-3.0 licensed, version 0.12.1 was
+    released in March 2023, and the repository was last pushed in August 2026. There
+    is no journal paper. The 4DN Data Portal registers FastQC 0.11.4, 0.11.5, and
+    0.11.9, the MoTrPAC RNA-seq and RRBS pipelines run FastQC 0.11.8, and the Kids
+    First DRC alignment workflow runs FastQC 0.11.9.
+  related_to:
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:111
+  requires_registration: false
+  url: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1264
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:23
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Cutadapt adapter and primer trimming for high-throughput sequencing reads
+  formal_specification: https://github.com/marcelm/cutadapt
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  - B2AI_ORG:165
+  is_open: true
+  name: cutadapt
+  purpose_detail: Cutadapt finds and removes adapter sequences, primers, poly-A tails, and other
+    unwanted sequence from high-throughput sequencing reads, such as the 3' adapter
+    in small RNA sequencing reads or the primer at the start of amplicon reads. It is
+    written by Marcel Martin, distributed on PyPI and Bioconda, and MIT licensed.
+    Version 5.2 was released in October 2025 and the repository was last pushed in
+    September 2026. The GitHub Releases page stops at v4.0, so the tags and PyPI
+    carry the current version. The 4DN Data Portal registers cutadapt 1.14, the
+    ENCODE ATAC-seq and ChIP-seq pipelines install cutadapt 2.5 for adapter
+    trimming, the MoTrPAC RNA-seq pipeline has a cutadapt 1.18 task and its RRBS
+    pipeline installs 1.18 for Trim Galore, and the Kids First DRC RNA-seq workflow
+    offers optional trimming with cutadapt 3.4.
+  related_to:
+  - B2AI_STANDARD:111
+  requires_registration: false
+  url: https://cutadapt.readthedocs.io/
+  publication:
+    ref_url: https://doi.org/10.14806/ej.17.1.200
+    ref_title: Cutadapt removes adapter sequences from high-throughput sequencing reads
+    ref_authors:
+    - Martin M
+    ref_publication_year: 2011
+    ref_journal: EMBnet.journal
+- id: B2AI_STANDARD:1265
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:33
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:74
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: RSEM (RNA-Seq by Expectation-Maximization) gene and isoform expression quantification
+  formal_specification: https://github.com/deweylab/RSEM
+  has_relevant_organization:
+  - B2AI_ORG:128
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  is_open: true
+  name: RSEM
+  purpose_detail: RSEM is a software package for estimating gene and isoform expression levels
+    from RNA-seq data with an expectation-maximization algorithm, with or without a
+    reference genome. It supports threads for parallel computation, single-end and
+    paired-end reads, quality scores, and variable-length reads, gives posterior mean
+    and 95 percent credibility interval estimates for expression levels, writes BAM
+    and Wiggle files in transcript and genomic coordinates for visualization, and
+    includes a read simulator. It comes from the Dewey lab at the University of
+    Wisconsin-Madison and is GPL-3.0 licensed. Version 1.3.3 was released in February
+    2020 and the repository was last pushed in August 2026. The 4DN Data Portal
+    registers RSEM 1.2.31, the MoTrPAC RNA-seq pipeline quantifies transcripts with
+    RSEM 1.3.1 after STAR alignment, and the Kids First DRC RNA-seq workflow uses
+    RSEM 1.3.1 for gene expression abundance estimation.
+  related_to:
+  - B2AI_STANDARD:22
+  - B2AI_STANDARD:111
+  - B2AI_STANDARD:828
+  requires_registration: false
+  url: https://deweylab.github.io/RSEM/
+  publication:
+    ref_url: https://doi.org/10.1186/1471-2105-12-323
+    ref_title: 'RSEM: accurate transcript quantification from RNA-Seq data with or without a reference genome'
+    ref_authors:
+    - Li B
+    - Dewey CN
+    ref_publication_year: 2011
+    ref_journal: BMC Bioinformatics
+- id: B2AI_STANDARD:1266
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:55
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: UCSC Genome Browser command-line utilities (kent utilities) for genome annotation and track file processing
+  formal_specification: https://github.com/ucscGenomeBrowser/kent
+  has_relevant_organization:
+  - B2AI_ORG:138
+  - B2AI_ORG:141
+  - B2AI_ORG:165
+  is_open: true
+  name: UCSC kent utilities
+  purpose_detail: The UCSC kent utilities are the UCSC Genome Browser Group's standalone
+    command-line programs, built from the kent source tree and distributed as
+    binaries for Linux and other Unix platforms. UCSC describes them as the tools
+    needed to build tracks, track hub files, and computational pipelines and to
+    filter, sort, rearrange, join, and process genome annotation files. They include
+    the file format converters that produce the bigWig and bigBed formats, such as
+    bedGraphToBigWig, wigToBigWig, and bedToBigBed, as well as bedClip, which drops
+    records outside chromosome bounds, and gtfToGenePred. The command-line tools are
+    released under an MIT license, but the license text in the repository grants
+    rights to any person or non-commercial entity, while the UCSC licensing page says
+    they may be used even commercially. BLAT, isPCR, liftOver, and the Genome Browser
+    web programs need a license for commercial use. The Linux binaries were last
+    updated in September 2026. The 4DN Data
+    Portal registers bedGraphToBigWig, bedToBigBed, and bedClip, the ENCODE ATAC-seq
+    and ChIP-seq pipelines call bedClip, bedToBigBed, and bedGraphToBigWig to write
+    signal and peak tracks, and the MoTrPAC RNA-seq and ATAC-seq pipelines download
+    gtfToGenePred and bigWigToBedGraph.
+  related_to:
+  - B2AI_STANDARD:18
+  - B2AI_STANDARD:19
+  - B2AI_STANDARD:20
+  - B2AI_STANDARD:36
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:119
+  url: http://hgdownload.soe.ucsc.edu/admin/exe/
+  publication:
+    ref_url: https://doi.org/10.1093/bioinformatics/btq351
+    ref_title: 'BigWig and BigBed: enabling browsing of large distributed datasets'
+    ref_authors:
+    - Kent WJ
+    - Zweig AS
+    - Barber G
+    - Hinrichs AS
+    - Karolchik D
+    ref_publication_year: 2010
+    ref_journal: Bioinformatics
