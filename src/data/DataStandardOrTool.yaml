@@ -45819,40 +45819,69 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
   - B2AI_TOPIC:18
+  - B2AI_TOPIC:49
   - B2AI_TOPIC:54
+  - B2AI_TOPIC:66
   - B2AI_TOPIC:79
   contribution_date: '2023-09-25'
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
-  contributor_orcid: 0000-0001-5705-7831
-  description: Metadata Concepts for Advancing the Use of Digital Health Technologies
-    in Clinical Research
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Metadata Concepts for Advancing the Use of Digital Health Technologies in Clinical Research
+  formal_specification: https://doi.org/10.6084/m9.figshare.9944303.v6
   is_open: true
   name: Badawy et al. 2019
+  purpose_detail: This is a proposed metadata set for studies that collect data with
+    digital health technologies (DHTs) such as wearable and non-wearable sensors, developed
+    by a 33-member working group convened by the Michael J. Fox Foundation for Parkinson's
+    Research with members from academia, industry, CDISC, the Critical Path Institute,
+    and CTTI, using Parkinson's disease as the model condition. It organizes metadata
+    into four concepts. Person covers the subject and observer, Context of Collection
+    covers the study protocol, procedures, and the technology used, Observation covers
+    technology-reported and human-reported observations including device placement,
+    sensor outputs, and software, and Time covers time sources, zones, precision,
+    synchronization, and sampling rate. Each element carries a description, motivation,
+    and examples, with many drawn from CDISC SDTM and PRM, ISO 8601, SNOMED CT, HL7
+    FHIR, and the W3C SSN and SOSA ontologies. It is a conceptual map meant to guide
+    what metadata researchers collect and how standards bodies extend existing standards,
+    and it deliberately does not define a mandatory minimum set, a controlled vocabulary,
+    or a machine-readable format. The figshare supplement (version 6, CC BY 4.0) provides
+    the set as interactive mind maps and tables. A 2022 framework by Hill and colleagues
+    builds on it for DHT deployment in Parkinson's disease trials.
+  related_to:
+  - B2AI_STANDARD:44
+  - B2AI_STANDARD:49
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:246
+  - B2AI_STANDARD:343
+  - B2AI_STANDARD:546
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1293
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:176
+  url: https://figshare.com/articles/dataset/Supplementary_Material_for_Metadata_Concepts_for_Advancing_the_Use_of_Digital_Health_Technologies_in_Clinical_Research/9944303
   publication:
     ref_url: https://doi.org/10.1159/000502951
-    ref_title: Metadata Concepts for Advancing the Use of Digital Health Technologies
-      in Clinical Research
+    ref_title: Metadata Concepts for Advancing the Use of Digital Health Technologies in Clinical Research
     ref_authors:
     - Badawy R
     - Hameed F
     - Bataille L
-    - Little M
+    - Little MA
     - Claes K
     - Saria S
-    - Cedarbaum J
+    - Cedarbaum JM
     - Stephenson D
     - Neville J
     - Maetzler W
-    - Espay A
-    - Bloem B
+    - Espay AJ
+    - Bloem BR
     - Simuni T
-    - Karlin D
+    - Karlin DR
     ref_publication_year: 2019
     ref_journal: Digit Biomark
-  purpose_detail: A proposed metadata set for digital health studies.
-  requires_registration: false
-  url: https://figshare.com/articles/dataset/Supplementary_Material_for_Metadata_Concepts_for_Advancing_the_Use_of_Digital_Health_Technologies_in_Clinical_Research/9944303
 - id: B2AI_STANDARD:876
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -64336,6 +64365,47 @@ data_standardortools_collection:
     - Wishart DS
     ref_publication_year: 2023
     ref_journal: Nucleic Acids Res
+- id: B2AI_STANDARD:1293
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:66
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Medical Dictionary for Regulatory Activities
+  is_open: false
+  name: MedDRA
+  purpose_detail: MedDRA is the international medical terminology developed under
+    the International Council for Harmonisation of Technical Requirements for Pharmaceuticals
+    for Human Use (ICH) for regulatory communication about medical products, including
+    adverse event reporting, pharmacovigilance, and clinical trial data. It is organized
+    in a five-level hierarchy from System Organ Class through High Level Group Term,
+    High Level Term, and Preferred Term down to more than 80,000 Lowest Level Terms
+    that reflect how observations are reported in practice. The Maintenance and Support
+    Services Organization (MSSO) maintains the English version and most of the 26 supported
+    translations, and the Japanese Maintenance Organization handles the Japanese version.
+    New versions are released twice a year, in March and September. Use requires a
+    subscription, which is free for regulatory authorities and non-profit or non-commercial
+    organizations and priced on a sliding scale by annual revenue for commercial subscribers.
+  requires_registration: true
+  url: https://www.meddra.org/
+  publication:
+    ref_url: https://doi.org/10.2165/00002018-199920020-00002
+    ref_title: The Medical Dictionary for Regulatory Activities (MedDRA)
+    ref_authors:
+    - Brown EG
+    - Wood L
+    - Wood S
+    ref_publication_year: 1999
+    ref_journal: Drug Safety
 - id: B2AI_STANDARD:1294
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
