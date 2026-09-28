@@ -33003,22 +33003,89 @@ data_standardortools_collection:
 - id: B2AI_STANDARD:506
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
-  - obofoundry
+  - codesystem
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
-  - B2AI_TOPIC:53
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:53
   - B2AI_TOPIC:56
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Nutrition Care Process Terminology
+  formal_specification: https://docs.snomed.org/implementation-guides/ncpt-implementation-guide/2-what-is-ncp-and-ncpt
   is_open: false
   name: NCPT
-  purpose_detail: Terms for nutrition assessment, diagnosis, intervention, and monitoring/evaluation.
+  purpose_detail: The Nutrition Care Process Terminology (NCPT) is the standardized
+    terminology for documenting the four steps of the Nutrition Care Process, which are
+    nutrition assessment and reassessment, nutrition diagnosis, nutrition intervention,
+    and nutrition monitoring and evaluation. Terms for each step are organized into
+    domains, classes, and subclasses, and each term carries an abbreviation and a five-
+    digit Academy unique identifier. The terminology began in 2008 as the International
+    Dietetics and Nutrition Terminology (IDNT) and is published and copyrighted by the
+    Academy of Nutrition and Dietetics as the electronic NCPT (eNCPT), currently the
+    2023 English edition, with translations into ten other languages. Changes go through
+    the Academy's Nutrition Care Process and Terminology Committee and a public
+    submission process. Full access requires a paid individual, organizational,
+    educator, or developer subscription, while a small set of commonly used terms is
+    free to support documentation for the Global Malnutrition Composite Score and HL7
+    nutrition standards. Nearly all nutrition diagnosis and intervention terms have been
+    modeled in SNOMED CT, and SNOMED International publishes an NCPT reference set that
+    reached 1,115 concepts in April 2026. The Academy's ANDHII platform uses NCPT for
+    documentation and outcomes research.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1120
+  - B2AI_STANDARD:1305
   requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:179
   url: https://www.ncpro.org/
+  has_application:
+  - id: B2AI_APP:465
+    category: B2AI:Application
+    name: Machine learning on real-world nutrition care data
+    description: Researchers applied clustering and supervised machine learning to real-
+      world Nutrition Care Process data from the Academy's National Quality Improvement
+      data set, collected in ANDHII, where dietitians document care with NCPT.
+      Clustering identified two phenotypes of nutrition care episodes, and classifiers
+      predicted whether the documented nutrition diagnosis was resolved, with nutrition
+      history assessment, number of visits, counseling interventions, and out-of-range
+      findings among the predictive features. The study also assessed whether the
+      registry data model is fit for machine learning.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.jand.2021.02.003
+      ref_title: 'Applying Contemporary Machine Learning Approaches to Nutrition Care
+        Real-World Evidence: Findings From the National Quality Improvement Data Set'
+      ref_authors:
+      - Maduri C
+      - Sabrina Hsueh PY
+      - Li Z
+      - Chen CH
+      - Papoutsakis C
+      ref_publication_year: 2021
+      ref_journal: J Acad Nutr Diet
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.jand.2018.10.025
+    ref_title: 'Nutrition Care Process (NCP) Update Part 2: Developing and Using the
+      NCP Terminology to Demonstrate Efficacy of Nutrition Care and Related Outcomes'
+    ref_authors:
+    - Swan WI
+    - Pertel DG
+    - Hotson B
+    - Lloyd L
+    - Orrevall Y
+    - Trostler N
+    - Vivanti A
+    - Howarter KB
+    - Papoutsakis C
+    ref_publication_year: 2019
+    ref_journal: J Acad Nutr Diet
 - id: B2AI_STANDARD:507
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -65055,3 +65122,45 @@ data_standardortools_collection:
     ref_publication_year: 2016
     ref_journal: Nucleic Acids Res
 
+- id: B2AI_STANDARD:1305
+  category: B2AI_STANDARD:DataStandardOrTool
+  collection:
+  - clinicaldata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:56
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Academy of Nutrition and Dietetics Health Informatics Infrastructure
+  is_open: false
+  name: ANDHII
+  purpose_detail: ANDHII (Academy of Nutrition and Dietetics Health Informatics
+    Infrastructure) is a web-based platform available to Academy members that lets
+    registered dietitian nutritionists document nutrition care with the Nutrition Care
+    Process Terminology and track nutrition care outcomes. It supports secure online
+    data collection, multisite and multinational research studies with upload of
+    informed consent documentation, and aggregation of documented care into a national
+    quality improvement data set used for evidence-based nutrition practice research.
+  related_to:
+  - B2AI_STANDARD:506
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:179
+  url: https://www.andeal.org/ncp
+  publication:
+    ref_url: https://doi.org/10.1016/j.jand.2018.03.013
+    ref_title: 'Academy of Nutrition and Dietetics Health Informatics Infrastructure
+      (ANDHII): A Pilot Study on the Documentation of the Nutrition Care Process and
+      the Usability of ANDHII by Registered Dietitian Nutritionists'
+    ref_authors:
+    - Murphy WJ
+    - Yadrick MM
+    - Steiber AL
+    - Mohan V
+    - Papoutsakis C
+    ref_publication_year: 2018
+    ref_journal: J Acad Nutr Diet
