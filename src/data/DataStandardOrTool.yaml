@@ -34050,26 +34050,125 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - codesystem
+  - drugdata
   - standards_process_maturity_final
   - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:8
+  - B2AI_TOPIC:9
   - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: RxNorm
+  description: RxNorm normalized names for clinical drugs
+  formal_specification: https://www.nlm.nih.gov/research/umls/rxnorm/docs/techdoc.html
   has_relevant_organization:
   - B2AI_ORG:74
   has_training_resource:
   - B2AI_STANDARD:1087
   is_open: true
   name: RxNorm
-  purpose_detail: Medication terminology. Provided through UMLS.
+  purpose_detail: RxNorm is the National Library of Medicine terminology of normalized
+    names and unique identifiers (RXCUIs) for generic and branded clinical drugs and
+    drug packs available in the United States. Each concept is assigned one of 23 term
+    types, such as ingredient (IN), brand name (BN), semantic clinical drug (SCD, ingredient
+    plus strength plus dose form), and semantic branded drug (SBD), and RxNorm links
+    these concepts to the names and codes used in source drug vocabularies including
+    First Databank, Micromedex, Gold Standard, Multum, the VA National Drug File, DrugBank,
+    ATC, FDA Structured Product Labels, and the SNOMED CT drug subset, along with National
+    Drug Codes. Full releases appear monthly with weekly updates for newly approved
+    drugs, and RxNorm is also distributed in the UMLS Metathesaurus. The full release
+    requires a UMLS license, while the Current Prescribable Content subset and the RxNav
+    browser and APIs are available without one. RxNorm is the required medication
+    vocabulary in ONC Health IT Certification and in every version of USCDI, and it
+    is the standard drug vocabulary of the OMOP Common Data Model, where OHDSI extends
+    it with RxNorm Extension for drugs outside the US market.
+  related_to:
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:485
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:564
+  - B2AI_STANDARD:1290
+  - B2AI_STANDARD:1291
+  - B2AI_STANDARD:1292
   requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:74
   url: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
+  has_application:
+  - id: B2AI_APP:452
+    category: B2AI:Application
+    name: n2c2 2019 clinical concept normalization shared task
+    description: The 2019 n2c2/UMass Lowell shared task annotated concept mentions in
+      discharge summaries and linked them to SNOMED CT and RxNorm concepts from the
+      UMLS, making RxNorm the target vocabulary for medication mentions. Thirty-three
+      teams submitted systems ranging from dictionary matching to deep learning and retrieve-and-rank
+      models, with a best accuracy of 0.853. Misspellings, abbreviations, and multiword
+      terms were the most common sources of error.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamia/ocaa106
+      ref_title: The 2019 n2c2/UMass Lowell shared task on clinical concept normalization
+      ref_authors:
+      - Luo YF
+      - Henry S
+      - Wang Y
+      - Shen F
+      - Uzuner O
+      - Rumshisky A
+      ref_publication_year: 2020
+      ref_journal: J Am Med Inform Assoc
+  - id: B2AI_APP:453
+    category: B2AI:Application
+    name: RxMap LLM-assisted medication normalization
+    description: RxMap combines deterministic RxNorm candidate generation with large
+      language model parsing to map free-text medication strings to RxNorm ingredient
+      concepts (IN and MIN term types) and then assigns ATC classes. Tested on 22,624
+      unique medication strings from the Medical Expenditure Panel Survey, it raised
+      RXCUI-level F1 from 0.859 with deterministic matching alone to 0.966.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamiaopen/ooag085
+      ref_title: 'RxMap: an LLM-assisted tool for medication normalization'
+      ref_authors:
+      - Korpela E
+      - Rubin LH
+      - Dastgheyb RM
+      - Xu Y
+      ref_publication_year: 2026
+      ref_journal: JAMIA Open
+  - id: B2AI_APP:454
+    category: B2AI:Application
+    name: Retrieval-augmented LLM mapping of Japanese drugs to RxNorm
+    description: RxNorm semantic clinical drug names were embedded with BioBERT, and
+      Mixtral 8x7B with retrieval-augmented generation proposed the top five RxNorm
+      candidates for each drug in the Japanese National Health Insurance drug list.
+      Pharmacists validated the candidates, and the targets were OMOP standard drug
+      concepts from RxNorm or RxNorm Extension. The resulting dataset supports OMOP-based
+      research on Japanese medication data.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.dib.2025.111418
+      ref_title: A dataset for mapping the Japanese drugs to RxNorm standard concepts
+      ref_authors:
+      - Kimura E
+      - Kawakami Y
+      - Inoue S
+      - Okajima A
+      ref_publication_year: 2025
+      ref_journal: Data in Brief
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1136/amiajnl-2011-000116
+    ref_title: 'Normalized names for clinical drugs: RxNorm at 6 years'
+    ref_authors:
+    - Nelson SJ
+    - Zeng K
+    - Kilbourne J
+    - Powell T
+    - Moore R
+    ref_publication_year: 2011
+    ref_journal: J Am Med Inform Assoc
 - id: B2AI_STANDARD:545
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -63953,6 +64052,166 @@ data_standardortools_collection:
     - Guo CC
     ref_publication_year: 2022
     ref_journal: Sci Rep
+- id: B2AI_STANDARD:1290
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - drugdata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: RxNav browser and APIs for RxNorm and related drug information
+  formal_specification: https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html
+  is_open: true
+  name: RxNav
+  purpose_detail: RxNav is the National Library of Medicine browser and web service
+    suite for RxNorm. The browser finds drugs by the names and codes of RxNorm and
+    its source vocabularies and shows their relationships. The companion tools and
+    REST APIs include the RxNorm API (lookups such as approximate string matching,
+    NDC mapping, and related concepts), RxClass for drug class hierarchies from ATC,
+    MED-RT, and CVX vaccine groups, RxMix for combining API functions into workflows,
+    the RxTerms and Prescribable APIs, and RxNav-in-a-Box for local installation.
+    The RxNorm API needs no UMLS license and is governed by NLM terms of service.
+  related_to:
+  - B2AI_STANDARD:485
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:1291
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:74
+  url: https://mor.nlm.nih.gov/RxNav/
+  publication:
+    ref_url: https://pubmed.ncbi.nlm.nih.gov/17238775/
+    ref_title: 'RxNav: a web service for standard drug information'
+    ref_authors:
+    - Zeng K
+    - Bodenreider O
+    - Kilbourne J
+    - Nelson S
+    ref_publication_year: 2006
+    ref_journal: AMIA Annu Symp Proc
+- id: B2AI_STANDARD:1291
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - drugdata
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:53
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Anatomical Therapeutic Chemical classification system with Defined Daily Doses
+  formal_specification: https://atcddd.fhi.no/atc/structure_and_principles/
+  is_open: true
+  name: ATC
+  purpose_detail: The Anatomical Therapeutic Chemical (ATC) classification groups
+    active drug substances in five levels, from 14 anatomical or pharmacological main
+    groups through pharmacological, therapeutic, and chemical subgroups down to individual
+    chemical substances (for example, A10BA02 is metformin). It is paired with Defined
+    Daily Doses (DDDs) for drug utilization research. The WHO Collaborating Centre
+    for Drug Statistics Methodology at the Norwegian Institute of Public Health maintains
+    it and publishes an updated ATC index with DDDs every year. A searchable version
+    is free online, and the full index in Excel or XML is available through a registered
+    ordering account. ATC is one of the source vocabularies linked by RxNorm and is
+    used for drug classes in RxClass.
+  related_to:
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:1290
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:100
+  url: https://atcddd.fhi.no/atc_ddd_index/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1292
+  category: B2AI_STANDARD:DataStandardOrTool
+  collection:
+  - drugdata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:3
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: DrugBank knowledgebase of drug, drug target, and pharmaceutical information
+  is_open: false
+  name: DrugBank
+  purpose_detail: DrugBank is a knowledgebase of drugs, drug targets, and related
+    pharmaceutical information, first released in 2006. Release 6.0 covers 11,891
+    drugs, including 4,563 FDA-approved and 6,231 investigational drugs, with over
+    1.4 million drug-drug interactions, 2,475 drug-food interactions, pathway diagrams
+    of drug mechanisms and metabolism, and experimental and predicted mass spectra,
+    NMR spectra, and chromatographic properties for most small molecule drugs. It
+    is one of the source vocabularies linked by RxNorm. The DrugBank team describes
+    it as widely used across biomedical research and clinical applications. Academic
+    datasets are free to qualifying academic researchers under the CC BY-NC 4.0 license,
+    commercial use requires a separate license, and a smaller DrugBank Open Data set
+    is released into the public domain under CC0.
+  related_to:
+  - B2AI_STANDARD:544
+  requires_registration: true
+  url: https://go.drugbank.com/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkad976
+    ref_title: 'DrugBank 6.0: the DrugBank Knowledgebase for 2024'
+    ref_authors:
+    - Knox C
+    - Wilson M
+    - Klinger CM
+    - Franklin M
+    - Oler E
+    - Wilson A
+    - Pon A
+    - Cox J
+    - Chin NE
+    - Strawbridge SA
+    - Garcia-Patino M
+    - Kruger R
+    - Sivakumaran A
+    - Sanford S
+    - Doshi R
+    - Khetarpal N
+    - Fatokun O
+    - Doucet D
+    - Zubkowski A
+    - Rayat DY
+    - Jackson H
+    - Harford K
+    - Anjum A
+    - Zakir M
+    - Wang F
+    - Tian S
+    - Lee B
+    - Liigand J
+    - Peters H
+    - Wang RQ
+    - Nguyen T
+    - So D
+    - Sharp M
+    - da Silva R
+    - Gabriel C
+    - Scantlebury J
+    - Jasinski M
+    - Ackerman D
+    - Jewison T
+    - Sajed T
+    - Gautam V
+    - Wishart DS
+    ref_publication_year: 2023
+    ref_journal: Nucleic Acids Res
 - id: B2AI_STANDARD:1294
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
