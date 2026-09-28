@@ -37672,29 +37672,143 @@ data_standardortools_collection:
       ref_journal: SickKids News
 - id: B2AI_STANDARD:733
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
   - B2AI_TOPIC:60
   - B2AI_TOPIC:78
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Automated Characterization of Health Information at Large-scale Longitudinal
-    Evidence System
+  description: Automated Characterization of Health Information at Large-scale Longitudinal Evidence System
   formal_specification: https://github.com/OHDSI/Achilles
   has_relevant_organization:
   - B2AI_ORG:76
   has_training_resource:
   - B2AI_STANDARD:844
+  - B2AI_STANDARD:937
   is_open: true
   name: ACHILLES
-  purpose_detail: Provides descriptive statistics on an OMOP CDM database.
+  purpose_detail: ACHILLES is an R package in the OHDSI HADES suite that creates a
+    descriptive statistics summary of a database in the OMOP Common Data Model, versions
+    5.3 and 5.4. It runs 294 defined analyses (194 by default) across persons,
+    observation periods, visits, conditions, drugs, procedures, measurements,
+    observations, devices, deaths, costs, and data completeness, and writes counts and
+    distributions to the achilles_results and achilles_results_dist tables. It connects
+    to SQL Server, Oracle, PostgreSQL, Redshift, BigQuery, Spark, SQLite, and other
+    platforms through DatabaseConnector and SqlRender. Its results appear in the ATLAS
+    Data Sources view and, together with DataQualityDashboard output, feed the Ares data
+    network explorer. The older Achilles Heel data quality rules were replaced by
+    DataQualityDashboard and removed from the package, and the AchillesWeb viewer is
+    archived. The latest release is 1.7.2 (May 2023), with version 1.8 in development on
+    the main branch. It is released under the Apache 2.0 license and maintained by
+    OHDSI.
   related_to:
   - B2AI_STANDARD:243
+  - B2AI_STANDARD:721
+  - B2AI_STANDARD:731
+  - B2AI_STANDARD:771
+  - B2AI_STANDARD:1306
   requires_registration: false
-  url: https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html#data-quality-checks
+  responsible_organization:
+  - B2AI_ORG:76
+  url: https://ohdsi.github.io/Achilles/
+  has_application:
+  - id: B2AI_APP:463
+    category: B2AI:Application
+    name: Federated deep learning across OMOP hospitals for bipolar transition
+    description: A federated Deep and Cross Network trained with differentially private
+      stochastic gradient descent predicted transition to bipolar disorder in patients
+      with depression, using OMOP CDM data from four Korean hospitals and external
+      validation at a fifth. Before training, each site's CDM was quality-checked with
+      the automated Achilles tool and reviewed by experts, so Achilles served to verify
+      each federated partner's data. The federated model reached an AUC of 0.726
+      internally and 0.719 externally, outperforming single-site models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/46165
+      ref_title: 'Privacy-Preserving Federated Model Predicting Bipolar Transition in
+        Patients With Depression: Prediction Model Development Study'
+      ref_authors:
+      - Lee DY
+      - Choi B
+      - Kim C
+      - Fridgeirsson E
+      - Reps J
+      - Kim M
+      - Kim J
+      - Jang JW
+      - Rhee SY
+      - Seo WW
+      - Lee S
+      - Son SJ
+      - Park RW
+      ref_publication_year: 2023
+      ref_journal: J Med Internet Res
+  - id: B2AI_APP:464
+    category: B2AI:Application
+    name: Site profiling for AI network studies in the LAISDAR project
+    description: The LAISDAR project designed a network of Docker-based OMOP CDM data
+      nodes across Rwandan institutions to apply artificial intelligence and data
+      science to COVID-19 data. Each node runs Atlas, WebAPI, Achilles, and Arachne, and
+      the Arachne data catalog incorporates Achilles output from every site to give an
+      aggregate profile of each partner's data for planning network studies. This is a
+      study design and rationale paper, and the architecture was tested in a proof of
+      concept.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-022-01965-9
+      ref_title: 'Leveraging artificial intelligence and data science techniques in
+        harmonizing, sharing, accessing and analyzing SARS-COV-2/COVID-19 data in Rwanda
+        (LAISDAR Project): study design and rationale'
+      ref_authors:
+      - Nishimwe A
+      - Ruranga C
+      - Musanabaganwa C
+      - Mugeni R
+      - Semakula M
+      - Nzabanita J
+      - Kabano I
+      - Uwimana A
+      - Utumatwishima JN
+      - Kabakambira JD
+      - Uwineza A
+      - Halvorsen L
+      - Descamps F
+      - Houghtaling J
+      - Burke B
+      - Bahati O
+      - Bizimana C
+      - Jansen S
+      - Twizere C
+      - Nkurikiyeyezu K
+      - Birungi F
+      - Nsanzimana S
+      - Twagirumukiza M
+      ref_publication_year: 2022
+      ref_journal: BMC Med Inform Decis Mak
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.13063/2327-9214.1239
+    ref_title: Multisite Evaluation of a Data Quality Tool for Patient-Level Clinical
+      Datasets
+    ref_authors:
+    - Huser V
+    - DeFalco FJ
+    - Schuemie M
+    - Ryan PB
+    - Shang N
+    - Velez M
+    - Park RW
+    - Boyce RD
+    - Duke J
+    - Khare R
+    - Utidjian L
+    - Bailey C
+    ref_publication_year: 2016
+    ref_journal: eGEMs
 - id: B2AI_STANDARD:734
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -65164,3 +65278,49 @@ data_standardortools_collection:
     - Papoutsakis C
     ref_publication_year: 2018
     ref_journal: J Acad Nutr Diet
+- id: B2AI_STANDARD:1306
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHDSI Data Quality Dashboard for OMOP CDM databases
+  formal_specification: https://github.com/OHDSI/DataQualityDashboard
+  is_open: true
+  name: DataQualityDashboard
+  purpose_detail: DataQualityDashboard is an OHDSI R package that runs a library of
+    parameterized data quality checks, organized by the Kahn framework of conformance,
+    completeness, and plausibility, against a database in the OMOP Common Data Model,
+    and presents the results in an interactive dashboard. Where ACHILLES characterizes a
+    database as a whole, DataQualityDashboard checks the data table by table and field
+    by field for non-conformance. It replaced the Achilles Heel rules previously bundled
+    with ACHILLES, and its output combined with ACHILLES results feeds the Ares data
+    network explorer. It is released under the Apache 2.0 license (version 2.8.9, May
+    2026) and maintained by OHDSI.
+  related_to:
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:721
+  - B2AI_STANDARD:733
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:76
+  url: https://ohdsi.github.io/DataQualityDashboard/
+  publication:
+    ref_url: https://doi.org/10.1093/jamia/ocab132
+    ref_title: Increasing trust in real-world evidence through evaluation of observational
+      data quality
+    ref_authors:
+    - Blacketer C
+    - Defalco FJ
+    - Ryan PB
+    - Rijnbeek PR
+    ref_publication_year: 2021
+    ref_journal: J Am Med Inform Assoc
