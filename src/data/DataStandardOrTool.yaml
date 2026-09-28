@@ -26244,21 +26244,145 @@ data_standardortools_collection:
   - standards_process_maturity_final
   - implementation_maturity_production
   concerns_data_topic:
+  - B2AI_TOPIC:4
   - B2AI_TOPIC:53
   - B2AI_TOPIC:73
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: The Unified Code for Units of Measure
+  formal_specification: https://ucum.org/ucum
   has_relevant_organization:
   - B2AI_ORG:84
   is_open: true
   name: UCUM
-  purpose_detail: A common syntax for communication of quantities and their units.
+  purpose_detail: The Unified Code for Units of Measure (UCUM) is a code system for
+    unambiguous machine-to-machine communication of quantities and their units, covering
+    units used in science, engineering, and business, including non-SI units such as
+    US customary, apothecary, and procedure-defined units like international units.
+    It was created in 1999 by Gunther Schadow and Clement McDonald at the Regenstrief
+    Institute, which holds the copyright and maintains it with the UCUM Organization
+    through a public GitHub repository. Version 2.2 (June 17, 2024) defines 7 base
+    units, 24 prefixes, and 305 unit atoms, with semantics based on dimensional analysis
+    and every symbol available in case-sensitive and case-insensitive forms written
+    in 7-bit ASCII. The ucum-essence.xml file provides the machine-readable definitions
+    used by implementations such as ucum-lhc and Ucum-java. UCUM is the preferred unit
+    system for HL7 FHIR Quantity values, the unit standard adopted by DICOM and openEHR,
+    and the source of example units in LOINC. It is free to use under the UCUM license,
+    which permits redistribution and building interoperable software but prohibits
+    modified or derivative versions of the code system.
+  related_to:
+  - B2AI_STANDARD:98
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:252
+  - B2AI_STANDARD:566
+  - B2AI_STANDARD:1296
+  - B2AI_STANDARD:1297
+  - B2AI_STANDARD:1298
   requires_registration: false
-  url: https://unitsofmeasure.org/ucum
+  responsible_organization:
+  - B2AI_ORG:84
+  url: https://ucum.org/
+  has_application:
+  - id: B2AI_APP:455
+    category: B2AI:Application
+    name: Machine learning concept normalization in the Truveta real-world data platform
+    description: Truveta normalizes health system records with a suite of machine learning
+      models for large-scale concept normalization, and its target mapping sends measurement
+      units, whether local codes or free text, to UCUM. Its transformer-based language
+      model also extracts measurements from clinical notes and standardizes the outputs
+      to SNOMED CT, LOINC, and UCUM. UCUM is the target vocabulary that these models
+      learn to map unit strings onto.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamiaopen/ooag142
+      ref_title: 'From fragmented records to living evidence: health system-governed,
+        artificial intelligence-driven, continuously updated real-world clinical data
+        from Truveta'
+      ref_authors:
+      - Burkhardt HA
+      - Blach SJ
+      - Burugapalli SR
+      - Cartwright BMG
+      - Martin R
+      - Simonov M
+      - Stewart S
+      - Turner G
+      - Winegar AL
+      - Stucky N
+      ref_publication_year: 2026
+      ref_journal: JAMIA Open
+  - id: B2AI_APP:456
+    category: B2AI:Application
+    name: CODA federated machine learning across hospitals
+    description: CODA is an open-source platform for federated analysis and machine
+      learning across Canadian hospitals. Each site holds its data as FHIR resources
+      with units of measure expressed in UCUM, so laboratory and vital sign values are
+      comparable across sites during distributed model training without moving patient
+      data.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamia/ocad235
+      ref_title: 'CODA: an open-source platform for federated analysis and machine learning
+        on distributed healthcare data'
+      ref_authors:
+      - Mullie L
+      - Afilalo J
+      - Archambault P
+      - Bouchakri R
+      - Brown K
+      - Buckeridge DL
+      - Cavayas YA
+      - Turgeon AF
+      - Martineau D
+      - Lamontagne F
+      - Lebrasseur M
+      - Lemieux R
+      - Li J
+      - Sauthier M
+      - St-Onge P
+      - Tang A
+      - Witteman W
+      - Chassé M
+      ref_publication_year: 2023
+      ref_journal: J Am Med Inform Assoc
+  - id: B2AI_APP:457
+    category: B2AI:Application
+    name: Highdicom encoding of machine learning model outputs
+    description: Highdicom is a Python library for encoding image annotations and machine
+      learning model outputs, such as segmentations and measurements, as standard DICOM
+      objects in pathology and radiology. It exposes UCUM codes as data types alongside
+      DICOM and SNOMED CT codes, so measurements produced by models carry standardized
+      units that downstream systems can interpret.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1007/s10278-022-00683-y
+      ref_title: 'Highdicom: a Python Library for Standardized Encoding of Image Annotations
+        and Machine Learning Model Outputs in Pathology and Radiology'
+      ref_authors:
+      - Bridge CP
+      - Gorman C
+      - Pieper S
+      - Doyle SW
+      - Lennerz JK
+      - Kalpathy-Cramer J
+      - Clunie DA
+      - Fedorov AY
+      - Herrmann MD
+      ref_publication_year: 2022
+      ref_journal: J Digit Imaging
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1136/jamia.1999.0060151
+    ref_title: Units of Measure in Clinical Information Systems
+    ref_authors:
+    - Schadow G
+    - McDonald CJ
+    - Suico JG
+    - Föhring U
+    - Tolxdorff T
+    ref_publication_year: 1999
+    ref_journal: J Am Med Inform Assoc
 - id: B2AI_STANDARD:387
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -34050,26 +34174,125 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - codesystem
+  - drugdata
   - standards_process_maturity_final
   - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:8
+  - B2AI_TOPIC:9
   - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: RxNorm
+  description: RxNorm normalized names for clinical drugs
+  formal_specification: https://www.nlm.nih.gov/research/umls/rxnorm/docs/techdoc.html
   has_relevant_organization:
   - B2AI_ORG:74
   has_training_resource:
   - B2AI_STANDARD:1087
   is_open: true
   name: RxNorm
-  purpose_detail: Medication terminology. Provided through UMLS.
+  purpose_detail: RxNorm is the National Library of Medicine terminology of normalized
+    names and unique identifiers (RXCUIs) for generic and branded clinical drugs and
+    drug packs available in the United States. Each concept is assigned one of 23 term
+    types, such as ingredient (IN), brand name (BN), semantic clinical drug (SCD, ingredient
+    plus strength plus dose form), and semantic branded drug (SBD), and RxNorm links
+    these concepts to the names and codes used in source drug vocabularies including
+    First Databank, Micromedex, Gold Standard, Multum, the VA National Drug File, DrugBank,
+    ATC, FDA Structured Product Labels, and the SNOMED CT drug subset, along with National
+    Drug Codes. Full releases appear monthly with weekly updates for newly approved
+    drugs, and RxNorm is also distributed in the UMLS Metathesaurus. The full release
+    requires a UMLS license, while the Current Prescribable Content subset and the RxNav
+    browser and APIs are available without one. RxNorm is the required medication
+    vocabulary in ONC Health IT Certification and in every version of USCDI, and it
+    is the standard drug vocabulary of the OMOP Common Data Model, where OHDSI extends
+    it with RxNorm Extension for drugs outside the US market.
+  related_to:
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:485
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:564
+  - B2AI_STANDARD:1290
+  - B2AI_STANDARD:1291
+  - B2AI_STANDARD:1292
   requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:74
   url: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
+  has_application:
+  - id: B2AI_APP:452
+    category: B2AI:Application
+    name: n2c2 2019 clinical concept normalization shared task
+    description: The 2019 n2c2/UMass Lowell shared task annotated concept mentions in
+      discharge summaries and linked them to SNOMED CT and RxNorm concepts from the
+      UMLS, making RxNorm the target vocabulary for medication mentions. Thirty-three
+      teams submitted systems ranging from dictionary matching to deep learning and retrieve-and-rank
+      models, with a best accuracy of 0.853. Misspellings, abbreviations, and multiword
+      terms were the most common sources of error.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamia/ocaa106
+      ref_title: The 2019 n2c2/UMass Lowell shared task on clinical concept normalization
+      ref_authors:
+      - Luo YF
+      - Henry S
+      - Wang Y
+      - Shen F
+      - Uzuner O
+      - Rumshisky A
+      ref_publication_year: 2020
+      ref_journal: J Am Med Inform Assoc
+  - id: B2AI_APP:453
+    category: B2AI:Application
+    name: RxMap LLM-assisted medication normalization
+    description: RxMap combines deterministic RxNorm candidate generation with large
+      language model parsing to map free-text medication strings to RxNorm ingredient
+      concepts (IN and MIN term types) and then assigns ATC classes. Tested on 22,624
+      unique medication strings from the Medical Expenditure Panel Survey, it raised
+      RXCUI-level F1 from 0.859 with deterministic matching alone to 0.966.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamiaopen/ooag085
+      ref_title: 'RxMap: an LLM-assisted tool for medication normalization'
+      ref_authors:
+      - Korpela E
+      - Rubin LH
+      - Dastgheyb RM
+      - Xu Y
+      ref_publication_year: 2026
+      ref_journal: JAMIA Open
+  - id: B2AI_APP:454
+    category: B2AI:Application
+    name: Retrieval-augmented LLM mapping of Japanese drugs to RxNorm
+    description: RxNorm semantic clinical drug names were embedded with BioBERT, and
+      Mixtral 8x7B with retrieval-augmented generation proposed the top five RxNorm
+      candidates for each drug in the Japanese National Health Insurance drug list.
+      Pharmacists validated the candidates, and the targets were OMOP standard drug
+      concepts from RxNorm or RxNorm Extension. The resulting dataset supports OMOP-based
+      research on Japanese medication data.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.dib.2025.111418
+      ref_title: A dataset for mapping the Japanese drugs to RxNorm standard concepts
+      ref_authors:
+      - Kimura E
+      - Kawakami Y
+      - Inoue S
+      - Okajima A
+      ref_publication_year: 2025
+      ref_journal: Data in Brief
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1136/amiajnl-2011-000116
+    ref_title: 'Normalized names for clinical drugs: RxNorm at 6 years'
+    ref_authors:
+    - Nelson SJ
+    - Zeng K
+    - Kilbourne J
+    - Powell T
+    - Moore R
+    ref_publication_year: 2011
+    ref_journal: J Am Med Inform Assoc
 - id: B2AI_STANDARD:545
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -44985,22 +45208,161 @@ data_standardortools_collection:
     ref_journal: Semantic Web
 - id: B2AI_STANDARD:864
   category: B2AI_STANDARD:Registry
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:6
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:29
   - B2AI_TOPIC:31
   - B2AI_TOPIC:54
   contribution_date: '2023-03-27'
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: PhenX Toolkit
+  description: PhenX Toolkit (consensus measures for Phenotypes and eXposures)
+  formal_specification: https://www.phenxtoolkit.org/resources/download
+  has_relevant_organization:
+  - B2AI_ORG:73
   is_open: true
   name: PhenX Toolkit
-  purpose_detail: A catalog of recommended measurement protocols for biomedical research.
+  purpose_detail: The PhenX Toolkit is a catalog of recommended, consensus measurement
+    protocols for phenotypes and exposures in biomedical research. Release 49.3 (August
+    26, 2026) holds 1009 protocols across 30 research domains, plus specialty collections
+    for substance use and recovery, tobacco regulatory research, mental health, blood
+    sciences, social determinants of health, and COVID-19. It has been supported by
+    NHGRI since 2007, now through a Biomedical Knowledgebase grant (U24HG012556) with
+    co-funding from NHLBI, OBSSR, NINDS, NIMHD, and NIDA, and is developed and maintained
+    by RTI International. Each protocol ships with a data dictionary compatible with
+    dbGaP submission packets and a REDCap instrument, and PhenX variables are mapped
+    to dbGaP study variables through a variable search tool. PhenX is a source organization
+    in the NIH CDE Repository, and many NIH funding opportunities encourage or require
+    PhenX measures. Several protocols reuse PROMIS and NIH Toolbox instruments. Content
+    is free to use under a Creative Commons attribution license, and registration is
+    optional.
+  related_to:
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:821
+  - B2AI_STANDARD:859
+  - B2AI_STANDARD:1157
+  - B2AI_STANDARD:1294
+  - B2AI_STANDARD:1295
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:177
   url: https://www.phenxtoolkit.org/
+  has_application:
+  - id: B2AI_APP:447
+    category: B2AI:Application
+    name: Language-model metadata harmonization to PhenX terms
+    description: Fine-tuned GPT-2 models were trained to map researcher-written metadata
+      terms onto standard vocabulary terms in cancer, alcohol research, and infectious
+      disease, using augmentation that mimics typos, abbreviations, and word reordering.
+      The alcohol-domain target vocabulary is built largely from PhenX Toolkit terms
+      (26,808 of them) alongside the WHO Lexicon of Alcohol and Drug Terms. The models
+      reached about 96% accuracy on in-dictionary terms and outperformed heuristic and
+      zero-shot GPT-4o baselines, with PhenX serving as the standard labels the models
+      learn to predict.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf241
+      ref_title: Metadata harmonization from biological datasets with language models
+      ref_authors:
+      - Verbitsky A
+      - Boutet P
+      - Eslami M
+      ref_publication_year: 2024
+      ref_journal: Bioinformatics Advances
+  - id: B2AI_APP:448
+    category: B2AI:Application
+    name: Causal forests for PTSD and substance use risk in the AURORA cohort
+    description: In the AURORA study of 2,943 emergency department trauma survivors,
+      honest causal forests (a generalized random forest method) screened 128 candidate
+      variables for factors that modify how post-traumatic stress symptoms predict later
+      tobacco, alcohol, and cannabis use. The substance use outcomes were collected at
+      six timepoints with the PhenX Substance Abuse and Addiction Core Tier 1 questions,
+      so PhenX defines the targets the models stratify. Prior use was the dominant moderator,
+      with physical health and childhood trauma also modifying risk.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fpsyt.2024.1249382
+      ref_title: 'Post-traumatic stress and future substance use outcomes: leveraging
+        antecedent factors to stratify risk'
+      ref_authors:
+      - Garrison-Desany HM
+      - Meyers JL
+      - Linnstaedt SD
+      - House SL
+      - Beaudoin FL
+      - An X
+      - Zeng D
+      - Neylan TC
+      - Clifford GD
+      - Jovanovic T
+      - Germine LT
+      - Bollen KA
+      - Rauch SL
+      - Haran JP
+      - Storrow AB
+      - Lewandowski C
+      - Musey PI
+      - Hendry PL
+      - Sheikh S
+      - Jones CW
+      - Punches BE
+      - Swor RA
+      - Gentile NT
+      - Hudak LA
+      - Pascual JL
+      - Seamon MJ
+      - Harris E
+      - Pearson C
+      - Peak DA
+      - Domeier RM
+      - Rathlev NK
+      - O'Neil BJ
+      - Sergot P
+      - Sanchez LD
+      - Bruce SE
+      - Joormann J
+      - Harte SE
+      - McLean SA
+      - Koenen KC
+      - Denckla CA
+      ref_publication_year: 2024
+      ref_journal: Front Psychiatry
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/aje/kwr193
+    ref_title: 'The PhenX Toolkit: Get the Most From Your Measures'
+    ref_authors:
+    - Hamilton CM
+    - Strader LC
+    - Pratt JG
+    - Maiese D
+    - Hendershot T
+    - Kwok RK
+    - Hammond JA
+    - Huggins W
+    - Jackman D
+    - Pan H
+    - Nettles DS
+    - Beaty TH
+    - Farrer LA
+    - Kraft P
+    - Marazita ML
+    - Ordovas JM
+    - Pato CN
+    - Spitz MR
+    - Wagener D
+    - Williams M
+    - Junkins HA
+    - Harlan WR
+    - Ramos EM
+    - Haines J
+    ref_publication_year: 2011
+    ref_journal: Am J Epidemiol
 - id: B2AI_STANDARD:866
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -45317,62 +45679,209 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:874
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:18
   - B2AI_TOPIC:39
   - B2AI_TOPIC:60
+  - B2AI_TOPIC:80
   contribution_date: '2023-09-25'
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
-  contributor_orcid: 0000-0001-5705-7831
+  contributor_orcid: ORCID:0000-0001-5705-7831
   description: GGIR accelerometry package
   formal_specification: https://github.com/wadpac/GGIR
   is_open: true
   name: GGIR
-  purpose_detail: An R package to process multi-day raw accelerometer data for physical
-    activity and sleep research.
+  purpose_detail: GGIR is an R package that processes multi-day raw accelerometer
+    data for physical activity, sleep, and circadian rhythm research. Its pipeline
+    runs in six parts covering data quality (auto-calibration against local gravity,
+    non-wear and clipping detection), acceleration metrics such as ENMO and MAD with
+    intensity levels and daily summaries, detection of the sleep period time window
+    without a sleep diary (the HDCZA method), sleep classification, time use and behavioral
+    fragmentation during waking hours, and circadian metrics such as M10, L5, cosinor,
+    interdaily stability, and intradaily variability. It reads raw GENEActiv .bin,
+    Axivity .cwa, ActiGraph .gt3x and .csv, and Movisens files, plus epoch-level output
+    from Actiwatch, Actical, MotionWatch, Fitbit, and SenseWear devices and UK Biobank
+    epoch files. File reading is split out into the companion packages GGIRread and
+    read.gt3x, and ActiGraph-style activity counts can be computed with actilifecounts.
+    GGIR is maintained by Vincent van Hees of Accelting with a community of contributors
+    under the wadpac GitHub organization, is released on CRAN under the Apache 2.0
+    license (version 3.3-9, September 12, 2026), and was funded in part by the UK Medical
+    Research Council and the French National Research Agency.
+  related_to:
+  - B2AI_STANDARD:311
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1287
+  - B2AI_STANDARD:1288
+  - B2AI_STANDARD:1289
   requires_registration: false
-  url: https://cran.r-project.org/web/packages/GGIR/vignettes/GGIR.html
+  responsible_organization:
+  - B2AI_ORG:175
+  url: https://wadpac.github.io/GGIR/
+  has_application:
+  - id: B2AI_APP:449
+    category: B2AI:Application
+    name: Random forest sleep and non-wear classification integrated with GGIR
+    description: Random forest models were trained on wrist accelerometer recordings
+      from 134 adults, 70 of them with sleep disorders, each paired with a night of polysomnography,
+      to classify 30-second epochs as wake, sleep, or non-wear. On an unseen test set
+      the models reached a sleep-wake F1 of about 74% and a non-wear F1 above 93%. The
+      released models include a GGIR extension in which GGIR processes the raw files
+      and calls the Python classifier, so the machine learning model can replace the
+      heuristic sleep detection built into GGIR.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41598-020-79217-x
+      ref_title: Sleep classification from wrist-worn accelerometer data using random
+        forests
+      ref_authors:
+      - Sundararajan K
+      - Georgievska S
+      - te Lindert BHW
+      - Gehrman PR
+      - Ramautar J
+      - Mazzotti DR
+      - Sabia S
+      - Weedon MN
+      - van Someren EJW
+      - Ridder L
+      - Wang J
+      - van Hees VT
+      ref_publication_year: 2021
+      ref_journal: Sci Rep
+  - id: B2AI_APP:450
+    category: B2AI:Application
+    name: Machine learning mortality score from GGIR-derived activity features
+    description: Accelerometer data from 3,991 Whitehall II participants were processed
+      with GGIR (ENMO with calibration and non-wear correction) to derive physical activity
+      and sedentary behavior features. Sparse partial least squares regression for censored
+      data selected 11 of these features into a composite mortality risk score, which
+      was externally validated in the CoLaus study (n=1,329) and improved discrimination
+      over traditional risk factors. GGIR provides the standardized feature extraction
+      that makes the score portable across cohorts.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.eclinm.2022.101773
+      ref_title: 'Identification of physical activity and sedentary behaviour dimensions
+        that predict mortality risk in older adults: development of a machine learning
+        model in the Whitehall II accelerometer sub-study and external validation in
+        the CoLaus study'
+      ref_authors:
+      - Chen M
+      - Landré B
+      - Marques-Vidal P
+      - van Hees VT
+      - van Gennip ACE
+      - Bloomberg M
+      - Yerramalla MS
+      - Benadjaoud MA
+      - Sabia S
+      ref_publication_year: 2023
+      ref_journal: eClinicalMedicine
+  - id: B2AI_APP:451
+    category: B2AI:Application
+    name: Next-day fatigue prediction in post-COVID fatigue
+    description: Sixty-eight people with post-COVID fatigue wore a wrist Axivity AX6
+      accelerometer and an ECG patch for up to 21 days. Activity and sleep features were
+      derived with GGIR and heart rate variability features with NeuroKit, and random
+      forest and XGBoost models were trained to predict next-day fatigue scores. XGBoost
+      performed best (R-squared 0.79), and time in moderate to vigorous activity from
+      GGIR was among the key predictors.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fdgth.2025.1689846
+      ref_title: Feasibility of predicting next-day fatigue levels using heart rate variability
+        and activity-sleep metrics in people with post-COVID fatigue
+      ref_authors:
+      - Aboagye NY
+      - Germann M
+      - Baker KF
+      - Baker MR
+      - Del Din S
+      ref_publication_year: 2025
+      ref_journal: Front Digit Health
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1123/jmpb.2018-0063
+    ref_title: 'GGIR: A Research Community-Driven Open Source R Package for Generating
+      Physical Activity and Sleep Outcomes From Multi-Day Raw Accelerometer Data'
+    ref_authors:
+    - Migueles JH
+    - Rowlands AV
+    - Huber F
+    - Sabia S
+    - van Hees VT
+    ref_publication_year: 2019
+    ref_journal: Journal for the Measurement of Physical Behaviour
 - id: B2AI_STANDARD:875
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
   - B2AI_TOPIC:18
+  - B2AI_TOPIC:49
   - B2AI_TOPIC:54
+  - B2AI_TOPIC:66
   - B2AI_TOPIC:79
   contribution_date: '2023-09-25'
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
-  contributor_orcid: 0000-0001-5705-7831
-  description: Metadata Concepts for Advancing the Use of Digital Health Technologies
-    in Clinical Research
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Metadata Concepts for Advancing the Use of Digital Health Technologies in Clinical Research
+  formal_specification: https://doi.org/10.6084/m9.figshare.9944303.v6
   is_open: true
   name: Badawy et al. 2019
+  purpose_detail: This is a proposed metadata set for studies that collect data with
+    digital health technologies (DHTs) such as wearable and non-wearable sensors, developed
+    by a 33-member working group convened by the Michael J. Fox Foundation for Parkinson's
+    Research with members from academia, industry, CDISC, the Critical Path Institute,
+    and CTTI, using Parkinson's disease as the model condition. It organizes metadata
+    into four concepts. Person covers the subject and observer, Context of Collection
+    covers the study protocol, procedures, and the technology used, Observation covers
+    technology-reported and human-reported observations including device placement,
+    sensor outputs, and software, and Time covers time sources, zones, precision,
+    synchronization, and sampling rate. Each element carries a description, motivation,
+    and examples, with many drawn from CDISC SDTM and PRM, ISO 8601, SNOMED CT, HL7
+    FHIR, and the W3C SSN and SOSA ontologies. It is a conceptual map meant to guide
+    what metadata researchers collect and how standards bodies extend existing standards,
+    and it deliberately does not define a mandatory minimum set, a controlled vocabulary,
+    or a machine-readable format. The figshare supplement (version 6, CC BY 4.0) provides
+    the set as interactive mind maps and tables. A 2022 framework by Hill and colleagues
+    builds on it for DHT deployment in Parkinson's disease trials.
+  related_to:
+  - B2AI_STANDARD:44
+  - B2AI_STANDARD:49
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:246
+  - B2AI_STANDARD:343
+  - B2AI_STANDARD:546
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1293
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:176
+  url: https://figshare.com/articles/dataset/Supplementary_Material_for_Metadata_Concepts_for_Advancing_the_Use_of_Digital_Health_Technologies_in_Clinical_Research/9944303
   publication:
     ref_url: https://doi.org/10.1159/000502951
-    ref_title: Metadata Concepts for Advancing the Use of Digital Health Technologies
-      in Clinical Research
+    ref_title: Metadata Concepts for Advancing the Use of Digital Health Technologies in Clinical Research
     ref_authors:
     - Badawy R
     - Hameed F
     - Bataille L
-    - Little M
+    - Little MA
     - Claes K
     - Saria S
-    - Cedarbaum J
+    - Cedarbaum JM
     - Stephenson D
     - Neville J
     - Maetzler W
-    - Espay A
-    - Bloem B
+    - Espay AJ
+    - Bloem BR
     - Simuni T
-    - Karlin D
+    - Karlin DR
     ref_publication_year: 2019
     ref_journal: Digit Biomark
-  purpose_detail: A proposed metadata set for digital health studies.
-  requires_registration: false
-  url: https://figshare.com/articles/dataset/Supplementary_Material_for_Metadata_Concepts_for_Advancing_the_Use_of_Digital_Health_Technologies_in_Clinical_Research/9944303
 - id: B2AI_STANDARD:876
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -63591,3 +64100,490 @@ data_standardortools_collection:
   url: https://openslide.org/formats/aperio/
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1287
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: GGIRread wearable accelerometer data file readers
+  formal_specification: https://cran.r-project.org/package=GGIRread
+  is_open: true
+  name: GGIRread
+  purpose_detail: GGIRread is an R package of file readers for wearable accelerometer
+    data, designed to complement GGIR. It reads GENEActiv .bin and Axivity .cwa binary
+    files and text exports from Actical, Actiwatch, ActiGraph, Fitbit, and Philips
+    Health Band devices into data structures that GGIR processes. It is maintained
+    by Vincent van Hees of Accelting under the wadpac GitHub organization and released
+    on CRAN under the Apache 2.0 license (version 1.0.11, September 18, 2026).
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:874
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:175
+  url: https://github.com/wadpac/GGIRread
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1288
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: R parser for ActiGraph GT3X accelerometer files
+  formal_specification: https://github.com/wadpac/read.gt3x
+  is_open: true
+  name: read.gt3x
+  purpose_detail: read.gt3x is an R package with a C++ backend that parses raw accelerometer
+    data from ActiGraph .gt3x and .gt3x+ files, the proprietary binary format written
+    by ActiGraph wearable devices. GGIR uses it to read ActiGraph recordings. It was
+    written by Tuomo Nieminen, John Muschelli, Patrick Bos, and Vincent van Hees, is
+    maintained by Tuomo Nieminen, and is released on CRAN under the EUPL (version
+    1.2.0, June 30, 2022). The repository has seen little activity since 2022.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:874
+  requires_registration: false
+  url: https://cran.r-project.org/package=read.gt3x
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1289
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: R package generating ActiGraph activity counts from raw accelerometer data
+  formal_specification: https://github.com/jhmigueles/actilifecounts
+  is_open: true
+  name: actilifecounts
+  purpose_detail: actilifecounts is an R package that computes ActiGraph activity counts
+    from raw accelerometer data, reproducing the counts produced by
+    the ActiLife software so that raw recordings can be compared with the large body
+    of count-based physical activity research. It is an R translation of the Python
+    agcounts package and implements the method published by ActiGraph in 2022. GGIR
+    can use it to add count-based metrics. It is maintained by Jairo Hidalgo Migueles
+    and released on CRAN under the LGPL (version 1.1.1, March 11, 2023).
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:874
+  requires_registration: false
+  url: https://cran.r-project.org/package=actilifecounts
+  publication:
+    ref_url: https://doi.org/10.1038/s41598-022-16003-x
+    ref_title: Quantification of acceleration as activity counts in ActiGraph wearable
+    ref_authors:
+    - Neishabouri A
+    - Nguyen J
+    - Samuelsson J
+    - Guthrie T
+    - Biggs M
+    - Wyatt J
+    - Cross D
+    - Karas M
+    - Migueles JH
+    - Khan S
+    - Guo CC
+    ref_publication_year: 2022
+    ref_journal: Sci Rep
+- id: B2AI_STANDARD:1290
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - drugdata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: RxNav browser and APIs for RxNorm and related drug information
+  formal_specification: https://lhncbc.nlm.nih.gov/RxNav/APIs/RxNormAPIs.html
+  is_open: true
+  name: RxNav
+  purpose_detail: RxNav is the National Library of Medicine browser and web service
+    suite for RxNorm. The browser finds drugs by the names and codes of RxNorm and
+    its source vocabularies and shows their relationships. The companion tools and
+    REST APIs include the RxNorm API (lookups such as approximate string matching,
+    NDC mapping, and related concepts), RxClass for drug class hierarchies from ATC,
+    MED-RT, and CVX vaccine groups, RxMix for combining API functions into workflows,
+    the RxTerms and Prescribable APIs, and RxNav-in-a-Box for local installation.
+    The RxNorm API needs no UMLS license and is governed by NLM terms of service.
+  related_to:
+  - B2AI_STANDARD:485
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:1291
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:74
+  url: https://mor.nlm.nih.gov/RxNav/
+  publication:
+    ref_url: https://pubmed.ncbi.nlm.nih.gov/17238775/
+    ref_title: 'RxNav: a web service for standard drug information'
+    ref_authors:
+    - Zeng K
+    - Bodenreider O
+    - Kilbourne J
+    - Nelson S
+    ref_publication_year: 2006
+    ref_journal: AMIA Annu Symp Proc
+- id: B2AI_STANDARD:1291
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - drugdata
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:53
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Anatomical Therapeutic Chemical classification system with Defined Daily Doses
+  formal_specification: https://atcddd.fhi.no/atc/structure_and_principles/
+  is_open: true
+  name: ATC
+  purpose_detail: The Anatomical Therapeutic Chemical (ATC) classification groups
+    active drug substances in five levels, from 14 anatomical or pharmacological main
+    groups through pharmacological, therapeutic, and chemical subgroups down to individual
+    chemical substances (for example, A10BA02 is metformin). It is paired with Defined
+    Daily Doses (DDDs) for drug utilization research. The WHO Collaborating Centre
+    for Drug Statistics Methodology at the Norwegian Institute of Public Health maintains
+    it and publishes an updated ATC index with DDDs every year. A searchable version
+    is free online, and the full index in Excel or XML is available through a registered
+    ordering account. ATC is one of the source vocabularies linked by RxNorm and is
+    used for drug classes in RxClass.
+  related_to:
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:1290
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:100
+  url: https://atcddd.fhi.no/atc_ddd_index/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1292
+  category: B2AI_STANDARD:DataStandardOrTool
+  collection:
+  - drugdata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:3
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: DrugBank knowledgebase of drug, drug target, and pharmaceutical information
+  is_open: false
+  name: DrugBank
+  purpose_detail: DrugBank is a knowledgebase of drugs, drug targets, and related
+    pharmaceutical information, first released in 2006. Release 6.0 covers 11,891
+    drugs, including 4,563 FDA-approved and 6,231 investigational drugs, with over
+    1.4 million drug-drug interactions, 2,475 drug-food interactions, pathway diagrams
+    of drug mechanisms and metabolism, and experimental and predicted mass spectra,
+    NMR spectra, and chromatographic properties for most small molecule drugs. It
+    is one of the source vocabularies linked by RxNorm. The DrugBank team describes
+    it as widely used across biomedical research and clinical applications. Academic
+    datasets are free to qualifying academic researchers under the CC BY-NC 4.0 license,
+    commercial use requires a separate license, and a smaller DrugBank Open Data set
+    is released into the public domain under CC0.
+  related_to:
+  - B2AI_STANDARD:544
+  requires_registration: true
+  url: https://go.drugbank.com/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkad976
+    ref_title: 'DrugBank 6.0: the DrugBank Knowledgebase for 2024'
+    ref_authors:
+    - Knox C
+    - Wilson M
+    - Klinger CM
+    - Franklin M
+    - Oler E
+    - Wilson A
+    - Pon A
+    - Cox J
+    - Chin NE
+    - Strawbridge SA
+    - Garcia-Patino M
+    - Kruger R
+    - Sivakumaran A
+    - Sanford S
+    - Doshi R
+    - Khetarpal N
+    - Fatokun O
+    - Doucet D
+    - Zubkowski A
+    - Rayat DY
+    - Jackson H
+    - Harford K
+    - Anjum A
+    - Zakir M
+    - Wang F
+    - Tian S
+    - Lee B
+    - Liigand J
+    - Peters H
+    - Wang RQ
+    - Nguyen T
+    - So D
+    - Sharp M
+    - da Silva R
+    - Gabriel C
+    - Scantlebury J
+    - Jasinski M
+    - Ackerman D
+    - Jewison T
+    - Sajed T
+    - Gautam V
+    - Wishart DS
+    ref_publication_year: 2023
+    ref_journal: Nucleic Acids Res
+- id: B2AI_STANDARD:1293
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:66
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Medical Dictionary for Regulatory Activities
+  is_open: false
+  name: MedDRA
+  purpose_detail: MedDRA is the international medical terminology developed under
+    the International Council for Harmonisation of Technical Requirements for Pharmaceuticals
+    for Human Use (ICH) for regulatory communication about medical products, including
+    adverse event reporting, pharmacovigilance, and clinical trial data. It is organized
+    in a five-level hierarchy from System Organ Class through High Level Group Term,
+    High Level Term, and Preferred Term down to more than 80,000 Lowest Level Terms
+    that reflect how observations are reported in practice. The Maintenance and Support
+    Services Organization (MSSO) maintains the English version and most of the 26 supported
+    translations, and the Japanese Maintenance Organization handles the Japanese version.
+    New versions are released twice a year, in March and September. Use requires a
+    subscription, which is free for regulatory authorities and non-profit or non-commercial
+    organizations and priced on a sliding scale by annual revenue for commercial subscribers.
+  requires_registration: true
+  url: https://www.meddra.org/
+  publication:
+    ref_url: https://doi.org/10.2165/00002018-199920020-00002
+    ref_title: The Medical Dictionary for Regulatory Activities (MedDRA)
+    ref_authors:
+    - Brown EG
+    - Wood L
+    - Wood S
+    ref_publication_year: 1999
+    ref_journal: Drug Safety
+- id: B2AI_STANDARD:1294
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:50
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Patient-Reported Outcomes Measurement Information System
+  is_open: true
+  name: PROMIS
+  purpose_detail: PROMIS (Patient-Reported Outcomes Measurement Information System)
+    is a set of person-centered measures of physical, mental, and social health, created
+    through the NIH Roadmap for Medical Research (later the Common Fund) to provide
+    psychometrically sound, precise, and comparable patient-reported outcome measures. Measures are available as item banks, computerized adaptive
+    tests, fixed short forms, and profiles that combine several domains, and have been
+    translated into more than 80 languages. HealthMeasures, hosted at Northwestern
+    University, and the PROMIS Health Organization support its development, maintenance,
+    and dissemination. Several PhenX Toolkit protocols reuse PROMIS measures.
+  related_to:
+  - B2AI_STANDARD:864
+  - B2AI_STANDARD:1295
+  requires_registration: false
+  url: https://www.healthmeasures.net/explore-measurement-systems/promis
+  publication:
+    ref_url: https://doi.org/10.1097/01.mlr.0000258615.42478.55
+    ref_title: The Patient-Reported Outcomes Measurement Information System (PROMIS)
+    ref_authors:
+    - Cella D
+    - Yount S
+    - Rothrock N
+    - Gershon R
+    - Cook K
+    - Reeve B
+    - Ader D
+    - Fries JF
+    - Bruce B
+    - Rose M
+    ref_publication_year: 2007
+    ref_journal: Medical Care
+- id: B2AI_STANDARD:1295
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:48
+  - B2AI_TOPIC:80
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NIH Toolbox for Assessment of Neurological and Behavioral Function
+  is_open: true
+  name: NIH Toolbox
+  purpose_detail: The NIH Toolbox for Assessment of Neurological and Behavioral Function
+    is a set of standardized measures of cognitive, emotional, motor, and sensory function,
+    administered mainly through the NIH Toolbox iPad app, with emotion measures that
+    take about 30 minutes and are available in Spanish and other languages. Its development
+    was first funded in 2006 by the NIH Blueprint for Neuroscience Research. It is
+    distributed through HealthMeasures, hosted at Northwestern University, alongside
+    PROMIS and Neuro-QoL. PhenX Toolkit protocols reuse NIH Toolbox item banks, such
+    as the general self-efficacy measure.
+  related_to:
+  - B2AI_STANDARD:864
+  - B2AI_STANDARD:1294
+  requires_registration: false
+  url: https://www.healthmeasures.net/explore-measurement-systems/nih-toolbox
+  publication:
+    ref_url: https://doi.org/10.1212/wnl.0b013e3182872e5f
+    ref_title: NIH Toolbox for Assessment of Neurological and Behavioral Function
+    ref_authors:
+    - Gershon RC
+    - Wagster MV
+    - Hendrie HC
+    - Fox NA
+    - Cook KF
+    - Nowinski CJ
+    ref_publication_year: 2013
+    ref_journal: Neurology
+- id: B2AI_STANDARD:1296
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: LHC JavaScript implementation of UCUM validation and conversion services
+  formal_specification: https://github.com/lhncbc/ucum-lhc
+  is_open: true
+  name: ucum-lhc
+  purpose_detail: ucum-lhc is a JavaScript library from the Lister Hill National Center
+    for Biomedical Communications at the National Library of Medicine that validates
+    UCUM unit strings and converts quantities between commensurable units. It is published
+    on npm as @lhncbc/ucum-lhc, and NLM also runs a demonstration page and a web API
+    built on it. Use is governed by NLM terms rather than a standard open source license.
+  related_to:
+  - B2AI_STANDARD:386
+  - B2AI_STANDARD:1297
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:74
+  url: https://ucum.nlm.nih.gov/ucum-lhc/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1297
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: FHIR Java library providing UCUM services
+  formal_specification: https://github.com/FHIR/Ucum-java
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: Ucum-java
+  purpose_detail: Ucum-java is the Java library used by the HL7 FHIR community for
+    UCUM services. It loads the ucum-essence.xml definitions and validates unit strings,
+    checks whether units are convertible, converts quantities, formats units for display,
+    and multiplies quantities. It is published to Maven as org.fhir:ucum under the
+    BSD 3-Clause license, with copyright held by Health Intersections Pty Ltd.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:386
+  - B2AI_STANDARD:1296
+  requires_registration: false
+  url: https://github.com/FHIR/Ucum-java
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1298
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - standards_process_maturity_final
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Ontology of units of Measure 2.0
+  formal_specification: https://github.com/HajoRijgersberg/OM/blob/master/om-2.0.rdf
+  is_open: true
+  name: OM
+  purpose_detail: OM (Ontology of units of Measure) is an OWL ontology of units, quantities,
+    measures, dimensions, and systems of units, developed at Wageningen University
+    and Research. Version 2.0 is maintained on GitHub and released under the CC BY
+    4.0 license, and the repository includes mappings from OM units to UCUM codes.
+    It complements the Units Ontology (UO) for applications that need units described
+    in RDF.
+  related_to:
+  - B2AI_STANDARD:386
+  - B2AI_STANDARD:566
+  requires_registration: false
+  url: https://github.com/HajoRijgersberg/OM
+  publication:
+    ref_url: https://doi.org/10.3233/SW-2012-0069
+    ref_title: Ontology of units of measure and related concepts
+    ref_authors:
+    - Rijgersberg H
+    - van Assem M
+    - Top J
+    ref_publication_year: 2013
+    ref_journal: Semantic Web
