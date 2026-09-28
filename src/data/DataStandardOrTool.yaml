@@ -32329,6 +32329,11 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:499
   category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - drugdata
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:8
   - B2AI_TOPIC:53
@@ -32337,16 +32342,127 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: National Drug Code
+  formal_specification: https://www.ecfr.gov/current/title-21/section-207.33
   has_relevant_organization:
+  - B2AI_ORG:17
   - B2AI_ORG:31
+  - B2AI_ORG:63
   is_open: true
   name: NDC
-  purpose_detail: Information about finished drug products, unfinished drugs and compounded
-    drug products
+  purpose_detail: The National Drug Code (NDC) is the FDA standard for uniquely identifying
+    drugs marketed in the United States, defined in 21 CFR 207.33. Each finished or
+    unfinished drug subject to listing carries an NDC of 10 or 11 digits in three
+    segments that identify the labeler, the product, and the package size and type,
+    in one of the configurations 4-4-2, 5-3-2, 5-4-1, 6-3-2, or 6-4-1. FDA assigns
+    the labeler code, and firms propose the product and package segments with their
+    drug listing. Billing and HIPAA retail pharmacy transactions use an 11-digit 5-4-2
+    form padded with leading zeros, and Medicaid requires NDCs on claims for physician-administered
+    drugs. A final rule published March 5, 2026 moves all NDCs to a uniform 12-digit
+    6-4-2 format effective March 7, 2033, with a three-year labeling transition. Firms
+    submit listing data as Structured Product Labeling files, which populate the NDC
+    Directory. The directory covers prescription and over-the-counter, approved and
+    unapproved, finished and unfinished drugs, is updated daily, and is available
+    as downloadable product and package files and through the openFDA NDC API. Inclusion
+    in the directory and assignment of an NDC do not indicate FDA approval. RxNorm
+    maps NDCs to normalized clinical drug concepts.
+  related_to:
+  - B2AI_STANDARD:147
+  - B2AI_STANDARD:229
+  - B2AI_STANDARD:298
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:1290
+  - B2AI_STANDARD:1299
+  - B2AI_STANDARD:1300
+  - B2AI_STANDARD:1301
   requires_registration: false
-  url: https://www.accessdata.fda.gov/scripts/cder/ndc/index.cfm
+  responsible_organization:
+  - B2AI_ORG:31
+  url: https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory
+  has_application:
+  - id: B2AI_APP:458
+    category: B2AI:Application
+    name: Prescription vial image classification by NDC
+    description: A ResNet-18 model pretrained on ImageNet was fine-tuned on top-down
+      photographs of filled prescription vials from a mail-order pharmacy dispensing
+      robot to predict the dispensed medication and support remote pharmacist verification.
+      The classification targets were 345 product-level NDCs (the package segment removed),
+      each a distinct ingredient, strength, dose form, and manufacturer. Across 65,274
+      test images the model reached 98.5% macro-average precision, with errors concentrated
+      in look-alike NDC pairs.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41746-021-00483-8
+      ref_title: 'Performance evaluation of a prescription medication image classification
+        model: an observational cohort'
+      ref_authors:
+      - Lester CA
+      - Li J
+      - Ding Y
+      - Rowell B
+      - Yang J
+      - Al Kontar R
+      ref_publication_year: 2021
+      ref_journal: npj Digit Med
+  - id: B2AI_APP:459
+    category: B2AI:Application
+    name: Machine learning prediction of opioid use disorder acute care in Medicaid
+    description: Logistic regression, LASSO, random forest, and XGBoost models predicted
+      hospitalization or emergency visits for opioid use disorder among 20,983 Pennsylvania
+      Medicaid enrollees, with XGBoost performing best (C-statistic 0.766) and fairness
+      assessed across racial groups. Medication predictors were built from NDC-coded
+      pharmacy claims, including buprenorphine for opioid use disorder and morphine
+      milligram equivalents computed per NDC-coded opioid prescription.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1111/add.70079
+      ref_title: Development and evaluation of a machine learning model to predict acute
+        care for opioid use disorder among Medicaid enrollees engaged in a community-based
+        treatment program
+      ref_authors:
+      - Xue L
+      - Yin R
+      - Cole ES
+      - Lo-Ciganic W
+      - Gellad WF
+      - Donohue J
+      - Tang L
+      ref_publication_year: 2025
+      ref_journal: Addiction
+  - id: B2AI_APP:460
+    category: B2AI:Application
+    name: Early detection of opioid use disorder from claims
+    description: XGBoost with Word2Vec embeddings of medical codes was trained on 10
+      million claims from 550,000 patients to detect opioid use disorder early, reaching
+      a C-statistic of 0.959 and flagging cases a mean of 14.4 months before diagnosis.
+      NDCs on prescription claims were the raw medication codes, mapped to RxNorm concepts
+      to identify opioid exposure before modeling.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1002/prp2.669
+      ref_title: Development of a machine learning algorithm for early detection of opioid
+        use disorder
+      ref_authors:
+      - Segal Z
+      - Radinsky K
+      - Elad G
+      - Marom G
+      - Beladev M
+      - Lewis M
+      - Ehrenberg B
+      - Gillis P
+      - Korn L
+      - Koren G
+      ref_publication_year: 2020
+      ref_journal: Pharmacol Res Perspect
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.2146/ajhp080221
+    ref_title: Using National Drug Codes and drug knowledge bases to organize prescription
+      records from multiple sources
+    ref_authors:
+    - Simonaitis L
+    - McDonald CJ
+    ref_publication_year: 2009
+    ref_journal: Am J Health Syst Pharm
 - id: B2AI_STANDARD:500
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -64587,3 +64703,119 @@ data_standardortools_collection:
     - Top J
     ref_publication_year: 2013
     ref_journal: Semantic Web
+- id: B2AI_STANDARD:1299
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - markuplanguage
+  - drugdata
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Structured Product Labeling
+  formal_specification: https://www.fda.gov/industry/fda-data-standards-advisory-board/structured-product-labeling-resources
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: SPL
+  purpose_detail: Structured Product Labeling (SPL) is a document markup standard approved
+    by HL7 and adopted by FDA for exchanging product and facility information. Firms
+    submit SPL files for drug labeling, drug establishment registration, and drug
+    listing, and the listing files populate the NDC Directory. FDA publishes the SPL
+    schema and stylesheet, terminology validation files in XML and Excel, implementation
+    guides, and the Comprehensive NDC SPL Data Elements (NSDE) file. Submitted labeling
+    is searchable through FDALabel and published by the National Library of Medicine
+    in DailyMed.
+  related_to:
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:1300
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:31
+  url: https://www.fda.gov/industry/fda-data-standards-advisory-board/structured-product-labeling-resources
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1300
+  category: B2AI_STANDARD:DataStandardOrTool
+  collection:
+  - drugdata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: DailyMed database of product labeling submitted to FDA
+  is_open: true
+  name: DailyMed
+  purpose_detail: DailyMed is the National Library of Medicine database of the most
+    recent labeling submitted to FDA by companies and currently in use, covering human
+    prescription and biological products, nonprescription drugs, animal drugs, medical
+    devices, cosmetics, dietary supplements, and certain unapproved products. Labels
+    are published from the Structured Product Labeling files that firms submit and
+    are available as HTML, PDF, and XML, together with web services, mapping files,
+    and bulk downloads, and can be searched by National Drug Code. NLM does not review
+    the content, and FDA may not have verified the in-use labeling, so Drugs@FDA remains
+    the source for official approved labeling.
+  related_to:
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:1299
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:74
+  url: https://dailymed.nlm.nih.gov/dailymed/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1301
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - drugdata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: openFDA public APIs for FDA data
+  formal_specification: https://open.fda.gov/apis/drug/ndc/
+  is_open: true
+  name: openFDA
+  purpose_detail: openFDA is an FDA platform that provides public JSON APIs and bulk
+    downloads for FDA datasets on drugs, devices, and foods, including adverse event
+    reports, recalls, product labeling, and the NDC Directory. The drug NDC endpoint
+    is built from the NDC Directory, is updated daily, and links each record to its
+    Structured Product Labeling set, UNII, and UPC. openFDA data are released into
+    the public domain under CC0.
+  related_to:
+  - B2AI_STANDARD:298
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:1299
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:31
+  url: https://open.fda.gov/
+  publication:
+    ref_url: https://doi.org/10.1093/jamia/ocv153
+    ref_title: 'OpenFDA: an innovative platform providing access to a wealth of FDA''s
+      publicly available data'
+    ref_authors:
+    - Kass-Hout TA
+    - Xu Z
+    - Mohebbi M
+    - Nelsen H
+    - Baker A
+    - Levine J
+    - Johanson E
+    - Bright RA
+    ref_publication_year: 2015
+    ref_journal: J Am Med Inform Assoc
