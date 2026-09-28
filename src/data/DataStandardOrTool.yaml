@@ -34023,13 +34023,88 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Phenotype And Trait Ontology
   formal_specification: https://github.com/pato-ontology/pato
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: PATO
-  purpose_detail: Phenotypic qualities (properties, attributes or characteristics).
+  purpose_detail: PATO (Phenotype And Trait Ontology) is an OBO ontology of phenotypic
+    qualities, the properties, attributes, and characteristics that inhere in a bearer,
+    such as size, shape, color, and rate. It is the quality component of the entity-quality
+    (EQ) method, in which a phenotype is described as an affected entity from an anatomy
+    or process ontology combined with a PATO quality. The Human Phenotype Ontology
+    and other species phenotype ontologies use PATO in logical definitions that support
+    reasoning and integration of phenotypes across species, and more than 20 OBO ontologies,
+    including Uberon, CL, and ZP, declare it as a dependency. The 2025-05-14 release
+    has about 1,900 non-obsolete PATO classes. It is built with the Ontology Development
+    Kit, distributed in OWL, OBO, and JSON formats through its OBO PURL, browsable in
+    OLS, licensed CC BY 3.0, and listed as active in the OBO Foundry registry with
+    George Gkoutos as contact.
+  related_to:
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:479
+  - B2AI_STANDARD:565
+  - B2AI_STANDARD:575
+  - B2AI_STANDARD:1302
   requires_registration: false
-  url: https://github.com/pato-ontology/pato
+  url: https://obofoundry.org/ontology/pato.html
+  has_application:
+  - id: B2AI_APP:461
+    category: B2AI:Application
+    name: Gold standard for training and evaluating NLP phenotype annotation
+    description: The Phenoscape project built an expert-curated gold standard of entity-quality
+      annotations of evolutionary phenotypes and used it to evaluate machine annotations
+      from the Semantic CharaParser natural language processing tool against human curators.
+      The quality component of every annotation uses PATO terms, and both curators
+      and the tool worked from PATO together with Uberon and BSPO. Machine accuracy
+      improved after curators added missing PATO terms, and PATO was merged with Uberon
+      and BSPO to score semantic similarity between machine and human annotations.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/database/bay110
+      ref_title: 'Annotation of phenotypes using ontologies: a gold standard for the
+        training and evaluation of natural language processing systems'
+      ref_authors:
+      - Dahdul W
+      - Manda P
+      - Cui H
+      - Balhoff JP
+      - Dececchi TA
+      - Ibrahim N
+      - Lapp H
+      - Vision T
+      - Mabee PM
+      ref_publication_year: 2018
+      ref_journal: Database
+  - id: B2AI_APP:462
+    category: B2AI:Application
+    name: PhenomeNET cross-species phenotype similarity for disease gene discovery
+    description: PhenomeNET reformulates phenotype ontology classes from yeast, fly,
+      worm, mouse, and human as entity-quality definitions whose qualities come from
+      PATO, then uses automated reasoning over these definitions and cross-species anatomy
+      ontologies to build a single integrated phenotype network. Semantic similarity
+      over this network ranks candidate disease genes by comparing disease phenotypes
+      with model organism phenotypes.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/nar/gkr538
+      ref_title: 'PhenomeNET: a whole-phenome approach to disease gene discovery'
+      ref_authors:
+      - Hoehndorf R
+      - Schofield PN
+      - Gkoutos GV
+      ref_publication_year: 2011
+      ref_journal: Nucleic Acids Res
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/gb-2004-6-1-r8
+    ref_title: Using ontologies to describe mouse phenotypes
+    ref_authors:
+    - Gkoutos GV
+    - Green EC
+    - Mallon AM
+    - Hancock JM
+    - Davidson D
+    ref_publication_year: 2004
+    ref_journal: Genome Biol
 - id: B2AI_STANDARD:535
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -64819,3 +64894,43 @@ data_standardortools_collection:
     - Bright RA
     ref_publication_year: 2015
     ref_journal: J Am Med Inform Assoc
+- id: B2AI_STANDARD:1302
+  category: B2AI_STANDARD:DataStandardOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Phenoscape Knowledgebase of ontology-annotated evolutionary phenotypes
+  formal_specification: https://github.com/phenoscape
+  is_open: true
+  name: Phenoscape
+  purpose_detail: Phenoscape is a project and knowledgebase for exploring phenotypic
+    variation among species. Evolutionary phenotypes from the comparative literature
+    are annotated as entity-quality statements using Uberon, PATO, and other ontologies,
+    which lets them be compared with phenotypes from genetic perturbations in model
+    organisms. The knowledgebase offers a semantic similarity interface that matches
+    a gene's phenotypes to evolutionary profiles across the taxonomic tree and assesses
+    the significance of each match. The project also produced the Phenex curation
+    software, the rphenoscape R package, and a gold standard corpus for evaluating
+    natural language processing of phenotype descriptions, and its code is on GitHub.
+    A redesigned knowledgebase web interface is marked as in development.
+  related_to:
+  - B2AI_STANDARD:534
+  requires_registration: false
+  url: https://phenoscape.org/
+  publication:
+    ref_url: https://doi.org/10.1002/dvg.22878
+    ref_title: Using the phenoscape knowledgebase to relate genetic perturbations to
+      phenotypic evolution
+    ref_authors:
+    - Manda P
+    - Balhoff JP
+    - Lapp H
+    - Mabee P
+    - Vision TJ
+    ref_publication_year: 2015
+    ref_journal: Genesis
