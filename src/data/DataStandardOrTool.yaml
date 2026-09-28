@@ -33751,13 +33751,44 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Ontology of Vaccine Adverse Events
   formal_specification: https://github.com/OVAE-Ontology/ovae
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: OVAE
-  purpose_detail: A biomedical ontology in the domain of vaccine adverse events.
+  purpose_detail: The Ontology of Vaccine Adverse Events (OVAE) represents adverse
+    events reported for US-licensed human vaccines. It extends the Ontology of Adverse
+    Events (OAE) and the Vaccine Ontology (VO), takes its vaccines from VO and its adverse
+    event types from OAE, and adds a design pattern linking a vaccine, an adverse event,
+    a vaccinee population, an age range, and an observed occurrence rate. The source
+    data are the FDA package inserts of licensed vaccines, and the 2013 release covered
+    87 types of adverse events for 63 vaccines in over 1,300 terms. It was developed
+    by Erica Marcos, Jiangan Xie, and Yongqun He at the University of Michigan and
+    is browsable in OLS and Ontobee. The OBO Foundry registry lists it as active under
+    CC BY 3.0 while the repository LICENSE file is CC0 1.0, and the ontology content
+    has not changed since version 1.0.34 in April 2016. Analyses of spontaneous reports
+    from VAERS in the same group use OAE directly.
+  related_to:
+  - B2AI_STANDARD:423
+  - B2AI_STANDARD:480
+  - B2AI_STANDARD:516
+  - B2AI_STANDARD:569
+  - B2AI_STANDARD:1293
+  - B2AI_STANDARD:1303
+  - B2AI_STANDARD:1304
   requires_registration: false
-  url: https://github.com/OVAE-Ontology/ovae
+  responsible_organization:
+  - B2AI_ORG:178
+  url: https://obofoundry.org/ontology/ovae.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/2041-1480-4-40
+    ref_title: The Ontology of Vaccine Adverse Events (OVAE) and its usage in representing
+      and analyzing adverse events associated with US-licensed human vaccines
+    ref_authors:
+    - Marcos E
+    - Zhao B
+    - He Y
+    ref_publication_year: 2013
+    ref_journal: J Biomed Semantics
 - id: B2AI_STANDARD:527
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -64934,3 +64965,93 @@ data_standardortools_collection:
     - Vision TJ
     ref_publication_year: 2015
     ref_journal: Genesis
+- id: B2AI_STANDARD:1303
+  category: B2AI_STANDARD:DataStandardOrTool
+  collection:
+  - clinicaldata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:68
+  - B2AI_TOPIC:70
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Vaccine Adverse Event Reporting System
+  has_relevant_organization:
+  - B2AI_ORG:31
+  is_open: true
+  name: VAERS
+  purpose_detail: The Vaccine Adverse Event Reporting System (VAERS) is the US national
+    early warning system for possible safety problems with US-licensed vaccines,
+    established in 1990 and co-managed by CDC and FDA. It is a passive reporting system
+    that relies on individuals to send in reports of adverse events after vaccination.
+    VAERS is not designed to determine whether a vaccine caused a health problem, and is
+    used instead to detect unusual or unexpected patterns of reporting that might
+    indicate a safety signal. Report data are available as downloadable files and
+    through CDC WONDER, with expanded public access added in May 2025. Adverse events in
+    the data are coded as MedDRA Preferred Terms, and ontology-based analyses of VAERS
+    data have used the Ontology of Adverse Events.
+  related_to:
+  - B2AI_STANDARD:516
+  - B2AI_STANDARD:526
+  - B2AI_STANDARD:1293
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:12
+  url: https://vaers.hhs.gov/
+  publication:
+    ref_url: https://doi.org/10.1016/j.vaccine.2015.07.035
+    ref_title: Safety monitoring in the Vaccine Adverse Event Reporting System (VAERS)
+    ref_authors:
+    - Shimabukuro TT
+    - Nguyen M
+    - Martin D
+    - DeStefano F
+    ref_publication_year: 2015
+    ref_journal: Vaccine
+- id: B2AI_STANDARD:1304
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - ontologyregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Ontobee linked ontology data server
+  is_open: true
+  name: Ontobee
+  purpose_detail: Ontobee is a linked data server for OBO ontologies that dereferences
+    ontology term IRIs to human-readable HTML pages and machine-readable RDF, and
+    supports browsing, linking, and SPARQL querying of terms across ontologies. It hosts
+    many OBO ontologies, including the Ontology of Adverse Events, the Vaccine Ontology,
+    and OVAE, and is developed by the He group at the University of Michigan.
+  related_to:
+  - B2AI_STANDARD:526
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:178
+  url: https://ontobee.org/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkw918
+    ref_title: 'Ontobee: A linked ontology data server to support ontology term dereferencing,
+      linkage, query and integration'
+    ref_authors:
+    - Ong E
+    - Xiang Z
+    - Zhao B
+    - Liu Y
+    - Lin Y
+    - Zheng J
+    - Mungall C
+    - Courtot M
+    - Ruttenberg A
+    - He Y
+    ref_publication_year: 2016
+    ref_journal: Nucleic Acids Res
+
