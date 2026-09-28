@@ -35072,24 +35072,212 @@ data_standardortools_collection:
   - standards_process_maturity_final
   - implementation_maturity_production
   concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:7
   - B2AI_TOPIC:9
   - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Systematized Nomenclature of Medicine - Clinical Terms
+  formal_specification: https://docs.snomed.org/snomed-ct-specifications/snomed-ct-release-file-specification
   has_relevant_organization:
   - B2AI_ORG:74
-  is_open: true
+  - B2AI_ORG:114
+  is_open: false
   name: SNOMED CT
-  purpose_detail: Standard for electronic exchange of clinical health information.
-    Provided through UMLS.
+  purpose_detail: SNOMED CT (Systematized Nomenclature of Medicine Clinical Terms) is a
+    clinical terminology for recording clinical findings, disorders, procedures, body
+    structures, and other clinical content in electronic health records. Its core
+    components are concepts, each with a numeric identifier, descriptions, including a
+    fully specified name and synonyms, and relationships that logically define concepts
+    in a description logic model, now distributed as OWL axioms, with a Machine Readable
+    Concept Model that constrains valid definitions and postcoordinated expressions. The
+    International Edition holds more than 360,000 concepts, has been released monthly
+    since January 2022 in the RF2 release format, and is extended by Member national
+    editions. The US Edition combines the US Extension with the International Edition,
+    is released each March and September, and includes a map to ICD-10-CM. SNOMED CT is
+    the ONC certification standard for coding problems (45 CFR 170.207) and a standard
+    vocabulary of the OMOP Common Data Model, and AI-READI clinical data use SNOMED CT
+    concepts. SNOMED CT is owned by SNOMED International, the trading name of the
+    International Health Terminology Standards Development Organisation, and is not open
+    content. All use is governed by the SNOMED CT Affiliate License Agreement, under
+    English law, which grants a non-exclusive, non-transferable license to use the
+    International Release for internal, research, and system development purposes, to
+    create Extensions and Derivatives, and to incorporate SNOMED CT into licensee
+    products, but prohibits modifying the SNOMED CT Core, translating it without
+    consent, and letting users of public systems extract any substantial portion. There
+    are no license fees in the 54 Member countries, which include the United States, or
+    in low-income countries. In other non-Member countries annual fees apply per
+    hospital or practice (baseline US$652 to US$1,954 by income band), with exemptions
+    for qualifying research projects and humanitarian uses. In the United States, the
+    National Library of Medicine, as the US Member and National Release Center,
+    distributes the US and International Editions at no cost through UMLS Terminology
+    Services to holders of the UMLS Metathesaurus License, whose Appendix 2 contains the
+    Affiliate License terms. Elsewhere, users register with their National Release
+    Center or through the Member Licensing and Distribution Service (MLDS). As of
+    September 2026 SNOMED International has published no license clause or position
+    statement specific to training machine learning or language models on SNOMED CT, so
+    such use falls under the general Affiliate terms. Two products are openly licensed,
+    the Global Patient Set of identifiers and terms (CC BY-ND 4.0) and the International
+    Patient Summary Terminology (CC BY 4.0).
   related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:174
+  - B2AI_STANDARD:175
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:506
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:554
+  - B2AI_STANDARD:564
+  - B2AI_STANDARD:720
   - B2AI_STANDARD:769
+  - B2AI_STANDARD:1120
+  - B2AI_STANDARD:1307
+  - B2AI_STANDARD:1308
+  - B2AI_STANDARD:1309
   requires_registration: true
-  url: https://www.nlm.nih.gov/healthit/snomedct/index.html
+  responsible_organization:
+  - B2AI_ORG:180
+  url: https://www.snomed.org/
+  used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:466
+    category: B2AI:Application
+    name: SNOMED CT Entity Linking Challenge
+    description: SNOMED International ran an entity linking competition from December
+      2023 to March 2024 in which participants linked mentions in MIMIC-IV-Note
+      discharge summaries to SNOMED CT concepts. The curated data comprise 74,808
+      annotations across 272 discharge notes spanning 6,624 unique concepts from the
+      clinical finding, procedure, and body structure hierarchies. Submissions were
+      scored by character-level mean intersection over union, and the three winning
+      solutions used contrasting dictionary-based, encoder-based, and decoder-based
+      methods, with rare concepts and ambiguous annotations proving hardest. The
+      annotations are available on PhysioNet as a credentialed dataset verified against
+      the November 2025 International Edition.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamia/ocaf104
+      ref_title: SNOMED CT entity linking challenge
+      ref_authors:
+      - Davidson R
+      - Hardman W
+      - Amit G
+      - Bilu Y
+      - Della Mea V
+      - Galaida A
+      - Girshovitz I
+      - Kulyabin M
+      - Horia Popescu M
+      - Roitero K
+      - Sokolov G
+      - Yanover C
+      ref_publication_year: 2025
+      ref_journal: J Am Med Inform Assoc
+  - id: B2AI_APP:467
+    category: B2AI:Application
+    name: MedCAT self-supervised clinical concept extraction to SNOMED CT
+    description: MedCAT is an open-source toolkit with a self-supervised machine
+      learning algorithm that extracts concepts from clinical text and links them to a
+      vocabulary such as UMLS or SNOMED CT. In real-world validation it extracted SNOMED
+      CT concepts at three large London hospitals after self-supervised training over
+      about 8.8 billion words from about 17 million clinical records and fine-tuning
+      with about 6,000 clinician-annotated examples, and models transferred between
+      hospitals, datasets, and concept types with F1 above 0.94.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.artmed.2021.102083
+      ref_title: 'Multi-domain clinical natural language processing with MedCAT: The
+        Medical Concept Annotation Toolkit'
+      ref_authors:
+      - Kraljevic Z
+      - Searle T
+      - Shek A
+      - Roguski L
+      - Noor K
+      - Bean D
+      - Mascio A
+      - Zhu L
+      - Folarin AA
+      - Roberts A
+      - Bendayan R
+      - Richardson MP
+      - Stewart R
+      - Shah AD
+      - Wong WK
+      - Ibrahim Z
+      - Teo JT
+      - Dobson RJB
+      ref_publication_year: 2021
+      ref_journal: Artif Intell Med
+  - id: B2AI_APP:468
+    category: B2AI:Application
+    name: Foresight generative transformer over SNOMED CT patient timelines
+    description: Foresight is a GPT-style generative transformer trained on patient
+      timelines built by using MedCAT to extract concepts from free-text records of
+      811,336 patients at King's College Hospital, South London and Maudsley, and MIMIC-
+      III, linked to the SNOMED CT UK Clinical Edition and Drug Extension. Each patient
+      is represented as a time-ordered sequence of SNOMED CT concepts, and the model
+      forecasts future disorders, reaching precision at 10 of 0.68, 0.76, and 0.88
+      across the three datasets, with clinicians rating the top forecast relevant in 33
+      of 34 synthetic timelines.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/S2589-7500(24)00025-6
+      ref_title: 'Foresight-a generative pretrained transformer for modelling of patient
+        timelines using electronic health records: a retrospective modelling study'
+      ref_authors:
+      - Kraljevic Z
+      - Bean D
+      - Shek A
+      - Bendayan R
+      - Hemingway H
+      - Yeung JA
+      - Deng A
+      - Balston A
+      - Ross J
+      - Idowu E
+      - Teo JT
+      - Dobson RJB
+      ref_publication_year: 2024
+      ref_journal: Lancet Digit Health
+  - id: B2AI_APP:469
+    category: B2AI:Application
+    name: LLM-assisted SNOMED CT mapping and concept authoring
+    description: A GPT-4o-assisted pipeline maps local diagnostic and surgical procedure
+      terms to SNOMED CT through syntactic matching, language model vector similarity,
+      and iterative enrichment, and authors new concepts by postcoordination checked
+      against the Machine Readable Concept Model. Evaluated across four hospital
+      networks (nine university hospitals) in South Korea, it reached top-5 diagnostic
+      mapping accuracy of 89.7% to 98.7% across institutions and substantially reduced
+      manual workload and concept model violations.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/82670
+      ref_title: 'Development and Evaluation of SNOMED CT Automated Mapping Tool: Advancing
+        Terminology Standardization and Semantic Interoperability'
+      ref_authors:
+      - Park Y
+      - Kang H
+      - Kim J
+      - Shin SY
+      - Cho D
+      - Rhee SY
+      - Park HS
+      - Lee KJ
+      - Bae S
+      ref_publication_year: 2026
+      ref_journal: JMIR Med Inform
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/1472-6947-8-s1-s2
+    ref_title: 'Forty years of SNOMED: a literature review'
+    ref_authors:
+    - Cornet R
+    - de Keizer N
+    ref_publication_year: 2008
+    ref_journal: BMC Med Inform Decis Mak
 - id: B2AI_STANDARD:554
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -65324,3 +65512,104 @@ data_standardortools_collection:
     - Rijnbeek PR
     ref_publication_year: 2021
     ref_journal: J Am Med Inform Assoc
+- id: B2AI_STANDARD:1307
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Snowstorm SNOMED CT terminology server
+  formal_specification: https://github.com/IHTSDO/snowstorm
+  is_open: true
+  name: Snowstorm
+  purpose_detail: Snowstorm is an open source terminology server with special support
+    for SNOMED CT, built on Elasticsearch for performance and scalability. It provides
+    an HL7 FHIR terminology API and full support for the SNOMED CT Expression Constraint
+    Language, and it serves as the terminology server behind the SNOMED International
+    Browser for the International Edition and around fourteen national editions. SNOMED
+    International recommends that implementers use a terminology service such as
+    Snowstorm with a standard interface such as FHIR. It is released under the Apache
+    2.0 license (version 11.0.0, September 2026), while the SNOMED CT content loaded
+    into it remains subject to the Affiliate License.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:553
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:180
+  url: https://github.com/IHTSDO/snowstorm
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1308
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:53
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SNOMED CT Global Patient Set
+  formal_specification: https://docs.snomed.org/implementation-guides/gps-implementation-guide
+  is_open: true
+  name: SNOMED CT GPS
+  purpose_detail: The SNOMED CT Global Patient Set (GPS) is a free product from SNOMED
+    International that lets healthcare systems in Member and non-Member countries share,
+    store, and display SNOMED CT coded data without access to the full terminology or a
+    license agreement. Since March 2026 it covers all content in the International
+    Edition, providing every concept identifier, fully specified name, international
+    English preferred term, and active or inactive status. It does not include
+    relationships, hierarchies, other descriptions, reference sets, maps, extensions, or
+    translations. It is released under the Creative Commons Attribution-NoDerivatives
+    4.0 International license, and download requires a registration form.
+  related_to:
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1309
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:180
+  url: https://www.snomed.org/gps
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1309
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:53
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SNOMED CT International Patient Summary Terminology
+  is_open: true
+  name: SNOMED CT IPS Terminology
+  purpose_detail: The SNOMED CT International Patient Summary (IPS) Terminology is a
+    subset of SNOMED CT covering the scope of the HL7 FHIR International Patient
+    Summary, formerly released as the IPS Free Set. Unlike the flat Global Patient Set,
+    it includes SNOMED CT hierarchies and supports queries with the Expression
+    Constraint Language within its scope, and SNOMED International describes it as
+    supporting clinical data analytics, decision support, and artificial intelligence
+    applications. It is released annually among SNOMED International's free sets. The
+    product page states that it is licensed under the Creative Commons Attribution 4.0
+    International License, and download requires a registration form.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1308
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:180
+  url: https://www.snomed.org/international-patient-summary-terminology
+  publication:
+    ref_url: ''
