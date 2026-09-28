@@ -44985,22 +44985,161 @@ data_standardortools_collection:
     ref_journal: Semantic Web
 - id: B2AI_STANDARD:864
   category: B2AI_STANDARD:Registry
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:6
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:29
   - B2AI_TOPIC:31
   - B2AI_TOPIC:54
   contribution_date: '2023-03-27'
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: PhenX Toolkit
+  description: PhenX Toolkit (consensus measures for Phenotypes and eXposures)
+  formal_specification: https://www.phenxtoolkit.org/resources/download
+  has_relevant_organization:
+  - B2AI_ORG:73
   is_open: true
   name: PhenX Toolkit
-  purpose_detail: A catalog of recommended measurement protocols for biomedical research.
+  purpose_detail: The PhenX Toolkit is a catalog of recommended, consensus measurement
+    protocols for phenotypes and exposures in biomedical research. Release 49.3 (August
+    26, 2026) holds 1009 protocols across 30 research domains, plus specialty collections
+    for substance use and recovery, tobacco regulatory research, mental health, blood
+    sciences, social determinants of health, and COVID-19. It has been supported by
+    NHGRI since 2007, now through a Biomedical Knowledgebase grant (U24HG012556) with
+    co-funding from NHLBI, OBSSR, NINDS, NIMHD, and NIDA, and is developed and maintained
+    by RTI International. Each protocol ships with a data dictionary compatible with
+    dbGaP submission packets and a REDCap instrument, and PhenX variables are mapped
+    to dbGaP study variables through a variable search tool. PhenX is a source organization
+    in the NIH CDE Repository, and many NIH funding opportunities encourage or require
+    PhenX measures. Several protocols reuse PROMIS and NIH Toolbox instruments. Content
+    is free to use under a Creative Commons attribution license, and registration is
+    optional.
+  related_to:
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:821
+  - B2AI_STANDARD:859
+  - B2AI_STANDARD:1157
+  - B2AI_STANDARD:1294
+  - B2AI_STANDARD:1295
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:177
   url: https://www.phenxtoolkit.org/
+  has_application:
+  - id: B2AI_APP:447
+    category: B2AI:Application
+    name: Language-model metadata harmonization to PhenX terms
+    description: Fine-tuned GPT-2 models were trained to map researcher-written metadata
+      terms onto standard vocabulary terms in cancer, alcohol research, and infectious
+      disease, using augmentation that mimics typos, abbreviations, and word reordering.
+      The alcohol-domain target vocabulary is built largely from PhenX Toolkit terms
+      (26,808 of them) alongside the WHO Lexicon of Alcohol and Drug Terms. The models
+      reached about 96% accuracy on in-dictionary terms and outperformed heuristic and
+      zero-shot GPT-4o baselines, with PhenX serving as the standard labels the models
+      learn to predict.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf241
+      ref_title: Metadata harmonization from biological datasets with language models
+      ref_authors:
+      - Verbitsky A
+      - Boutet P
+      - Eslami M
+      ref_publication_year: 2024
+      ref_journal: Bioinformatics Advances
+  - id: B2AI_APP:448
+    category: B2AI:Application
+    name: Causal forests for PTSD and substance use risk in the AURORA cohort
+    description: In the AURORA study of 2,943 emergency department trauma survivors,
+      honest causal forests (a generalized random forest method) screened 128 candidate
+      variables for factors that modify how post-traumatic stress symptoms predict later
+      tobacco, alcohol, and cannabis use. The substance use outcomes were collected at
+      six timepoints with the PhenX Substance Abuse and Addiction Core Tier 1 questions,
+      so PhenX defines the targets the models stratify. Prior use was the dominant moderator,
+      with physical health and childhood trauma also modifying risk.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fpsyt.2024.1249382
+      ref_title: 'Post-traumatic stress and future substance use outcomes: leveraging
+        antecedent factors to stratify risk'
+      ref_authors:
+      - Garrison-Desany HM
+      - Meyers JL
+      - Linnstaedt SD
+      - House SL
+      - Beaudoin FL
+      - An X
+      - Zeng D
+      - Neylan TC
+      - Clifford GD
+      - Jovanovic T
+      - Germine LT
+      - Bollen KA
+      - Rauch SL
+      - Haran JP
+      - Storrow AB
+      - Lewandowski C
+      - Musey PI
+      - Hendry PL
+      - Sheikh S
+      - Jones CW
+      - Punches BE
+      - Swor RA
+      - Gentile NT
+      - Hudak LA
+      - Pascual JL
+      - Seamon MJ
+      - Harris E
+      - Pearson C
+      - Peak DA
+      - Domeier RM
+      - Rathlev NK
+      - O'Neil BJ
+      - Sergot P
+      - Sanchez LD
+      - Bruce SE
+      - Joormann J
+      - Harte SE
+      - McLean SA
+      - Koenen KC
+      - Denckla CA
+      ref_publication_year: 2024
+      ref_journal: Front Psychiatry
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/aje/kwr193
+    ref_title: 'The PhenX Toolkit: Get the Most From Your Measures'
+    ref_authors:
+    - Hamilton CM
+    - Strader LC
+    - Pratt JG
+    - Maiese D
+    - Hendershot T
+    - Kwok RK
+    - Hammond JA
+    - Huggins W
+    - Jackman D
+    - Pan H
+    - Nettles DS
+    - Beaty TH
+    - Farrer LA
+    - Kraft P
+    - Marazita ML
+    - Ordovas JM
+    - Pato CN
+    - Spitz MR
+    - Wagener D
+    - Williams M
+    - Junkins HA
+    - Harlan WR
+    - Ramos EM
+    - Haines J
+    ref_publication_year: 2011
+    ref_journal: Am J Epidemiol
 - id: B2AI_STANDARD:866
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -63591,3 +63730,90 @@ data_standardortools_collection:
   url: https://openslide.org/formats/aperio/
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1294
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:50
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Patient-Reported Outcomes Measurement Information System
+  is_open: true
+  name: PROMIS
+  purpose_detail: PROMIS (Patient-Reported Outcomes Measurement Information System)
+    is a set of person-centered measures of physical, mental, and social health, created
+    through the NIH Roadmap for Medical Research (later the Common Fund) to provide
+    psychometrically sound, precise, and comparable patient-reported outcome measures. Measures are available as item banks, computerized adaptive
+    tests, fixed short forms, and profiles that combine several domains, and have been
+    translated into more than 80 languages. HealthMeasures, hosted at Northwestern
+    University, and the PROMIS Health Organization support its development, maintenance,
+    and dissemination. Several PhenX Toolkit protocols reuse PROMIS measures.
+  related_to:
+  - B2AI_STANDARD:864
+  - B2AI_STANDARD:1295
+  requires_registration: false
+  url: https://www.healthmeasures.net/explore-measurement-systems/promis
+  publication:
+    ref_url: https://doi.org/10.1097/01.mlr.0000258615.42478.55
+    ref_title: The Patient-Reported Outcomes Measurement Information System (PROMIS)
+    ref_authors:
+    - Cella D
+    - Yount S
+    - Rothrock N
+    - Gershon R
+    - Cook K
+    - Reeve B
+    - Ader D
+    - Fries JF
+    - Bruce B
+    - Rose M
+    ref_publication_year: 2007
+    ref_journal: Medical Care
+- id: B2AI_STANDARD:1295
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:48
+  - B2AI_TOPIC:80
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: NIH Toolbox for Assessment of Neurological and Behavioral Function
+  is_open: true
+  name: NIH Toolbox
+  purpose_detail: The NIH Toolbox for Assessment of Neurological and Behavioral Function
+    is a set of standardized measures of cognitive, emotional, motor, and sensory function,
+    administered mainly through the NIH Toolbox iPad app, with emotion measures that
+    take about 30 minutes and are available in Spanish and other languages. Its development
+    was first funded in 2006 by the NIH Blueprint for Neuroscience Research. It is
+    distributed through HealthMeasures, hosted at Northwestern University, alongside
+    PROMIS and Neuro-QoL. PhenX Toolkit protocols reuse NIH Toolbox item banks, such
+    as the general self-efficacy measure.
+  related_to:
+  - B2AI_STANDARD:864
+  - B2AI_STANDARD:1294
+  requires_registration: false
+  url: https://www.healthmeasures.net/explore-measurement-systems/nih-toolbox
+  publication:
+    ref_url: https://doi.org/10.1212/wnl.0b013e3182872e5f
+    ref_title: NIH Toolbox for Assessment of Neurological and Behavioral Function
+    ref_authors:
+    - Gershon RC
+    - Wagster MV
+    - Hendrie HC
+    - Fox NA
+    - Cook KF
+    - Nowinski CJ
+    ref_publication_year: 2013
+    ref_journal: Neurology
