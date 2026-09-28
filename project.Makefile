@@ -35,6 +35,14 @@ RUN_CONVERT = $(RUN) linkml-convert -s $(ROOT_SCHEMA)
 RUN_RENDER = $(RUN) linkml-render -s $(ROOT_SCHEMA)
 RUN_HTML = $(RUN) python scripts/human_readable_renderer.py
 
+# linkml-convert resolves schema imports against the working directory
+# (linkml-runtime 1.11), so all-data runs it from the schema directory.
+SCHEMA_DIR = $(dir $(ROOT_SCHEMA))
+
+# The TSV serializer orders some flattened columns by set iteration.
+# This seed reproduces the column order committed in project/data/.
+CONVERT_HASH_SEED = 281
+
 SERIAL_DATA_DIR = project/data/
 
 FORMATS = json tsv
@@ -98,11 +106,9 @@ validate:
 # json and tsv for now
 # Output goes in project/data/
 all-data: sanitize-data
-	@echo "Removing any previously created serializations..."
-	rm -rf $(SERIAL_DATA_DIR) ;
-	mkdir -p $(SERIAL_DATA_DIR) ;
 	@echo "Making serializations with linkml-convert..."
 	@( \
+		set -e; \
 		declare -A CLASSES 2>/dev/null || { \
 			echo ""; \
 			echo "ERROR: Your bash version ($(shell bash --version | head -1)) doesn't support associative arrays."; \
@@ -113,23 +119,26 @@ all-data: sanitize-data
 			echo ""; \
 			exit 1; \
 		}; \
-		CLASSES["$(DATA_DIR)DataStandardOrTool.yaml"]="DataStandardOrToolContainer"; \
-		CLASSES["$(DATA_DIR)DataSubstrate.yaml"]="DataSubstrateContainer"; \
-		CLASSES["$(DATA_DIR)DataTopic.yaml"]="DataTopicContainer"; \
-		CLASSES["$(DATA_DIR)Organization.yaml"]="OrganizationContainer"; \
-		CLASSES["$(DATA_DIR)UseCase.yaml"]="UseCaseContainer"; \
-		CLASSES["$(DATA_DIR)DataSet.yaml"]="DataSetContainer"; \
-		CLASSES["$(DATA_DIR)Manifest.yaml"]="ManifestContainer"; \
-		for key in "$${!CLASSES[@]}" ; do \
+		CLASSES["DataStandardOrTool"]="DataStandardOrToolContainer"; \
+		CLASSES["DataSubstrate"]="DataSubstrateContainer"; \
+		CLASSES["DataTopic"]="DataTopicContainer"; \
+		CLASSES["Organization"]="OrganizationContainer"; \
+		CLASSES["UseCase"]="UseCaseContainer"; \
+		CLASSES["DataSet"]="DataSetContainer"; \
+		CLASSES["Manifest"]="ManifestContainer"; \
+		tmpdir=$$(mktemp -d "$(CURDIR)/.all-data.XXXXXX"); \
+		trap 'rm -rf "$$tmpdir"' EXIT; \
+		for name in "$${!CLASSES[@]}" ; do \
 			for format in $(FORMATS) ; do \
-				printf "Converting $${key} to $${format}...\n" ; \
-				newfn=$${key##*/} ; \
-				extension=$${newfn##*.} ; \
-				newfn=$${newfn%.*}.$${format} ; \
-				newpath=$(SERIAL_DATA_DIR)$${newfn} ; \
-				$(RUN_CONVERT) -C $${CLASSES[$${key}]} -t $${format} -o $${newpath} $${key} ; \
+				printf "Converting $(DATA_DIR)$${name}.yaml to $${format}...\n" ; \
+				( cd $(SCHEMA_DIR) && PYTHONHASHSEED=$(CONVERT_HASH_SEED) $(RUN) linkml-convert \
+					-s $(notdir $(ROOT_SCHEMA)) -C $${CLASSES[$${name}]} -t $${format} \
+					-o "$$tmpdir/$${name}.$${format}" "$(CURDIR)/$(DATA_DIR)$${name}.yaml" ) ; \
 			done \
-		done \
+		done ; \
+		echo "Replacing previous serializations in $(SERIAL_DATA_DIR)..." ; \
+		mkdir -p $(SERIAL_DATA_DIR) ; \
+		cp "$$tmpdir"/* $(SERIAL_DATA_DIR) \
 	)
 	@echo "Serializing D4D YAML to HTML with human_readable_renderer.py..."
 	$(RUN_HTML)
