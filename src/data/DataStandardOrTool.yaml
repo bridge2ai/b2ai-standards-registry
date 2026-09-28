@@ -26244,21 +26244,145 @@ data_standardortools_collection:
   - standards_process_maturity_final
   - implementation_maturity_production
   concerns_data_topic:
+  - B2AI_TOPIC:4
   - B2AI_TOPIC:53
   - B2AI_TOPIC:73
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: The Unified Code for Units of Measure
+  formal_specification: https://ucum.org/ucum
   has_relevant_organization:
   - B2AI_ORG:84
   is_open: true
   name: UCUM
-  purpose_detail: A common syntax for communication of quantities and their units.
+  purpose_detail: The Unified Code for Units of Measure (UCUM) is a code system for
+    unambiguous machine-to-machine communication of quantities and their units, covering
+    units used in science, engineering, and business, including non-SI units such as
+    US customary, apothecary, and procedure-defined units like international units.
+    It was created in 1999 by Gunther Schadow and Clement McDonald at the Regenstrief
+    Institute, which holds the copyright and maintains it with the UCUM Organization
+    through a public GitHub repository. Version 2.2 (June 17, 2024) defines 7 base
+    units, 24 prefixes, and 305 unit atoms, with semantics based on dimensional analysis
+    and every symbol available in case-sensitive and case-insensitive forms written
+    in 7-bit ASCII. The ucum-essence.xml file provides the machine-readable definitions
+    used by implementations such as ucum-lhc and Ucum-java. UCUM is the preferred unit
+    system for HL7 FHIR Quantity values, the unit standard adopted by DICOM and openEHR,
+    and the source of example units in LOINC. It is free to use under the UCUM license,
+    which permits redistribution and building interoperable software but prohibits
+    modified or derivative versions of the code system.
+  related_to:
+  - B2AI_STANDARD:98
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:252
+  - B2AI_STANDARD:566
+  - B2AI_STANDARD:1296
+  - B2AI_STANDARD:1297
+  - B2AI_STANDARD:1298
   requires_registration: false
-  url: https://unitsofmeasure.org/ucum
+  responsible_organization:
+  - B2AI_ORG:84
+  url: https://ucum.org/
+  has_application:
+  - id: B2AI_APP:455
+    category: B2AI:Application
+    name: Machine learning concept normalization in the Truveta real-world data platform
+    description: Truveta normalizes health system records with a suite of machine learning
+      models for large-scale concept normalization, and its target mapping sends measurement
+      units, whether local codes or free text, to UCUM. Its transformer-based language
+      model also extracts measurements from clinical notes and standardizes the outputs
+      to SNOMED CT, LOINC, and UCUM. UCUM is the target vocabulary that these models
+      learn to map unit strings onto.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamiaopen/ooag142
+      ref_title: 'From fragmented records to living evidence: health system-governed,
+        artificial intelligence-driven, continuously updated real-world clinical data
+        from Truveta'
+      ref_authors:
+      - Burkhardt HA
+      - Blach SJ
+      - Burugapalli SR
+      - Cartwright BMG
+      - Martin R
+      - Simonov M
+      - Stewart S
+      - Turner G
+      - Winegar AL
+      - Stucky N
+      ref_publication_year: 2026
+      ref_journal: JAMIA Open
+  - id: B2AI_APP:456
+    category: B2AI:Application
+    name: CODA federated machine learning across hospitals
+    description: CODA is an open-source platform for federated analysis and machine
+      learning across Canadian hospitals. Each site holds its data as FHIR resources
+      with units of measure expressed in UCUM, so laboratory and vital sign values are
+      comparable across sites during distributed model training without moving patient
+      data.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamia/ocad235
+      ref_title: 'CODA: an open-source platform for federated analysis and machine learning
+        on distributed healthcare data'
+      ref_authors:
+      - Mullie L
+      - Afilalo J
+      - Archambault P
+      - Bouchakri R
+      - Brown K
+      - Buckeridge DL
+      - Cavayas YA
+      - Turgeon AF
+      - Martineau D
+      - Lamontagne F
+      - Lebrasseur M
+      - Lemieux R
+      - Li J
+      - Sauthier M
+      - St-Onge P
+      - Tang A
+      - Witteman W
+      - Chassé M
+      ref_publication_year: 2023
+      ref_journal: J Am Med Inform Assoc
+  - id: B2AI_APP:457
+    category: B2AI:Application
+    name: Highdicom encoding of machine learning model outputs
+    description: Highdicom is a Python library for encoding image annotations and machine
+      learning model outputs, such as segmentations and measurements, as standard DICOM
+      objects in pathology and radiology. It exposes UCUM codes as data types alongside
+      DICOM and SNOMED CT codes, so measurements produced by models carry standardized
+      units that downstream systems can interpret.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1007/s10278-022-00683-y
+      ref_title: 'Highdicom: a Python Library for Standardized Encoding of Image Annotations
+        and Machine Learning Model Outputs in Pathology and Radiology'
+      ref_authors:
+      - Bridge CP
+      - Gorman C
+      - Pieper S
+      - Doyle SW
+      - Lennerz JK
+      - Kalpathy-Cramer J
+      - Clunie DA
+      - Fedorov AY
+      - Herrmann MD
+      ref_publication_year: 2022
+      ref_journal: J Digit Imaging
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1136/jamia.1999.0060151
+    ref_title: Units of Measure in Clinical Information Systems
+    ref_authors:
+    - Schadow G
+    - McDonald CJ
+    - Suico JG
+    - Föhring U
+    - Tolxdorff T
+    ref_publication_year: 1999
+    ref_journal: J Am Med Inform Assoc
 - id: B2AI_STANDARD:387
   category: B2AI_STANDARD:DataStandard
   collection:
@@ -64299,3 +64423,97 @@ data_standardortools_collection:
     - Nowinski CJ
     ref_publication_year: 2013
     ref_journal: Neurology
+- id: B2AI_STANDARD:1296
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: LHC JavaScript implementation of UCUM validation and conversion services
+  formal_specification: https://github.com/lhncbc/ucum-lhc
+  is_open: true
+  name: ucum-lhc
+  purpose_detail: ucum-lhc is a JavaScript library from the Lister Hill National Center
+    for Biomedical Communications at the National Library of Medicine that validates
+    UCUM unit strings and converts quantities between commensurable units. It is published
+    on npm as @lhncbc/ucum-lhc, and NLM also runs a demonstration page and a web API
+    built on it. Use is governed by NLM terms rather than a standard open source license.
+  related_to:
+  - B2AI_STANDARD:386
+  - B2AI_STANDARD:1297
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:74
+  url: https://ucum.nlm.nih.gov/ucum-lhc/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1297
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: FHIR Java library providing UCUM services
+  formal_specification: https://github.com/FHIR/Ucum-java
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: Ucum-java
+  purpose_detail: Ucum-java is the Java library used by the HL7 FHIR community for
+    UCUM services. It loads the ucum-essence.xml definitions and validates unit strings,
+    checks whether units are convertible, converts quantities, formats units for display,
+    and multiplies quantities. It is published to Maven as org.fhir:ucum under the
+    BSD 3-Clause license, with copyright held by Health Intersections Pty Ltd.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:386
+  - B2AI_STANDARD:1296
+  requires_registration: false
+  url: https://github.com/FHIR/Ucum-java
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1298
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - standards_process_maturity_final
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:73
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Ontology of units of Measure 2.0
+  formal_specification: https://github.com/HajoRijgersberg/OM/blob/master/om-2.0.rdf
+  is_open: true
+  name: OM
+  purpose_detail: OM (Ontology of units of Measure) is an OWL ontology of units, quantities,
+    measures, dimensions, and systems of units, developed at Wageningen University
+    and Research. Version 2.0 is maintained on GitHub and released under the CC BY
+    4.0 license, and the repository includes mappings from OM units to UCUM codes.
+    It complements the Units Ontology (UO) for applications that need units described
+    in RDF.
+  related_to:
+  - B2AI_STANDARD:386
+  - B2AI_STANDARD:566
+  requires_registration: false
+  url: https://github.com/HajoRijgersberg/OM
+  publication:
+    ref_url: https://doi.org/10.3233/SW-2012-0069
+    ref_title: Ontology of units of measure and related concepts
+    ref_authors:
+    - Rijgersberg H
+    - van Assem M
+    - Top J
+    ref_publication_year: 2013
+    ref_journal: Semantic Web
