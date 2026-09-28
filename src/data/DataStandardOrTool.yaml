@@ -45456,24 +45456,142 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:874
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:18
   - B2AI_TOPIC:39
   - B2AI_TOPIC:60
+  - B2AI_TOPIC:80
   contribution_date: '2023-09-25'
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
-  contributor_orcid: 0000-0001-5705-7831
+  contributor_orcid: ORCID:0000-0001-5705-7831
   description: GGIR accelerometry package
   formal_specification: https://github.com/wadpac/GGIR
   is_open: true
   name: GGIR
-  purpose_detail: An R package to process multi-day raw accelerometer data for physical
-    activity and sleep research.
+  purpose_detail: GGIR is an R package that processes multi-day raw accelerometer
+    data for physical activity, sleep, and circadian rhythm research. Its pipeline
+    runs in six parts covering data quality (auto-calibration against local gravity,
+    non-wear and clipping detection), acceleration metrics such as ENMO and MAD with
+    intensity levels and daily summaries, detection of the sleep period time window
+    without a sleep diary (the HDCZA method), sleep classification, time use and behavioral
+    fragmentation during waking hours, and circadian metrics such as M10, L5, cosinor,
+    interdaily stability, and intradaily variability. It reads raw GENEActiv .bin,
+    Axivity .cwa, ActiGraph .gt3x and .csv, and Movisens files, plus epoch-level output
+    from Actiwatch, Actical, MotionWatch, Fitbit, and SenseWear devices and UK Biobank
+    epoch files. File reading is split out into the companion packages GGIRread and
+    read.gt3x, and ActiGraph-style activity counts can be computed with actilifecounts.
+    GGIR is maintained by Vincent van Hees of Accelting with a community of contributors
+    under the wadpac GitHub organization, is released on CRAN under the Apache 2.0
+    license (version 3.3-9, September 12, 2026), and was funded in part by the UK Medical
+    Research Council and the French National Research Agency.
+  related_to:
+  - B2AI_STANDARD:311
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:1287
+  - B2AI_STANDARD:1288
+  - B2AI_STANDARD:1289
   requires_registration: false
-  url: https://cran.r-project.org/web/packages/GGIR/vignettes/GGIR.html
+  responsible_organization:
+  - B2AI_ORG:175
+  url: https://wadpac.github.io/GGIR/
+  has_application:
+  - id: B2AI_APP:449
+    category: B2AI:Application
+    name: Random forest sleep and non-wear classification integrated with GGIR
+    description: Random forest models were trained on wrist accelerometer recordings
+      from 134 adults, 70 of them with sleep disorders, each paired with a night of polysomnography,
+      to classify 30-second epochs as wake, sleep, or non-wear. On an unseen test set
+      the models reached a sleep-wake F1 of about 74% and a non-wear F1 above 93%. The
+      released models include a GGIR extension in which GGIR processes the raw files
+      and calls the Python classifier, so the machine learning model can replace the
+      heuristic sleep detection built into GGIR.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41598-020-79217-x
+      ref_title: Sleep classification from wrist-worn accelerometer data using random
+        forests
+      ref_authors:
+      - Sundararajan K
+      - Georgievska S
+      - te Lindert BHW
+      - Gehrman PR
+      - Ramautar J
+      - Mazzotti DR
+      - Sabia S
+      - Weedon MN
+      - van Someren EJW
+      - Ridder L
+      - Wang J
+      - van Hees VT
+      ref_publication_year: 2021
+      ref_journal: Sci Rep
+  - id: B2AI_APP:450
+    category: B2AI:Application
+    name: Machine learning mortality score from GGIR-derived activity features
+    description: Accelerometer data from 3,991 Whitehall II participants were processed
+      with GGIR (ENMO with calibration and non-wear correction) to derive physical activity
+      and sedentary behavior features. Sparse partial least squares regression for censored
+      data selected 11 of these features into a composite mortality risk score, which
+      was externally validated in the CoLaus study (n=1,329) and improved discrimination
+      over traditional risk factors. GGIR provides the standardized feature extraction
+      that makes the score portable across cohorts.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.eclinm.2022.101773
+      ref_title: 'Identification of physical activity and sedentary behaviour dimensions
+        that predict mortality risk in older adults: development of a machine learning
+        model in the Whitehall II accelerometer sub-study and external validation in
+        the CoLaus study'
+      ref_authors:
+      - Chen M
+      - Landré B
+      - Marques-Vidal P
+      - van Hees VT
+      - van Gennip ACE
+      - Bloomberg M
+      - Yerramalla MS
+      - Benadjaoud MA
+      - Sabia S
+      ref_publication_year: 2023
+      ref_journal: eClinicalMedicine
+  - id: B2AI_APP:451
+    category: B2AI:Application
+    name: Next-day fatigue prediction in post-COVID fatigue
+    description: Sixty-eight people with post-COVID fatigue wore a wrist Axivity AX6
+      accelerometer and an ECG patch for up to 21 days. Activity and sleep features were
+      derived with GGIR and heart rate variability features with NeuroKit, and random
+      forest and XGBoost models were trained to predict next-day fatigue scores. XGBoost
+      performed best (R-squared 0.79), and time in moderate to vigorous activity from
+      GGIR was among the key predictors.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fdgth.2025.1689846
+      ref_title: Feasibility of predicting next-day fatigue levels using heart rate variability
+        and activity-sleep metrics in people with post-COVID fatigue
+      ref_authors:
+      - Aboagye NY
+      - Germann M
+      - Baker KF
+      - Baker MR
+      - Del Din S
+      ref_publication_year: 2025
+      ref_journal: Front Digit Health
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1123/jmpb.2018-0063
+    ref_title: 'GGIR: A Research Community-Driven Open Source R Package for Generating
+      Physical Activity and Sleep Outcomes From Multi-Day Raw Accelerometer Data'
+    ref_authors:
+    - Migueles JH
+    - Rowlands AV
+    - Huber F
+    - Sabia S
+    - van Hees VT
+    ref_publication_year: 2019
+    ref_journal: Journal for the Measurement of Physical Behaviour
 - id: B2AI_STANDARD:875
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -63730,6 +63848,111 @@ data_standardortools_collection:
   url: https://openslide.org/formats/aperio/
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1287
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: GGIRread wearable accelerometer data file readers
+  formal_specification: https://cran.r-project.org/package=GGIRread
+  is_open: true
+  name: GGIRread
+  purpose_detail: GGIRread is an R package of file readers for wearable accelerometer
+    data, designed to complement GGIR. It reads GENEActiv .bin and Axivity .cwa binary
+    files and text exports from Actical, Actiwatch, ActiGraph, Fitbit, and Philips
+    Health Band devices into data structures that GGIR processes. It is maintained
+    by Vincent van Hees of Accelting under the wadpac GitHub organization and released
+    on CRAN under the Apache 2.0 license (version 1.0.11, September 18, 2026).
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:874
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:175
+  url: https://github.com/wadpac/GGIRread
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1288
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: R parser for ActiGraph GT3X accelerometer files
+  formal_specification: https://github.com/wadpac/read.gt3x
+  is_open: true
+  name: read.gt3x
+  purpose_detail: read.gt3x is an R package with a C++ backend that parses raw accelerometer
+    data from ActiGraph .gt3x and .gt3x+ files, the proprietary binary format written
+    by ActiGraph wearable devices. GGIR uses it to read ActiGraph recordings. It was
+    written by Tuomo Nieminen, John Muschelli, Patrick Bos, and Vincent van Hees, is
+    maintained by Tuomo Nieminen, and is released on CRAN under the EUPL (version
+    1.2.0, June 30, 2022). The repository has seen little activity since 2022.
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:874
+  requires_registration: false
+  url: https://cran.r-project.org/package=read.gt3x
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1289
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:18
+  - B2AI_TOPIC:39
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: R package generating ActiGraph activity counts from raw accelerometer data
+  formal_specification: https://github.com/jhmigueles/actilifecounts
+  is_open: true
+  name: actilifecounts
+  purpose_detail: actilifecounts is an R package that computes ActiGraph activity counts
+    from raw accelerometer data, reproducing the counts produced by
+    the ActiLife software so that raw recordings can be compared with the large body
+    of count-based physical activity research. It is an R translation of the Python
+    agcounts package and implements the method published by ActiGraph in 2022. GGIR
+    can use it to add count-based metrics. It is maintained by Jairo Hidalgo Migueles
+    and released on CRAN under the LGPL (version 1.1.1, March 11, 2023).
+  related_to:
+  - B2AI_STANDARD:833
+  - B2AI_STANDARD:874
+  requires_registration: false
+  url: https://cran.r-project.org/package=actilifecounts
+  publication:
+    ref_url: https://doi.org/10.1038/s41598-022-16003-x
+    ref_title: Quantification of acceleration as activity counts in ActiGraph wearable
+    ref_authors:
+    - Neishabouri A
+    - Nguyen J
+    - Samuelsson J
+    - Guthrie T
+    - Biggs M
+    - Wyatt J
+    - Cross D
+    - Karas M
+    - Migueles JH
+    - Khan S
+    - Guo CC
+    ref_publication_year: 2022
+    ref_journal: Sci Rep
 - id: B2AI_STANDARD:1294
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
