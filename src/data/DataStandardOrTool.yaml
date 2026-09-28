@@ -32329,6 +32329,11 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:499
   category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - drugdata
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:8
   - B2AI_TOPIC:53
@@ -32337,16 +32342,127 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: National Drug Code
+  formal_specification: https://www.ecfr.gov/current/title-21/section-207.33
   has_relevant_organization:
+  - B2AI_ORG:17
   - B2AI_ORG:31
+  - B2AI_ORG:63
   is_open: true
   name: NDC
-  purpose_detail: Information about finished drug products, unfinished drugs and compounded
-    drug products
+  purpose_detail: The National Drug Code (NDC) is the FDA standard for uniquely identifying
+    drugs marketed in the United States, defined in 21 CFR 207.33. Each finished or
+    unfinished drug subject to listing carries an NDC of 10 or 11 digits in three
+    segments that identify the labeler, the product, and the package size and type,
+    in one of the configurations 4-4-2, 5-3-2, 5-4-1, 6-3-2, or 6-4-1. FDA assigns
+    the labeler code, and firms propose the product and package segments with their
+    drug listing. Billing and HIPAA retail pharmacy transactions use an 11-digit 5-4-2
+    form padded with leading zeros, and Medicaid requires NDCs on claims for physician-administered
+    drugs. A final rule published March 5, 2026 moves all NDCs to a uniform 12-digit
+    6-4-2 format effective March 7, 2033, with a three-year labeling transition. Firms
+    submit listing data as Structured Product Labeling files, which populate the NDC
+    Directory. The directory covers prescription and over-the-counter, approved and
+    unapproved, finished and unfinished drugs, is updated daily, and is available
+    as downloadable product and package files and through the openFDA NDC API. Inclusion
+    in the directory and assignment of an NDC do not indicate FDA approval. RxNorm
+    maps NDCs to normalized clinical drug concepts.
+  related_to:
+  - B2AI_STANDARD:147
+  - B2AI_STANDARD:229
+  - B2AI_STANDARD:298
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:1290
+  - B2AI_STANDARD:1299
+  - B2AI_STANDARD:1300
+  - B2AI_STANDARD:1301
   requires_registration: false
-  url: https://www.accessdata.fda.gov/scripts/cder/ndc/index.cfm
+  responsible_organization:
+  - B2AI_ORG:31
+  url: https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory
+  has_application:
+  - id: B2AI_APP:458
+    category: B2AI:Application
+    name: Prescription vial image classification by NDC
+    description: A ResNet-18 model pretrained on ImageNet was fine-tuned on top-down
+      photographs of filled prescription vials from a mail-order pharmacy dispensing
+      robot to predict the dispensed medication and support remote pharmacist verification.
+      The classification targets were 345 product-level NDCs (the package segment removed),
+      each a distinct ingredient, strength, dose form, and manufacturer. Across 65,274
+      test images the model reached 98.5% macro-average precision, with errors concentrated
+      in look-alike NDC pairs.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41746-021-00483-8
+      ref_title: 'Performance evaluation of a prescription medication image classification
+        model: an observational cohort'
+      ref_authors:
+      - Lester CA
+      - Li J
+      - Ding Y
+      - Rowell B
+      - Yang J
+      - Al Kontar R
+      ref_publication_year: 2021
+      ref_journal: npj Digit Med
+  - id: B2AI_APP:459
+    category: B2AI:Application
+    name: Machine learning prediction of opioid use disorder acute care in Medicaid
+    description: Logistic regression, LASSO, random forest, and XGBoost models predicted
+      hospitalization or emergency visits for opioid use disorder among 20,983 Pennsylvania
+      Medicaid enrollees, with XGBoost performing best (C-statistic 0.766) and fairness
+      assessed across racial groups. Medication predictors were built from NDC-coded
+      pharmacy claims, including buprenorphine for opioid use disorder and morphine
+      milligram equivalents computed per NDC-coded opioid prescription.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1111/add.70079
+      ref_title: Development and evaluation of a machine learning model to predict acute
+        care for opioid use disorder among Medicaid enrollees engaged in a community-based
+        treatment program
+      ref_authors:
+      - Xue L
+      - Yin R
+      - Cole ES
+      - Lo-Ciganic W
+      - Gellad WF
+      - Donohue J
+      - Tang L
+      ref_publication_year: 2025
+      ref_journal: Addiction
+  - id: B2AI_APP:460
+    category: B2AI:Application
+    name: Early detection of opioid use disorder from claims
+    description: XGBoost with Word2Vec embeddings of medical codes was trained on 10
+      million claims from 550,000 patients to detect opioid use disorder early, reaching
+      a C-statistic of 0.959 and flagging cases a mean of 14.4 months before diagnosis.
+      NDCs on prescription claims were the raw medication codes, mapped to RxNorm concepts
+      to identify opioid exposure before modeling.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1002/prp2.669
+      ref_title: Development of a machine learning algorithm for early detection of opioid
+        use disorder
+      ref_authors:
+      - Segal Z
+      - Radinsky K
+      - Elad G
+      - Marom G
+      - Beladev M
+      - Lewis M
+      - Ehrenberg B
+      - Gillis P
+      - Korn L
+      - Koren G
+      ref_publication_year: 2020
+      ref_journal: Pharmacol Res Perspect
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.2146/ajhp080221
+    ref_title: Using National Drug Codes and drug knowledge bases to organize prescription
+      records from multiple sources
+    ref_authors:
+    - Simonaitis L
+    - McDonald CJ
+    ref_publication_year: 2009
+    ref_journal: Am J Health Syst Pharm
 - id: B2AI_STANDARD:500
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32887,22 +33003,89 @@ data_standardortools_collection:
 - id: B2AI_STANDARD:506
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
-  - obofoundry
+  - codesystem
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
-  - B2AI_TOPIC:53
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:53
   - B2AI_TOPIC:56
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Nutrition Care Process Terminology
+  formal_specification: https://docs.snomed.org/implementation-guides/ncpt-implementation-guide/2-what-is-ncp-and-ncpt
   is_open: false
   name: NCPT
-  purpose_detail: Terms for nutrition assessment, diagnosis, intervention, and monitoring/evaluation.
+  purpose_detail: The Nutrition Care Process Terminology (NCPT) is the standardized
+    terminology for documenting the four steps of the Nutrition Care Process, which are
+    nutrition assessment and reassessment, nutrition diagnosis, nutrition intervention,
+    and nutrition monitoring and evaluation. Terms for each step are organized into
+    domains, classes, and subclasses, and each term carries an abbreviation and a five-
+    digit Academy unique identifier. The terminology began in 2008 as the International
+    Dietetics and Nutrition Terminology (IDNT) and is published and copyrighted by the
+    Academy of Nutrition and Dietetics as the electronic NCPT (eNCPT), currently the
+    2023 English edition, with translations into ten other languages. Changes go through
+    the Academy's Nutrition Care Process and Terminology Committee and a public
+    submission process. Full access requires a paid individual, organizational,
+    educator, or developer subscription, while a small set of commonly used terms is
+    free to support documentation for the Global Malnutrition Composite Score and HL7
+    nutrition standards. Nearly all nutrition diagnosis and intervention terms have been
+    modeled in SNOMED CT, and SNOMED International publishes an NCPT reference set that
+    reached 1,115 concepts in April 2026. The Academy's ANDHII platform uses NCPT for
+    documentation and outcomes research.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1120
+  - B2AI_STANDARD:1305
   requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:179
   url: https://www.ncpro.org/
+  has_application:
+  - id: B2AI_APP:465
+    category: B2AI:Application
+    name: Machine learning on real-world nutrition care data
+    description: Researchers applied clustering and supervised machine learning to real-
+      world Nutrition Care Process data from the Academy's National Quality Improvement
+      data set, collected in ANDHII, where dietitians document care with NCPT.
+      Clustering identified two phenotypes of nutrition care episodes, and classifiers
+      predicted whether the documented nutrition diagnosis was resolved, with nutrition
+      history assessment, number of visits, counseling interventions, and out-of-range
+      findings among the predictive features. The study also assessed whether the
+      registry data model is fit for machine learning.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.jand.2021.02.003
+      ref_title: 'Applying Contemporary Machine Learning Approaches to Nutrition Care
+        Real-World Evidence: Findings From the National Quality Improvement Data Set'
+      ref_authors:
+      - Maduri C
+      - Sabrina Hsueh PY
+      - Li Z
+      - Chen CH
+      - Papoutsakis C
+      ref_publication_year: 2021
+      ref_journal: J Acad Nutr Diet
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.jand.2018.10.025
+    ref_title: 'Nutrition Care Process (NCP) Update Part 2: Developing and Using the
+      NCP Terminology to Demonstrate Efficacy of Nutrition Care and Related Outcomes'
+    ref_authors:
+    - Swan WI
+    - Pertel DG
+    - Hotson B
+    - Lloyd L
+    - Orrevall Y
+    - Trostler N
+    - Vivanti A
+    - Howarter KB
+    - Papoutsakis C
+    ref_publication_year: 2019
+    ref_journal: J Acad Nutr Diet
 - id: B2AI_STANDARD:507
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33635,13 +33818,44 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Ontology of Vaccine Adverse Events
   formal_specification: https://github.com/OVAE-Ontology/ovae
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: OVAE
-  purpose_detail: A biomedical ontology in the domain of vaccine adverse events.
+  purpose_detail: The Ontology of Vaccine Adverse Events (OVAE) represents adverse
+    events reported for US-licensed human vaccines. It extends the Ontology of Adverse
+    Events (OAE) and the Vaccine Ontology (VO), takes its vaccines from VO and its adverse
+    event types from OAE, and adds a design pattern linking a vaccine, an adverse event,
+    a vaccinee population, an age range, and an observed occurrence rate. The source
+    data are the FDA package inserts of licensed vaccines, and the 2013 release covered
+    87 types of adverse events for 63 vaccines in over 1,300 terms. It was developed
+    by Erica Marcos, Jiangan Xie, and Yongqun He at the University of Michigan and
+    is browsable in OLS and Ontobee. The OBO Foundry registry lists it as active under
+    CC BY 3.0 while the repository LICENSE file is CC0 1.0, and the ontology content
+    has not changed since version 1.0.34 in April 2016. Analyses of spontaneous reports
+    from VAERS in the same group use OAE directly.
+  related_to:
+  - B2AI_STANDARD:423
+  - B2AI_STANDARD:480
+  - B2AI_STANDARD:516
+  - B2AI_STANDARD:569
+  - B2AI_STANDARD:1293
+  - B2AI_STANDARD:1303
+  - B2AI_STANDARD:1304
   requires_registration: false
-  url: https://github.com/OVAE-Ontology/ovae
+  responsible_organization:
+  - B2AI_ORG:178
+  url: https://obofoundry.org/ontology/ovae.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/2041-1480-4-40
+    ref_title: The Ontology of Vaccine Adverse Events (OVAE) and its usage in representing
+      and analyzing adverse events associated with US-licensed human vaccines
+    ref_authors:
+    - Marcos E
+    - Zhao B
+    - He Y
+    ref_publication_year: 2013
+    ref_journal: J Biomed Semantics
 - id: B2AI_STANDARD:527
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33907,13 +34121,88 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Phenotype And Trait Ontology
   formal_specification: https://github.com/pato-ontology/pato
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: PATO
-  purpose_detail: Phenotypic qualities (properties, attributes or characteristics).
+  purpose_detail: PATO (Phenotype And Trait Ontology) is an OBO ontology of phenotypic
+    qualities, the properties, attributes, and characteristics that inhere in a bearer,
+    such as size, shape, color, and rate. It is the quality component of the entity-quality
+    (EQ) method, in which a phenotype is described as an affected entity from an anatomy
+    or process ontology combined with a PATO quality. The Human Phenotype Ontology
+    and other species phenotype ontologies use PATO in logical definitions that support
+    reasoning and integration of phenotypes across species, and more than 20 OBO ontologies,
+    including Uberon, CL, and ZP, declare it as a dependency. The 2025-05-14 release
+    has about 1,900 non-obsolete PATO classes. It is built with the Ontology Development
+    Kit, distributed in OWL, OBO, and JSON formats through its OBO PURL, browsable in
+    OLS, licensed CC BY 3.0, and listed as active in the OBO Foundry registry with
+    George Gkoutos as contact.
+  related_to:
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:479
+  - B2AI_STANDARD:565
+  - B2AI_STANDARD:575
+  - B2AI_STANDARD:1302
   requires_registration: false
-  url: https://github.com/pato-ontology/pato
+  url: https://obofoundry.org/ontology/pato.html
+  has_application:
+  - id: B2AI_APP:461
+    category: B2AI:Application
+    name: Gold standard for training and evaluating NLP phenotype annotation
+    description: The Phenoscape project built an expert-curated gold standard of entity-quality
+      annotations of evolutionary phenotypes and used it to evaluate machine annotations
+      from the Semantic CharaParser natural language processing tool against human curators.
+      The quality component of every annotation uses PATO terms, and both curators
+      and the tool worked from PATO together with Uberon and BSPO. Machine accuracy
+      improved after curators added missing PATO terms, and PATO was merged with Uberon
+      and BSPO to score semantic similarity between machine and human annotations.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/database/bay110
+      ref_title: 'Annotation of phenotypes using ontologies: a gold standard for the
+        training and evaluation of natural language processing systems'
+      ref_authors:
+      - Dahdul W
+      - Manda P
+      - Cui H
+      - Balhoff JP
+      - Dececchi TA
+      - Ibrahim N
+      - Lapp H
+      - Vision T
+      - Mabee PM
+      ref_publication_year: 2018
+      ref_journal: Database
+  - id: B2AI_APP:462
+    category: B2AI:Application
+    name: PhenomeNET cross-species phenotype similarity for disease gene discovery
+    description: PhenomeNET reformulates phenotype ontology classes from yeast, fly,
+      worm, mouse, and human as entity-quality definitions whose qualities come from
+      PATO, then uses automated reasoning over these definitions and cross-species anatomy
+      ontologies to build a single integrated phenotype network. Semantic similarity
+      over this network ranks candidate disease genes by comparing disease phenotypes
+      with model organism phenotypes.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/nar/gkr538
+      ref_title: 'PhenomeNET: a whole-phenome approach to disease gene discovery'
+      ref_authors:
+      - Hoehndorf R
+      - Schofield PN
+      - Gkoutos GV
+      ref_publication_year: 2011
+      ref_journal: Nucleic Acids Res
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/gb-2004-6-1-r8
+    ref_title: Using ontologies to describe mouse phenotypes
+    ref_authors:
+    - Gkoutos GV
+    - Green EC
+    - Mallon AM
+    - Hancock JM
+    - Davidson D
+    ref_publication_year: 2004
+    ref_journal: Genome Biol
 - id: B2AI_STANDARD:535
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -34783,24 +35072,212 @@ data_standardortools_collection:
   - standards_process_maturity_final
   - implementation_maturity_production
   concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:7
   - B2AI_TOPIC:9
   - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Systematized Nomenclature of Medicine - Clinical Terms
+  formal_specification: https://docs.snomed.org/snomed-ct-specifications/snomed-ct-release-file-specification
   has_relevant_organization:
   - B2AI_ORG:74
-  is_open: true
+  - B2AI_ORG:114
+  is_open: false
   name: SNOMED CT
-  purpose_detail: Standard for electronic exchange of clinical health information.
-    Provided through UMLS.
+  purpose_detail: SNOMED CT (Systematized Nomenclature of Medicine Clinical Terms) is a
+    clinical terminology for recording clinical findings, disorders, procedures, body
+    structures, and other clinical content in electronic health records. Its core
+    components are concepts, each with a numeric identifier, descriptions, including a
+    fully specified name and synonyms, and relationships that logically define concepts
+    in a description logic model, now distributed as OWL axioms, with a Machine Readable
+    Concept Model that constrains valid definitions and postcoordinated expressions. The
+    International Edition holds more than 360,000 concepts, has been released monthly
+    since January 2022 in the RF2 release format, and is extended by Member national
+    editions. The US Edition combines the US Extension with the International Edition,
+    is released each March and September, and includes a map to ICD-10-CM. SNOMED CT is
+    the ONC certification standard for coding problems (45 CFR 170.207) and a standard
+    vocabulary of the OMOP Common Data Model, and AI-READI clinical data use SNOMED CT
+    concepts. SNOMED CT is owned by SNOMED International, the trading name of the
+    International Health Terminology Standards Development Organisation, and is not open
+    content. All use is governed by the SNOMED CT Affiliate License Agreement, under
+    English law, which grants a non-exclusive, non-transferable license to use the
+    International Release for internal, research, and system development purposes, to
+    create Extensions and Derivatives, and to incorporate SNOMED CT into licensee
+    products, but prohibits modifying the SNOMED CT Core, translating it without
+    consent, and letting users of public systems extract any substantial portion. There
+    are no license fees in the 54 Member countries, which include the United States, or
+    in low-income countries. In other non-Member countries annual fees apply per
+    hospital or practice (baseline US$652 to US$1,954 by income band), with exemptions
+    for qualifying research projects and humanitarian uses. In the United States, the
+    National Library of Medicine, as the US Member and National Release Center,
+    distributes the US and International Editions at no cost through UMLS Terminology
+    Services to holders of the UMLS Metathesaurus License, whose Appendix 2 contains the
+    Affiliate License terms. Elsewhere, users register with their National Release
+    Center or through the Member Licensing and Distribution Service (MLDS). As of
+    September 2026 SNOMED International has published no license clause or position
+    statement specific to training machine learning or language models on SNOMED CT, so
+    such use falls under the general Affiliate terms. Two products are openly licensed,
+    the Global Patient Set of identifiers and terms (CC BY-ND 4.0) and the International
+    Patient Summary Terminology (CC BY 4.0).
   related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:174
+  - B2AI_STANDARD:175
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:506
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:554
+  - B2AI_STANDARD:564
+  - B2AI_STANDARD:720
   - B2AI_STANDARD:769
+  - B2AI_STANDARD:1120
+  - B2AI_STANDARD:1307
+  - B2AI_STANDARD:1308
+  - B2AI_STANDARD:1309
   requires_registration: true
-  url: https://www.nlm.nih.gov/healthit/snomedct/index.html
+  responsible_organization:
+  - B2AI_ORG:180
+  url: https://www.snomed.org/
+  used_in_bridge2ai: true
+  has_application:
+  - id: B2AI_APP:466
+    category: B2AI:Application
+    name: SNOMED CT Entity Linking Challenge
+    description: SNOMED International ran an entity linking competition from December
+      2023 to March 2024 in which participants linked mentions in MIMIC-IV-Note
+      discharge summaries to SNOMED CT concepts. The curated data comprise 74,808
+      annotations across 272 discharge notes spanning 6,624 unique concepts from the
+      clinical finding, procedure, and body structure hierarchies. Submissions were
+      scored by character-level mean intersection over union, and the three winning
+      solutions used contrasting dictionary-based, encoder-based, and decoder-based
+      methods, with rare concepts and ambiguous annotations proving hardest. The
+      annotations are available on PhysioNet as a credentialed dataset verified against
+      the November 2025 International Edition.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamia/ocaf104
+      ref_title: SNOMED CT entity linking challenge
+      ref_authors:
+      - Davidson R
+      - Hardman W
+      - Amit G
+      - Bilu Y
+      - Della Mea V
+      - Galaida A
+      - Girshovitz I
+      - Kulyabin M
+      - Horia Popescu M
+      - Roitero K
+      - Sokolov G
+      - Yanover C
+      ref_publication_year: 2025
+      ref_journal: J Am Med Inform Assoc
+  - id: B2AI_APP:467
+    category: B2AI:Application
+    name: MedCAT self-supervised clinical concept extraction to SNOMED CT
+    description: MedCAT is an open-source toolkit with a self-supervised machine
+      learning algorithm that extracts concepts from clinical text and links them to a
+      vocabulary such as UMLS or SNOMED CT. In real-world validation it extracted SNOMED
+      CT concepts at three large London hospitals after self-supervised training over
+      about 8.8 billion words from about 17 million clinical records and fine-tuning
+      with about 6,000 clinician-annotated examples, and models transferred between
+      hospitals, datasets, and concept types with F1 above 0.94.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.artmed.2021.102083
+      ref_title: 'Multi-domain clinical natural language processing with MedCAT: The
+        Medical Concept Annotation Toolkit'
+      ref_authors:
+      - Kraljevic Z
+      - Searle T
+      - Shek A
+      - Roguski L
+      - Noor K
+      - Bean D
+      - Mascio A
+      - Zhu L
+      - Folarin AA
+      - Roberts A
+      - Bendayan R
+      - Richardson MP
+      - Stewart R
+      - Shah AD
+      - Wong WK
+      - Ibrahim Z
+      - Teo JT
+      - Dobson RJB
+      ref_publication_year: 2021
+      ref_journal: Artif Intell Med
+  - id: B2AI_APP:468
+    category: B2AI:Application
+    name: Foresight generative transformer over SNOMED CT patient timelines
+    description: Foresight is a GPT-style generative transformer trained on patient
+      timelines built by using MedCAT to extract concepts from free-text records of
+      811,336 patients at King's College Hospital, South London and Maudsley, and MIMIC-
+      III, linked to the SNOMED CT UK Clinical Edition and Drug Extension. Each patient
+      is represented as a time-ordered sequence of SNOMED CT concepts, and the model
+      forecasts future disorders, reaching precision at 10 of 0.68, 0.76, and 0.88
+      across the three datasets, with clinicians rating the top forecast relevant in 33
+      of 34 synthetic timelines.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/S2589-7500(24)00025-6
+      ref_title: 'Foresight-a generative pretrained transformer for modelling of patient
+        timelines using electronic health records: a retrospective modelling study'
+      ref_authors:
+      - Kraljevic Z
+      - Bean D
+      - Shek A
+      - Bendayan R
+      - Hemingway H
+      - Yeung JA
+      - Deng A
+      - Balston A
+      - Ross J
+      - Idowu E
+      - Teo JT
+      - Dobson RJB
+      ref_publication_year: 2024
+      ref_journal: Lancet Digit Health
+  - id: B2AI_APP:469
+    category: B2AI:Application
+    name: LLM-assisted SNOMED CT mapping and concept authoring
+    description: A GPT-4o-assisted pipeline maps local diagnostic and surgical procedure
+      terms to SNOMED CT through syntactic matching, language model vector similarity,
+      and iterative enrichment, and authors new concepts by postcoordination checked
+      against the Machine Readable Concept Model. Evaluated across four hospital
+      networks (nine university hospitals) in South Korea, it reached top-5 diagnostic
+      mapping accuracy of 89.7% to 98.7% across institutions and substantially reduced
+      manual workload and concept model violations.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/82670
+      ref_title: 'Development and Evaluation of SNOMED CT Automated Mapping Tool: Advancing
+        Terminology Standardization and Semantic Interoperability'
+      ref_authors:
+      - Park Y
+      - Kang H
+      - Kim J
+      - Shin SY
+      - Cho D
+      - Rhee SY
+      - Park HS
+      - Lee KJ
+      - Bae S
+      ref_publication_year: 2026
+      ref_journal: JMIR Med Inform
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/1472-6947-8-s1-s2
+    ref_title: 'Forty years of SNOMED: a literature review'
+    ref_authors:
+    - Cornet R
+    - de Keizer N
+    ref_publication_year: 2008
+    ref_journal: BMC Med Inform Decis Mak
 - id: B2AI_STANDARD:554
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -37383,29 +37860,143 @@ data_standardortools_collection:
       ref_journal: SickKids News
 - id: B2AI_STANDARD:733
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
   - B2AI_TOPIC:60
   - B2AI_TOPIC:78
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Automated Characterization of Health Information at Large-scale Longitudinal
-    Evidence System
+  description: Automated Characterization of Health Information at Large-scale Longitudinal Evidence System
   formal_specification: https://github.com/OHDSI/Achilles
   has_relevant_organization:
   - B2AI_ORG:76
   has_training_resource:
   - B2AI_STANDARD:844
+  - B2AI_STANDARD:937
   is_open: true
   name: ACHILLES
-  purpose_detail: Provides descriptive statistics on an OMOP CDM database.
+  purpose_detail: ACHILLES is an R package in the OHDSI HADES suite that creates a
+    descriptive statistics summary of a database in the OMOP Common Data Model, versions
+    5.3 and 5.4. It runs 294 defined analyses (194 by default) across persons,
+    observation periods, visits, conditions, drugs, procedures, measurements,
+    observations, devices, deaths, costs, and data completeness, and writes counts and
+    distributions to the achilles_results and achilles_results_dist tables. It connects
+    to SQL Server, Oracle, PostgreSQL, Redshift, BigQuery, Spark, SQLite, and other
+    platforms through DatabaseConnector and SqlRender. Its results appear in the ATLAS
+    Data Sources view and, together with DataQualityDashboard output, feed the Ares data
+    network explorer. The older Achilles Heel data quality rules were replaced by
+    DataQualityDashboard and removed from the package, and the AchillesWeb viewer is
+    archived. The latest release is 1.7.2 (May 2023), with version 1.8 in development on
+    the main branch. It is released under the Apache 2.0 license and maintained by
+    OHDSI.
   related_to:
   - B2AI_STANDARD:243
+  - B2AI_STANDARD:721
+  - B2AI_STANDARD:731
+  - B2AI_STANDARD:771
+  - B2AI_STANDARD:1306
   requires_registration: false
-  url: https://ohdsi.github.io/TheBookOfOhdsi/DataQuality.html#data-quality-checks
+  responsible_organization:
+  - B2AI_ORG:76
+  url: https://ohdsi.github.io/Achilles/
+  has_application:
+  - id: B2AI_APP:463
+    category: B2AI:Application
+    name: Federated deep learning across OMOP hospitals for bipolar transition
+    description: A federated Deep and Cross Network trained with differentially private
+      stochastic gradient descent predicted transition to bipolar disorder in patients
+      with depression, using OMOP CDM data from four Korean hospitals and external
+      validation at a fifth. Before training, each site's CDM was quality-checked with
+      the automated Achilles tool and reviewed by experts, so Achilles served to verify
+      each federated partner's data. The federated model reached an AUC of 0.726
+      internally and 0.719 externally, outperforming single-site models.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/46165
+      ref_title: 'Privacy-Preserving Federated Model Predicting Bipolar Transition in
+        Patients With Depression: Prediction Model Development Study'
+      ref_authors:
+      - Lee DY
+      - Choi B
+      - Kim C
+      - Fridgeirsson E
+      - Reps J
+      - Kim M
+      - Kim J
+      - Jang JW
+      - Rhee SY
+      - Seo WW
+      - Lee S
+      - Son SJ
+      - Park RW
+      ref_publication_year: 2023
+      ref_journal: J Med Internet Res
+  - id: B2AI_APP:464
+    category: B2AI:Application
+    name: Site profiling for AI network studies in the LAISDAR project
+    description: The LAISDAR project designed a network of Docker-based OMOP CDM data
+      nodes across Rwandan institutions to apply artificial intelligence and data
+      science to COVID-19 data. Each node runs Atlas, WebAPI, Achilles, and Arachne, and
+      the Arachne data catalog incorporates Achilles output from every site to give an
+      aggregate profile of each partner's data for planning network studies. This is a
+      study design and rationale paper, and the architecture was tested in a proof of
+      concept.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-022-01965-9
+      ref_title: 'Leveraging artificial intelligence and data science techniques in
+        harmonizing, sharing, accessing and analyzing SARS-COV-2/COVID-19 data in Rwanda
+        (LAISDAR Project): study design and rationale'
+      ref_authors:
+      - Nishimwe A
+      - Ruranga C
+      - Musanabaganwa C
+      - Mugeni R
+      - Semakula M
+      - Nzabanita J
+      - Kabano I
+      - Uwimana A
+      - Utumatwishima JN
+      - Kabakambira JD
+      - Uwineza A
+      - Halvorsen L
+      - Descamps F
+      - Houghtaling J
+      - Burke B
+      - Bahati O
+      - Bizimana C
+      - Jansen S
+      - Twizere C
+      - Nkurikiyeyezu K
+      - Birungi F
+      - Nsanzimana S
+      - Twagirumukiza M
+      ref_publication_year: 2022
+      ref_journal: BMC Med Inform Decis Mak
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.13063/2327-9214.1239
+    ref_title: Multisite Evaluation of a Data Quality Tool for Patient-Level Clinical
+      Datasets
+    ref_authors:
+    - Huser V
+    - DeFalco FJ
+    - Schuemie M
+    - Ryan PB
+    - Shang N
+    - Velez M
+    - Park RW
+    - Boyce RD
+    - Duke J
+    - Khare R
+    - Utidjian L
+    - Bailey C
+    ref_publication_year: 2016
+    ref_journal: eGEMs
 - id: B2AI_STANDARD:734
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -64587,3 +65178,438 @@ data_standardortools_collection:
     - Top J
     ref_publication_year: 2013
     ref_journal: Semantic Web
+- id: B2AI_STANDARD:1299
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - markuplanguage
+  - drugdata
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:54
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Structured Product Labeling
+  formal_specification: https://www.fda.gov/industry/fda-data-standards-advisory-board/structured-product-labeling-resources
+  has_relevant_organization:
+  - B2AI_ORG:40
+  is_open: true
+  name: SPL
+  purpose_detail: Structured Product Labeling (SPL) is a document markup standard approved
+    by HL7 and adopted by FDA for exchanging product and facility information. Firms
+    submit SPL files for drug labeling, drug establishment registration, and drug
+    listing, and the listing files populate the NDC Directory. FDA publishes the SPL
+    schema and stylesheet, terminology validation files in XML and Excel, implementation
+    guides, and the Comprehensive NDC SPL Data Elements (NSDE) file. Submitted labeling
+    is searchable through FDALabel and published by the National Library of Medicine
+    in DailyMed.
+  related_to:
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:1300
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:31
+  url: https://www.fda.gov/industry/fda-data-standards-advisory-board/structured-product-labeling-resources
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1300
+  category: B2AI_STANDARD:DataStandardOrTool
+  collection:
+  - drugdata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: DailyMed database of product labeling submitted to FDA
+  is_open: true
+  name: DailyMed
+  purpose_detail: DailyMed is the National Library of Medicine database of the most
+    recent labeling submitted to FDA by companies and currently in use, covering human
+    prescription and biological products, nonprescription drugs, animal drugs, medical
+    devices, cosmetics, dietary supplements, and certain unapproved products. Labels
+    are published from the Structured Product Labeling files that firms submit and
+    are available as HTML, PDF, and XML, together with web services, mapping files,
+    and bulk downloads, and can be searched by National Drug Code. NLM does not review
+    the content, and FDA may not have verified the in-use labeling, so Drugs@FDA remains
+    the source for official approved labeling.
+  related_to:
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:1299
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:74
+  url: https://dailymed.nlm.nih.gov/dailymed/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1301
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - drugdata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:8
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: openFDA public APIs for FDA data
+  formal_specification: https://open.fda.gov/apis/drug/ndc/
+  is_open: true
+  name: openFDA
+  purpose_detail: openFDA is an FDA platform that provides public JSON APIs and bulk
+    downloads for FDA datasets on drugs, devices, and foods, including adverse event
+    reports, recalls, product labeling, and the NDC Directory. The drug NDC endpoint
+    is built from the NDC Directory, is updated daily, and links each record to its
+    Structured Product Labeling set, UNII, and UPC. openFDA data are released into
+    the public domain under CC0.
+  related_to:
+  - B2AI_STANDARD:298
+  - B2AI_STANDARD:499
+  - B2AI_STANDARD:1299
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:31
+  url: https://open.fda.gov/
+  publication:
+    ref_url: https://doi.org/10.1093/jamia/ocv153
+    ref_title: 'OpenFDA: an innovative platform providing access to a wealth of FDA''s
+      publicly available data'
+    ref_authors:
+    - Kass-Hout TA
+    - Xu Z
+    - Mohebbi M
+    - Nelsen H
+    - Baker A
+    - Levine J
+    - Johanson E
+    - Bright RA
+    ref_publication_year: 2015
+    ref_journal: J Am Med Inform Assoc
+- id: B2AI_STANDARD:1302
+  category: B2AI_STANDARD:DataStandardOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Phenoscape Knowledgebase of ontology-annotated evolutionary phenotypes
+  formal_specification: https://github.com/phenoscape
+  is_open: true
+  name: Phenoscape
+  purpose_detail: Phenoscape is a project and knowledgebase for exploring phenotypic
+    variation among species. Evolutionary phenotypes from the comparative literature
+    are annotated as entity-quality statements using Uberon, PATO, and other ontologies,
+    which lets them be compared with phenotypes from genetic perturbations in model
+    organisms. The knowledgebase offers a semantic similarity interface that matches
+    a gene's phenotypes to evolutionary profiles across the taxonomic tree and assesses
+    the significance of each match. The project also produced the Phenex curation
+    software, the rphenoscape R package, and a gold standard corpus for evaluating
+    natural language processing of phenotype descriptions, and its code is on GitHub.
+    A redesigned knowledgebase web interface is marked as in development.
+  related_to:
+  - B2AI_STANDARD:534
+  requires_registration: false
+  url: https://phenoscape.org/
+  publication:
+    ref_url: https://doi.org/10.1002/dvg.22878
+    ref_title: Using the phenoscape knowledgebase to relate genetic perturbations to
+      phenotypic evolution
+    ref_authors:
+    - Manda P
+    - Balhoff JP
+    - Lapp H
+    - Mabee P
+    - Vision TJ
+    ref_publication_year: 2015
+    ref_journal: Genesis
+- id: B2AI_STANDARD:1303
+  category: B2AI_STANDARD:DataStandardOrTool
+  collection:
+  - clinicaldata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:68
+  - B2AI_TOPIC:70
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Vaccine Adverse Event Reporting System
+  has_relevant_organization:
+  - B2AI_ORG:31
+  is_open: true
+  name: VAERS
+  purpose_detail: The Vaccine Adverse Event Reporting System (VAERS) is the US national
+    early warning system for possible safety problems with US-licensed vaccines,
+    established in 1990 and co-managed by CDC and FDA. It is a passive reporting system
+    that relies on individuals to send in reports of adverse events after vaccination.
+    VAERS is not designed to determine whether a vaccine caused a health problem, and is
+    used instead to detect unusual or unexpected patterns of reporting that might
+    indicate a safety signal. Report data are available as downloadable files and
+    through CDC WONDER, with expanded public access added in May 2025. Adverse events in
+    the data are coded as MedDRA Preferred Terms, and ontology-based analyses of VAERS
+    data have used the Ontology of Adverse Events.
+  related_to:
+  - B2AI_STANDARD:516
+  - B2AI_STANDARD:526
+  - B2AI_STANDARD:1293
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:12
+  url: https://vaers.hhs.gov/
+  publication:
+    ref_url: https://doi.org/10.1016/j.vaccine.2015.07.035
+    ref_title: Safety monitoring in the Vaccine Adverse Event Reporting System (VAERS)
+    ref_authors:
+    - Shimabukuro TT
+    - Nguyen M
+    - Martin D
+    - DeStefano F
+    ref_publication_year: 2015
+    ref_journal: Vaccine
+- id: B2AI_STANDARD:1304
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - ontologyregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Ontobee linked ontology data server
+  is_open: true
+  name: Ontobee
+  purpose_detail: Ontobee is a linked data server for OBO ontologies that dereferences
+    ontology term IRIs to human-readable HTML pages and machine-readable RDF, and
+    supports browsing, linking, and SPARQL querying of terms across ontologies. It hosts
+    many OBO ontologies, including the Ontology of Adverse Events, the Vaccine Ontology,
+    and OVAE, and is developed by the He group at the University of Michigan.
+  related_to:
+  - B2AI_STANDARD:526
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:178
+  url: https://ontobee.org/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkw918
+    ref_title: 'Ontobee: A linked ontology data server to support ontology term dereferencing,
+      linkage, query and integration'
+    ref_authors:
+    - Ong E
+    - Xiang Z
+    - Zhao B
+    - Liu Y
+    - Lin Y
+    - Zheng J
+    - Mungall C
+    - Courtot M
+    - Ruttenberg A
+    - He Y
+    ref_publication_year: 2016
+    ref_journal: Nucleic Acids Res
+
+- id: B2AI_STANDARD:1305
+  category: B2AI_STANDARD:DataStandardOrTool
+  collection:
+  - clinicaldata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:56
+  - B2AI_TOPIC:62
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Academy of Nutrition and Dietetics Health Informatics Infrastructure
+  is_open: false
+  name: ANDHII
+  purpose_detail: ANDHII (Academy of Nutrition and Dietetics Health Informatics
+    Infrastructure) is a web-based platform available to Academy members that lets
+    registered dietitian nutritionists document nutrition care with the Nutrition Care
+    Process Terminology and track nutrition care outcomes. It supports secure online
+    data collection, multisite and multinational research studies with upload of
+    informed consent documentation, and aggregation of documented care into a national
+    quality improvement data set used for evidence-based nutrition practice research.
+  related_to:
+  - B2AI_STANDARD:506
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:179
+  url: https://www.andeal.org/ncp
+  publication:
+    ref_url: https://doi.org/10.1016/j.jand.2018.03.013
+    ref_title: 'Academy of Nutrition and Dietetics Health Informatics Infrastructure
+      (ANDHII): A Pilot Study on the Documentation of the Nutrition Care Process and
+      the Usability of ANDHII by Registered Dietitian Nutritionists'
+    ref_authors:
+    - Murphy WJ
+    - Yadrick MM
+    - Steiber AL
+    - Mohan V
+    - Papoutsakis C
+    ref_publication_year: 2018
+    ref_journal: J Acad Nutr Diet
+- id: B2AI_STANDARD:1306
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:78
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OHDSI Data Quality Dashboard for OMOP CDM databases
+  formal_specification: https://github.com/OHDSI/DataQualityDashboard
+  is_open: true
+  name: DataQualityDashboard
+  purpose_detail: DataQualityDashboard is an OHDSI R package that runs a library of
+    parameterized data quality checks, organized by the Kahn framework of conformance,
+    completeness, and plausibility, against a database in the OMOP Common Data Model,
+    and presents the results in an interactive dashboard. Where ACHILLES characterizes a
+    database as a whole, DataQualityDashboard checks the data table by table and field
+    by field for non-conformance. It replaced the Achilles Heel rules previously bundled
+    with ACHILLES, and its output combined with ACHILLES results feeds the Ares data
+    network explorer. It is released under the Apache 2.0 license (version 2.8.9, May
+    2026) and maintained by OHDSI.
+  related_to:
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:721
+  - B2AI_STANDARD:733
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:76
+  url: https://ohdsi.github.io/DataQualityDashboard/
+  publication:
+    ref_url: https://doi.org/10.1093/jamia/ocab132
+    ref_title: Increasing trust in real-world evidence through evaluation of observational
+      data quality
+    ref_authors:
+    - Blacketer C
+    - Defalco FJ
+    - Ryan PB
+    - Rijnbeek PR
+    ref_publication_year: 2021
+    ref_journal: J Am Med Inform Assoc
+- id: B2AI_STANDARD:1307
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Snowstorm SNOMED CT terminology server
+  formal_specification: https://github.com/IHTSDO/snowstorm
+  is_open: true
+  name: Snowstorm
+  purpose_detail: Snowstorm is an open source terminology server with special support
+    for SNOMED CT, built on Elasticsearch for performance and scalability. It provides
+    an HL7 FHIR terminology API and full support for the SNOMED CT Expression Constraint
+    Language, and it serves as the terminology server behind the SNOMED International
+    Browser for the International Edition and around fourteen national editions. SNOMED
+    International recommends that implementers use a terminology service such as
+    Snowstorm with a standard interface such as FHIR. It is released under the Apache
+    2.0 license (version 11.0.0, September 2026), while the SNOMED CT content loaded
+    into it remains subject to the Affiliate License.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:553
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:180
+  url: https://github.com/IHTSDO/snowstorm
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1308
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:53
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SNOMED CT Global Patient Set
+  formal_specification: https://docs.snomed.org/implementation-guides/gps-implementation-guide
+  is_open: true
+  name: SNOMED CT GPS
+  purpose_detail: The SNOMED CT Global Patient Set (GPS) is a free product from SNOMED
+    International that lets healthcare systems in Member and non-Member countries share,
+    store, and display SNOMED CT coded data without access to the full terminology or a
+    license agreement. Since March 2026 it covers all content in the International
+    Edition, providing every concept identifier, fully specified name, international
+    English preferred term, and active or inactive status. It does not include
+    relationships, hierarchies, other descriptions, reference sets, maps, extensions, or
+    translations. It is released under the Creative Commons Attribution-NoDerivatives
+    4.0 International license, and download requires a registration form.
+  related_to:
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1309
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:180
+  url: https://www.snomed.org/gps
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1309
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:53
+  contribution_date: '2026-09-28'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SNOMED CT International Patient Summary Terminology
+  is_open: true
+  name: SNOMED CT IPS Terminology
+  purpose_detail: The SNOMED CT International Patient Summary (IPS) Terminology is a
+    subset of SNOMED CT covering the scope of the HL7 FHIR International Patient
+    Summary, formerly released as the IPS Free Set. Unlike the flat Global Patient Set,
+    it includes SNOMED CT hierarchies and supports queries with the Expression
+    Constraint Language within its scope, and SNOMED International describes it as
+    supporting clinical data analytics, decision support, and artificial intelligence
+    applications. It is released annually among SNOMED International's free sets. The
+    product page states that it is licensed under the Creative Commons Attribution 4.0
+    International License, and download requires a registration form.
+  related_to:
+  - B2AI_STANDARD:109
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1308
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:180
+  url: https://www.snomed.org/international-patient-summary-terminology
+  publication:
+    ref_url: ''
