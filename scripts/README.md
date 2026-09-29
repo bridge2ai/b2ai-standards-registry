@@ -43,57 +43,51 @@ The scripts in this folder are designed to:
 
 Each script is intended to be run individually. Here’s how to use them:
 
-### Example Script: analyze_and_update_synapse_tables.py
+### Publishing to Synapse: publishing/
 
-**Description:** Uploads tables from registry .json files to Synapse. Synapse table
-schemas will be based on the data uploaded.
-
-**Run:**
-
-You should run all functions with a poetry run command at the start as such:
+The scripts in [publishing/](publishing/) upload registry data to Synapse for
+the Standards Explorer portal. Use
+[publish_to_synapse.py](publishing/publish_to_synapse.py):
 
 ```bash
-poetry run {command here}
+poetry run python -m scripts.publishing.publish_to_synapse --dry-run
+poetry run python -m scripts.publishing.publish_to_synapse
 ```
 
-For instance, to upload the Organization and DataTopic tables, run
-```bash
-poetry run python -m scripts.analyze_and_update_synapse_tables -t Organization DataTopic
-```
+(or `poetry run b2aisr publish-synapse`). It:
 
-To see command-line options for this script:
-```bash
-poetry run python -m scripts.analyze_and_update_synapse_tables -h
-```
+1. builds every table locally: source tables from `project/data/*.json`, the
+   denormalized Manifest, and the denormalized tables defined in
+   [generate_tables_config.py](publishing/generate_tables_config.py).
+   `D4D_content` comes from another repo and is read from Synapse, at the
+   snapshot its view shows.
+2. skips any table whose content hash matches the `b2ai_content_hash`
+   annotation on its Synapse table
+3. clears, repopulates and snapshots the rest, checks each snapshot's row count
+   against what was uploaded, and records the hash and snapshot version
+   (`b2ai_published_version`) as annotations
+4. points each materialized view `mv_<table>` at its table's verified snapshot
+   (`SELECT * FROM synX.N`). `D4D_content`'s view follows its latest snapshot.
 
-**When updates are made to data or schemas on this repository, `analyze_and_update_synapse_tables`
-should be run automatically for the updated tables.**
+The portal (`apps/portals/b2ai.standards/src/config/resources.ts` in
+synapse-web-monorepo) queries the `mv_*` views, so a publish needs no portal
+change. `--create-views` creates any missing views; `--force` re-uploads
+unchanged tables.
 
-Bugs appearing in this script during development (and hopefully fixed now) sometimes result in records being
-uploaded to the destination Synapse table without deleting existing rows, resulting in data sometimes being
-doubled or tripled. We should be on the lookout. This can lead (for instance) to the header card appearing
-twice on the standards details page. [Issue 315](https://github.com/bridge2ai/b2ai-standards-registry/issues/315)
-may help with this if it continues to be a problem.
+A table that fails to publish or verify is reported (as an error annotation on
+a GitHub Actions run) and the run exits non-zero, but its view stays on the last
+verified snapshot and other tables still publish. The Manifest is held back
+this way when an EBI anatomy label lookup fails, rather than published with
+bare IDs; the next run retries.
 
-### Updating Front End
-*Written 2025-05-15. Will need updating soon*
+The GitHub Action ([project_data_change.yml](../.github/workflows/project_data_change.yml))
+runs it on pushes to main that change `project/data/*.json` or the publishing
+code, and daily so `mv_D4D_content` follows D4D updates.
 
-Most of the current front-end functionality is driven by the [DST_denormalized](https://www.synapse.org/Synapse:syn65676531/tables/)
-table, which itself depends on [DataStandardOrTool](https://www.synapse.org/Synapse:syn63096833/tables/),
-[Organization](https://www.synapse.org/Synapse:syn63096836/tables/), and [DataTopic](https://www.synapse.org/Synapse:syn63096835/tables/).
-When source tables change, DST_denormalized (and soon another table or two) will need to be updated. (That
-update uses data from the Synapse tables, though if I were writing the update script today, I would probably
-base it on data straight from this repo.) When source tables have been updated appropiately (it's woth checking
-on Synapse), `create_denormalized_tables` must be run:
-
-```bash
-poetry run python -m scripts.create_denormalized_tables
-```
-Default is to generate all destination tables (so far, DST_denormalized and GCDataSet), but can specify
-which to generate by listing them on the command line like
-```bash
-poetry run python -m scripts.create_denormalized_tables GCDataSet
-```
+The other modules build the tables:
+[source_tables.py](publishing/source_tables.py),
+[denormalized_manifest.py](publishing/denormalized_manifest.py) and
+[denormalized_tables.py](publishing/denormalized_tables.py).
 
 ### Script: format_yaml.py
 

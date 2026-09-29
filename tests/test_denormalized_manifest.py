@@ -1,12 +1,12 @@
-"""Tests for building and uploading the denormalized Manifest table."""
+"""Tests for building the denormalized Manifest table."""
 
 import unittest
 from typing import cast
-from unittest.mock import patch, sentinel
+from unittest.mock import patch
 
 import pandas as pd
 
-from scripts import create_denormalized_manifest as manifest_module
+from scripts.publishing import denormalized_manifest as manifest_module
 
 
 class BuildDenormalizedDfTests(unittest.TestCase):
@@ -68,42 +68,47 @@ class BuildDenormalizedDfTests(unittest.TestCase):
         self.assertEqual(df.loc[1, "standards_and_tools"], [])
 
 
-class UploadDenormalizedManifestTests(unittest.TestCase):
-    """Verify denormalized Manifest upload orchestration."""
+class AnatomyLabelLookupTests(unittest.TestCase):
+    """A failed label lookup is recorded; a term with no label isn't."""
 
-    @patch.object(manifest_module, "clear_populate_snapshot_table")
-    @patch.object(manifest_module, "get_column_definitions")
-    @patch.object(manifest_module, "build_denormalized_df")
-    @patch.object(manifest_module, "build_lookup_dicts")
-    @patch.object(manifest_module, "initialize_synapse")
-    def test_upload_denormalized_manifest_uses_supplied_syn_and_table_id(
-        self,
-        mock_initialize_synapse,
-        mock_build_lookup_dicts,
-        mock_build_denormalized_df,
-        mock_get_column_definitions,
-        mock_clear_populate_snapshot_table,
-    ):
-        """upload_denormalized_manifest should reuse a provided Synapse client and explicit table ID."""
-        df = pd.DataFrame([{"id": "B2AI_MANIFEST:1"}])
-        mock_build_lookup_dicts.return_value = {"Organization": {}}
-        mock_build_denormalized_df.return_value = df
-        mock_get_column_definitions.return_value = [sentinel.column]
+    @patch.object(manifest_module, "get_ontology_label",
+                  side_effect=manifest_module.requests.ConnectionError("down"))
+    def test_network_failure_is_recorded(self, _mock_get_ontology_label):
+        failures: list[str] = []
+        label = manifest_module.get_anatomy_label_cached("UBERON:0001", {}, failures)
+        self.assertIsNone(label)
+        self.assertEqual(failures, ["UBERON:0001"])
 
-        returned_df = manifest_module.upload_denormalized_manifest(
-            syn=sentinel.synapse,
-            table_id="syn123",
-        )
+    @patch.object(manifest_module, "get_ontology_label", return_value=None)
+    def test_missing_label_is_not_a_failure(self, _mock_get_ontology_label):
+        failures: list[str] = []
+        self.assertIsNone(manifest_module.get_anatomy_label_cached("UBERON:0001", {}, failures))
+        self.assertEqual(failures, [])
 
-        self.assertIs(returned_df, df)
-        mock_initialize_synapse.assert_not_called()
-        mock_clear_populate_snapshot_table.assert_called_once_with(
-            sentinel.synapse,
-            "Manifest",
-            [sentinel.column],
-            df,
-            "syn123",
-        )
+
+class GetOntologyLabelTests(unittest.TestCase):
+    """get_ontology_label only raises when asked to, and never for a 404."""
+
+    def response(self, status):
+        response = manifest_module.requests.Response()
+        response.status_code = status
+        return response
+
+    def test_server_error_raises_only_when_asked(self):
+        with patch.object(manifest_module.requests, "get", return_value=self.response(503)):
+            self.assertIsNone(manifest_module.get_ontology_label("UBERON:0001"))
+            with self.assertRaises(manifest_module.requests.HTTPError):
+                manifest_module.get_ontology_label("UBERON:0001", raise_on_error=True)
+
+    def test_not_found_never_raises(self):
+        with patch.object(manifest_module.requests, "get", return_value=self.response(404)):
+            self.assertIsNone(manifest_module.get_ontology_label("UBERON:0001", raise_on_error=True))
+
+    def test_connection_error_raises_only_when_asked(self):
+        with patch.object(manifest_module.requests, "get", side_effect=manifest_module.requests.ConnectionError()):
+            self.assertIsNone(manifest_module.get_ontology_label("UBERON:0001"))
+            with self.assertRaises(manifest_module.requests.ConnectionError):
+                manifest_module.get_ontology_label("UBERON:0001", raise_on_error=True)
 
 
 if __name__ == "__main__":

@@ -3,8 +3,7 @@
 import click
 import logging
 
-from scripts.analyze_and_update_synapse_tables import analyze_and_update
-from scripts.create_denormalized_tables import denormalize_tables
+from scripts.publishing.publish_to_synapse import PublishError, publish_to_synapse
 
 
 @click.group()
@@ -29,29 +28,18 @@ def main(verbose: int, quiet: bool):
 
 
 @main.command()
-@click.argument("files", nargs=-1)
-@click.option("--all", is_flag=True, help="Upload all files in PATHS_TO_IDS")
-@click.option("--table-names", multiple=True, help="List of table names to upload")
-def update_synapse(files, all, table_names):
-    """Update Synapse tables from JSON files.
+@click.option("--dry-run", is_flag=True, help="Build and compare, but change nothing on Synapse")
+@click.option("--force", is_flag=True, help="Publish every table even if its content hash is unchanged")
+@click.option("--create-views", is_flag=True, help="Create any missing mv_* materialized views")
+def publish_synapse(dry_run, force, create_views):
+    """Publish changed tables to Synapse and point the portal's materialized views at them.
 
-    :param files: List of file paths (relative or absolute)
-    :param all: Boolean, whether to upload all files in PATHS_TO_IDS
-    :param table_names: List of table names to upload
+    See scripts/publishing/publish_to_synapse.py.
     """
-    analyze_and_update(files, all, table_names)
-
-
-@main.command()
-@click.option("--specific-tables", multiple=True, help="List of specific denormalized tables to create")
-def create_denormalized_tables(specific_tables=None):
-    """Create denormalized tables.
-
-    Create and upload tables from definitions in ./generate_tables_config.py
-
-    :param specific_tables: Optional list of tables to create; defaults to creating all
-    """
-    denormalize_tables(specific_tables)
+    try:
+        publish_to_synapse(force=force, dry_run=dry_run, create_views=create_views)
+    except PublishError as e:
+        raise click.ClickException(str(e))
 
 
 if __name__ == "__main__":
