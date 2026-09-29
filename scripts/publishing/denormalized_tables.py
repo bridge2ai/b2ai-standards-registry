@@ -224,8 +224,9 @@ def build_dest_tables(
 
     for dest_table in (DEST_TABLES[t] for t in dependency_order()):
         base_tbl_name = dest_table['base_table']
-        base_table_info = get_src_table(syn, TABLE_IDS[base_tbl_name])
-        base_df = base_table_info['df']
+        if base_tbl_name not in src_tables:
+            src_tables[base_tbl_name] = get_src_table(syn, TABLE_IDS[base_tbl_name])
+        base_df = src_tables[base_tbl_name]['df']
         if base_df.empty:
             print(
                 f"Skipping '{dest_table['dest_table_name']}' — base table '{base_tbl_name}' has no data.")
@@ -705,15 +706,12 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
     json_path = os.path.join(DATA_PATH, f"{table_name}.json")
 
     if os.path.exists(json_path):
-        # Branch change: prefer local JSON snapshot when available to avoid Synapse calls
-        # Load from local JSON file
-        print(f"Loading '{table_name}' from {json_path}")
         df = load_json_to_dataframe(table_name)
     else:
         # Fallback to Synapse for tables without JSON files, at the version
         # the portal's view shows, so joins agree with what the portal displays
         version = portal_version(syn, table_info['id'])
-        print(f"Loading '{table_name}' from Synapse ({table_info['id']}.{version}, no local JSON file)")
+        print(f"Reading {table_name} from Synapse ({table_info['id']}.{version})")
         df = TableModel.query(query=f"SELECT * FROM {table_info['id']}.{version}")
 
     if not isinstance(df, pd.DataFrame):

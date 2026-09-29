@@ -69,6 +69,10 @@ class PublishError(Exception):
     pass
 
 
+def status(state: str, name: str, detail: str = '') -> None:
+    print(f"  {state:<10} {name:<29} {detail}".rstrip())
+
+
 def build_all_tables(syn: Synapse) -> Tuple[Dict[str, Built], Dict[str, str]]:
     """
     Build every table we publish.
@@ -123,10 +127,10 @@ def publish_table(syn: Synapse, name: str, col_defs: List[Column], df: pd.DataFr
 
     digest = content_hash(col_defs, df)
     if not force and get_annotation(syn, table_id, HASH_ANNOTATION) == digest:
-        print(f"{name}: unchanged")
+        status('unchanged', name)
         return
     if dry_run:
-        print(f"{name}: changed, would publish {len(df)} rows")
+        status('CHANGED', name, f"would publish {len(df)} rows")
         return
 
     _, version = clear_populate_snapshot_table(
@@ -136,12 +140,14 @@ def publish_table(syn: Synapse, name: str, col_defs: List[Column], df: pd.DataFr
         raise PublishError(
             f"{name}: snapshot {table_id}.{version} has {count} rows, uploaded {len(df)}")
     set_annotations(syn, table_id, {HASH_ANNOTATION: digest, VERSION_ANNOTATION: version})
-    print(f"{name}: published and verified {table_id}.{version} ({count} rows)")
+    status('PUBLISHED', name, f"{table_id}.{version}, {count} rows verified")
 
 
 def update_views(syn: Synapse, create_missing: bool = False, dry_run: bool = False) -> None:
     """Point each portal table's materialized view at its verified snapshot."""
-    views = {v['name']: v['id'] for v in syn.getChildren(PROJECT_ID, includeTypes=['materializedview'])}
+    children = syn.restPOST('/entity/children', json.dumps(
+        {'parentId': PROJECT_ID, 'includeTypes': ['materializedview']}))['page']
+    views = {v['name']: v['id'] for v in children}
     for name in PORTAL_TABLES:
         table_id = TABLE_IDS[name]['id']
         version = portal_version(syn, table_id)
@@ -150,29 +156,32 @@ def update_views(syn: Synapse, create_missing: bool = False, dry_run: bool = Fal
         view = MaterializedView(id=views[view_name]).get() if view_name in views else None
 
         if view is None and not create_missing:
-            print(f"{view_name}: no such view (run with --create-views)")
+            status('MISSING', view_name, "run with --create-views")
             continue
         if view is not None and view.defining_sql == sql:
-            print(f"{view_name} ({view.id}): already {sql}")
+            status('current', view_name, f"{table_id}.{version}")
             continue
         if dry_run:
-            print(f"{view_name}: would set to {sql}")
+            status('CHANGED', view_name, f"would point at {table_id}.{version}")
             continue
         if row_count(table_id, version) == 0:
             raise PublishError(f"{table_id}.{version} is empty; not pointing {view_name} at it")
 
         if view is None:
             view = MaterializedView(name=view_name, parent_id=PROJECT_ID, defining_sql=sql).store()
-            print(f"{view_name}: created {view.id} as {sql}")
+            status('CREATED', view_name, f"{view.id} -> {table_id}.{version}")
         else:
             view.defining_sql = sql
             view.store()
-            print(f"{view_name} ({view.id}): set to {sql}")
+            status('UPDATED', view_name, f"-> {table_id}.{version}")
 
 
 def publish_to_synapse(force: bool = False, dry_run: bool = False, create_views: bool = False) -> None:
     syn = initialize_synapse()
+    print("Building tables")
     tables, held_back = build_all_tables(syn)
+
+    print("\nTables")
 
     # Keep going past a failed table: every view points only at verified
     # snapshots, so the others can still be published safely
@@ -186,6 +195,7 @@ def publish_to_synapse(force: bool = False, dry_run: bool = False, create_views:
             report_failure(name, e)
             failures.append(name)
 
+    print("\nViews")
     update_views(syn, create_missing=create_views, dry_run=dry_run)
 
     if failures:
@@ -193,7 +203,7 @@ def publish_to_synapse(force: bool = False, dry_run: bool = False, create_views:
 
 
 def report_failure(name: str, error: Exception) -> None:
-    print(f"FAILED {name}: {error}")
+    status('FAILED', name, str(error))
     if os.getenv('GITHUB_ACTIONS'):
         # Shows on the workflow run's summary page
         print(f"::error title=Synapse publish failed: {name}::{error}")

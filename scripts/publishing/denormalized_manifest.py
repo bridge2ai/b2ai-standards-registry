@@ -196,12 +196,7 @@ def build_denormalized_manifest() -> Tuple[List[Column], pd.DataFrame, List[str]
 
     :return: (column definitions, DataFrame, anatomy IDs whose label lookup failed)
     """
-    print("Building lookup tables...")
-    lookups = build_lookup_dicts()
-
-    print("Building denormalized manifest DataFrame...")
     lookup_failures: List[str] = []
-    df = build_denormalized_df(lookups, lookup_failures)
-    print(f"  {len(df)} rows")
+    df = build_denormalized_df(build_lookup_dicts(), lookup_failures)
 
     return get_column_definitions(df), df, lookup_failures

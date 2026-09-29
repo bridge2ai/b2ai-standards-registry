@@ -196,8 +196,9 @@ def initialize_synapse() -> Synapse:
     :return: A logged-in Synapse client object
     """
     try:
-        syn = Synapse()
-        syn.login(authToken=get_auth_token())
+        # skip_checks: no client-upgrade banner; silent: no welcome or progress bars
+        syn = Synapse(skip_checks=True, silent=True)
+        syn.login(authToken=get_auth_token(), silent=True)
         return syn
     except (SynapseAuthenticationError, SynapseNoCredentialsError) as e:
         raise Exception(f"Failed to authenticate with Synapse: {str(e)}")
