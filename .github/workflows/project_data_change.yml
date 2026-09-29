@@ -15,6 +15,11 @@ on:
     - cron: '17 6 * * *'
   workflow_dispatch:
 
+# Runs must not clear and refill the same tables at once
+concurrency:
+  group: synapse-publish
+  cancel-in-progress: false
+
 jobs:
   update_synapse_tables:
     name: Run script to update synapse tables with data changes
