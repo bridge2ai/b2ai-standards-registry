@@ -158,8 +158,7 @@ def update_views(syn: Synapse, create_missing: bool = False, dry_run: bool = Fal
             view = MaterializedView(id=views[view_name]).get() if view_name in views else None
 
             if view is None and not create_missing:
-                status('MISSING', view_name, "run with --create-views")
-                continue
+                raise PublishError("view missing; run with --create-views")
             if view is not None and view.defining_sql == sql:
                 status('current', view_name, f"{table_id}.{version}")
                 continue
