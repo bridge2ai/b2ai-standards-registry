@@ -6,7 +6,7 @@ from unittest.mock import patch, sentinel
 
 import pandas as pd
 
-from scripts import create_denormalized_manifest as manifest_module
+from scripts.publishing import create_denormalized_manifest as manifest_module
 
 
 class BuildDenormalizedDfTests(unittest.TestCase):

@@ -6,21 +6,21 @@ resolves all IDs to human-readable names with markdown links, and uploads
 the result to the existing Manifest Synapse table.
 
 Usage:
-    python -m scripts.create_denormalized_manifest
+    python -m scripts.publishing.create_denormalized_manifest
 """
 import base64
 import gzip
 import json
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 from urllib.parse import quote
 
 import pandas as pd
 from synapseclient.models import Column, ColumnType
 
-from scripts.generate_tables_config import TABLE_IDS
-from scripts.utils import (
+from scripts.publishing.generate_tables_config import TABLE_IDS
+from scripts.publishing.utils import (
     clear_populate_snapshot_table,
     configure_column_from_data,
     initialize_synapse,
@@ -28,7 +28,7 @@ from scripts.utils import (
 )
 
 # Import get_ontology_label and slugify from utils/id_linking.py
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / 'utils'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'utils'))
 from id_linking import get_ontology_label, slugify
 
 
@@ -88,8 +88,10 @@ def make_topic_facet_url(topic_name: str) -> str:
             "facetValues": [topic_name],
         }]
     }
+    # mtime=0: gzip otherwise embeds the current time, so every build would
+    # differ and publish_to_synapse would re-upload Manifest each run
     compressed = gzip.compress(json.dumps(
-        diff, separators=(',', ':')).encode())
+        diff, separators=(',', ':')).encode(), mtime=0)
     encoded = base64.b64encode(compressed).decode()
     return f"/Explore?qw0={quote(encoded)}"
 
@@ -184,11 +186,8 @@ def get_column_definitions(df: pd.DataFrame) -> List[Column]:
     return columns
 
 
-def upload_denormalized_manifest(
-    syn=None,
-    table_id: Optional[str] = None,
-) -> pd.DataFrame:
-    """Build and upload the denormalized Manifest table to Synapse."""
+def build_denormalized_manifest() -> Tuple[List[Column], pd.DataFrame]:
+    """Build the denormalized Manifest table locally: (column definitions, DataFrame)."""
     print("Building lookup tables...")
     lookups = build_lookup_dicts()
 
@@ -196,7 +195,15 @@ def upload_denormalized_manifest(
     df = build_denormalized_df(lookups)
     print(f"  {len(df)} rows")
 
-    col_defs = get_column_definitions(df)
+    return get_column_definitions(df), df
+
+
+def upload_denormalized_manifest(
+    syn=None,
+    table_id: Optional[str] = None,
+) -> pd.DataFrame:
+    """Build and upload the denormalized Manifest table to Synapse."""
+    col_defs, df = build_denormalized_manifest()
 
     if syn is None:
         syn = initialize_synapse()

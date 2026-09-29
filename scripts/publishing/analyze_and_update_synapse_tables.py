@@ -41,13 +41,13 @@ Example:
 
 import json
 import sys
-from typing import List, Union
+from typing import List, Optional, Tuple, Union
 from argparse import ArgumentParser
 from synapseclient import Synapse
 from synapseclient.models import Column, ColumnType
 import pandas as pd
-from scripts.create_denormalized_manifest import upload_denormalized_manifest
-from scripts.utils import initialize_synapse, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, PROJECT_ID
+from scripts.publishing.create_denormalized_manifest import upload_denormalized_manifest
+from scripts.publishing.utils import initialize_synapse, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, PROJECT_ID
 
 DATATYPE_OVERRRIDES = {
     # maybe will only work for JSON cols, which is fine for now
@@ -98,20 +98,31 @@ def populate_table(syn: Synapse, update_file: str, table_id: str) -> None:
         upload_denormalized_manifest(syn=syn, table_id=table_id)
         return
 
+    built = build_source_table(update_file)
+    if built is None:
+        print("Could not get list of data from json file")
+        return
+
+    clear_populate_snapshot_table(syn, table_name, *built, table_id)
+
+
+def build_source_table(update_file: str) -> Optional[Tuple[List[Column], pd.DataFrame]]:
+    """
+    Load a registry json file and infer its Synapse schema.
+
+    :param update_file: path for json file containing data to populate the table
+    :return: (column definitions, DataFrame), or None if the file has no list of records
+    """
     with open(update_file, "r") as file:
         data = json.load(file)
     # each json file begins with a key that maps to the list of records, so we're accessing that list here
     data = next(iter(data.values()), [])
 
     if not isinstance(data, list):
-        print("Could not get list of data from json file")
-        return
+        return None
 
     df = pd.DataFrame(data=data)
-
-    coldefs = get_col_defs(df, table_name)
-
-    clear_populate_snapshot_table(syn, table_name, coldefs, df, table_id)
+    return get_col_defs(df, file_path_to_table_name(update_file)), df
 
 
 def get_col_defs(new_data_df: pd.DataFrame, table_name: str) -> List[Column]:

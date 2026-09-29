@@ -2,16 +2,17 @@
 Utility helpers for B2AI standards registry data loading and Synapse integration.
 
 Expected Environment:
-    - AUTH_TOKEN will be retrieved by scripts.utils.get_auth_token()
+    - AUTH_TOKEN will be retrieved by scripts.publishing.utils.get_auth_token()
       Instructions for setting up your auth token are documented in the README.
 """
 import csv
 import json
 import os
 import sys
+import time
 from collections.abc import Mapping
 from dataclasses import replace
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 import numpy as np
 import pandas as pd
@@ -19,9 +20,10 @@ from synapseclient import Synapse
 from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoCredentialsError
 from synapseclient.models import Column, ColumnType, FacetType, Table
 PROJECT_ID = 'syn63096806'
+SNAPSHOT_ATTEMPTS = 3
 
 # Base path for JSON data files (absolute so scripts work from any cwd)
-DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'project', 'data')
+DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'project', 'data')
 
 
 def load_json_to_dataframe(table_name: str) -> pd.DataFrame:
@@ -226,7 +228,7 @@ def _columns_equivalent(existing: Column, desired: Column) -> bool:
     return True
 
 
-def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: List[Column], df: pd.DataFrame, table_id: Optional[str] = None) -> None:
+def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: List[Column], df: pd.DataFrame, table_id: Optional[str] = None, snapshot_comment: Optional[str] = None) -> Tuple[str, int]:
     """
     - Update or create Synapse table and create snapshot.
     - Delete all rows if table already exists in Synapse.
@@ -236,12 +238,18 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     :param syn: Authenticated Synapse client
     :param table_name: Name of the Synapse table to upload
     :param columnDefs: List of Column definitions to upload
-    :param df: Dataframe to upload
+    :param df: Dataframe to upload (not modified)
     :param table_id: Optionally, Table ID, function will confirm or figure it out if not provided
+    :param snapshot_comment: Optional comment stored on the snapshot version
+    :return: (table_id, snapshot version number)
+    :raises RuntimeError: if the snapshot can't be created after retries
     """
     print(f"Clearing, populating, and snapshotting {table_name} table")
 
     csv.field_size_limit(sys.maxsize)
+    # JSON columns get serialized below; don't mutate the caller's df, which
+    # may be reused as a join source for downstream tables.
+    df = df.copy()
 
     # Resolve table_id if not provided
     if not table_id:
@@ -327,10 +335,15 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
     table_id = table_id or table.id
     if not table_id:
         raise Exception(f"Couldn't find table_id for {table_name}")
-    try:
-        syn.create_snapshot_version(table_id)
-    except Exception as e:
-        print(
-            f"Error creating new version of table {table_name}: {e}\nRetrying...")
-        table_id = table_id.split('.')[0]
-    print(f"Created table: {table.name} ({table.id})")
+    for attempt in range(1, SNAPSHOT_ATTEMPTS + 1):
+        try:
+            version = syn.create_snapshot_version(table_id, comment=snapshot_comment)
+            break
+        except Exception as e:
+            if attempt == SNAPSHOT_ATTEMPTS:
+                raise RuntimeError(
+                    f"Couldn't snapshot {table_name} ({table_id}) after {attempt} attempts") from e
+            print(f"Error creating snapshot of {table_name}: {e}\nRetrying...")
+            time.sleep(5 * attempt)
+    print(f"Created snapshot: {table.name} ({table_id}.{version})")
+    return table_id, version

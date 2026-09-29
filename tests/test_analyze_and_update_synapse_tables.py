@@ -9,7 +9,7 @@ from unittest.mock import patch, sentinel
 import pandas as pd
 from synapseclient.models import ColumnType
 
-from scripts import analyze_and_update_synapse_tables as update_module
+from scripts.publishing import analyze_and_update_synapse_tables as update_module
 
 
 class PopulateTableTests(unittest.TestCase):

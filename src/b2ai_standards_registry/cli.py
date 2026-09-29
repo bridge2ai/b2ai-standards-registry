@@ -3,8 +3,9 @@
 import click
 import logging
 
-from scripts.analyze_and_update_synapse_tables import analyze_and_update
-from scripts.create_denormalized_tables import denormalize_tables
+from scripts.publishing.analyze_and_update_synapse_tables import analyze_and_update
+from scripts.publishing.create_denormalized_tables import denormalize_tables
+from scripts.publishing.publish_to_synapse import publish_to_synapse
 
 
 @click.group()
@@ -52,6 +53,18 @@ def create_denormalized_tables(specific_tables=None):
     :param specific_tables: Optional list of tables to create; defaults to creating all
     """
     denormalize_tables(specific_tables)
+
+
+@main.command()
+@click.option("--dry-run", is_flag=True, help="Build and compare, but change nothing on Synapse")
+@click.option("--force", is_flag=True, help="Publish every table even if its content hash is unchanged")
+@click.option("--create-views", is_flag=True, help="Create any missing mv_* materialized views")
+def publish_synapse(dry_run, force, create_views):
+    """Publish changed tables to Synapse and point the portal's materialized views at them.
+
+    See scripts/publishing/publish_to_synapse.py.
+    """
+    publish_to_synapse(force=force, dry_run=dry_run, create_views=create_views)
 
 
 if __name__ == "__main__":

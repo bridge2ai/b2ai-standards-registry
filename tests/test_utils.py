@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 from synapseclient.models import Column, ColumnType, FacetType
 
-from scripts import utils
+from scripts.publishing import utils
 
 
 class LoadJsonToDataFrameTests(unittest.TestCase):
