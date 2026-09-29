@@ -143,37 +143,43 @@ def publish_table(syn: Synapse, name: str, col_defs: List[Column], df: pd.DataFr
     status('PUBLISHED', name, f"{table_id}.{version}, {count} rows verified")
 
 
-def update_views(syn: Synapse, create_missing: bool = False, dry_run: bool = False) -> None:
-    """Point each portal table's materialized view at its verified snapshot."""
+def update_views(syn: Synapse, create_missing: bool = False, dry_run: bool = False) -> List[str]:
+    """Point each portal table's materialized view at its verified snapshot; return views that failed."""
     children = syn.restPOST('/entity/children', json.dumps(
         {'parentId': PROJECT_ID, 'includeTypes': ['materializedview']}))['page']
     views = {v['name']: v['id'] for v in children}
+    failures = []
     for name in PORTAL_TABLES:
-        table_id = TABLE_IDS[name]['id']
-        version = portal_version(syn, table_id)
-        sql = f"SELECT * FROM {table_id}.{version}"
         view_name = VIEW_PREFIX + name
-        view = MaterializedView(id=views[view_name]).get() if view_name in views else None
+        try:
+            table_id = TABLE_IDS[name]['id']
+            version = portal_version(syn, table_id)
+            sql = f"SELECT * FROM {table_id}.{version}"
+            view = MaterializedView(id=views[view_name]).get() if view_name in views else None
 
-        if view is None and not create_missing:
-            status('MISSING', view_name, "run with --create-views")
-            continue
-        if view is not None and view.defining_sql == sql:
-            status('current', view_name, f"{table_id}.{version}")
-            continue
-        if dry_run:
-            status('CHANGED', view_name, f"would point at {table_id}.{version}")
-            continue
-        if row_count(table_id, version) == 0:
-            raise PublishError(f"{table_id}.{version} is empty; not pointing {view_name} at it")
+            if view is None and not create_missing:
+                status('MISSING', view_name, "run with --create-views")
+                continue
+            if view is not None and view.defining_sql == sql:
+                status('current', view_name, f"{table_id}.{version}")
+                continue
+            if dry_run:
+                status('CHANGED', view_name, f"would point at {table_id}.{version}")
+                continue
+            if row_count(table_id, version) == 0:
+                raise PublishError(f"{table_id}.{version} is empty; not pointing {view_name} at it")
 
-        if view is None:
-            view = MaterializedView(name=view_name, parent_id=PROJECT_ID, defining_sql=sql).store()
-            status('CREATED', view_name, f"{view.id} -> {table_id}.{version}")
-        else:
-            view.defining_sql = sql
-            view.store()
-            status('UPDATED', view_name, f"-> {table_id}.{version}")
+            if view is None:
+                view = MaterializedView(name=view_name, parent_id=PROJECT_ID, defining_sql=sql).store()
+                status('CREATED', view_name, f"{view.id} -> {table_id}.{version}")
+            else:
+                view.defining_sql = sql
+                view.store()
+                status('UPDATED', view_name, f"-> {table_id}.{version}")
+        except Exception as e:
+            report_failure(view_name, e)
+            failures.append(view_name)
+    return failures
 
 
 def publish_to_synapse(force: bool = False, dry_run: bool = False, create_views: bool = False) -> None:
@@ -196,7 +202,7 @@ def publish_to_synapse(force: bool = False, dry_run: bool = False, create_views:
             failures.append(name)
 
     print("\nViews")
-    update_views(syn, create_missing=create_views, dry_run=dry_run)
+    failures += update_views(syn, create_missing=create_views, dry_run=dry_run)
 
     if failures:
         raise PublishError(f"Failed to publish: {', '.join(failures)}")
