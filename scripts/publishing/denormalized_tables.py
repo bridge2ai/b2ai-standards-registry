@@ -728,4 +728,3 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
 
     table_info['df'] = df
     return table_info
-
