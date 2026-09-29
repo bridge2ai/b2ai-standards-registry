@@ -8,6 +8,7 @@ on:
       - 'project/data/*.json'
       - 'scripts/publishing/**'
       - 'utils/id_linking.py'
+      - 'src/b2ai_standards_registry/cli.py'
   # D4D_content is published from another repo; this moves mv_D4D_content (and
   # rebuilds DataSet/Organization_denormalized, which join it) when it changes.
   # Unchanged tables are skipped, so a run with nothing new writes nothing.
