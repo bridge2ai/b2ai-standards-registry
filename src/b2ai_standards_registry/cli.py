@@ -3,7 +3,7 @@
 import click
 import logging
 
-from scripts.publishing.publish_to_synapse import publish_to_synapse
+from scripts.publishing.publish_to_synapse import PublishError, publish_to_synapse
 
 
 @click.group()
@@ -36,7 +36,10 @@ def publish_synapse(dry_run, force, create_views):
 
     See scripts/publishing/publish_to_synapse.py.
     """
-    publish_to_synapse(force=force, dry_run=dry_run, create_views=create_views)
+    try:
+        publish_to_synapse(force=force, dry_run=dry_run, create_views=create_views)
+    except PublishError as e:
+        raise click.ClickException(str(e))
 
 
 if __name__ == "__main__":
