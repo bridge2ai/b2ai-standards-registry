@@ -14,7 +14,13 @@ Finally, each materialized view named mv_<table> in the project is pointed at
 its table's verified snapshot (`SELECT * FROM synX.N`). The portal queries the
 views, so it picks up new data without a code change. A table built elsewhere
 (D4D_content) has no published-version annotation, so its view follows the
-table's latest snapshot.
+table's latest snapshot; the denormalized tables that join it read that same
+snapshot (utils.portal_version), so they agree with what the portal shows.
+
+A table that fails to publish or verify keeps its last verified snapshot; the
+rest still publish, and the run exits non-zero. The Manifest is held back this
+way when an anatomy label lookup fails, so it's never published with bare IDs
+where labels should be; the next run retries.
 
 Because change detection is by content hash, there's no need to track which
 inputs feed which denormalized tables: a table is re-uploaded exactly when what
@@ -28,20 +34,20 @@ import json
 import os
 import sys
 from argparse import ArgumentParser
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Dict, List, Tuple, Union
 
 import pandas as pd
 from synapseclient import Synapse
 from synapseclient.models import Column, MaterializedView, Table
 
-from scripts.publishing.analyze_and_update_synapse_tables import PATHS_TO_IDS, build_source_table, file_path_to_table_name
-from scripts.publishing.create_denormalized_manifest import build_denormalized_manifest
-from scripts.publishing.create_denormalized_tables import build_dest_tables
+from scripts.publishing.denormalized_manifest import build_denormalized_manifest
+from scripts.publishing.denormalized_tables import build_dest_tables
 from scripts.publishing.generate_tables_config import TABLE_IDS
-from scripts.publishing.utils import DATA_PATH, PROJECT_ID, clear_populate_snapshot_table, initialize_synapse
+from scripts.publishing.source_tables import SOURCE_TABLES, build_source_table
+from scripts.publishing.utils import (
+    PROJECT_ID, VERSION_ANNOTATION, clear_populate_snapshot_table, get_annotation, initialize_synapse, portal_version)
 
 HASH_ANNOTATION = 'b2ai_content_hash'
-VERSION_ANNOTATION = 'b2ai_published_version'
 VIEW_PREFIX = 'mv_'
 
 # Tables the portal (synapse-web-monorepo b2ai.standards resources.ts) reads,
@@ -63,24 +69,29 @@ class PublishError(Exception):
     pass
 
 
-def build_all_tables(syn: Synapse) -> Dict[str, Built]:
-    """Build every table we publish, keyed by table name."""
-    tables: Dict[str, Built] = {}
-    for path in PATHS_TO_IDS:
-        name = file_path_to_table_name(path)
-        if name == 'Manifest':
-            continue
-        built = build_source_table(os.path.join(DATA_PATH, os.path.basename(path)))
-        if built is None:
-            raise PublishError(f"No list of records in {path}")
-        tables[name] = built
+def build_all_tables(syn: Synapse) -> Tuple[Dict[str, Built], Dict[str, str]]:
+    """
+    Build every table we publish.
 
-    tables['Manifest'] = build_denormalized_manifest()
-    src_tables = {'Manifest_denormalized': {
-        **TABLE_IDS['Manifest_denormalized'], 'df': tables['Manifest'][1]}}
+    :return: (tables keyed by name, reasons keyed by name for tables that built
+        but mustn't be published)
+    """
+    tables: Dict[str, Built] = {name: build_source_table(name) for name in SOURCE_TABLES}
+    held_back: Dict[str, str] = {}
+
+    manifest_cols, manifest_df, lookup_failures = build_denormalized_manifest()
+    tables['Manifest'] = (manifest_cols, manifest_df)
+    if lookup_failures:
+        held_back['Manifest'] = (
+            f"EBI OLS anatomy label lookup failed for {', '.join(lookup_failures)}; "
+            "keeping the last published Manifest")
+
+    # DataTopic_denormalized joins only data part ids and names, not anatomy
+    # labels, so it can use this Manifest even when the Manifest is held back
+    src_tables = {'Manifest_denormalized': {**TABLE_IDS['Manifest_denormalized'], 'df': manifest_df}}
     for name, col_defs, df in build_dest_tables(syn, src_tables=src_tables):
         tables[name] = (col_defs, df)
-    return tables
+    return tables, held_back
 
 
 def content_hash(col_defs: List[Column], df: pd.DataFrame) -> str:
@@ -89,11 +100,6 @@ def content_hash(col_defs: List[Column], df: pd.DataFrame) -> str:
               for c in col_defs]
     rows = df.to_json(orient='split', default_handler=str)
     return hashlib.sha256((json.dumps(schema) + rows).encode()).hexdigest()
-
-
-def get_annotation(syn: Synapse, entity_id: str, key: str) -> Optional[str]:
-    annotation = syn.restGET(f'/entity/{entity_id}/annotations2')['annotations'].get(key)
-    return annotation['value'][0] if annotation else None
 
 
 def set_annotations(syn: Synapse, entity_id: str, values: Dict[str, Union[str, int]]) -> None:
@@ -133,17 +139,12 @@ def publish_table(syn: Synapse, name: str, col_defs: List[Column], df: pd.DataFr
     print(f"{name}: published and verified {table_id}.{version} ({count} rows)")
 
 
-def latest_snapshot_version(syn: Synapse, table_id: str) -> int:
-    # Newest first; the unsnapshotted in-progress version isn't listed
-    return syn.restGET(f'/entity/{table_id}/version?offset=0&limit=1')['results'][0]['versionNumber']
-
-
 def update_views(syn: Synapse, create_missing: bool = False, dry_run: bool = False) -> None:
     """Point each portal table's materialized view at its verified snapshot."""
     views = {v['name']: v['id'] for v in syn.getChildren(PROJECT_ID, includeTypes=['materializedview'])}
     for name in PORTAL_TABLES:
         table_id = TABLE_IDS[name]['id']
-        version = get_annotation(syn, table_id, VERSION_ANNOTATION) or latest_snapshot_version(syn, table_id)
+        version = portal_version(syn, table_id)
         sql = f"SELECT * FROM {table_id}.{version}"
         view_name = VIEW_PREFIX + name
         view = MaterializedView(id=views[view_name]).get() if view_name in views else None
@@ -157,7 +158,7 @@ def update_views(syn: Synapse, create_missing: bool = False, dry_run: bool = Fal
         if dry_run:
             print(f"{view_name}: would set to {sql}")
             continue
-        if row_count(table_id, int(version)) == 0:
+        if row_count(table_id, version) == 0:
             raise PublishError(f"{table_id}.{version} is empty; not pointing {view_name} at it")
 
         if view is None:
@@ -171,22 +172,31 @@ def update_views(syn: Synapse, create_missing: bool = False, dry_run: bool = Fal
 
 def publish_to_synapse(force: bool = False, dry_run: bool = False, create_views: bool = False) -> None:
     syn = initialize_synapse()
-    tables = build_all_tables(syn)
+    tables, held_back = build_all_tables(syn)
 
     # Keep going past a failed table: every view points only at verified
     # snapshots, so the others can still be published safely
     failures = []
     for name, (col_defs, df) in tables.items():
         try:
+            if name in held_back:
+                raise PublishError(held_back[name])
             publish_table(syn, name, col_defs, df, force=force, dry_run=dry_run)
         except Exception as e:
-            print(f"FAILED {name}: {e}")
+            report_failure(name, e)
             failures.append(name)
 
     update_views(syn, create_missing=create_views, dry_run=dry_run)
 
     if failures:
         raise PublishError(f"Failed to publish: {', '.join(failures)}")
+
+
+def report_failure(name: str, error: Exception) -> None:
+    print(f"FAILED {name}: {error}")
+    if os.getenv('GITHUB_ACTIONS'):
+        # Shows on the workflow run's summary page
+        print(f"::error title=Synapse publish failed: {name}::{error}")
 
 
 def cli():

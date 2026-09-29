@@ -59,7 +59,8 @@ poetry run python -m scripts.publishing.publish_to_synapse
 1. builds every table locally: source tables from `project/data/*.json`, the
    denormalized Manifest, and the denormalized tables defined in
    [generate_tables_config.py](publishing/generate_tables_config.py).
-   `D4D_content` comes from another repo and is read from Synapse.
+   `D4D_content` comes from another repo and is read from Synapse, at the
+   snapshot its view shows.
 2. skips any table whose content hash matches the `b2ai_content_hash`
    annotation on its Synapse table
 3. clears, repopulates and snapshots the rest, checks each snapshot's row count
@@ -73,23 +74,20 @@ synapse-web-monorepo) queries the `mv_*` views, so a publish needs no portal
 change. `--create-views` creates any missing views; `--force` re-uploads
 unchanged tables.
 
-A table that fails to publish or verify is reported and the run exits non-zero,
-but its view stays on the last verified snapshot and other tables still publish.
+A table that fails to publish or verify is reported (as an error annotation on
+a GitHub Actions run) and the run exits non-zero, but its view stays on the last
+verified snapshot and other tables still publish. The Manifest is held back
+this way when an EBI anatomy label lookup fails, rather than published with
+bare IDs; the next run retries.
 
-The older per-step scripts are still there and still used by the GitHub Action
-([project_data_change.yml](../.github/workflows/project_data_change.yml)); they
-don't update the views:
+The GitHub Action ([project_data_change.yml](../.github/workflows/project_data_change.yml))
+runs it on pushes to main that change `project/data/*.json` or the publishing
+code, and daily so `mv_D4D_content` follows D4D updates.
 
-- [analyze_and_update_synapse_tables.py](publishing/analyze_and_update_synapse_tables.py):
-  `poetry run python -m scripts.publishing.analyze_and_update_synapse_tables -t Organization DataTopic`
-- [create_denormalized_tables.py](publishing/create_denormalized_tables.py):
-  `poetry run python -m scripts.publishing.create_denormalized_tables [DST_denormalized ...]`
-- [create_denormalized_manifest.py](publishing/create_denormalized_manifest.py)
-
-Bugs in earlier versions sometimes uploaded records without deleting existing
-rows, doubling or tripling data
-([issue 315](https://github.com/bridge2ai/b2ai-standards-registry/issues/315)).
-`publish_to_synapse` catches that with its row-count check.
+The other modules build the tables:
+[source_tables.py](publishing/source_tables.py),
+[denormalized_manifest.py](publishing/denormalized_manifest.py) and
+[denormalized_tables.py](publishing/denormalized_tables.py).
 
 ### Script: format_yaml.py
 

@@ -40,10 +40,10 @@ TABLE_IDS = {
     # 'test': { 'name': 'test', 'id': 'syn64943432' }
 }
 
-# see top of create_denormalized_tables:build_dest_table() for how to define destination tables
+# see top of denormalized_tables:build_dest_table() for how to define destination tables
 # Build order doesn't follow this dict: build_dest_tables sorts dest tables so
 # each follows any dest table it joins. Manifest_denormalized is built by
-# create_denormalized_manifest before any of these.
+# denormalized_manifest before any of these.
 DEST_TABLES = {
     # The table used for the explore landing page and to provide data for the home and detailed pages
     'DST_denormalized': {

@@ -21,6 +21,8 @@ from synapseclient.core.exceptions import SynapseAuthenticationError, SynapseNoC
 from synapseclient.models import Column, ColumnType, FacetType, Table
 PROJECT_ID = 'syn63096806'
 SNAPSHOT_ATTEMPTS = 3
+# Snapshot version publish_to_synapse verified; the portal's view points at it
+VERSION_ANNOTATION = 'b2ai_published_version'
 
 # Base path for JSON data files (absolute so scripts work from any cwd)
 DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'project', 'data')
@@ -347,3 +349,22 @@ def clear_populate_snapshot_table(syn: Synapse, table_name: str, columnDefs: Lis
             time.sleep(5 * attempt)
     print(f"Created snapshot: {table.name} ({table_id}.{version})")
     return table_id, version
+
+
+def get_annotation(syn: Synapse, entity_id: str, key: str) -> Optional[str]:
+    annotation = syn.restGET(f'/entity/{entity_id}/annotations2')['annotations'].get(key)
+    return annotation['value'][0] if annotation else None
+
+
+def latest_snapshot_version(syn: Synapse, table_id: str) -> int:
+    # Newest first; the unsnapshotted in-progress version isn't listed
+    return syn.restGET(f'/entity/{table_id}/version?offset=0&limit=1')['results'][0]['versionNumber']
+
+
+def portal_version(syn: Synapse, table_id: str) -> int:
+    """
+    The table version the portal's materialized view points at: the snapshot
+    publish_to_synapse last verified, or for a table published elsewhere
+    (D4D_content), its latest snapshot.
+    """
+    return int(get_annotation(syn, table_id, VERSION_ANNOTATION) or latest_snapshot_version(syn, table_id))

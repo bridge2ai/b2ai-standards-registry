@@ -1,35 +1,23 @@
 """
-Denormalize Synapse Tables into defined destination table(s) for Standards Registry Explorer UI use.
+Build the denormalized tables defined in generate_tables_config.DEST_TABLES,
+for Standards Registry Explorer UI use.
 
-This script connects to Synapse, retrieves a set of normalized source tables,
-joins them together according to a defined schema, and creates a new denormalized
-Synapse table for use in the Explore landing page and detail views.
-
-It supports:
+Joins a base source table with related tables to produce each destination
+table. It supports:
 - Mapping ID fields in the base table to human-readable values from related tables
 - Allows columns to be flagged for faceting
 - Allows column renaming -- use camelCase and Synapse will automatically convert to title case (ex; camelCase -> Camel Case)
 - Allows transforming data values
 - Automatically configuring string list and JSON columns
 - Replacing missing values (NaNs) with empty strings (pandas converts empty non-numeric fields to NaN)
-- Snapshotting and clearing destination tables before updates
-- Transforming values between source and destination tables
 
-Usage:
-    Run this script directly (e.g., `python -m scripts.publishing.create_denormalized_tables`) to populate the DEST_TABLES output.
-    Authentication is handled via a personal access token fetched from utils.py.
-    It expects an auth token to be stored in ~/.synapseConfig. For instructions on setting up your auth token,
-    see scripts/README.md.
-
-Expected Environment:
-    - AUTH_TOKEN will be retrieved by scripts.publishing.utils.get_auth_token()
-      Instructions for setting up your auth token are documented in the README.
-    - The SRC_TABLES and DEST_TABLES definitions must be updated with valid Synapse table IDs
+Source tables load from project/data/*.json; tables with no JSON file
+(D4D_content, from another repo) load from Synapse at the version the portal
+shows. Uploading is done by publish_to_synapse.
 
 Main entry point:
-    denormalize_tables()
+    build_dest_tables()
 """
-import sys
 import os
 from typing import Any, Dict, Iterator, List, Optional, Tuple
 from synapseclient import Synapse
@@ -39,9 +27,8 @@ import numpy as np
 import re
 import json
 
-from scripts.publishing.create_denormalized_manifest import upload_denormalized_manifest
 from scripts.publishing.generate_tables_config import DEST_TABLES, TABLE_IDS
-from scripts.publishing.utils import DATA_PATH, PROJECT_ID, clear_populate_snapshot_table, configure_column_from_data, infer_column_type, initialize_synapse, load_json_to_dataframe
+from scripts.publishing.utils import DATA_PATH, configure_column_from_data, infer_column_type, load_json_to_dataframe, portal_version
 
 special_capitalization = {
     'has_ai_application': 'Has AI Application',
@@ -197,28 +184,6 @@ def col_transform(col: pd.Series, transform_name: str, df: pd.DataFrame) -> pd.S
     return col_data
 
 
-def denormalize_tables(specific_tables: Optional[List[str]] = None) -> None:
-    """
-    Create and upload tables from definitions in ./generate_tables_config.py
-
-    :param specific_tables: Optional list of tables to create; defaults to creating all
-    """
-    syn = initialize_synapse()
-    src_tables = {}
-
-    # Manifest goes first so DataTopic_denormalized joins the fresh rows
-    # instead of fetching the previous version from Synapse
-    if not specific_tables or 'Manifest' in specific_tables:
-        manifest_df = upload_denormalized_manifest(
-            syn=syn, table_id=TABLE_IDS['Manifest']['id'])
-        src_tables['Manifest_denormalized'] = {
-            **TABLE_IDS['Manifest_denormalized'], 'df': manifest_df}
-
-    for name, col_defs, df in build_dest_tables(syn, specific_tables, src_tables):
-        clear_populate_snapshot_table(
-            syn, name, col_defs, df, TABLE_IDS.get(name, {}).get('id'))
-
-
 def dependency_order() -> List[str]:
     """
     DEST_TABLES names ordered so each comes after any dest table it joins,
@@ -243,28 +208,21 @@ def dependency_order() -> List[str]:
 
 def build_dest_tables(
     syn: Synapse,
-    specific_tables: Optional[List[str]] = None,
     src_tables: Optional[Dict[str, Dict[str, Any]]] = None,
 ) -> Iterator[Tuple[str, List[Column], pd.DataFrame]]:
     """
-    Build destination tables locally, in dependency_order().
+    Build every destination table locally, in dependency_order().
 
     Each result is added to src_tables so later tables can join on it.
 
     :param syn: Authenticated Synapse client, for source tables with no local JSON
-    :param specific_tables: Optional list of tables to build; defaults to all.
-        'Manifest' is accepted and ignored (it's built by create_denormalized_manifest).
     :param src_tables: Already-loaded source tables, keyed by name; updated in place
     :return: iterator of (dest table name, column definitions, DataFrame)
     """
     if src_tables is None:
         src_tables = {}
-    unknown = set(specific_tables or []) - set(DEST_TABLES) - {'Manifest'}
-    if unknown:
-        raise KeyError(f"Unknown destination tables: {sorted(unknown)}")
-    names = [t for t in dependency_order() if not specific_tables or t in specific_tables]
 
-    for dest_table in (DEST_TABLES[t] for t in names):
+    for dest_table in (DEST_TABLES[t] for t in dependency_order()):
         base_tbl_name = dest_table['base_table']
         base_table_info = get_src_table(syn, TABLE_IDS[base_tbl_name])
         base_df = base_table_info['df']
@@ -752,9 +710,11 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
         print(f"Loading '{table_name}' from {json_path}")
         df = load_json_to_dataframe(table_name)
     else:
-        # Fallback to Synapse for tables without JSON files
-        print(f"Loading '{table_name}' from Synapse (no local JSON file)")
-        df = TableModel.query(query=f"SELECT * FROM {table_info['id']}")
+        # Fallback to Synapse for tables without JSON files, at the version
+        # the portal's view shows, so joins agree with what the portal displays
+        version = portal_version(syn, table_info['id'])
+        print(f"Loading '{table_name}' from Synapse ({table_info['id']}.{version}, no local JSON file)")
+        df = TableModel.query(query=f"SELECT * FROM {table_info['id']}.{version}")
 
     if not isinstance(df, pd.DataFrame):
         # Branch change: type-check loaded data to surface misconfigured loaders early
@@ -771,6 +731,3 @@ def get_src_table(syn: Synapse, table_info: Dict[str, Any]) -> Dict[str, Any]:
     table_info['df'] = df
     return table_info
 
-
-if __name__ == "__main__":
-    denormalize_tables(sys.argv[1:])

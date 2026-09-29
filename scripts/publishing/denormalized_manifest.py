@@ -1,12 +1,11 @@
 """
-Create a denormalized Manifest table for the Synapse Standards Registry Explorer.
+Build the denormalized Manifest table for the Synapse Standards Registry Explorer.
 
-Reads Manifest.json, explodes data_parts into one row per data part,
-resolves all IDs to human-readable names with markdown links, and uploads
-the result to the existing Manifest Synapse table.
-
-Usage:
-    python -m scripts.publishing.create_denormalized_manifest
+Reads Manifest.json, explodes data_parts into one row per data part, and
+resolves all IDs to human-readable names with markdown links. Anatomy labels
+come from EBI's OLS; lookups that fail (network or server errors, as opposed
+to terms with no label) are reported so publish_to_synapse can hold the
+Manifest back rather than publish links without labels.
 """
 import base64
 import gzip
@@ -17,15 +16,10 @@ from typing import Dict, List, Optional, Tuple
 from urllib.parse import quote
 
 import pandas as pd
+import requests
 from synapseclient.models import Column, ColumnType
 
-from scripts.publishing.generate_tables_config import TABLE_IDS
-from scripts.publishing.utils import (
-    clear_populate_snapshot_table,
-    configure_column_from_data,
-    initialize_synapse,
-    load_json_to_dataframe,
-)
+from scripts.publishing.utils import configure_column_from_data, load_json_to_dataframe
 
 # Import get_ontology_label and slugify from utils/id_linking.py
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'utils'))
@@ -72,10 +66,18 @@ def build_lookup_dicts() -> Dict[str, Dict[str, str]]:
     return lookups
 
 
-def get_anatomy_label_cached(ontology_id: str, cache: Dict[str, Optional[str]]) -> Optional[str]:
-    """Resolve an anatomy ontology ID to a label, with caching."""
+def get_anatomy_label_cached(ontology_id: str, cache: Dict[str, Optional[str]], failures: List[str]) -> Optional[str]:
+    """
+    Resolve an anatomy ontology ID to a label, with caching. IDs whose lookup
+    failed (rather than having no label) are appended to failures.
+    """
     if ontology_id not in cache:
-        cache[ontology_id] = get_ontology_label(ontology_id)
+        try:
+            cache[ontology_id] = get_ontology_label(ontology_id, raise_on_error=True)
+        except requests.RequestException as e:
+            print(f"  Anatomy label lookup failed for {ontology_id}: {e}")
+            cache[ontology_id] = None
+            failures.append(ontology_id)
     return cache[ontology_id]
 
 
@@ -128,21 +130,23 @@ def build_topic_doc_links(topic_id: str, lookups: Dict[str, dict]) -> str:
     return f"[{name}](https://bridge2ai.github.io/b2ai-standards-registry/topics/{slug}/)"
 
 
-def build_anatomy_link(anatomy_id: str, cache: Dict[str, Optional[str]]) -> str:
-    label = get_anatomy_label_cached(anatomy_id, cache)
+def build_anatomy_link(anatomy_id: str, cache: Dict[str, Optional[str]], failures: List[str]) -> str:
+    label = get_anatomy_label_cached(anatomy_id, cache, failures)
     display = label if label else anatomy_id
     prefix, local_id = anatomy_id.split(':', 1)
     obo_url = f"http://purl.obolibrary.org/obo/{prefix}_{local_id}"
     return f"[{display}]({obo_url})"
 
 
-def build_denormalized_df(lookups: Dict[str, Dict[str, str]]) -> pd.DataFrame:
+def build_denormalized_df(lookups: Dict[str, Dict[str, str]], lookup_failures: Optional[List[str]] = None) -> pd.DataFrame:
     """
     Load Manifest.json, explode data_parts into one row per data part,
     and resolve all IDs to human-readable names with markdown links.
     """
     manifest_df = load_json_to_dataframe('Manifest')
     anatomy_cache: Dict[str, Optional[str]] = {}
+    if lookup_failures is None:
+        lookup_failures = []
     rows = []
 
     for _, manifest in manifest_df.iterrows():
@@ -169,7 +173,7 @@ def build_denormalized_df(lookups: Dict[str, Dict[str, str]]) -> pd.DataFrame:
                 'concerns_data_topics_links': [build_topic_link(tid, lookups) for tid in topic_ids],
                 'concerns_data_topics_doc_links': [build_topic_doc_links(tid, lookups) for tid in topic_ids],
                 'anatomy': anatomy_ids,
-                'anatomy_links': [build_anatomy_link(aid, anatomy_cache) for aid in anatomy_ids],
+                'anatomy_links': [build_anatomy_link(aid, anatomy_cache, lookup_failures) for aid in anatomy_ids],
                 'datasets': datasets,
             })
 
@@ -186,37 +190,18 @@ def get_column_definitions(df: pd.DataFrame) -> List[Column]:
     return columns
 
 
-def build_denormalized_manifest() -> Tuple[List[Column], pd.DataFrame]:
-    """Build the denormalized Manifest table locally: (column definitions, DataFrame)."""
+def build_denormalized_manifest() -> Tuple[List[Column], pd.DataFrame, List[str]]:
+    """
+    Build the denormalized Manifest table locally.
+
+    :return: (column definitions, DataFrame, anatomy IDs whose label lookup failed)
+    """
     print("Building lookup tables...")
     lookups = build_lookup_dicts()
 
     print("Building denormalized manifest DataFrame...")
-    df = build_denormalized_df(lookups)
+    lookup_failures: List[str] = []
+    df = build_denormalized_df(lookups, lookup_failures)
     print(f"  {len(df)} rows")
 
-    return get_column_definitions(df), df
-
-
-def upload_denormalized_manifest(
-    syn=None,
-    table_id: Optional[str] = None,
-) -> pd.DataFrame:
-    """Build and upload the denormalized Manifest table to Synapse."""
-    col_defs, df = build_denormalized_manifest()
-
-    if syn is None:
-        syn = initialize_synapse()
-    if table_id is None:
-        table_id = TABLE_IDS['Manifest']['id']
-    clear_populate_snapshot_table(syn, 'Manifest', col_defs, df, table_id)
-    return df
-
-
-def create_denormalized_manifest() -> None:
-    """Build and upload the denormalized Manifest table to Synapse."""
-    upload_denormalized_manifest()
-
-
-if __name__ == '__main__':
-    create_denormalized_manifest()
+    return get_column_definitions(df), df, lookup_failures

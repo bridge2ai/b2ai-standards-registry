@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 import pandas as pd
 from synapseclient.models import Column, ColumnType
 
-from scripts.publishing import create_denormalized_tables as denorm_module
+from scripts.publishing import denormalized_tables as denorm_module
 from scripts.publishing import publish_to_synapse as publish_module
 
 COLS = [Column(name="id", column_type=ColumnType.STRING),
@@ -80,6 +80,22 @@ class PublishTableTests(unittest.TestCase):
         publish_module.publish_table(MagicMock(), "T", COLS, make_df(), dry_run=True)
         clear_populate.assert_not_called()
         set_annotations.assert_not_called()
+
+
+@patch.object(publish_module, "update_views")
+@patch.object(publish_module, "publish_table")
+@patch.object(publish_module, "initialize_synapse")
+class PublishToSynapseTests(unittest.TestCase):
+    """A held-back table fails the run without stopping the others."""
+
+    def test_held_back_table_is_not_published(self, _init, publish_table, update_views):
+        tables = {"Manifest": (COLS, make_df()), "T": (COLS, make_df())}
+        with patch.object(publish_module, "build_all_tables",
+                          return_value=(tables, {"Manifest": "lookup failed"})):
+            with self.assertRaises(publish_module.PublishError):
+                publish_module.publish_to_synapse()
+        self.assertEqual([c.args[1] for c in publish_table.call_args_list], ["T"])
+        update_views.assert_called_once()
 
 
 class DependencyOrderTests(unittest.TestCase):

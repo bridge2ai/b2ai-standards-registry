@@ -112,12 +112,15 @@ def get_standard_labels(standard_ids: list[str], all_data: Dict[str, Dict] | Non
     return labels
 
 
-def get_ontology_label(ontology_id: str, timeout: int = 5) -> str | None:
+def get_ontology_label(ontology_id: str, timeout: int = 5, raise_on_error: bool = False) -> str | None:
     """Get the label for an ontology term ID using the OLS (Ontology Lookup Service) API.
 
     Args:
         ontology_id: The ontology term ID (e.g., 'UBERON:0000468', 'CLO:0000031')
         timeout: Request timeout in seconds (default: 5)
+        raise_on_error: Raise requests.RequestException when OLS can't be
+            reached or returns an error other than 404, instead of returning
+            None, so callers can tell "no label" from "lookup failed"
 
     Returns:
         The label/name of the ontology term, or None if not found or on error
@@ -149,8 +152,14 @@ def get_ontology_label(ontology_id: str, timeout: int = 5) -> str | None:
         if response.status_code == 200:
             data = response.json()
             return data.get('label')
+        if raise_on_error and response.status_code != 404:
+            response.raise_for_status()
         return None
-    except (requests.RequestException, ValueError, KeyError):
+    except requests.RequestException:
+        if raise_on_error:
+            raise
+        return None
+    except (ValueError, KeyError):
         return None
 
 

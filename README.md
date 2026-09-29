@@ -154,15 +154,6 @@ poetry run b2aisr publish-synapse
 
 This builds every table locally, uploads and snapshots only the ones whose content changed, verifies each snapshot's row count, and points the portal's `mv_*` materialized views at the verified snapshots. See [scripts/publishing/publish_to_synapse.py](scripts/publishing/publish_to_synapse.py).
 
-The older per-step commands still work:
-
-```bash
-poetry run b2aisr update-synapse (a list of JSON data filepaths)
-poetry run b2aisr create-denormalized-tables --specific-tables (a list of tables to update, e.g., DST_denormalized)
-```
-
-They don't update the materialized views.
-
 **Note on schema changes:** Added, removed, and retyped columns are handled automatically. Column definitions for the source tables are inferred from the JSON data being uploaded, and `clear_populate_snapshot_table` reconciles them against the live table, adding new columns, dropping ones no longer present, and re-adding any whose type or settings changed. Columns whose definitions already match are left in place so their column IDs and any portal-side configuration survive.
 
 Columns for the denormalized tables come from [scripts/publishing/generate_tables_config.py](scripts/publishing/generate_tables_config.py), so a new source column must be listed there to appear in a denormalized table.

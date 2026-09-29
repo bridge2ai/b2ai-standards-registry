@@ -6,6 +6,13 @@ on:
       - main
     paths:
       - 'project/data/*.json'
+      - 'scripts/publishing/**'
+      - 'utils/id_linking.py'
+  # D4D_content is published from another repo; this moves mv_D4D_content (and
+  # rebuilds DataSet/Organization_denormalized, which join it) when it changes.
+  # Unchanged tables are skipped, so a run with nothing new writes nothing.
+  schedule:
+    - cron: '17 6 * * *'
   workflow_dispatch:
 
 jobs:
@@ -33,25 +40,7 @@ jobs:
         run: |
           poetry install --no-interaction --extras synapse
 
-      - name: Install jq
-        run: sudo apt-get install jq
-
-      - name: Get changed files
-        id: changes
-        run: |
-          CHANGED_FILES=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/${{ github.repository }}/commits/${{ github.sha }} | jq -r '.files[].filename' | grep 'project/data/.*\.json$')
-          CHANGED_FILES=$(echo "$CHANGED_FILES" | tr '\n' ' ')
-          echo "CHANGED_FILES=$CHANGED_FILES" >> $GITHUB_ENV
-          echo "Files changed: $CHANGED_FILES"
-
-      - name: Run script to update synapse tables
-        run: |
-          if [ -n "${{ env.CHANGED_FILES }}" ]; then
-            poetry run b2aisr update-synapse ${{ env.CHANGED_FILES }}
-            poetry run b2aisr create-denormalized-tables   # --specific-tables DST_denormalized
-          else
-            echo "No relevant json files changed."
-          fi
+      - name: Publish changed tables and update materialized views
+        run: poetry run b2aisr publish-synapse
         env:
           SYNAPSE_AUTH_TOKEN: ${{ secrets.SYNAPSE_AUTH_TOKEN }}
