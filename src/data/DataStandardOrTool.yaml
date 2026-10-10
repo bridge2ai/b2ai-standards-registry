@@ -1727,6 +1727,8 @@ data_standardortools_collection:
     BRIDG fundamentally advances biomedical research data governance by providing
     a shared semantic foundation that enables data harmonization, regulatory compliance,
     and collaborative research across institutional and international boundaries.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   url: https://bridgmodel.nci.nih.gov/
 - id: B2AI_STANDARD:29
@@ -3498,6 +3500,8 @@ data_standardortools_collection:
     is increasingly mandated by regulatory bodies and funders, making it essential
     for translating clinical research data into machine-readable formats suitable
     for automated analysis and regulatory approval.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:15
@@ -3544,6 +3548,8 @@ data_standardortools_collection:
     CDISC provides a library of ready-to-use, CDASH-compliant annotated eCRFs in multiple
     formats (PDF, HTML, XML) that can be implemented as-is or customized for specific
     study needs, facilitating regulatory submission and data review processes.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:15
@@ -15225,6 +15231,8 @@ data_standardortools_collection:
   purpose_detail: Terminology content, tools, and services to accurately code, analyze
     and share cancer and biomedical research, clinical and public health information.
     Includes NCI Thesaurus and Metathesaurus.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:71
@@ -15279,6 +15287,8 @@ data_standardortools_collection:
     FDA Mini-Sentinel CDM. This allows PCORnet to more easily leverage the large array
     of analytic tools and expertise developed for the MSCDM v4.0, including data characterization
     approaches and the various tools for complex distributed analytics.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:81
@@ -16805,11 +16815,12 @@ data_standardortools_collection:
     reusable clinical features, transparent phenotype definitions, and comparable
     validation across heterogeneous healthcare systems.
   related_to:
-  - B2AI_STANDARD:733
   - B2AI_STANDARD:692
   - B2AI_STANDARD:695
   - B2AI_STANDARD:698
   - B2AI_STANDARD:703
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:733
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:76
@@ -26287,6 +26298,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:187
   - B2AI_STANDARD:252
   - B2AI_STANDARD:566
+  - B2AI_STANDARD:714
   - B2AI_STANDARD:1296
   - B2AI_STANDARD:1297
   - B2AI_STANDARD:1298
@@ -33064,6 +33076,8 @@ data_standardortools_collection:
   name: NCIT
   purpose_detail: A reference terminology that includes broad coverage of the cancer
     domain, including cancer related diseases.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   url: https://github.com/NCI-Thesaurus/thesaurus-obo-edition
   publication:
@@ -35565,6 +35579,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:544
   - B2AI_STANDARD:554
   - B2AI_STANDARD:564
+  - B2AI_STANDARD:714
   - B2AI_STANDARD:720
   - B2AI_STANDARD:769
   - B2AI_STANDARD:1120
@@ -37549,26 +37564,129 @@ data_standardortools_collection:
   category: B2AI_STANDARD:Registry
   collection:
   - standardsregistry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:7
   - B2AI_TOPIC:54
+  - B2AI_TOPIC:66
   - B2AI_TOPIC:81
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: National Cancer Institute Cancer Data Standards Repository
-  formal_specification: https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search
+  description: National Cancer Institute Cancer Data Standards Registry and Repository
+  formal_specification: https://cadsrapi.cancer.gov/NCIAPIPortal/
   has_relevant_organization:
   - B2AI_ORG:71
   is_open: true
   name: NCI caDSR
-  purpose_detail: Registry and repository for oncology research common data elements
-    and forms.
+  purpose_detail: The cancer Data Standards Registry and Repository (caDSR) is the
+    National Cancer Institute's metadata registry for the data standards used in NCI-sponsored
+    clinical trials and other cancer research. It was established in 2000 and was
+    described in 2003 as one of the three components of NCI's caCORE infrastructure,
+    alongside Enterprise Vocabulary Services and caBIO. Its successor, caDSR II, replaced
+    the original system in May 2022 and consists of a database, REST APIs, and web
+    tools built on Software AG webMethods OneData with an Oracle design based on the
+    ISO/IEC 11179 metadata registry standard. caDSR II registers Common Data Elements
+    (CDEs), case report forms, data collection templates, and data models, and also
+    hosts the OMOP and PCORnet common data models. Each CDE pairs a question or field
+    label with an answer format and permissible values, carries a persistent public
+    identifier and version, and is semantically annotated with concepts drawn mainly
+    from the NCI Thesaurus, with MedDRA, UCUM, or SNOMED CT available for permissible
+    values. Most CDEs derive from NCI clinical trial forms, and the NCI CBIIT Centralized
+    Curation Team helps register new content. Users can browse, search, and export
+    CDEs and forms as Excel, XML, Medidata Rave ALS, or REDCap data dictionaries,
+    and the APIs return HTML, XML, or JSON. NCI states that its CDEs are structurally
+    compatible with NIH CDEs, has harmonized them with CDISC CDASH and SDTM, and offers
+    a Code Map service for transforming data between standards. The CEDAR Workbench
+    makes more than 80,000 caDSR CDEs available for building metadata templates.
+  related_to:
+  - B2AI_STANDARD:28
+  - B2AI_STANDARD:44
+  - B2AI_STANDARD:45
+  - B2AI_STANDARD:224
+  - B2AI_STANDARD:226
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:386
+  - B2AI_STANDARD:501
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:821
+  - B2AI_STANDARD:859
+  - B2AI_STANDARD:1222
+  - B2AI_STANDARD:1293
+  - B2AI_STANDARD:1316
+  - B2AI_STANDARD:1317
   requires_registration: false
-  url: https://datascience.cancer.gov/resources/metadata
+  responsible_organization:
+  - B2AI_ORG:185
+  url: https://cadsr.cancer.gov/onedata/Home.jsp
+  has_application:
+  - id: B2AI_APP:482
+    category: B2AI:Application
+    name: Neural network mapping of caDSR CDEs to BRIDG model classes
+    description: Renner and colleagues extended an artificial neural network ontology-alignment
+      algorithm to suggest Biomedical Research Integrated Domain Group (BRIDG) model
+      classes for caDSR Common Data Elements. The network learned weights for six
+      CDE attributes (long name, object class, property, value domain long name, representation
+      term, and question text) from a gold standard of 1,284 caDSR CDEs that CIBMTR
+      had mapped to BRIDG, most downloaded from the caDSR CDE Browser, and returned
+      a ranked list of ten candidate classes. Match rates were over 90% for CDEs semantically
+      similar to the training data, 80% for partially similar CDEs, and up to 70%
+      for semantically different ones.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-019-0979-5
+      ref_title: Using an artificial neural network to map cancer common data elements
+        to the biomedical research integrated domain group model in a semi-automated
+        manner
+      ref_authors:
+      - Renner R
+      - Li S
+      - Huang Y
+      - van der Zijp-Tan AC
+      - Tan S
+      - Li D
+      - Kasukurthi MV
+      - Benton R
+      - Borchert GM
+      - Huang J
+      - Jiang G
+      ref_publication_year: 2019
+      ref_journal: BMC Med Inform Decis Mak
+  - id: B2AI_APP:483
+    category: B2AI:Application
+    name: Fine-tuned GPT-2 harmonization of cancer metadata to standard terms
+    description: Verbitsky, Boutet, and Eslami fine-tuned GPT-2 models to map researcher-written
+      metadata terms, including typos, abbreviations, and reordered words generated
+      by data augmentation, to standard vocabulary terms. The cancer vocabulary used
+      for training and evaluation was compiled from terms exported from NCIt, caDSR,
+      GDC, ICD-O-3, and MedDRA (691,220 terms). For cancer, the fine-tuned GPT-2 Large
+      model reached 96% top-5 accuracy on in-dictionary terms and 17% on unseen standard
+      terms, outperforming heuristic matching and zero-shot GPT-4o.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf241
+      ref_title: Metadata harmonization from biological datasets with language models
+      ref_authors:
+      - Verbitsky A
+      - Boutet P
+      - Eslami M
+      ref_publication_year: 2025
+      ref_journal: Bioinform Adv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/bioinformatics/btg335
+    ref_title: 'caCORE: A common infrastructure for cancer informatics'
+    ref_authors:
+    - Covitz PA
+    - Hartel F
+    - Schaefer C
+    - De Coronado S
+    - Fragoso G
+    - Sahni H
+    - Gustafson S
+    - Buetow KH
+    ref_publication_year: 2003
+    ref_journal: Bioinformatics
 - id: B2AI_STANDARD:715
   category: B2AI_STANDARD:Registry
   collection:
@@ -43099,6 +43217,8 @@ data_standardortools_collection:
     that require standardized clinical variables, multi-site cohort collection, reproducible
     ETL, model monitoring outcomes, and links between EHR-derived and research-collected
     data.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: true
   url: https://www.project-redcap.org/
   used_in_bridge2ai: true
@@ -46170,6 +46290,10 @@ data_standardortools_collection:
   purpose_detail: A registry of standardized, precisely defined questions, paired
     with sets of allowable responses, used systematically across different sites,
     studies, or clinical trials to ensure consistent data collection.
+  related_to:
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:1316
+  - B2AI_STANDARD:1317
   requires_registration: false
   url: https://cde.nlm.nih.gov/
   publication:
@@ -61573,12 +61697,13 @@ data_standardortools_collection:
     CRDC both take part in the NIH Cloud Platform Interoperability (NCPI) effort, and
     Kids First proteomic studies are held in the CRDC Proteomic Data Commons.
   related_to:
-  - B2AI_STANDARD:1221
-  - B2AI_STANDARD:1218
-  - B2AI_STANDARD:1220
+  - B2AI_STANDARD:714
   - B2AI_STANDARD:832
   - B2AI_STANDARD:1155
+  - B2AI_STANDARD:1218
   - B2AI_STANDARD:1219
+  - B2AI_STANDARD:1220
+  - B2AI_STANDARD:1221
   - B2AI_STANDARD:1223
   - B2AI_STANDARD:1224
   - B2AI_STANDARD:1225
@@ -65504,6 +65629,8 @@ data_standardortools_collection:
     New versions are released twice a year, in March and September. Use requires a
     subscription, which is free for regulatory authorities and non-profit or non-commercial
     organizations and priced on a sliding scale by annual revenue for commercial subscribers.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: true
   url: https://www.meddra.org/
   publication:
@@ -66570,3 +66697,127 @@ data_standardortools_collection:
     - Hunter LE
     ref_publication_year: 2024
     ref_journal: Sci Data
+- id: B2AI_STANDARD:1316
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - standards_process_maturity_final
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ISO/IEC 11179 Information technology - Metadata registries (MDR)
+  formal_specification: https://www.iso.org/standard/78915.html
+  has_relevant_organization:
+  - B2AI_ORG:49
+  is_open: false
+  name: ISO/IEC 11179
+  purpose_detail: ISO/IEC 11179 is a multipart international standard for metadata
+    registries, the systems that register, describe, and manage the semantics of data
+    so that data definitions can be shared by people and machines independently of
+    the organization that produced them. It is developed by Joint Technical Committee
+    ISO/IEC JTC 1, Subcommittee 32 (Data management and interchange). Part 1 (Framework,
+    4th edition, January 2023) introduces the series and relates it to other SC 32
+    metadata standards. Part 3 (Metamodel for registry common facilities, 4th edition,
+    2023, with a 2026 amendment on item mapping) defines a conceptual model for registry
+    items with sub-metamodels for identification, designation and definition, registration,
+    classification, and mapping. Part 31 (Metamodel for data specification registration,
+    1st edition, January 2023) extends Part 3 to register data elements, data element
+    concepts with their object classes and properties, conceptual domains and value
+    meanings, and value domains with datatypes, units of measure, and permissible
+    values. Other parts cover data definitions, naming and identification, and registration.
+    The standard describes semantics rather than physical storage. Current editions
+    are sold through the ISO and IEC webstores. The model underlies Common Data Element
+    registries in biomedicine, including the NCI caDSR, whose data model is based
+    on ISO/IEC 11179, and NCI states that NCI and NIH CDEs both follow it.
+  related_to:
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:859
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:49
+  url: https://www.iso.org/standard/78914.html
+  publication:
+    ref_url: https://www.iso.org/standard/78914.html
+    ref_title: Information technology - Metadata registries (MDR) - Part 1 Framework
+    ref_authors:
+    - ISO/IEC JTC 1/SC 32
+    ref_publication_year: 2023
+    ref_journal: ISO/IEC 11179-1:2023
+- id: B2AI_STANDARD:1317
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:60
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Center for Expanded Data Annotation and Retrieval (CEDAR) Workbench
+    for authoring metadata templates and metadata
+  formal_specification: https://github.com/metadatacenter
+  has_relevant_organization:
+  - B2AI_ORG:185
+  is_open: true
+  name: CEDAR Workbench
+  purpose_detail: The CEDAR Workbench is a web-based platform for creating, sharing,
+    and filling in biomedical metadata templates, developed by the Center for Expanded
+    Data Annotation and Retrieval (CEDAR) at Stanford University. CEDAR was established
+    in 2014 with NIH Big Data to Knowledge funding (grant U54AI117925). A template
+    defines the data elements expected for a type of experiment along with controlled
+    terms; community curators build templates in the Template Designer, investigators
+    use them to author metadata, and the resulting records can be searched. Templates
+    and metadata are serialized as JSON Schema based documents, and the Workbench
+    offers features for building reusable libraries, collaboration, versioning, and
+    publishing, a REST micro-service API, and the CEDAR Embeddable Editor, which places
+    template-driven metadata entry inside other platforms such as OSF and Dryad. Projects
+    using CEDAR include HuBMAP, SenNet, LINCS, IDG, and NIH HEAL. Under a contract
+    with NCI CBIIT, CEDAR imported caDSR Common Data Elements as reusable template
+    fields organized by caDSR classification, and it reports holding more than 80,000
+    caDSR CDEs plus about 28,000 CDEs ingested from the NIH CDE Repository in 2024.
+    The Workbench is free to use with an account, and its source code is on GitHub.
+  related_to:
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:859
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:186
+  url: https://cedar.metadatacenter.org/
+  has_application:
+  - id: B2AI_APP:484
+    category: B2AI:Application
+    name: GPT-4 metadata standardization guided by CEDAR templates
+    description: Sundaram, Gonçalves, and Musen used CEDAR metadata templates, which
+      specify the expected fields of a submission and their permissible values, to
+      guide GPT-4 in correcting and refining NCBI BioSample and Gene Expression Omnibus
+      metadata in bulk. Average dataset retrieval recall rose from 17.65% with the
+      original metadata to 62.87% with GPT-4 plus CEDAR templates, which also outperformed
+      GPT-4 guided only by a data dictionary. GPT-4 with CEDAR showed consistent advantages
+      over LLaMA-3 and MedLLaMA2.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/gigascience/giag019
+      ref_title: 'Toward total recall: Enhancing data FAIRness through AI-driven metadata
+        standardization'
+      ref_authors:
+      - Sundaram SS
+      - Gonçalves RS
+      - Musen MA
+      ref_publication_year: 2026
+      ref_journal: Gigascience
+  publication:
+    ref_url: https://doi.org/10.1007/978-3-319-68204-4_10
+    ref_title: 'The CEDAR Workbench: An Ontology-Assisted Environment for Authoring
+      Metadata that Describe Scientific Experiments'
+    ref_authors:
+    - Gonçalves RS
+    - O'Connor MJ
+    - Martínez-Romero M
+    - Egyedi AL
+    - Willrett D
+    - Graybeal J
+    - Musen MA
+    ref_publication_year: 2017
+    ref_journal: Lect Notes Comput Sci
