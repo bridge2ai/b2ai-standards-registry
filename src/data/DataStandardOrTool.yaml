@@ -27850,6 +27850,8 @@ data_standardortools_collection:
     for explainable AI, and principled ontology alignment, supporting knowledge-driven
     machine learning where symbolic foundations enhance statistical learning with
     formal semantics.
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: http://basic-formal-ontology.org/
 - id: B2AI_STANDARD:409
@@ -28051,6 +28053,8 @@ data_standardortools_collection:
     of genetic variants affecting cardiovascular traits, pharmacogenomic variants
     influencing drug response in cardiac medications, and biomarker-stratified treatment
     strategies.
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/OpenLHS/CVDO
   publication:
@@ -31230,6 +31234,8 @@ data_standardortools_collection:
   name: IDO
   purpose_detail: A set of interoperable ontologies that will together provide coverage
     of the infectious disease domain. IDO core is the upper-level ontology...
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/infectious-disease-ontology/infectious-disease-ontology
   publication:
@@ -31288,6 +31294,8 @@ data_standardortools_collection:
     information representation improves reproducibility and knowledge dissemination.
     Integration with computational tools enables IAO-based information retrieval and
     analysis.
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/information-artifact-ontology/IAO
   publication:
@@ -31952,6 +31960,8 @@ data_standardortools_collection:
   name: MFOMD
   purpose_detail: Mental diseases such as schizophrenia, annotated with DSM-IV and
     ICD codes where applicable.
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/jannahastings/mental-functioning-ontology
   publication:
@@ -33434,29 +33444,110 @@ data_standardortools_collection:
     ref_publication_year: 2016
     ref_journal: PLoS ONE
   purpose_detail: Description of life-science and clinical investigations.
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: http://obi-ontology.org
 - id: B2AI_STANDARD:512
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:7
+  - B2AI_TOPIC:25
   - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Ontology for General Medical Science
-  formal_specification: https://github.com/OGMS/ogms
+  formal_specification: http://purl.obolibrary.org/obo/ogms.owl
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: OGMS
-  purpose_detail: Treatment of disease and diagnosis and on carcinomas and other pathological
-    entities.
+  purpose_detail: The Ontology for General Medical Science (OGMS) is an OBO Foundry
+    ontology of the general entities of clinical medicine, such as disease, disorder,
+    disease course, diagnosis, sign, symptom, clinical finding, syndrome, prognosis,
+    treatment, and health care encounter. It grew out of the account of disease in
+    Scheuermann, Ceusters, and Smith (2009). In OGMS, a disorder is a clinically abnormal
+    material entity that is the physical basis of disease, a disease is a disposition
+    to undergo pathological processes that exists because of one or more disorders,
+    a disease course is the totality of processes through which a disease is realized,
+    and a diagnosis represents the conclusion of a diagnostic process. OGMS was formerly
+    called the clinical phenotype ontology. Its classes sit under the Basic Formal
+    Ontology (BFO) and it reuses Information Artifact Ontology (IAO) terms. The current
+    release (2021-08-19) contains 118 OGMS classes, one of them obsolete, and is distributed
+    as OWL at the OBO PURL under a CC BY 4.0 license. OGMS is a domain-neutral mid-level
+    ontology rather than a disease catalog, and other ontologies extend it with specific
+    diseases and findings, including the Infectious Disease Ontology (IDO), the Mental
+    Disease Ontology (MFOMD), the Oral Health and Disease Ontology (OHD), the Cardiovascular
+    Disease Ontology (CVDO), and the Ontology of Medically Related Social Entities
+    (OMRSE).
+  related_to:
+  - B2AI_STANDARD:408
+  - B2AI_STANDARD:472
+  - B2AI_STANDARD:471
+  - B2AI_STANDARD:486
+  - B2AI_STANDARD:527
+  - B2AI_STANDARD:414
+  - B2AI_STANDARD:522
+  - B2AI_STANDARD:511
   requires_registration: false
   url: https://github.com/OGMS/ogms
+  has_application:
+  - id: B2AI_APP:476
+    category: B2AI:Application
+    name: OGMS-scaffolded ontology for cholangiocarcinoma risk prediction
+    description: Pengput and Diehl built the Cholangiocarcinoma Ontology (CCAO) using
+      OGMS as its clinical upper level, creating new classes under the OGMS 'clinical
+      finding' class to represent ICD-10 TM diagnoses from Thai cohort and EHR data.
+      CCAO-annotated patient records were analyzed by ontology term enrichment, and
+      the enriched terms seeded a random forest classifier that predicted cholangiocarcinoma
+      patients with an average precision-recall score of 0.92. OGMS supplies the class
+      structure, not the predictive features themselves.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-025-00345-2
+      ref_title: 'Ontology development and use for cholangiocarcinoma risk factors
+        and predictions: a term enrichment data analysis and machine learning classification'
+      ref_authors:
+      - Pengput A
+      - Diehl AD
+      ref_publication_year: 2026
+      ref_journal: J Biomed Semantics
+  - id: B2AI_APP:477
+    category: B2AI:Application
+    name: Fuzzy semantic inference for Alzheimer's disease diagnosis on an OGMS-aligned
+      ontology
+    description: Shoaip and colleagues combined fuzzy rule-based inference with ontology
+      reasoning to build a dynamic diagnostic system for Alzheimer's disease, and
+      they placed the system's ontology under BFO and OGMS as its upper-level ontologies.
+      Tested on ADNI data, the system reported accuracies of 93.1 to 97.2 percent
+      across the AD, LMCI, EMCI, SMC, and CN classes. OGMS serves as the alignment
+      layer for the medical concepts that the fuzzy rules work over.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41598-024-54065-1
+      ref_title: A dynamic fuzzy rule-based inference system using fuzzy inference
+        with semantic reasoning
+      ref_authors:
+      - Shoaip N
+      - El-Sappagh S
+      - Abuhmed T
+      - Elmogy M
+      ref_publication_year: 2024
+      ref_journal: Sci Rep
   publication:
-    ref_url: ''
+    ref_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3041577/
+    ref_title: Toward an ontological treatment of disease and diagnosis
+    ref_authors:
+    - Scheuermann RH
+    - Ceusters W
+    - Smith B
+    ref_publication_year: 2009
+    ref_journal: Summit Transl Bioinform
 - id: B2AI_STANDARD:513
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33842,6 +33933,8 @@ data_standardortools_collection:
     ref_journal: J Biomed Semant
   purpose_detail: This ontology covers the domain of social entities that are related
     to health care, such as demographic information and the roles of various...
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/ufbmi/OMRSE/wiki/OMRSE-Overview
 - id: B2AI_STANDARD:523
@@ -34059,6 +34152,8 @@ data_standardortools_collection:
     deployment in dental research networks improves data quality and research efficiency.
     OHD positions dentistry as part of integrated healthcare enabling connection of
     oral health with systemic health outcomes.
+  related_to:
+  - B2AI_STANDARD:512
   url: https://github.com/oral-health-and-disease-ontologies/ohd-ontology
 - id: B2AI_STANDARD:528
   category: B2AI_STANDARD:OntologyOrVocabulary
