@@ -4962,6 +4962,8 @@ data_standardortools_collection:
     from diverse EHR systems. While increasingly superseded by FHIR for new implementations,
     C-CDA remains widely deployed in U.S. healthcare infrastructure and continues
     to serve critical roles in document exchange and interoperability.
+  related_to:
+  - B2AI_STANDARD:1323
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:40
@@ -11621,6 +11623,8 @@ data_standardortools_collection:
     features or labels in phenotyping and risk-prediction workflows, and interpreted
     reproducibly when code-system version, encounter context, and provenance are
     captured.
+  related_to:
+  - B2AI_STANDARD:225
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:14
@@ -15244,6 +15248,7 @@ data_standardortools_collection:
   collection:
   - standards_process_maturity_final
   - implementation_maturity_production
+  - datamodel
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:9
@@ -15252,18 +15257,107 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: National Emergency Medical Services Information System
+  formal_specification: https://nemsis.org/technical-resources/version-3/version-3-data-dictionaries/
   has_relevant_organization:
   - B2AI_ORG:66
+  - B2AI_ORG:188
   has_training_resource:
   - B2AI_STANDARD:991
   is_open: true
   name: NEMSIS
-  purpose_detail: Standard for the collection and transmission of emergency medical
-    services (EMS) operations and patient care data.
+  purpose_detail: The National Emergency Medical Services Information System (NEMSIS)
+    is the U.S. national data standard for documenting and exchanging emergency medical
+    services (EMS) operations and patient care records, together with the national
+    repository built from those records. It is a program of the National Highway Traffic
+    Safety Administration (NHTSA) Office of EMS, and its Technical Assistance Center
+    (TAC) has been operated by the University of Utah School of Medicine since 2005.
+    NEMSIS began in 2001 with the National Association of State EMS Directors; Version
+    3 standard was released in beta in 2011 and finalized in 2013, Version 2 was closed
+    in 2017, and v3.5.0 was released in 2019. The current releases (v3.5.0 and v3.5.1)
+    define three XML datasets, EMSDataSet (patient care report/event), DEMDataSet
+    (agency demographics), and StateDataSet, each published as a data dictionary and
+    XML Schema (XSD), with ISO Schematron rules that enforce national and state business
+    rules the XSD cannot express. Coded elements draw on external terminologies, for
+    example ICD-10-CM for provider primary impression, RxNorm for medications administered,
+    and SNOMED CT for procedures. Artifacts are distributed through nemsis.org and
+    a public Git server (git.nemsis.org), with a web services specification for data
+    exchange. State-submitted records form the National EMS Database; the de-identified
+    Public-Release Research Dataset for 2025 contains 63,635,893 EMS activations from
+    14,801 agencies in 54 states and territories and is available to researchers on
+    request.
+  related_to:
+  - B2AI_STANDARD:174
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1323
   requires_registration: false
-  url: https://nemsis.org/technical-resources/
+  responsible_organization:
+  - B2AI_ORG:66
+  url: https://nemsis.org/
+  has_application:
+  - id: B2AI_APP:491
+    category: B2AI:Application
+    name: Random forest prediction of cardiac arrest during transport of trauma patients
+    description: Kitano and colleagues extracted NEMSIS records for patients with
+      blunt trauma from traffic accidents and falls (January 2018 to December 2019)
+      and trained a random forest model on prehospital EMS variables to predict cardiac
+      arrest during transport. The model reached an area under the curve of 0.95 and
+      a negative predictive value of 0.99, with the AVPU responsiveness scale and
+      oxygen saturation as the most important features.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1272/jnms.jnms.2023_90-206
+      ref_title: Development of a Machine Learning Model to Predict Cardiac Arrest
+        during Transport of Trauma Patients
+      ref_authors:
+      - Kitano S
+      - Ogawa K
+      - Igarashi Y
+      - Nishimura K
+      - Osawa S
+      - Suzuki K
+      - Fujimoto K
+      - Harada S
+      - Narikawa K
+      - Tagami T
+      - Ohwada H
+      - Yokobori S
+      - Ogawa S
+      - Yokota H
+      ref_publication_year: 2023
+      ref_journal: J Nippon Med Sch
+  - id: B2AI_APP:492
+    category: B2AI:Application
+    name: Machine learning prediction of prehospital blood transfusion after motor
+      vehicle crashes
+    description: Using 2024 and 2025 NEMSIS data on 9-1-1 responses to motor vehicle
+      crashes, the authors built a derivation cohort of 303,383 activations from agencies
+      with active prehospital blood transfusion programs and used random forest and
+      ridge-penalized logistic regression to select demographic, physiologic, clinical,
+      and operational predictors of transfusion. The ridge-selected model reached
+      an AUC of 0.942 and the random forest-selected model 0.901; the final models
+      were applied to the remaining national NEMSIS cohort to estimate where patients
+      likely to need prehospital transfusion are located.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1080/10903127.2026.2713132
+      ref_title: Predicting Prehospital Blood Transfusion After Motor Vehicle Trauma
+      ref_authors:
+      - Pope A
+      - Zadra J
+      - Page K
+      - Fisher B
+      - Race J
+      - Mann NC
+      ref_publication_year: 2026
+      ref_journal: Prehosp Emerg Care
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1080/10903120600724200
+    ref_title: National Emergency Medical Services Information System (NEMSIS)
+    ref_authors:
+    - Dawson DE
+    ref_publication_year: 2006
+    ref_journal: Prehosp Emerg Care
 - id: B2AI_STANDARD:226
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -34960,6 +35054,7 @@ data_standardortools_collection:
     is the standard drug vocabulary of the OMOP Common Data Model, where OHDSI extends
     it with RxNorm Extension for drugs outside the US market.
   related_to:
+  - B2AI_STANDARD:225
   - B2AI_STANDARD:243
   - B2AI_STANDARD:485
   - B2AI_STANDARD:499
@@ -35589,6 +35684,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:174
   - B2AI_STANDARD:175
   - B2AI_STANDARD:187
+  - B2AI_STANDARD:225
   - B2AI_STANDARD:243
   - B2AI_STANDARD:468
   - B2AI_STANDARD:506
@@ -67581,5 +67677,47 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:184
   url: https://incatools.github.io/semantic-sql/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1323
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  - markuplanguage
+  concerns_data_topic:
+  - B2AI_TOPIC:78
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ISO Schematron rule-based validation language for XML
+  formal_specification: https://www.iso.org/standard/85625.html
+  has_relevant_organization:
+  - B2AI_ORG:49
+  is_open: true
+  name: Schematron
+  purpose_detail: Schematron is a rule-based language for validating XML documents
+    by making assertions about the presence or absence of patterns, standardized as
+    ISO/IEC 19757-3 (Document Schema Definition Languages, Part 3). The first ISO
+    edition appeared in 2006 and the fourth edition (ISO/IEC 19757-3:2025) was published
+    in September 2025, edited by Andrew Sales; it adds an XQuery 3 query language
+    binding, new group, library, and rules elements, typed variables, and severity
+    attributes. Schematron complements grammar-based schemas such as XML Schema (XSD)
+    by expressing co-occurrence constraints and business rules that grammars cannot.
+    Rules are commonly compiled to XSLT and report results in the Schematron Validation
+    Report Language (SVRL). In biomedical informatics it is used for clinical document
+    conformance checking, for example the NEMSIS EMS data standard, whose TAC has
+    published pattern-based national Schematron rules since 2014 alongside per-state
+    rule sets, and HL7, which distributes Schematron with the C-CDA Release 2.1 implementation
+    guide. The ISO text is sold through the ISO store; the Schematron schemas themselves
+    are publicly available.
+  related_to:
+  - B2AI_STANDARD:225
+  - B2AI_STANDARD:66
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:49
+  url: https://www.schematron.com/
   publication:
     ref_url: ''
