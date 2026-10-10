@@ -449,6 +449,7 @@ data_standardortools_collection:
     unique advantages through an explicit semantic model of imaging results.'
   related_to:
   - B2AI_STANDARD:98
+  - B2AI_STANDARD:541
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:71
@@ -12513,6 +12514,9 @@ data_standardortools_collection:
     for laboratory data exchange. Real-world deployment across thousands of healthcare
     organizations demonstrates LOINC's critical role in enabling data sharing and
     clinical decision support.
+  related_to:
+  - B2AI_STANDARD:541
+  - B2AI_STANDARD:1311
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:53
@@ -34486,26 +34490,139 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:541
   category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:32
   - B2AI_TOPIC:53
   - B2AI_TOPIC:65
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: RadLex radiology lexicon
+  formal_specification: https://purl.bioontology.org/ontology/RADLEX
   has_relevant_organization:
   - B2AI_ORG:85
   has_training_resource:
   - B2AI_STANDARD:1067
   is_open: true
   name: RadLex
-  purpose_detail: A comprehensive set of radiology terms for use in radiology reporting,
-    decision support, data mining, data registries, education and research.
-  requires_registration: true
-  url: https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon
+  purpose_detail: RadLex is the Radiological Society of North America (RSNA) ontology
+    of radiology terms, built for radiology reporting, decision support, data mining,
+    registries, education, and research. It was introduced by Langlotz in 2006, and
+    its development was supported by NIBIB and the caBIG program. Each concept has
+    a RadLex identifier (RID) with a preferred name, synonyms, and optional definitions,
+    and concepts are arranged in hierarchies with relations to other RadLex classes
+    (such as Contained_in and Branch_of) and cross-references to external systems
+    such as FMA and UMLS. The radlex.org statistics page lists 34,446 active classes,
+    455 retired classes, and 58,065 terms, with 3,146 classes carrying a definition.
+    Version 4.3 (released 1 December 2025) added C-RADS and VI-RADS terms, updated
+    LI-RADS terms, and restructured OWL annotations so that BioPortal can show the
+    German labels alongside English. Curation moved from desktop Protege to WebProtege
+    in version 4.2. RadLex is distributed from radlex.org as OWL and Excel/CSV files
+    after accepting a license that permits commercial and non-commercial use without
+    charge, and it can also be browsed and annotated against through NCBO BioPortal
+    and used as a FHIR code system (http://radlex.org). RadLex terms underpin the
+    RadLex Playbook of procedure names (now merged into the LOINC/RSNA Radiology Playbook),
+    the RadReport template library, and RadElement common data elements.
+  related_to:
+  - B2AI_STANDARD:8
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:890
+  - B2AI_STANDARD:1311
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:85
+  url: https://radlex.org/
+  has_application:
+  - id: B2AI_APP:472
+    category: B2AI:Application
+    name: LLM-generated expansion of RadLex synonyms for chest CT report term recognition
+    description: Lee and colleagues used Gemini 2.0 Flash Thinking to generate lexical
+      variants and strict synonyms for 40,000 RadLex preferred terms, producing 208,465
+      variants and 69,918 synonyms compared with the 17,515 terms in the RadLex-provided
+      expansion. The same LLM parsed five chest CT report datasets from Korea, Spain,
+      Turkey, and the United States into lexicon units that were matched against each
+      term list. The LLM-generated expansion raised lexical coverage from 67.5-75.4%
+      to 81.9-86.2% and recall from 64.0-80.3% to 81.6-91.4%, at a modest cost in
+      precision.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2214/ajr.25.34243
+      ref_title: 'Large Language Model-Generated Expansion of the RadLex Ontology:
+        Application to Multinational Datasets of Chest CT Reports'
+      ref_authors:
+      - Lee T
+      - Kim H
+      - Lee S
+      - Chae S
+      - Kahn CE
+      - You SC
+      - Choi E
+      - Yoon SH
+      ref_publication_year: 2026
+      ref_journal: AJR Am J Roentgenol
+  - id: B2AI_APP:473
+    category: B2AI:Application
+    name: Machine learning on cross-lingual RadLex features for computer-assisted
+      stroke CT reporting
+    description: Maros and colleagues automatically mapped 206 German CT reports of
+      suspected stroke to English RadLex terms and used the resulting bag-of-RadLex-terms
+      features to train tree-based models, elastic net, support vector machines, and
+      fastText to predict whether an ASPECTS score should have been reported. Models
+      on RadLex features were compared with models on human expert-annotated features
+      in nested cross-validation. SVMs reached 82.5% (findings) and 85.4% (impressions)
+      accuracy on RadLex features, and fastText reached 89.3% accuracy and 92% AUC
+      on impressions.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41598-021-85016-9
+      ref_title: Comparative analysis of machine learning algorithms for computer-assisted
+        reporting based on fully automated cross-lingual RadLex mappings
+      ref_authors:
+      - Maros ME
+      - Cho CG
+      - Junge AG
+      - Kämpgen B
+      - Saase V
+      - Siegel F
+      - Trinkmann F
+      - Ganslandt T
+      - Groden C
+      - Wenz H
+      ref_publication_year: 2021
+      ref_journal: Sci Rep
+  - id: B2AI_APP:474
+    category: B2AI:Application
+    name: RadLex-based named entity recognition for free-text radiology reports
+    description: Tsuji and colleagues built cTAKES pipelines using RadLex as the dictionary
+      (with SentiWordNet as a general-purpose dictionary) to recognize compound-term
+      entities in free-text radiology reports, evaluated against 400 manually annotated
+      reports. Adding a compound terms-enhanced dictionary derived from RadLex error
+      analysis raised the F-measure from 30.9% to 63.1% (precision 82.8%, recall 51%),
+      and was validated on a further 100 reports.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/25378
+      ref_title: 'Developing a RadLex-Based Named Entity Recognition Tool for Mining
+        Textual Radiology Reports: Development and Performance Evaluation Study'
+      ref_authors:
+      - Tsuji S
+      - Wen A
+      - Takahashi N
+      - Zhang H
+      - Ogasawara K
+      - Jiang G
+      ref_publication_year: 2021
+      ref_journal: J Med Internet Res
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1148/rg.266065168
+    ref_title: 'RadLex: A New Method for Indexing Online Educational Materials'
+    ref_authors:
+    - Langlotz CP
+    ref_publication_year: 2006
+    ref_journal: Radiographics
 - id: B2AI_STANDARD:542
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -48173,6 +48290,8 @@ data_standardortools_collection:
     and validator tools that check report conformance to template specifications,
     promoting reproducibility and data quality in radiology research while reducing
     the burden on investigators to develop ad hoc data dictionaries for each new study.
+  related_to:
+  - B2AI_STANDARD:541
   requires_registration: false
   url: https://www.radelement.org/
   publication:
@@ -65803,3 +65922,89 @@ data_standardortools_collection:
     - Robinson PN
     ref_publication_year: 2025
     ref_journal: Bioinform Adv
+- id: B2AI_STANDARD:1311
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:65
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: LOINC/RSNA Radiology Playbook of radiology procedure codes
+  has_relevant_organization:
+  - B2AI_ORG:84
+  - B2AI_ORG:85
+  is_open: true
+  name: LOINC/RSNA Radiology Playbook
+  purpose_detail: The LOINC/RSNA Radiology Playbook is a unified terminology for naming
+    and coding radiology procedures (orderables and results), produced by harmonizing
+    the RSNA RadLex Playbook with the radiology section of LOINC. The RadLex Playbook
+    named nearly 1,000 commonly performed imaging exams, each with a RadLex Playbook
+    Identifier (RPID) and a name assembled from attributes such as modality and body
+    part. Regenstrief Institute and RSNA, with funding from NIBIB and the Department
+    of Defense, built a common model of radiology procedure names, mapped LOINC Parts
+    to RadLex concepts, and completed the harmonization in September 2017. The result
+    is a LOINC release artifact that gives each procedure a LOINC code, display names,
+    LOINC-to-RPID mappings, and links from the procedure to its attribute values (for
+    example modality, anatomic location, view, timing, pharmaceutical, and reason
+    for exam), expressed as LOINC Parts and RadLex IDs. It is distributed as an accessory
+    file with LOINC releases under the LOINC license (free registration required),
+    with the RSNA download dated 2025-10-03, and new codes are requested through a
+    joint Regenstrief-RSNA governance committee. Reported uses include the ACR CT
+    Dose Index Registry and Epic's Foundation System.
+  related_to:
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:541
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:84
+  - B2AI_ORG:85
+  url: https://loinc.org/kb/users-guide/loinc-rsna-radiology-playbook-user-guide/
+  has_application:
+  - id: B2AI_APP:475
+    category: B2AI:Application
+    name: LLM mapping of local radiology procedure names to the LOINC/RSNA Radiology
+      Playbook
+    description: ARKE decomposes local radiology procedure names into semantic components
+      using LLM prompting with retrieval-augmented generation, scores them against
+      the attributes of LOINC/RSNA Radiology Playbook (version 2.80) codes to retrieve
+      the top 10 candidates, and then uses the LLM to select the final code. On 3,326
+      procedure names from two Korean tertiary hospitals, recall@1 reached 0.70 (internal)
+      and 0.81 (external), versus 0.48 and 0.50 for direct mapping to Playbook code
+      names.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.jbi.2026.105071
+      ref_title: 'ARKE: An ontology-driven framework for automated mapping of local
+        radiology procedure terms to the LOINC-RadLex playbook using large language
+        model'
+      ref_authors:
+      - Lee S
+      - Jeon K
+      - Lim JS
+      - Park Y
+      - Kim MS
+      - Jin JH
+      - Han CH
+      - Yoon SH
+      - You SC
+      ref_publication_year: 2026
+      ref_journal: J Biomed Inform
+  publication:
+    ref_url: https://doi.org/10.1093/jamia/ocy053
+    ref_title: The LOINC RSNA radiology playbook - a unified terminology for radiology
+      procedures
+    ref_authors:
+    - Vreeman DJ
+    - Abhyankar S
+    - Wang KC
+    - Carr C
+    - Collins B
+    - Rubin DL
+    - Langlotz CP
+    ref_publication_year: 2018
+    ref_journal: J Am Med Inform Assoc
