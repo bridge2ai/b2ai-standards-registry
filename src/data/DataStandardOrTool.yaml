@@ -17354,6 +17354,8 @@ data_standardortools_collection:
     into knowledge graphs supporting AI/ML applications in biomedicine.
   related_to:
   - B2AI_STANDARD:543
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1322
   requires_registration: false
   url: https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html
   publication:
@@ -23506,6 +23508,10 @@ data_standardortools_collection:
     schemas in YAML that describe the structure of your data. Additionally, it is
     a framework for working with and validating data in a variety of formats (JSON,
     RDF, TSV), with generators for compiling LinkML schemas to other frameworks.
+  related_to:
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1320
+  - B2AI_STANDARD:1322
   requires_registration: false
   url: https://linkml.io/linkml
   used_in_bridge2ai: true
@@ -25817,6 +25823,8 @@ data_standardortools_collection:
     a TSV-based representation for ontology term mappings, a comprehensive set of
     standard metadata elements to describe mappings, and a standard translation between
     the TSV and the Web Ontology Language (OWL).
+  related_to:
+  - B2AI_STANDARD:810
   requires_registration: false
   url: https://mapping-commons.github.io/sssom/
 - id: B2AI_STANDARD:379
@@ -26460,7 +26468,9 @@ data_standardortools_collection:
     are primarily exchanged as RDF documents.
   related_to:
   - B2AI_STANDARD:543
+  - B2AI_STANDARD:810
   - B2AI_STANDARD:1315
+  - B2AI_STANDARD:1322
   requires_registration: false
   url: https://www.w3.org/TR/owl-overview/
   publication:
@@ -37284,6 +37294,8 @@ data_standardortools_collection:
     concept recognizers, knowledge graph construction by linking data to standardized
     ontologies, and explainable AI through ontological reasoning and structured domain
     knowledge integration.'
+  related_to:
+  - B2AI_STANDARD:810
   requires_registration: false
   url: https://bioportal.bioontology.org/
   publication:
@@ -43059,6 +43071,9 @@ data_standardortools_collection:
   url: https://github.com/bzhanglab/OmicsEV
 - id: B2AI_STANDARD:810
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:60
@@ -43069,13 +43084,181 @@ data_standardortools_collection:
   formal_specification: https://github.com/INCATools/ontology-access-kit
   has_relevant_organization:
   - B2AI_ORG:58
+  - B2AI_ORG:75
   is_open: true
   name: OAK
-  purpose_detail: OAK provides a collection of interfaces for various ontology operations.
+  purpose_detail: The Ontology Access Kit (OAK) is a Python library (published on
+    PyPI as oaklib) and command-line tool (runoak) for common operations on ontologies.
+    It is developed in the INCATools GitHub organization, led by Chris Mungall at
+    Lawrence Berkeley National Laboratory with contributors from the Monarch Initiative
+    and OBO communities, and released under the Apache 2.0 license; the repository
+    was created in March 2022 and version 0.7.4 was released in August 2026. OAK defines
+    abstract interfaces for tasks such as looking up labels, definitions, synonyms,
+    and relationships, searching for terms, graph traversal and subgraph extraction,
+    lexical matching with output as SSSOM mapping tables, text annotation, ontology
+    validation, term editing, and OWL axiom processing. These interfaces are separated
+    from the backends (adapters) that implement them, so the same API and commands
+    work whether an ontology is a local OWL, OBO, OBO Graphs JSON, or SQLite file,
+    comes from the OBO library, or is reached through remote services including OLS,
+    BioPortal and other OntoPortal instances, Ontobee and Ubergraph SPARQL endpoints,
+    Wikidata, UMLS, and Gilda. Its SQLite adapter uses SemSQL, which provides prebuilt
+    SQLite versions of OBO ontologies. OAK supplies ontology lookup and grounding
+    for LLM-based tools including OntoGPT and CurateGPT. Software releases are archived
+    on Zenodo.
+  related_to:
+  - B2AI_STANDARD:245
+  - B2AI_STANDARD:347
+  - B2AI_STANDARD:378
+  - B2AI_STANDARD:388
+  - B2AI_STANDARD:706
+  - B2AI_STANDARD:811
+  - B2AI_STANDARD:1304
+  - B2AI_STANDARD:1320
+  - B2AI_STANDARD:1321
+  - B2AI_STANDARD:1322
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:184
   url: https://incatools.github.io/ontology-access-kit/
+  has_application:
+  - id: B2AI_APP:487
+    category: B2AI:Application
+    name: Grounding LLM-extracted entities to ontologies in SPIRES
+    description: SPIRES, implemented in OntoGPT, uses large language models with zero-shot
+      prompting to extract information from text into user-defined nested LinkML schemas.
+      SPIRES performs grounding and normalization of the extracted named entities
+      through OAK, which provides access to annotators including Gilda, the BioPortal
+      annotator, and the Ontology Lookup Service. The authors report accuracy in the
+      mid-range of existing relation extraction methods and far better identifier
+      grounding than the LLM achieves on its own.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btae104
+      ref_title: 'Structured Prompt Interrogation and Recursive Extraction of Semantics
+        (SPIRES): a method for populating knowledge bases using zero-shot learning'
+      ref_authors:
+      - Caufield JH
+      - Hegde H
+      - Emonet V
+      - Harris NL
+      - Joachimiak MP
+      - Matentzoglu N
+      - Kim H
+      - Moxon S
+      - Reese JT
+      - Haendel MA
+      - Robinson PN
+      - Mungall CJ
+      ref_publication_year: 2024
+      ref_journal: Bioinformatics
+  - id: B2AI_APP:488
+    category: B2AI:Application
+    name: Mapping LLM differential diagnoses to Mondo for rare disease benchmarking
+    description: This study benchmarked seven large language models against the Exomiser
+      tool on 5213 published rare disease case reports encoded as phenopackets. Each
+      item in an LLM's free-text differential diagnosis was converted to a Mondo disease
+      term, first by exact label or synonym matching with OAK and then by CurateGPT
+      matching for the remainder, so that responses could be scored against the gold-standard
+      diagnosis. The best LLM ranked the correct diagnosis first in 23.6% of cases,
+      compared with 35.5% for Exomiser.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41431-026-02054-5
+      ref_title: Systematic benchmarking demonstrates large language models have not
+        reached the diagnostic accuracy of traditional rare-disease decision support
+        tools
+      ref_authors:
+      - Reese JT
+      - Chimirri L
+      - Bridges Y
+      - Danis D
+      - Caufield JH
+      - Gargano MA
+      - Kroll C
+      - Schmeder A
+      - Liu F
+      - Wissink K
+      - McMurry JA
+      - Graefe ASL
+      - Niyonkuru E
+      - Korn DR
+      - Casiraghi E
+      - Valentini G
+      - Jacobsen JOB
+      - Haendel M
+      - Smedley D
+      - Mungall CJ
+      - Robinson PN
+      ref_publication_year: 2026
+      ref_journal: Eur J Hum Genet
+  - id: B2AI_APP:489
+    category: B2AI:Application
+    name: LLM-assisted curation of medical actions for rare diseases (AutoMAxO)
+    description: AutoMAxO is a semi-automated workflow that uses large language models
+      to extract candidate treatment annotations from publication abstracts and match
+      them to terms in the Medical Action Ontology (MAxO), HPO, and Mondo. In post-processing,
+      OAK's annotation functions perform lexical matching to ground terms that were
+      not already matched, with CurateGPT vector matching as a fallback. Applied to
+      abstracts for 37 rare genetic diseases, the workflow produced 958 novel treatment
+      annotations added to the MAxO annotation dataset after curator review.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf141
+      ref_title: Leveraging generative AI to assist biocuration of medical actions
+        for rare disease
+      ref_authors:
+      - Niyonkuru E
+      - Caufield JH
+      - Carmody LC
+      - Gargano MA
+      - Toro S
+      - Whetzel PL
+      - Blau H
+      - Soto Gomez M
+      - Casiraghi E
+      - Chimirri L
+      - Reese JT
+      - Valentini G
+      - Haendel MA
+      - Mungall CJ
+      - Robinson PN
+      ref_publication_year: 2025
+      ref_journal: Bioinform Adv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.5281/zenodo.6456239
+    ref_title: 'INCATools/ontology-access-kit: v0.7.4'
+    ref_authors:
+    - Mungall C
+    - Hegde H
+    - Kalita P
+    - Hoyt CT
+    - Patil S
+    - Caufield H
+    - Joachimiak MP
+    - Flack J
+    - Reese J
+    - Korn D
+    - Linke D
+    - Harris N
+    - Matentzoglu N
+    - Moxon S
+    - Unni D
+    - Rutherford K
+    - Goutte-Gattat D
+    - Bremer P
+    - de Souza V
+    - Halchenko Y
+    - Zankl A
+    - Jacobsen J
+    - Schaper K
+    - Lera-Ramirez M
+    - Miller MA
+    - Ly R
+    - Tan S
+    - Lubiana T
+    - Whetzel T
+    ref_publication_year: 2026
+    ref_journal: Zenodo
 - id: B2AI_STANDARD:811
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -43129,6 +43312,7 @@ data_standardortools_collection:
   purpose_detail: A toolkit and workflow system for managing the ontology life-cycle.
   related_to:
   - B2AI_STANDARD:484
+  - B2AI_STANDARD:810
   requires_registration: false
   url: https://github.com/INCATools/ontology-development-kit
 - id: B2AI_STANDARD:812
@@ -66299,6 +66483,7 @@ data_standardortools_collection:
     and OVAE, and is developed by the He group at the University of Michigan.
   related_to:
   - B2AI_STANDARD:526
+  - B2AI_STANDARD:810
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:178
@@ -66542,9 +66727,10 @@ data_standardortools_collection:
     under the MIT license (version 0.1.1 in pyproject.toml), with documentation and
     a tutorial at https://monarch-initiative.github.io/automaxo/.
   related_to:
-  - B2AI_STANDARD:484
   - B2AI_STANDARD:468
+  - B2AI_STANDARD:484
   - B2AI_STANDARD:495
+  - B2AI_STANDARD:1320
   requires_registration: false
   url: https://monarch-initiative.github.io/automaxo/
   publication:
@@ -67184,5 +67370,216 @@ data_standardortools_collection:
   responsible_organization:
   - B2AI_ORG:147
   url: https://hail.is/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1320
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:16
+  - B2AI_TOPIC:32
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-10'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OntoGPT, a Python package for ontology-grounded information extraction
+    from text with large language models
+  formal_specification: https://github.com/monarch-initiative/ontogpt
+  has_relevant_organization:
+  - B2AI_ORG:184
+  is_open: true
+  name: OntoGPT
+  purpose_detail: OntoGPT is a Python package and command-line tool, developed in
+    the Monarch Initiative GitHub organization under a BSD-3-Clause license, for extracting
+    structured information from text with large language models (LLMs), instruction
+    prompts, and ontology-based grounding. Its main method, Structured Prompt Interrogation
+    and Recursive Extraction of Semantics (SPIRES), walks a user-supplied LinkML schema
+    recursively, prompting the model for one class at a time so that the assembled
+    output conforms to the full schema. OntoGPT does not ask the model for identifiers;
+    it asks for names, grounds each name against the source ontology through Ontology
+    Access Kit (OAK) annotators, and validates each grounded identifier, marking names
+    that cannot be grounded with an AUTO prefix. The package ships dozens of templates
+    for diseases, phenotypes, drugs, genes, GO terms, environmental samples, and other
+    domains, and writes output as YAML, JSON, RDF, or OWL. It is distributed on PyPI
+    (version 1.2.0 was released in September 2026) and includes a minimal web application.
+  related_to:
+  - B2AI_STANDARD:347
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1310
+  - B2AI_STANDARD:1321
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:58
+  url: https://monarch-initiative.github.io/ontogpt/
+  publication:
+    ref_url: https://doi.org/10.1093/bioinformatics/btae104
+    ref_title: 'Structured Prompt Interrogation and Recursive Extraction of Semantics
+      (SPIRES): a method for populating knowledge bases using zero-shot learning'
+    ref_authors:
+    - Caufield JH
+    - Hegde H
+    - Emonet V
+    - Harris NL
+    - Joachimiak MP
+    - Matentzoglu N
+    - Kim H
+    - Moxon S
+    - Reese JT
+    - Haendel MA
+    - Robinson PN
+    - Mungall CJ
+    ref_publication_year: 2024
+    ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1321
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:62
+  contribution_date: '2026-10-10'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: CurateGPT, an LLM-driven tool for assisting curation of ontologies
+    and knowledge bases
+  formal_specification: https://github.com/monarch-initiative/curategpt
+  has_relevant_organization:
+  - B2AI_ORG:184
+  is_open: true
+  name: CurateGPT
+  purpose_detail: CurateGPT is an open-source Python tool, developed in the Monarch
+    Initiative GitHub organization under a BSD-3-Clause license, that uses large language
+    models (LLMs) to assist curators of ontologies, databases, and knowledge bases.
+    It builds vector database indexes of the resources to be curated, with ontology
+    curation as the main use; OBO ontologies such as the Cell Ontology are loaded
+    through the Ontology Access Kit (OAK). Agents built on these indexes use retrieval
+    augmented generation to search ontologies, suggest new or completed entries, and
+    retrieve literature and other external sources as evidence, so that each suggestion
+    links back to supporting data rather than relying only on the LLM's training data.
+    The DRAGON-AI ontology term generation method is implemented as part of CurateGPT.
+    It offers a command-line interface and a web application, and version 0.2.4 was
+    released in June 2025. The tool is described in a 2024 arXiv preprint; no peer-reviewed
+    article was found.
+  related_to:
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1320
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:58
+  url: https://monarch-initiative.github.io/curategpt/
+  has_application:
+  - id: B2AI_APP:490
+    category: B2AI:Application
+    name: Ontology term generation with retrieval augmented generation (DRAGON-AI)
+    description: DRAGON-AI generates textual and logical components of new ontology
+      terms using LLMs with retrieval augmented generation, drawing on vector-indexed
+      ontology terms and other sources such as GitHub issues. DRAGON-AI is implemented
+      as part of the CurateGPT suite. Evaluated on de novo term construction across
+      ten ontologies with extensive manual review, it showed high precision for relationship
+      generation, and its definitions were judged acceptable but scored below human-authored
+      ones.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-024-00320-3
+      ref_title: Dynamic Retrieval Augmented Generation of Ontologies using Artificial
+        Intelligence (DRAGON-AI)
+      ref_authors:
+      - Toro S
+      - Anagnostopoulos AV
+      - Bello SM
+      - Blumberg K
+      - Cameron R
+      - Carmody L
+      - Diehl AD
+      - Dooley DM
+      - Duncan WD
+      - Fey P
+      - Gaudet P
+      - Harris NL
+      - Joachimiak MP
+      - Kiani L
+      - Lubiana T
+      - Munoz-Torres MC
+      - O'Neil S
+      - Osumi-Sutherland D
+      - Puig-Barbe A
+      - Reese JT
+      - Reiser L
+      - Robb SM
+      - Ruemping T
+      - Seager J
+      - Sid E
+      - Stefancsik R
+      - Weber M
+      - Wood V
+      - Haendel MA
+      - Mungall CJ
+      ref_publication_year: 2024
+      ref_journal: J Biomed Semantics
+  publication:
+    ref_url: https://doi.org/10.48550/arXiv.2411.00046
+    ref_title: 'CurateGPT: A flexible language-model assisted biocuration tool'
+    ref_authors:
+    - Caufield H
+    - Kroll C
+    - O'Neil ST
+    - Reese JT
+    - Joachimiak MP
+    - Hegde H
+    - Harris NL
+    - Krishnamurthy M
+    - McLaughlin JA
+    - Smedley D
+    - Haendel MA
+    - Robinson PN
+    - Mungall CJ
+    ref_publication_year: 2024
+    ref_journal: arXiv
+- id: B2AI_STANDARD:1322
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:62
+  contribution_date: '2026-10-10'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SemSQL (Semantic SQL), standard SQL tables and views for RDF/OWL ontologies
+    with prebuilt SQLite builds of OBO ontologies
+  formal_specification: https://github.com/INCATools/semantic-sql
+  has_relevant_organization:
+  - B2AI_ORG:75
+  is_open: true
+  name: SemSQL
+  purpose_detail: SemSQL (semantic-sql) provides a standard collection of SQL tables
+    and views for RDF and OWL ontologies, so that ontology content such as labels,
+    definitions, and subclass relationships can be queried with ordinary SQL. It is
+    maintained in the INCATools GitHub organization under a BSD-3-Clause license and
+    distributed as the semsql Python package and a Docker image. The schema is written
+    in LinkML and compiled to SQL. A small number of base tables (statements, prefix,
+    and entailed_edge) hold the data, and all other tables are views derived from
+    them; the entailed_edge table is precomputed with relation-graph so that inferred
+    is-a and part-of ancestors can be queried directly. SQLite is the main target,
+    though the library can also be used with other database systems such as PostgreSQL.
+    Ready-made SQLite builds of OBO Foundry ontologies are downloadable from semanticsql.berkeleybop.io.
+    The Ontology Access Kit uses these databases for its SQLite adapter. No journal
+    article describing SemSQL was found.
+  related_to:
+  - B2AI_STANDARD:245
+  - B2AI_STANDARD:347
+  - B2AI_STANDARD:388
+  - B2AI_STANDARD:810
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:184
+  url: https://incatools.github.io/semantic-sql/
   publication:
     ref_url: ''
