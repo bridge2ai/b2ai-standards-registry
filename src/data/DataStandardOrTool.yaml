@@ -17972,6 +17972,8 @@ data_standardortools_collection:
     phenotyping and diagnostic support, and provides the foundation for international
     data sharing initiatives including matchmaking services that connect patients
     with similar phenotypes for clinical research and trial recruitment.
+  related_to:
+  - B2AI_STANDARD:1313
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:34
@@ -27925,6 +27927,8 @@ data_standardortools_collection:
     ref_journal: J Biomed Sem
   purpose_detail: Spatial concepts, anatomical axes, gradients, regions, planes, sides,
     and surfaces.
+  related_to:
+  - B2AI_STANDARD:575
   requires_registration: false
   url: https://github.com/obophenotype/biological-spatial-ontology
 - id: B2AI_STANDARD:412
@@ -30532,6 +30536,8 @@ data_standardortools_collection:
     proteomics, systems biology, and translational research. GO facilitates reproducible
     research through standardized functional terminology. Continuous community curation
     maintains GO accuracy as biological knowledge advances.'
+  related_to:
+  - B2AI_STANDARD:575
   requires_registration: false
   url: http://geneontology.org/
   has_application:
@@ -31172,8 +31178,10 @@ data_standardortools_collection:
     medicine and clinical genomics.
   related_to:
   - B2AI_STANDARD:484
+  - B2AI_STANDARD:575
   - B2AI_STANDARD:784
   - B2AI_STANDARD:1310
+  - B2AI_STANDARD:1313
   requires_registration: false
   url: https://hpo.jax.org/
   publication:
@@ -31621,6 +31629,9 @@ data_standardortools_collection:
     processes (Gene Ontology), and qualities (PATO ontology), facilitating semantic
     integration with other phenotype ontologies including the Human Phenotype Ontology
     and cross-species anatomical frameworks such as UBERON.
+  related_to:
+  - B2AI_STANDARD:575
+  - B2AI_STANDARD:1313
   requires_registration: false
   url: https://github.com/mgijax/mammalian-phenotype-ontology
 - id: B2AI_STANDARD:480
@@ -34333,6 +34344,8 @@ data_standardortools_collection:
   name: PHENIO
   purpose_detail: An application ontology for accessing and comparing knowledge concerning
     phenotypes across species and genetic backgrounds.
+  related_to:
+  - B2AI_STANDARD:575
   requires_registration: false
   url: https://github.com/monarch-initiative/phenio
   publication:
@@ -35982,6 +35995,9 @@ data_standardortools_collection:
     AI/ML applications by providing standardized anatomical annotations for training
     data across species and enabling cross-species knowledge transfer in biomedical
     machine learning models.
+  related_to:
+  - B2AI_STANDARD:575
+  - B2AI_STANDARD:1312
   requires_registration: false
   url: https://obophenotype.github.io/uberon/
 - id: B2AI_STANDARD:564
@@ -36147,6 +36163,8 @@ data_standardortools_collection:
     Ontology and Planarian Phenotype Ontology), veterinary and agricultural applications
     through OMIA, and integration into knowledge graphs like the Monarch Initiative
     that link phenotypes, diseases, and genetic underpinnings across species.
+  related_to:
+  - B2AI_STANDARD:575
   requires_registration: false
   url: https://github.com/obophenotype/upheno
   has_application:
@@ -36844,13 +36862,86 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Zebrafish Phenotype Ontology
   formal_specification: https://github.com/obophenotype/zebrafish-phenotype-ontology
+  has_relevant_organization:
+  - B2AI_ORG:58
+  - B2AI_ORG:75
   is_open: true
   name: ZP
-  purpose_detail: All phenotypes of the Zebrafish model organism.
+  purpose_detail: The Zebrafish Phenotype Ontology (ZP) provides formally defined
+    classes for the phenotypes of Danio rerio recorded by the Zebrafish Information
+    Network (ZFIN). ZP is generated from ZFIN data rather than edited by hand. ZFIN
+    curators describe each phenotype as an entity-quality (EQ) statement that combines
+    a PATO quality with an affected entity from the Zebrafish Anatomy Ontology (ZFA),
+    the Gene Ontology, or other ontologies, and the build pipeline turns each distinct
+    statement into a ZP class with a logical definition based on uPheno design patterns.
+    Reasoning then classifies the phenotypes and aligns them with HPO, MP, and other
+    species phenotype ontologies through uPheno. The 2026-10-08 release, the first
+    in two and a half years, was built from ZFIN data of 2026-10-07. It contains 54,410
+    ZP identifiers (50,247 non-obsolete), adds 6,896 classes, and for the first time
+    ships files mapping ZFIN fish and genes to ZP terms. A zapp subset of about 15,600
+    terms marks phenotypes used in the Zebrafish Toxicology Phenotype Atlas Project.
+    ZP imports modules of PATO, ZFA, ZFS, GO, BSPO, and ChEBI, is built with the Ontology
+    Development Kit, and is released in OWL and OBO through its OBO PURL under CC
+    BY 3.0, with Yvonne Bradford of ZFIN as OBO Foundry contact. The Monarch Initiative
+    and the Exomiser use ZFIN zebrafish phenotypes for cross-species comparison.
+  related_to:
+  - B2AI_STANDARD:411
+  - B2AI_STANDARD:454
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:479
+  - B2AI_STANDARD:533
+  - B2AI_STANDARD:534
+  - B2AI_STANDARD:563
+  - B2AI_STANDARD:565
+  - B2AI_STANDARD:1312
+  - B2AI_STANDARD:1313
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:182
   url: https://github.com/obophenotype/zebrafish-phenotype-ontology
+  has_application:
+  - id: B2AI_APP:478
+    category: B2AI:Application
+    name: Model organism phenotypes in semantic machine learning for disease gene
+      identification
+    description: Alghamdi and colleagues built classes for zebrafish phenotypes from
+      ZFIN gene-phenotype annotations and compared them, together with mouse, fly,
+      and fission yeast phenotypes, with human disease phenotypes through the cross-species
+      ontologies uPheno, which integrates ZP, and Pheno-e. They predicted human gene-disease
+      associations from orthologs' phenotypes using Resnik semantic similarity and
+      the ontology embedding methods OPA2Vec, OWL2Vec*, and DL2Vec. Mouse data contributed
+      most, and zebrafish and other model organisms added little beyond mouse for
+      this task.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1242/dmm.049441
+      ref_title: Contribution of model organism phenotypes to the computational identification
+        of human disease genes
+      ref_authors:
+      - Alghamdi SM
+      - Schofield PN
+      - Hoehndorf R
+      ref_publication_year: 2022
+      ref_journal: Dis Model Mech
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.12688/f1000research.2-30.v1
+    ref_title: Construction and accessibility of a cross-species phenotype ontology
+      along with gene annotations for biomedical research
+    ref_authors:
+    - Köhler S
+    - Doelken SC
+    - Ruef BJ
+    - Bauer S
+    - Washington N
+    - Westerfield M
+    - Gkoutos G
+    - Schofield P
+    - Smedley D
+    - Lewis SE
+    - Robinson PN
+    - Mungall CJ
+    ref_publication_year: 2013
+    ref_journal: F1000Res
 - id: B2AI_STANDARD:576
   category: B2AI_STANDARD:DataStandardOrTool
   concerns_data_topic:
@@ -66103,3 +66194,136 @@ data_standardortools_collection:
     - Langlotz CP
     ref_publication_year: 2018
     ref_journal: J Am Med Inform Assoc
+- id: B2AI_STANDARD:1312
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - obofoundry
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:71
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Zebrafish Anatomy and Development Ontology
+  formal_specification: https://github.com/ZFIN/zebrafish-anatomical-ontology
+  has_relevant_organization:
+  - B2AI_ORG:75
+  is_open: true
+  name: ZFA
+  purpose_detail: The Zebrafish Anatomy Ontology (ZFA), listed by the OBO Foundry
+    as the zebrafish anatomy and development ontology, is a structured vocabulary
+    of the gross and cellular anatomy of Danio rerio from the single-cell zygote to
+    the adult. It organizes anatomical entities in a subclass hierarchy, a partonomy,
+    and a developmental hierarchy, and uses start and end relationships to terms of
+    the Zebrafish Developmental Stages Ontology (ZFS) to define when each structure
+    exists. The ZFA release file bundles the 54 ZFS stage terms. ZFIN curators develop
+    ZFA, with Ceri Van Slyke as OBO Foundry contact, and ZFIN uses it with ZFS to
+    annotate gene expression and phenotypes from the literature and contributed data
+    sets. It supplies the anatomical entity in ZFIN's entity-quality phenotype statements,
+    so it is a core dependency of the Zebrafish Phenotype Ontology (ZP). The 2014
+    description paper reported 2,860 classes; the 2026-07-16 release contains 3,115
+    non-obsolete ZFA classes. ZFA is maintained in the ZFIN/zebrafish-anatomical-ontology
+    GitHub repository, released in OWL and OBO through its OBO PURL under CC BY 3.0,
+    and browsable in OLS.
+  related_to:
+  - B2AI_STANDARD:563
+  - B2AI_STANDARD:575
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:182
+  url: https://obofoundry.org/ontology/zfa.html
+  publication:
+    ref_url: https://doi.org/10.1186/2041-1480-5-12
+    ref_title: 'The zebrafish anatomy and stage ontologies: representing the anatomy
+      and development of Danio rerio'
+    ref_authors:
+    - Van Slyke CE
+    - Bradford YM
+    - Westerfield M
+    - Haendel MA
+    ref_publication_year: 2014
+    ref_journal: J Biomed Semantics
+- id: B2AI_STANDARD:1313
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:35
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Exomiser, a tool to annotate and prioritize exome and genome variants
+    using phenotypes
+  formal_specification: https://github.com/exomiser/Exomiser
+  has_relevant_organization:
+  - B2AI_ORG:58
+  is_open: true
+  name: Exomiser
+  purpose_detail: Exomiser is an open-source Java application that annotates, filters,
+    and prioritizes variants from whole-exome or whole-genome sequencing for diagnosis
+    of Mendelian disease and discovery of new disease genes. Starting from a VCF file
+    and the patient's phenotypes encoded as Human Phenotype Ontology terms, it ranks
+    variants by population frequency (1000 Genomes, ESP, TOPMed, UK10K, ExAC, gnomAD),
+    predicted pathogenicity from dbNSFP, quality, inheritance pattern, and phenotype
+    similarity. Its hiPHIVE prioritiser scores a gene by comparing the patient's phenotypes
+    with phenotypes caused by disruption of that gene, or of nearby genes in a protein
+    interaction network, in human, mouse, and zebrafish, using cross-species comparisons
+    from PhenoDigm and the OWLSim algorithm. Jannovar performs functional annotation
+    against UCSC, RefSeq, or Ensembl transcripts on hg19 or hg38. Exomiser was developed
+    by the Charité - Universitätsmedizin Berlin, the mouse informatics group at the
+    Wellcome Sanger Institute, and other members of the Monarch Initiative. Binaries
+    are released on GitHub under the AGPL-3.0 license (version 15.1.0, June 2026),
+    with separate data releases from the Monarch Initiative data site and documentation
+    on Read the Docs.
+  related_to:
+  - B2AI_STANDARD:256
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:479
+  - B2AI_STANDARD:575
+  requires_registration: false
+  url: https://exomiser.readthedocs.io
+  has_application:
+  - id: B2AI_APP:479
+    category: B2AI:Application
+    name: Exomiser-based mitochondrial disease diagnosis with an XGBoost variant classifier
+    description: MSeqDR Quick-Mitome is a web platform for automated interpretation
+      of whole-exome data in primary mitochondrial disease. It runs Exomiser on nuclear
+      variants to rank them by allele frequency, phenotype-gene association from HPO
+      terms, functional impact, and inheritance mode, then adds mtDNA analyses. The
+      authors also trained the Mitochondrial Disease Variant classifier, an XGBoost
+      model on more than 120 features, which classified over 98% of nuclear gene variants
+      correctly as pathogenic or benign.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1002/cpz1.955
+      ref_title: 'MSeqDR Quick‐Mitome (QM): Combining Phenotype‐Guided Variant Interpretation
+        and Machine Learning Classifiers to Aid Primary Mitochondrial Disease Genetic
+        Diagnosis'
+      ref_authors:
+      - Shen L
+      - Falk MJ
+      - Gai X
+      ref_publication_year: 2024
+      ref_journal: Curr Protoc
+  publication:
+    ref_url: https://doi.org/10.1038/nprot.2015.124
+    ref_title: Next-generation diagnostics and disease-gene discovery with the Exomiser
+    ref_authors:
+    - Smedley D
+    - Jacobsen JOB
+    - Jäger M
+    - Köhler S
+    - Holtgrewe M
+    - Schubach M
+    - Siragusa E
+    - Zemojtel T
+    - Buske OJ
+    - Washington NL
+    - Bone WP
+    - Haendel MA
+    - Robinson PN
+    ref_publication_year: 2015
+    ref_journal: Nat Protoc
