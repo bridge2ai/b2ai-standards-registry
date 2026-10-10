@@ -29423,6 +29423,7 @@ data_standardortools_collection:
     context.
   related_to:
   - B2AI_STANDARD:447
+  - B2AI_STANDARD:484
   requires_registration: false
   url: https://github.com/EnvironmentOntology/environmental-exposure-ontology
   has_application:
@@ -31162,7 +31163,9 @@ data_standardortools_collection:
     learning combining genomics, phenotypes, and clinical data to support precision
     medicine and clinical genomics.
   related_to:
+  - B2AI_STANDARD:484
   - B2AI_STANDARD:784
+  - B2AI_STANDARD:1310
   requires_registration: false
   url: https://hpo.jax.org/
   publication:
@@ -31764,8 +31767,10 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:7
   - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
@@ -31774,14 +31779,135 @@ data_standardortools_collection:
   formal_specification: https://github.com/monarch-initiative/MAxO
   has_relevant_organization:
   - B2AI_ORG:58
+  - B2AI_ORG:181
   is_open: true
   name: MAXO
-  purpose_detail: Terms for medical procedures, interventions, therapies, treatments,
-    and recommendations.
+  purpose_detail: The Medical Action Ontology (MAxO) is an OBO Foundry ontology of
+    medical actions, covering medical procedures, interventions, therapies, treatments,
+    and clinical recommendations used in the diagnosis and management of disease.
+    It is developed by the Monarch Initiative, led by Peter Robinson's group at The
+    Jackson Laboratory, and is built with the Ontology Development Kit. Many terms
+    carry logical definitions that reference other OBO ontologies, including ChEBI,
+    UBERON, GO, PR, CL, OBI, NBO, and HPO. The 2023 description paper reported 1,757
+    terms, more than 16,000 diagnostic annotations linking MAxO terms to HPO phenotypic
+    abnormalities, and 413 treatment annotations for 189 rare diseases created with
+    POET, a web application (poet.jax.org) for curating MAxO annotations to Mondo
+    disease terms. The 2026-01-15 release contains 2,005 MAXO identifiers, 75 of them
+    obsolete. MAxO is distributed in OWL, OBO, and JSON formats through OBO PURLs
+    (http://purl.obolibrary.org/obo/maxo.owl) under a CC BY 4.0 license; disease and
+    phenotype annotations are released separately in the maxo-annotations repository.
+    Its development is coupled to HPO and Mondo, and MAxO terms are reused by other
+    ontologies such as ECTO. The AutoMAxO workflow extends annotation coverage by
+    using large language models to propose treatment annotations from the literature
+    for human review.
+  related_to:
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:495
+  - B2AI_STANDARD:443
+  - B2AI_STANDARD:811
+  - B2AI_STANDARD:1310
   requires_registration: false
   url: https://github.com/monarch-initiative/MAxO
+  has_application:
+  - id: B2AI_APP:470
+    category: B2AI:Application
+    name: LLM-assisted biocuration of rare disease treatment annotations (AutoMAxO)
+    description: AutoMAxO uses large language models to extract candidate medical
+      action statements from PubMed abstracts about rare diseases, then grounds them
+      to MAxO, HPO, and Mondo terms with a combination of LLM prompting and post-processing
+      before presenting structured candidates to a human curator. MAxO is both the
+      target vocabulary for the extracted treatments and the annotation resource being
+      expanded. Applied to abstracts on 37 rare genetic diseases, the workflow yielded
+      958 new treatment annotations that were added to the MAxO annotation dataset.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf141
+      ref_title: Leveraging generative AI to assist biocuration of medical actions
+        for rare disease
+      ref_authors:
+      - Niyonkuru E
+      - Caufield JH
+      - Carmody LC
+      - Gargano MA
+      - Toro S
+      - Whetzel PL
+      - Blau H
+      - Soto Gomez M
+      - Casiraghi E
+      - Chimirri L
+      - Reese JT
+      - Valentini G
+      - Haendel MA
+      - Mungall CJ
+      - Robinson PN
+      ref_publication_year: 2025
+      ref_journal: Bioinform Adv
+  - id: B2AI_APP:471
+    category: B2AI:Application
+    name: Knowledge graph edge prediction for female reproductive disorder risk factors
+    description: Survey data from the Personalized Environment and Genes Study (PEGS)
+      were harmonized to ontology terms and merged with the full contents of HPO,
+      Mondo, MAxO, GO, ENVO, ChEBI, ECTO, and FoodOn into a knowledge graph. Edges
+      were embedded and a random forest classifier was trained for edge prediction
+      to find variables linked to endometriosis, ovarian cysts, uterine fibroids,
+      and related disorders. MAxO terms represented survey-reported procedures such
+      as hysterectomy (MAXO:0001058) and ovary removal (MAXO:0001067), which appeared
+      among the predicted associations; across 9,765 respondents the analysis produced
+      8,535 significant or suggestive predicted links.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.ijmedinf.2024.105461
+      ref_title: Predicting nutrition and environmental factors associated with female
+        reproductive disorders using a knowledge graph and random forests
+      ref_authors:
+      - Chan LE
+      - Casiraghi E
+      - Reese J
+      - Harmon QE
+      - Schaper K
+      - Hegde H
+      - Valentini G
+      - Schmitt C
+      - Motsinger-Reif A
+      - Hall JE
+      - Mungall CJ
+      - Robinson PN
+      - Haendel MA
+      ref_publication_year: 2024
+      ref_journal: Int J Med Inform
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.medj.2023.10.003
+    ref_title: 'The Medical Action Ontology: A tool for annotating and analyzing treatments
+      and clinical management of human disease'
+    ref_authors:
+    - Carmody LC
+    - Gargano MA
+    - Toro S
+    - Vasilevsky NA
+    - Adam MP
+    - Blau H
+    - Chan LE
+    - Gomez-Andres D
+    - Horvath R
+    - Kraus ML
+    - Ladewig MS
+    - Lewis-Smith D
+    - Lochmüller H
+    - Matentzoglu NA
+    - Munoz-Torres MC
+    - Schuetz C
+    - Seitz B
+    - Similuk MN
+    - Sparks TN
+    - Strauss T
+    - Swietlik EM
+    - Thompson R
+    - Zhang XA
+    - Mungall CJ
+    - Haendel MA
+    - Robinson PN
+    ref_publication_year: 2023
+    ref_journal: Med
 - id: B2AI_STANDARD:485
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32265,6 +32391,9 @@ data_standardortools_collection:
     using standardized disease terminology. MONDO integration with structured data
     systems (EHRs, biobanks, disease registries) enables standardized patient stratification
     for clinical research and AI model development.'
+  related_to:
+  - B2AI_STANDARD:484
+  - B2AI_STANDARD:1310
   requires_registration: false
   url: https://mondo.monarchinitiative.org/
 - id: B2AI_STANDARD:496
@@ -42247,6 +42376,8 @@ data_standardortools_collection:
     ref_publication_year: 2022
     ref_journal: Database
   purpose_detail: A toolkit and workflow system for managing the ontology life-cycle.
+  related_to:
+  - B2AI_STANDARD:484
   requires_registration: false
   url: https://github.com/INCATools/ontology-development-kit
 - id: B2AI_STANDARD:812
@@ -65613,3 +65744,62 @@ data_standardortools_collection:
   url: https://www.snomed.org/international-patient-summary-terminology
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1310
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:16
+  - B2AI_TOPIC:53
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: LLM-assisted biocuration workflow for Medical Action Ontology annotations
+  formal_specification: https://github.com/monarch-initiative/automaxo
+  has_relevant_organization:
+  - B2AI_ORG:58
+  - B2AI_ORG:181
+  is_open: true
+  name: AutoMAxO
+  purpose_detail: AutoMAxO is a semi-automated Python workflow from the Monarch Initiative
+    for curating Medical Action Ontology (MAxO) annotations to rare diseases. It retrieves
+    PubMed abstracts for a disease, uses large language models through OntoGPT to
+    extract candidate statements linking medical actions to diseases and phenotypes,
+    maps the extracted entities to MAxO, HPO, and Mondo terms (with MeSH-based matching
+    and fuzzy string post-processing), and ranks the resulting triples for review
+    by a human curator, who approves what enters the annotation set. Its command-line
+    entry points cover article retrieval, extraction, MeSH import and replacement,
+    and ranking. In the 2025 description paper, the workflow processed abstracts on
+    37 rare genetic diseases and produced 958 new treatment annotations that were
+    transferred to the MAxO annotation dataset. AutoMAxO is distributed on GitHub
+    under the MIT license (version 0.1.1 in pyproject.toml), with documentation and
+    a tutorial at https://monarch-initiative.github.io/automaxo/.
+  related_to:
+  - B2AI_STANDARD:484
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:495
+  requires_registration: false
+  url: https://monarch-initiative.github.io/automaxo/
+  publication:
+    ref_url: https://doi.org/10.1093/bioadv/vbaf141
+    ref_title: Leveraging generative AI to assist biocuration of medical actions for
+      rare disease
+    ref_authors:
+    - Niyonkuru E
+    - Caufield JH
+    - Carmody LC
+    - Gargano MA
+    - Toro S
+    - Whetzel PL
+    - Blau H
+    - Soto Gomez M
+    - Casiraghi E
+    - Chimirri L
+    - Reese JT
+    - Valentini G
+    - Haendel MA
+    - Mungall CJ
+    - Robinson PN
+    ref_publication_year: 2025
+    ref_journal: Bioinform Adv
