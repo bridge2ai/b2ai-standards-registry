@@ -1567,6 +1567,8 @@ data_standardortools_collection:
     clinical databases, molecular biology repositories, and literature mining systems.
     It serves as the foundational schema for knowledge graphs in the Biomedical Data
     Translator project and other large-scale biomedical data integration efforts.
+  related_to:
+  - B2AI_STANDARD:543
   requires_registration: false
   url: https://biolink.github.io/biolink-model/
   used_in_bridge2ai: true
@@ -17339,6 +17341,8 @@ data_standardortools_collection:
     format balances human readability for manual curation with machine-parseability
     for computational workflows, semantic reasoning, data annotation, and integration
     into knowledge graphs supporting AI/ML applications in biomedicine.
+  related_to:
+  - B2AI_STANDARD:543
   requires_registration: false
   url: https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html
   publication:
@@ -26440,6 +26444,9 @@ data_standardortools_collection:
     and data values and are stored as Semantic Web documents. OWL 2 ontologies can
     be used along with information written in RDF, and OWL 2 ontologies themselves
     are primarily exchanged as RDF documents.
+  related_to:
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:1315
   requires_registration: false
   url: https://www.w3.org/TR/owl-overview/
   publication:
@@ -27854,6 +27861,7 @@ data_standardortools_collection:
     formal semantics.
   related_to:
   - B2AI_STANDARD:512
+  - B2AI_STANDARD:543
   requires_registration: false
   url: http://basic-formal-ontology.org/
 - id: B2AI_STANDARD:409
@@ -28865,6 +28873,8 @@ data_standardortools_collection:
     versioning), and undergoes periodic releases coordinated with major OBO ontology
     updates to ensure ecosystem-wide compatibility as biological knowledge and ontology
     best practices evolve.
+  related_to:
+  - B2AI_STANDARD:543
   requires_registration: false
   url: https://github.com/OBOFoundry/COB
   publication:
@@ -30537,7 +30547,9 @@ data_standardortools_collection:
     research through standardized functional terminology. Continuous community curation
     maintains GO accuracy as biological knowledge advances.'
   related_to:
+  - B2AI_STANDARD:543
   - B2AI_STANDARD:575
+  - B2AI_STANDARD:1314
   requires_registration: false
   url: http://geneontology.org/
   has_application:
@@ -34799,20 +34811,87 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
+  - B2AI_TOPIC:75
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Relation Ontology
   formal_specification: https://github.com/oborel/obo-relations
+  has_relevant_organization:
+  - B2AI_ORG:75
+  - B2AI_ORG:184
   is_open: true
   name: RO
-  purpose_detail: Relationship types shared across multiple ontologies.
+  purpose_detail: The Relation Ontology (RO) is the OBO Foundry ontology of relationship
+    types (OWL object properties) shared across biological and biomedical ontologies,
+    such as participates in, has participant, enables, regulates, causally upstream
+    of, and interacts with. It grew out of the set of formally defined relations proposed
+    by Smith and colleagues in 2005 and is aligned with Basic Formal Ontology, from
+    which it imports part of and has part. The September 2026 release (v2026-09-04)
+    contains 698 relations in the RO namespace, 16 of them obsolete, together with
+    a small number of supporting classes. Relations carry textual and logical definitions,
+    domain and range constraints, inverses, and characteristics such as transitivity
+    and symmetry, and are tagged with subsets that indicate where they may be used
+    (for example in GO annotation extensions or GO-CAM models). RO is developed openly
+    on GitHub (oborel/obo-relations) under the CC0 1.0 public domain dedication, with
+    Chris Mungall as the OBO Foundry contact, and is released through OBO PURLs as
+    ro.owl (canonical), ro.obo, and ro.json, plus a base module for imports, an RO
+    Core subset intended for use with BFO classes, and ecology, interaction, and neuroscience
+    subsets. RO relations are imported by most OBO Foundry ontologies, provide the
+    edge types of GO-CAM causal activity models, and are reused as edge predicates
+    in ontology-grounded knowledge graphs built with tools such as PheKnowLator.
+  related_to:
+  - B2AI_STANDARD:245
+  - B2AI_STANDARD:388
+  - B2AI_STANDARD:408
+  - B2AI_STANDARD:430
+  - B2AI_STANDARD:454
+  - B2AI_STANDARD:716
+  - B2AI_STANDARD:26
+  - B2AI_STANDARD:1314
+  - B2AI_STANDARD:1315
   requires_registration: false
   url: https://oborel.github.io/
+  has_application:
+  - id: B2AI_APP:480
+    category: B2AI:Application
+    name: Zero-shot protein function prediction using GO axioms built on RO relations
+    description: DeepGOZero combines a protein sequence model with ELEmbeddings, a
+      model-theoretic embedding of description logic axioms, to predict Gene Ontology
+      functions. The GO axioms it embeds are normalized existential restrictions over
+      relations such as regulates (RO:0002211) and part of (BFO:0000050), so RO relations
+      define the geometric constraints the class embeddings are trained to satisfy.
+      This lets the model predict functions that have few or no training annotations,
+      including zero-shot predictions for GO classes never seen during training.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btac256
+      ref_title: 'DeepGOZero: improving protein function prediction from sequence
+        and zero-shot learning based on ontology axioms'
+      ref_authors:
+      - Kulmanov M
+      - Hoehndorf R
+      ref_publication_year: 2022
+      ref_journal: Bioinformatics
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/gb-2005-6-5-r46
+    ref_title: Relations in biomedical ontologies
+    ref_authors:
+    - Smith B
+    - Ceusters W
+    - Klagges B
+    - Köhler J
+    - Kumar A
+    - Lomax J
+    - Mungall C
+    - Neuhaus F
+    - Rector AL
+    - Rosse C
+    ref_publication_year: 2005
+    ref_journal: Genome Biol
 - id: B2AI_STANDARD:544
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -37590,6 +37669,9 @@ data_standardortools_collection:
     essential for AI/ML applications in biomedical knowledge graphs, automated reasoning,
     data harmonization, and multi-modal machine learning across diverse biological
     datasets.
+  related_to:
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:1315
   requires_registration: false
   url: https://obofoundry.org/
 - id: B2AI_STANDARD:717
@@ -66327,3 +66409,164 @@ data_standardortools_collection:
     - Robinson PN
     ref_publication_year: 2015
     ref_journal: Nat Protoc
+- id: B2AI_STANDARD:1314
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:75
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Gene Ontology Causal Activity Models
+  formal_specification: https://github.com/geneontology/gocam-py
+  has_relevant_organization:
+  - B2AI_ORG:36
+  is_open: true
+  name: GO-CAM
+  purpose_detail: Gene Ontology Causal Activity Modeling (GO-CAM) is the Gene Ontology
+    Consortium's framework for linking multiple standard GO annotations into a single
+    structured model of a biological system. Each model connects molecular activities
+    (GO molecular function terms) to the gene products that carry them out, the cellular
+    components where they occur, and the biological processes they are part of, and
+    connects activities to one another with causal relations. All connections use
+    defined relations from the Relation Ontology, including enabled by, occurs in,
+    part of, positively regulates (RO:0002629), negatively regulates (RO:0002630),
+    and directly provides input for (RO:0002413). Models are curated in the Noctua
+    editor, whose data handling backend is Minerva, and are published with GO releases
+    through the GO-CAM public site, the GO-CAM Browser, an API, and bulk downloads.
+    The gocam-py package (BSD-3-Clause) defines the GO-CAM data model in LinkML and
+    provides a JSON serialization. The framework was described by Thomas and colleagues
+    in 2019.
+  related_to:
+  - B2AI_STANDARD:454
+  - B2AI_STANDARD:543
+  requires_registration: false
+  url: https://geneontology.org/docs/gocam-overview/
+  publication:
+    ref_url: https://doi.org/10.1038/s41588-019-0500-1
+    ref_title: Gene Ontology Causal Activity Modeling (GO-CAM) moves beyond GO annotations
+      to structured descriptions of biological functions and systems
+    ref_authors:
+    - Thomas PD
+    - Hill DP
+    - Mi H
+    - Osumi-Sutherland D
+    - Van Auken K
+    - Carbon S
+    - Balhoff JP
+    - Albou LP
+    - Good B
+    - Gaudet P
+    - Lewis SE
+    - Mungall CJ
+    ref_publication_year: 2019
+    ref_journal: Nat Genet
+- id: B2AI_STANDARD:1315
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:75
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: PheKnowLator (Phenotype Knowledge Translator)
+  formal_specification: https://github.com/callahantiff/PheKnowLator
+  has_relevant_organization:
+  - B2AI_ORG:183
+  is_open: true
+  name: PheKnowLator
+  purpose_detail: PheKnowLator (Phenotype Knowledge Translator) is an open-source
+    ecosystem for automated construction of ontologically grounded, Semantic Web-compliant
+    biomedical knowledge graphs, developed by Tiffany Callahan, Lawrence Hunter, and
+    collaborators at the University of Colorado Anschutz Medical Campus. Users combine
+    OBO Foundry ontologies with linked data sources, and relations between entities
+    are expressed with Relation Ontology properties. Construction is configurable
+    along three axes, knowledge model (class-based or instance-based), relation strategy
+    (standard directed relations or inverse bidirectional relations), and semantic
+    abstraction with OWL-NETS (which converts OWL-encoded graphs into simpler hybrid
+    graphs), yielding 12 variants of each knowledge graph build. Outputs include triple
+    edge lists, OWL RDF/XML, NetworkX MultiDiGraph pickles, node and relation metadata,
+    and graph embeddings, and prebuilt human disease knowledge graphs are shared as
+    benchmarks. The Python library is distributed on PyPI as pkt_kg under the Apache-2.0
+    license (latest GitHub release v3.1.2, November 2023), with Docker images and
+    SPARQL endpoint resources. The 2024 Scientific Data paper compares it with other
+    open-source knowledge graph construction methods and reports its computational
+    performance across 12 large-scale builds.
+  related_to:
+  - B2AI_STANDARD:388
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:716
+  requires_registration: false
+  url: https://github.com/callahantiff/PheKnowLator/wiki
+  has_application:
+  - id: B2AI_APP:481
+    category: B2AI:Application
+    name: Graph embedding and edge prediction on an RNA knowledge graph built with
+      PheKnowLator
+    description: RNA-KG, an RNA-centered knowledge graph of 60+ public sources, was
+      assembled with PheKnowLator from an RO-grounded meta-graph. Torgano and colleagues
+      applied LINE and node2vec embeddings with decision tree and random forest classifiers
+      to predict node types and edges in RNA-KG, reaching balanced accuracy above
+      90% for the 20 most common node types and above 80% for most specific edge prediction
+      tasks.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf109
+      ref_title: RNA knowledge-graph analysis through homogeneous embedding methods
+      ref_authors:
+      - Torgano F
+      - Soto Gomez M
+      - Zignani M
+      - Gliozzo J
+      - Cavalleri E
+      - Mesiti M
+      - Casiraghi E
+      - Valentini G
+      ref_publication_year: 2025
+      ref_journal: Bioinform Adv
+  publication:
+    ref_url: https://doi.org/10.1038/s41597-024-03171-w
+    ref_title: An open source knowledge graph ecosystem for the life sciences
+    ref_authors:
+    - Callahan TJ
+    - Tripodi IJ
+    - Stefanski AL
+    - Cappelletti L
+    - Taneja SB
+    - Wyrwa JM
+    - Casiraghi E
+    - Matentzoglu NA
+    - Reese J
+    - Silverstein JC
+    - Hoyt CT
+    - Boyce RD
+    - Malec SA
+    - Unni DR
+    - Joachimiak MP
+    - Robinson PN
+    - Mungall CJ
+    - Cavalleri E
+    - Fontana T
+    - Valentini G
+    - Mesiti M
+    - Gillenwater LA
+    - Santangelo B
+    - Vasilevsky NA
+    - Hoehndorf R
+    - Bennett TD
+    - Ryan PB
+    - Hripcsak G
+    - Kahn MG
+    - Bada M
+    - Baumgartner WA
+    - Hunter LE
+    ref_publication_year: 2024
+    ref_journal: Sci Data
