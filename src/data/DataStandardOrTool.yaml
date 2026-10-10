@@ -14228,6 +14228,9 @@ data_standardortools_collection:
     wastewater/sludge, and water environments. The specification is maintained as
     a YAML-formatted LinkML schema serving as the authoritative source for generating
     downstream GSC artifacts.
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:1325
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:38
@@ -23606,6 +23609,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:810
   - B2AI_STANDARD:1320
   - B2AI_STANDARD:1322
+  - B2AI_STANDARD:1324
   requires_registration: false
   url: https://linkml.io/linkml
   used_in_bridge2ai: true
@@ -28410,6 +28414,8 @@ data_standardortools_collection:
     and systems biology. By standardizing chemical nomenclature and structure representation,
     ChEBI enables reproducible chemical informatics and facilitates meta-analyses
     of chemical properties across research studies.'
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: https://www.ebi.ac.uk/chebi/
 - id: B2AI_STANDARD:419
@@ -29529,6 +29535,8 @@ data_standardortools_collection:
     ecology, and environmental health research supporting integration of environmental
     context across diverse domains studying human-environment interactions affecting
     health and disease.
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: http://environmentontology.org/
   publication:
@@ -30353,6 +30361,8 @@ data_standardortools_collection:
     ref_journal: npj Sci Food
   purpose_detail: A broadly scoped ontology representing entities which bear a "food
     role". It encompasses materials in natural ecosystems and agriculture tha...
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: https://foodon.org/
 - id: B2AI_STANDARD:451
@@ -30705,19 +30715,66 @@ data_standardortools_collection:
   - B2AI_TOPIC:13
   - B2AI_TOPIC:68
   - B2AI_TOPIC:69
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:67
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Genomic Epidemiology Ontology
   formal_specification: https://github.com/GenEpiO/genepio
+  has_relevant_organization:
+  - B2AI_ORG:75
+  - B2AI_ORG:191
   is_open: true
   name: GENEPIO
-  purpose_detail: Vocabulary necessary to identify, document and research foodborne
-    pathogens.
+  purpose_detail: 'The Genomic Epidemiology Ontology (GenEpiO) is an OBO Foundry application
+    ontology that provides standardized terms for the contextual data (metadata) that
+    accompany pathogen genome sequences in public health surveillance and outbreak
+    investigation: specimen and isolate descriptors, purpose of sampling, laboratory
+    and sequencing methods, bioinformatics and quality-control metrics, host and patient
+    information, exposures, and epidemiological case data. It began as a resource
+    for foodborne pathogen surveillance, developed alongside the companion Food Ontology
+    (FoodOn), and now also holds terms for SARS-CoV-2, mpox, antimicrobial resistance
+    and wastewater surveillance specifications. GenEpiO is developed by Damion Dooley,
+    Emma Griffiths, William Hsiao and colleagues at the Centre for Infectious Disease
+    Genomics and One Health (CIDGOH), Simon Fraser University. The 2026-04-13 release
+    (GitHub tag v0.9) contains 2,025 classes in the GENEPIO namespace and 9,159 classes
+    in total, the rest imported from more than 25 OBO ontologies including ChEBI,
+    NCBITaxon, UBERON, OBI, ENVO, FoodOn, DOID and IDO. It is built with the Ontology
+    Development Kit, distributed as OWL and OBO files through the OBO PURL, browsable
+    in OLS and Ontobee, and licensed CC BY 3.0. GenEpiO supplies the field and picklist
+    identifiers for the PHA4GE SARS-CoV-2 and mpox contextual data specifications
+    and for the pathogen templates in DataHarmonizer, which were used by the Canadian
+    COVID Genomics Network (CanCOGeN).'
+  related_to:
+  - B2AI_STANDARD:450
+  - B2AI_STANDARD:511
+  - B2AI_STANDARD:500
+  - B2AI_STANDARD:471
+  - B2AI_STANDARD:467
+  - B2AI_STANDARD:442
+  - B2AI_STANDARD:563
+  - B2AI_STANDARD:418
+  - B2AI_STANDARD:209
+  - B2AI_STANDARD:1324
+  - B2AI_STANDARD:1325
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:190
   url: http://genepio.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.3389/fmicb.2017.01068
+    ref_title: 'Context Is Everything: Harmonization of Critical Food Microbiology
+      Descriptors and Metadata for Improved Food Safety and Surveillance'
+    ref_authors:
+    - Griffiths E
+    - Dooley D
+    - Graham M
+    - Van Domselaar G
+    - Brinkman FSL
+    - Hsiao WWL
+    ref_publication_year: 2017
+    ref_journal: Front Microbiol
 - id: B2AI_STANDARD:456
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -31266,6 +31323,8 @@ data_standardortools_collection:
     literature annotation, drug discovery pipelines, and epidemiological studies where
     consistent disease terminology is essential for data integration and comparative
     analysis.
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: http://www.disease-ontology.org
   publication:
@@ -31377,6 +31436,7 @@ data_standardortools_collection:
   purpose_detail: A set of interoperable ontologies that will together provide coverage
     of the infectious disease domain. IDO core is the upper-level ontology...
   related_to:
+  - B2AI_STANDARD:455
   - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/infectious-disease-ontology/infectious-disease-ontology
@@ -32866,6 +32926,8 @@ data_standardortools_collection:
     DeepSets and Set Transformers, using amplicon sequence variants aligned to NCBI
     taxa as embedding matrix rows, and injecting taxonomy trees into neural architectures
     and loss functions for hierarchical classification with evolutionary context).'
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: http://www.ncbi.nlm.nih.gov/taxonomy
   has_application:
@@ -33592,6 +33654,7 @@ data_standardortools_collection:
     ref_journal: PLoS ONE
   purpose_detail: Description of life-science and clinical investigations.
   related_to:
+  - B2AI_STANDARD:455
   - B2AI_STANDARD:512
   requires_registration: false
   url: http://obi-ontology.org
@@ -36202,6 +36265,7 @@ data_standardortools_collection:
     data across species and enabling cross-species knowledge transfer in biomedical
     machine learning models.
   related_to:
+  - B2AI_STANDARD:455
   - B2AI_STANDARD:575
   - B2AI_STANDARD:1312
   requires_registration: false
@@ -67721,3 +67785,175 @@ data_standardortools_collection:
   url: https://www.schematron.com/
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1324
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:68
+  - B2AI_TOPIC:69
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:78
+  - B2AI_TOPIC:60
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Browser-based spreadsheet editor and validator for harmonizing pathogen
+    genomics contextual data
+  formal_specification: https://github.com/cidgoh/DataHarmonizer
+  has_relevant_organization:
+  - B2AI_ORG:191
+  is_open: true
+  name: DataHarmonizer
+  purpose_detail: DataHarmonizer is a template-driven spreadsheet application for
+    entering, validating and transforming genomics contextual data (sample metadata,
+    laboratory methods, host and epidemiological information) into submission-ready
+    formats for public or private repositories. It runs as a JavaScript application
+    in a web browser and can be installed locally and used offline, so sensitive data
+    need not leave the user's machine. Templates are defined as LinkML schemas; fields
+    and picklist values in the pathogen templates carry ontology identifiers, largely
+    from GenEpiO. It was created by the Centre for Infectious Disease Genomics and
+    One Health (CIDGOH) at Simon Fraser University during the COVID-19 pandemic and
+    was used by members of the Canadian COVID Genomics Network (CanCOGeN) to harmonize
+    SARS-CoV-2 contextual data for national surveillance and repository submission.
+    The stand-alone Pathogen Genomics Package includes CanCOGeN Covid-19, PHA4GE SARS-CoV-2
+    and mpox templates. The project is now an open-source collaboration with the National
+    Microbiome Data Collaborative (NMDC), whose data portal uses the DataHarmonizer
+    API for metadata collection, and the LinkML team. The code is on GitHub under
+    the MIT license.
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:1325
+  - B2AI_STANDARD:347
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:190
+  url: https://github.com/cidgoh/DataHarmonizer
+  publication:
+    ref_url: https://doi.org/10.1099/mgen.0.000908
+    ref_title: 'The DataHarmonizer: a tool for faster data harmonization, validation,
+      aggregation and analysis of pathogen genomics contextual information'
+    ref_authors:
+    - Gill IS
+    - Griffiths EJ
+    - Dooley D
+    - Cameron R
+    - Savić Kallesøe S
+    - John NS
+    - Sehar A
+    - Gosal G
+    - Alexander D
+    - Chapel M
+    - Croxen MA
+    - Delisle B
+    - Di Tullio R
+    - Gaston D
+    - Duggan A
+    - Guthrie JL
+    - Horsman M
+    - Joshi E
+    - Kearny L
+    - Knox N
+    - Lau L
+    - LeBlanc JJ
+    - Li V
+    - Lyons P
+    - MacKenzie K
+    - McArthur AG
+    - Panousis EM
+    - Palmer J
+    - Prystajecky N
+    - Smith KN
+    - Tanner J
+    - Townend C
+    - Tyler A
+    - Van Domselaar G
+    - Hsiao WWL
+    ref_publication_year: 2023
+    ref_journal: Microb Genom
+- id: B2AI_STANDARD:1325
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - minimuminformationschema
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:68
+  - B2AI_TOPIC:69
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:67
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Public Health Alliance for Genomic Epidemiology SARS-CoV-2 contextual
+    data specification
+  formal_specification: https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification
+  has_relevant_organization:
+  - B2AI_ORG:190
+  - B2AI_ORG:120
+  is_open: true
+  name: PHA4GE SARS-CoV-2 Contextual Data Specification
+  purpose_detail: The PHA4GE SARS-CoV-2 contextual data specification is a community
+    metadata standard for the sample, laboratory, clinical, epidemiological and analysis-method
+    information that accompanies SARS-CoV-2 genome sequences. It was developed by
+    the Data Structures working group of the Public Health Alliance for Genomic Epidemiology
+    (PHA4GE), a global coalition promoting open, interoperable public health microbial
+    bioinformatics. The package includes a spreadsheet collection template with required,
+    recommended and optional fields, a reference guide with field definitions and
+    examples, ontology-mapped picklists, a machine-readable JSON schema, an SOP on
+    protocols.io, and mappings of PHA4GE fields to WHO-recommended data elements and
+    to GISAID, ENA and NCBI submission fields, with step-by-step submission protocols
+    for each repository. In the standardized-terms file in the GitHub repository,
+    130 fields are listed (13 required, 12 recommended), and 127 carry GenEpiO identifiers.
+    Version 3.0.0 was released in December 2021 and v3.0.2 in February 2022. The specification
+    is supported by NCBI BioSample and is implemented as a DataHarmonizer template.
+    Materials are released under CC BY 4.0.
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:1324
+  - B2AI_STANDARD:209
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:191
+  url: https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification
+  publication:
+    ref_url: https://doi.org/10.1093/gigascience/giac003
+    ref_title: 'Future-proofing and maximizing the utility of metadata: The PHA4GE
+      SARS-CoV-2 contextual data specification package'
+    ref_authors:
+    - Griffiths EJ
+    - Timme RE
+    - Mendes CI
+    - Page AJ
+    - Alikhan NF
+    - Fornika D
+    - Maguire F
+    - Campos J
+    - Park D
+    - Olawoye IB
+    - Oluniyi PE
+    - Anderson D
+    - Christoffels A
+    - da Silva AG
+    - Cameron R
+    - Dooley D
+    - Katz LS
+    - Black A
+    - Karsch-Mizrachi I
+    - Barrett T
+    - Johnston A
+    - Connor TR
+    - Nicholls SM
+    - Witney AA
+    - Tyson GH
+    - Tausch SH
+    - Raphenya AR
+    - Alcock B
+    - Aanensen DM
+    - Hodcroft E
+    - Hsiao WWL
+    - Vasconcelos ATR
+    - MacCannell DR
+    ref_publication_year: 2022
+    ref_journal: Gigascience
