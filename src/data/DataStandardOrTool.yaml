@@ -18828,6 +18828,8 @@ data_standardortools_collection:
     data itself, and pointers to third party controlled vocabularies. In general,
     each data element in the data dictionary is associated with a third party controlled
     vocabulary to make it easier for applications to harmonize two or more PFB files.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://anvilproject.org/ncpi/technologies#portable-format-for-bioinformatics-pfb
 - id: B2AI_STANDARD:262
@@ -26491,6 +26493,8 @@ data_standardortools_collection:
     portability not only across execution platforms, but also different types of users.
     Whether one is an analyst, a programmer, an operator of a production system, or
     any other sort of user, WDL should be accessible and understandable.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://openwdl.org/
   has_application:
@@ -28989,6 +28993,8 @@ data_standardortools_collection:
     ensures that informed consent language translates into machine-readable terms,
     accelerating responsible data reuse for AI/ML training datasets, clinical phenotyping,
     and genomic diagnostics while maintaining participant privacy and ethical oversight.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://github.com/EBISPOT/DUO
   publication:
@@ -37233,6 +37239,8 @@ data_standardortools_collection:
     project conducts regular workflows and workshops establishing best practices for
     current and emerging assay types, supporting researchers in developing rigorous,
     interpretable machine learning models grounded in biological methodology standards.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://www.bioconductor.org/
   publication:
@@ -37437,6 +37445,8 @@ data_standardortools_collection:
     Dockstore supports scalable workflow execution on local clusters, cloud platforms,
     and high-performance computing systems, making advanced bioinformatics accessible
     to researchers regardless of their computational expertise.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://dockstore.org/
   publication:
@@ -39191,6 +39201,8 @@ data_standardortools_collection:
     - Gentry J
     ref_publication_year: 2017
   purpose_detail: Cromwell is an open-source Workflow Management System for bioinformatics.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://cromwell.readthedocs.io/en/stable/
 - id: B2AI_STANDARD:748
@@ -39273,6 +39285,8 @@ data_standardortools_collection:
     data objects. The DRS is designed to be used in conjunction with the GA4GH Data
     Repository Service API, which provides a standard way to access data objects in
     a data repository.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://ga4gh.github.io/data-repository-service-schemas/preview/release/drs-1.2.0/docs/
   publication:
@@ -40099,6 +40113,7 @@ data_standardortools_collection:
     biomedical research.
   related_to:
   - B2AI_STANDARD:334
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://usegalaxy.org/
 - id: B2AI_STANDARD:767
@@ -40942,6 +40957,8 @@ data_standardortools_collection:
     research reporting. The broader Jupyter project also provides open standards
     and web services that support interactive computing beyond the classic notebook
     interface.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://jupyter.org/
   used_in_bridge2ai: true
@@ -42757,27 +42774,258 @@ data_standardortools_collection:
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
   - cloudplatform
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:59
   - B2AI_TOPIC:60
   - B2AI_TOPIC:61
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: NHGRI Analysis Visualization and Informatics Lab-space
+  description: NHGRI Genomic Data Science Analysis, Visualization, and Informatics
+    Lab-space, a federated cloud platform for genomic data
   formal_specification: https://github.com/anvilproject
   has_relevant_organization:
   - B2AI_ORG:73
+  - B2AI_ORG:147
+  - B2AI_ORG:187
+  - B2AI_ORG:130
   has_training_resource:
   - B2AI_STANDARD:1091
   is_open: true
   name: AnVIL
-  purpose_detail: AnVIL is NHGRI's Genomic Data Science Analysis, Visualization, and
-    Informatics Lab-Space.
+  purpose_detail: 'AnVIL (Genomic Data Science Analysis, Visualization, and Informatics
+    Lab-space) is the National Human Genome Research Institute''s cloud platform for
+    storing, sharing, and analyzing genomic and related data. It inverts the download-and-analyze
+    model: controlled-access and open datasets stay in cloud storage and researchers
+    bring compute to them in billed workspaces. AnVIL is funded through NHGRI cooperative
+    agreements to the Broad Institute and Johns Hopkins University and assembles existing
+    open-source components: Terra (workspaces, WDL batch workflows run by Cromwell,
+    Jupyter and RStudio environments), Dockstore (containerized CWL, WDL and Nextflow
+    workflows), Bioconductor, Galaxy, and a Data Explorer for cross-dataset cohort
+    building; the original architecture also used Gen3 for data management and querying.
+    It runs on Google Cloud Platform. The 2022 description reported more than 200
+    NHGRI-sponsored datasets, over 15,000 users, and a FedRAMP-certified environment
+    following NIST SP 800-53. Hosted consortia include CCDG, CMG, GREGoR, eMERGE,
+    GTEx, CSER, PAGE, PRIMED, CARD, the Human Pangenome Reference Consortium, T2T,
+    and the open-access 1000 Genomes Project. Controlled-access data are granted through
+    dbGaP and Data Access Committees, with a DUOS pilot that encodes consent terms
+    using the GA4GH Data Use Ontology. Users sign in through the NIH Researcher Auth
+    Service. AnVIL is a member of the NIH Cloud Platform Interoperability (NCPI) effort
+    alongside BioData Catalyst, Kids First, and the NCI Cancer Research Data Commons.'
+  related_to:
+  - B2AI_STANDARD:832
+  - B2AI_STANDARD:711
+  - B2AI_STANDARD:1158
+  - B2AI_STANDARD:705
+  - B2AI_STANDARD:766
+  - B2AI_STANDARD:779
+  - B2AI_STANDARD:389
+  - B2AI_STANDARD:747
+  - B2AI_STANDARD:433
+  - B2AI_STANDARD:751
+  - B2AI_STANDARD:261
+  - B2AI_STANDARD:1318
+  - B2AI_STANDARD:1319
   requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:73
   url: https://anvilproject.org/
+  has_application:
+  - id: B2AI_APP:485
+    category: B2AI:Application
+    name: Random forest ancestry prediction for Hardy-Weinberg testing in AnVIL-hosted
+      CCDG genomes
+    description: Shyr et al. trained a random forest on the first 15 genetic principal
+      components of 1000 Genomes reference samples to assign 11 homogeneous ancestry
+      groups, then fit a Gaussian mixture model to the samples left unassigned. They
+      applied the semi-supervised method to 60,545 whole genomes from the NHGRI Centers
+      for Common Disease Genomics, the CCDG data distributed through AnVIL, labeling
+      about 95% of samples into 18 groups. HWE testing within predicted groups removed
+      0.3% of variants at p < 1e-5, compared with 19% when grouping by self-reported
+      race and ethnicity.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.ajhg.2024.08.018
+      ref_title: Semi-supervised machine learning method for predicting homogeneous
+        ancestry groups to assess Hardy-Weinberg equilibrium in diverse whole-genome
+        sequencing studies
+      ref_authors:
+      - Shyr D
+      - Dey R
+      - Li X
+      - Zhou H
+      - Boerwinkle E
+      - Buyske S
+      - Daly M
+      - Gibbs RA
+      - Hall I
+      - Matise T
+      - Reeves C
+      - Stitziel NO
+      - Zody M
+      - Neale BM
+      - Lin X
+      ref_publication_year: 2024
+      ref_journal: Am J Hum Genet
+  - id: B2AI_APP:486
+    category: B2AI:Application
+    name: Deep-learning variant calling of nanopore genomes on Terra in AnVIL
+    description: The Napu protocol for population-scale Oxford Nanopore sequencing,
+      developed for the NIH Center for Alzheimer's and Related Dementias, calls small
+      variants with the deep-learning PEPPER-Margin-DeepVariant pipeline and phases
+      small and structural variants. The analysis ran in the Terra compute environment
+      that underlies AnVIL, taking 22-25 wall-clock hours per 30-40x sample, and the
+      cell-line data are openly available through an AnVIL workspace. SNV calling
+      from a single PromethION flow cell reached F1 scores comparable to Illumina
+      short reads.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41592-023-01993-x
+      ref_title: Scalable Nanopore sequencing of human genomes provides a comprehensive
+        view of haplotype-resolved variation and methylation
+      ref_authors:
+      - Kolmogorov M
+      - Billingsley KJ
+      - Mastoras M
+      - Meredith M
+      - Monlong J
+      - Lorig-Roach R
+      - Asri M
+      - Alvarez Jerez P
+      - Malik L
+      - Dewan R
+      - Reed X
+      - Genner RM
+      - Daida K
+      - Behera S
+      - Shafin K
+      - Pesout T
+      - Prabakaran J
+      - Carnevali P
+      - Yang J
+      - Rhie A
+      - Scholz SW
+      - Traynor BJ
+      - Miga KH
+      - Jain M
+      - Timp W
+      - Phillippy AM
+      - Chaisson M
+      - Sedlazeck FJ
+      - Blauwendraat C
+      - Paten B
+      ref_publication_year: 2023
+      ref_journal: Nat Methods
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.xgen.2021.100085
+    ref_title: Inverting the model of genomics data sharing with the NHGRI Genomic
+      Data Science Analysis, Visualization, and Informatics Lab-space
+    ref_authors:
+    - Schatz MC
+    - Philippakis AA
+    - Afgan E
+    - Banks E
+    - Carey VJ
+    - Carroll RJ
+    - Culotti A
+    - Ellrott K
+    - Goecks J
+    - Grossman RL
+    - Hall IM
+    - Hansen KD
+    - Lawson J
+    - Leek JT
+    - Luria AO
+    - Mosher S
+    - Morgan M
+    - Nekrutenko A
+    - O'Connor BD
+    - Osborn K
+    - Paten B
+    - Patterson C
+    - Tan FJ
+    - Taylor CO
+    - Vessio J
+    - Waldron L
+    - Wang T
+    - Wuichet K
+    - Baumann A
+    - Rula A
+    - Kovalsy A
+    - Bernard C
+    - Caetano-Anollés D
+    - Van der Auwera GA
+    - Canas J
+    - Yuksel K
+    - Herman K
+    - Taylor MM
+    - Simeon M
+    - Baumann M
+    - Wang Q
+    - Title R
+    - Munshi R
+    - Chaluvadi S
+    - Reeves V
+    - Disman W
+    - Thomas S
+    - Hajian A
+    - Kiernan E
+    - Gupta N
+    - Vosburg T
+    - Geistlinger L
+    - Ramos M
+    - Oh S
+    - Rogers D
+    - McDade F
+    - Hastie M
+    - Turaga N
+    - Ostrovsky A
+    - Mahmoud A
+    - Baker D
+    - Clements D
+    - Cox KE
+    - Suderman K
+    - Kucher N
+    - Golitsynskiy S
+    - Zarate S
+    - Wheelan SJ
+    - Kammers K
+    - Stevens A
+    - Hutter C
+    - Wellington C
+    - Ghanaim EM
+    - Wiley KL
+    - Sen SK
+    - Di Francesco V
+    - Yuen D
+    - Walsh B
+    - Sargent L
+    - Jalili V
+    - Chilton J
+    - Shepherd L
+    - Stubbs B
+    - O'Farrell A
+    - Vizzier BA
+    - Overbeck C
+    - Reid C
+    - Steinberg DC
+    - Sheets EA
+    - Lucas J
+    - Blauvelt L
+    - Cabansay L
+    - Warren N
+    - Hannafious B
+    - Harris T
+    - Reddy R
+    - Torstenson E
+    - Banasiewicz MK
+    - Abel HJ
+    - Walker J
+    ref_publication_year: 2022
+    ref_journal: Cell Genom
 - id: B2AI_STANDARD:809
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -44511,6 +44759,9 @@ data_standardortools_collection:
     infrastructure has established it as essential infrastructure for the genomics
     research community, enabling researchers to focus on scientific questions rather
     than computational logistics.'
+  related_to:
+  - B2AI_STANDARD:808
+  - B2AI_STANDARD:1319
   requires_registration: true
   url: https://app.terra.bio/
   has_application:
@@ -57537,6 +57788,7 @@ data_standardortools_collection:
   related_to:
   - B2AI_STANDARD:261
   - B2AI_STANDARD:751
+  - B2AI_STANDARD:808
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:129
@@ -66821,3 +67073,116 @@ data_standardortools_collection:
     - Musen MA
     ref_publication_year: 2017
     ref_journal: Lect Notes Comput Sci
+- id: B2AI_STANDARD:1318
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:60
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: seqr, a web-based variant search, analysis, and collaboration tool
+    for rare disease genomics
+  formal_specification: https://github.com/broadinstitute/seqr
+  is_open: true
+  name: seqr
+  purpose_detail: seqr is an open-source web application for family-based analysis
+    of exome and genome callsets in monogenic disease, developed and maintained by
+    the Broad Institute Center for Mendelian Genomics team. Users load joint-called
+    VCFs with pedigree information, then filter variants by inheritance mode, allele
+    frequency, predicted consequence, and pathogenicity annotations, tag candidate
+    causal variants, and share notes with collaborators. The 2022 paper reports that
+    within the Broad Center for Mendelian Genomics seqr had supported analysis of
+    more than 10,000 families, diagnosis of more than 3,800 individuals, and discovery
+    of over 300 novel disease genes, and that it was also in use by one clinical diagnostic
+    laboratory. The current stack is a Django/Python and React application with PostgreSQL
+    for metadata, ClickHouse for variant data, Redis for caching, and Hail pipelines
+    for loading datasets; the Broad production instance runs on Google Kubernetes
+    Engine, and on-premises installs are deployed with Helm. The code is released
+    under AGPL-3.0. AnVIL users can send a joint-called VCF from a Terra workspace
+    to the Broad seqr instance with the workspace's Analyze in seqr option.
+  related_to:
+  - B2AI_STANDARD:808
+  - B2AI_STANDARD:1319
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:147
+  url: https://seqr.broadinstitute.org/
+  publication:
+    ref_url: https://doi.org/10.1002/humu.24366
+    ref_title: 'seqr: A web-based analysis and collaboration tool for rare disease
+      genomics'
+    ref_authors:
+    - Pais LS
+    - Snow H
+    - Weisburd B
+    - Zhang S
+    - Baxter SM
+    - DiTroia S
+    - O'Heir E
+    - England E
+    - Chao KR
+    - Lemire G
+    - Osei-Owusu I
+    - VanNoy GE
+    - Wilson M
+    - Nguyen K
+    - Arachchi H
+    - Phu W
+    - Solomonson M
+    - Mano S
+    - O'Leary M
+    - Lovgren A
+    - Babb L
+    - Austin-Tse CA
+    - Rehm HL
+    - MacArthur DG
+    - O'Donnell-Luria A
+    ref_publication_year: 2022
+    ref_journal: Hum Mutat
+- id: B2AI_STANDARD:1319
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:61
+  - B2AI_TOPIC:74
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Hail, an open-source Python library for scalable genomic data analysis
+  formal_specification: https://github.com/hail-is/hail
+  is_open: true
+  name: Hail
+  purpose_detail: Hail is an open-source library for analyzing genomic data at biobank
+    scale, developed by the Hail team at the Broad Institute and released under the
+    MIT license. Hail Query provides a Python dataframe-style interface built around
+    the MatrixTable, a distributed structure that combines a variant-by-sample genotype
+    matrix with row, column, and entry fields, and imports and exports VCF, BGEN,
+    and PLINK files. It includes routines for sample and variant quality control,
+    principal component analysis, relatedness estimation, linear and logistic regression
+    for GWAS, and annotation, and it scales from a laptop to Spark clusters in the
+    cloud. Hail Batch, the second component, runs containerized command-line tools
+    such as PLINK and SAIGE in parallel on cloud compute. The project's site cites
+    its use for UK Biobank, gnomAD, TOPMed, FinnGen, and Biobank Japan analyses. Release
+    0.2.139 was published in August 2026. seqr uses Hail pipelines to load variant
+    callsets. There is no peer-reviewed paper describing Hail.
+  related_to:
+  - B2AI_STANDARD:808
+  - B2AI_STANDARD:832
+  - B2AI_STANDARD:1318
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:147
+  url: https://hail.is/
+  publication:
+    ref_url: ''
