@@ -449,6 +449,7 @@ data_standardortools_collection:
     unique advantages through an explicit semantic model of imaging results.'
   related_to:
   - B2AI_STANDARD:98
+  - B2AI_STANDARD:541
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:71
@@ -1566,6 +1567,8 @@ data_standardortools_collection:
     clinical databases, molecular biology repositories, and literature mining systems.
     It serves as the foundational schema for knowledge graphs in the Biomedical Data
     Translator project and other large-scale biomedical data integration efforts.
+  related_to:
+  - B2AI_STANDARD:543
   requires_registration: false
   url: https://biolink.github.io/biolink-model/
   used_in_bridge2ai: true
@@ -1724,6 +1727,8 @@ data_standardortools_collection:
     BRIDG fundamentally advances biomedical research data governance by providing
     a shared semantic foundation that enables data harmonization, regulatory compliance,
     and collaborative research across institutional and international boundaries.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   url: https://bridgmodel.nci.nih.gov/
 - id: B2AI_STANDARD:29
@@ -3495,6 +3500,8 @@ data_standardortools_collection:
     is increasingly mandated by regulatory bodies and funders, making it essential
     for translating clinical research data into machine-readable formats suitable
     for automated analysis and regulatory approval.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:15
@@ -3541,6 +3548,8 @@ data_standardortools_collection:
     CDISC provides a library of ready-to-use, CDASH-compliant annotated eCRFs in multiple
     formats (PDF, HTML, XML) that can be implemented as-is or customized for specific
     study needs, facilitating regulatory submission and data review processes.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:15
@@ -4953,6 +4962,8 @@ data_standardortools_collection:
     from diverse EHR systems. While increasingly superseded by FHIR for new implementations,
     C-CDA remains widely deployed in U.S. healthcare infrastructure and continues
     to serve critical roles in document exchange and interoperability.
+  related_to:
+  - B2AI_STANDARD:1323
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:40
@@ -11612,6 +11623,8 @@ data_standardortools_collection:
     features or labels in phenotyping and risk-prediction workflows, and interpreted
     reproducibly when code-system version, encounter context, and provenance are
     captured.
+  related_to:
+  - B2AI_STANDARD:225
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:14
@@ -12513,6 +12526,9 @@ data_standardortools_collection:
     for laboratory data exchange. Real-world deployment across thousands of healthcare
     organizations demonstrates LOINC's critical role in enabling data sharing and
     clinical decision support.
+  related_to:
+  - B2AI_STANDARD:541
+  - B2AI_STANDARD:1311
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:53
@@ -14212,6 +14228,9 @@ data_standardortools_collection:
     wastewater/sludge, and water environments. The specification is maintained as
     a YAML-formatted LinkML schema serving as the authoritative source for generating
     downstream GSC artifacts.
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:1325
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:38
@@ -15219,6 +15238,8 @@ data_standardortools_collection:
   purpose_detail: Terminology content, tools, and services to accurately code, analyze
     and share cancer and biomedical research, clinical and public health information.
     Includes NCI Thesaurus and Metathesaurus.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:71
@@ -15230,6 +15251,7 @@ data_standardortools_collection:
   collection:
   - standards_process_maturity_final
   - implementation_maturity_production
+  - datamodel
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:9
@@ -15238,18 +15260,107 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: National Emergency Medical Services Information System
+  formal_specification: https://nemsis.org/technical-resources/version-3/version-3-data-dictionaries/
   has_relevant_organization:
   - B2AI_ORG:66
+  - B2AI_ORG:188
   has_training_resource:
   - B2AI_STANDARD:991
   is_open: true
   name: NEMSIS
-  purpose_detail: Standard for the collection and transmission of emergency medical
-    services (EMS) operations and patient care data.
+  purpose_detail: The National Emergency Medical Services Information System (NEMSIS)
+    is the U.S. national data standard for documenting and exchanging emergency medical
+    services (EMS) operations and patient care records, together with the national
+    repository built from those records. It is a program of the National Highway Traffic
+    Safety Administration (NHTSA) Office of EMS, and its Technical Assistance Center
+    (TAC) has been operated by the University of Utah School of Medicine since 2005.
+    NEMSIS began in 2001 with the National Association of State EMS Directors; Version
+    3 standard was released in beta in 2011 and finalized in 2013, Version 2 was closed
+    in 2017, and v3.5.0 was released in 2019. The current releases (v3.5.0 and v3.5.1)
+    define three XML datasets, EMSDataSet (patient care report/event), DEMDataSet
+    (agency demographics), and StateDataSet, each published as a data dictionary and
+    XML Schema (XSD), with ISO Schematron rules that enforce national and state business
+    rules the XSD cannot express. Coded elements draw on external terminologies, for
+    example ICD-10-CM for provider primary impression, RxNorm for medications administered,
+    and SNOMED CT for procedures. Artifacts are distributed through nemsis.org and
+    a public Git server (git.nemsis.org), with a web services specification for data
+    exchange. State-submitted records form the National EMS Database; the de-identified
+    Public-Release Research Dataset for 2025 contains 63,635,893 EMS activations from
+    14,801 agencies in 54 states and territories and is available to researchers on
+    request.
+  related_to:
+  - B2AI_STANDARD:174
+  - B2AI_STANDARD:544
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:1323
   requires_registration: false
-  url: https://nemsis.org/technical-resources/
+  responsible_organization:
+  - B2AI_ORG:66
+  url: https://nemsis.org/
+  has_application:
+  - id: B2AI_APP:491
+    category: B2AI:Application
+    name: Random forest prediction of cardiac arrest during transport of trauma patients
+    description: Kitano and colleagues extracted NEMSIS records for patients with
+      blunt trauma from traffic accidents and falls (January 2018 to December 2019)
+      and trained a random forest model on prehospital EMS variables to predict cardiac
+      arrest during transport. The model reached an area under the curve of 0.95 and
+      a negative predictive value of 0.99, with the AVPU responsiveness scale and
+      oxygen saturation as the most important features.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1272/jnms.jnms.2023_90-206
+      ref_title: Development of a Machine Learning Model to Predict Cardiac Arrest
+        during Transport of Trauma Patients
+      ref_authors:
+      - Kitano S
+      - Ogawa K
+      - Igarashi Y
+      - Nishimura K
+      - Osawa S
+      - Suzuki K
+      - Fujimoto K
+      - Harada S
+      - Narikawa K
+      - Tagami T
+      - Ohwada H
+      - Yokobori S
+      - Ogawa S
+      - Yokota H
+      ref_publication_year: 2023
+      ref_journal: J Nippon Med Sch
+  - id: B2AI_APP:492
+    category: B2AI:Application
+    name: Machine learning prediction of prehospital blood transfusion after motor
+      vehicle crashes
+    description: Using 2024 and 2025 NEMSIS data on 9-1-1 responses to motor vehicle
+      crashes, the authors built a derivation cohort of 303,383 activations from agencies
+      with active prehospital blood transfusion programs and used random forest and
+      ridge-penalized logistic regression to select demographic, physiologic, clinical,
+      and operational predictors of transfusion. The ridge-selected model reached
+      an AUC of 0.942 and the random forest-selected model 0.901; the final models
+      were applied to the remaining national NEMSIS cohort to estimate where patients
+      likely to need prehospital transfusion are located.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1080/10903127.2026.2713132
+      ref_title: Predicting Prehospital Blood Transfusion After Motor Vehicle Trauma
+      ref_authors:
+      - Pope A
+      - Zadra J
+      - Page K
+      - Fisher B
+      - Race J
+      - Mann NC
+      ref_publication_year: 2026
+      ref_journal: Prehosp Emerg Care
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1080/10903120600724200
+    ref_title: National Emergency Medical Services Information System (NEMSIS)
+    ref_authors:
+    - Dawson DE
+    ref_publication_year: 2006
+    ref_journal: Prehosp Emerg Care
 - id: B2AI_STANDARD:226
   category: B2AI_STANDARD:BiomedicalStandard
   concerns_data_topic:
@@ -15273,6 +15384,8 @@ data_standardortools_collection:
     FDA Mini-Sentinel CDM. This allows PCORnet to more easily leverage the large array
     of analytic tools and expertise developed for the MSCDM v4.0, including data characterization
     approaches and the various tools for complex distributed analytics.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:81
@@ -16799,11 +16912,12 @@ data_standardortools_collection:
     reusable clinical features, transparent phenotype definitions, and comparable
     validation across heterogeneous healthcare systems.
   related_to:
-  - B2AI_STANDARD:733
   - B2AI_STANDARD:692
   - B2AI_STANDARD:695
   - B2AI_STANDARD:698
   - B2AI_STANDARD:703
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:733
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:76
@@ -17335,6 +17449,10 @@ data_standardortools_collection:
     format balances human readability for manual curation with machine-parseability
     for computational workflows, semantic reasoning, data annotation, and integration
     into knowledge graphs supporting AI/ML applications in biomedicine.
+  related_to:
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1322
   requires_registration: false
   url: https://owlcollab.github.io/oboformat/doc/GO.format.obo-1_4.html
   publication:
@@ -17968,6 +18086,8 @@ data_standardortools_collection:
     phenotyping and diagnostic support, and provides the foundation for international
     data sharing initiatives including matchmaking services that connect patients
     with similar phenotypes for clinical research and trial recruitment.
+  related_to:
+  - B2AI_STANDARD:1313
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:34
@@ -18807,6 +18927,8 @@ data_standardortools_collection:
     data itself, and pointers to third party controlled vocabularies. In general,
     each data element in the data dictionary is associated with a third party controlled
     vocabulary to make it easier for applications to harmonize two or more PFB files.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://anvilproject.org/ncpi/technologies#portable-format-for-bioinformatics-pfb
 - id: B2AI_STANDARD:262
@@ -23483,6 +23605,11 @@ data_standardortools_collection:
     schemas in YAML that describe the structure of your data. Additionally, it is
     a framework for working with and validating data in a variety of formats (JSON,
     RDF, TSV), with generators for compiling LinkML schemas to other frameworks.
+  related_to:
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1320
+  - B2AI_STANDARD:1322
+  - B2AI_STANDARD:1324
   requires_registration: false
   url: https://linkml.io/linkml
   used_in_bridge2ai: true
@@ -25794,6 +25921,8 @@ data_standardortools_collection:
     a TSV-based representation for ontology term mappings, a comprehensive set of
     standard metadata elements to describe mappings, and a standard translation between
     the TSV and the Web Ontology Language (OWL).
+  related_to:
+  - B2AI_STANDARD:810
   requires_registration: false
   url: https://mapping-commons.github.io/sssom/
 - id: B2AI_STANDARD:379
@@ -26277,6 +26406,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:187
   - B2AI_STANDARD:252
   - B2AI_STANDARD:566
+  - B2AI_STANDARD:714
   - B2AI_STANDARD:1296
   - B2AI_STANDARD:1297
   - B2AI_STANDARD:1298
@@ -26434,6 +26564,11 @@ data_standardortools_collection:
     and data values and are stored as Semantic Web documents. OWL 2 ontologies can
     be used along with information written in RDF, and OWL 2 ontologies themselves
     are primarily exchanged as RDF documents.
+  related_to:
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1315
+  - B2AI_STANDARD:1322
   requires_registration: false
   url: https://www.w3.org/TR/owl-overview/
   publication:
@@ -26466,6 +26601,8 @@ data_standardortools_collection:
     portability not only across execution platforms, but also different types of users.
     Whether one is an analyst, a programmer, an operator of a production system, or
     any other sort of user, WDL should be accessible and understandable.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://openwdl.org/
   has_application:
@@ -27846,6 +27983,9 @@ data_standardortools_collection:
     for explainable AI, and principled ontology alignment, supporting knowledge-driven
     machine learning where symbolic foundations enhance statistical learning with
     formal semantics.
+  related_to:
+  - B2AI_STANDARD:512
+  - B2AI_STANDARD:543
   requires_registration: false
   url: http://basic-formal-ontology.org/
 - id: B2AI_STANDARD:409
@@ -27919,6 +28059,8 @@ data_standardortools_collection:
     ref_journal: J Biomed Sem
   purpose_detail: Spatial concepts, anatomical axes, gradients, regions, planes, sides,
     and surfaces.
+  related_to:
+  - B2AI_STANDARD:575
   requires_registration: false
   url: https://github.com/obophenotype/biological-spatial-ontology
 - id: B2AI_STANDARD:412
@@ -28047,6 +28189,8 @@ data_standardortools_collection:
     of genetic variants affecting cardiovascular traits, pharmacogenomic variants
     influencing drug response in cardiac medications, and biomarker-stratified treatment
     strategies.
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/OpenLHS/CVDO
   publication:
@@ -28270,6 +28414,8 @@ data_standardortools_collection:
     and systems biology. By standardizing chemical nomenclature and structure representation,
     ChEBI enables reproducible chemical informatics and facilitates meta-analyses
     of chemical properties across research studies.'
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: https://www.ebi.ac.uk/chebi/
 - id: B2AI_STANDARD:419
@@ -28853,6 +28999,8 @@ data_standardortools_collection:
     versioning), and undergoes periodic releases coordinated with major OBO ontology
     updates to ensure ecosystem-wide compatibility as biological knowledge and ontology
     best practices evolve.
+  related_to:
+  - B2AI_STANDARD:543
   requires_registration: false
   url: https://github.com/OBOFoundry/COB
   publication:
@@ -28955,6 +29103,8 @@ data_standardortools_collection:
     ensures that informed consent language translates into machine-readable terms,
     accelerating responsible data reuse for AI/ML training datasets, clinical phenotyping,
     and genomic diagnostics while maintaining participant privacy and ethical oversight.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://github.com/EBISPOT/DUO
   publication:
@@ -29385,6 +29535,8 @@ data_standardortools_collection:
     ecology, and environmental health research supporting integration of environmental
     context across diverse domains studying human-environment interactions affecting
     health and disease.
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: http://environmentontology.org/
   publication:
@@ -29423,6 +29575,7 @@ data_standardortools_collection:
     context.
   related_to:
   - B2AI_STANDARD:447
+  - B2AI_STANDARD:484
   requires_registration: false
   url: https://github.com/EnvironmentOntology/environmental-exposure-ontology
   has_application:
@@ -30208,6 +30361,8 @@ data_standardortools_collection:
     ref_journal: npj Sci Food
   purpose_detail: A broadly scoped ontology representing entities which bear a "food
     role". It encompasses materials in natural ecosystems and agriculture tha...
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: https://foodon.org/
 - id: B2AI_STANDARD:451
@@ -30523,6 +30678,10 @@ data_standardortools_collection:
     proteomics, systems biology, and translational research. GO facilitates reproducible
     research through standardized functional terminology. Continuous community curation
     maintains GO accuracy as biological knowledge advances.'
+  related_to:
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:575
+  - B2AI_STANDARD:1314
   requires_registration: false
   url: http://geneontology.org/
   has_application:
@@ -30556,19 +30715,66 @@ data_standardortools_collection:
   - B2AI_TOPIC:13
   - B2AI_TOPIC:68
   - B2AI_TOPIC:69
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:67
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Genomic Epidemiology Ontology
   formal_specification: https://github.com/GenEpiO/genepio
+  has_relevant_organization:
+  - B2AI_ORG:75
+  - B2AI_ORG:191
   is_open: true
   name: GENEPIO
-  purpose_detail: Vocabulary necessary to identify, document and research foodborne
-    pathogens.
+  purpose_detail: 'The Genomic Epidemiology Ontology (GenEpiO) is an OBO Foundry application
+    ontology that provides standardized terms for the contextual data (metadata) that
+    accompany pathogen genome sequences in public health surveillance and outbreak
+    investigation: specimen and isolate descriptors, purpose of sampling, laboratory
+    and sequencing methods, bioinformatics and quality-control metrics, host and patient
+    information, exposures, and epidemiological case data. It began as a resource
+    for foodborne pathogen surveillance, developed alongside the companion Food Ontology
+    (FoodOn), and now also holds terms for SARS-CoV-2, mpox, antimicrobial resistance
+    and wastewater surveillance specifications. GenEpiO is developed by Damion Dooley,
+    Emma Griffiths, William Hsiao and colleagues at the Centre for Infectious Disease
+    Genomics and One Health (CIDGOH), Simon Fraser University. The 2026-04-13 release
+    (GitHub tag v0.9) contains 2,025 classes in the GENEPIO namespace and 9,159 classes
+    in total, the rest imported from more than 25 OBO ontologies including ChEBI,
+    NCBITaxon, UBERON, OBI, ENVO, FoodOn, DOID and IDO. It is built with the Ontology
+    Development Kit, distributed as OWL and OBO files through the OBO PURL, browsable
+    in OLS and Ontobee, and licensed CC BY 3.0. GenEpiO supplies the field and picklist
+    identifiers for the PHA4GE SARS-CoV-2 and mpox contextual data specifications
+    and for the pathogen templates in DataHarmonizer, which were used by the Canadian
+    COVID Genomics Network (CanCOGeN).'
+  related_to:
+  - B2AI_STANDARD:450
+  - B2AI_STANDARD:511
+  - B2AI_STANDARD:500
+  - B2AI_STANDARD:471
+  - B2AI_STANDARD:467
+  - B2AI_STANDARD:442
+  - B2AI_STANDARD:563
+  - B2AI_STANDARD:418
+  - B2AI_STANDARD:209
+  - B2AI_STANDARD:1324
+  - B2AI_STANDARD:1325
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:190
   url: http://genepio.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.3389/fmicb.2017.01068
+    ref_title: 'Context Is Everything: Harmonization of Critical Food Microbiology
+      Descriptors and Metadata for Improved Food Safety and Surveillance'
+    ref_authors:
+    - Griffiths E
+    - Dooley D
+    - Graham M
+    - Van Domselaar G
+    - Brinkman FSL
+    - Hsiao WWL
+    ref_publication_year: 2017
+    ref_journal: Front Microbiol
 - id: B2AI_STANDARD:456
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -31117,6 +31323,8 @@ data_standardortools_collection:
     literature annotation, drug discovery pipelines, and epidemiological studies where
     consistent disease terminology is essential for data integration and comparative
     analysis.
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: http://www.disease-ontology.org
   publication:
@@ -31162,7 +31370,11 @@ data_standardortools_collection:
     learning combining genomics, phenotypes, and clinical data to support precision
     medicine and clinical genomics.
   related_to:
+  - B2AI_STANDARD:484
+  - B2AI_STANDARD:575
   - B2AI_STANDARD:784
+  - B2AI_STANDARD:1310
+  - B2AI_STANDARD:1313
   requires_registration: false
   url: https://hpo.jax.org/
   publication:
@@ -31223,6 +31435,9 @@ data_standardortools_collection:
   name: IDO
   purpose_detail: A set of interoperable ontologies that will together provide coverage
     of the infectious disease domain. IDO core is the upper-level ontology...
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/infectious-disease-ontology/infectious-disease-ontology
   publication:
@@ -31281,6 +31496,8 @@ data_standardortools_collection:
     information representation improves reproducibility and knowledge dissemination.
     Integration with computational tools enables IAO-based information retrieval and
     analysis.
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/information-artifact-ontology/IAO
   publication:
@@ -31606,6 +31823,9 @@ data_standardortools_collection:
     processes (Gene Ontology), and qualities (PATO ontology), facilitating semantic
     integration with other phenotype ontologies including the Human Phenotype Ontology
     and cross-species anatomical frameworks such as UBERON.
+  related_to:
+  - B2AI_STANDARD:575
+  - B2AI_STANDARD:1313
   requires_registration: false
   url: https://github.com/mgijax/mammalian-phenotype-ontology
 - id: B2AI_STANDARD:480
@@ -31764,8 +31984,10 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:7
   - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
@@ -31774,14 +31996,135 @@ data_standardortools_collection:
   formal_specification: https://github.com/monarch-initiative/MAxO
   has_relevant_organization:
   - B2AI_ORG:58
+  - B2AI_ORG:181
   is_open: true
   name: MAXO
-  purpose_detail: Terms for medical procedures, interventions, therapies, treatments,
-    and recommendations.
+  purpose_detail: The Medical Action Ontology (MAxO) is an OBO Foundry ontology of
+    medical actions, covering medical procedures, interventions, therapies, treatments,
+    and clinical recommendations used in the diagnosis and management of disease.
+    It is developed by the Monarch Initiative, led by Peter Robinson's group at The
+    Jackson Laboratory, and is built with the Ontology Development Kit. Many terms
+    carry logical definitions that reference other OBO ontologies, including ChEBI,
+    UBERON, GO, PR, CL, OBI, NBO, and HPO. The 2023 description paper reported 1,757
+    terms, more than 16,000 diagnostic annotations linking MAxO terms to HPO phenotypic
+    abnormalities, and 413 treatment annotations for 189 rare diseases created with
+    POET, a web application (poet.jax.org) for curating MAxO annotations to Mondo
+    disease terms. The 2026-01-15 release contains 2,005 MAXO identifiers, 75 of them
+    obsolete. MAxO is distributed in OWL, OBO, and JSON formats through OBO PURLs
+    (http://purl.obolibrary.org/obo/maxo.owl) under a CC BY 4.0 license; disease and
+    phenotype annotations are released separately in the maxo-annotations repository.
+    Its development is coupled to HPO and Mondo, and MAxO terms are reused by other
+    ontologies such as ECTO. The AutoMAxO workflow extends annotation coverage by
+    using large language models to propose treatment annotations from the literature
+    for human review.
+  related_to:
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:495
+  - B2AI_STANDARD:443
+  - B2AI_STANDARD:811
+  - B2AI_STANDARD:1310
   requires_registration: false
   url: https://github.com/monarch-initiative/MAxO
+  has_application:
+  - id: B2AI_APP:470
+    category: B2AI:Application
+    name: LLM-assisted biocuration of rare disease treatment annotations (AutoMAxO)
+    description: AutoMAxO uses large language models to extract candidate medical
+      action statements from PubMed abstracts about rare diseases, then grounds them
+      to MAxO, HPO, and Mondo terms with a combination of LLM prompting and post-processing
+      before presenting structured candidates to a human curator. MAxO is both the
+      target vocabulary for the extracted treatments and the annotation resource being
+      expanded. Applied to abstracts on 37 rare genetic diseases, the workflow yielded
+      958 new treatment annotations that were added to the MAxO annotation dataset.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf141
+      ref_title: Leveraging generative AI to assist biocuration of medical actions
+        for rare disease
+      ref_authors:
+      - Niyonkuru E
+      - Caufield JH
+      - Carmody LC
+      - Gargano MA
+      - Toro S
+      - Whetzel PL
+      - Blau H
+      - Soto Gomez M
+      - Casiraghi E
+      - Chimirri L
+      - Reese JT
+      - Valentini G
+      - Haendel MA
+      - Mungall CJ
+      - Robinson PN
+      ref_publication_year: 2025
+      ref_journal: Bioinform Adv
+  - id: B2AI_APP:471
+    category: B2AI:Application
+    name: Knowledge graph edge prediction for female reproductive disorder risk factors
+    description: Survey data from the Personalized Environment and Genes Study (PEGS)
+      were harmonized to ontology terms and merged with the full contents of HPO,
+      Mondo, MAxO, GO, ENVO, ChEBI, ECTO, and FoodOn into a knowledge graph. Edges
+      were embedded and a random forest classifier was trained for edge prediction
+      to find variables linked to endometriosis, ovarian cysts, uterine fibroids,
+      and related disorders. MAxO terms represented survey-reported procedures such
+      as hysterectomy (MAXO:0001058) and ovary removal (MAXO:0001067), which appeared
+      among the predicted associations; across 9,765 respondents the analysis produced
+      8,535 significant or suggestive predicted links.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.ijmedinf.2024.105461
+      ref_title: Predicting nutrition and environmental factors associated with female
+        reproductive disorders using a knowledge graph and random forests
+      ref_authors:
+      - Chan LE
+      - Casiraghi E
+      - Reese J
+      - Harmon QE
+      - Schaper K
+      - Hegde H
+      - Valentini G
+      - Schmitt C
+      - Motsinger-Reif A
+      - Hall JE
+      - Mungall CJ
+      - Robinson PN
+      - Haendel MA
+      ref_publication_year: 2024
+      ref_journal: Int J Med Inform
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.medj.2023.10.003
+    ref_title: 'The Medical Action Ontology: A tool for annotating and analyzing treatments
+      and clinical management of human disease'
+    ref_authors:
+    - Carmody LC
+    - Gargano MA
+    - Toro S
+    - Vasilevsky NA
+    - Adam MP
+    - Blau H
+    - Chan LE
+    - Gomez-Andres D
+    - Horvath R
+    - Kraus ML
+    - Ladewig MS
+    - Lewis-Smith D
+    - Lochmüller H
+    - Matentzoglu NA
+    - Munoz-Torres MC
+    - Schuetz C
+    - Seitz B
+    - Similuk MN
+    - Sparks TN
+    - Strauss T
+    - Swietlik EM
+    - Thompson R
+    - Zhang XA
+    - Mungall CJ
+    - Haendel MA
+    - Robinson PN
+    ref_publication_year: 2023
+    ref_journal: Med
 - id: B2AI_STANDARD:485
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -31822,6 +32165,8 @@ data_standardortools_collection:
   name: MFOMD
   purpose_detail: Mental diseases such as schizophrenia, annotated with DSM-IV and
     ICD codes where applicable.
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/jannahastings/mental-functioning-ontology
   publication:
@@ -32265,6 +32610,9 @@ data_standardortools_collection:
     using standardized disease terminology. MONDO integration with structured data
     systems (EHRs, biobanks, disease registries) enables standardized patient stratification
     for clinical research and AI model development.'
+  related_to:
+  - B2AI_STANDARD:484
+  - B2AI_STANDARD:1310
   requires_registration: false
   url: https://mondo.monarchinitiative.org/
 - id: B2AI_STANDARD:496
@@ -32578,6 +32926,8 @@ data_standardortools_collection:
     DeepSets and Set Transformers, using amplicon sequence variants aligned to NCBI
     taxa as embedding matrix rows, and injecting taxonomy trees into neural architectures
     and loss functions for hierarchical classification with evolutionary context).'
+  related_to:
+  - B2AI_STANDARD:455
   requires_registration: false
   url: http://www.ncbi.nlm.nih.gov/taxonomy
   has_application:
@@ -32898,6 +33248,8 @@ data_standardortools_collection:
   name: NCIT
   purpose_detail: A reference terminology that includes broad coverage of the cancer
     domain, including cancer related diseases.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: false
   url: https://github.com/NCI-Thesaurus/thesaurus-obo-edition
   publication:
@@ -33301,29 +33653,111 @@ data_standardortools_collection:
     ref_publication_year: 2016
     ref_journal: PLoS ONE
   purpose_detail: Description of life-science and clinical investigations.
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:512
   requires_registration: false
   url: http://obi-ontology.org
 - id: B2AI_STANDARD:512
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:7
+  - B2AI_TOPIC:25
   - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Ontology for General Medical Science
-  formal_specification: https://github.com/OGMS/ogms
+  formal_specification: http://purl.obolibrary.org/obo/ogms.owl
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: OGMS
-  purpose_detail: Treatment of disease and diagnosis and on carcinomas and other pathological
-    entities.
+  purpose_detail: The Ontology for General Medical Science (OGMS) is an OBO Foundry
+    ontology of the general entities of clinical medicine, such as disease, disorder,
+    disease course, diagnosis, sign, symptom, clinical finding, syndrome, prognosis,
+    treatment, and health care encounter. It grew out of the account of disease in
+    Scheuermann, Ceusters, and Smith (2009). In OGMS, a disorder is a clinically abnormal
+    material entity that is the physical basis of disease, a disease is a disposition
+    to undergo pathological processes that exists because of one or more disorders,
+    a disease course is the totality of processes through which a disease is realized,
+    and a diagnosis represents the conclusion of a diagnostic process. OGMS was formerly
+    called the clinical phenotype ontology. Its classes sit under the Basic Formal
+    Ontology (BFO) and it reuses Information Artifact Ontology (IAO) terms. The current
+    release (2021-08-19) contains 118 OGMS classes, one of them obsolete, and is distributed
+    as OWL at the OBO PURL under a CC BY 4.0 license. OGMS is a domain-neutral mid-level
+    ontology rather than a disease catalog, and other ontologies extend it with specific
+    diseases and findings, including the Infectious Disease Ontology (IDO), the Mental
+    Disease Ontology (MFOMD), the Oral Health and Disease Ontology (OHD), the Cardiovascular
+    Disease Ontology (CVDO), and the Ontology of Medically Related Social Entities
+    (OMRSE).
+  related_to:
+  - B2AI_STANDARD:408
+  - B2AI_STANDARD:472
+  - B2AI_STANDARD:471
+  - B2AI_STANDARD:486
+  - B2AI_STANDARD:527
+  - B2AI_STANDARD:414
+  - B2AI_STANDARD:522
+  - B2AI_STANDARD:511
   requires_registration: false
   url: https://github.com/OGMS/ogms
+  has_application:
+  - id: B2AI_APP:476
+    category: B2AI:Application
+    name: OGMS-scaffolded ontology for cholangiocarcinoma risk prediction
+    description: Pengput and Diehl built the Cholangiocarcinoma Ontology (CCAO) using
+      OGMS as its clinical upper level, creating new classes under the OGMS 'clinical
+      finding' class to represent ICD-10 TM diagnoses from Thai cohort and EHR data.
+      CCAO-annotated patient records were analyzed by ontology term enrichment, and
+      the enriched terms seeded a random forest classifier that predicted cholangiocarcinoma
+      patients with an average precision-recall score of 0.92. OGMS supplies the class
+      structure, not the predictive features themselves.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-025-00345-2
+      ref_title: 'Ontology development and use for cholangiocarcinoma risk factors
+        and predictions: a term enrichment data analysis and machine learning classification'
+      ref_authors:
+      - Pengput A
+      - Diehl AD
+      ref_publication_year: 2026
+      ref_journal: J Biomed Semantics
+  - id: B2AI_APP:477
+    category: B2AI:Application
+    name: Fuzzy semantic inference for Alzheimer's disease diagnosis on an OGMS-aligned
+      ontology
+    description: Shoaip and colleagues combined fuzzy rule-based inference with ontology
+      reasoning to build a dynamic diagnostic system for Alzheimer's disease, and
+      they placed the system's ontology under BFO and OGMS as its upper-level ontologies.
+      Tested on ADNI data, the system reported accuracies of 93.1 to 97.2 percent
+      across the AD, LMCI, EMCI, SMC, and CN classes. OGMS serves as the alignment
+      layer for the medical concepts that the fuzzy rules work over.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41598-024-54065-1
+      ref_title: A dynamic fuzzy rule-based inference system using fuzzy inference
+        with semantic reasoning
+      ref_authors:
+      - Shoaip N
+      - El-Sappagh S
+      - Abuhmed T
+      - Elmogy M
+      ref_publication_year: 2024
+      ref_journal: Sci Rep
   publication:
-    ref_url: ''
+    ref_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3041577/
+    ref_title: Toward an ontological treatment of disease and diagnosis
+    ref_authors:
+    - Scheuermann RH
+    - Ceusters W
+    - Smith B
+    ref_publication_year: 2009
+    ref_journal: Summit Transl Bioinform
 - id: B2AI_STANDARD:513
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33709,6 +34143,8 @@ data_standardortools_collection:
     ref_journal: J Biomed Semant
   purpose_detail: This ontology covers the domain of social entities that are related
     to health care, such as demographic information and the roles of various...
+  related_to:
+  - B2AI_STANDARD:512
   requires_registration: false
   url: https://github.com/ufbmi/OMRSE/wiki/OMRSE-Overview
 - id: B2AI_STANDARD:523
@@ -33926,6 +34362,8 @@ data_standardortools_collection:
     deployment in dental research networks improves data quality and research efficiency.
     OHD positions dentistry as part of integrated healthcare enabling connection of
     oral health with systemic health outcomes.
+  related_to:
+  - B2AI_STANDARD:512
   url: https://github.com/oral-health-and-disease-ontologies/ohd-ontology
 - id: B2AI_STANDARD:528
   category: B2AI_STANDARD:OntologyOrVocabulary
@@ -34105,6 +34543,8 @@ data_standardortools_collection:
   name: PHENIO
   purpose_detail: An application ontology for accessing and comparing knowledge concerning
     phenotypes across species and genetic backgrounds.
+  related_to:
+  - B2AI_STANDARD:575
   requires_registration: false
   url: https://github.com/monarch-initiative/phenio
   publication:
@@ -34357,26 +34797,139 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:541
   category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
+  - B2AI_TOPIC:32
   - B2AI_TOPIC:53
   - B2AI_TOPIC:65
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: RadLex radiology lexicon
+  formal_specification: https://purl.bioontology.org/ontology/RADLEX
   has_relevant_organization:
   - B2AI_ORG:85
   has_training_resource:
   - B2AI_STANDARD:1067
   is_open: true
   name: RadLex
-  purpose_detail: A comprehensive set of radiology terms for use in radiology reporting,
-    decision support, data mining, data registries, education and research.
-  requires_registration: true
-  url: https://www.rsna.org/practice-tools/data-tools-and-standards/radlex-radiology-lexicon
+  purpose_detail: RadLex is the Radiological Society of North America (RSNA) ontology
+    of radiology terms, built for radiology reporting, decision support, data mining,
+    registries, education, and research. It was introduced by Langlotz in 2006, and
+    its development was supported by NIBIB and the caBIG program. Each concept has
+    a RadLex identifier (RID) with a preferred name, synonyms, and optional definitions,
+    and concepts are arranged in hierarchies with relations to other RadLex classes
+    (such as Contained_in and Branch_of) and cross-references to external systems
+    such as FMA and UMLS. The radlex.org statistics page lists 34,446 active classes,
+    455 retired classes, and 58,065 terms, with 3,146 classes carrying a definition.
+    Version 4.3 (released 1 December 2025) added C-RADS and VI-RADS terms, updated
+    LI-RADS terms, and restructured OWL annotations so that BioPortal can show the
+    German labels alongside English. Curation moved from desktop Protege to WebProtege
+    in version 4.2. RadLex is distributed from radlex.org as OWL and Excel/CSV files
+    after accepting a license that permits commercial and non-commercial use without
+    charge, and it can also be browsed and annotated against through NCBO BioPortal
+    and used as a FHIR code system (http://radlex.org). RadLex terms underpin the
+    RadLex Playbook of procedure names (now merged into the LOINC/RSNA Radiology Playbook),
+    the RadReport template library, and RadElement common data elements.
+  related_to:
+  - B2AI_STANDARD:8
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:890
+  - B2AI_STANDARD:1311
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:85
+  url: https://radlex.org/
+  has_application:
+  - id: B2AI_APP:472
+    category: B2AI:Application
+    name: LLM-generated expansion of RadLex synonyms for chest CT report term recognition
+    description: Lee and colleagues used Gemini 2.0 Flash Thinking to generate lexical
+      variants and strict synonyms for 40,000 RadLex preferred terms, producing 208,465
+      variants and 69,918 synonyms compared with the 17,515 terms in the RadLex-provided
+      expansion. The same LLM parsed five chest CT report datasets from Korea, Spain,
+      Turkey, and the United States into lexicon units that were matched against each
+      term list. The LLM-generated expansion raised lexical coverage from 67.5-75.4%
+      to 81.9-86.2% and recall from 64.0-80.3% to 81.6-91.4%, at a modest cost in
+      precision.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2214/ajr.25.34243
+      ref_title: 'Large Language Model-Generated Expansion of the RadLex Ontology:
+        Application to Multinational Datasets of Chest CT Reports'
+      ref_authors:
+      - Lee T
+      - Kim H
+      - Lee S
+      - Chae S
+      - Kahn CE
+      - You SC
+      - Choi E
+      - Yoon SH
+      ref_publication_year: 2026
+      ref_journal: AJR Am J Roentgenol
+  - id: B2AI_APP:473
+    category: B2AI:Application
+    name: Machine learning on cross-lingual RadLex features for computer-assisted
+      stroke CT reporting
+    description: Maros and colleagues automatically mapped 206 German CT reports of
+      suspected stroke to English RadLex terms and used the resulting bag-of-RadLex-terms
+      features to train tree-based models, elastic net, support vector machines, and
+      fastText to predict whether an ASPECTS score should have been reported. Models
+      on RadLex features were compared with models on human expert-annotated features
+      in nested cross-validation. SVMs reached 82.5% (findings) and 85.4% (impressions)
+      accuracy on RadLex features, and fastText reached 89.3% accuracy and 92% AUC
+      on impressions.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41598-021-85016-9
+      ref_title: Comparative analysis of machine learning algorithms for computer-assisted
+        reporting based on fully automated cross-lingual RadLex mappings
+      ref_authors:
+      - Maros ME
+      - Cho CG
+      - Junge AG
+      - Kämpgen B
+      - Saase V
+      - Siegel F
+      - Trinkmann F
+      - Ganslandt T
+      - Groden C
+      - Wenz H
+      ref_publication_year: 2021
+      ref_journal: Sci Rep
+  - id: B2AI_APP:474
+    category: B2AI:Application
+    name: RadLex-based named entity recognition for free-text radiology reports
+    description: Tsuji and colleagues built cTAKES pipelines using RadLex as the dictionary
+      (with SentiWordNet as a general-purpose dictionary) to recognize compound-term
+      entities in free-text radiology reports, evaluated against 400 manually annotated
+      reports. Adding a compound terms-enhanced dictionary derived from RadLex error
+      analysis raised the F-measure from 30.9% to 63.1% (precision 82.8%, recall 51%),
+      and was validated on a further 100 reports.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/25378
+      ref_title: 'Developing a RadLex-Based Named Entity Recognition Tool for Mining
+        Textual Radiology Reports: Development and Performance Evaluation Study'
+      ref_authors:
+      - Tsuji S
+      - Wen A
+      - Takahashi N
+      - Zhang H
+      - Ogasawara K
+      - Jiang G
+      ref_publication_year: 2021
+      ref_journal: J Med Internet Res
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1148/rg.266065168
+    ref_title: 'RadLex: A New Method for Indexing Online Educational Materials'
+    ref_authors:
+    - Langlotz CP
+    ref_publication_year: 2006
+    ref_journal: Radiographics
 - id: B2AI_STANDARD:542
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -34445,20 +34998,87 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
+  - B2AI_TOPIC:75
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Relation Ontology
   formal_specification: https://github.com/oborel/obo-relations
+  has_relevant_organization:
+  - B2AI_ORG:75
+  - B2AI_ORG:184
   is_open: true
   name: RO
-  purpose_detail: Relationship types shared across multiple ontologies.
+  purpose_detail: The Relation Ontology (RO) is the OBO Foundry ontology of relationship
+    types (OWL object properties) shared across biological and biomedical ontologies,
+    such as participates in, has participant, enables, regulates, causally upstream
+    of, and interacts with. It grew out of the set of formally defined relations proposed
+    by Smith and colleagues in 2005 and is aligned with Basic Formal Ontology, from
+    which it imports part of and has part. The September 2026 release (v2026-09-04)
+    contains 698 relations in the RO namespace, 16 of them obsolete, together with
+    a small number of supporting classes. Relations carry textual and logical definitions,
+    domain and range constraints, inverses, and characteristics such as transitivity
+    and symmetry, and are tagged with subsets that indicate where they may be used
+    (for example in GO annotation extensions or GO-CAM models). RO is developed openly
+    on GitHub (oborel/obo-relations) under the CC0 1.0 public domain dedication, with
+    Chris Mungall as the OBO Foundry contact, and is released through OBO PURLs as
+    ro.owl (canonical), ro.obo, and ro.json, plus a base module for imports, an RO
+    Core subset intended for use with BFO classes, and ecology, interaction, and neuroscience
+    subsets. RO relations are imported by most OBO Foundry ontologies, provide the
+    edge types of GO-CAM causal activity models, and are reused as edge predicates
+    in ontology-grounded knowledge graphs built with tools such as PheKnowLator.
+  related_to:
+  - B2AI_STANDARD:245
+  - B2AI_STANDARD:388
+  - B2AI_STANDARD:408
+  - B2AI_STANDARD:430
+  - B2AI_STANDARD:454
+  - B2AI_STANDARD:716
+  - B2AI_STANDARD:26
+  - B2AI_STANDARD:1314
+  - B2AI_STANDARD:1315
   requires_registration: false
   url: https://oborel.github.io/
+  has_application:
+  - id: B2AI_APP:480
+    category: B2AI:Application
+    name: Zero-shot protein function prediction using GO axioms built on RO relations
+    description: DeepGOZero combines a protein sequence model with ELEmbeddings, a
+      model-theoretic embedding of description logic axioms, to predict Gene Ontology
+      functions. The GO axioms it embeds are normalized existential restrictions over
+      relations such as regulates (RO:0002211) and part of (BFO:0000050), so RO relations
+      define the geometric constraints the class embeddings are trained to satisfy.
+      This lets the model predict functions that have few or no training annotations,
+      including zero-shot predictions for GO classes never seen during training.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btac256
+      ref_title: 'DeepGOZero: improving protein function prediction from sequence
+        and zero-shot learning based on ontology axioms'
+      ref_authors:
+      - Kulmanov M
+      - Hoehndorf R
+      ref_publication_year: 2022
+      ref_journal: Bioinformatics
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/gb-2005-6-5-r46
+    ref_title: Relations in biomedical ontologies
+    ref_authors:
+    - Smith B
+    - Ceusters W
+    - Klagges B
+    - Köhler J
+    - Kumar A
+    - Lomax J
+    - Mungall C
+    - Neuhaus F
+    - Rector AL
+    - Rosse C
+    ref_publication_year: 2005
+    ref_journal: Genome Biol
 - id: B2AI_STANDARD:544
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -34497,6 +35117,7 @@ data_standardortools_collection:
     is the standard drug vocabulary of the OMOP Common Data Model, where OHDSI extends
     it with RxNorm Extension for drugs outside the US market.
   related_to:
+  - B2AI_STANDARD:225
   - B2AI_STANDARD:243
   - B2AI_STANDARD:485
   - B2AI_STANDARD:499
@@ -35126,12 +35747,14 @@ data_standardortools_collection:
   - B2AI_STANDARD:174
   - B2AI_STANDARD:175
   - B2AI_STANDARD:187
+  - B2AI_STANDARD:225
   - B2AI_STANDARD:243
   - B2AI_STANDARD:468
   - B2AI_STANDARD:506
   - B2AI_STANDARD:544
   - B2AI_STANDARD:554
   - B2AI_STANDARD:564
+  - B2AI_STANDARD:714
   - B2AI_STANDARD:720
   - B2AI_STANDARD:769
   - B2AI_STANDARD:1120
@@ -35641,6 +36264,10 @@ data_standardortools_collection:
     AI/ML applications by providing standardized anatomical annotations for training
     data across species and enabling cross-species knowledge transfer in biomedical
     machine learning models.
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:575
+  - B2AI_STANDARD:1312
   requires_registration: false
   url: https://obophenotype.github.io/uberon/
 - id: B2AI_STANDARD:564
@@ -35806,6 +36433,8 @@ data_standardortools_collection:
     Ontology and Planarian Phenotype Ontology), veterinary and agricultural applications
     through OMIA, and integration into knowledge graphs like the Monarch Initiative
     that link phenotypes, diseases, and genetic underpinnings across species.
+  related_to:
+  - B2AI_STANDARD:575
   requires_registration: false
   url: https://github.com/obophenotype/upheno
   has_application:
@@ -36503,13 +37132,86 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Zebrafish Phenotype Ontology
   formal_specification: https://github.com/obophenotype/zebrafish-phenotype-ontology
+  has_relevant_organization:
+  - B2AI_ORG:58
+  - B2AI_ORG:75
   is_open: true
   name: ZP
-  purpose_detail: All phenotypes of the Zebrafish model organism.
+  purpose_detail: The Zebrafish Phenotype Ontology (ZP) provides formally defined
+    classes for the phenotypes of Danio rerio recorded by the Zebrafish Information
+    Network (ZFIN). ZP is generated from ZFIN data rather than edited by hand. ZFIN
+    curators describe each phenotype as an entity-quality (EQ) statement that combines
+    a PATO quality with an affected entity from the Zebrafish Anatomy Ontology (ZFA),
+    the Gene Ontology, or other ontologies, and the build pipeline turns each distinct
+    statement into a ZP class with a logical definition based on uPheno design patterns.
+    Reasoning then classifies the phenotypes and aligns them with HPO, MP, and other
+    species phenotype ontologies through uPheno. The 2026-10-08 release, the first
+    in two and a half years, was built from ZFIN data of 2026-10-07. It contains 54,410
+    ZP identifiers (50,247 non-obsolete), adds 6,896 classes, and for the first time
+    ships files mapping ZFIN fish and genes to ZP terms. A zapp subset of about 15,600
+    terms marks phenotypes used in the Zebrafish Toxicology Phenotype Atlas Project.
+    ZP imports modules of PATO, ZFA, ZFS, GO, BSPO, and ChEBI, is built with the Ontology
+    Development Kit, and is released in OWL and OBO through its OBO PURL under CC
+    BY 3.0, with Yvonne Bradford of ZFIN as OBO Foundry contact. The Monarch Initiative
+    and the Exomiser use ZFIN zebrafish phenotypes for cross-species comparison.
+  related_to:
+  - B2AI_STANDARD:411
+  - B2AI_STANDARD:454
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:479
+  - B2AI_STANDARD:533
+  - B2AI_STANDARD:534
+  - B2AI_STANDARD:563
+  - B2AI_STANDARD:565
+  - B2AI_STANDARD:1312
+  - B2AI_STANDARD:1313
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:182
   url: https://github.com/obophenotype/zebrafish-phenotype-ontology
+  has_application:
+  - id: B2AI_APP:478
+    category: B2AI:Application
+    name: Model organism phenotypes in semantic machine learning for disease gene
+      identification
+    description: Alghamdi and colleagues built classes for zebrafish phenotypes from
+      ZFIN gene-phenotype annotations and compared them, together with mouse, fly,
+      and fission yeast phenotypes, with human disease phenotypes through the cross-species
+      ontologies uPheno, which integrates ZP, and Pheno-e. They predicted human gene-disease
+      associations from orthologs' phenotypes using Resnik semantic similarity and
+      the ontology embedding methods OPA2Vec, OWL2Vec*, and DL2Vec. Mouse data contributed
+      most, and zebrafish and other model organisms added little beyond mouse for
+      this task.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1242/dmm.049441
+      ref_title: Contribution of model organism phenotypes to the computational identification
+        of human disease genes
+      ref_authors:
+      - Alghamdi SM
+      - Schofield PN
+      - Hoehndorf R
+      ref_publication_year: 2022
+      ref_journal: Dis Model Mech
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.12688/f1000research.2-30.v1
+    ref_title: Construction and accessibility of a cross-species phenotype ontology
+      along with gene annotations for biomedical research
+    ref_authors:
+    - Köhler S
+    - Doelken SC
+    - Ruef BJ
+    - Bauer S
+    - Washington N
+    - Westerfield M
+    - Gkoutos G
+    - Schofield P
+    - Smedley D
+    - Lewis SE
+    - Robinson PN
+    - Mungall CJ
+    ref_publication_year: 2013
+    ref_journal: F1000Res
 - id: B2AI_STANDARD:576
   category: B2AI_STANDARD:DataStandardOrTool
   concerns_data_topic:
@@ -36707,6 +37409,8 @@ data_standardortools_collection:
     project conducts regular workflows and workshops establishing best practices for
     current and emerging assay types, supporting researchers in developing rigorous,
     interpretable machine learning models grounded in biological methodology standards.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://www.bioconductor.org/
   publication:
@@ -36750,6 +37454,8 @@ data_standardortools_collection:
     concept recognizers, knowledge graph construction by linking data to standardized
     ontologies, and explainable AI through ontological reasoning and structured domain
     knowledge integration.'
+  related_to:
+  - B2AI_STANDARD:810
   requires_registration: false
   url: https://bioportal.bioontology.org/
   publication:
@@ -36911,6 +37617,8 @@ data_standardortools_collection:
     Dockstore supports scalable workflow execution on local clusters, cloud platforms,
     and high-performance computing systems, making advanced bioinformatics accessible
     to researchers regardless of their computational expertise.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://dockstore.org/
   publication:
@@ -37038,26 +37746,129 @@ data_standardortools_collection:
   category: B2AI_STANDARD:Registry
   collection:
   - standardsregistry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:7
   - B2AI_TOPIC:54
+  - B2AI_TOPIC:66
   - B2AI_TOPIC:81
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: National Cancer Institute Cancer Data Standards Repository
-  formal_specification: https://cdebrowser.nci.nih.gov/cdebrowserClient/cdeBrowser.html#/search
+  description: National Cancer Institute Cancer Data Standards Registry and Repository
+  formal_specification: https://cadsrapi.cancer.gov/NCIAPIPortal/
   has_relevant_organization:
   - B2AI_ORG:71
   is_open: true
   name: NCI caDSR
-  purpose_detail: Registry and repository for oncology research common data elements
-    and forms.
+  purpose_detail: The cancer Data Standards Registry and Repository (caDSR) is the
+    National Cancer Institute's metadata registry for the data standards used in NCI-sponsored
+    clinical trials and other cancer research. It was established in 2000 and was
+    described in 2003 as one of the three components of NCI's caCORE infrastructure,
+    alongside Enterprise Vocabulary Services and caBIO. Its successor, caDSR II, replaced
+    the original system in May 2022 and consists of a database, REST APIs, and web
+    tools built on Software AG webMethods OneData with an Oracle design based on the
+    ISO/IEC 11179 metadata registry standard. caDSR II registers Common Data Elements
+    (CDEs), case report forms, data collection templates, and data models, and also
+    hosts the OMOP and PCORnet common data models. Each CDE pairs a question or field
+    label with an answer format and permissible values, carries a persistent public
+    identifier and version, and is semantically annotated with concepts drawn mainly
+    from the NCI Thesaurus, with MedDRA, UCUM, or SNOMED CT available for permissible
+    values. Most CDEs derive from NCI clinical trial forms, and the NCI CBIIT Centralized
+    Curation Team helps register new content. Users can browse, search, and export
+    CDEs and forms as Excel, XML, Medidata Rave ALS, or REDCap data dictionaries,
+    and the APIs return HTML, XML, or JSON. NCI states that its CDEs are structurally
+    compatible with NIH CDEs, has harmonized them with CDISC CDASH and SDTM, and offers
+    a Code Map service for transforming data between standards. The CEDAR Workbench
+    makes more than 80,000 caDSR CDEs available for building metadata templates.
+  related_to:
+  - B2AI_STANDARD:28
+  - B2AI_STANDARD:44
+  - B2AI_STANDARD:45
+  - B2AI_STANDARD:224
+  - B2AI_STANDARD:226
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:386
+  - B2AI_STANDARD:501
+  - B2AI_STANDARD:553
+  - B2AI_STANDARD:821
+  - B2AI_STANDARD:859
+  - B2AI_STANDARD:1222
+  - B2AI_STANDARD:1293
+  - B2AI_STANDARD:1316
+  - B2AI_STANDARD:1317
   requires_registration: false
-  url: https://datascience.cancer.gov/resources/metadata
+  responsible_organization:
+  - B2AI_ORG:185
+  url: https://cadsr.cancer.gov/onedata/Home.jsp
+  has_application:
+  - id: B2AI_APP:482
+    category: B2AI:Application
+    name: Neural network mapping of caDSR CDEs to BRIDG model classes
+    description: Renner and colleagues extended an artificial neural network ontology-alignment
+      algorithm to suggest Biomedical Research Integrated Domain Group (BRIDG) model
+      classes for caDSR Common Data Elements. The network learned weights for six
+      CDE attributes (long name, object class, property, value domain long name, representation
+      term, and question text) from a gold standard of 1,284 caDSR CDEs that CIBMTR
+      had mapped to BRIDG, most downloaded from the caDSR CDE Browser, and returned
+      a ranked list of ten candidate classes. Match rates were over 90% for CDEs semantically
+      similar to the training data, 80% for partially similar CDEs, and up to 70%
+      for semantically different ones.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12911-019-0979-5
+      ref_title: Using an artificial neural network to map cancer common data elements
+        to the biomedical research integrated domain group model in a semi-automated
+        manner
+      ref_authors:
+      - Renner R
+      - Li S
+      - Huang Y
+      - van der Zijp-Tan AC
+      - Tan S
+      - Li D
+      - Kasukurthi MV
+      - Benton R
+      - Borchert GM
+      - Huang J
+      - Jiang G
+      ref_publication_year: 2019
+      ref_journal: BMC Med Inform Decis Mak
+  - id: B2AI_APP:483
+    category: B2AI:Application
+    name: Fine-tuned GPT-2 harmonization of cancer metadata to standard terms
+    description: Verbitsky, Boutet, and Eslami fine-tuned GPT-2 models to map researcher-written
+      metadata terms, including typos, abbreviations, and reordered words generated
+      by data augmentation, to standard vocabulary terms. The cancer vocabulary used
+      for training and evaluation was compiled from terms exported from NCIt, caDSR,
+      GDC, ICD-O-3, and MedDRA (691,220 terms). For cancer, the fine-tuned GPT-2 Large
+      model reached 96% top-5 accuracy on in-dictionary terms and 17% on unseen standard
+      terms, outperforming heuristic matching and zero-shot GPT-4o.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf241
+      ref_title: Metadata harmonization from biological datasets with language models
+      ref_authors:
+      - Verbitsky A
+      - Boutet P
+      - Eslami M
+      ref_publication_year: 2025
+      ref_journal: Bioinform Adv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/bioinformatics/btg335
+    ref_title: 'caCORE: A common infrastructure for cancer informatics'
+    ref_authors:
+    - Covitz PA
+    - Hartel F
+    - Schaefer C
+    - De Coronado S
+    - Fragoso G
+    - Sahni H
+    - Gustafson S
+    - Buetow KH
+    ref_publication_year: 2003
+    ref_journal: Bioinformatics
 - id: B2AI_STANDARD:715
   category: B2AI_STANDARD:Registry
   collection:
@@ -37158,6 +37969,9 @@ data_standardortools_collection:
     essential for AI/ML applications in biomedical knowledge graphs, automated reasoning,
     data harmonization, and multi-modal machine learning across diverse biological
     datasets.
+  related_to:
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:1315
   requires_registration: false
   url: https://obofoundry.org/
 - id: B2AI_STANDARD:717
@@ -38559,6 +39373,8 @@ data_standardortools_collection:
     - Gentry J
     ref_publication_year: 2017
   purpose_detail: Cromwell is an open-source Workflow Management System for bioinformatics.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://cromwell.readthedocs.io/en/stable/
 - id: B2AI_STANDARD:748
@@ -38641,6 +39457,8 @@ data_standardortools_collection:
     data objects. The DRS is designed to be used in conjunction with the GA4GH Data
     Repository Service API, which provides a standard way to access data objects in
     a data repository.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://ga4gh.github.io/data-repository-service-schemas/preview/release/drs-1.2.0/docs/
   publication:
@@ -39467,6 +40285,7 @@ data_standardortools_collection:
     biomedical research.
   related_to:
   - B2AI_STANDARD:334
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://usegalaxy.org/
 - id: B2AI_STANDARD:767
@@ -40310,6 +41129,8 @@ data_standardortools_collection:
     research reporting. The broader Jupyter project also provides open standards
     and web services that support interactive computing beyond the classic notebook
     interface.
+  related_to:
+  - B2AI_STANDARD:808
   requires_registration: false
   url: https://jupyter.org/
   used_in_bridge2ai: true
@@ -42125,27 +42946,258 @@ data_standardortools_collection:
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
   - cloudplatform
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:59
   - B2AI_TOPIC:60
   - B2AI_TOPIC:61
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: NHGRI Analysis Visualization and Informatics Lab-space
+  description: NHGRI Genomic Data Science Analysis, Visualization, and Informatics
+    Lab-space, a federated cloud platform for genomic data
   formal_specification: https://github.com/anvilproject
   has_relevant_organization:
   - B2AI_ORG:73
+  - B2AI_ORG:147
+  - B2AI_ORG:187
+  - B2AI_ORG:130
   has_training_resource:
   - B2AI_STANDARD:1091
   is_open: true
   name: AnVIL
-  purpose_detail: AnVIL is NHGRI's Genomic Data Science Analysis, Visualization, and
-    Informatics Lab-Space.
+  purpose_detail: 'AnVIL (Genomic Data Science Analysis, Visualization, and Informatics
+    Lab-space) is the National Human Genome Research Institute''s cloud platform for
+    storing, sharing, and analyzing genomic and related data. It inverts the download-and-analyze
+    model: controlled-access and open datasets stay in cloud storage and researchers
+    bring compute to them in billed workspaces. AnVIL is funded through NHGRI cooperative
+    agreements to the Broad Institute and Johns Hopkins University and assembles existing
+    open-source components: Terra (workspaces, WDL batch workflows run by Cromwell,
+    Jupyter and RStudio environments), Dockstore (containerized CWL, WDL and Nextflow
+    workflows), Bioconductor, Galaxy, and a Data Explorer for cross-dataset cohort
+    building; the original architecture also used Gen3 for data management and querying.
+    It runs on Google Cloud Platform. The 2022 description reported more than 200
+    NHGRI-sponsored datasets, over 15,000 users, and a FedRAMP-certified environment
+    following NIST SP 800-53. Hosted consortia include CCDG, CMG, GREGoR, eMERGE,
+    GTEx, CSER, PAGE, PRIMED, CARD, the Human Pangenome Reference Consortium, T2T,
+    and the open-access 1000 Genomes Project. Controlled-access data are granted through
+    dbGaP and Data Access Committees, with a DUOS pilot that encodes consent terms
+    using the GA4GH Data Use Ontology. Users sign in through the NIH Researcher Auth
+    Service. AnVIL is a member of the NIH Cloud Platform Interoperability (NCPI) effort
+    alongside BioData Catalyst, Kids First, and the NCI Cancer Research Data Commons.'
+  related_to:
+  - B2AI_STANDARD:832
+  - B2AI_STANDARD:711
+  - B2AI_STANDARD:1158
+  - B2AI_STANDARD:705
+  - B2AI_STANDARD:766
+  - B2AI_STANDARD:779
+  - B2AI_STANDARD:389
+  - B2AI_STANDARD:747
+  - B2AI_STANDARD:433
+  - B2AI_STANDARD:751
+  - B2AI_STANDARD:261
+  - B2AI_STANDARD:1318
+  - B2AI_STANDARD:1319
   requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:73
   url: https://anvilproject.org/
+  has_application:
+  - id: B2AI_APP:485
+    category: B2AI:Application
+    name: Random forest ancestry prediction for Hardy-Weinberg testing in AnVIL-hosted
+      CCDG genomes
+    description: Shyr et al. trained a random forest on the first 15 genetic principal
+      components of 1000 Genomes reference samples to assign 11 homogeneous ancestry
+      groups, then fit a Gaussian mixture model to the samples left unassigned. They
+      applied the semi-supervised method to 60,545 whole genomes from the NHGRI Centers
+      for Common Disease Genomics, the CCDG data distributed through AnVIL, labeling
+      about 95% of samples into 18 groups. HWE testing within predicted groups removed
+      0.3% of variants at p < 1e-5, compared with 19% when grouping by self-reported
+      race and ethnicity.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.ajhg.2024.08.018
+      ref_title: Semi-supervised machine learning method for predicting homogeneous
+        ancestry groups to assess Hardy-Weinberg equilibrium in diverse whole-genome
+        sequencing studies
+      ref_authors:
+      - Shyr D
+      - Dey R
+      - Li X
+      - Zhou H
+      - Boerwinkle E
+      - Buyske S
+      - Daly M
+      - Gibbs RA
+      - Hall I
+      - Matise T
+      - Reeves C
+      - Stitziel NO
+      - Zody M
+      - Neale BM
+      - Lin X
+      ref_publication_year: 2024
+      ref_journal: Am J Hum Genet
+  - id: B2AI_APP:486
+    category: B2AI:Application
+    name: Deep-learning variant calling of nanopore genomes on Terra in AnVIL
+    description: The Napu protocol for population-scale Oxford Nanopore sequencing,
+      developed for the NIH Center for Alzheimer's and Related Dementias, calls small
+      variants with the deep-learning PEPPER-Margin-DeepVariant pipeline and phases
+      small and structural variants. The analysis ran in the Terra compute environment
+      that underlies AnVIL, taking 22-25 wall-clock hours per 30-40x sample, and the
+      cell-line data are openly available through an AnVIL workspace. SNV calling
+      from a single PromethION flow cell reached F1 scores comparable to Illumina
+      short reads.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41592-023-01993-x
+      ref_title: Scalable Nanopore sequencing of human genomes provides a comprehensive
+        view of haplotype-resolved variation and methylation
+      ref_authors:
+      - Kolmogorov M
+      - Billingsley KJ
+      - Mastoras M
+      - Meredith M
+      - Monlong J
+      - Lorig-Roach R
+      - Asri M
+      - Alvarez Jerez P
+      - Malik L
+      - Dewan R
+      - Reed X
+      - Genner RM
+      - Daida K
+      - Behera S
+      - Shafin K
+      - Pesout T
+      - Prabakaran J
+      - Carnevali P
+      - Yang J
+      - Rhie A
+      - Scholz SW
+      - Traynor BJ
+      - Miga KH
+      - Jain M
+      - Timp W
+      - Phillippy AM
+      - Chaisson M
+      - Sedlazeck FJ
+      - Blauwendraat C
+      - Paten B
+      ref_publication_year: 2023
+      ref_journal: Nat Methods
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.xgen.2021.100085
+    ref_title: Inverting the model of genomics data sharing with the NHGRI Genomic
+      Data Science Analysis, Visualization, and Informatics Lab-space
+    ref_authors:
+    - Schatz MC
+    - Philippakis AA
+    - Afgan E
+    - Banks E
+    - Carey VJ
+    - Carroll RJ
+    - Culotti A
+    - Ellrott K
+    - Goecks J
+    - Grossman RL
+    - Hall IM
+    - Hansen KD
+    - Lawson J
+    - Leek JT
+    - Luria AO
+    - Mosher S
+    - Morgan M
+    - Nekrutenko A
+    - O'Connor BD
+    - Osborn K
+    - Paten B
+    - Patterson C
+    - Tan FJ
+    - Taylor CO
+    - Vessio J
+    - Waldron L
+    - Wang T
+    - Wuichet K
+    - Baumann A
+    - Rula A
+    - Kovalsy A
+    - Bernard C
+    - Caetano-Anollés D
+    - Van der Auwera GA
+    - Canas J
+    - Yuksel K
+    - Herman K
+    - Taylor MM
+    - Simeon M
+    - Baumann M
+    - Wang Q
+    - Title R
+    - Munshi R
+    - Chaluvadi S
+    - Reeves V
+    - Disman W
+    - Thomas S
+    - Hajian A
+    - Kiernan E
+    - Gupta N
+    - Vosburg T
+    - Geistlinger L
+    - Ramos M
+    - Oh S
+    - Rogers D
+    - McDade F
+    - Hastie M
+    - Turaga N
+    - Ostrovsky A
+    - Mahmoud A
+    - Baker D
+    - Clements D
+    - Cox KE
+    - Suderman K
+    - Kucher N
+    - Golitsynskiy S
+    - Zarate S
+    - Wheelan SJ
+    - Kammers K
+    - Stevens A
+    - Hutter C
+    - Wellington C
+    - Ghanaim EM
+    - Wiley KL
+    - Sen SK
+    - Di Francesco V
+    - Yuen D
+    - Walsh B
+    - Sargent L
+    - Jalili V
+    - Chilton J
+    - Shepherd L
+    - Stubbs B
+    - O'Farrell A
+    - Vizzier BA
+    - Overbeck C
+    - Reid C
+    - Steinberg DC
+    - Sheets EA
+    - Lucas J
+    - Blauvelt L
+    - Cabansay L
+    - Warren N
+    - Hannafious B
+    - Harris T
+    - Reddy R
+    - Torstenson E
+    - Banasiewicz MK
+    - Abel HJ
+    - Walker J
+    ref_publication_year: 2022
+    ref_journal: Cell Genom
 - id: B2AI_STANDARD:809
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -42179,6 +43231,9 @@ data_standardortools_collection:
   url: https://github.com/bzhanglab/OmicsEV
 - id: B2AI_STANDARD:810
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:60
@@ -42189,13 +43244,181 @@ data_standardortools_collection:
   formal_specification: https://github.com/INCATools/ontology-access-kit
   has_relevant_organization:
   - B2AI_ORG:58
+  - B2AI_ORG:75
   is_open: true
   name: OAK
-  purpose_detail: OAK provides a collection of interfaces for various ontology operations.
+  purpose_detail: The Ontology Access Kit (OAK) is a Python library (published on
+    PyPI as oaklib) and command-line tool (runoak) for common operations on ontologies.
+    It is developed in the INCATools GitHub organization, led by Chris Mungall at
+    Lawrence Berkeley National Laboratory with contributors from the Monarch Initiative
+    and OBO communities, and released under the Apache 2.0 license; the repository
+    was created in March 2022 and version 0.7.4 was released in August 2026. OAK defines
+    abstract interfaces for tasks such as looking up labels, definitions, synonyms,
+    and relationships, searching for terms, graph traversal and subgraph extraction,
+    lexical matching with output as SSSOM mapping tables, text annotation, ontology
+    validation, term editing, and OWL axiom processing. These interfaces are separated
+    from the backends (adapters) that implement them, so the same API and commands
+    work whether an ontology is a local OWL, OBO, OBO Graphs JSON, or SQLite file,
+    comes from the OBO library, or is reached through remote services including OLS,
+    BioPortal and other OntoPortal instances, Ontobee and Ubergraph SPARQL endpoints,
+    Wikidata, UMLS, and Gilda. Its SQLite adapter uses SemSQL, which provides prebuilt
+    SQLite versions of OBO ontologies. OAK supplies ontology lookup and grounding
+    for LLM-based tools including OntoGPT and CurateGPT. Software releases are archived
+    on Zenodo.
+  related_to:
+  - B2AI_STANDARD:245
+  - B2AI_STANDARD:347
+  - B2AI_STANDARD:378
+  - B2AI_STANDARD:388
+  - B2AI_STANDARD:706
+  - B2AI_STANDARD:811
+  - B2AI_STANDARD:1304
+  - B2AI_STANDARD:1320
+  - B2AI_STANDARD:1321
+  - B2AI_STANDARD:1322
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:184
   url: https://incatools.github.io/ontology-access-kit/
+  has_application:
+  - id: B2AI_APP:487
+    category: B2AI:Application
+    name: Grounding LLM-extracted entities to ontologies in SPIRES
+    description: SPIRES, implemented in OntoGPT, uses large language models with zero-shot
+      prompting to extract information from text into user-defined nested LinkML schemas.
+      SPIRES performs grounding and normalization of the extracted named entities
+      through OAK, which provides access to annotators including Gilda, the BioPortal
+      annotator, and the Ontology Lookup Service. The authors report accuracy in the
+      mid-range of existing relation extraction methods and far better identifier
+      grounding than the LLM achieves on its own.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btae104
+      ref_title: 'Structured Prompt Interrogation and Recursive Extraction of Semantics
+        (SPIRES): a method for populating knowledge bases using zero-shot learning'
+      ref_authors:
+      - Caufield JH
+      - Hegde H
+      - Emonet V
+      - Harris NL
+      - Joachimiak MP
+      - Matentzoglu N
+      - Kim H
+      - Moxon S
+      - Reese JT
+      - Haendel MA
+      - Robinson PN
+      - Mungall CJ
+      ref_publication_year: 2024
+      ref_journal: Bioinformatics
+  - id: B2AI_APP:488
+    category: B2AI:Application
+    name: Mapping LLM differential diagnoses to Mondo for rare disease benchmarking
+    description: This study benchmarked seven large language models against the Exomiser
+      tool on 5213 published rare disease case reports encoded as phenopackets. Each
+      item in an LLM's free-text differential diagnosis was converted to a Mondo disease
+      term, first by exact label or synonym matching with OAK and then by CurateGPT
+      matching for the remainder, so that responses could be scored against the gold-standard
+      diagnosis. The best LLM ranked the correct diagnosis first in 23.6% of cases,
+      compared with 35.5% for Exomiser.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41431-026-02054-5
+      ref_title: Systematic benchmarking demonstrates large language models have not
+        reached the diagnostic accuracy of traditional rare-disease decision support
+        tools
+      ref_authors:
+      - Reese JT
+      - Chimirri L
+      - Bridges Y
+      - Danis D
+      - Caufield JH
+      - Gargano MA
+      - Kroll C
+      - Schmeder A
+      - Liu F
+      - Wissink K
+      - McMurry JA
+      - Graefe ASL
+      - Niyonkuru E
+      - Korn DR
+      - Casiraghi E
+      - Valentini G
+      - Jacobsen JOB
+      - Haendel M
+      - Smedley D
+      - Mungall CJ
+      - Robinson PN
+      ref_publication_year: 2026
+      ref_journal: Eur J Hum Genet
+  - id: B2AI_APP:489
+    category: B2AI:Application
+    name: LLM-assisted curation of medical actions for rare diseases (AutoMAxO)
+    description: AutoMAxO is a semi-automated workflow that uses large language models
+      to extract candidate treatment annotations from publication abstracts and match
+      them to terms in the Medical Action Ontology (MAxO), HPO, and Mondo. In post-processing,
+      OAK's annotation functions perform lexical matching to ground terms that were
+      not already matched, with CurateGPT vector matching as a fallback. Applied to
+      abstracts for 37 rare genetic diseases, the workflow produced 958 novel treatment
+      annotations added to the MAxO annotation dataset after curator review.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf141
+      ref_title: Leveraging generative AI to assist biocuration of medical actions
+        for rare disease
+      ref_authors:
+      - Niyonkuru E
+      - Caufield JH
+      - Carmody LC
+      - Gargano MA
+      - Toro S
+      - Whetzel PL
+      - Blau H
+      - Soto Gomez M
+      - Casiraghi E
+      - Chimirri L
+      - Reese JT
+      - Valentini G
+      - Haendel MA
+      - Mungall CJ
+      - Robinson PN
+      ref_publication_year: 2025
+      ref_journal: Bioinform Adv
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.5281/zenodo.6456239
+    ref_title: 'INCATools/ontology-access-kit: v0.7.4'
+    ref_authors:
+    - Mungall C
+    - Hegde H
+    - Kalita P
+    - Hoyt CT
+    - Patil S
+    - Caufield H
+    - Joachimiak MP
+    - Flack J
+    - Reese J
+    - Korn D
+    - Linke D
+    - Harris N
+    - Matentzoglu N
+    - Moxon S
+    - Unni D
+    - Rutherford K
+    - Goutte-Gattat D
+    - Bremer P
+    - de Souza V
+    - Halchenko Y
+    - Zankl A
+    - Jacobsen J
+    - Schaper K
+    - Lera-Ramirez M
+    - Miller MA
+    - Ly R
+    - Tan S
+    - Lubiana T
+    - Whetzel T
+    ref_publication_year: 2026
+    ref_journal: Zenodo
 - id: B2AI_STANDARD:811
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -42247,6 +43470,9 @@ data_standardortools_collection:
     ref_publication_year: 2022
     ref_journal: Database
   purpose_detail: A toolkit and workflow system for managing the ontology life-cycle.
+  related_to:
+  - B2AI_STANDARD:484
+  - B2AI_STANDARD:810
   requires_registration: false
   url: https://github.com/INCATools/ontology-development-kit
 - id: B2AI_STANDARD:812
@@ -42583,6 +43809,8 @@ data_standardortools_collection:
     that require standardized clinical variables, multi-site cohort collection, reproducible
     ETL, model monitoring outcomes, and links between EHR-derived and research-collected
     data.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: true
   url: https://www.project-redcap.org/
   used_in_bridge2ai: true
@@ -43875,6 +45103,9 @@ data_standardortools_collection:
     infrastructure has established it as essential infrastructure for the genomics
     research community, enabling researchers to focus on scientific questions rather
     than computational logistics.'
+  related_to:
+  - B2AI_STANDARD:808
+  - B2AI_STANDARD:1319
   requires_registration: true
   url: https://app.terra.bio/
   has_application:
@@ -45654,6 +46885,10 @@ data_standardortools_collection:
   purpose_detail: A registry of standardized, precisely defined questions, paired
     with sets of allowable responses, used systematically across different sites,
     studies, or clinical trials to ensure consistent data collection.
+  related_to:
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:1316
+  - B2AI_STANDARD:1317
   requires_registration: false
   url: https://cde.nlm.nih.gov/
   publication:
@@ -48042,6 +49277,8 @@ data_standardortools_collection:
     and validator tools that check report conformance to template specifications,
     promoting reproducibility and data quality in radiology research while reducing
     the burden on investigators to develop ad hoc data dictionaries for each new study.
+  related_to:
+  - B2AI_STANDARD:541
   requires_registration: false
   url: https://www.radelement.org/
   publication:
@@ -56895,6 +58132,7 @@ data_standardortools_collection:
   related_to:
   - B2AI_STANDARD:261
   - B2AI_STANDARD:751
+  - B2AI_STANDARD:808
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:129
@@ -61055,12 +62293,13 @@ data_standardortools_collection:
     CRDC both take part in the NIH Cloud Platform Interoperability (NCPI) effort, and
     Kids First proteomic studies are held in the CRDC Proteomic Data Commons.
   related_to:
-  - B2AI_STANDARD:1221
-  - B2AI_STANDARD:1218
-  - B2AI_STANDARD:1220
+  - B2AI_STANDARD:714
   - B2AI_STANDARD:832
   - B2AI_STANDARD:1155
+  - B2AI_STANDARD:1218
   - B2AI_STANDARD:1219
+  - B2AI_STANDARD:1220
+  - B2AI_STANDARD:1221
   - B2AI_STANDARD:1223
   - B2AI_STANDARD:1224
   - B2AI_STANDARD:1225
@@ -64986,6 +66225,8 @@ data_standardortools_collection:
     New versions are released twice a year, in March and September. Use requires a
     subscription, which is free for regulatory authorities and non-profit or non-commercial
     organizations and priced on a sliding scale by annual revenue for commercial subscribers.
+  related_to:
+  - B2AI_STANDARD:714
   requires_registration: true
   url: https://www.meddra.org/
   publication:
@@ -65402,6 +66643,7 @@ data_standardortools_collection:
     and OVAE, and is developed by the He group at the University of Michigan.
   related_to:
   - B2AI_STANDARD:526
+  - B2AI_STANDARD:810
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:178
@@ -65613,3 +66855,1105 @@ data_standardortools_collection:
   url: https://www.snomed.org/international-patient-summary-terminology
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1310
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:16
+  - B2AI_TOPIC:53
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: LLM-assisted biocuration workflow for Medical Action Ontology annotations
+  formal_specification: https://github.com/monarch-initiative/automaxo
+  has_relevant_organization:
+  - B2AI_ORG:58
+  - B2AI_ORG:181
+  is_open: true
+  name: AutoMAxO
+  purpose_detail: AutoMAxO is a semi-automated Python workflow from the Monarch Initiative
+    for curating Medical Action Ontology (MAxO) annotations to rare diseases. It retrieves
+    PubMed abstracts for a disease, uses large language models through OntoGPT to
+    extract candidate statements linking medical actions to diseases and phenotypes,
+    maps the extracted entities to MAxO, HPO, and Mondo terms (with MeSH-based matching
+    and fuzzy string post-processing), and ranks the resulting triples for review
+    by a human curator, who approves what enters the annotation set. Its command-line
+    entry points cover article retrieval, extraction, MeSH import and replacement,
+    and ranking. In the 2025 description paper, the workflow processed abstracts on
+    37 rare genetic diseases and produced 958 new treatment annotations that were
+    transferred to the MAxO annotation dataset. AutoMAxO is distributed on GitHub
+    under the MIT license (version 0.1.1 in pyproject.toml), with documentation and
+    a tutorial at https://monarch-initiative.github.io/automaxo/.
+  related_to:
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:484
+  - B2AI_STANDARD:495
+  - B2AI_STANDARD:1320
+  requires_registration: false
+  url: https://monarch-initiative.github.io/automaxo/
+  publication:
+    ref_url: https://doi.org/10.1093/bioadv/vbaf141
+    ref_title: Leveraging generative AI to assist biocuration of medical actions for
+      rare disease
+    ref_authors:
+    - Niyonkuru E
+    - Caufield JH
+    - Carmody LC
+    - Gargano MA
+    - Toro S
+    - Whetzel PL
+    - Blau H
+    - Soto Gomez M
+    - Casiraghi E
+    - Chimirri L
+    - Reese JT
+    - Valentini G
+    - Haendel MA
+    - Mungall CJ
+    - Robinson PN
+    ref_publication_year: 2025
+    ref_journal: Bioinform Adv
+- id: B2AI_STANDARD:1311
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:65
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: LOINC/RSNA Radiology Playbook of radiology procedure codes
+  has_relevant_organization:
+  - B2AI_ORG:84
+  - B2AI_ORG:85
+  is_open: true
+  name: LOINC/RSNA Radiology Playbook
+  purpose_detail: The LOINC/RSNA Radiology Playbook is a unified terminology for naming
+    and coding radiology procedures (orderables and results), produced by harmonizing
+    the RSNA RadLex Playbook with the radiology section of LOINC. The RadLex Playbook
+    named nearly 1,000 commonly performed imaging exams, each with a RadLex Playbook
+    Identifier (RPID) and a name assembled from attributes such as modality and body
+    part. Regenstrief Institute and RSNA, with funding from NIBIB and the Department
+    of Defense, built a common model of radiology procedure names, mapped LOINC Parts
+    to RadLex concepts, and completed the harmonization in September 2017. The result
+    is a LOINC release artifact that gives each procedure a LOINC code, display names,
+    LOINC-to-RPID mappings, and links from the procedure to its attribute values (for
+    example modality, anatomic location, view, timing, pharmaceutical, and reason
+    for exam), expressed as LOINC Parts and RadLex IDs. It is distributed as an accessory
+    file with LOINC releases under the LOINC license (free registration required),
+    with the RSNA download dated 2025-10-03, and new codes are requested through a
+    joint Regenstrief-RSNA governance committee. Reported uses include the ACR CT
+    Dose Index Registry and Epic's Foundation System.
+  related_to:
+  - B2AI_STANDARD:187
+  - B2AI_STANDARD:541
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:84
+  - B2AI_ORG:85
+  url: https://loinc.org/kb/users-guide/loinc-rsna-radiology-playbook-user-guide/
+  has_application:
+  - id: B2AI_APP:475
+    category: B2AI:Application
+    name: LLM mapping of local radiology procedure names to the LOINC/RSNA Radiology
+      Playbook
+    description: ARKE decomposes local radiology procedure names into semantic components
+      using LLM prompting with retrieval-augmented generation, scores them against
+      the attributes of LOINC/RSNA Radiology Playbook (version 2.80) codes to retrieve
+      the top 10 candidates, and then uses the LLM to select the final code. On 3,326
+      procedure names from two Korean tertiary hospitals, recall@1 reached 0.70 (internal)
+      and 0.81 (external), versus 0.48 and 0.50 for direct mapping to Playbook code
+      names.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.jbi.2026.105071
+      ref_title: 'ARKE: An ontology-driven framework for automated mapping of local
+        radiology procedure terms to the LOINC-RadLex playbook using large language
+        model'
+      ref_authors:
+      - Lee S
+      - Jeon K
+      - Lim JS
+      - Park Y
+      - Kim MS
+      - Jin JH
+      - Han CH
+      - Yoon SH
+      - You SC
+      ref_publication_year: 2026
+      ref_journal: J Biomed Inform
+  publication:
+    ref_url: https://doi.org/10.1093/jamia/ocy053
+    ref_title: The LOINC RSNA radiology playbook - a unified terminology for radiology
+      procedures
+    ref_authors:
+    - Vreeman DJ
+    - Abhyankar S
+    - Wang KC
+    - Carr C
+    - Collins B
+    - Rubin DL
+    - Langlotz CP
+    ref_publication_year: 2018
+    ref_journal: J Am Med Inform Assoc
+- id: B2AI_STANDARD:1312
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - obofoundry
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:71
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Zebrafish Anatomy and Development Ontology
+  formal_specification: https://github.com/ZFIN/zebrafish-anatomical-ontology
+  has_relevant_organization:
+  - B2AI_ORG:75
+  is_open: true
+  name: ZFA
+  purpose_detail: The Zebrafish Anatomy Ontology (ZFA), listed by the OBO Foundry
+    as the zebrafish anatomy and development ontology, is a structured vocabulary
+    of the gross and cellular anatomy of Danio rerio from the single-cell zygote to
+    the adult. It organizes anatomical entities in a subclass hierarchy, a partonomy,
+    and a developmental hierarchy, and uses start and end relationships to terms of
+    the Zebrafish Developmental Stages Ontology (ZFS) to define when each structure
+    exists. The ZFA release file bundles the 54 ZFS stage terms. ZFIN curators develop
+    ZFA, with Ceri Van Slyke as OBO Foundry contact, and ZFIN uses it with ZFS to
+    annotate gene expression and phenotypes from the literature and contributed data
+    sets. It supplies the anatomical entity in ZFIN's entity-quality phenotype statements,
+    so it is a core dependency of the Zebrafish Phenotype Ontology (ZP). The 2014
+    description paper reported 2,860 classes; the 2026-07-16 release contains 3,115
+    non-obsolete ZFA classes. ZFA is maintained in the ZFIN/zebrafish-anatomical-ontology
+    GitHub repository, released in OWL and OBO through its OBO PURL under CC BY 3.0,
+    and browsable in OLS.
+  related_to:
+  - B2AI_STANDARD:563
+  - B2AI_STANDARD:575
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:182
+  url: https://obofoundry.org/ontology/zfa.html
+  publication:
+    ref_url: https://doi.org/10.1186/2041-1480-5-12
+    ref_title: 'The zebrafish anatomy and stage ontologies: representing the anatomy
+      and development of Danio rerio'
+    ref_authors:
+    - Van Slyke CE
+    - Bradford YM
+    - Westerfield M
+    - Haendel MA
+    ref_publication_year: 2014
+    ref_journal: J Biomed Semantics
+- id: B2AI_STANDARD:1313
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:35
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Exomiser, a tool to annotate and prioritize exome and genome variants
+    using phenotypes
+  formal_specification: https://github.com/exomiser/Exomiser
+  has_relevant_organization:
+  - B2AI_ORG:58
+  is_open: true
+  name: Exomiser
+  purpose_detail: Exomiser is an open-source Java application that annotates, filters,
+    and prioritizes variants from whole-exome or whole-genome sequencing for diagnosis
+    of Mendelian disease and discovery of new disease genes. Starting from a VCF file
+    and the patient's phenotypes encoded as Human Phenotype Ontology terms, it ranks
+    variants by population frequency (1000 Genomes, ESP, TOPMed, UK10K, ExAC, gnomAD),
+    predicted pathogenicity from dbNSFP, quality, inheritance pattern, and phenotype
+    similarity. Its hiPHIVE prioritiser scores a gene by comparing the patient's phenotypes
+    with phenotypes caused by disruption of that gene, or of nearby genes in a protein
+    interaction network, in human, mouse, and zebrafish, using cross-species comparisons
+    from PhenoDigm and the OWLSim algorithm. Jannovar performs functional annotation
+    against UCSC, RefSeq, or Ensembl transcripts on hg19 or hg38. Exomiser was developed
+    by the Charité - Universitätsmedizin Berlin, the mouse informatics group at the
+    Wellcome Sanger Institute, and other members of the Monarch Initiative. Binaries
+    are released on GitHub under the AGPL-3.0 license (version 15.1.0, June 2026),
+    with separate data releases from the Monarch Initiative data site and documentation
+    on Read the Docs.
+  related_to:
+  - B2AI_STANDARD:256
+  - B2AI_STANDARD:468
+  - B2AI_STANDARD:479
+  - B2AI_STANDARD:575
+  requires_registration: false
+  url: https://exomiser.readthedocs.io
+  has_application:
+  - id: B2AI_APP:479
+    category: B2AI:Application
+    name: Exomiser-based mitochondrial disease diagnosis with an XGBoost variant classifier
+    description: MSeqDR Quick-Mitome is a web platform for automated interpretation
+      of whole-exome data in primary mitochondrial disease. It runs Exomiser on nuclear
+      variants to rank them by allele frequency, phenotype-gene association from HPO
+      terms, functional impact, and inheritance mode, then adds mtDNA analyses. The
+      authors also trained the Mitochondrial Disease Variant classifier, an XGBoost
+      model on more than 120 features, which classified over 98% of nuclear gene variants
+      correctly as pathogenic or benign.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1002/cpz1.955
+      ref_title: 'MSeqDR Quick‐Mitome (QM): Combining Phenotype‐Guided Variant Interpretation
+        and Machine Learning Classifiers to Aid Primary Mitochondrial Disease Genetic
+        Diagnosis'
+      ref_authors:
+      - Shen L
+      - Falk MJ
+      - Gai X
+      ref_publication_year: 2024
+      ref_journal: Curr Protoc
+  publication:
+    ref_url: https://doi.org/10.1038/nprot.2015.124
+    ref_title: Next-generation diagnostics and disease-gene discovery with the Exomiser
+    ref_authors:
+    - Smedley D
+    - Jacobsen JOB
+    - Jäger M
+    - Köhler S
+    - Holtgrewe M
+    - Schubach M
+    - Siragusa E
+    - Zemojtel T
+    - Buske OJ
+    - Washington NL
+    - Bone WP
+    - Haendel MA
+    - Robinson PN
+    ref_publication_year: 2015
+    ref_journal: Nat Protoc
+- id: B2AI_STANDARD:1314
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - datamodel
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:12
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:75
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Gene Ontology Causal Activity Models
+  formal_specification: https://github.com/geneontology/gocam-py
+  has_relevant_organization:
+  - B2AI_ORG:36
+  is_open: true
+  name: GO-CAM
+  purpose_detail: Gene Ontology Causal Activity Modeling (GO-CAM) is the Gene Ontology
+    Consortium's framework for linking multiple standard GO annotations into a single
+    structured model of a biological system. Each model connects molecular activities
+    (GO molecular function terms) to the gene products that carry them out, the cellular
+    components where they occur, and the biological processes they are part of, and
+    connects activities to one another with causal relations. All connections use
+    defined relations from the Relation Ontology, including enabled by, occurs in,
+    part of, positively regulates (RO:0002629), negatively regulates (RO:0002630),
+    and directly provides input for (RO:0002413). Models are curated in the Noctua
+    editor, whose data handling backend is Minerva, and are published with GO releases
+    through the GO-CAM public site, the GO-CAM Browser, an API, and bulk downloads.
+    The gocam-py package (BSD-3-Clause) defines the GO-CAM data model in LinkML and
+    provides a JSON serialization. The framework was described by Thomas and colleagues
+    in 2019.
+  related_to:
+  - B2AI_STANDARD:454
+  - B2AI_STANDARD:543
+  requires_registration: false
+  url: https://geneontology.org/docs/gocam-overview/
+  publication:
+    ref_url: https://doi.org/10.1038/s41588-019-0500-1
+    ref_title: Gene Ontology Causal Activity Modeling (GO-CAM) moves beyond GO annotations
+      to structured descriptions of biological functions and systems
+    ref_authors:
+    - Thomas PD
+    - Hill DP
+    - Mi H
+    - Osumi-Sutherland D
+    - Van Auken K
+    - Carbon S
+    - Balhoff JP
+    - Albou LP
+    - Good B
+    - Gaudet P
+    - Lewis SE
+    - Mungall CJ
+    ref_publication_year: 2019
+    ref_journal: Nat Genet
+- id: B2AI_STANDARD:1315
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:75
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: PheKnowLator (Phenotype Knowledge Translator)
+  formal_specification: https://github.com/callahantiff/PheKnowLator
+  has_relevant_organization:
+  - B2AI_ORG:183
+  is_open: true
+  name: PheKnowLator
+  purpose_detail: PheKnowLator (Phenotype Knowledge Translator) is an open-source
+    ecosystem for automated construction of ontologically grounded, Semantic Web-compliant
+    biomedical knowledge graphs, developed by Tiffany Callahan, Lawrence Hunter, and
+    collaborators at the University of Colorado Anschutz Medical Campus. Users combine
+    OBO Foundry ontologies with linked data sources, and relations between entities
+    are expressed with Relation Ontology properties. Construction is configurable
+    along three axes, knowledge model (class-based or instance-based), relation strategy
+    (standard directed relations or inverse bidirectional relations), and semantic
+    abstraction with OWL-NETS (which converts OWL-encoded graphs into simpler hybrid
+    graphs), yielding 12 variants of each knowledge graph build. Outputs include triple
+    edge lists, OWL RDF/XML, NetworkX MultiDiGraph pickles, node and relation metadata,
+    and graph embeddings, and prebuilt human disease knowledge graphs are shared as
+    benchmarks. The Python library is distributed on PyPI as pkt_kg under the Apache-2.0
+    license (latest GitHub release v3.1.2, November 2023), with Docker images and
+    SPARQL endpoint resources. The 2024 Scientific Data paper compares it with other
+    open-source knowledge graph construction methods and reports its computational
+    performance across 12 large-scale builds.
+  related_to:
+  - B2AI_STANDARD:388
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:716
+  requires_registration: false
+  url: https://github.com/callahantiff/PheKnowLator/wiki
+  has_application:
+  - id: B2AI_APP:481
+    category: B2AI:Application
+    name: Graph embedding and edge prediction on an RNA knowledge graph built with
+      PheKnowLator
+    description: RNA-KG, an RNA-centered knowledge graph of 60+ public sources, was
+      assembled with PheKnowLator from an RO-grounded meta-graph. Torgano and colleagues
+      applied LINE and node2vec embeddings with decision tree and random forest classifiers
+      to predict node types and edges in RNA-KG, reaching balanced accuracy above
+      90% for the 20 most common node types and above 80% for most specific edge prediction
+      tasks.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioadv/vbaf109
+      ref_title: RNA knowledge-graph analysis through homogeneous embedding methods
+      ref_authors:
+      - Torgano F
+      - Soto Gomez M
+      - Zignani M
+      - Gliozzo J
+      - Cavalleri E
+      - Mesiti M
+      - Casiraghi E
+      - Valentini G
+      ref_publication_year: 2025
+      ref_journal: Bioinform Adv
+  publication:
+    ref_url: https://doi.org/10.1038/s41597-024-03171-w
+    ref_title: An open source knowledge graph ecosystem for the life sciences
+    ref_authors:
+    - Callahan TJ
+    - Tripodi IJ
+    - Stefanski AL
+    - Cappelletti L
+    - Taneja SB
+    - Wyrwa JM
+    - Casiraghi E
+    - Matentzoglu NA
+    - Reese J
+    - Silverstein JC
+    - Hoyt CT
+    - Boyce RD
+    - Malec SA
+    - Unni DR
+    - Joachimiak MP
+    - Robinson PN
+    - Mungall CJ
+    - Cavalleri E
+    - Fontana T
+    - Valentini G
+    - Mesiti M
+    - Gillenwater LA
+    - Santangelo B
+    - Vasilevsky NA
+    - Hoehndorf R
+    - Bennett TD
+    - Ryan PB
+    - Hripcsak G
+    - Kahn MG
+    - Bada M
+    - Baumgartner WA
+    - Hunter LE
+    ref_publication_year: 2024
+    ref_journal: Sci Data
+- id: B2AI_STANDARD:1316
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - standards_process_maturity_final
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ISO/IEC 11179 Information technology - Metadata registries (MDR)
+  formal_specification: https://www.iso.org/standard/78915.html
+  has_relevant_organization:
+  - B2AI_ORG:49
+  is_open: false
+  name: ISO/IEC 11179
+  purpose_detail: ISO/IEC 11179 is a multipart international standard for metadata
+    registries, the systems that register, describe, and manage the semantics of data
+    so that data definitions can be shared by people and machines independently of
+    the organization that produced them. It is developed by Joint Technical Committee
+    ISO/IEC JTC 1, Subcommittee 32 (Data management and interchange). Part 1 (Framework,
+    4th edition, January 2023) introduces the series and relates it to other SC 32
+    metadata standards. Part 3 (Metamodel for registry common facilities, 4th edition,
+    2023, with a 2026 amendment on item mapping) defines a conceptual model for registry
+    items with sub-metamodels for identification, designation and definition, registration,
+    classification, and mapping. Part 31 (Metamodel for data specification registration,
+    1st edition, January 2023) extends Part 3 to register data elements, data element
+    concepts with their object classes and properties, conceptual domains and value
+    meanings, and value domains with datatypes, units of measure, and permissible
+    values. Other parts cover data definitions, naming and identification, and registration.
+    The standard describes semantics rather than physical storage. Current editions
+    are sold through the ISO and IEC webstores. The model underlies Common Data Element
+    registries in biomedicine, including the NCI caDSR, whose data model is based
+    on ISO/IEC 11179, and NCI states that NCI and NIH CDEs both follow it.
+  related_to:
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:859
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:49
+  url: https://www.iso.org/standard/78914.html
+  publication:
+    ref_url: https://www.iso.org/standard/78914.html
+    ref_title: Information technology - Metadata registries (MDR) - Part 1 Framework
+    ref_authors:
+    - ISO/IEC JTC 1/SC 32
+    ref_publication_year: 2023
+    ref_journal: ISO/IEC 11179-1:2023
+- id: B2AI_STANDARD:1317
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:60
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Center for Expanded Data Annotation and Retrieval (CEDAR) Workbench
+    for authoring metadata templates and metadata
+  formal_specification: https://github.com/metadatacenter
+  has_relevant_organization:
+  - B2AI_ORG:185
+  is_open: true
+  name: CEDAR Workbench
+  purpose_detail: The CEDAR Workbench is a web-based platform for creating, sharing,
+    and filling in biomedical metadata templates, developed by the Center for Expanded
+    Data Annotation and Retrieval (CEDAR) at Stanford University. CEDAR was established
+    in 2014 with NIH Big Data to Knowledge funding (grant U54AI117925). A template
+    defines the data elements expected for a type of experiment along with controlled
+    terms; community curators build templates in the Template Designer, investigators
+    use them to author metadata, and the resulting records can be searched. Templates
+    and metadata are serialized as JSON Schema based documents, and the Workbench
+    offers features for building reusable libraries, collaboration, versioning, and
+    publishing, a REST micro-service API, and the CEDAR Embeddable Editor, which places
+    template-driven metadata entry inside other platforms such as OSF and Dryad. Projects
+    using CEDAR include HuBMAP, SenNet, LINCS, IDG, and NIH HEAL. Under a contract
+    with NCI CBIIT, CEDAR imported caDSR Common Data Elements as reusable template
+    fields organized by caDSR classification, and it reports holding more than 80,000
+    caDSR CDEs plus about 28,000 CDEs ingested from the NIH CDE Repository in 2024.
+    The Workbench is free to use with an account, and its source code is on GitHub.
+  related_to:
+  - B2AI_STANDARD:714
+  - B2AI_STANDARD:859
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:186
+  url: https://cedar.metadatacenter.org/
+  has_application:
+  - id: B2AI_APP:484
+    category: B2AI:Application
+    name: GPT-4 metadata standardization guided by CEDAR templates
+    description: Sundaram, Gonçalves, and Musen used CEDAR metadata templates, which
+      specify the expected fields of a submission and their permissible values, to
+      guide GPT-4 in correcting and refining NCBI BioSample and Gene Expression Omnibus
+      metadata in bulk. Average dataset retrieval recall rose from 17.65% with the
+      original metadata to 62.87% with GPT-4 plus CEDAR templates, which also outperformed
+      GPT-4 guided only by a data dictionary. GPT-4 with CEDAR showed consistent advantages
+      over LLaMA-3 and MedLLaMA2.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/gigascience/giag019
+      ref_title: 'Toward total recall: Enhancing data FAIRness through AI-driven metadata
+        standardization'
+      ref_authors:
+      - Sundaram SS
+      - Gonçalves RS
+      - Musen MA
+      ref_publication_year: 2026
+      ref_journal: Gigascience
+  publication:
+    ref_url: https://doi.org/10.1007/978-3-319-68204-4_10
+    ref_title: 'The CEDAR Workbench: An Ontology-Assisted Environment for Authoring
+      Metadata that Describe Scientific Experiments'
+    ref_authors:
+    - Gonçalves RS
+    - O'Connor MJ
+    - Martínez-Romero M
+    - Egyedi AL
+    - Willrett D
+    - Graybeal J
+    - Musen MA
+    ref_publication_year: 2017
+    ref_journal: Lect Notes Comput Sci
+- id: B2AI_STANDARD:1318
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:60
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: seqr, a web-based variant search, analysis, and collaboration tool
+    for rare disease genomics
+  formal_specification: https://github.com/broadinstitute/seqr
+  is_open: true
+  name: seqr
+  purpose_detail: seqr is an open-source web application for family-based analysis
+    of exome and genome callsets in monogenic disease, developed and maintained by
+    the Broad Institute Center for Mendelian Genomics team. Users load joint-called
+    VCFs with pedigree information, then filter variants by inheritance mode, allele
+    frequency, predicted consequence, and pathogenicity annotations, tag candidate
+    causal variants, and share notes with collaborators. The 2022 paper reports that
+    within the Broad Center for Mendelian Genomics seqr had supported analysis of
+    more than 10,000 families, diagnosis of more than 3,800 individuals, and discovery
+    of over 300 novel disease genes, and that it was also in use by one clinical diagnostic
+    laboratory. The current stack is a Django/Python and React application with PostgreSQL
+    for metadata, ClickHouse for variant data, Redis for caching, and Hail pipelines
+    for loading datasets; the Broad production instance runs on Google Kubernetes
+    Engine, and on-premises installs are deployed with Helm. The code is released
+    under AGPL-3.0. AnVIL users can send a joint-called VCF from a Terra workspace
+    to the Broad seqr instance with the workspace's Analyze in seqr option.
+  related_to:
+  - B2AI_STANDARD:808
+  - B2AI_STANDARD:1319
+  requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:147
+  url: https://seqr.broadinstitute.org/
+  publication:
+    ref_url: https://doi.org/10.1002/humu.24366
+    ref_title: 'seqr: A web-based analysis and collaboration tool for rare disease
+      genomics'
+    ref_authors:
+    - Pais LS
+    - Snow H
+    - Weisburd B
+    - Zhang S
+    - Baxter SM
+    - DiTroia S
+    - O'Heir E
+    - England E
+    - Chao KR
+    - Lemire G
+    - Osei-Owusu I
+    - VanNoy GE
+    - Wilson M
+    - Nguyen K
+    - Arachchi H
+    - Phu W
+    - Solomonson M
+    - Mano S
+    - O'Leary M
+    - Lovgren A
+    - Babb L
+    - Austin-Tse CA
+    - Rehm HL
+    - MacArthur DG
+    - O'Donnell-Luria A
+    ref_publication_year: 2022
+    ref_journal: Hum Mutat
+- id: B2AI_STANDARD:1319
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:61
+  - B2AI_TOPIC:74
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Hail, an open-source Python library for scalable genomic data analysis
+  formal_specification: https://github.com/hail-is/hail
+  is_open: true
+  name: Hail
+  purpose_detail: Hail is an open-source library for analyzing genomic data at biobank
+    scale, developed by the Hail team at the Broad Institute and released under the
+    MIT license. Hail Query provides a Python dataframe-style interface built around
+    the MatrixTable, a distributed structure that combines a variant-by-sample genotype
+    matrix with row, column, and entry fields, and imports and exports VCF, BGEN,
+    and PLINK files. It includes routines for sample and variant quality control,
+    principal component analysis, relatedness estimation, linear and logistic regression
+    for GWAS, and annotation, and it scales from a laptop to Spark clusters in the
+    cloud. Hail Batch, the second component, runs containerized command-line tools
+    such as PLINK and SAIGE in parallel on cloud compute. The project's site cites
+    its use for UK Biobank, gnomAD, TOPMed, FinnGen, and Biobank Japan analyses. Release
+    0.2.139 was published in August 2026. seqr uses Hail pipelines to load variant
+    callsets. There is no peer-reviewed paper describing Hail.
+  related_to:
+  - B2AI_STANDARD:808
+  - B2AI_STANDARD:832
+  - B2AI_STANDARD:1318
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:147
+  url: https://hail.is/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1320
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:16
+  - B2AI_TOPIC:32
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-10'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: OntoGPT, a Python package for ontology-grounded information extraction
+    from text with large language models
+  formal_specification: https://github.com/monarch-initiative/ontogpt
+  has_relevant_organization:
+  - B2AI_ORG:184
+  is_open: true
+  name: OntoGPT
+  purpose_detail: OntoGPT is a Python package and command-line tool, developed in
+    the Monarch Initiative GitHub organization under a BSD-3-Clause license, for extracting
+    structured information from text with large language models (LLMs), instruction
+    prompts, and ontology-based grounding. Its main method, Structured Prompt Interrogation
+    and Recursive Extraction of Semantics (SPIRES), walks a user-supplied LinkML schema
+    recursively, prompting the model for one class at a time so that the assembled
+    output conforms to the full schema. OntoGPT does not ask the model for identifiers;
+    it asks for names, grounds each name against the source ontology through Ontology
+    Access Kit (OAK) annotators, and validates each grounded identifier, marking names
+    that cannot be grounded with an AUTO prefix. The package ships dozens of templates
+    for diseases, phenotypes, drugs, genes, GO terms, environmental samples, and other
+    domains, and writes output as YAML, JSON, RDF, or OWL. It is distributed on PyPI
+    (version 1.2.0 was released in September 2026) and includes a minimal web application.
+  related_to:
+  - B2AI_STANDARD:347
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1310
+  - B2AI_STANDARD:1321
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:58
+  url: https://monarch-initiative.github.io/ontogpt/
+  publication:
+    ref_url: https://doi.org/10.1093/bioinformatics/btae104
+    ref_title: 'Structured Prompt Interrogation and Recursive Extraction of Semantics
+      (SPIRES): a method for populating knowledge bases using zero-shot learning'
+    ref_authors:
+    - Caufield JH
+    - Hegde H
+    - Emonet V
+    - Harris NL
+    - Joachimiak MP
+    - Matentzoglu N
+    - Kim H
+    - Moxon S
+    - Reese JT
+    - Haendel MA
+    - Robinson PN
+    - Mungall CJ
+    ref_publication_year: 2024
+    ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1321
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:62
+  contribution_date: '2026-10-10'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: CurateGPT, an LLM-driven tool for assisting curation of ontologies
+    and knowledge bases
+  formal_specification: https://github.com/monarch-initiative/curategpt
+  has_relevant_organization:
+  - B2AI_ORG:184
+  is_open: true
+  name: CurateGPT
+  purpose_detail: CurateGPT is an open-source Python tool, developed in the Monarch
+    Initiative GitHub organization under a BSD-3-Clause license, that uses large language
+    models (LLMs) to assist curators of ontologies, databases, and knowledge bases.
+    It builds vector database indexes of the resources to be curated, with ontology
+    curation as the main use; OBO ontologies such as the Cell Ontology are loaded
+    through the Ontology Access Kit (OAK). Agents built on these indexes use retrieval
+    augmented generation to search ontologies, suggest new or completed entries, and
+    retrieve literature and other external sources as evidence, so that each suggestion
+    links back to supporting data rather than relying only on the LLM's training data.
+    The DRAGON-AI ontology term generation method is implemented as part of CurateGPT.
+    It offers a command-line interface and a web application, and version 0.2.4 was
+    released in June 2025. The tool is described in a 2024 arXiv preprint; no peer-reviewed
+    article was found.
+  related_to:
+  - B2AI_STANDARD:810
+  - B2AI_STANDARD:1320
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:58
+  url: https://monarch-initiative.github.io/curategpt/
+  has_application:
+  - id: B2AI_APP:490
+    category: B2AI:Application
+    name: Ontology term generation with retrieval augmented generation (DRAGON-AI)
+    description: DRAGON-AI generates textual and logical components of new ontology
+      terms using LLMs with retrieval augmented generation, drawing on vector-indexed
+      ontology terms and other sources such as GitHub issues. DRAGON-AI is implemented
+      as part of the CurateGPT suite. Evaluated on de novo term construction across
+      ten ontologies with extensive manual review, it showed high precision for relationship
+      generation, and its definitions were judged acceptable but scored below human-authored
+      ones.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-024-00320-3
+      ref_title: Dynamic Retrieval Augmented Generation of Ontologies using Artificial
+        Intelligence (DRAGON-AI)
+      ref_authors:
+      - Toro S
+      - Anagnostopoulos AV
+      - Bello SM
+      - Blumberg K
+      - Cameron R
+      - Carmody L
+      - Diehl AD
+      - Dooley DM
+      - Duncan WD
+      - Fey P
+      - Gaudet P
+      - Harris NL
+      - Joachimiak MP
+      - Kiani L
+      - Lubiana T
+      - Munoz-Torres MC
+      - O'Neil S
+      - Osumi-Sutherland D
+      - Puig-Barbe A
+      - Reese JT
+      - Reiser L
+      - Robb SM
+      - Ruemping T
+      - Seager J
+      - Sid E
+      - Stefancsik R
+      - Weber M
+      - Wood V
+      - Haendel MA
+      - Mungall CJ
+      ref_publication_year: 2024
+      ref_journal: J Biomed Semantics
+  publication:
+    ref_url: https://doi.org/10.48550/arXiv.2411.00046
+    ref_title: 'CurateGPT: A flexible language-model assisted biocuration tool'
+    ref_authors:
+    - Caufield H
+    - Kroll C
+    - O'Neil ST
+    - Reese JT
+    - Joachimiak MP
+    - Hegde H
+    - Harris NL
+    - Krishnamurthy M
+    - McLaughlin JA
+    - Smedley D
+    - Haendel MA
+    - Robinson PN
+    - Mungall CJ
+    ref_publication_year: 2024
+    ref_journal: arXiv
+- id: B2AI_STANDARD:1322
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:62
+  contribution_date: '2026-10-10'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: SemSQL (Semantic SQL), standard SQL tables and views for RDF/OWL ontologies
+    with prebuilt SQLite builds of OBO ontologies
+  formal_specification: https://github.com/INCATools/semantic-sql
+  has_relevant_organization:
+  - B2AI_ORG:75
+  is_open: true
+  name: SemSQL
+  purpose_detail: SemSQL (semantic-sql) provides a standard collection of SQL tables
+    and views for RDF and OWL ontologies, so that ontology content such as labels,
+    definitions, and subclass relationships can be queried with ordinary SQL. It is
+    maintained in the INCATools GitHub organization under a BSD-3-Clause license and
+    distributed as the semsql Python package and a Docker image. The schema is written
+    in LinkML and compiled to SQL. A small number of base tables (statements, prefix,
+    and entailed_edge) hold the data, and all other tables are views derived from
+    them; the entailed_edge table is precomputed with relation-graph so that inferred
+    is-a and part-of ancestors can be queried directly. SQLite is the main target,
+    though the library can also be used with other database systems such as PostgreSQL.
+    Ready-made SQLite builds of OBO Foundry ontologies are downloadable from semanticsql.berkeleybop.io.
+    The Ontology Access Kit uses these databases for its SQLite adapter. No journal
+    article describing SemSQL was found.
+  related_to:
+  - B2AI_STANDARD:245
+  - B2AI_STANDARD:347
+  - B2AI_STANDARD:388
+  - B2AI_STANDARD:810
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:184
+  url: https://incatools.github.io/semantic-sql/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1323
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  - markuplanguage
+  concerns_data_topic:
+  - B2AI_TOPIC:78
+  - B2AI_TOPIC:54
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: ISO Schematron rule-based validation language for XML
+  formal_specification: https://www.iso.org/standard/85625.html
+  has_relevant_organization:
+  - B2AI_ORG:49
+  is_open: true
+  name: Schematron
+  purpose_detail: Schematron is a rule-based language for validating XML documents
+    by making assertions about the presence or absence of patterns, standardized as
+    ISO/IEC 19757-3 (Document Schema Definition Languages, Part 3). The first ISO
+    edition appeared in 2006 and the fourth edition (ISO/IEC 19757-3:2025) was published
+    in September 2025, edited by Andrew Sales; it adds an XQuery 3 query language
+    binding, new group, library, and rules elements, typed variables, and severity
+    attributes. Schematron complements grammar-based schemas such as XML Schema (XSD)
+    by expressing co-occurrence constraints and business rules that grammars cannot.
+    Rules are commonly compiled to XSLT and report results in the Schematron Validation
+    Report Language (SVRL). In biomedical informatics it is used for clinical document
+    conformance checking, for example the NEMSIS EMS data standard, whose TAC has
+    published pattern-based national Schematron rules since 2014 alongside per-state
+    rule sets, and HL7, which distributes Schematron with the C-CDA Release 2.1 implementation
+    guide. The ISO text is sold through the ISO store; the Schematron schemas themselves
+    are publicly available.
+  related_to:
+  - B2AI_STANDARD:225
+  - B2AI_STANDARD:66
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:49
+  url: https://www.schematron.com/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1324
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:68
+  - B2AI_TOPIC:69
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:78
+  - B2AI_TOPIC:60
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Browser-based spreadsheet editor and validator for harmonizing pathogen
+    genomics contextual data
+  formal_specification: https://github.com/cidgoh/DataHarmonizer
+  has_relevant_organization:
+  - B2AI_ORG:191
+  is_open: true
+  name: DataHarmonizer
+  purpose_detail: DataHarmonizer is a template-driven spreadsheet application for
+    entering, validating and transforming genomics contextual data (sample metadata,
+    laboratory methods, host and epidemiological information) into submission-ready
+    formats for public or private repositories. It runs as a JavaScript application
+    in a web browser and can be installed locally and used offline, so sensitive data
+    need not leave the user's machine. Templates are defined as LinkML schemas; fields
+    and picklist values in the pathogen templates carry ontology identifiers, largely
+    from GenEpiO. It was created by the Centre for Infectious Disease Genomics and
+    One Health (CIDGOH) at Simon Fraser University during the COVID-19 pandemic and
+    was used by members of the Canadian COVID Genomics Network (CanCOGeN) to harmonize
+    SARS-CoV-2 contextual data for national surveillance and repository submission.
+    The stand-alone Pathogen Genomics Package includes CanCOGeN Covid-19, PHA4GE SARS-CoV-2
+    and mpox templates. The project is now an open-source collaboration with the National
+    Microbiome Data Collaborative (NMDC), whose data portal uses the DataHarmonizer
+    API for metadata collection, and the LinkML team. The code is on GitHub under
+    the MIT license.
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:1325
+  - B2AI_STANDARD:347
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:190
+  url: https://github.com/cidgoh/DataHarmonizer
+  publication:
+    ref_url: https://doi.org/10.1099/mgen.0.000908
+    ref_title: 'The DataHarmonizer: a tool for faster data harmonization, validation,
+      aggregation and analysis of pathogen genomics contextual information'
+    ref_authors:
+    - Gill IS
+    - Griffiths EJ
+    - Dooley D
+    - Cameron R
+    - Savić Kallesøe S
+    - John NS
+    - Sehar A
+    - Gosal G
+    - Alexander D
+    - Chapel M
+    - Croxen MA
+    - Delisle B
+    - Di Tullio R
+    - Gaston D
+    - Duggan A
+    - Guthrie JL
+    - Horsman M
+    - Joshi E
+    - Kearny L
+    - Knox N
+    - Lau L
+    - LeBlanc JJ
+    - Li V
+    - Lyons P
+    - MacKenzie K
+    - McArthur AG
+    - Panousis EM
+    - Palmer J
+    - Prystajecky N
+    - Smith KN
+    - Tanner J
+    - Townend C
+    - Tyler A
+    - Van Domselaar G
+    - Hsiao WWL
+    ref_publication_year: 2023
+    ref_journal: Microb Genom
+- id: B2AI_STANDARD:1325
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - minimuminformationschema
+  concerns_data_topic:
+  - B2AI_TOPIC:54
+  - B2AI_TOPIC:68
+  - B2AI_TOPIC:69
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:67
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Public Health Alliance for Genomic Epidemiology SARS-CoV-2 contextual
+    data specification
+  formal_specification: https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification
+  has_relevant_organization:
+  - B2AI_ORG:190
+  - B2AI_ORG:120
+  is_open: true
+  name: PHA4GE SARS-CoV-2 Contextual Data Specification
+  purpose_detail: The PHA4GE SARS-CoV-2 contextual data specification is a community
+    metadata standard for the sample, laboratory, clinical, epidemiological and analysis-method
+    information that accompanies SARS-CoV-2 genome sequences. It was developed by
+    the Data Structures working group of the Public Health Alliance for Genomic Epidemiology
+    (PHA4GE), a global coalition promoting open, interoperable public health microbial
+    bioinformatics. The package includes a spreadsheet collection template with required,
+    recommended and optional fields, a reference guide with field definitions and
+    examples, ontology-mapped picklists, a machine-readable JSON schema, an SOP on
+    protocols.io, and mappings of PHA4GE fields to WHO-recommended data elements and
+    to GISAID, ENA and NCBI submission fields, with step-by-step submission protocols
+    for each repository. In the standardized-terms file in the GitHub repository,
+    130 fields are listed (13 required, 12 recommended), and 127 carry GenEpiO identifiers.
+    Version 3.0.0 was released in December 2021 and v3.0.2 in February 2022. The specification
+    is supported by NCBI BioSample and is implemented as a DataHarmonizer template.
+    Materials are released under CC BY 4.0.
+  related_to:
+  - B2AI_STANDARD:455
+  - B2AI_STANDARD:1324
+  - B2AI_STANDARD:209
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:191
+  url: https://github.com/pha4ge/SARS-CoV-2-Contextual-Data-Specification
+  publication:
+    ref_url: https://doi.org/10.1093/gigascience/giac003
+    ref_title: 'Future-proofing and maximizing the utility of metadata: The PHA4GE
+      SARS-CoV-2 contextual data specification package'
+    ref_authors:
+    - Griffiths EJ
+    - Timme RE
+    - Mendes CI
+    - Page AJ
+    - Alikhan NF
+    - Fornika D
+    - Maguire F
+    - Campos J
+    - Park D
+    - Olawoye IB
+    - Oluniyi PE
+    - Anderson D
+    - Christoffels A
+    - da Silva AG
+    - Cameron R
+    - Dooley D
+    - Katz LS
+    - Black A
+    - Karsch-Mizrachi I
+    - Barrett T
+    - Johnston A
+    - Connor TR
+    - Nicholls SM
+    - Witney AA
+    - Tyson GH
+    - Tausch SH
+    - Raphenya AR
+    - Alcock B
+    - Aanensen DM
+    - Hodcroft E
+    - Hsiao WWL
+    - Vasconcelos ATR
+    - MacCannell DR
+    ref_publication_year: 2022
+    ref_journal: Gigascience
