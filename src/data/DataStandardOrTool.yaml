@@ -61144,6 +61144,7 @@ data_standardortools_collection:
   collection:
   - datavisualization
   - fileformat
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:13
   - B2AI_TOPIC:35
@@ -61161,6 +61162,66 @@ data_standardortools_collection:
   - B2AI_ORG:128
   - B2AI_ORG:145
   - B2AI_ORG:158
+  has_application:
+  - id: B2AI_APP:504
+    category: B2AI:Application
+    name: Deep learning breast cancer survival prediction on METABRIC from cBioPortal
+    description: This study builds a deep learning model combining bidirectional LSTM
+      and CNN layers with mRMR feature selection to predict breast cancer survival from
+      multi-omics data. The primary training and evaluation cohort is the METABRIC breast
+      cancer dataset (clinical, gene-expression, and copy-number data for roughly 1,980
+      primary samples), which the authors obtain through the cBioPortal database, with
+      a TCGA-BRCA cohort used as a second dataset. cBioPortal is therefore the direct
+      source of the labeled genomic and clinical cohort on which the machine learning
+      model is trained and tested.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.12688/f1000research.166682.2
+      ref_title: An Improved Deep Learning Algorithm for Breast Cancer Survival Prediction
+        Based on Multi-Omics Data
+      ref_authors:
+      - Nasarudin NA
+      - Al-Jasmi F
+      - Abdul Aziz NH
+      - Ab Aziz NA
+      - Khan W
+      - Hendrawan Y
+      - Al Riza DF
+      - Manzoor A
+      - Ali BR
+      - Mohamad MS
+      ref_publication_year: 2025
+      ref_journal: F1000Research
+  - id: B2AI_APP:505
+    category: B2AI:Application
+    name: Machine learning prediction of melanoma immunotherapy response validated on
+      a cBioPortal cohort
+    description: This study trains multiple machine learning classifiers (including
+      XGBoost, random forest, a feedforward neural network, and a CNN) on single-cell
+      RNA-seq data of melanoma tumor-infiltrating cells to predict response to immune
+      checkpoint inhibitors, nominating candidate biomarkers. The model findings are
+      validated on three independent bulk RNA-seq datasets, one of which is the DFCI
+      melanoma dataset obtained from cBioPortal. Here cBioPortal supplies an independent
+      clinicogenomic cohort used to externally validate the machine-learning-derived
+      biomarkers.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1371/journal.pone.0343633
+      ref_title: Annotation-free prediction of immunotherapy response in melanoma using
+        single-cell transcriptomic data
+      ref_authors:
+      - Oh DE
+      - Kee G
+      - Oh JH
+      - Kim W
+      - Kang YG
+      - Park CW
+      - Jun TJ
+      - Sung CO
+      ref_publication_year: 2026
+      ref_journal: PLOS ONE
+  has_training_resource:
+  - B2AI_STANDARD:1331
   is_open: true
   name: cBioPortal
   purpose_detail: cBioPortal is an open source web platform for interactive exploration
@@ -68511,5 +68572,33 @@ data_standardortools_collection:
   - B2AI_STANDARD:1206
   requires_registration: false
   url: https://gatk.broadinstitute.org/hc/en-us
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1331
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:81
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-20'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official cBioPortal documentation and step-by-step tutorials for users,
+    API users, and maintainers
+  is_open: true
+  name: cBioPortal Tutorials and Documentation
+  purpose_detail: The cBioPortal Tutorials and Documentation site is the platform's
+    official documentation, providing role-based guides for portal users, API users,
+    instance maintainers, and developers, together with a user guide, FAQ, and web-API
+    documentation. A companion set of step-by-step tutorials at cbioportal.org/tutorials
+    walks new users through querying studies, visualizing genomic alterations, running
+    survival analysis, and using the programmatic API. These are the authoritative,
+    maintained training resources for learning to use the platform.
+  related_to:
+  - B2AI_STANDARD:1199
+  requires_registration: false
+  url: https://docs.cbioportal.org/
   publication:
     ref_url: ''
