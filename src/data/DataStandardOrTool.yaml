@@ -7524,6 +7524,7 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
   - codesystem
+  - standards_process_maturity_final
   concerns_data_topic:
   - B2AI_TOPIC:26
   - B2AI_TOPIC:53
@@ -7531,6 +7532,53 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Enzyme Commission Number
+  has_application:
+  - id: B2AI_APP:501
+    category: B2AI:Application
+    name: CLEAN enzyme function prediction
+    description: CLEAN is a deep learning tool that assigns Enzyme Commission numbers
+      to enzyme sequences to predict their catalytic function. It uses a contrastive-learning
+      framework that embeds protein sequences so enzymes sharing an EC number cluster
+      together, then annotates a query sequence with the EC number of its nearest cluster.
+      EC numbers serve directly as the prediction labels, and the model is trained and
+      evaluated on how accurately it recovers the correct four-part EC code, outperforming
+      prior tools including for understudied and mislabeled enzymes.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1126/science.adf2465
+      ref_title: Enzyme function prediction using contrastive learning
+      ref_authors:
+      - Yu T
+      - Cui H
+      - Li JC
+      - Luo Y
+      - Jiang G
+      - Zhao H
+      ref_publication_year: 2023
+      ref_journal: Science
+  - id: B2AI_APP:502
+    category: B2AI:Application
+    name: DeepEC high-throughput EC number prediction
+    description: DeepEC is a deep learning tool that predicts Enzyme Commission numbers
+      directly from a protein sequence. It uses three convolutional neural networks
+      to determine whether a sequence is an enzyme and, if so, to assign its EC numbers,
+      supplemented by a homology analysis for coverage. EC numbers are the explicit
+      prediction targets, and the method is designed for high-quality, high-throughput
+      EC-number annotation of large sequence sets, predicting accurately and faster
+      than several existing tools.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1073/pnas.1821905116
+      ref_title: Deep learning enables high-quality and high-throughput prediction of
+        enzyme commission numbers
+      ref_authors:
+      - Ryu JY
+      - Kim HU
+      - Lee SY
+      ref_publication_year: 2019
+      ref_journal: Proceedings of the National Academy of Sciences
+  has_training_resource:
+  - B2AI_STANDARD:1329
   is_open: true
   name: EC
   publication:
@@ -68369,5 +68417,33 @@ data_standardortools_collection:
   - B2AI_STANDARD:416
   requires_registration: false
   url: https://obophenotype.github.io/cell-ontology/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1329
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:26
+  - B2AI_TOPIC:53
+  contribution_date: '2026-10-20'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official NC-IUBMB reference for classifying and naming enzymes and
+    the structure of EC numbers
+  is_open: true
+  name: IUBMB Enzyme Nomenclature Rules and Classification
+  purpose_detail: The IUBMB Enzyme Nomenclature rules page is the official NC-IUBMB
+    reference that sets out the rules for classifying and naming enzymes by the reaction
+    they catalyze. It explains the four-part EC number structure (class, subclass,
+    sub-subclass, and serial number) and the top-level enzyme classes, along with
+    numbered naming rules covering systematic versus common names, substrate naming,
+    and related conventions. Published by the body that defines enzyme nomenclature
+    and assigns EC numbers, it is the authoritative documentation for understanding
+    and correctly applying EC numbers.
+  related_to:
+  - B2AI_STANDARD:103
+  requires_registration: false
+  url: https://iubmb.qmul.ac.uk/enzyme/rules.html
   publication:
     ref_url: ''
