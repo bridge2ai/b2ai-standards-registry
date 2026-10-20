@@ -5165,12 +5165,61 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:501",
+          "category": "B2AI:Application",
+          "name": "CLEAN enzyme function prediction",
+          "description": "CLEAN is a deep learning tool that assigns Enzyme Commission numbers to enzyme sequences to predict their catalytic function. It uses a contrastive-learning framework that embeds protein sequences so enzymes sharing an EC number cluster together, then annotates a query sequence with the EC number of its nearest cluster. EC numbers serve directly as the prediction labels, and the model is trained and evaluated on how accurately it recovers the correct four-part EC code, outperforming prior tools including for understudied and mislabeled enzymes.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1126/science.adf2465",
+              "ref_title": "Enzyme function prediction using contrastive learning",
+              "ref_authors": [
+                "Yu T",
+                "Cui H",
+                "Li JC",
+                "Luo Y",
+                "Jiang G",
+                "Zhao H"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "Science"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:502",
+          "category": "B2AI:Application",
+          "name": "DeepEC high-throughput EC number prediction",
+          "description": "DeepEC is a deep learning tool that predicts Enzyme Commission numbers directly from a protein sequence. It uses three convolutional neural networks to determine whether a sequence is an enzyme and, if so, to assign its EC numbers, supplemented by a homology analysis for coverage. EC numbers are the explicit prediction targets, and the method is designed for high-quality, high-throughput EC-number annotation of large sequence sets, predicting accurately and faster than several existing tools.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1073/pnas.1821905116",
+              "ref_title": "Deep learning enables high-quality and high-throughput prediction of enzyme commission numbers",
+              "ref_authors": [
+                "Ryu JY",
+                "Kim HU",
+                "Lee SY"
+              ],
+              "ref_publication_year": 2019,
+              "ref_journal": "Proceedings of the National Academy of Sciences"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "codesystem"
+        "codesystem",
+        "standards_process_maturity_final"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:26",
         "B2AI_TOPIC:53"
+      ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1329"
       ],
       "purpose_detail": "The Enzyme Commission (EC) number system provides a hierarchical, internationally standardized nomenclature and classification scheme for enzymes based on the chemical reactions they catalyze rather than their protein structure, sequence homology, or evolutionary relationships, enabling unambiguous identification and cross-referencing of enzymatic functions across biochemistry, molecular biology, genomics, metabolomics, and systems biology research. Established in 1961 by the International Union of Biochemistry and Molecular Biology (IUBMB) and published in the foundational 1965 report \"Enzyme Nomenclature,\" the EC system assigns each characterized enzyme a unique four-level numerical identifier (EC X.Y.Z.W) where the first digit indicates the major reaction class (1=oxidoreductases catalyzing oxidation-reduction, 2=transferases transferring functional groups, 3=hydrolases catalyzing hydrolysis, 4=lyases cleaving bonds by mechanisms other than hydrolysis or oxidation, 5=isomerases catalyzing intramolecular rearrangements, 6=ligases forming bonds with ATP cleavage, 7=translocases moving molecules across membranes), the second digit specifies the subclass refining the reaction type (such as EC 1.1.* for oxidoreductases acting on the CH-OH group of donors, EC 2.7.* for transferases transferring phosphorus-containing groups like kinases), the third digit further narrows substrate specificity or reaction mechanism (EC 2.7.1.* for phosphotransferases with alcohol group as acceptor), and the fourth digit uniquely identifies the individual enzyme (EC 2.7.1.1 for hexokinase catalyzing ATP + D-hexose → ADP + D-hexose 6-phosphate), creating a hierarchical classification framework with ~7,700 entries as of 2025 covering characterized enzymatic activities with recommended systematic names, common synonyms, reaction equations with substrate/product stoichiometry, cofactor requirements, and literature references documenting catalytic mechanisms. The EC system serves as the authoritative enzyme nomenclature standard integrated into major biological databases including UniProt protein knowledgebase (mapping protein sequences to enzymatic functions via EC annotations), KEGG pathway database (representing metabolic and signaling pathways as networks of EC-numbered reactions), BRENDA comprehensive enzyme information system (curating kinetic parameters, substrate specificities, and organism-specific properties for each EC number), MetaCyc/BioCyc metabolic pathway collections (using EC numbers to define reaction steps in organism-specific and reference pathway reconstructions), Reactome pathway knowledgebase (annotating human biochemical reactions with EC classifications), and ENZYME database at ExPASy (the reference repository maintained by Swiss Institute of Bioinformatics mirroring IUBMB nomenclature committee recommendations with monthly updates reflecting newly characterized enzymes and reclassifications). The hierarchical EC structure enables functional annotation where genome sequencing projects assign putative enzymatic functions to predicted protein-coding genes through sequence homology searches against characterized enzymes, with tools like BLAST, HMMer, and InterPro identifying conserved catalytic domains corresponding to specific EC classes; metabolic network reconstruction leverages EC annotations to infer organism-specific biochemical capabilities by mapping genomic enzyme repertoires to known metabolic pathways, predicting auxotrophies, biosynthetic capacities, and catabolic capabilities; and comparative enzymology uses EC-based functional profiles to analyze metabolic evolution, horizontal gene transfer of enzymatic functions, and adaptation to environmental niches by quantifying presence/absence patterns of enzyme classes across phylogenetic groups. For artificial intelligence and machine learning applications, EC numbers provide structured functional labels enabling supervised learning where enzyme function prediction models train on sequence-to-EC mappings using architectures such as convolutional neural networks on amino acid sequences (DeepEC, ECPred), graph neural networks on protein structure representations (predicting catalytic residues and EC class from 3D coordinates), and pre-trained protein language models (ESM, ProtTrans) fine-tuned for multi-label EC classification treating the hierarchical EC system as nested prediction tasks (first predicting reaction class EC X.-.-.-, then subclass, then sub-subclass, then specific enzyme), with evaluation metrics including hierarchical precision/recall accounting for partial correctness when predictions match broader EC categories. Machine learning on EC-annotated enzyme datasets supports metabolic engineering applications where models predict substrate promiscuity and catalytic efficiency for enzyme variants, guiding directed evolution campaigns by forecasting which mutations enhance desired activities (kcat/KM for target substrates) or alter substrate specificity (broadening or narrowing accepted substrates), with training data derived from mutagenesis studies, kinetic assays, and high-throughput screening experiments linked to EC-numbered parent enzymes. Natural language processing extracts enzyme-function relationships from literature by mining PubMed abstracts for sentences mentioning EC numbers alongside organism names, experimental conditions, kinetic parameters, and inhibitors, populating knowledge graphs that connect genes, proteins, EC functions, metabolites, pathways, and phenotypes--such graphs trained using graph embedding methods (node2vec, TransE) or graph neural networks enable link prediction inferring novel enzyme-metabolite associations, pathway gap-filling identifying missing enzymatic steps in incomplete reconstructions, and drug target prioritization by predicting which enzymes are essential for pathogen viability or disease progression. Metabolomics and proteomics data integration benefits from EC-based functional categorization where untargeted metabolomics detects thousands of small molecules, and pathway enrichment analysis tests whether detected metabolites over-represent substrates or products of specific EC classes, implicating corresponding enzymatic activities as dysregulated in disease states; proteomics quantifies enzyme abundances, and flux balance analysis (FBA) of genome-scale metabolic models constrained by EC-annotated reaction stoichiometry predicts metabolic fluxes under different conditions, with machine learning models trained on multi-omics datasets (transcriptomics, proteomics, metabolomics) to predict flux distributions and growth phenotypes. Pharmacology and drug discovery leverage EC classifications where therapeutic enzyme targets (such as EC 3.4.24.* matrix metalloproteinases in cancer metastasis, EC 3.4.25.1 angiotensin-converting enzyme ACE in hypertension, EC 2.7.10.* protein tyrosine kinases in oncogenic signaling) guide rational drug design, with machine learning models predicting compound-enzyme binding affinities and selectivity profiles by training on chemical structure-EC activity datasets from ChEMBL and PubChem BioAssay, enabling virtual screening of compound libraries against specific EC-numbered enzyme families and off-target prediction assessing whether candidate drugs inhibit unintended EC classes causing adverse effects. Metagenomics and microbiome research employ EC-based functional profiling where shotgun metagenomic sequencing of environmental or host-associated microbial communities is followed by gene prediction and EC annotation, yielding community-level enzyme repertoires; tools like HUMAnN (HMP Unified Metabolic Analysis Network) quantify the abundance of EC-numbered pathways, revealing functional shifts in microbiomes across health/disease states or environmental perturbations, with machine learning classifiers trained on EC abundance profiles distinguishing disease phenotypes (inflammatory bowel disease vs. healthy controls, dysbiosis states) and random forests identifying which EC functions (e.g., butyrate-producing enzymes EC 2.8.3.*, bile salt hydrolases EC 3.5.1.24) are most predictive of clinical outcomes. Systems biology integrates EC-annotated metabolic models with gene regulatory networks and signaling pathways, where constraint-based modeling (FBA, flux variability analysis) predicts metabolic fluxes through EC-numbered reactions under genetic or environmental perturbations, and machine learning emulators (neural networks trained on simulation ensembles) accelerate exploration of design spaces for metabolic engineering or predict emergent phenotypes from multi-scale models coupling genome-scale metabolism (EC-defined reactions), transcriptional regulation (transcription factor binding), and environmental sensing. The EC classification system also underpins ontology-based data integration where the Gene Ontology (GO) molecular function terms reference EC numbers to define enzymatic activities (GO:0004396 hexokinase activity is defined with EC 2.7.1.1), enabling semantic reasoning over biological knowledge graphs that link genes annotated with GO/EC terms to pathways, phenotypes, diseases, and drugs, supporting AI-driven hypothesis generation such as identifying candidate enzymes for synthetic biology chassis organisms, predicting metabolic vulnerabilities in cancer cells (synthetic lethality with specific EC-numbered enzyme knockouts), or discovering novel biocatalysts for industrial applications by querying EC-structured enzyme databases for activities matching desired chemical transformations (stereoselectivity, substrate scope, cofactor independence), ultimately providing the standardized functional vocabulary essential for reproducible enzyme annotation, interoperable metabolic databases, and machine learning models that predict, design, and optimize enzymatic functions across biochemistry, biomedicine, biotechnology, and synthetic biology.",
       "is_open": true,
@@ -12689,8 +12738,62 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:506",
+          "category": "B2AI:Application",
+          "name": "Image Data Resource built on the OME data model",
+          "description": "The Image Data Resource (IDR) is a public bioimage-data publication and integration platform built directly on the OME software stack, aggregating reference imaging datasets from many published studies and serving them with standardized OME metadata. It exposes images via OMERO and distributes them in OME formats, including OME-TIFF and the next-generation OME-NGFF (OME-Zarr), so pixels and annotation metadata are harmonized through the OME data model. IDR has become a widely used source of curated, labeled microscopy data for training and benchmarking deep learning models for segmentation, classification, and phenotypic profiling, making OME-TIFF and the OME model the interchange layer for its machine-learning-ready images.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/nmeth.4326",
+              "ref_title": "Image Data Resource: a bioimage data integration and publication platform",
+              "ref_authors": [
+                "Williams E",
+                "Moore J",
+                "Li SW",
+                "Rustici G",
+                "Tarkowska A",
+                "Chessel A",
+                "Leo S",
+                "Antal B",
+                "Ferguson RK",
+                "Sarkans U",
+                "Brazma A",
+                "Carazo Salas RE",
+                "Swedlow JR"
+              ],
+              "ref_publication_year": 2017,
+              "ref_journal": "Nature Methods"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:507",
+          "category": "B2AI:Application",
+          "name": "Cellpose deep learning segmentation with OME-TIFF input/output",
+          "description": "Cellpose is a generalist deep learning model for cellular and nuclear segmentation in microscopy images. Its library and GUI read standard multidimensional image files via tifffile-based readers, which includes OME-TIFF (TIFF plus OME-XML), and write segmentation masks back alongside those images; its napari and Fiji/ImageJ integrations rely on OME-TIFF and Bio-Formats for input and output in production pipelines. OME-TIFF is therefore a supported interchange container for deep-learning segmentation with Cellpose, though Cellpose supports many image formats and does not treat the OME data model as its native layer.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41592-020-01018-x",
+              "ref_title": "Cellpose: a generalist algorithm for cellular segmentation",
+              "ref_authors": [
+                "Stringer C",
+                "Wang T",
+                "Michaelos M",
+                "Pachitariu M"
+              ],
+              "ref_publication_year": 2021,
+              "ref_journal": "Nature Methods"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "fileformat"
+        "fileformat",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:19"
@@ -12699,6 +12802,9 @@
         "B2AI_ORG:131",
         "B2AI_ORG:138",
         "B2AI_ORG:158"
+      ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1088"
       ],
       "purpose_detail": "OME-TIFF (Open Microscopy Environment TIFF) is a file format specification that combines standard TIFF image files with OME-XML metadata embedded in the TIFF header, enabling storage of complex multi-dimensional microscopy datasets including multi-channel fluorescence, z-stacks, time series, and multi-position acquisitions. Each OME-TIFF file contains one or more standard TIFF images with rich microscopy metadata encoded as OME-XML in the ImageDescription tag of the first IFD (Image File Directory), describing acquisition parameters, instrument settings, channel information, dimensions, physical pixel sizes, timestamps, and experimental context. The format supports large datasets by allowing data to span multiple TIFF files while maintaining metadata consistency through the OME-XML master file that references all constituent files. OME-TIFF balances the advantages of widespread TIFF support in image processing software with the semantic richness of OME-XML metadata, making microscopy data accessible to both OME-aware applications (Bio-Formats, OMERO, ImageJ/Fiji) and standard image viewers. This dual compatibility facilitates data sharing, long-term archiving, interoperability across microscopy platforms, and integration into computational workflows including machine learning pipelines for image analysis, segmentation, and feature extraction in biological imaging applications.",
       "is_open": true,
@@ -13904,8 +14010,112 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:493",
+          "category": "B2AI:Application",
+          "name": "AlphaFold protein structure prediction",
+          "description": "AlphaFold is a deep learning system that predicts a protein's three-dimensional structure from its amino acid sequence. It is trained in large part on experimentally determined structures from the Protein Data Bank, using PDB atomic coordinates as the ground-truth labels that supervise its structure module. The model outputs predicted structures in PDB/mmCIF coordinate format and is evaluated against PDB structures, so the PDB archive serves as both the training corpus and the reference standard for assessing accuracy.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41586-021-03819-2",
+              "ref_title": "Highly accurate protein structure prediction with AlphaFold",
+              "ref_authors": [
+                "Jumper J",
+                "Evans R",
+                "Pritzel A",
+                "Green T",
+                "Figurnov M",
+                "Ronneberger O",
+                "Tunyasuvunakool K",
+                "Bates R",
+                "Zidek A",
+                "Potapenko A",
+                "Bridgland A",
+                "Meyer C",
+                "Kohl SAA",
+                "Ballard AJ",
+                "Cowie A",
+                "Romera-Paredes B",
+                "Nikolov S",
+                "Jain R",
+                "Adler J",
+                "Back T",
+                "Petersen S",
+                "Reiman D",
+                "Clancy E",
+                "Zielinski M",
+                "Steinegger M",
+                "Pacholska M",
+                "Berghammer T",
+                "Bodenstein S",
+                "Silver D",
+                "Vinyals O",
+                "Senior AW",
+                "Kavukcuoglu K",
+                "Kohli P",
+                "Hassabis D"
+              ],
+              "ref_publication_year": 2021,
+              "ref_journal": "Nature"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:494",
+          "category": "B2AI:Application",
+          "name": "RoseTTAFold protein structure and complex prediction",
+          "description": "RoseTTAFold is a three-track neural network that jointly reasons over sequence, residue-residue distances, and three-dimensional coordinates to predict protein structures and complexes. Like AlphaFold, it is trained on experimentally determined structures from the Protein Data Bank, which supply the ground-truth coordinates used to supervise its coordinate track, and it produces atomic models in PDB coordinate format. It achieved near-AlphaFold accuracy with a more computationally accessible architecture, again demonstrating the PDB archive's role as the training and benchmarking standard for structure prediction.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1126/science.abj8754",
+              "ref_title": "Accurate prediction of protein structures and interactions using a three-track neural network",
+              "ref_authors": [
+                "Baek M",
+                "DiMaio F",
+                "Anishchenko I",
+                "Dauparas J",
+                "Ovchinnikov S",
+                "Lee GR",
+                "Wang J",
+                "Cong Q",
+                "Kinch LN",
+                "Schaeffer RD",
+                "Millan C",
+                "Park H",
+                "Adams C",
+                "Glassman CR",
+                "DeGiovanni A",
+                "Pereira JH",
+                "Rodrigues AV",
+                "van Dijk AA",
+                "Ebrecht AC",
+                "Opperman DJ",
+                "Sagmeister T",
+                "Buhlheller C",
+                "Pavkov-Keller T",
+                "Rathinaswamy MK",
+                "Dalwadi U",
+                "Yip CK",
+                "Burke JE",
+                "Garcia KC",
+                "Grishin NV",
+                "Adams PD",
+                "Read RJ",
+                "Baker D"
+              ],
+              "ref_publication_year": 2021,
+              "ref_journal": "Science"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "fileformat"
+        "fileformat",
+        "implementation_maturity_production",
+        "standards_process_maturity_final"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:27"
@@ -13913,12 +14123,28 @@
       "has_relevant_organization": [
         "B2AI_ORG:82"
       ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1084"
+      ],
       "purpose_detail": "The Protein Data Bank (PDB) format is an exchange standard for reporting experimentally determined three-dimensional structures of biological macromolecules, serving a global community of researchers, educators, and students. The PDB archive contains atomic coordinates, bibliographic citations, primary and secondary structure information, crystallographic structure factors, and NMR experimental data. As a cornerstone of structural biology, the PDB format enables standardized data exchange across computational platforms and facilitates integration with machine learning pipelines for structure prediction, protein design, and function annotation. The format supports multiple structure determination methods including X-ray crystallography, NMR spectroscopy, cryo-electron microscopy (cryo-EM), and theoretical models. In biomedical AI applications, PDB-formatted coordinates serve as training data for deep learning models like AlphaFold and RoseTTAFold, which predict protein structures from amino acid sequences. The standardized atomic coordinate representation in PDB enables direct integration with molecular dynamics simulations, binding affinity prediction models, and enzyme design algorithms. PDB files also contain metadata about experimental conditions, resolution metrics, and quality indicators crucial for assessing data suitability for computational studies. The format's compatibility with visualization tools (PyMOL, Chimera) and structural analysis software (DSSP, STRIDE, WHATIF) makes it essential for pre-processing and feature engineering pipelines in biomolecular AI research. Interoperability with related standards like mmCIF (macromolecular Crystallographic Information File) and BinaryCIF enables efficient data compression and transfer, particularly valuable for large-scale structural databases supporting machine learning model training across distributed computing environments.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1093/nar/28.1.235",
+        "ref_title": "The Protein Data Bank",
+        "ref_authors": [
+          "Berman HM",
+          "Westbrook J",
+          "Feng Z",
+          "Gilliland G",
+          "Bhat TN",
+          "Weissig H",
+          "Shindyalov IN",
+          "Bourne PE"
+        ],
+        "ref_publication_year": 2000,
+        "ref_journal": "Nucleic Acids Research"
       }
     },
     {
@@ -14020,18 +14246,73 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:508",
+          "category": "B2AI:Application",
+          "name": "Struct2Graph protein interaction prediction from IntAct/PSI-MI data",
+          "description": "Struct2Graph is a graph attention and graph convolutional network with a mutual-attention mechanism for structure-based prediction of protein-protein interactions. The authors built their training set by retaining physical-interaction pairs concordant between IntAct and STRING, filtering 427,503 IntAct interactions to 12,676 direct-interaction pairs and mapping them to PDB structures, for a final balanced set of about 10,004 pairs across 3,677 proteins. The IntAct records are the HUPO-PSI PSI-MI curated molecular-interaction data this standard defines, so the model is trained directly on PSI-MI-standard interaction evidence.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1186/s12859-022-04910-9",
+              "ref_title": "Struct2Graph: a graph attention network for structure based predictions of protein-protein interactions",
+              "ref_authors": [
+                "Baranwal M",
+                "Magner A",
+                "Saldinger J",
+                "Turali-Emre ES",
+                "Elvati P",
+                "Kozarekar S",
+                "VanEpps JS",
+                "Kotov NA",
+                "Violi A",
+                "Hero AO"
+              ],
+              "ref_publication_year": 2022,
+              "ref_journal": "BMC Bioinformatics"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:509",
+          "category": "B2AI:Application",
+          "name": "ESMAraPPI protein language model interaction prediction from IntAct",
+          "description": "ESMAraPPI predicts Arabidopsis thaliana protein-protein interactions using embeddings from the ESM-1b protein language model fed to a multilayer perceptron. The positive training examples are Arabidopsis interactions taken directly from the IntAct database filtered at an MIscore of at least 0.45, the IntAct and HUPO-PSI interaction confidence score computed over PSI-MI curated evidence, with negatives sampled at a 10:1 ratio. The model's positive-label supervision therefore comes entirely from PSI-MI and IntAct-formatted interaction data, and it outperformed several generic and plant-specific interaction predictors on the hardest held-out split.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1186/s13007-023-01119-6",
+              "ref_title": "Pre-trained protein language model sheds new light on the prediction of Arabidopsis protein-protein interactions",
+              "ref_authors": [
+                "Zhou K",
+                "Lei C",
+                "Zheng J",
+                "Huang Y",
+                "Zhang Z"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "Plant Methods"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "fileformat"
+        "fileformat",
+        "standards_process_maturity_final"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:28",
         "B2AI_TOPIC:21",
         "B2AI_TOPIC:26"
       ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1332"
+      ],
       "purpose_detail": "The PSI-MI XML 2.5 is a community standard for molecular interactions which has been jointly developed by major data providers (BIND, CellZome, DIP, GSK, HPRD, Hybrigenics, IntAct, MINT, MIPS, Serono, U. Bielefeld, U. Bordeaux, U. Cambridge, and others).This format is stable and used for several years now - published in October 2007 (Broadening the Horizon Ð Level 2.5 of the HUPO-PSI Format for Molecular Interactions; Samuel Kerrien et al. BioMed Central. 2007.), it has been adapted for many different usages. It can be used for storing any kind of molecular interaction data - complexes and binary interactions not only protein-protein interactions, can describe nucleic acids interactions and others hierarchical complexes modelling by using interactionRef in participants instead of an interactor Data representation in PSI-MI 2.5 XML relies heavily on the use of controlled vocabularies. They can be accessed easily via the Ontology Lookup Service, PSI-MI, PSI-MOD.",
       "is_open": true,
       "requires_registration": false,
-      "url": "https://www.psidev.info/mif",
+      "url": "https://www.psidev.info/psi-mi-xml-specification",
       "publication": {
         "ref_url": "https://doi.org/10.1038/nbt926",
         "ref_title": "The HUPO PSI's Molecular Interaction format-a community standard for the representation of protein interaction data",
@@ -20406,12 +20687,68 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:499",
+          "category": "B2AI:Application",
+          "name": "OnClass cell type classification using the Cell Ontology",
+          "description": "OnClass is a machine learning method for automated single-cell type annotation that uses the Cell Ontology as its label space. It embeds every CL cell-type term into a low-dimensional space derived from the ontology's directed acyclic graph, preserving hierarchical relationships between cell types. Because predictions are made in this CL-derived embedding space rather than over a flat label set, OnClass can assign cells to cell types never seen during training, as long as those types exist in the Cell Ontology, so CL supplies both the controlled vocabulary and the graph structure enabling zero-shot classification.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41467-021-25725-x",
+              "ref_title": "Leveraging the Cell Ontology to classify unseen cell types",
+              "ref_authors": [
+                "Wang S",
+                "Pisco AO",
+                "McGeever A",
+                "Brbic M",
+                "Zitnik M",
+                "Darmanis S",
+                "Leskovec J",
+                "Karkanias J",
+                "Altman RB"
+              ],
+              "ref_publication_year": 2021,
+              "ref_journal": "Nature Communications"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:500",
+          "category": "B2AI:Application",
+          "name": "CellTypist cross-tissue cell type annotation",
+          "description": "CellTypist is an automated cell-type annotation tool using logistic-regression classifiers over single-cell transcriptomes, introduced alongside a cross-tissue human immune cell atlas. Its reference models adopt ontology-backed, Cell Ontology-aligned cell-type terms so that labels are standardized and interoperable across tissues and datasets. By mapping predicted labels to the Cell Ontology, CellTypist lets users classify immune and other cell types under a shared, machine-readable hierarchy, supporting consistent cross-tissue comparison and integration of single-cell data.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1126/science.abl5197",
+              "ref_title": "Cross-tissue immune cell analysis reveals tissue-specific features in humans",
+              "ref_authors": [
+                "Dominguez Conde C",
+                "Xu C",
+                "Jarvis LB",
+                "Rainbow DB",
+                "Wells SB",
+                "Gomes T",
+                "Teichmann SA"
+              ],
+              "ref_publication_year": 2022,
+              "ref_journal": "Science"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:2"
+      ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1328"
       ],
       "purpose_detail": "The Cell Ontology (CL) is an OBO Foundry ontology covering biological cell types with curation focused on animal cell types and interoperability with specialized cell type ontologies in other biological domains. CL is tightly integrated with the Uberon multi-species anatomy ontology (for recording cell location) and the Gene Ontology (GO, which uses CL as its main cell type reference and provides cell function annotations). Built on FAIR principles, CL enables community-driven curation with active embedded editors from multiple projects responsive on the issue tracker. The ontology is released in multiple standard formats (OWL/RDF/XML, OBO, JSON obographs) with multiple variants: full (all imports merged, reasoner-classified), base (not pre-reasoned, only CL axioms including non-CL class references), and simple (pre-reasoned, CL classes only), all with resolvable version IRIs for persistent access. CL is integrated into standard tools including Ubergraph (for logical queries like finding cells by location), Ontology Access Kit (OAK), and major browsers (OLS, Ontobee). The ontology supports major initiatives including BICCN cell type knowledge explorer, HubMap Human Reference Atlas, ENCODE, FANTOM5, Single Cell Expression Atlas, Human Cell Atlas, and CellKB. CL enables AI/ML applications including OnClass for automatic cell type classification, Brain Data Standards Ontology (BDSO) for cell type navigation and search, and provides standardized cell type annotations essential for single-cell omics machine learning, cross-dataset integration, and cell type discovery algorithms.",
       "is_open": true,
@@ -22620,8 +22957,50 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:495",
+          "category": "B2AI:Application",
+          "name": "PhenoBERT automated HPO concept recognition",
+          "description": "PhenoBERT is a deep learning tool for automated recognition of Human Phenotype Ontology concepts in unstructured clinical and biomedical text. It uses a two-stage pipeline in which a hierarchical convolutional neural network first produces candidate HPO terms for a text segment and a fine-tuned BERT model then classifies each candidate against the HPO. The HPO is both the target vocabulary that spans of text are normalized to and the source of the label hierarchy the models learn, and the authors report it outperforms prior dictionary-based and neural phenotype recognizers.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1109/TCBB.2022.3170301",
+              "ref_title": "PhenoBERT: A Combined Deep Learning Method for Automated Recognition of Human Phenotype Ontology",
+              "ref_authors": [
+                "Feng Y",
+                "Qi L",
+                "Tian W"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "IEEE/ACM Transactions on Computational Biology and Bioinformatics"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:496",
+          "category": "B2AI:Application",
+          "name": "PheNormGPT LLM-based HPO normalization",
+          "description": "PheNormGPT is a large language model framework (using GPT-3.5 Turbo and GPT-4) that extracts abnormal clinical findings from unstructured text and normalizes them to Human Phenotype Ontology concepts. Because the language models are unreliable at emitting correct HPO identifiers directly, the system prompts for each finding's preferred HPO term and then maps that term to an HPO concept with a dictionary built from HPO terms, synonyms, and annotated training terms. It was developed and evaluated on the BioCreative VIII Track 3 dysmorphology shared task, where it placed first, illustrating HPO as the normalization target for LLM-driven phenotyping.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1093/database/baae103",
+              "ref_title": "PheNormGPT: a framework for extraction and normalization of key medical findings",
+              "ref_authors": [
+                "Soysal E",
+                "Roberts K"
+              ],
+              "ref_publication_year": 2024,
+              "ref_journal": "Database"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:25",
@@ -22631,12 +23010,71 @@
       "has_relevant_organization": [
         "B2AI_ORG:128"
       ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1326"
+      ],
       "purpose_detail": "The Human Phenotype Ontology (HPO) provides standardized vocabulary for phenotypic abnormalities encountered in human disease, containing over 18,000 terms and 156,000+ annotations to hereditary diseases. Each HPO term describes a specific phenotypic feature (e.g., \"Atrial septal defect\" HP:0001631) organized in a hierarchical structure from general to specific findings. Developed using medical literature, Orphanet, DECIPHER, and OMIM, HPO enables precise phenotype-driven differential diagnostics, genomic variant interpretation, and translational research. The ontology integrates with major biomedical resources and powers phenotype matching algorithms that rank diseases by clinical feature similarity. HPO is foundational for rare disease diagnosis tools (Exomiser, Phenomizer, PhenoTips), electronic health record phenotyping, and clinical decision support systems. As a Monarch Initiative flagship product and GA4GH driver project, HPO enables semantic integration across species, connecting human phenotypes to model organism phenotypes for translational research. The ontology supports deep phenotyping in genomics studies, electronic health record phenotype extraction, natural language processing for clinical notes, and phenotype-driven gene prioritization. HPO annotations link phenotypes to genes, diseases, and publications, facilitating genotype-phenotype correlation studies. In AI/ML applications, HPO powers phenotype-based similarity learning for rare disease diagnosis, automated phenotype extraction from clinical narratives using NLP, ontology-guided feature engineering for predictive models, knowledge graph embeddings for disease gene discovery, and multi-modal patient representation learning combining genomics, phenotypes, and clinical data to support precision medicine and clinical genomics.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://hpo.jax.org/",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1093/nar/gkaa1043",
+        "ref_title": "The Human Phenotype Ontology in 2021",
+        "ref_authors": [
+          "Kohler S",
+          "Gargano M",
+          "Matentzoglu N",
+          "Carmody LC",
+          "Lewis-Smith D",
+          "Vasilevsky NA",
+          "Danis D",
+          "Balagura G",
+          "Baynam G",
+          "Brower AM",
+          "Callahan TJ",
+          "Chute CG",
+          "Est JL",
+          "Galer PD",
+          "Ganesan S",
+          "Griese M",
+          "Haimel M",
+          "Pazmandi J",
+          "Hanauer M",
+          "Harris NL",
+          "Hartnett MJ",
+          "Hastreiter M",
+          "Hauck F",
+          "He Y",
+          "Jeske T",
+          "Kearney H",
+          "Kindle G",
+          "Klein C",
+          "Knoflach K",
+          "Krause R",
+          "Lagorce D",
+          "McMurry JA",
+          "Miller JA",
+          "Munoz-Torres MC",
+          "Peters RL",
+          "Rapp CK",
+          "Rath AM",
+          "Rind SA",
+          "Rosenberg AZ",
+          "Segal MM",
+          "Seidel MG",
+          "Smedley D",
+          "Talmy T",
+          "Thomas Y",
+          "Wiafe SA",
+          "Xian J",
+          "Yuksel Z",
+          "Helbig I",
+          "Mungall CJ",
+          "Haendel MA",
+          "Robinson PN"
+        ],
+        "ref_publication_year": 2021,
+        "ref_journal": "Nucleic Acids Research"
       },
       "formal_specification": "https://github.com/obophenotype/human-phenotype-ontology"
     },
@@ -23657,8 +24095,58 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:497",
+          "category": "B2AI:Application",
+          "name": "PrimeKG precision-medicine knowledge graph",
+          "description": "PrimeKG is a multimodal biomedical knowledge graph built to support graph machine learning for precision medicine. MONDO is its primary disease vocabulary: the authors state it was their preferred ontology for defining diseases, and all disease nodes are defined with MONDO identifiers, with other vocabularies mapped onto MONDO terms. They collapsed 22,205 MONDO concepts into 17,080 clinically grouped disease nodes using string matching plus ClinicalBERT embedding similarity with manual review, and MONDO's hierarchy contributes tens of thousands of disease-disease edges that the downstream graph models reason over.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41597-023-01960-3",
+              "ref_title": "Building a knowledge graph to enable precision medicine",
+              "ref_authors": [
+                "Chandak P",
+                "Huang K",
+                "Zitnik M"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "Scientific Data"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:498",
+          "category": "B2AI:Application",
+          "name": "TxGNN zero-shot drug repurposing foundation model",
+          "description": "TxGNN is a graph neural network foundation model that ranks drugs as indications or contraindications for diseases, including zero-shot prediction for diseases with few or no existing treatments. It is pre-trained on the PrimeKG knowledge graph of 17,080 clinically recognized diseases, whose disease nodes are defined with MONDO identifiers, so MONDO supplies the disease vocabulary over which TxGNN makes drug-disease predictions. The model reported substantial gains over baselines under zero-shot evaluation, and many predictions matched clinicians' off-label prescribing in a large health system.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41591-024-03233-x",
+              "ref_title": "A foundation model for clinician-centered drug repurposing",
+              "ref_authors": [
+                "Huang K",
+                "Chandak P",
+                "Wang Q",
+                "Havaldar S",
+                "Vaid A",
+                "Leskovec J",
+                "Nadkarni GN",
+                "Glicksberg BS",
+                "Gehlenborg N",
+                "Zitnik M"
+              ],
+              "ref_publication_year": 2024,
+              "ref_journal": "Nature Medicine"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:7",
@@ -23667,6 +24155,9 @@
       "has_relevant_organization": [
         "B2AI_ORG:58",
         "B2AI_ORG:128"
+      ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1327"
       ],
       "purpose_detail": "MONDO (Mondo Disease Ontology) is an OBO Foundry ontology providing a unified, comprehensive disease terminology that harmonizes and integrates disease definitions across multiple biomedical resources including SNOMED CT, ICD, HPO (Human Phenotype Ontology), OMIM, DO (Disease Ontology), ORDO (Orphanet Rare Disease Ontology), MedGen, and GARD (Genetic and Rare Diseases). The ontology addresses the critical problem of inconsistent disease mappings across resources by providing a logic-based ontology with precise 1:1 equivalence axioms (OWL axioms) connecting MONDO disease concepts to equivalent concepts in source ontologies, with all mappings validated through OWL reasoning. MONDO encompasses over 25,880 disease concepts: 22,919 human diseases (including 4,727 cancers, 1,074 infectious diseases, 11,601 Mendelian diseases, 15,857 rare/orphan diseases) and 2,960 non-human diseases, with 129,785 database cross-references and 108,076 synonyms (exact, narrow, broad, related). The ontology provides hierarchical disease classification enabling disease grouping and abstraction at multiple levels of specificity. MONDO is released in three formats: OWL (with full axiomatization including inter-ontology axioms linking to Cell Ontology, Uberon, Gene Ontology, Human Phenotype Ontology), OBO (simplified with cross-references), and JSON. Coordination with HPO enables phenotype-to-disease mapping. In biomedical AI and machine learning, MONDO enables: disease classification and phenotype-disease association learning, rare disease diagnosis support through standardized terminology, drug-disease relationship mining from literature and biomedical knowledge bases, clinical decision support where MONDO enables standard disease coding and vocabulary, patient cohort identification in observational studies using harmonized disease definitions, and federated learning across institutions using standardized disease terminology. MONDO integration with structured data systems (EHRs, biobanks, disease registries) enables standardized patient stratification for clinical research and AI model development.",
       "is_open": true,
@@ -26881,8 +27372,103 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:510",
+          "category": "B2AI:Application",
+          "name": "PheKnowLator ontology-grounded knowledge graphs using UBERON",
+          "description": "PheKnowLator is an open-source ecosystem for building ontology-grounded biomedical knowledge graphs that are then used for graph machine learning. UBERON is one of the core ontology build inputs of its human-disease knowledge graphs and supplies the anatomical-entity node space, with the Gene Ontology, Human Phenotype Ontology, and Cell Ontology importing UBERON so that transcripts, proteins, cell types, phenotypes, and diseases connect through a shared species-neutral anatomy vocabulary. The ecosystem ships prebuilt knowledge graphs with node embeddings, so UBERON terms become vertices whose learned representations feed downstream tasks such as link prediction.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41597-024-03171-w",
+              "ref_title": "An open source knowledge graph ecosystem for the life sciences",
+              "ref_authors": [
+                "Callahan TJ",
+                "Tripodi IJ",
+                "Stefanski AL",
+                "Cappelletti L",
+                "Taneja SB",
+                "Wyrwa JM",
+                "Casiraghi E",
+                "Matentzoglu NA",
+                "Reese J",
+                "Silverstein JC",
+                "Hoyt CT",
+                "Boyce RD",
+                "Malec SA",
+                "Unni DR",
+                "Joachimiak MP",
+                "Robinson PN",
+                "Mungall CJ",
+                "Cavalleri E",
+                "Fontana T",
+                "Valentini G",
+                "Mesiti M",
+                "Gillenwater LA",
+                "Santangelo B",
+                "Vasilevsky NA",
+                "Hoehndorf R",
+                "Bennett TD",
+                "Ryan PB",
+                "Hripcsak G",
+                "Kahn MG",
+                "Bada M",
+                "Baumgartner WA Jr",
+                "Hunter LE"
+              ],
+              "ref_publication_year": 2024,
+              "ref_journal": "Scientific Data"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:511",
+          "category": "B2AI:Application",
+          "name": "KG-Hub biological knowledge graphs with graph machine learning",
+          "description": "KG-Hub is a platform for building, exchanging, and reusing Biolink Model-compliant biological knowledge graphs, tightly integrated with graph machine learning tooling (via GRAPE) for node embeddings, link prediction, and node classification. Its KG-OBO component ingests and versions every ontology in the OBO Foundry, which includes UBERON, so UBERON's anatomical entities are available as typed nodes for embedding and link-prediction pipelines across KG-Hub projects. UBERON here provides the anatomical node vocabulary tying genotype, phenotype, and tissue information together; the paper describes OBO Foundry-wide ingestion rather than naming UBERON explicitly.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1093/bioinformatics/btad418",
+              "ref_title": "KG-Hub-building and exchanging biological knowledge graphs",
+              "ref_authors": [
+                "Caufield JH",
+                "Putman T",
+                "Schaper K",
+                "Unni DR",
+                "Hegde H",
+                "Callahan TJ",
+                "Cappelletti L",
+                "Moxon SAT",
+                "Ravanmehr V",
+                "Carbon S",
+                "Chan LE",
+                "Cortes K",
+                "Shefchek KA",
+                "Elsarboukh G",
+                "Balhoff J",
+                "Fontana T",
+                "Matentzoglu N",
+                "Bruskiewich RM",
+                "Thessen AE",
+                "Harris NL",
+                "Munoz-Torres MC",
+                "Haendel MA",
+                "Robinson PN",
+                "Joachimiak MP",
+                "Mungall CJ",
+                "Reese JT"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "Bioinformatics"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
@@ -26891,6 +27477,9 @@
       "has_relevant_organization": [
         "B2AI_ORG:131",
         "B2AI_ORG:138"
+      ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1333"
       ],
       "purpose_detail": "UBERON is an OBO Foundry ontology providing an integrated cross-species anatomy ontology covering anatomical structures in animals, with a focus on multi-species interoperability. The ontology enables semantic annotation of anatomical entities across diverse species, supporting comparative anatomy research, phenotype studies, and integration with specialized anatomies. UBERON is tightly integrated with the Gene Ontology (GO) and the Cell Ontology (CL), using formal ontology design patterns to represent anatomical locations and relationships. It follows FAIR principles and is released in standard formats (OWL, OBO, JSON obographs) with resolvable version IRIs. UBERON is integrated into standard tools including Ubergraph for logical queries (e.g., finding cell types by location), the Ontology Access Kit (OAK), and major browsers (OLS, Ontobee, BioPortal). The ontology supports AI/ML applications by providing standardized anatomical annotations for training data across species and enabling cross-species knowledge transfer in biomedical machine learning models.",
       "is_open": true,
@@ -47625,9 +48214,64 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2026-09-22",
+      "has_application": [
+        {
+          "id": "B2AI_APP:504",
+          "category": "B2AI:Application",
+          "name": "Deep learning breast cancer survival prediction on METABRIC from cBioPortal",
+          "description": "This study builds a deep learning model combining bidirectional LSTM and CNN layers with mRMR feature selection to predict breast cancer survival from multi-omics data. The primary training and evaluation cohort is the METABRIC breast cancer dataset (clinical, gene-expression, and copy-number data for roughly 1,980 primary samples), which the authors obtain through the cBioPortal database, with a TCGA-BRCA cohort used as a second dataset. cBioPortal is therefore the direct source of the labeled genomic and clinical cohort on which the machine learning model is trained and tested.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.12688/f1000research.166682.2",
+              "ref_title": "An Improved Deep Learning Algorithm for Breast Cancer Survival Prediction Based on Multi-Omics Data",
+              "ref_authors": [
+                "Nasarudin NA",
+                "Al-Jasmi F",
+                "Abdul Aziz NH",
+                "Ab Aziz NA",
+                "Khan W",
+                "Hendrawan Y",
+                "Al Riza DF",
+                "Manzoor A",
+                "Ali BR",
+                "Mohamad MS"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "F1000Research"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:505",
+          "category": "B2AI:Application",
+          "name": "Machine learning prediction of melanoma immunotherapy response validated on a cBioPortal cohort",
+          "description": "This study trains multiple machine learning classifiers (including XGBoost, random forest, a feedforward neural network, and a CNN) on single-cell RNA-seq data of melanoma tumor-infiltrating cells to predict response to immune checkpoint inhibitors, nominating candidate biomarkers. The model findings are validated on three independent bulk RNA-seq datasets, one of which is the DFCI melanoma dataset obtained from cBioPortal. Here cBioPortal supplies an independent clinicogenomic cohort used to externally validate the machine-learning-derived biomarkers.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1371/journal.pone.0343633",
+              "ref_title": "Annotation-free prediction of immunotherapy response in melanoma using single-cell transcriptomic data",
+              "ref_authors": [
+                "Oh DE",
+                "Kee G",
+                "Oh JH",
+                "Kim W",
+                "Kang YG",
+                "Park CW",
+                "Jun TJ",
+                "Sung CO"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "PLOS ONE"
+            }
+          ]
+        }
+      ],
       "collection": [
         "datavisualization",
-        "fileformat"
+        "fileformat",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:13",
@@ -47641,6 +48285,9 @@
         "B2AI_ORG:128",
         "B2AI_ORG:145",
         "B2AI_ORG:158"
+      ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1331"
       ],
       "purpose_detail": "cBioPortal is an open source web platform for interactive exploration of cancer genomics data, first released by Memorial Sloan Kettering Cancer Center. It displays mutations, copy number alterations, structural variants, gene expression, and clinical attributes for samples and patients, and supports cohort comparison, survival analysis, and oncoprint views. Data are loaded as studies built from a documented set of tab-delimited file formats for clinical data, mutations in MAF, discrete and continuous copy number, expression, and structural variants, each paired with a meta file. That file specification is the reason this entry is also tagged as a file format. Anyone can run their own instance. The public site at cbioportal.org hosts TCGA and many other studies. The Kids First Data Resource Center and D3b run a pediatric instance, PedcBioPortal, and convert Kids First harmonized outputs into cBioPortal load files with the kf-cbioportal-etl repository.",
       "is_open": true,
@@ -48181,6 +48828,42 @@
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2026-09-22",
+      "has_application": [
+        {
+          "id": "B2AI_APP:503",
+          "category": "B2AI:Application",
+          "name": "DeepVariant deep learning variant calling benchmarked against GATK",
+          "description": "DeepVariant is a deep learning germline small-variant caller that reframes variant calling as an image classification problem: candidate sites are encoded as pileup images of aligned reads and classified by a convolutional neural network trained on labeled truth sets. In the foundational paper the authors benchmarked DeepVariant directly against the GATK HaplotypeCaller and Best Practices pipeline, reporting higher accuracy and better cross-platform generalization. It established the pileup-image plus CNN paradigm that GATK later echoed with its own neural-network filtering tool, CNNScoreVariants, and remains the standard deep learning comparison point for GATK's variant-calling and filtering approaches.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/nbt.4235",
+              "ref_title": "A universal SNP and small-indel variant caller using deep neural networks",
+              "ref_authors": [
+                "Poplin R",
+                "Chang P-C",
+                "Alexander D",
+                "Schwartz S",
+                "Colthurst T",
+                "Ku A",
+                "Newburger D",
+                "Dijamco J",
+                "Nguyen N",
+                "Afshar PT",
+                "Gross SS",
+                "Dorfman L",
+                "McLean CY",
+                "DePristo MA"
+              ],
+              "ref_publication_year": 2018,
+              "ref_journal": "Nature Biotechnology"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "implementation_maturity_production"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:13",
         "B2AI_TOPIC:35",
@@ -48190,6 +48873,9 @@
       ],
       "has_relevant_organization": [
         "B2AI_ORG:128"
+      ],
+      "has_training_resource": [
+        "B2AI_STANDARD:1330"
       ],
       "purpose_detail": "The Genome Analysis Toolkit (GATK) is the Broad Institute's software package for variant discovery in high-throughput sequencing data. It includes tools for base quality recalibration, germline short variant calling with HaplotypeCaller, joint genotyping from gVCFs, somatic short variant calling with Mutect2, and copy number variant calling, together with the published GATK Best Practices workflows that chain them. GATK 4 and later are released under the Apache 2.0 license. The original paper describes the MapReduce framework on which the toolkit was first built. The Kids First DRC alignment workflow follows BWA and GATK best practices and emits HaplotypeCaller gVCFs, the joint genotyping workflow uses GATK, and the somatic workflow runs Mutect2 v4.1.1.0 and GATK CNV v4.2.4.1 against a panel of normals.",
       "is_open": true,
@@ -54329,6 +55015,209 @@
       "responsible_organization": [
         "B2AI_ORG:191"
       ]
+    },
+    {
+      "id": "B2AI_STANDARD:1326",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "HPO Documentation and User Guides",
+      "description": "Official Human Phenotype Ontology documentation site with clinician, developer, and biocurator guides",
+      "related_to": [
+        "B2AI_STANDARD:468"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-20",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:25",
+        "B2AI_TOPIC:53"
+      ],
+      "purpose_detail": "The HPO Documentation and User Guides site is the official Human Phenotype Ontology documentation hub, maintained by the HPO and obophenotype team. It provides structured guidance for clinicians (overview, term selection, FAQs), developers (software libraries, text mining, mappings, Protege editing, OBO Foundry ODK workflows, and design patterns), and biocurators, with dedicated sections on Phenopackets, annotation file formats, tools, citing HPO, and contributing new terms. It serves as the canonical reference and how-to resource for learning to use, extend, and integrate HPO.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://obophenotype.github.io/human-phenotype-ontology/",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1327",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "Mondo Disease Ontology Documentation and Editors Guide",
+      "description": "Official Mondo documentation hub with an editors guide and curation tutorials",
+      "related_to": [
+        "B2AI_STANDARD:495"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-20",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:7",
+        "B2AI_TOPIC:53"
+      ],
+      "purpose_detail": "The Mondo Disease Ontology documentation hub on Read the Docs is maintained by the Monarch Initiative and linked from the official Mondo editors page. It provides an editors guide and curation tutorials covering how to use Mondo for data curation (annotating to the concept identifier and choosing the most specific term), how to make good and bulk term requests, and the OBO Protege plus GitHub editing workflow. It is the canonical self-paced learning resource for curators and data submitters adopting Mondo.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://mondo.readthedocs.io/en/latest/",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1328",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "Cell Ontology Documentation",
+      "description": "Official Cell Ontology documentation site for maintainers, editors, and contributors",
+      "related_to": [
+        "B2AI_STANDARD:416"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-20",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:2",
+        "B2AI_TOPIC:53"
+      ],
+      "purpose_detail": "The Cell Ontology Documentation site is the official CL documentation, built with Material for MkDocs and intended for maintainers, editors, and contributors. It provides a getting-started overview, how-to guides covering the standard ODK editor and release workflows, the ontology's design patterns (such as bearer of quality, part of anatomical entity, and taxon-specific patterns), and internal editing guides. It is the primary self-paced learning and reference resource for working with the Cell Ontology and links out to the broader OBO ontology-editing handbook.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://obophenotype.github.io/cell-ontology/",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1329",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "IUBMB Enzyme Nomenclature Rules and Classification",
+      "description": "Official NC-IUBMB reference for classifying and naming enzymes and the structure of EC numbers",
+      "related_to": [
+        "B2AI_STANDARD:103"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-20",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:26",
+        "B2AI_TOPIC:53"
+      ],
+      "purpose_detail": "The IUBMB Enzyme Nomenclature rules page is the official NC-IUBMB reference that sets out the rules for classifying and naming enzymes by the reaction they catalyze. It explains the four-part EC number structure (class, subclass, sub-subclass, and serial number) and the top-level enzyme classes, along with numbered naming rules covering systematic versus common names, substrate naming, and related conventions. Published by the body that defines enzyme nomenclature and assigns EC numbers, it is the authoritative documentation for understanding and correctly applying EC numbers.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://iubmb.qmul.ac.uk/enzyme/rules.html",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1330",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "GATK Documentation and Tutorials",
+      "description": "Official Broad Institute GATK documentation, Best Practices tutorials, and how-to articles",
+      "related_to": [
+        "B2AI_STANDARD:1206"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-20",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:35",
+        "B2AI_TOPIC:60"
+      ],
+      "purpose_detail": "The GATK Documentation and Tutorials site is the official GATK support portal from the Broad Institute. It provides comprehensive tool documentation, step-by-step Best Practices workflow tutorials, and how-to articles covering germline and somatic variant discovery. It is the primary freely available training resource for learning the GATK toolkit and its recommended pipelines, complemented by the Broad's periodic GATK workshop materials, and requires no registration for the online documentation and tutorials.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://gatk.broadinstitute.org/hc/en-us",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1331",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "cBioPortal Tutorials and Documentation",
+      "description": "Official cBioPortal documentation and step-by-step tutorials for users, API users, and maintainers",
+      "related_to": [
+        "B2AI_STANDARD:1199"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-20",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:81",
+        "B2AI_TOPIC:60"
+      ],
+      "purpose_detail": "The cBioPortal Tutorials and Documentation site is the platform's official documentation, providing role-based guides for portal users, API users, instance maintainers, and developers, together with a user guide, FAQ, and web-API documentation. A companion set of step-by-step tutorials at cbioportal.org/tutorials walks new users through querying studies, visualizing genomic alterations, running survival analysis, and using the programmatic API. These are the authoritative, maintained training resources for learning to use the platform.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.cbioportal.org/",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1332",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "HUPO-PSI Molecular Interactions XML Specification and Documentation",
+      "description": "Official HUPO-PSI reference for the PSI-MI molecular interaction XML format, versions, and tools",
+      "related_to": [
+        "B2AI_STANDARD:266"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-20",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:28",
+        "B2AI_TOPIC:21",
+        "B2AI_TOPIC:53"
+      ],
+      "purpose_detail": "The HUPO-PSI Molecular Interactions XML specification page is the official Proteomics Standards Initiative reference for the PSI-MI molecular-interaction XML format. It introduces the format's purpose and origins, documents the version history from 2.5 through 2.5.4 and 3.0, explains the controlled-vocabulary model and the OBO PSI-MI terms, and links to the XML schema, Java parsers, the semantic validator, and conversion tools. It is the authoritative learning and reference resource for understanding and working with PSI-MI-formatted interaction data, replacing an earlier tutorial that is no longer maintained.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://www.psidev.info/psi-mi-xml-specification",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1333",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "Uberon Ontology Documentation",
+      "description": "Official Uberon documentation site for learning about and contributing to the anatomy ontology",
+      "related_to": [
+        "B2AI_STANDARD:563"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-20",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:71",
+        "B2AI_TOPIC:53"
+      ],
+      "purpose_detail": "The Uberon Ontology Documentation site is the project's official hub for learning about and contributing to the multi-species anatomy ontology. It provides an About section (background, team, adopters, history, and citation), links to external browsers such as OLS, Ontobee, BioPortal, and Bgee, download pages for releases and cross-species bridge files, and how-to guides covering contribution and the standard ODK editing workflows, along with curator standard operating procedures and references on Uberon's design patterns and build pipeline. It is the primary self-paced learning and reference resource for working with Uberon.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://obophenotype.github.io/uberon/",
+      "publication": {
+        "ref_url": ""
+      }
     }
   ],
   "@type": "DataStandardOrToolContainer"
