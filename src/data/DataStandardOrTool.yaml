@@ -31452,6 +31452,7 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:25
   - B2AI_TOPIC:7
@@ -31461,6 +31462,53 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Human Phenotype Ontology
   formal_specification: https://github.com/obophenotype/human-phenotype-ontology
+  has_application:
+  - id: B2AI_APP:495
+    category: B2AI:Application
+    name: PhenoBERT automated HPO concept recognition
+    description: PhenoBERT is a deep learning tool for automated recognition of Human
+      Phenotype Ontology concepts in unstructured clinical and biomedical text. It uses
+      a two-stage pipeline in which a hierarchical convolutional neural network first
+      produces candidate HPO terms for a text segment and a fine-tuned BERT model then
+      classifies each candidate against the HPO. The HPO is both the target vocabulary
+      that spans of text are normalized to and the source of the label hierarchy the
+      models learn, and the authors report it outperforms prior dictionary-based and
+      neural phenotype recognizers.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1109/TCBB.2022.3170301
+      ref_title: 'PhenoBERT: A Combined Deep Learning Method for Automated Recognition
+        of Human Phenotype Ontology'
+      ref_authors:
+      - Feng Y
+      - Qi L
+      - Tian W
+      ref_publication_year: 2023
+      ref_journal: IEEE/ACM Transactions on Computational Biology and Bioinformatics
+  - id: B2AI_APP:496
+    category: B2AI:Application
+    name: PheNormGPT LLM-based HPO normalization
+    description: PheNormGPT is a large language model framework (using GPT-3.5 Turbo
+      and GPT-4) that extracts abnormal clinical findings from unstructured text and
+      normalizes them to Human Phenotype Ontology concepts. Because the language models
+      are unreliable at emitting correct HPO identifiers directly, the system prompts
+      for each finding's preferred HPO term and then maps that term to an HPO concept
+      with a dictionary built from HPO terms, synonyms, and annotated training terms.
+      It was developed and evaluated on the BioCreative VIII Track 3 dysmorphology shared
+      task, where it placed first, illustrating HPO as the normalization target for
+      LLM-driven phenotyping.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/database/baae103
+      ref_title: 'PheNormGPT: a framework for extraction and normalization of key medical
+        findings'
+      ref_authors:
+      - Soysal E
+      - Roberts K
+      ref_publication_year: 2024
+      ref_journal: Database
+  has_training_resource:
+  - B2AI_STANDARD:1326
   is_open: true
   has_relevant_organization:
   - B2AI_ORG:128
@@ -31497,7 +31545,62 @@ data_standardortools_collection:
   requires_registration: false
   url: https://hpo.jax.org/
   publication:
-    ref_url: ''
+    ref_authors:
+    - Kohler S
+    - Gargano M
+    - Matentzoglu N
+    - Carmody LC
+    - Lewis-Smith D
+    - Vasilevsky NA
+    - Danis D
+    - Balagura G
+    - Baynam G
+    - Brower AM
+    - Callahan TJ
+    - Chute CG
+    - Est JL
+    - Galer PD
+    - Ganesan S
+    - Griese M
+    - Haimel M
+    - Pazmandi J
+    - Hanauer M
+    - Harris NL
+    - Hartnett MJ
+    - Hastreiter M
+    - Hauck F
+    - He Y
+    - Jeske T
+    - Kearney H
+    - Kindle G
+    - Klein C
+    - Knoflach K
+    - Krause R
+    - Lagorce D
+    - McMurry JA
+    - Miller JA
+    - Munoz-Torres MC
+    - Peters RL
+    - Rapp CK
+    - Rath AM
+    - Rind SA
+    - Rosenberg AZ
+    - Segal MM
+    - Seidel MG
+    - Smedley D
+    - Talmy T
+    - Thomas Y
+    - Wiafe SA
+    - Xian J
+    - Yuksel Z
+    - Helbig I
+    - Mungall CJ
+    - Haendel MA
+    - Robinson PN
+    ref_journal: Nucleic Acids Research
+    ref_publication_year: 2021
+    ref_title: The Human Phenotype Ontology in 2021
+    ref_url: https://doi.org/10.1093/nar/gkaa1043
 - id: B2AI_STANDARD:469
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
@@ -68076,3 +68179,31 @@ data_standardortools_collection:
     - MacCannell DR
     ref_publication_year: 2022
     ref_journal: Gigascience
+- id: B2AI_STANDARD:1326
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:53
+  contribution_date: '2026-10-20'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Human Phenotype Ontology documentation site with clinician,
+    developer, and biocurator guides
+  is_open: true
+  name: HPO Documentation and User Guides
+  purpose_detail: The HPO Documentation and User Guides site is the official Human
+    Phenotype Ontology documentation hub, maintained by the HPO and obophenotype team.
+    It provides structured guidance for clinicians (overview, term selection, FAQs),
+    developers (software libraries, text mining, mappings, Protege editing, OBO Foundry
+    ODK workflows, and design patterns), and biocurators, with dedicated sections
+    on Phenopackets, annotation file formats, tools, citing HPO, and contributing
+    new terms. It serves as the canonical reference and how-to resource for learning
+    to use, extend, and integrate HPO.
+  related_to:
+  - B2AI_STANDARD:468
+  requires_registration: false
+  url: https://obophenotype.github.io/human-phenotype-ontology/
+  publication:
+    ref_url: ''
