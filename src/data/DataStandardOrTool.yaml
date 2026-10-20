@@ -28349,6 +28349,7 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:2
@@ -28357,6 +28358,61 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Cell Ontology
   formal_specification: https://github.com/obophenotype/cell-ontology
+  has_application:
+  - id: B2AI_APP:499
+    category: B2AI:Application
+    name: OnClass cell type classification using the Cell Ontology
+    description: OnClass is a machine learning method for automated single-cell type
+      annotation that uses the Cell Ontology as its label space. It embeds every CL
+      cell-type term into a low-dimensional space derived from the ontology's directed
+      acyclic graph, preserving hierarchical relationships between cell types. Because
+      predictions are made in this CL-derived embedding space rather than over a flat
+      label set, OnClass can assign cells to cell types never seen during training,
+      as long as those types exist in the Cell Ontology, so CL supplies both the controlled
+      vocabulary and the graph structure enabling zero-shot classification.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41467-021-25725-x
+      ref_title: Leveraging the Cell Ontology to classify unseen cell types
+      ref_authors:
+      - Wang S
+      - Pisco AO
+      - McGeever A
+      - Brbic M
+      - Zitnik M
+      - Darmanis S
+      - Leskovec J
+      - Karkanias J
+      - Altman RB
+      ref_publication_year: 2021
+      ref_journal: Nature Communications
+  - id: B2AI_APP:500
+    category: B2AI:Application
+    name: CellTypist cross-tissue cell type annotation
+    description: CellTypist is an automated cell-type annotation tool using logistic-regression
+      classifiers over single-cell transcriptomes, introduced alongside a cross-tissue
+      human immune cell atlas. Its reference models adopt ontology-backed, Cell Ontology-aligned
+      cell-type terms so that labels are standardized and interoperable across tissues
+      and datasets. By mapping predicted labels to the Cell Ontology, CellTypist lets
+      users classify immune and other cell types under a shared, machine-readable hierarchy,
+      supporting consistent cross-tissue comparison and integration of single-cell data.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1126/science.abl5197
+      ref_title: Cross-tissue immune cell analysis reveals tissue-specific features
+        in humans
+      ref_authors:
+      - Dominguez Conde C
+      - Xu C
+      - Jarvis LB
+      - Rainbow DB
+      - Wells SB
+      - Gomes T
+      - Teichmann SA
+      ref_publication_year: 2022
+      ref_journal: Science
+  has_training_resource:
+  - B2AI_STANDARD:1328
   is_open: true
   name: CL
   publication:
@@ -68285,5 +68341,33 @@ data_standardortools_collection:
   - B2AI_STANDARD:495
   requires_registration: false
   url: https://mondo.readthedocs.io/en/latest/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1328
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:2
+  - B2AI_TOPIC:53
+  contribution_date: '2026-10-20'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Cell Ontology documentation site for maintainers, editors,
+    and contributors
+  is_open: true
+  name: Cell Ontology Documentation
+  purpose_detail: The Cell Ontology Documentation site is the official CL documentation,
+    built with Material for MkDocs and intended for maintainers, editors, and contributors.
+    It provides a getting-started overview, how-to guides covering the standard ODK
+    editor and release workflows, the ontology's design patterns (such as bearer of
+    quality, part of anatomical entity, and taxon-specific patterns), and internal
+    editing guides. It is the primary self-paced learning and reference resource for
+    working with the Cell Ontology and links out to the broader OBO ontology-editing
+    handbook.
+  related_to:
+  - B2AI_STANDARD:416
+  requires_registration: false
+  url: https://obophenotype.github.io/cell-ontology/
   publication:
     ref_url: ''
