@@ -32760,6 +32760,7 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:7
   - B2AI_TOPIC:53
@@ -32771,6 +32772,58 @@ data_standardortools_collection:
   has_relevant_organization:
   - B2AI_ORG:58
   - B2AI_ORG:128
+  has_application:
+  - id: B2AI_APP:497
+    category: B2AI:Application
+    name: PrimeKG precision-medicine knowledge graph
+    description: 'PrimeKG is a multimodal biomedical knowledge graph built to support
+      graph machine learning for precision medicine. MONDO is its primary disease vocabulary:
+      the authors state it was their preferred ontology for defining diseases, and all
+      disease nodes are defined with MONDO identifiers, with other vocabularies mapped
+      onto MONDO terms. They collapsed 22,205 MONDO concepts into 17,080 clinically
+      grouped disease nodes using string matching plus ClinicalBERT embedding similarity
+      with manual review, and MONDO''s hierarchy contributes tens of thousands of disease-disease
+      edges that the downstream graph models reason over.'
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41597-023-01960-3
+      ref_title: Building a knowledge graph to enable precision medicine
+      ref_authors:
+      - Chandak P
+      - Huang K
+      - Zitnik M
+      ref_publication_year: 2023
+      ref_journal: Scientific Data
+  - id: B2AI_APP:498
+    category: B2AI:Application
+    name: TxGNN zero-shot drug repurposing foundation model
+    description: TxGNN is a graph neural network foundation model that ranks drugs as
+      indications or contraindications for diseases, including zero-shot prediction
+      for diseases with few or no existing treatments. It is pre-trained on the PrimeKG
+      knowledge graph of 17,080 clinically recognized diseases, whose disease nodes
+      are defined with MONDO identifiers, so MONDO supplies the disease vocabulary over
+      which TxGNN makes drug-disease predictions. The model reported substantial gains
+      over baselines under zero-shot evaluation, and many predictions matched clinicians'
+      off-label prescribing in a large health system.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41591-024-03233-x
+      ref_title: A foundation model for clinician-centered drug repurposing
+      ref_authors:
+      - Huang K
+      - Chandak P
+      - Wang Q
+      - Havaldar S
+      - Vaid A
+      - Leskovec J
+      - Nadkarni GN
+      - Glicksberg BS
+      - Gehlenborg N
+      - Zitnik M
+      ref_publication_year: 2024
+      ref_journal: Nature Medicine
+  has_training_resource:
+  - B2AI_STANDARD:1327
   is_open: true
   name: MONDO
   publication:
@@ -68205,5 +68258,32 @@ data_standardortools_collection:
   - B2AI_STANDARD:468
   requires_registration: false
   url: https://obophenotype.github.io/human-phenotype-ontology/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1327
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:53
+  contribution_date: '2026-10-20'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Mondo documentation hub with an editors guide and curation
+    tutorials
+  is_open: true
+  name: Mondo Disease Ontology Documentation and Editors Guide
+  purpose_detail: The Mondo Disease Ontology documentation hub on Read the Docs is
+    maintained by the Monarch Initiative and linked from the official Mondo editors
+    page. It provides an editors guide and curation tutorials covering how to use
+    Mondo for data curation (annotating to the concept identifier and choosing the
+    most specific term), how to make good and bulk term requests, and the OBO Protege
+    plus GitHub editing workflow. It is the canonical self-paced learning resource
+    for curators and data submitters adopting Mondo.
+  related_to:
+  - B2AI_STANDARD:495
+  requires_registration: false
+  url: https://mondo.readthedocs.io/en/latest/
   publication:
     ref_url: ''
