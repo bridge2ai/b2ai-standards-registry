@@ -17609,12 +17609,71 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
   - fileformat
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:19
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Open Microscopy Environment TIFF specification
+  has_application:
+  - id: B2AI_APP:506
+    category: B2AI:Application
+    name: Image Data Resource built on the OME data model
+    description: The Image Data Resource (IDR) is a public bioimage-data publication
+      and integration platform built directly on the OME software stack, aggregating
+      reference imaging datasets from many published studies and serving them with standardized
+      OME metadata. It exposes images via OMERO and distributes them in OME formats,
+      including OME-TIFF and the next-generation OME-NGFF (OME-Zarr), so pixels and
+      annotation metadata are harmonized through the OME data model. IDR has become
+      a widely used source of curated, labeled microscopy data for training and benchmarking
+      deep learning models for segmentation, classification, and phenotypic profiling,
+      making OME-TIFF and the OME model the interchange layer for its machine-learning-ready
+      images.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/nmeth.4326
+      ref_title: 'Image Data Resource: a bioimage data integration and publication platform'
+      ref_authors:
+      - Williams E
+      - Moore J
+      - Li SW
+      - Rustici G
+      - Tarkowska A
+      - Chessel A
+      - Leo S
+      - Antal B
+      - Ferguson RK
+      - Sarkans U
+      - Brazma A
+      - Carazo Salas RE
+      - Swedlow JR
+      ref_publication_year: 2017
+      ref_journal: Nature Methods
+  - id: B2AI_APP:507
+    category: B2AI:Application
+    name: Cellpose deep learning segmentation with OME-TIFF input/output
+    description: Cellpose is a generalist deep learning model for cellular and nuclear
+      segmentation in microscopy images. Its library and GUI read standard multidimensional
+      image files via tifffile-based readers, which includes OME-TIFF (TIFF plus OME-XML),
+      and write segmentation masks back alongside those images; its napari and Fiji/ImageJ
+      integrations rely on OME-TIFF and Bio-Formats for input and output in production
+      pipelines. OME-TIFF is therefore a supported interchange container for deep-learning
+      segmentation with Cellpose, though Cellpose supports many image formats and does
+      not treat the OME data model as its native layer.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41592-020-01018-x
+      ref_title: 'Cellpose: a generalist algorithm for cellular segmentation'
+      ref_authors:
+      - Stringer C
+      - Wang T
+      - Michaelos M
+      - Pachitariu M
+      ref_publication_year: 2021
+      ref_journal: Nature Methods
+  has_training_resource:
+  - B2AI_STANDARD:1088
   is_open: true
   has_relevant_organization:
   - B2AI_ORG:131
