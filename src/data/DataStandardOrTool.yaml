@@ -18994,6 +18994,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
   - fileformat
+  - implementation_maturity_production
+  - standards_process_maturity_final
   concerns_data_topic:
   - B2AI_TOPIC:27
   contributor_github_name: caufieldjh
@@ -19002,6 +19004,111 @@ data_standardortools_collection:
   description: Protein Data Bank Format
   has_relevant_organization:
   - B2AI_ORG:82
+  has_application:
+  - id: B2AI_APP:493
+    category: B2AI:Application
+    name: AlphaFold protein structure prediction
+    description: AlphaFold is a deep learning system that predicts a protein's three-dimensional
+      structure from its amino acid sequence. It is trained in large part on experimentally
+      determined structures from the Protein Data Bank, using PDB atomic coordinates
+      as the ground-truth labels that supervise its structure module. The model outputs
+      predicted structures in PDB/mmCIF coordinate format and is evaluated against PDB
+      structures, so the PDB archive serves as both the training corpus and the reference
+      standard for assessing accuracy.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41586-021-03819-2
+      ref_title: Highly accurate protein structure prediction with AlphaFold
+      ref_authors:
+      - Jumper J
+      - Evans R
+      - Pritzel A
+      - Green T
+      - Figurnov M
+      - Ronneberger O
+      - Tunyasuvunakool K
+      - Bates R
+      - Zidek A
+      - Potapenko A
+      - Bridgland A
+      - Meyer C
+      - Kohl SAA
+      - Ballard AJ
+      - Cowie A
+      - Romera-Paredes B
+      - Nikolov S
+      - Jain R
+      - Adler J
+      - Back T
+      - Petersen S
+      - Reiman D
+      - Clancy E
+      - Zielinski M
+      - Steinegger M
+      - Pacholska M
+      - Berghammer T
+      - Bodenstein S
+      - Silver D
+      - Vinyals O
+      - Senior AW
+      - Kavukcuoglu K
+      - Kohli P
+      - Hassabis D
+      ref_publication_year: 2021
+      ref_journal: Nature
+  - id: B2AI_APP:494
+    category: B2AI:Application
+    name: RoseTTAFold protein structure and complex prediction
+    description: RoseTTAFold is a three-track neural network that jointly reasons over
+      sequence, residue-residue distances, and three-dimensional coordinates to predict
+      protein structures and complexes. Like AlphaFold, it is trained on experimentally
+      determined structures from the Protein Data Bank, which supply the ground-truth
+      coordinates used to supervise its coordinate track, and it produces atomic models
+      in PDB coordinate format. It achieved near-AlphaFold accuracy with a more computationally
+      accessible architecture, again demonstrating the PDB archive's role as the training
+      and benchmarking standard for structure prediction.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1126/science.abj8754
+      ref_title: Accurate prediction of protein structures and interactions using a
+        three-track neural network
+      ref_authors:
+      - Baek M
+      - DiMaio F
+      - Anishchenko I
+      - Dauparas J
+      - Ovchinnikov S
+      - Lee GR
+      - Wang J
+      - Cong Q
+      - Kinch LN
+      - Schaeffer RD
+      - Millan C
+      - Park H
+      - Adams C
+      - Glassman CR
+      - DeGiovanni A
+      - Pereira JH
+      - Rodrigues AV
+      - van Dijk AA
+      - Ebrecht AC
+      - Opperman DJ
+      - Sagmeister T
+      - Buhlheller C
+      - Pavkov-Keller T
+      - Rathinaswamy MK
+      - Dalwadi U
+      - Yip CK
+      - Burke JE
+      - Garcia KC
+      - Grishin NV
+      - Adams PD
+      - Read RJ
+      - Baker D
+      ref_publication_year: 2021
+      ref_journal: Science
+  has_training_resource:
+  - B2AI_STANDARD:1084
   is_open: true
   name: PDB
   purpose_detail: The Protein Data Bank (PDB) format is an exchange standard for reporting
@@ -19031,7 +19138,19 @@ data_standardortools_collection:
   requires_registration: false
   url: https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html
   publication:
-    ref_url: ''
+    ref_authors:
+    - Berman HM
+    - Westbrook J
+    - Feng Z
+    - Gilliland G
+    - Bhat TN
+    - Weissig H
+    - Shindyalov IN
+    - Bourne PE
+    ref_journal: Nucleic Acids Research
+    ref_publication_year: 2000
+    ref_title: The Protein Data Bank
+    ref_url: https://doi.org/10.1093/nar/28.1.235
 - id: B2AI_STANDARD:264
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
