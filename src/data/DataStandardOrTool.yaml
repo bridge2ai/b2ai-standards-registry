@@ -36722,6 +36722,7 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:71
@@ -36730,6 +36731,105 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Uberon
   formal_specification: https://github.com/obophenotype/uberon
+  has_application:
+  - id: B2AI_APP:510
+    category: B2AI:Application
+    name: PheKnowLator ontology-grounded knowledge graphs using UBERON
+    description: PheKnowLator is an open-source ecosystem for building ontology-grounded
+      biomedical knowledge graphs that are then used for graph machine learning. UBERON
+      is one of the core ontology build inputs of its human-disease knowledge graphs
+      and supplies the anatomical-entity node space, with the Gene Ontology, Human Phenotype
+      Ontology, and Cell Ontology importing UBERON so that transcripts, proteins, cell
+      types, phenotypes, and diseases connect through a shared species-neutral anatomy
+      vocabulary. The ecosystem ships prebuilt knowledge graphs with node embeddings,
+      so UBERON terms become vertices whose learned representations feed downstream
+      tasks such as link prediction.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41597-024-03171-w
+      ref_title: An open source knowledge graph ecosystem for the life sciences
+      ref_authors:
+      - Callahan TJ
+      - Tripodi IJ
+      - Stefanski AL
+      - Cappelletti L
+      - Taneja SB
+      - Wyrwa JM
+      - Casiraghi E
+      - Matentzoglu NA
+      - Reese J
+      - Silverstein JC
+      - Hoyt CT
+      - Boyce RD
+      - Malec SA
+      - Unni DR
+      - Joachimiak MP
+      - Robinson PN
+      - Mungall CJ
+      - Cavalleri E
+      - Fontana T
+      - Valentini G
+      - Mesiti M
+      - Gillenwater LA
+      - Santangelo B
+      - Vasilevsky NA
+      - Hoehndorf R
+      - Bennett TD
+      - Ryan PB
+      - Hripcsak G
+      - Kahn MG
+      - Bada M
+      - Baumgartner WA Jr
+      - Hunter LE
+      ref_publication_year: 2024
+      ref_journal: Scientific Data
+  - id: B2AI_APP:511
+    category: B2AI:Application
+    name: KG-Hub biological knowledge graphs with graph machine learning
+    description: KG-Hub is a platform for building, exchanging, and reusing Biolink
+      Model-compliant biological knowledge graphs, tightly integrated with graph machine
+      learning tooling (via GRAPE) for node embeddings, link prediction, and node classification.
+      Its KG-OBO component ingests and versions every ontology in the OBO Foundry, which
+      includes UBERON, so UBERON's anatomical entities are available as typed nodes
+      for embedding and link-prediction pipelines across KG-Hub projects. UBERON here
+      provides the anatomical node vocabulary tying genotype, phenotype, and tissue
+      information together; the paper describes OBO Foundry-wide ingestion rather than
+      naming UBERON explicitly.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btad418
+      ref_title: KG-Hub-building and exchanging biological knowledge graphs
+      ref_authors:
+      - Caufield JH
+      - Putman T
+      - Schaper K
+      - Unni DR
+      - Hegde H
+      - Callahan TJ
+      - Cappelletti L
+      - Moxon SAT
+      - Ravanmehr V
+      - Carbon S
+      - Chan LE
+      - Cortes K
+      - Shefchek KA
+      - Elsarboukh G
+      - Balhoff J
+      - Fontana T
+      - Matentzoglu N
+      - Bruskiewich RM
+      - Thessen AE
+      - Harris NL
+      - Munoz-Torres MC
+      - Haendel MA
+      - Robinson PN
+      - Joachimiak MP
+      - Mungall CJ
+      - Reese JT
+      ref_publication_year: 2023
+      ref_journal: Bioinformatics
+  has_training_resource:
+  - B2AI_STANDARD:1333
   is_open: true
   has_relevant_organization:
   - B2AI_ORG:131
@@ -68746,5 +68846,34 @@ data_standardortools_collection:
   - B2AI_STANDARD:266
   requires_registration: false
   url: https://www.psidev.info/psi-mi-xml-specification
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1333
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:71
+  - B2AI_TOPIC:53
+  contribution_date: '2026-10-20'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Uberon documentation site for learning about and contributing
+    to the anatomy ontology
+  is_open: true
+  name: Uberon Ontology Documentation
+  purpose_detail: The Uberon Ontology Documentation site is the project's official
+    hub for learning about and contributing to the multi-species anatomy ontology.
+    It provides an About section (background, team, adopters, history, and citation),
+    links to external browsers such as OLS, Ontobee, BioPortal, and Bgee, download
+    pages for releases and cross-species bridge files, and how-to guides covering
+    contribution and the standard ODK editing workflows, along with curator standard
+    operating procedures and references on Uberon's design patterns and build pipeline.
+    It is the primary self-paced learning and reference resource for working with
+    Uberon.
+  related_to:
+  - B2AI_STANDARD:563
+  requires_registration: false
+  url: https://obophenotype.github.io/uberon/
   publication:
     ref_url: ''
