@@ -61707,6 +61707,8 @@ data_standardortools_collection:
 
 - id: B2AI_STANDARD:1206
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:13
   - B2AI_TOPIC:35
@@ -61721,6 +61723,42 @@ data_standardortools_collection:
   formal_specification: https://github.com/broadinstitute/gatk
   has_relevant_organization:
   - B2AI_ORG:128
+  has_application:
+  - id: B2AI_APP:503
+    category: B2AI:Application
+    name: DeepVariant deep learning variant calling benchmarked against GATK
+    description: 'DeepVariant is a deep learning germline small-variant caller that
+      reframes variant calling as an image classification problem: candidate sites are
+      encoded as pileup images of aligned reads and classified by a convolutional neural
+      network trained on labeled truth sets. In the foundational paper the authors benchmarked
+      DeepVariant directly against the GATK HaplotypeCaller and Best Practices pipeline,
+      reporting higher accuracy and better cross-platform generalization. It established
+      the pileup-image plus CNN paradigm that GATK later echoed with its own neural-network
+      filtering tool, CNNScoreVariants, and remains the standard deep learning comparison
+      point for GATK''s variant-calling and filtering approaches.'
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/nbt.4235
+      ref_title: A universal SNP and small-indel variant caller using deep neural networks
+      ref_authors:
+      - Poplin R
+      - Chang P-C
+      - Alexander D
+      - Schwartz S
+      - Colthurst T
+      - Ku A
+      - Newburger D
+      - Dijamco J
+      - Nguyen N
+      - Afshar PT
+      - Gross SS
+      - Dorfman L
+      - McLean CY
+      - DePristo MA
+      ref_publication_year: 2018
+      ref_journal: Nature Biotechnology
+  has_training_resource:
+  - B2AI_STANDARD:1330
   is_open: true
   name: GATK
   purpose_detail: The Genome Analysis Toolkit (GATK) is the Broad Institute's software
@@ -68445,5 +68483,33 @@ data_standardortools_collection:
   - B2AI_STANDARD:103
   requires_registration: false
   url: https://iubmb.qmul.ac.uk/enzyme/rules.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1330
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:13
+  - B2AI_TOPIC:35
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-20'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Broad Institute GATK documentation, Best Practices tutorials,
+    and how-to articles
+  is_open: true
+  name: GATK Documentation and Tutorials
+  purpose_detail: The GATK Documentation and Tutorials site is the official GATK support
+    portal from the Broad Institute. It provides comprehensive tool documentation,
+    step-by-step Best Practices workflow tutorials, and how-to articles covering germline
+    and somatic variant discovery. It is the primary freely available training resource
+    for learning the GATK toolkit and its recommended pipelines, complemented by the
+    Broad's periodic GATK workshop materials, and requires no registration for the
+    online documentation and tutorials.
+  related_to:
+  - B2AI_STANDARD:1206
+  requires_registration: false
+  url: https://gatk.broadinstitute.org/hc/en-us
   publication:
     ref_url: ''
