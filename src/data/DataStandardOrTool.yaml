@@ -19353,6 +19353,7 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
   - fileformat
+  - standards_process_maturity_final
   concerns_data_topic:
   - B2AI_TOPIC:28
   - B2AI_TOPIC:21
@@ -19361,6 +19362,63 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: PSI-MI XML
+  has_application:
+  - id: B2AI_APP:508
+    category: B2AI:Application
+    name: Struct2Graph protein interaction prediction from IntAct/PSI-MI data
+    description: Struct2Graph is a graph attention and graph convolutional network with
+      a mutual-attention mechanism for structure-based prediction of protein-protein
+      interactions. The authors built their training set by retaining physical-interaction
+      pairs concordant between IntAct and STRING, filtering 427,503 IntAct interactions
+      to 12,676 direct-interaction pairs and mapping them to PDB structures, for a final
+      balanced set of about 10,004 pairs across 3,677 proteins. The IntAct records are
+      the HUPO-PSI PSI-MI curated molecular-interaction data this standard defines,
+      so the model is trained directly on PSI-MI-standard interaction evidence.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s12859-022-04910-9
+      ref_title: 'Struct2Graph: a graph attention network for structure based predictions
+        of protein-protein interactions'
+      ref_authors:
+      - Baranwal M
+      - Magner A
+      - Saldinger J
+      - Turali-Emre ES
+      - Elvati P
+      - Kozarekar S
+      - VanEpps JS
+      - Kotov NA
+      - Violi A
+      - Hero AO
+      ref_publication_year: 2022
+      ref_journal: BMC Bioinformatics
+  - id: B2AI_APP:509
+    category: B2AI:Application
+    name: ESMAraPPI protein language model interaction prediction from IntAct
+    description: ESMAraPPI predicts Arabidopsis thaliana protein-protein interactions
+      using embeddings from the ESM-1b protein language model fed to a multilayer perceptron.
+      The positive training examples are Arabidopsis interactions taken directly from
+      the IntAct database filtered at an MIscore of at least 0.45, the IntAct and HUPO-PSI
+      interaction confidence score computed over PSI-MI curated evidence, with negatives
+      sampled at a 10:1 ratio. The model's positive-label supervision therefore comes
+      entirely from PSI-MI and IntAct-formatted interaction data, and it outperformed
+      several generic and plant-specific interaction predictors on the hardest held-out
+      split.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13007-023-01119-6
+      ref_title: Pre-trained protein language model sheds new light on the prediction
+        of Arabidopsis protein-protein interactions
+      ref_authors:
+      - Zhou K
+      - Lei C
+      - Zheng J
+      - Huang Y
+      - Zhang Z
+      ref_publication_year: 2023
+      ref_journal: Plant Methods
+  has_training_resource:
+  - B2AI_STANDARD:1332
   is_open: true
   name: PSI-MI XML
   purpose_detail: The PSI-MI XML 2.5 is a community standard for molecular interactions
@@ -19379,7 +19437,7 @@ data_standardortools_collection:
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:41
-  url: https://www.psidev.info/mif
+  url: https://www.psidev.info/psi-mi-xml-specification
   publication:
     ref_url: https://doi.org/10.1038/nbt926
     ref_title: The HUPO PSI's Molecular Interaction format-a community standard for the representation of protein interaction data
@@ -68659,5 +68717,34 @@ data_standardortools_collection:
   - B2AI_STANDARD:1199
   requires_registration: false
   url: https://docs.cbioportal.org/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1332
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:28
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:53
+  contribution_date: '2026-10-20'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official HUPO-PSI reference for the PSI-MI molecular interaction XML
+    format, versions, and tools
+  is_open: true
+  name: HUPO-PSI Molecular Interactions XML Specification and Documentation
+  purpose_detail: The HUPO-PSI Molecular Interactions XML specification page is the
+    official Proteomics Standards Initiative reference for the PSI-MI molecular-interaction
+    XML format. It introduces the format's purpose and origins, documents the version
+    history from 2.5 through 2.5.4 and 3.0, explains the controlled-vocabulary model
+    and the OBO PSI-MI terms, and links to the XML schema, Java parsers, the semantic
+    validator, and conversion tools. It is the authoritative learning and reference
+    resource for understanding and working with PSI-MI-formatted interaction data,
+    replacing an earlier tutorial that is no longer maintained.
+  related_to:
+  - B2AI_STANDARD:266
+  requires_registration: false
+  url: https://www.psidev.info/psi-mi-xml-specification
   publication:
     ref_url: ''
