@@ -34848,6 +34848,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_draft
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:25
@@ -34856,14 +34858,73 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Ontology of Biological Attributes
   formal_specification: https://github.com/obophenotype/bio-attribute-ontology
+  has_relevant_organization:
+  - B2AI_ORG:75
+  - B2AI_ORG:58
+  has_training_resource:
+  - B2AI_STANDARD:1339
   is_open: true
   name: OBA
-  purpose_detail: A collection of biological attributes (traits) covering all kingdoms
-    of life.
+  purpose_detail: The Ontology of Biological Attributes (OBA) is an open, species-independent
+    ontology of biological attributes, or measurable traits, covering organisms across
+    all kingdoms of life. It is an OBO Foundry ontology developed by the obophenotype
+    group within the Monarch Initiative ecosystem, released under a CC0 public-domain
+    dedication, with Chris Mungall at Lawrence Berkeley National Laboratory as the
+    listed contact. Unlike most phenotype ontologies, which describe abnormal states
+    relative to a wild-type reference, OBA represents neutral trait categories such
+    as body mass, blood glucose level, or flowering time that are needed to annotate
+    genome-wide association studies (GWAS), quantitative trait loci (QTL), and other
+    population-scale measurable-trait data. OBA terms are built post-compositionally
+    from Dead Simple Ontology Design Pattern (DOS-DP) templates that reference the
+    Phenotype And Trait Ontology (PATO) together with domain ontologies for anatomy,
+    cells, chemistry, and biological processes, so that a reasoner can automatically
+    classify traits and compute a meaningful hierarchy. It is interoperable with the
+    Vertebrate Trait Ontology (VT) and the Plant Trait Ontology (TO), is a component
+    of the Unified Phenotype Ontology (uPheno 2), and provides logical axioms that
+    bridge Mendelian phenotypes with GWAS and quantitative traits. OBA is used as
+    a phenotype source in the Monarch Initiative PHENIO knowledge graph and in ongoing
+    mapping of the Experimental Factor Ontology (EFO) measurement branch for the GWAS
+    Catalog.
+  related_to:
+  - B2AI_STANDARD:533
+  - B2AI_STANDARD:534
+  - B2AI_STANDARD:565
+  - B2AI_STANDARD:572
   requires_registration: false
-  url: https://wiki.geneontology.org/index.php/Extensions/x-attribute
+  url: https://obofoundry.org/ontology/oba.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1007/s00335-023-09992-1
+    ref_title: The Ontology of Biological Attributes (OBA)—computational traits for
+      the life sciences
+    ref_authors:
+    - Stefancsik R
+    - Balhoff JP
+    - Balk MA
+    - Ball RL
+    - Bello SM
+    - Caron AR
+    - Chesler EJ
+    - de Souza V
+    - Gehrke S
+    - Haendel M
+    - Harris LW
+    - Harris NL
+    - Ibrahim A
+    - Koehler S
+    - Matentzoglu N
+    - McMurry JA
+    - Mungall CJ
+    - Munoz-Torres MC
+    - Putman T
+    - Robinson P
+    - Smedley D
+    - Sollis E
+    - Thessen AE
+    - Vasilevsky N
+    - Walton DO
+    - Osumi-Sutherland D
+    ref_publication_year: 2023
+    ref_journal: Mammalian Genome
 - id: B2AI_STANDARD:519
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -35376,6 +35437,7 @@ data_standardortools_collection:
     phenotypes across species and genetic backgrounds.
   related_to:
   - B2AI_STANDARD:575
+  - B2AI_STANDARD:518
   requires_registration: false
   url: https://github.com/monarch-initiative/phenio
   publication:
@@ -35414,6 +35476,7 @@ data_standardortools_collection:
   - B2AI_STANDARD:565
   - B2AI_STANDARD:575
   - B2AI_STANDARD:1302
+  - B2AI_STANDARD:518
   requires_registration: false
   url: https://obofoundry.org/ontology/pato.html
   has_application:
@@ -37366,6 +37429,7 @@ data_standardortools_collection:
     that link phenotypes, diseases, and genetic underpinnings across species.
   related_to:
   - B2AI_STANDARD:575
+  - B2AI_STANDARD:518
   requires_registration: false
   url: https://github.com/obophenotype/upheno
   has_application:
@@ -37976,6 +38040,8 @@ data_standardortools_collection:
     Ontology (CMO) enables bidirectional translation between agricultural animal research
     and human biomedicine. VT is distributed under CC-BY-NC 4.0 license through http://purl.obolibrary.org/obo/vt.owl
     with releases synchronized to OBO Foundry and AgroPortal.
+  related_to:
+  - B2AI_STANDARD:518
   requires_registration: false
   url: https://github.com/AnimalGenome/vertebrate-trait-ontology
   publication:
@@ -69289,3 +69355,63 @@ data_standardortools_collection:
     - Schofield PN
     ref_publication_year: 2004
     ref_journal: Nucleic Acids Research
+- id: B2AI_STANDARD:1339
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:25
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official OBA documentation and editors' guide for the Ontology of Biological
+    Attributes
+  is_open: true
+  name: OBA Documentation and Editors' Guide
+  purpose_detail: The OBA documentation site is the ontology's official, maintained
+    documentation and editors' guide, generated with the Ontology Development Kit
+    and published from the obophenotype/bio-attribute-ontology repository. It explains
+    the structure and design patterns of the Ontology of Biological Attributes, how
+    OBA traits are composed from Dead Simple Ontology Design Pattern (DOS-DP) templates
+    over PATO and domain ontologies, and how to add or edit terms, build the ontology,
+    and contribute. Together with the repository's contributing guide and issue tracker,
+    it is the authoritative learning and reference resource for understanding and
+    curating OBA.
+  related_to:
+  - B2AI_STANDARD:518
+  requires_registration: false
+  url: https://obophenotype.github.io/bio-attribute-ontology/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1340
+  category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - obofoundry
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:25
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Plant Trait Ontology
+  formal_specification: https://github.com/Planteome/plant-trait-ontology
+  is_open: true
+  name: TO
+  purpose_detail: The Plant Trait Ontology (TO) is an open, controlled vocabulary
+    of phenotypic traits in plants, developed and maintained by the Planteome project
+    and a member of the OBO Foundry. Each trait term describes a measurable or observable
+    characteristic of a plant, such as plant height, seed yield, or disease resistance,
+    and is defined by reference to a plant anatomical or structural entity (from the
+    Plant Ontology) and an attribute or quality (from PATO). TO is used to annotate
+    plant phenotype, germplasm, and QTL data in databases such as Gramene and the
+    Planteome resources, supporting integration and comparison of trait data across
+    crop and model plant species. The Ontology of Biological Attributes (OBA) is designed
+    to be interoperable with TO.
+  related_to:
+  - B2AI_STANDARD:518
+  requires_registration: false
+  url: https://obofoundry.org/ontology/to.html
+  publication:
+    ref_url: ''
