@@ -28299,6 +28299,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:15
   - B2AI_TOPIC:19
@@ -28307,13 +28309,37 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Biological Imaging Methods Ontology
-  formal_specification: https://github.com/CRBS/Biological_Imaging_Methods_Ontology/
+  formal_specification: https://github.com/foundingGIDE/fbbi
+  has_relevant_organization:
+  - B2AI_ORG:29
+  - B2AI_ORG:154
   is_open: true
   name: FBBI
-  purpose_detail: Sample preparation, visualization and imaging methods used in biomedical
-    research.
+  purpose_detail: The Biological Imaging Methods Ontology (FBbi) is an OBO Foundry
+    ontology that provides controlled vocabulary for describing the sample preparation,
+    visualization, and imaging methods used in biomedical research. It covers techniques
+    such as light, fluorescence, confocal, and electron microscopy together with associated
+    staining, labeling, and specimen-preparation methods, so that the imaging modality
+    and preparation of an image can be recorded as structured metadata rather than
+    free text. It was created in the early 2000s by FlyBase curators (the prefix FBbi
+    stands for "FlyBase biological imaging") to annotate how images in the FlyBase
+    collection were acquired. After FlyBase paused its development around 2005, the
+    ontology was adopted by other image resources, and in 2026 its maintenance was
+    taken over by German BioImaging (GerBI-GMB) in collaboration with EMBL-EBI's BioImage
+    Archive under the FoundingGIDE project, which moved active development to a new
+    GitHub repository and resumed versioned releases under a CC BY 4.0 license. FBbi
+    is used to annotate images in resources including FlyBase, Virtual Fly Brain,
+    and the Cell Image Library, and is recommended by bioimage metadata guidelines
+    such as REMBI for populating imaging-method and sample-preparation fields. It
+    depends on the Information Artifact Ontology (IAO), the OBO Metadata Ontology
+    (OMO), and the Relation Ontology (RO), and is browsable through OBO tools such
+    as Ontobee and OLS.
+  related_to:
+  - B2AI_STANDARD:1346
   requires_registration: false
-  url: http://cellimagelibrary.org/
+  responsible_organization:
+  - B2AI_ORG:207
+  url: https://obofoundry.org/ontology/fbbi
   publication:
     ref_url: ''
 - id: B2AI_STANDARD:411
@@ -51155,6 +51181,8 @@ data_standardortools_collection:
   - B2AI_STANDARD:1068
   is_open: true
   name: REMBI
+  related_to:
+  - B2AI_STANDARD:410
   publication:
     ref_url: https://doi.org/10.1038/s41592-021-01166-8
     ref_title: 'REMBI: Recommended Metadata for Biological Images--enabling reuse of
@@ -70493,4 +70521,48 @@ data_standardortools_collection:
     - Abrar S
     - Mattingly CJ
     ref_publication_year: 2024
+    ref_journal: Nucleic Acids Research
+- id: B2AI_STANDARD:1346
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:19
+  contribution_date: '2026-10-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: The Cell Image Library (CIL/CCDB)
+  is_open: true
+  name: Cell Image Library
+  purpose_detail: The Cell Image Library (CIL), which incorporates the earlier Cell
+    Centered Database (CCDB), is a public, curated repository of cell and tissue microscopy
+    images, videos, and animations spanning many organisms, cell types, and imaging
+    modalities from light and fluorescence microscopy to electron microscopy and tomography.
+    It was developed at the National Center for Microscopy and Imaging Research (NCMIR)
+    within the Center for Research in Biological Systems (CRBS) at the University
+    of California, San Diego, as a community resource for depositing, finding, and
+    reusing primary imaging data. Each entry is annotated with structured metadata,
+    including imaging method and sample-preparation terms drawn from the Biological
+    Imaging Methods Ontology (FBbi), making it a canonical example of FBbi use in
+    practice. The library supports browsing and searching by biological and technical
+    attributes and provides data for education, reference, and reuse.
+  related_to:
+  - B2AI_STANDARD:410
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:154
+  url: http://www.cellimagelibrary.org/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gks1257
+    ref_title: 'The cell: an image library-CCDB: a curated repository of microscopy
+      data'
+    ref_authors:
+    - Orloff DN
+    - Iwasa JH
+    - Martone ME
+    - Ellisman MH
+    - Kane CM
+    ref_publication_year: 2013
     ref_journal: Nucleic Acids Research
