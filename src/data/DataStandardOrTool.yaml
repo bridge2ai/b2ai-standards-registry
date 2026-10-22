@@ -30746,6 +30746,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:56
@@ -30754,8 +30756,114 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Food Ontology
   formal_specification: https://github.com/FoodOntology/foodon/
+  has_application:
+  - id: B2AI_APP:525
+    category: B2AI:Application
+    name: FoodNER BERT models fine-tuned on FoodOn semantic tags for food named-entity
+      recognition
+    description: This study develops FoodNER, a collection of food named-entity-recognition
+      models produced by fine-tuning BERT-family language models (BERT, BioBERT, and
+      related transformers) to tag food entities in text. The models are trained and
+      evaluated against food semantic-tagging schemes derived from established food
+      resources, including FoodOn and the Hansard corpus taxonomy, so that recognized
+      food mentions are classified into FoodOn-aligned semantic categories. FoodOn
+      here supplies the controlled, ontology-grounded label space that the deep-learning
+      models learn to predict, with reported macro F1 scores of roughly 73 to 79 percent
+      for semantic-tag prediction.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/28229
+      ref_title: 'A Fine-Tuned Bidirectional Encoder Representations From Transformers
+        Model for Food Named-Entity Recognition: Algorithm Development and Validation'
+      ref_authors:
+      - Stojanov R
+      - Popovski G
+      - Cenikj G
+      - Korošić Seljak B
+      - Eftimov T
+      ref_publication_year: 2021
+      ref_journal: Journal of Medical Internet Research
+  - id: B2AI_APP:526
+    category: B2AI:Application
+    name: Learning food ontology structure from word embeddings using FoodOn as reference
+    description: This work presents a semi-supervised method that trains word embeddings
+      on a large recipe corpus and uses them to predict taxonomic (is-a) relationships
+      between food concepts, in order to help populate and extend a food ontology
+      with less manual curation. FoodOn is used as the reference ontology against
+      which the machine-learned hierarchy is built and benchmarked, providing both
+      the seed class structure and the ground-truth is-a relations used to train and
+      evaluate the embedding-based classifier. The study reports that the learned
+      approach reproduces and augments FoodOn's structure, demonstrating FoodOn's
+      role as the gold-standard food ontology for machine-learning-driven ontology
+      construction.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/frai.2020.584784
+      ref_title: Using Word Embeddings to Learn a Better Food Ontology
+      ref_authors:
+      - Youn J
+      - Naravane T
+      - Tagkopoulos I
+      ref_publication_year: 2020
+      ref_journal: Frontiers in Artificial Intelligence
+  - id: B2AI_APP:527
+    category: B2AI:Application
+    name: FoodKG semantics-driven knowledge graph for food recommendation built on
+      FoodOn
+    description: FoodKG is a large knowledge graph of over one million recipes, their
+      ingredients, and associated nutritional and chemical information, created to
+      support food recommendation and question answering, including diet-aware and
+      health-constrained recommendation. Its ingredient and food-product layer is
+      organized with an ontology that extends and reuses FoodOn, so FoodOn provides
+      the formal food class hierarchy and identifiers that let the graph link recipe
+      ingredients to standardized food concepts and, through them, to nutritional
+      and chemical data. FoodOn thus serves as the semantic backbone enabling the
+      graph's downstream AI recommendation and reasoning tasks.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1007/978-3-030-30796-7_10
+      ref_title: 'FoodKG: A Semantics-Driven Knowledge Graph for Food Recommendation'
+      ref_authors:
+      - Haussmann S
+      - Seneviratne O
+      - Chen Y
+      - Ne'eman Y
+      - Codella J
+      - Chen C-H
+      - McGuinness DL
+      - Zaki MJ
+      ref_publication_year: 2019
+      ref_journal: The Semantic Web – ISWC 2019 (Lecture Notes in Computer Science)
+  has_relevant_organization:
+  - B2AI_ORG:189
+  - B2AI_ORG:190
+  - B2AI_ORG:75
   is_open: true
   name: FOODON
+  purpose_detail: FoodOn is a broadly scoped OBO Foundry ontology that represents
+    entities which bear a "food role". It encompasses materials in natural ecosystems
+    and agriculture that are consumed by humans and domesticated animals, including
+    generic (unbranded) raw and processed food materials found in processing plants,
+    markets, stores, and food distribution points. It was created to standardize and
+    harmonize food descriptions across the many local languages, vocabularies, and
+    data dictionaries used in food production, trade, nutrition, and public health,
+    so as to improve global food traceability, quality control, and data integration.
+    The ontology provides a hierarchical, logically defined vocabulary of tens of
+    thousands of classes covering food products and ingredients, their source organisms,
+    the processes and treatments applied to them, packaging, and food-contact surfaces,
+    and it imports nutritional, chemical, and anatomical terms from other OBO Foundry
+    ontologies (such as ChEBI and Uberon) to support interoperability in diet and
+    nutrition research. Each term carries a persistent URI together with human-readable
+    labels, synonyms, and OWL logical axioms. FoodOn is developed openly and released
+    under a Creative Commons license, primarily at Simon Fraser University (the Hsiao
+    Lab and the Centre for Infectious Disease Genomics and One Health) with an international
+    community of collaborators. It is widely adopted, for example providing the food
+    category identifiers used by the USDA's FoodData Central, and is reused in food
+    knowledge graphs, food-composition databases, and dietary and recipe text mining.
+  related_to:
+  - B2AI_STANDARD:455
+  requires_registration: false
+  url: https://foodon.org/
   publication:
     ref_url: https://doi.org/10.1038/s41538-018-0032-6
     ref_title: 'FoodOn: a harmonized food ontology to increase global food traceability,
@@ -30772,12 +30880,6 @@ data_standardortools_collection:
     - Hsiao WWL
     ref_publication_year: 2018
     ref_journal: npj Sci Food
-  purpose_detail: A broadly scoped ontology representing entities which bear a "food
-    role". It encompasses materials in natural ecosystems and agriculture tha...
-  related_to:
-  - B2AI_STANDARD:455
-  requires_registration: false
-  url: https://foodon.org/
 - id: B2AI_STANDARD:451
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
