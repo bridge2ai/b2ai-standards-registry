@@ -7982,27 +7982,40 @@
       "category": "B2AI_STANDARD:BiomedicalStandard",
       "name": "LIVD",
       "description": "IICC Digital Format for Publication of LOINC to Vendor IVD Test Results",
+      "related_to": [
+        "B2AI_STANDARD:848"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "collection": [
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4",
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:79"
       ],
       "has_relevant_organization": [
-        "B2AI_ORG:53"
+        "B2AI_ORG:53",
+        "B2AI_ORG:208",
+        "B2AI_ORG:12",
+        "B2AI_ORG:31",
+        "B2AI_ORG:84"
       ],
       "has_training_resource": [
-        "B2AI_STANDARD:848"
+        "B2AI_STANDARD:848",
+        "B2AI_STANDARD:1348"
       ],
-      "purpose_detail": "Industry-defined format to facilitate the publication and exchange of LOINC codes for vendor IVD test results.",
+      "purpose_detail": "LIVD (LOINC In Vitro Diagnostic) is an industry-defined digital format for publishing the LOINC codes that correspond to the test results produced by vendor in vitro diagnostic (IVD) devices. It was created by the IVD Industry Connectivity Consortium (IICC), a non-profit association of IVD manufacturers, in collaboration with the Regenstrief Institute (the LOINC developer), IHE Pathology and Laboratory Medicine (IHE PaLM), the FDA, and the CDC, with the first specification released in 2017. The format lets IVD manufacturers publish, for each device and assay, the vendor test transmission (or analyte) code together with the recommended LOINC code for the result, along with associated units of measure (recommended in UCUM), specimen information, and SNOMED CT codes for qualitative result values. Laboratory information systems and other software can consume a LIVD publication directly to automate the mapping of instrument result codes to LOINC, reducing the manual effort and the risk of mismapped results and units that undermine semantic interoperability. LIVD gained prominence during the COVID-19 pandemic, when the CDC, FDA, IICC, Regenstrief, and the Association of Public Health Laboratories used it to publish a maintained \"SARS-CoV-2 LIVD Test Codes\" mapping covering diagnostic tests under FDA Emergency Use Authorization. That mapping became the reference for assigning LOINC (and SNOMED CT result) codes in COVID-19 electronic laboratory reporting to public health agencies under the CARES Act, and the CDC has since published analogous LIVD mapping files for Mpox, HIV, Lyme disease, and Hantavirus. The LIVD data model has also been expressed as an HL7 FHIR Implementation Guide.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://ivdconnectivity.org/livd/",
       "publication": {
         "ref_url": ""
-      }
+      },
+      "formal_specification": "https://hl7.org/fhir/uv/livd/"
     },
     {
       "id": "B2AI_STANDARD:172",
@@ -20465,22 +20478,85 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "BCO",
       "description": "Biological Collections Ontology",
+      "related_to": [
+        "B2AI_STANDARD:442",
+        "B2AI_STANDARD:535",
+        "B2AI_STANDARD:1347"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:534",
+          "category": "B2AI:Application",
+          "name": "BCO-aligned knowledge graph for the Barcant Butterfly Collection",
+          "description": "This study digitizes and standardizes the Barcant Butterfly Collection, one of the largest butterfly archives in the Caribbean, by transforming its records into the Darwin Core framework and building a domain-specific ontology for the collection. That collection ontology is aligned, through ontology matching, to existing biodiversity ontologies including the Biological Collections Ontology (BCO) and the Taxonomic Rank Ontology (TaxRank), and the aligned model is used to generate a knowledge graph that exposes previously hidden taxonomic, ecological, and geographic connections for querying and analysis. BCO supplies the upper-level semantic scaffolding (specimens, samples, and collecting processes) onto which the collection's data are mapped, making it the integrating ontology for the resulting biodiversity knowledge graph; the authors frame machine learning and NLP as the next step for scaling the alignment and graph construction.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://www.utwente.nl/en/eemcs/vmbo2025/papers/vmbo-2025-paper-8.pdf",
+              "ref_title": "Unlocking the Butterfly Effect: Finding Hidden Connections in Barcant Butterfly Collection with Ontology Matching and Knowledge Graphs",
+              "ref_authors": [
+                "VijayKumar R",
+                "Wang S",
+                "Weber A",
+                "Bukhsh FA"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "VMBO 2025 (International Workshop on Semantics for Biodiversity)"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_pilot"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:67"
       ],
-      "purpose_detail": "Biodiversity data, including data on museum collections and environmental/metagenomic samples.",
+      "has_relevant_organization": [
+        "B2AI_ORG:93"
+      ],
+      "purpose_detail": "The Biological Collections Ontology (BCO) is an OBO Foundry ontology that provides a formal, logic-based representation of the entities and processes involved in biological collecting, sampling, and observation. It was initiated at the 2012 Biocode Commons hackathon and is maintained by a community of biodiversity-informatics and ontology developers led by Ramona Walls. BCO defines and relates core notions such as individual organisms, voucher specimens, lots, material samples, environmental and metagenomic samples, and the specimen-collecting and observing processes that produce them, drawing a principled distinction between a physical specimen, the process that collected it, and the information (data records) about either. It reuses and builds on upper- and domain-level OBO ontologies, including the Basic Formal Ontology (BFO), the Environment Ontology (ENVO), and the Population and Community Ontology (PCO), and it supplies formal semantics for widely used biodiversity exchange standards, most notably Darwin Core and Audubon Core. Distributed under a CC0 license with stable PURLs (purl.obolibrary.org/obo/bco.owl) and browsable through OLS, Ontobee, BioPortal, and ecoPortal, BCO is used to annotate and integrate heterogeneous biodiversity data - museum and herbarium collections, ecological surveys, and environmental or metagenomic samples - so that records from different sources can be queried and reasoned over together, including as the semantic backbone of biodiversity knowledge graphs.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://github.com/BiodiversityOntologies/bco",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1371/journal.pone.0089606",
+        "ref_title": "Semantics in Support of Biodiversity Knowledge Discovery: An Introduction to the Biological Collections Ontology and Related Ontologies",
+        "ref_authors": [
+          "Walls RL",
+          "Deck J",
+          "Guralnick R",
+          "Baskauf S",
+          "Beaman R",
+          "Blum S",
+          "Bowers S",
+          "Buttigieg PL",
+          "Davies N",
+          "Endresen D",
+          "Gandolfo MA",
+          "Hanner R",
+          "Janning A",
+          "Krishtalka L",
+          "Matsunaga A",
+          "Midford P",
+          "Morrison N",
+          "Tuama ÉÓ",
+          "Schildhauer M",
+          "Smith B",
+          "Stucky BJ",
+          "Thomer A",
+          "Wieczorek J",
+          "Whitacre J",
+          "Wooley J"
+        ],
+        "ref_publication_year": 2014,
+        "ref_journal": "PLOS ONE"
       },
       "formal_specification": "https://github.com/BiodiversityOntologies/bco"
     },
@@ -20489,25 +20565,37 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "FBBI",
       "description": "Biological Imaging Methods Ontology",
+      "related_to": [
+        "B2AI_STANDARD:1346"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:15",
         "B2AI_TOPIC:19",
         "B2AI_TOPIC:53"
       ],
-      "purpose_detail": "Sample preparation, visualization and imaging methods used in biomedical research.",
+      "has_relevant_organization": [
+        "B2AI_ORG:29",
+        "B2AI_ORG:154"
+      ],
+      "purpose_detail": "The Biological Imaging Methods Ontology (FBbi) is an OBO Foundry ontology that provides controlled vocabulary for describing the sample preparation, visualization, and imaging methods used in biomedical research. It covers techniques such as light, fluorescence, confocal, and electron microscopy together with associated staining, labeling, and specimen-preparation methods, so that the imaging modality and preparation of an image can be recorded as structured metadata rather than free text. It was created in the early 2000s by FlyBase curators (the prefix FBbi stands for \"FlyBase biological imaging\") to annotate how images in the FlyBase collection were acquired. After FlyBase paused its development around 2005, the ontology was adopted by other image resources, and in 2026 its maintenance was taken over by German BioImaging (GerBI-GMB) in collaboration with EMBL-EBI's BioImage Archive under the FoundingGIDE project, which moved active development to a new GitHub repository and resumed versioned releases under a CC BY 4.0 license. FBbi is used to annotate images in resources including FlyBase, Virtual Fly Brain, and the Cell Image Library, and is recommended by bioimage metadata guidelines such as REMBI for populating imaging-method and sample-preparation fields. It depends on the Information Artifact Ontology (IAO), the OBO Metadata Ontology (OMO), and the Relation Ontology (RO), and is browsable through OBO tools such as Ontobee and OLS.",
       "is_open": true,
       "requires_registration": false,
-      "url": "http://cellimagelibrary.org/",
+      "url": "https://obofoundry.org/ontology/fbbi",
       "publication": {
         "ref_url": ""
       },
-      "formal_specification": "https://github.com/CRBS/Biological_Imaging_Methods_Ontology/"
+      "formal_specification": "https://github.com/foundingGIDE/fbbi",
+      "responsible_organization": [
+        "B2AI_ORG:207"
+      ]
     },
     {
       "id": "B2AI_STANDARD:411",
@@ -21701,7 +21789,8 @@
       "name": "ENVO",
       "description": "Environment Ontology",
       "related_to": [
-        "B2AI_STANDARD:455"
+        "B2AI_STANDARD:455",
+        "B2AI_STANDARD:409"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -22150,25 +22239,48 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "EXO",
       "description": "Exposure ontology",
+      "related_to": [
+        "B2AI_STANDARD:443",
+        "B2AI_STANDARD:1345"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:11",
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:76"
       ],
-      "purpose_detail": "Vocabularies for describing exposure data to inform understanding of environmental health.",
+      "has_relevant_organization": [
+        "B2AI_ORG:205",
+        "B2AI_ORG:206"
+      ],
+      "purpose_detail": "The Exposure Ontology (ExO, registered here as EXO) is an OBO Foundry ontology that provides a formal vocabulary for describing exposure data to support environmental health research. It was introduced in 2012 by Carolyn Mattingly and colleagues as part of the Comparative Toxicogenomics Database (CTD) effort, with the goal of bridging exposure science and allied fields such as toxicology, epidemiology, disease surveillance, and epigenetics by supplying the missing standardized link between environmental stressors and downstream molecular and health effects. ExO is organized around four root concepts, exposure stressor, exposure receptor, exposure event, and exposure outcome, and uses them to compose descriptions of an exposure event along attributes such as medium, route, duration, and concentration. Its first release focused on human exposure to chemicals, with an intended expansion to human and ecological receptors exposed to the full range of environmental stressors. ExO serves as the foundational exposure model for CTD and is reused as a building block by larger exposure ontologies, notably the Environmental Conditions, Treatments, and Exposures Ontology (ECTO), which imports ExO classes to construct precomposed exposure terms. The ontology is maintained on GitHub under the CTDbase organization, released under a CC BY 4.0 license, and distributed through OBO Foundry, BioPortal, and Ontobee; recent releases remain modest in size (on the order of 168 classes), reflecting its role as a compact upper-level framework rather than an exhaustive term list.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://github.com/CTDbase/exposure-ontology",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1021/es2033857",
+        "ref_title": "Providing the Missing Link: the Exposure Science Ontology ExO",
+        "ref_authors": [
+          "Mattingly CJ",
+          "McKone TE",
+          "Callahan MA",
+          "Blake JA",
+          "Hubal EAC"
+        ],
+        "ref_publication_year": 2012,
+        "ref_journal": "Environmental Science & Technology"
       },
-      "formal_specification": "https://github.com/CTDbase/exposure-ontology"
+      "formal_specification": "https://github.com/CTDbase/exposure-ontology",
+      "responsible_organization": [
+        "B2AI_ORG:204"
+      ]
     },
     {
       "id": "B2AI_STANDARD:448",
@@ -22241,14 +22353,90 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:525",
+          "category": "B2AI:Application",
+          "name": "FoodNER BERT models fine-tuned on FoodOn semantic tags for food named-entity recognition",
+          "description": "This study develops FoodNER, a collection of food named-entity-recognition models produced by fine-tuning BERT-family language models (BERT, BioBERT, and related transformers) to tag food entities in text. The models are trained and evaluated against food semantic-tagging schemes derived from established food resources, including FoodOn and the Hansard corpus taxonomy, so that recognized food mentions are classified into FoodOn-aligned semantic categories. FoodOn here supplies the controlled, ontology-grounded label space that the deep-learning models learn to predict, with reported macro F1 scores of roughly 73 to 79 percent for semantic-tag prediction.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.2196/28229",
+              "ref_title": "A Fine-Tuned Bidirectional Encoder Representations From Transformers Model for Food Named-Entity Recognition: Algorithm Development and Validation",
+              "ref_authors": [
+                "Stojanov R",
+                "Popovski G",
+                "Cenikj G",
+                "Korošić Seljak B",
+                "Eftimov T"
+              ],
+              "ref_publication_year": 2021,
+              "ref_journal": "Journal of Medical Internet Research"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:526",
+          "category": "B2AI:Application",
+          "name": "Learning food ontology structure from word embeddings using FoodOn as reference",
+          "description": "This work presents a semi-supervised method that trains word embeddings on a large recipe corpus and uses them to predict taxonomic (is-a) relationships between food concepts, in order to help populate and extend a food ontology with less manual curation. FoodOn is used as the reference ontology against which the machine-learned hierarchy is built and benchmarked, providing both the seed class structure and the ground-truth is-a relations used to train and evaluate the embedding-based classifier. The study reports that the learned approach reproduces and augments FoodOn's structure, demonstrating FoodOn's role as the gold-standard food ontology for machine-learning-driven ontology construction.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.3389/frai.2020.584784",
+              "ref_title": "Using Word Embeddings to Learn a Better Food Ontology",
+              "ref_authors": [
+                "Youn J",
+                "Naravane T",
+                "Tagkopoulos I"
+              ],
+              "ref_publication_year": 2020,
+              "ref_journal": "Frontiers in Artificial Intelligence"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:527",
+          "category": "B2AI:Application",
+          "name": "FoodKG semantics-driven knowledge graph for food recommendation built on FoodOn",
+          "description": "FoodKG is a large knowledge graph of over one million recipes, their ingredients, and associated nutritional and chemical information, created to support food recommendation and question answering, including diet-aware and health-constrained recommendation. Its ingredient and food-product layer is organized with an ontology that extends and reuses FoodOn, so FoodOn provides the formal food class hierarchy and identifiers that let the graph link recipe ingredients to standardized food concepts and, through them, to nutritional and chemical data. FoodOn thus serves as the semantic backbone enabling the graph's downstream AI recommendation and reasoning tasks.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1007/978-3-030-30796-7_10",
+              "ref_title": "FoodKG: A Semantics-Driven Knowledge Graph for Food Recommendation",
+              "ref_authors": [
+                "Haussmann S",
+                "Seneviratne O",
+                "Chen Y",
+                "Ne'eman Y",
+                "Codella J",
+                "Chen C-H",
+                "McGuinness DL",
+                "Zaki MJ"
+              ],
+              "ref_publication_year": 2019,
+              "ref_journal": "The Semantic Web - ISWC 2019 (Lecture Notes in Computer Science)"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:56"
       ],
-      "purpose_detail": "A broadly scoped ontology representing entities which bear a \"food role\". It encompasses materials in natural ecosystems and agriculture tha...",
+      "has_relevant_organization": [
+        "B2AI_ORG:189",
+        "B2AI_ORG:190",
+        "B2AI_ORG:75"
+      ],
+      "purpose_detail": "FoodOn is a broadly scoped OBO Foundry ontology that represents entities which bear a \"food role\". It encompasses materials in natural ecosystems and agriculture that are consumed by humans and domesticated animals, including generic (unbranded) raw and processed food materials found in processing plants, markets, stores, and food distribution points. It was created to standardize and harmonize food descriptions across the many local languages, vocabularies, and data dictionaries used in food production, trade, nutrition, and public health, so as to improve global food traceability, quality control, and data integration. The ontology provides a hierarchical, logically defined vocabulary of tens of thousands of classes covering food products and ingredients, their source organisms, the processes and treatments applied to them, packaging, and food-contact surfaces, and it imports nutritional, chemical, and anatomical terms from other OBO Foundry ontologies (such as ChEBI and Uberon) to support interoperability in diet and nutrition research. Each term carries a persistent URI together with human-readable labels, synonyms, and OWL logical axioms. FoodOn is developed openly and released under a Creative Commons license, primarily at Simon Fraser University (the Hsiao Lab and the Centre for Infectious Disease Genomics and One Health) with an international community of collaborators. It is widely adopted, for example providing the food category identifiers used by the USDA's FoodData Central, and is reused in food knowledge graphs, food-composition databases, and dietary and recipe text mining.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://foodon.org/",
@@ -23826,27 +24014,43 @@
       "name": "MFOMD",
       "description": "Mental Disease Ontology",
       "related_to": [
-        "B2AI_STANDARD:512"
+        "B2AI_STANDARD:512",
+        "B2AI_STANDARD:408",
+        "B2AI_STANDARD:487",
+        "B2AI_STANDARD:441"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_draft"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:7",
-        "B2AI_TOPIC:51"
+        "B2AI_TOPIC:51",
+        "B2AI_TOPIC:53"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:209",
+        "B2AI_ORG:210"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:1001"
       ],
-      "purpose_detail": "Mental diseases such as schizophrenia, annotated with DSM-IV and ICD codes where applicable.",
+      "purpose_detail": "MFOMD, the Mental Functioning Ontology of Mental Disease (also referred to as the Mental Disease Ontology, MDO), is an OBO Foundry ontology that provides a realism-based representation of mental diseases and their clinical manifestations. It is one component of the broader Mental Functioning Ontology (MF) project, a family of ontologies describing human mental functioning and disease that also includes the Emotion Ontology (MFOEM). MFOMD uses the Basic Formal Ontology (BFO) as its upper-level framework and reuses the Ontology for General Medical Science (OGMS) for generic disease, disorder, diagnosis, and clinical-finding classes, specializing them for psychiatric conditions. It represents mental diseases such as schizophrenia, mood disorders, and anxiety disorders together with their signs, symptoms, and courses, and cross-references established clinical classifications by annotating classes with DSM-IV and ICD codes where applicable. The ontology grew out of work by Werner Ceusters and Barry Smith at the University at Buffalo, who set out foundations for unambiguous, realist reference to the entities involved in mental disease, and it has been developed and maintained as an open community resource by Janna Hastings and collaborators, with ontology files, issue discussions, and documentation hosted in the mental-functioning-ontology GitHub repository. Its intended use is to support consistent annotation, data integration, and automated reasoning over psychiatric and mental-health data across disciplines.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://github.com/jannahastings/mental-functioning-ontology",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1186/2041-1480-1-10",
+        "ref_title": "Foundations for a realist ontology of mental disease",
+        "ref_authors": [
+          "Ceusters W",
+          "Smith B"
+        ],
+        "ref_publication_year": 2010,
+        "ref_journal": "Journal of Biomedical Semantics"
       },
       "formal_specification": "https://github.com/jannahastings/mental-functioning-ontology"
     },
@@ -23855,6 +24059,9 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "MF",
       "description": "Mental Functioning Ontology",
+      "related_to": [
+        "B2AI_STANDARD:486"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -24105,6 +24312,9 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "MOP",
       "description": "Molecular Process Ontology",
+      "related_to": [
+        "B2AI_STANDARD:498"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -24395,24 +24605,79 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "RXNO",
       "description": "Name Reaction Ontology",
+      "related_to": [
+        "B2AI_STANDARD:494"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:532",
+          "category": "B2AI:Application",
+          "name": "Reaction fingerprints for large-scale named-reaction classification using the RSC reaction name ontology",
+          "description": "This work introduces a reaction fingerprint built from atom-pair and related structural features of reactant and product molecules and applies it to large-scale classification and similarity search over chemical reactions. The training and evaluation corpus is a set of patent reactions whose named-reaction class labels were assigned with the NameRxn tool, which names and classifies reactions according to the Royal Society of Chemistry reaction name ontology (RXNO). The resulting labeled subset, widely redistributed as the \"Schneider 50k\" three-level reaction-class dataset, became a standard benchmark for machine learning reaction classifiers. RXNO therefore supplies the class hierarchy that defines the prediction targets on which the fingerprint-based classifiers are trained and benchmarked.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1021/ci5006614",
+              "ref_title": "Development of a Novel Fingerprint for Chemical Reactions and Its Application to Large-Scale Reaction Classification and Similarity",
+              "ref_authors": [
+                "Schneider N",
+                "Lowe DM",
+                "Sayle RA",
+                "Landrum GA"
+              ],
+              "ref_publication_year": 2015,
+              "ref_journal": "Journal of Chemical Information and Modeling"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:533",
+          "category": "B2AI:Application",
+          "name": "Masked-language-model reaction template fingerprints classified against the RXNO ontology",
+          "description": "This study learns data-driven fingerprints for reaction templates by training a transformer with a masked language modelling objective on SMIRKS strings, then fine-tunes the learned embeddings for a supervised reaction-template classification task. The classification targets are the categories of the RXNO (Name Reaction Ontology), and the authors report up to 98.4% accuracy for classifying templates according to the RXNO ontology. RXNO here provides the labeled category scheme used as the supervised target and evaluation standard for the learned template representations, which are intended to support computer-aided synthesis planning and retrosynthesis.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.26434/chemrxiv-2022-4kzp1",
+              "ref_title": "Data-driven Reaction Template Fingerprints",
+              "ref_authors": [
+                "Chakraborty A",
+                "Thakkar A",
+                "Vaucher AC",
+                "Laino T"
+              ],
+              "ref_publication_year": 2022,
+              "ref_journal": "ChemRxiv"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:3",
         "B2AI_TOPIC:53"
       ],
-      "purpose_detail": "Connects organic name reactions to their roles in an organic synthesis and to processes in MOP",
+      "has_relevant_organization": [
+        "B2AI_ORG:203"
+      ],
+      "purpose_detail": "RXNO, the Name Reaction Ontology, is an open OBO Foundry ontology of organic name reactions originally developed at the Royal Society of Chemistry. It contains more than 500 classes representing named organic reactions such as the Diels-Alder cyclization and the Cannizzaro reaction, organized in a subsumption hierarchy and released under a CC-BY-4.0 license. The ontology connects each name reaction to its role in organic synthesis and to the underlying molecular processes (for example cyclization, methylation, and demethylation) that are represented in its sibling ontology MOP, the Molecular Process Ontology, maintained in the same rsc-ontologies GitHub organization. RXNO unifies earlier attempts to systematize organic reactions, and its reaction-class hierarchy underpins the NameRxn naming and classification tool and the widely used \"Schneider 50k\" labeled reaction dataset. Because it provides a stable, machine-readable vocabulary of reaction types, RXNO is used as the label scheme for cheminformatics reaction classification, reaction-type prediction, and retrosynthesis/computer-aided synthesis planning, and as a reference for annotating reactions in databases and the chemical literature. Term requests and issues are handled through the public GitHub issue tracker.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://github.com/rsc-ontologies/rxno",
       "publication": {
         "ref_url": ""
       },
-      "formal_specification": "https://github.com/rsc-ontologies/rxno"
+      "formal_specification": "https://github.com/rsc-ontologies/rxno",
+      "responsible_organization": [
+        "B2AI_ORG:203"
+      ]
     },
     {
       "id": "B2AI_STANDARD:499",
@@ -25538,8 +25803,33 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:528",
+          "category": "B2AI:Application",
+          "name": "LLM text embeddings and OAE ontology semantic analysis of vaccine adverse event profiles",
+          "description": "This study analyzes differential adverse event profiles across US-licensed vaccines by comparing two computational approaches. The authors use the Llama-3 large language model to extract adverse event information from FDA package inserts for 111 licensed vaccines (including 15 influenza vaccines), then map the extracted adverse event text to Ontology of Adverse Events (OAE) terms using the BioPortal Annotator and the in-house OntoRetriever tool, with expert manual review of the mappings. Semantic similarity between vaccines is computed from their OAE-mapped term sets using Lin's method, and this ontology-based clustering is contrasted with clustering derived from LLM text embeddings. OAE here provides the standardized term space that structures the extracted adverse events and enables the ontology-driven semantic-similarity analysis against which the LLM embedding approach is benchmarked.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1186/s13326-025-00331-8",
+              "ref_title": "Unveiling differential adverse event profiles in vaccines via LLM text embeddings and ontology semantic analysis",
+              "ref_authors": [
+                "Wang Z",
+                "Li X",
+                "Zheng J",
+                "He Y"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "Journal of Biomedical Semantics"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:4",
@@ -25552,9 +25842,27 @@
       "requires_registration": false,
       "url": "https://github.com/OAE-ontology/OAE/",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1186/2041-1480-5-29",
+        "ref_title": "OAE: The Ontology of Adverse Events",
+        "ref_authors": [
+          "He Y",
+          "Sarntivijai S",
+          "Lin Y",
+          "Xiang Z",
+          "Guo A",
+          "Zhang S",
+          "Jagannathan D",
+          "Toldo L",
+          "Tao C",
+          "Smith B"
+        ],
+        "ref_publication_year": 2014,
+        "ref_journal": "Journal of Biomedical Semantics"
       },
-      "formal_specification": "https://github.com/OAE-ontology/OAE/"
+      "formal_specification": "https://github.com/OAE-ontology/OAE/",
+      "responsible_organization": [
+        "B2AI_ORG:178"
+      ]
     },
     {
       "id": "B2AI_STANDARD:517",
@@ -26282,23 +26590,52 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "PCO",
       "description": "Population and Community Ontology",
+      "related_to": [
+        "B2AI_STANDARD:409",
+        "B2AI_STANDARD:442",
+        "B2AI_STANDARD:511"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:11",
         "B2AI_TOPIC:68"
       ],
-      "purpose_detail": "Groups of interacting organisms such as populations and communities.",
+      "has_relevant_organization": [
+        "B2AI_ORG:75"
+      ],
+      "purpose_detail": "The Population and Community Ontology (PCO) is an OBO Foundry ontology that provides logically defined terms for material entities, qualities, and processes related to collections of interacting organisms, such as populations and communities. It is taxon-neutral and can be applied to any species, including humans, and it is rooted in the Basic Formal Ontology (BFO) and built to be interoperable with other OBO ontologies, importing terms from CARO, ENVO, GO, IAO, NCBITaxon, PATO, and the Relations Ontology (RO). The ontology contains on the order of 220 classes and 110 object properties and is distributed as pco.owl under a CC0 public-domain dedication, browsable through OntoBee, OLS, BioPortal, AberOWL, and Bioregistry. It was created by Ramona Walls, Pier Luigi Buttigieg, David Osumi-Sutherland, and Jie Zheng, and is maintained on GitHub under the PopulationAndCommunityOntology organization with contributions handled through its issue tracker and mailing list. PCO's main purpose is to let data producers state precisely which collection of organisms (a population, a community, an ecological assemblage) was the subject of an investigation, for use cases including ecological and biodiversity studies, environmental and metagenomic 'omics research, and population-level phenotyping. Combined with the Biological Collections Ontology (BCO), the Ontology for Biomedical Investigations (OBI), and the Environment Ontology (ENVO), it can describe the methods used to derive taxon-based operational taxonomic units and to annotate the organismal groups underlying sampled data.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://github.com/PopulationAndCommunityOntology/pco",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1186/1944-3277-9-17",
+        "ref_title": "Meeting report: advancing practical applications of biodiversity ontologies",
+        "ref_authors": [
+          "Walls RL",
+          "Guralnick R",
+          "Deck J",
+          "Buntzman A",
+          "Buttigieg PL",
+          "Davies N",
+          "Denslow MW",
+          "Gallery RE",
+          "Parnell JJ",
+          "Osumi-Sutherland D",
+          "Robbins RJ",
+          "Rocca-Serra P",
+          "Wieczorek J",
+          "Zheng J"
+        ],
+        "ref_publication_year": 2014,
+        "ref_journal": "Standards in Genomic Sciences"
       },
       "formal_specification": "https://github.com/PopulationAndCommunityOntology/pco"
     },
@@ -35997,22 +36334,107 @@
       "id": "B2AI_STANDARD:840",
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "W&B",
-      "description": "Weights and Balances platform",
+      "description": "Weights & Biases machine learning experiment tracking and MLOps platform",
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:529",
+          "category": "B2AI:Application",
+          "name": "Weights & Biases MLOps framework for transcriptomic machine learning in small cohorts",
+          "description": "This proof-of-concept study builds a paired-sample, pathway-anchored MLOps framework for robust transcriptomic classification in small cohorts, applied to classifying breast cancer tumors as TP53- or PIK3CA-mutated and classifying human rhinovirus-infected individuals as symptomatic or asymptomatic. The random forest classifier is integrated directly into the Weights & Biases (W&B v0.17.0) platform, where a sweep.yaml configuration drives hyperparameter sweeps and the W&B agent (wandb.agent) orchestrates repeated five-fold cross-validation, with experiments tracked and compared in W&B. W&B is therefore the central MLOps platform on which the model's hyperparameter optimization, experiment tracking, and ablation analysis are run.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.2196/80735",
+              "ref_title": "Paired-Sample and Pathway-Anchored MLOps Framework for Robust Transcriptomic Machine Learning in Small Cohorts: Model Classification Study",
+              "ref_authors": [
+                "Shabanian M",
+                "Pouladi N",
+                "Wilson L",
+                "Prosperi M",
+                "Lussier YA"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "JMIR Bioinformatics and Biotechnology"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:530",
+          "category": "B2AI:Application",
+          "name": "Experiment tracking for deep learning on H&E histopathology extracellular matrix",
+          "description": "This study develops a deep learning framework to quantify pixel-level extracellular matrix variation in standard H&E-stained lung whole-slide images, training an ImageNet-pretrained Inception-ResNet-V2 to distinguish airway submucosa from adventitia and applying it as a proof-of-principle to COPD and control tissue. The authors report using \"Weights & Biases (wandb 0.18.1) for experiment tracking\" during model development. Here W&B provides the experiment tracking and run comparison infrastructure for a biomedical computational pathology deep learning model.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41598-026-56138-9",
+              "ref_title": "A deep learning framework for histopathological analysis of pixel-level extracellular matrix variation in standard H&E-stained images",
+              "ref_authors": [
+                "van Breugel M",
+                "de Jong E",
+                "Buikema HJ",
+                "Petoukhov I",
+                "Nawijn MC",
+                "Burgess JK",
+                "Timens W"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "Scientific Reports"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:531",
+          "category": "B2AI:Application",
+          "name": "Proteomics aging-biomarker model development tracked with Weights & Biases",
+          "description": "This study develops ProtFI, a frailty-trained proteomics-based biomarker of aging built from a minimal set of 27 plasma proteins (and a mortality-trained counterpart, ProtMort), comparing ElasticNet and neural network models and training targets on UK Biobank data and validating the biomarkers in the Rotterdam Study and Leiden Longevity Study. Weights & Biases (wandb v0.16.6) is listed in the Key Resources Table as the software used for the machine learning model development workflow, supporting experiment tracking and model comparison across the many modeling choices evaluated.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1016/j.crmeth.2026.101405",
+              "ref_title": "ProtFI, an efficient frailty-trained proteomics-based biomarker of aging, robustly predicts age-related decline",
+              "ref_authors": [
+                "Garst S",
+                "Kuiper L",
+                "van den Akker E",
+                "van den Berg N",
+                "Ghanbari M",
+                "Mooijaart S",
+                "Beekman M",
+                "Reinders M",
+                "Slagboom PE",
+                "van Meurs J"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "Cell Reports Methods"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:54",
         "B2AI_TOPIC:58",
         "B2AI_TOPIC:60"
       ],
-      "purpose_detail": "Platform for tracking, comparing, and visualizing machine learning experiments.",
+      "has_training_resource": [
+        "B2AI_STANDARD:1344"
+      ],
+      "purpose_detail": "Weights & Biases (W&B) is a machine learning operations (MLOps) platform developed by Weights & Biases, Inc. for tracking, comparing, visualizing, and reproducing machine learning experiments. During model training, a lightweight Python client library (the open-source wandb package, released under the Apache 2.0 license) logs hyperparameters, metrics, system resource usage, model checkpoints, and arbitrary media to a hosted web service, where interactive dashboards let teams compare runs, inspect learning curves, and share results. Core features include Experiments (run tracking), Sweeps (automated hyperparameter search with grid, random, and Bayesian strategies orchestrated by W&B agents), Artifacts (versioning of datasets and models), a Model Registry, Tables for dataset and prediction inspection, and Reports for collaborative write-ups. The client library is open source and the platform offers a free personal tier, but the hosted service requires account registration, and enterprise and self-managed deployments are commercial. W&B integrates with common frameworks such as PyTorch, TensorFlow/Keras, scikit-learn, Hugging Face, and PyTorch Lightning, and is widely used in both industry and academic research, including biomedical machine learning studies, to make model development reproducible and auditable.",
       "is_open": true,
       "requires_registration": true,
       "url": "https://wandb.ai/",
       "publication": {
         "ref_url": ""
-      }
+      },
+      "responsible_organization": [
+        "B2AI_ORG:202"
+      ]
     },
     {
       "id": "B2AI_STANDARD:841",
@@ -36201,6 +36623,9 @@
       "category": "B2AI_STANDARD:TrainingProgram",
       "name": "Learn LOINC",
       "description": "Learn LOINC",
+      "related_to": [
+        "B2AI_STANDARD:171"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -38339,6 +38764,9 @@
       "category": "B2AI_STANDARD:BiomedicalStandard",
       "name": "REMBI",
       "description": "Recommended Metadata for Biological Images (REMBI)",
+      "related_to": [
+        "B2AI_STANDARD:410"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -56163,6 +56591,186 @@
       "is_open": true,
       "requires_registration": false,
       "url": "https://mlflow.org/docs/latest/",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1344",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "Weights & Biases Documentation and Courses",
+      "description": "Official Weights & Biases documentation, SDK reference, courses, and tutorials",
+      "related_to": [
+        "B2AI_STANDARD:840"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:58",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:54"
+      ],
+      "purpose_detail": "The Weights & Biases Documentation site is the platform's official, maintained reference and learning resource. It provides quickstart guides and conceptual and how-to documentation for the core products (Experiments, Sweeps, Artifacts, Model Registry, Tables, and Reports), a Python SDK and API reference, and framework integration guides for tools such as PyTorch, Keras, scikit-learn, and Hugging Face. It is complemented by W&B's free courses and tutorials, which walk users through experiment tracking, running hyperparameter sweeps, versioning data and models, and building collaborative reports. Together these are the authoritative resources for learning to instrument and operate machine learning workflows with W&B.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://docs.wandb.ai/",
+      "publication": {
+        "ref_url": ""
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1345",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "CTD",
+      "description": "Comparative Toxicogenomics Database",
+      "related_to": [
+        "B2AI_STANDARD:447"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-22",
+      "collection": [
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:76",
+        "B2AI_TOPIC:11",
+        "B2AI_TOPIC:7"
+      ],
+      "purpose_detail": "The Comparative Toxicogenomics Database (CTD) is a publicly available, manually curated knowledgebase that integrates toxicological information to advance understanding of how environmental chemicals affect human health. Developed at North Carolina State University and supported by the National Institute of Environmental Health Sciences, CTD curates literature-derived relationships among chemicals, genes and proteins, phenotypes, diseases, and exposures, and computationally infers additional chemical-gene-disease and chemical-phenotype networks to support hypothesis generation. It also provides tools for pathway, Gene Ontology, and enrichment analyses, along with a dedicated exposure module (CTD Exposures) that captures real-world exposure data structured according to the Exposure Ontology (ExO), which originated within the CTD project. CTD is widely used in toxicogenomics, environmental health, pharmacology, and systems-biology research, and its curated associations are frequently reused as prior knowledge for computational and machine-learning analyses of chemical toxicity and disease mechanisms.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://ctdbase.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/nar/gkae883",
+        "ref_title": "Comparative Toxicogenomics Database's 20th anniversary: update 2025",
+        "ref_authors": [
+          "Davis AP",
+          "Wiegers TC",
+          "Sciaky D",
+          "Barkalow F",
+          "Strong M",
+          "Wyatt B",
+          "Wiegers J",
+          "McMorran R",
+          "Abrar S",
+          "Mattingly CJ"
+        ],
+        "ref_publication_year": 2024,
+        "ref_journal": "Nucleic Acids Research"
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1346",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "Cell Image Library",
+      "description": "The Cell Image Library (CIL/CCDB)",
+      "related_to": [
+        "B2AI_STANDARD:410"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-22",
+      "collection": [
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:15",
+        "B2AI_TOPIC:19"
+      ],
+      "purpose_detail": "The Cell Image Library (CIL), which incorporates the earlier Cell Centered Database (CCDB), is a public, curated repository of cell and tissue microscopy images, videos, and animations spanning many organisms, cell types, and imaging modalities from light and fluorescence microscopy to electron microscopy and tomography. It was developed at the National Center for Microscopy and Imaging Research (NCMIR) within the Center for Research in Biological Systems (CRBS) at the University of California, San Diego, as a community resource for depositing, finding, and reusing primary imaging data. Each entry is annotated with structured metadata, including imaging method and sample-preparation terms drawn from the Biological Imaging Methods Ontology (FBbi), making it a canonical example of FBbi use in practice. The library supports browsing and searching by biological and technical attributes and provides data for education, reference, and reuse.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "http://www.cellimagelibrary.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/nar/gks1257",
+        "ref_title": "The cell: an image library-CCDB: a curated repository of microscopy data",
+        "ref_authors": [
+          "Orloff DN",
+          "Iwasa JH",
+          "Martone ME",
+          "Ellisman MH",
+          "Kane CM"
+        ],
+        "ref_publication_year": 2013,
+        "ref_journal": "Nucleic Acids Research"
+      },
+      "responsible_organization": [
+        "B2AI_ORG:154"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1347",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "Darwin Core",
+      "description": "Darwin Core",
+      "related_to": [
+        "B2AI_STANDARD:409"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-22",
+      "collection": [
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:53",
+        "B2AI_TOPIC:67"
+      ],
+      "purpose_detail": "Darwin Core is a community-developed data standard, ratified and maintained by Biodiversity Information Standards (TDWG), that provides a stable, extensible glossary of terms for sharing information about biological diversity. Originally modeled on the Dublin Core metadata standard, it defines terms grouped into classes such as Occurrence, Organism, MaterialSample, Event, Location, GeologicalContext, Identification, and Taxon, allowing occurrence records, specimen data, and observations to be exchanged in a consistent, machine-readable form. Darwin Core underpins major biodiversity data infrastructures, most notably the Global Biodiversity Information Facility (GBIF), where it is the primary schema for aggregating hundreds of millions of occurrence records, and it is commonly serialized as Darwin Core Archives (a star schema of a core file plus extension files described by a meta.xml descriptor). The Biological Collections Ontology provides formal ontological semantics for many Darwin Core terms, making the two standards complementary for biodiversity data integration and knowledge-graph construction.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://dwc.tdwg.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1371/journal.pone.0029715",
+        "ref_title": "Darwin Core: An Evolving Community-Developed Biodiversity Data Standard",
+        "ref_authors": [
+          "Wieczorek J",
+          "Bloom D",
+          "Guralnick R",
+          "Blum S",
+          "Döring M",
+          "Giovanni R",
+          "Robertson T",
+          "Vieglais D"
+        ],
+        "ref_publication_year": 2012,
+        "ref_journal": "PLOS ONE"
+      },
+      "responsible_organization": [
+        "B2AI_ORG:93"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1348",
+      "category": "B2AI_STANDARD:TrainingProgram",
+      "name": "CDC LOINC In Vitro Diagnostic (LIVD) Test Code Mapping",
+      "description": "CDC LOINC In Vitro Diagnostic (LIVD) Test Code Mapping documentation and maintained mapping files",
+      "related_to": [
+        "B2AI_STANDARD:171"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-10-22",
+      "concerns_data_topic": [
+        "B2AI_TOPIC:52",
+        "B2AI_TOPIC:79",
+        "B2AI_TOPIC:4"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:12"
+      ],
+      "purpose_detail": "The CDC Division of Laboratory Systems \"LOINC In Vitro Diagnostic (LIVD) Test Code Mapping\" page is the authoritative, maintained reference that explains how to apply the LIVD format for public health laboratory reporting and distributes ready-to-use mapping files. It describes the purpose of LIVD, how IVD manufacturers supply LOINC codes using the IICC digital format, and how laboratories should use the files to map their instrument test codes to LOINC and SNOMED CT for electronic reporting. The page hosts downloadable, periodically updated mapping spreadsheets for SARS-CoV-2, Mpox (Monkeypox virus), HIV diagnostic tests, Lyme disease, and Hantavirus, developed with the FDA, IICC, Regenstrief Institute, SNOMED International, and the Association of Public Health Laboratories. It is the primary practical learning and reference resource for understanding and using LIVD mappings in the United States.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://www.cdc.gov/laboratory-systems/php/livd-test-codemapping/index.html",
       "publication": {
         "ref_url": ""
       }
