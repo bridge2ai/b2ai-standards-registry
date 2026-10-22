@@ -43322,23 +43322,130 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:793
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:54
   - B2AI_TOPIC:58
   - B2AI_TOPIC:60
+  contribution_date: '2026-10-21'
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: MLflow platform
   formal_specification: https://github.com/mlflow/mlflow/
+  has_application:
+  - id: B2AI_APP:517
+    category: B2AI:Application
+    name: MLflow model lifecycle management in the DeltaTrace older-adult health monitoring
+      platform
+    description: DeltaTrace is a scalable big-data platform for end-to-end traceability
+      of health data collected from older adults, built on a stack that includes Apache
+      Spark, Kafka, and Airflow for ingestion and processing. Within this platform
+      MLflow is the component that manages the lifecycle and versioning of the machine
+      learning models used to analyze the monitored health data, tracking model runs
+      and maintaining the trained-model artifacts and their versions so that predictions
+      remain reproducible and auditable. MLflow therefore serves as the model-registry
+      and experiment-tracking layer of a deployed clinical data-monitoring system.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/81701
+      ref_title: 'Scalable Big Data Platform With End-to-End Traceability for Health
+        Data Monitoring in Older Adults: Development and Performance Evaluation'
+      ref_authors:
+      - Cejudo A
+      - Tellechea Y
+      - Calvo A
+      - Almeida A
+      - Martín C
+      - Beristain A
+      ref_publication_year: 2025
+      ref_journal: JMIR Medical Informatics
+  - id: B2AI_APP:518
+    category: B2AI:Application
+    name: MLflow-tracked gradient boosting models for predicting dry matter intake
+      in cattle
+    description: This study develops regression models, including gradient boosting
+      regression and Gaussian process boosting regression, to predict dry matter intake
+      in cattle at scale, using Shapley additive explanation (SHAP) for explainability.
+      MLflow is used to manage the machine learning lifecycle for these models, logging
+      experiments, tracking parameters and metrics, and versioning the trained models,
+      and the resulting MLflow pipeline is packaged through containerization for reproducible
+      deployment. Here MLflow is the experiment-tracking and model-management backbone
+      of a published quantitative-biology machine learning study.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jas/skaf041
+      ref_title: Predicting dry matter intake in cattle at scale using gradient boosting
+        regression techniques and Gaussian process boosting regression with Shapley
+        additive explanation explainable artificial intelligence, MLflow, and its
+        containerization
+      ref_authors:
+      - ArunKumar KE
+      - Blake NE
+      - Walker M
+      - Yost TJ
+      - Mata-Padrino D
+      - Holásková I
+      - Yates JW
+      - Hatton J
+      - Wilson ME
+      ref_publication_year: 2025
+      ref_journal: Journal of Animal Science
+  has_relevant_organization:
+  - B2AI_ORG:195
+  - B2AI_ORG:196
+  has_training_resource:
+  - B2AI_STANDARD:1338
   is_open: true
   name: MLflow
-  purpose_detail: MLflow is an open source platform to manage the ML lifecycle, including
-    experimentation, reproducibility, deployment, and a central model registry
+  purpose_detail: MLflow is an open source platform for managing the end-to-end machine
+    learning lifecycle, originally created by Databricks and since 2020 hosted as
+    a project of the Linux Foundation. It is organized around several components.
+    MLflow Tracking records and queries experiments, logging parameters, code versions,
+    metrics, and output artifacts for each run, with autologging integrations for
+    common libraries such as scikit-learn, PyTorch, TensorFlow, and Keras. The Model
+    Registry provides a centralized store for managing the full lifecycle of trained
+    models, including versioning, stage transitions, annotations, and lineage back
+    to the run that produced them. MLflow Projects package code in a reusable, reproducible
+    form, and MLflow Models define a standard packaging format that lets a model be
+    deployed to many serving and inference environments. More recent releases add
+    support for evaluating and tracing large language model and generative AI applications.
+    Accessible through Python, R, Java, and REST APIs and a web UI, MLflow is widely
+    used to make machine learning experiments reproducible, comparable, and deployable,
+    and it has become a de facto standard for experiment tracking and model management
+    in both research and production settings.
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:195
   url: https://mlflow.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1145/3399579.3399867
+    ref_title: 'Developments in MLflow: A System to Accelerate the Machine Learning
+      Lifecycle'
+    ref_authors:
+    - Chen A
+    - Chow A
+    - Davidson A
+    - DCunha A
+    - Ghodsi A
+    - Hong SA
+    - Konwinski A
+    - Mewald C
+    - Murching S
+    - Nykodym T
+    - Ogilvie P
+    - Parkhe M
+    - Singh A
+    - Xie F
+    - Zaharia M
+    - Zang R
+    - Zheng J
+    - Zumar C
+    ref_publication_year: 2020
+    ref_journal: Proceedings of the Fourth International Workshop on Data Management
+      for End-to-End Machine Learning (DEEM)
 - id: B2AI_STANDARD:794
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -69911,5 +70018,33 @@ data_standardortools_collection:
   - B2AI_STANDARD:776
   requires_registration: false
   url: https://docs.itk.org/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1338
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:58
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official MLflow documentation, quickstarts, and tutorials for tracking,
+    model registry, and deployment
+  is_open: true
+  name: MLflow Documentation and Tutorials
+  purpose_detail: The MLflow Documentation site is the project's official, maintained
+    learning and reference resource. It provides getting-started quickstarts, step-by-step
+    tutorials, and how-to guides covering experiment tracking, the model registry,
+    MLflow Projects and Models, model deployment and serving, autologging integrations
+    with common machine learning and deep learning libraries, and the newer GenAI
+    and LLM evaluation and tracing features, alongside the full Python, R, Java, and
+    REST API references. It is the authoritative self-paced resource for learning
+    to use MLflow.
+  related_to:
+  - B2AI_STANDARD:793
+  requires_registration: false
+  url: https://mlflow.org/docs/latest/
   publication:
     ref_url: ''
