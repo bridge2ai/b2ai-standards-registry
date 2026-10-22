@@ -30615,6 +30615,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:11
   - B2AI_TOPIC:53
@@ -30624,14 +30626,49 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Exposure ontology
   formal_specification: https://github.com/CTDbase/exposure-ontology
+  has_relevant_organization:
+  - B2AI_ORG:205
+  - B2AI_ORG:206
   is_open: true
   name: EXO
-  purpose_detail: Vocabularies for describing exposure data to inform understanding
-    of environmental health.
+  purpose_detail: The Exposure Ontology (ExO, registered here as EXO) is an OBO Foundry
+    ontology that provides a formal vocabulary for describing exposure data to support
+    environmental health research. It was introduced in 2012 by Carolyn Mattingly
+    and colleagues as part of the Comparative Toxicogenomics Database (CTD) effort,
+    with the goal of bridging exposure science and allied fields such as toxicology,
+    epidemiology, disease surveillance, and epigenetics by supplying the missing standardized
+    link between environmental stressors and downstream molecular and health effects.
+    ExO is organized around four root concepts, exposure stressor, exposure receptor,
+    exposure event, and exposure outcome, and uses them to compose descriptions of
+    an exposure event along attributes such as medium, route, duration, and concentration.
+    Its first release focused on human exposure to chemicals, with an intended expansion
+    to human and ecological receptors exposed to the full range of environmental stressors.
+    ExO serves as the foundational exposure model for CTD and is reused as a building
+    block by larger exposure ontologies, notably the Environmental Conditions, Treatments,
+    and Exposures Ontology (ECTO), which imports ExO classes to construct precomposed
+    exposure terms. The ontology is maintained on GitHub under the CTDbase organization,
+    released under a CC BY 4.0 license, and distributed through OBO Foundry, BioPortal,
+    and Ontobee; recent releases remain modest in size (on the order of 168 classes),
+    reflecting its role as a compact upper-level framework rather than an exhaustive
+    term list.
+  related_to:
+  - B2AI_STANDARD:443
+  - B2AI_STANDARD:1345
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:204
   url: https://github.com/CTDbase/exposure-ontology
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1021/es2033857
+    ref_title: 'Providing the Missing Link: the Exposure Science Ontology ExO'
+    ref_authors:
+    - Mattingly CJ
+    - McKone TE
+    - Callahan MA
+    - Blake JA
+    - Hubal EAC
+    ref_publication_year: 2012
+    ref_journal: Environmental Science & Technology
 - id: B2AI_STANDARD:448
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -70408,3 +70445,52 @@ data_standardortools_collection:
   url: https://docs.wandb.ai/
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1345
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:76
+  - B2AI_TOPIC:11
+  - B2AI_TOPIC:7
+  contribution_date: '2026-10-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Comparative Toxicogenomics Database
+  is_open: true
+  name: CTD
+  purpose_detail: The Comparative Toxicogenomics Database (CTD) is a publicly available,
+    manually curated knowledgebase that integrates toxicological information to advance
+    understanding of how environmental chemicals affect human health. Developed at
+    North Carolina State University and supported by the National Institute of Environmental
+    Health Sciences, CTD curates literature-derived relationships among chemicals,
+    genes and proteins, phenotypes, diseases, and exposures, and computationally infers
+    additional chemical-gene-disease and chemical-phenotype networks to support hypothesis
+    generation. It also provides tools for pathway, Gene Ontology, and enrichment
+    analyses, along with a dedicated exposure module (CTD Exposures) that captures
+    real-world exposure data structured according to the Exposure Ontology (ExO),
+    which originated within the CTD project. CTD is widely used in toxicogenomics,
+    environmental health, pharmacology, and systems-biology research, and its curated
+    associations are frequently reused as prior knowledge for computational and machine-learning
+    analyses of chemical toxicity and disease mechanisms.
+  related_to:
+  - B2AI_STANDARD:447
+  requires_registration: false
+  url: https://ctdbase.org/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkae883
+    ref_title: 'Comparative Toxicogenomics Database''s 20th anniversary: update 2025'
+    ref_authors:
+    - Davis AP
+    - Wiegers TC
+    - Sciaky D
+    - Barkalow F
+    - Strong M
+    - Wyatt B
+    - Wiegers J
+    - McMorran R
+    - Abrar S
+    - Mattingly CJ
+    ref_publication_year: 2024
+    ref_journal: Nucleic Acids Research
