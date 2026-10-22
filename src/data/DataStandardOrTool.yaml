@@ -11416,6 +11416,9 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:171
   category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:53
@@ -11424,14 +11427,42 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: IICC Digital Format for Publication of LOINC to Vendor IVD Test Results
+  formal_specification: https://hl7.org/fhir/uv/livd/
   has_relevant_organization:
   - B2AI_ORG:53
+  - B2AI_ORG:208
+  - B2AI_ORG:12
+  - B2AI_ORG:31
+  - B2AI_ORG:84
   has_training_resource:
   - B2AI_STANDARD:848
+  - B2AI_STANDARD:1348
   is_open: true
   name: LIVD
-  purpose_detail: Industry-defined format to facilitate the publication and exchange
-    of LOINC codes for vendor IVD test results.
+  purpose_detail: LIVD (LOINC In Vitro Diagnostic) is an industry-defined digital
+    format for publishing the LOINC codes that correspond to the test results produced
+    by vendor in vitro diagnostic (IVD) devices. It was created by the IVD Industry
+    Connectivity Consortium (IICC), a non-profit association of IVD manufacturers,
+    in collaboration with the Regenstrief Institute (the LOINC developer), IHE Pathology
+    and Laboratory Medicine (IHE PaLM), the FDA, and the CDC, with the first specification
+    released in 2017. The format lets IVD manufacturers publish, for each device and
+    assay, the vendor test transmission (or analyte) code together with the recommended
+    LOINC code for the result, along with associated units of measure (recommended
+    in UCUM), specimen information, and SNOMED CT codes for qualitative result values.
+    Laboratory information systems and other software can consume a LIVD publication
+    directly to automate the mapping of instrument result codes to LOINC, reducing
+    the manual effort and the risk of mismapped results and units that undermine semantic
+    interoperability. LIVD gained prominence during the COVID-19 pandemic, when the
+    CDC, FDA, IICC, Regenstrief, and the Association of Public Health Laboratories
+    used it to publish a maintained "SARS-CoV-2 LIVD Test Codes" mapping covering
+    diagnostic tests under FDA Emergency Use Authorization. That mapping became the
+    reference for assigning LOINC (and SNOMED CT result) codes in COVID-19 electronic
+    laboratory reporting to public health agencies under the CARES Act, and the CDC
+    has since published analogous LIVD mapping files for Mpox, HIV, Lyme disease,
+    and Hantavirus. The LIVD data model has also been expressed as an HL7 FHIR Implementation
+    Guide.
+  related_to:
+  - B2AI_STANDARD:848
   requires_registration: false
   url: https://ivdconnectivity.org/livd/
   publication:
@@ -48447,6 +48478,8 @@ data_standardortools_collection:
   name: Learn LOINC
   purpose_detail: Welcome to the LOINC Library. This is our A to Z collection of resources
     that we've collected to help you learn about LOINC and get connected to the community.
+  related_to:
+  - B2AI_STANDARD:171
   requires_registration: false
   url: https://loinc.org/learn/
   publication:
@@ -70701,3 +70734,37 @@ data_standardortools_collection:
     - Vieglais D
     ref_publication_year: 2012
     ref_journal: PLOS ONE
+- id: B2AI_STANDARD:1348
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:79
+  - B2AI_TOPIC:4
+  contribution_date: '2026-10-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: CDC LOINC In Vitro Diagnostic (LIVD) Test Code Mapping documentation
+    and maintained mapping files
+  has_relevant_organization:
+  - B2AI_ORG:12
+  is_open: true
+  name: CDC LOINC In Vitro Diagnostic (LIVD) Test Code Mapping
+  purpose_detail: The CDC Division of Laboratory Systems "LOINC In Vitro Diagnostic
+    (LIVD) Test Code Mapping" page is the authoritative, maintained reference that
+    explains how to apply the LIVD format for public health laboratory reporting and
+    distributes ready-to-use mapping files. It describes the purpose of LIVD, how
+    IVD manufacturers supply LOINC codes using the IICC digital format, and how laboratories
+    should use the files to map their instrument test codes to LOINC and SNOMED CT
+    for electronic reporting. The page hosts downloadable, periodically updated mapping
+    spreadsheets for SARS-CoV-2, Mpox (Monkeypox virus), HIV diagnostic tests, Lyme
+    disease, and Hantavirus, developed with the FDA, IICC, Regenstrief Institute,
+    SNOMED International, and the Association of Public Health Laboratories. It is
+    the primary practical learning and reference resource for understanding and using
+    LIVD mappings in the United States.
+  related_to:
+  - B2AI_STANDARD:171
+  requires_registration: false
+  url: https://www.cdc.gov/laboratory-systems/php/livd-test-codemapping/index.html
+  publication:
+    ref_url: ''
