@@ -35946,6 +35946,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:11
@@ -35955,15 +35957,56 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Population and Community Ontology
   formal_specification: https://github.com/PopulationAndCommunityOntology/pco
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: PCO
-  purpose_detail: Groups of interacting organisms such as populations and communities.
+  purpose_detail: The Population and Community Ontology (PCO) is an OBO Foundry ontology
+    that provides logically defined terms for material entities, qualities, and processes
+    related to collections of interacting organisms, such as populations and communities.
+    It is taxon-neutral and can be applied to any species, including humans, and it
+    is rooted in the Basic Formal Ontology (BFO) and built to be interoperable with
+    other OBO ontologies, importing terms from CARO, ENVO, GO, IAO, NCBITaxon, PATO,
+    and the Relations Ontology (RO). The ontology contains on the order of 220 classes
+    and 110 object properties and is distributed as pco.owl under a CC0 public-domain
+    dedication, browsable through OntoBee, OLS, BioPortal, AberOWL, and Bioregistry.
+    It was created by Ramona Walls, Pier Luigi Buttigieg, David Osumi-Sutherland,
+    and Jie Zheng, and is maintained on GitHub under the PopulationAndCommunityOntology
+    organization with contributions handled through its issue tracker and mailing
+    list. PCO's main purpose is to let data producers state precisely which collection
+    of organisms (a population, a community, an ecological assemblage) was the subject
+    of an investigation, for use cases including ecological and biodiversity studies,
+    environmental and metagenomic 'omics research, and population-level phenotyping.
+    Combined with the Biological Collections Ontology (BCO), the Ontology for Biomedical
+    Investigations (OBI), and the Environment Ontology (ENVO), it can describe the
+    methods used to derive taxon-based operational taxonomic units and to annotate
+    the organismal groups underlying sampled data.
   related_to:
   - B2AI_STANDARD:409
+  - B2AI_STANDARD:442
+  - B2AI_STANDARD:511
   requires_registration: false
   url: https://github.com/PopulationAndCommunityOntology/pco
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/1944-3277-9-17
+    ref_title: 'Meeting report: advancing practical applications of biodiversity ontologies'
+    ref_authors:
+    - Walls RL
+    - Guralnick R
+    - Deck J
+    - Buntzman A
+    - Buttigieg PL
+    - Davies N
+    - Denslow MW
+    - Gallery RE
+    - Parnell JJ
+    - Osumi-Sutherland D
+    - Robbins RJ
+    - Rocca-Serra P
+    - Wieczorek J
+    - Zheng J
+    ref_publication_year: 2014
+    ref_journal: Standards in Genomic Sciences
 - id: B2AI_STANDARD:536
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
