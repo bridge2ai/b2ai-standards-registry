@@ -16252,6 +16252,8 @@ data_standardortools_collection:
     extends to pediatric neuroimaging, aging research, psychiatric neuroimaging, and
     translational neuroscience where standardized data format improves cross-study
     comparisons and hypothesis testing.
+  related_to:
+  - B2AI_STANDARD:776
   requires_registration: false
   url: https://nifti.nimh.nih.gov/
   has_application:
@@ -42257,23 +42259,128 @@ data_standardortools_collection:
   url: https://www.i2b2.org/software/index.html
 - id: B2AI_STANDARD:776
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:15
   - B2AI_TOPIC:60
   - B2AI_TOPIC:65
+  - B2AI_TOPIC:22
+  - B2AI_TOPIC:19
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Insight Segmentation and Registration Toolkit
   formal_specification: https://github.com/InsightSoftwareConsortium/ITK
+  has_application:
+  - id: B2AI_APP:512
+    category: B2AI:Application
+    name: DeepN4 deep learning approximation of N4ITK bias field correction
+    description: DeepN4 trains a 3D U-Net to reproduce the intensity inhomogeneity
+      (bias-field) correction that ITK's N4 algorithm (N4ITK) performs on T1-weighted
+      brain MRI. ITK's N4 implementation is run to generate the corrected images and
+      bias fields that serve as the supervised training targets for the network across
+      multiple cohorts, and the trained model's output is then evaluated against the
+      N4ITK reference (reported median PSNR of about 47.96 dB) on held-out and external
+      datasets. ITK is therefore the source of the ground-truth transformation that
+      this machine learning model is built to learn, yielding a portable, fully differentiable
+      surrogate for the classical ITK filter.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1007/s12021-024-09655-9
+      ref_title: 'DeepN4: Learning N4ITK Bias Field Correction for T1-weighted Images'
+      ref_authors:
+      - Kanakaraj P
+      - Yao T
+      - Cai LY
+      - Lee HH
+      - Newlin NR
+      - Kim ME
+      - Gao C
+      - Pechman KR
+      - Archer D
+      - Hohman T
+      - Jefferson A
+      - Beason-Held LL
+      - Resnick SM
+      - Garyfallidis E
+      - Anderson A
+      - Schilling KG
+      - Landman BA
+      - Moyer D
+      ref_publication_year: 2024
+      ref_journal: Neuroinformatics
+  - id: B2AI_APP:513
+    category: B2AI:Application
+    name: N4ITK bias correction preprocessing for a densely connected 3D CNN brain
+      tumor segmentation model
+    description: This study builds a densely connected 3D convolutional neural network
+      for glioma segmentation on the BraTS 2017 multi-institutional MRI cohort, reporting
+      Dice scores of roughly 0.72, 0.83, and 0.81 for the complete tumor, tumor core,
+      and enhancing tumor. As part of the preprocessing pipeline, ITK's N4 (N4ITK)
+      bias-field correction is applied to every MRI sequence before intensity normalization
+      to remove low-frequency intensity inhomogeneity that would otherwise degrade
+      the learned segmentation. ITK thus provides the standardized intensity-correction
+      step that prepares the imaging data used to train and evaluate the deep network.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1117/12.2293394
+      ref_title: MRI tumor segmentation with densely connected 3D CNN
+      ref_authors:
+      - DSouza AM
+      - Chen L
+      - Wu Y
+      - Abidin AZ
+      - Xu C
+      - Wismüller A
+      ref_publication_year: 2018
+      ref_journal: 'Medical Imaging 2018: Image Processing'
+  has_relevant_organization:
+  - B2AI_ORG:193
+  - B2AI_ORG:74
+  has_training_resource:
+  - B2AI_STANDARD:1335
   is_open: true
   name: ITK
-  purpose_detail: The Insight Toolkit (ITK) is an open-source, cross-platform toolkit
+  purpose_detail: The Insight Toolkit (ITK) is an open-source, cross-platform library
     for N-dimensional scientific image processing, segmentation, and registration.
+    It was initiated in 1999 under a contract from the United States National Library
+    of Medicine as part of the Visible Human Project, and is developed and maintained
+    by the Insight Software Consortium with Kitware as the lead contributor; it is
+    a NumFOCUS-affiliated project. ITK is implemented in C++ using heavily templated
+    generic programming so that the same filters operate on images of arbitrary dimension
+    and pixel type, and it exposes Python bindings (the itk package) along with wrapping
+    for other languages. The library provides thousands of algorithms for reading
+    and writing dozens of medical and microscopy image formats (including DICOM, NIfTI,
+    MetaImage, and NRRD), intensity and morphological filtering, bias-field correction
+    (the N4 algorithm, often cited as N4ITK), level-set and region-growing segmentation,
+    mesh and spatial-object handling, and a comprehensive multi-resolution image registration
+    framework spanning rigid, affine, and deformable transforms with pluggable metrics
+    and optimizers. ITK underpins many downstream applications and simplified interfaces,
+    such as SimpleITK, 3D Slicer, ITK-SNAP, and ITKElastix, and it is widely used
+    both as classical preprocessing (resampling, normalization, bias correction, registration)
+    in front of deep-learning pipelines and as a source of reference algorithms that
+    learned models are trained to approximate.
+  related_to:
+  - B2AI_STANDARD:1334
+  - B2AI_STANDARD:1089
+  - B2AI_STANDARD:233
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:192
   url: https://itk.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.3389/fninf.2014.00013
+    ref_title: 'ITK: enabling reproducible research and open science'
+    ref_authors:
+    - McCormick M
+    - Liu X
+    - Jomier J
+    - Marion C
+    - Ibanez L
+    ref_publication_year: 2014
+    ref_journal: Frontiers in Neuroinformatics
 - id: B2AI_STANDARD:777
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -56591,6 +56698,8 @@ data_standardortools_collection:
   name: MONAI Tutorials
   purpose_detail: This repository provides practical MONAI tutorials for data loading,
     transforms, model training, inference, and deployment in medical imaging AI.
+  related_to:
+  - B2AI_STANDARD:776
   requires_registration: false
   url: https://github.com/Project-MONAI/tutorials
   publication:
@@ -69729,5 +69838,78 @@ data_standardortools_collection:
   - B2AI_STANDARD:748
   requires_registration: false
   url: https://manual.cytoscape.org/en/stable/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1334
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:65
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Simplified programming interface to the Insight Toolkit (ITK)
+  formal_specification: https://github.com/SimpleITK/SimpleITK
+  is_open: true
+  name: SimpleITK
+  purpose_detail: SimpleITK is a simplified, procedural layer on top of the Insight
+    Toolkit (ITK) that exposes a large subset of ITK's image analysis, filtering,
+    segmentation, and registration algorithms through a consistent, non-templated
+    interface. It is developed by the Insight Software Consortium and provides bindings
+    for Python, R, Java, C#, Ruby, Lua, TCL, and C++, making ITK's functionality readily
+    accessible from interpreted languages and interactive notebooks without the complexity
+    of ITK's C++ template programming. SimpleITK treats images as objects carrying
+    physical-space metadata (origin, spacing, direction), supports reading and writing
+    the many formats ITK handles (including DICOM, NIfTI, and NRRD), and is widely
+    used for medical and microscopy image preprocessing, including resampling, N4
+    bias-field correction, intensity normalization, and registration, in reproducible
+    research and machine-learning workflows.
+  related_to:
+  - B2AI_STANDARD:776
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:192
+  url: https://simpleitk.org/
+  publication:
+    ref_url: https://doi.org/10.3389/fninf.2013.00045
+    ref_title: The Design of SimpleITK
+    ref_authors:
+    - Lowekamp BC
+    - Chen DT
+    - Ibáñez L
+    - Blezek D
+    ref_publication_year: 2013
+    ref_journal: Frontiers in Neuroinformatics
+- id: B2AI_STANDARD:1335
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official ITK Software Guide, documentation, and runnable examples
+  is_open: true
+  name: ITK Software Guide and Examples
+  purpose_detail: The ITK documentation site at docs.itk.org is the toolkit's authoritative,
+    maintained learning resource. It hosts the two-book ITK Software Guide (an introduction
+    to installation, system architecture, and the data representation and core concepts,
+    followed by a design-and-functionality reference), a curated collection of runnable
+    C++ and Python examples, the Doxygen API reference, and how-to guides for building
+    ITK and developing custom filters and remote modules. Together these materials
+    are the primary official training path for learning to read and write images,
+    apply filtering and segmentation, and set up registration pipelines with ITK and
+    its Python bindings.
+  related_to:
+  - B2AI_STANDARD:776
+  requires_registration: false
+  url: https://docs.itk.org/
   publication:
     ref_url: ''
