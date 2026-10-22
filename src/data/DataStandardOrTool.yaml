@@ -39501,6 +39501,9 @@ data_standardortools_collection:
   url: https://appyters.maayanlab.cloud/
 - id: B2AI_STANDARD:730
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:9
@@ -39510,19 +39513,112 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: ATHENA
   formal_specification: https://github.com/OHDSI/Athena
+  has_application:
+  - id: B2AI_APP:521
+    category: B2AI:Application
+    name: OHDSI Patient-Level Prediction framework over OMOP standardized vocabularies
+    description: The OHDSI PatientLevelPrediction framework is a standardized, open-source
+      machine learning pipeline for building and validating patient-level prediction
+      models (for example, disease onset, readmission, or outcome risk) from observational
+      healthcare data mapped to the OMOP Common Data Model. Candidate predictors are
+      constructed directly from the OMOP standardized vocabularies - the condition,
+      drug, procedure, measurement, and observation concepts, and their concept-ancestor
+      hierarchies, that ATHENA curates and distributes - so that covariates such as
+      "any descendant of a SNOMED CT condition concept" are defined consistently across
+      sites. The framework then fits regularized regression, random forest, gradient
+      boosting, and neural-network classifiers and evaluates discrimination and calibration.
+      Because every feature is keyed to an ATHENA-sourced standard concept ID, the
+      same model specification can be executed against databases from different institutions,
+      making ATHENA's vocabularies the feature backbone of this ML tooling.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamia/ocy032
+      ref_title: Design and implementation of a standardized framework to generate
+        and evaluate patient-level prediction models using observational healthcare
+        data
+      ref_authors:
+      - Reps JM
+      - Schuemie MJ
+      - Suchard MA
+      - Ryan PB
+      - Rijnbeek PR
+      ref_publication_year: 2018
+      ref_journal: Journal of the American Medical Informatics Association
+  - id: B2AI_APP:522
+    category: B2AI:Application
+    name: CLMBR deep representation learning on OMOP concept codes
+    description: This work trains a clinical language model (CLMBR) that learns dense
+      vector representations of patients from the sequence of structured codes in
+      their electronic health records, pretrained on the STARR-OMOP database. The
+      model's vocabulary - the discrete tokens it consumes and predicts - is the set
+      of OMOP standardized vocabulary concept IDs (conditions, drugs, procedures,
+      measurements) that ATHENA defines and distributes, so each clinical event is
+      represented by a standard concept. The learned embeddings are then transferred
+      to downstream prediction tasks and shown to outperform count-based baselines
+      with far less labeled data. ATHENA's vocabularies supply the standardized code
+      space that makes this representation portable across OMOP datasets.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.jbi.2020.103637
+      ref_title: Language models are an effective representation learning technique
+        for electronic health record data
+      ref_authors:
+      - Steinberg E
+      - Jung K
+      - Fries JA
+      - Corbin CK
+      - Pfohl SR
+      - Shah NH
+      ref_publication_year: 2021
+      ref_journal: Journal of Biomedical Informatics
   has_relevant_organization:
   - B2AI_ORG:76
+  - B2AI_ORG:78
   has_training_resource:
   - B2AI_STANDARD:844
   - B2AI_STANDARD:944
+  - B2AI_STANDARD:1341
   is_open: true
   name: ATHENA
-  purpose_detail: A resource of searchable and loadable standardized vocabularies.
+  purpose_detail: ATHENA is the official web portal of the Observational Health Data
+    Sciences and Informatics (OHDSI) community for searching, browsing, and downloading
+    the OHDSI Standardized Vocabularies, the shared reference ontology of the OMOP
+    (Observational Medical Outcomes Partnership) Common Data Model. The vocabularies
+    integrate more than one hundred source terminologies - including SNOMED CT, RxNorm,
+    LOINC, ICD-9-CM, ICD-10-CM, CPT4, HCPCS, and ATC - into a single set of more than
+    ten million concepts, each assigned a stable OMOP concept ID, a domain (condition,
+    drug, procedure, measurement, observation, and others), and standard/non-standard
+    status, together with the relationships and precomputed concept-ancestor hierarchies
+    that link source codes to the designated standard concepts. Through ATHENA a user
+    can look up an individual concept and its mappings and synonyms, inspect how source
+    codes roll up into standard concepts, and assemble and download a custom vocabulary
+    bundle for loading into an OMOP CDM instance. These standardized vocabularies
+    are what allow observational data from different institutions and coding systems
+    to be harmonized to a common representation, so that cohort definitions, analytics,
+    and machine learning features can be specified once and executed consistently
+    across the OHDSI data network. ATHENA is maintained by OHDSI and the vocabulary
+    team, is openly accessible without registration for browsing, and is continuously
+    updated as source terminologies are released.
+  related_to:
+  - B2AI_STANDARD:731
   requires_registration: false
   url: https://athena.ohdsi.org/search-terms/terms
   used_in_bridge2ai: true
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/jamia/ocad247
+    ref_title: OHDSI Standardized Vocabularies-a large-scale centralized reference
+      ontology for international data harmonization
+    ref_authors:
+    - Reich C
+    - Ostropolets A
+    - Ryan P
+    - Rijnbeek P
+    - Schuemie M
+    - Davydov A
+    - Dymshyts D
+    - Hripcsak G
+    ref_publication_year: 2024
+    ref_journal: Journal of the American Medical Informatics Association
 - id: B2AI_STANDARD:731
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -39568,6 +39664,8 @@ data_standardortools_collection:
     populations. ATLAS democratizes access to observational health data for research,
     enabling rigorous, reproducible epidemiological and AI-driven analyses without
     requiring direct database access.
+  related_to:
+  - B2AI_STANDARD:730
   requires_registration: false
   url: https://atlas-demo.ohdsi.org/#/home
   publication:
@@ -69413,5 +69511,34 @@ data_standardortools_collection:
   - B2AI_STANDARD:518
   requires_registration: false
   url: https://obofoundry.org/ontology/to.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1341
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: The Book of OHDSI chapter on the Standardized Vocabularies and ATHENA
+  is_open: true
+  name: The Book of OHDSI - Standardized Vocabularies
+  purpose_detail: The Standardized Vocabularies chapter of The Book of OHDSI is the
+    community's authoritative, openly available reference for understanding and using
+    the OMOP standardized vocabularies that ATHENA distributes. It explains the concept,
+    concept-relationship, and concept-ancestor model, the notion of standard versus
+    source concepts and domains, and how source terminologies such as SNOMED CT, RxNorm,
+    LOINC, and ICD are mapped into the common reference ontology. It walks through
+    using the ATHENA portal to search concepts, inspect mappings and hierarchies,
+    and download custom vocabulary bundles for an OMOP CDM instance, and it is maintained
+    as part of the living Book of OHDSI. It is a primary self-paced learning resource
+    for working with ATHENA and the OHDSI vocabularies.
+  related_to:
+  - B2AI_STANDARD:730
+  requires_registration: false
+  url: https://book.ohdsi.org/StandardizedVocabularies.html
   publication:
     ref_url: ''
