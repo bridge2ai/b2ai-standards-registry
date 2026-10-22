@@ -33278,6 +33278,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:1
@@ -33287,14 +33289,72 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Mouse pathology ontology
   formal_specification: https://github.com/PaulNSchofield/mpath
+  has_application:
+  - id: B2AI_APP:524
+    category: B2AI:Application
+    name: Text mining and machine learning classification of in vivo bioassay descriptions
+      annotated with MPATH
+    description: This study applies text mining and machine learning to over 100,000
+      free-text in vivo (rat and mouse) drug-screening bioassay descriptions retrieved
+      from the ChEMBL database, extracting experimental factors such as genetic strains,
+      treatments, and phenotypic readouts. Extracted terms are normalized against
+      a set of biomedical ontologies, and the Mouse Pathology Ontology (MPATH) is
+      used as one of the controlled vocabularies for coding disease and pathology
+      concepts in the assays. The authors then train an unsupervised Word2Vec language
+      model to learn semantic similarities between terms and phrases, and build random
+      forest classifiers on the resulting features to predict the class of drugs tested
+      in different in vivo assays with high accuracy. MPATH therefore supplies part
+      of the structured disease and pathology annotation vocabulary that organizes
+      the features and labels used in this machine learning pipeline over preclinical
+      animal-model assay text.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1371/journal.pcbi.1005641
+      ref_title: Classification and analysis of a large collection of in vivo bioassay
+        descriptions
+      ref_authors:
+      - Zwierzyna M
+      - Overington JP
+      ref_publication_year: 2017
+      ref_journal: PLOS Computational Biology
+  has_relevant_organization:
+  - B2AI_ORG:181
   is_open: true
   name: MPATH
-  purpose_detail: A structured controlled vocabulary of mutant and transgenic mouse
-    pathology phenotypes.
+  purpose_detail: MPATH, the Mouse Pathology Ontology, is a structured controlled
+    vocabulary of histopathological lesions, pathological processes, and morphological
+    abnormalities observed in mice. It was developed by the Pathbase Consortium, led
+    by Paul N. Schofield at the University of Cambridge together with pathologists
+    at The Jackson Laboratory and partner institutions, originally to code and annotate
+    the mutant, transgenic, and wild-type mouse histopathology images deposited in
+    the Pathbase image database. The ontology organizes roughly 900 pathology concepts
+    into an almost exclusively is_a hierarchy up to nine levels deep, covering anatomical
+    pathological entities (abnormal structures and lesions) and pathological processes
+    such as inflammation, degeneration, and neoplasia, while deliberately excluding
+    definitive clinical diagnoses, which it treats as disease concepts handled in
+    companion resources. Most terms carry textual definitions, and the ontology cross-references
+    other OBO resources. Although built for the mouse, MPATH is largely species-agnostic
+    and is now used to code and analyze disease and phenotype data for rodents, humans,
+    and zebrafish, and it supports cross-species phenotype analysis. It is distributed
+    through the OBO Foundry under an open license and is maintained in the PaulNSchofield/mpath
+    GitHub repository.
+  related_to:
+  - B2AI_STANDARD:1343
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:201
   url: http://www.pathbase.net/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/2041-1480-4-18
+    ref_title: The mouse pathology ontology, MPATH; structure and applications
+    ref_authors:
+    - Schofield PN
+    - Sundberg JP
+    - Sundberg BA
+    - McKerlie C
+    - Gkoutos GV
+    ref_publication_year: 2013
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:498
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -69056,3 +69116,45 @@ data_standardortools_collection:
   url: https://www.informatics.jax.org/expression.shtml
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1343
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - dataregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:15
+  - B2AI_TOPIC:7
+  - B2AI_TOPIC:1
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Database of mutant mouse pathology
+  has_relevant_organization:
+  - B2AI_ORG:181
+  - B2AI_ORG:201
+  is_open: true
+  name: Pathbase
+  purpose_detail: Pathbase is a publicly accessible database of histopathology images
+    from laboratory mice, providing free access to representative images of abnormal
+    histology from spontaneous and induced mutations, as well as normal histology
+    and strain-background lesions. It was created by the Pathbase Consortium to serve
+    as a reference resource for mouse pathology, offering a virtual second opinion
+    for researchers who lack access to experienced comparative pathologists. Image
+    records are reviewed and curated by pathologists in the consortium before publication
+    and are linked by anatomical site, gene, and other identifiers to related databases.
+    The database is structured around the Mouse Pathology Ontology (MPATH), which
+    was developed alongside it to code the pathological content of each image, enabling
+    consistent annotation, search, and interoperability. Pathbase is the companion
+    image resource for which MPATH was originally created.
+  related_to:
+  - B2AI_STANDARD:497
+  requires_registration: false
+  url: http://www.pathbase.net/
+  publication:
+    ref_url: https://doi.org/10.1093/nar/gkh124
+    ref_title: 'Pathbase: a database of mutant mouse pathology'
+    ref_authors:
+    - Schofield PN
+    ref_publication_year: 2004
+    ref_journal: Nucleic Acids Research
