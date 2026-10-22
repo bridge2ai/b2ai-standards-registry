@@ -34037,6 +34037,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_pilot
   concerns_data_topic:
   - B2AI_TOPIC:33
   - B2AI_TOPIC:53
@@ -34045,13 +34047,101 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Non-Coding RNA Ontology
   formal_specification: https://github.com/OmniSearch/ncro
+  has_application:
+  - id: B2AI_APP:520
+    category: B2AI:Application
+    name: NCRO terms imported into OMIT to power OmniSearch semantic integration of
+      miRNA-target data
+    description: The Ontology for MIcroRNA Target (OMIT) adopts a modular design that
+      imports roughly 2,559 terms from the Non-Coding RNA Ontology (NCRO) to supply
+      its underlying representation of non-coding RNAs, so that NCRO classes serve
+      as the formal ncRNA backbone for OMIT. OMIT in turn is the semantic layer of
+      OmniSearch, a semantic search system that integrates microRNA-target gene interaction
+      data drawn from prediction databases, curated resources, and the biomedical
+      literature. In this pipeline NCRO is used as a shared, logically defined vocabulary
+      that structures a miRNA-target knowledge base supporting integration, query,
+      and evidence retrieval. This is a semantic-integration (AI-adjacent) use of
+      NCRO rather than a trained machine learning model; no published work was found
+      that trains or evaluates an ML/deep learning model directly on NCRO.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-016-0064-2
+      ref_title: 'OmniSearch: a semantic search system based on the Ontology for MIcroRNA
+        Target (OMIT) for microRNA-target gene interaction data'
+      ref_authors:
+      - Huang J
+      - Gutierrez F
+      - Strachan HJ
+      - Dou D
+      - Huang W
+      - Smith B
+      - Blake JA
+      - Eilbeck K
+      - Natale DA
+      - Lin Y
+      - Wu B
+      - de Silva N
+      - Wang X
+      - Liu Z
+      - Borchert GM
+      - Tan M
+      - Ruttenberg A
+      ref_publication_year: 2016
+      ref_journal: Journal of Biomedical Semantics
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: NCRO
-  purpose_detail: An ontology for non-coding RNA, both of biological origin, and engineered.
+  purpose_detail: The Non-Coding RNA Ontology (NCRO) is an OBO Foundry reference ontology
+    that provides a systematically structured and formally defined controlled vocabulary
+    for the domain of non-coding RNAs (ncRNAs), covering ncRNA sequences, structures,
+    functions, and phenotype associations for both biological and engineered ncRNAs.
+    It was created by a collaboration led by Jingshan Huang (University of South Alabama)
+    together with ontology and ncRNA researchers including Barry Smith, Alan Ruttenberg,
+    Karen Eilbeck, Judith Blake, and others, and it is built on the Basic Formal Ontology
+    and reuses terms from related OBO ontologies. NCRO was developed to address the
+    lack of a comprehensive ontology for ncRNA data, so that ncRNA annotations can
+    be curated, exchanged, integrated, and reasoned over consistently across datasets
+    and resources. Its initial focus is on small regulatory ncRNAs, such as microRNAs,
+    with the stated aim of eventually covering all forms of ncRNA. The ontology is
+    free and open, released under a Creative Commons license, distributed in OWL from
+    the OBO PURL (http://purl.obolibrary.org/obo/ncro.owl), and developed on GitHub
+    under the OmniSearch organization. NCRO is reused in downstream resources; notably,
+    the Ontology for MIcroRNA Target (OMIT) imports a large block of NCRO terms as
+    its ncRNA backbone.
+  related_to:
+  - B2AI_STANDARD:513
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:198
   url: https://github.com/OmniSearch/ncro
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/s13326-016-0066-0
+    ref_title: 'The Non-Coding RNA Ontology (NCRO): a comprehensive resource for the
+      unification of non-coding RNA biology'
+    ref_authors:
+    - Huang J
+    - Eilbeck K
+    - Smith B
+    - Blake JA
+    - Dou D
+    - Huang W
+    - Natale DA
+    - Ruttenberg A
+    - Huan J
+    - Zimmermann MT
+    - Jiang G
+    - Lin Y
+    - Wu B
+    - Strachan HJ
+    - He Y
+    - Zhang S
+    - Wang X
+    - Liu Z
+    - Borchert GM
+    - Tan M
+    ref_publication_year: 2016
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:506
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -34482,6 +34572,8 @@ data_standardortools_collection:
     annotations, and curated evidence into knowledge bases or feature sets that can
     support miRNA target prioritization, biomedical text mining, and explainable
     discovery workflows.
+  related_to:
+  - B2AI_STANDARD:505
   requires_registration: false
   url: https://github.com/OmniSearch/omit
   has_application:
