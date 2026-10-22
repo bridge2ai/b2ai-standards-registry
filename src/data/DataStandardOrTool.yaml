@@ -33148,6 +33148,8 @@ data_standardortools_collection:
     searches for reactions by mechanism type, facilitating discovery of analogous
     transformations across different chemical contexts and supporting retrosynthetic
     analysis in computer-aided synthesis planning tools.
+  related_to:
+  - B2AI_STANDARD:498
   requires_registration: false
   url: https://www.ebi.ac.uk/ols/ontologies/mop
   publication:
@@ -33464,6 +33466,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:3
   - B2AI_TOPIC:53
@@ -33472,11 +33476,83 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Name Reaction Ontology
   formal_specification: https://github.com/rsc-ontologies/rxno
+  has_application:
+  - id: B2AI_APP:532
+    category: B2AI:Application
+    name: Reaction fingerprints for large-scale named-reaction classification using
+      the RSC reaction name ontology
+    description: This work introduces a reaction fingerprint built from atom-pair
+      and related structural features of reactant and product molecules and applies
+      it to large-scale classification and similarity search over chemical reactions.
+      The training and evaluation corpus is a set of patent reactions whose named-reaction
+      class labels were assigned with the NameRxn tool, which names and classifies
+      reactions according to the Royal Society of Chemistry reaction name ontology
+      (RXNO). The resulting labeled subset, widely redistributed as the "Schneider
+      50k" three-level reaction-class dataset, became a standard benchmark for machine
+      learning reaction classifiers. RXNO therefore supplies the class hierarchy that
+      defines the prediction targets on which the fingerprint-based classifiers are
+      trained and benchmarked.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1021/ci5006614
+      ref_title: Development of a Novel Fingerprint for Chemical Reactions and Its
+        Application to Large-Scale Reaction Classification and Similarity
+      ref_authors:
+      - Schneider N
+      - Lowe DM
+      - Sayle RA
+      - Landrum GA
+      ref_publication_year: 2015
+      ref_journal: Journal of Chemical Information and Modeling
+  - id: B2AI_APP:533
+    category: B2AI:Application
+    name: Masked-language-model reaction template fingerprints classified against
+      the RXNO ontology
+    description: This study learns data-driven fingerprints for reaction templates
+      by training a transformer with a masked language modelling objective on SMIRKS
+      strings, then fine-tunes the learned embeddings for a supervised reaction-template
+      classification task. The classification targets are the categories of the RXNO
+      (Name Reaction Ontology), and the authors report up to 98.4% accuracy for classifying
+      templates according to the RXNO ontology. RXNO here provides the labeled category
+      scheme used as the supervised target and evaluation standard for the learned
+      template representations, which are intended to support computer-aided synthesis
+      planning and retrosynthesis.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.26434/chemrxiv-2022-4kzp1
+      ref_title: Data-driven Reaction Template Fingerprints
+      ref_authors:
+      - Chakraborty A
+      - Thakkar A
+      - Vaucher AC
+      - Laino T
+      ref_publication_year: 2022
+      ref_journal: ChemRxiv
+  has_relevant_organization:
+  - B2AI_ORG:203
   is_open: true
   name: RXNO
-  purpose_detail: Connects organic name reactions to their roles in an organic synthesis
-    and to processes in MOP
+  purpose_detail: RXNO, the Name Reaction Ontology, is an open OBO Foundry ontology
+    of organic name reactions originally developed at the Royal Society of Chemistry.
+    It contains more than 500 classes representing named organic reactions such as
+    the Diels-Alder cyclization and the Cannizzaro reaction, organized in a subsumption
+    hierarchy and released under a CC-BY-4.0 license. The ontology connects each name
+    reaction to its role in organic synthesis and to the underlying molecular processes
+    (for example cyclization, methylation, and demethylation) that are represented
+    in its sibling ontology MOP, the Molecular Process Ontology, maintained in the
+    same rsc-ontologies GitHub organization. RXNO unifies earlier attempts to systematize
+    organic reactions, and its reaction-class hierarchy underpins the NameRxn naming
+    and classification tool and the widely used "Schneider 50k" labeled reaction dataset.
+    Because it provides a stable, machine-readable vocabulary of reaction types, RXNO
+    is used as the label scheme for cheminformatics reaction classification, reaction-type
+    prediction, and retrosynthesis/computer-aided synthesis planning, and as a reference
+    for annotating reactions in databases and the chemical literature. Term requests
+    and issues are handled through the public GitHub issue tracker.
+  related_to:
+  - B2AI_STANDARD:494
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:203
   url: https://github.com/rsc-ontologies/rxno
   publication:
     ref_url: ''
