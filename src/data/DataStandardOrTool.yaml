@@ -28279,6 +28279,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_pilot
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:67
@@ -28287,14 +28289,95 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Biological Collections Ontology
   formal_specification: https://github.com/BiodiversityOntologies/bco
+  has_application:
+  - id: B2AI_APP:534
+    category: B2AI:Application
+    name: BCO-aligned knowledge graph for the Barcant Butterfly Collection
+    description: This study digitizes and standardizes the Barcant Butterfly Collection,
+      one of the largest butterfly archives in the Caribbean, by transforming its
+      records into the Darwin Core framework and building a domain-specific ontology
+      for the collection. That collection ontology is aligned, through ontology matching,
+      to existing biodiversity ontologies including the Biological Collections Ontology
+      (BCO) and the Taxonomic Rank Ontology (TaxRank), and the aligned model is used
+      to generate a knowledge graph that exposes previously hidden taxonomic, ecological,
+      and geographic connections for querying and analysis. BCO supplies the upper-level
+      semantic scaffolding (specimens, samples, and collecting processes) onto which
+      the collection's data are mapped, making it the integrating ontology for the
+      resulting biodiversity knowledge graph; the authors frame machine learning and
+      NLP as the next step for scaling the alignment and graph construction.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://www.utwente.nl/en/eemcs/vmbo2025/papers/vmbo-2025-paper-8.pdf
+      ref_title: 'Unlocking the Butterfly Effect: Finding Hidden Connections in Barcant
+        Butterfly Collection with Ontology Matching and Knowledge Graphs'
+      ref_authors:
+      - VijayKumar R
+      - Wang S
+      - Weber A
+      - Bukhsh FA
+      ref_publication_year: 2025
+      ref_journal: VMBO 2025 (International Workshop on Semantics for Biodiversity)
+  has_relevant_organization:
+  - B2AI_ORG:93
   is_open: true
   name: BCO
-  purpose_detail: Biodiversity data, including data on museum collections and environmental/metagenomic
-    samples.
+  purpose_detail: The Biological Collections Ontology (BCO) is an OBO Foundry ontology
+    that provides a formal, logic-based representation of the entities and processes
+    involved in biological collecting, sampling, and observation. It was initiated
+    at the 2012 Biocode Commons hackathon and is maintained by a community of biodiversity-informatics
+    and ontology developers led by Ramona Walls. BCO defines and relates core notions
+    such as individual organisms, voucher specimens, lots, material samples, environmental
+    and metagenomic samples, and the specimen-collecting and observing processes that
+    produce them, drawing a principled distinction between a physical specimen, the
+    process that collected it, and the information (data records) about either. It
+    reuses and builds on upper- and domain-level OBO ontologies, including the Basic
+    Formal Ontology (BFO), the Environment Ontology (ENVO), and the Population and
+    Community Ontology (PCO), and it supplies formal semantics for widely used biodiversity
+    exchange standards, most notably Darwin Core and Audubon Core. Distributed under
+    a CC0 license with stable PURLs (purl.obolibrary.org/obo/bco.owl) and browsable
+    through OLS, Ontobee, BioPortal, and ecoPortal, BCO is used to annotate and integrate
+    heterogeneous biodiversity data - museum and herbarium collections, ecological
+    surveys, and environmental or metagenomic samples - so that records from different
+    sources can be queried and reasoned over together, including as the semantic backbone
+    of biodiversity knowledge graphs.
+  related_to:
+  - B2AI_STANDARD:442
+  - B2AI_STANDARD:535
+  - B2AI_STANDARD:1347
   requires_registration: false
   url: https://github.com/BiodiversityOntologies/bco
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1371/journal.pone.0089606
+    ref_title: 'Semantics in Support of Biodiversity Knowledge Discovery: An Introduction
+      to the Biological Collections Ontology and Related Ontologies'
+    ref_authors:
+    - Walls RL
+    - Deck J
+    - Guralnick R
+    - Baskauf S
+    - Beaman R
+    - Blum S
+    - Bowers S
+    - Buttigieg PL
+    - Davies N
+    - Endresen D
+    - Gandolfo MA
+    - Hanner R
+    - Janning A
+    - Krishtalka L
+    - Matsunaga A
+    - Midford P
+    - Morrison N
+    - Tuama ÉÓ
+    - Schildhauer M
+    - Smith B
+    - Stucky BJ
+    - Thomer A
+    - Wieczorek J
+    - Whitacre J
+    - Wooley J
+    ref_publication_year: 2014
+    ref_journal: PLOS ONE
 - id: B2AI_STANDARD:410
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -29976,6 +30059,7 @@ data_standardortools_collection:
     health and disease.
   related_to:
   - B2AI_STANDARD:455
+  - B2AI_STANDARD:409
   requires_registration: false
   url: http://environmentontology.org/
   publication:
@@ -35843,6 +35927,8 @@ data_standardortools_collection:
   is_open: true
   name: PCO
   purpose_detail: Groups of interacting organisms such as populations and communities.
+  related_to:
+  - B2AI_STANDARD:409
   requires_registration: false
   url: https://github.com/PopulationAndCommunityOntology/pco
   publication:
@@ -70566,3 +70652,52 @@ data_standardortools_collection:
     - Kane CM
     ref_publication_year: 2013
     ref_journal: Nucleic Acids Research
+- id: B2AI_STANDARD:1347
+  category: B2AI_STANDARD:DataStandard
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:67
+  contribution_date: '2026-10-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Darwin Core
+  is_open: true
+  name: Darwin Core
+  purpose_detail: Darwin Core is a community-developed data standard, ratified and
+    maintained by Biodiversity Information Standards (TDWG), that provides a stable,
+    extensible glossary of terms for sharing information about biological diversity.
+    Originally modeled on the Dublin Core metadata standard, it defines terms grouped
+    into classes such as Occurrence, Organism, MaterialSample, Event, Location, GeologicalContext,
+    Identification, and Taxon, allowing occurrence records, specimen data, and observations
+    to be exchanged in a consistent, machine-readable form. Darwin Core underpins
+    major biodiversity data infrastructures, most notably the Global Biodiversity
+    Information Facility (GBIF), where it is the primary schema for aggregating hundreds
+    of millions of occurrence records, and it is commonly serialized as Darwin Core
+    Archives (a star schema of a core file plus extension files described by a meta.xml
+    descriptor). The Biological Collections Ontology provides formal ontological semantics
+    for many Darwin Core terms, making the two standards complementary for biodiversity
+    data integration and knowledge-graph construction.
+  related_to:
+  - B2AI_STANDARD:409
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:93
+  url: https://dwc.tdwg.org/
+  publication:
+    ref_url: https://doi.org/10.1371/journal.pone.0029715
+    ref_title: 'Darwin Core: An Evolving Community-Developed Biodiversity Data Standard'
+    ref_authors:
+    - Wieczorek J
+    - Bloom D
+    - Guralnick R
+    - Blum S
+    - Döring M
+    - Giovanni R
+    - Robertson T
+    - Vieglais D
+    ref_publication_year: 2012
+    ref_journal: PLOS ONE
