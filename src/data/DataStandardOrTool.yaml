@@ -47891,6 +47891,9 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:840
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:54
   - B2AI_TOPIC:58
@@ -47898,12 +47901,115 @@ data_standardortools_collection:
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
-  description: Weights and Balances platform
+  description: Weights & Biases machine learning experiment tracking and MLOps platform
+  has_application:
+  - id: B2AI_APP:529
+    category: B2AI:Application
+    name: Weights & Biases MLOps framework for transcriptomic machine learning in
+      small cohorts
+    description: This proof-of-concept study builds a paired-sample, pathway-anchored
+      MLOps framework for robust transcriptomic classification in small cohorts, applied
+      to classifying breast cancer tumors as TP53- or PIK3CA-mutated and classifying
+      human rhinovirus-infected individuals as symptomatic or asymptomatic. The random
+      forest classifier is integrated directly into the Weights & Biases (W&B v0.17.0)
+      platform, where a sweep.yaml configuration drives hyperparameter sweeps and
+      the W&B agent (wandb.agent) orchestrates repeated five-fold cross-validation,
+      with experiments tracked and compared in W&B. W&B is therefore the central MLOps
+      platform on which the model's hyperparameter optimization, experiment tracking,
+      and ablation analysis are run.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.2196/80735
+      ref_title: 'Paired-Sample and Pathway-Anchored MLOps Framework for Robust Transcriptomic
+        Machine Learning in Small Cohorts: Model Classification Study'
+      ref_authors:
+      - Shabanian M
+      - Pouladi N
+      - Wilson L
+      - Prosperi M
+      - Lussier YA
+      ref_publication_year: 2025
+      ref_journal: JMIR Bioinformatics and Biotechnology
+  - id: B2AI_APP:530
+    category: B2AI:Application
+    name: Experiment tracking for deep learning on H&E histopathology extracellular
+      matrix
+    description: This study develops a deep learning framework to quantify pixel-level
+      extracellular matrix variation in standard H&E-stained lung whole-slide images,
+      training an ImageNet-pretrained Inception-ResNet-V2 to distinguish airway submucosa
+      from adventitia and applying it as a proof-of-principle to COPD and control
+      tissue. The authors report using "Weights & Biases (wandb 0.18.1) for experiment
+      tracking" during model development. Here W&B provides the experiment tracking
+      and run comparison infrastructure for a biomedical computational pathology deep
+      learning model.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41598-026-56138-9
+      ref_title: A deep learning framework for histopathological analysis of pixel-level
+        extracellular matrix variation in standard H&E-stained images
+      ref_authors:
+      - van Breugel M
+      - de Jong E
+      - Buikema HJ
+      - Petoukhov I
+      - Nawijn MC
+      - Burgess JK
+      - Timens W
+      ref_publication_year: 2026
+      ref_journal: Scientific Reports
+  - id: B2AI_APP:531
+    category: B2AI:Application
+    name: Proteomics aging-biomarker model development tracked with Weights & Biases
+    description: This study develops ProtFI, a frailty-trained proteomics-based biomarker
+      of aging built from a minimal set of 27 plasma proteins (and a mortality-trained
+      counterpart, ProtMort), comparing ElasticNet and neural network models and training
+      targets on UK Biobank data and validating the biomarkers in the Rotterdam Study
+      and Leiden Longevity Study. Weights & Biases (wandb v0.16.6) is listed in the
+      Key Resources Table as the software used for the machine learning model development
+      workflow, supporting experiment tracking and model comparison across the many
+      modeling choices evaluated.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.crmeth.2026.101405
+      ref_title: ProtFI, an efficient frailty-trained proteomics-based biomarker of
+        aging, robustly predicts age-related decline
+      ref_authors:
+      - Garst S
+      - Kuiper L
+      - van den Akker E
+      - van den Berg N
+      - Ghanbari M
+      - Mooijaart S
+      - Beekman M
+      - Reinders M
+      - Slagboom PE
+      - van Meurs J
+      ref_publication_year: 2026
+      ref_journal: Cell Reports Methods
+  has_training_resource:
+  - B2AI_STANDARD:1344
   is_open: true
   name: W&B
-  purpose_detail: Platform for tracking, comparing, and visualizing machine learning
-    experiments.
+  purpose_detail: Weights & Biases (W&B) is a machine learning operations (MLOps)
+    platform developed by Weights & Biases, Inc. for tracking, comparing, visualizing,
+    and reproducing machine learning experiments. During model training, a lightweight
+    Python client library (the open-source wandb package, released under the Apache
+    2.0 license) logs hyperparameters, metrics, system resource usage, model checkpoints,
+    and arbitrary media to a hosted web service, where interactive dashboards let
+    teams compare runs, inspect learning curves, and share results. Core features
+    include Experiments (run tracking), Sweeps (automated hyperparameter search with
+    grid, random, and Bayesian strategies orchestrated by W&B agents), Artifacts (versioning
+    of datasets and models), a Model Registry, Tables for dataset and prediction inspection,
+    and Reports for collaborative write-ups. The client library is open source and
+    the platform offers a free personal tier, but the hosted service requires account
+    registration, and enterprise and self-managed deployments are commercial. W&B
+    integrates with common frameworks such as PyTorch, TensorFlow/Keras, scikit-learn,
+    Hugging Face, and PyTorch Lightning, and is widely used in both industry and academic
+    research, including biomedical machine learning studies, to make model development
+    reproducible and auditable.
   requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:202
   url: https://wandb.ai/
   publication:
     ref_url: ''
@@ -70194,5 +70300,35 @@ data_standardortools_collection:
   - B2AI_STANDARD:793
   requires_registration: false
   url: https://mlflow.org/docs/latest/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1344
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:58
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:54
+  contribution_date: '2026-10-22'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Weights & Biases documentation, SDK reference, courses, and
+    tutorials
+  is_open: true
+  name: Weights & Biases Documentation and Courses
+  purpose_detail: The Weights & Biases Documentation site is the platform's official,
+    maintained reference and learning resource. It provides quickstart guides and
+    conceptual and how-to documentation for the core products (Experiments, Sweeps,
+    Artifacts, Model Registry, Tables, and Reports), a Python SDK and API reference,
+    and framework integration guides for tools such as PyTorch, Keras, scikit-learn,
+    and Hugging Face. It is complemented by W&B's free courses and tutorials, which
+    walk users through experiment tracking, running hyperparameter sweeps, versioning
+    data and models, and building collaborative reports. Together these are the authoritative
+    resources for learning to instrument and operate machine learning workflows with
+    W&B.
+  related_to:
+  - B2AI_STANDARD:840
+  requires_registration: false
+  url: https://docs.wandb.ai/
   publication:
     ref_url: ''
