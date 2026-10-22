@@ -29669,22 +29669,92 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_draft
+  - implementation_maturity_pilot
   concerns_data_topic:
   - B2AI_TOPIC:8
   - B2AI_TOPIC:53
+  - B2AI_TOPIC:16
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Drug-drug Interaction and Drug-drug Interaction Evidence Ontology
   formal_specification: https://github.com/DIDEO/DIDEO
+  has_application:
+  - id: B2AI_APP:519
+    category: B2AI:Application
+    name: Machine-learning classification of drug-drug interaction research papers
+      into DIDEO evidence types
+    description: This AMIA study builds a hierarchical ensemble of five linear-kernel
+      support vector machine (SVM) sub-classifiers that automatically assign a clinical
+      drug-drug interaction (DDI) research paper to a specific evidence type. The
+      classification targets are drawn directly from DIDEO, which defines dozens of
+      in vitro and in vivo pharmacokinetic DDI evidence types; the authors select
+      seven (mostly in vivo study designs) and add new types where training papers
+      do not fit existing DIDEO classes, arranging them into a three-level hierarchy
+      that separates DDI clinical trials from pharmacokinetic trials, randomized from
+      non-randomized trials, and genotyped from phenotyped pharmacokinetic studies.
+      Features are stemmed unigrams from titles, abstracts, and Methods sections (with
+      drug and enzyme names removed via MetaMap), yielding 11,325 features from 214
+      training papers. The system reached a hierarchical F1 of 0.83 on a held-out
+      set involving the same drugs as training and 0.63 on a set with unseen drugs.
+      DIDEO here supplies the controlled, formally defined set of evidence-type categories
+      that the NLP/ML classifier is trained to predict, as a step toward computer-supported
+      curation of the DDI evidence base.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8075461/
+      ref_title: Automatically Classifying the Evidence Type of Drug-Drug Interaction
+        Research Papers as a Step Toward Computer Supported Evidence Curation
+      ref_authors:
+      - Hoang L
+      - Boyce RD
+      - Bosch N
+      - Stottlemyer B
+      - Brochhausen M
+      - Schneider J
+      ref_publication_year: 2020
+      ref_journal: AMIA Annual Symposium Proceedings
+  has_relevant_organization:
+  - B2AI_ORG:197
+  - B2AI_ORG:96
   is_open: true
   name: DIDEO
-  purpose_detail: The Potential Drug-drug Interaction and Potential Drug-drug Interaction
-    Evidence Ontology
+  purpose_detail: DIDEO, the Drug-drug Interaction and Drug-drug Interaction Evidence
+    Ontology (historically the Potential Drug-drug Interaction and Potential Drug-drug
+    Interaction Evidence Ontology), is an OBO Foundry ontology for formally representing
+    knowledge about potential drug-drug interactions (PDDIs) and, crucially, the scientific
+    evidence that supports claims about them. It was developed by Mathias Brochhausen
+    (now at the University of Florida) and Richard D. Boyce (University of Pittsburgh)
+    with collaborators, as part of NIH-funded work on curating a drug interaction
+    evidence base. Built on the Basic Formal Ontology and reusing terms from OBO ontologies
+    such as ChEBI, PRO, GO, and OBI, DIDEO treats a potential drug-drug interaction
+    as an information content entity and links it to the pharmacokinetic and pharmacodynamic
+    mechanisms that underlie it (for example enzyme inhibition or induction and transporter
+    effects) and to the study designs and document types that provide evidence. A
+    distinctive feature is its formalization of evidence types, in that DIDEO defines
+    dozens of in vitro and in vivo pharmacokinetic DDI evidence types (clinical trials,
+    pharmacokinetic trials, genotyped versus phenotyped studies, case reports, and
+    so on) so that an OWL reasoner can infer a study's specific evidence type from
+    a small set of design features. The ontology is released under CC BY 4.0 with
+    stable OBO PURLs, is browsable through Ontobee, OLS, and BioPortal, and is maintained
+    in the DIDEO GitHub repository. It is used to annotate and structure drug interaction
+    evidence for pharmacovigilance and clinical decision support, and as a controlled
+    target vocabulary for natural language processing and machine learning systems
+    that classify the biomedical literature on drug interactions.
   requires_registration: false
   url: https://github.com/DIDEO/DIDEO
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/s13326-018-0183-z
+    ref_title: Extending the DIDEO ontology to include entities from the natural product
+      drug interaction domain of discourse
+    ref_authors:
+    - Judkins J
+    - Tay-Sontheimer J
+    - Boyce RD
+    - Brochhausen M
+    ref_publication_year: 2018
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:440
   category: B2AI_STANDARD:OntologyOrVocabulary
   concerns_data_topic:
