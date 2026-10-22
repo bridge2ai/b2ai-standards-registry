@@ -32947,26 +32947,57 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_draft
   concerns_data_topic:
   - B2AI_TOPIC:7
   - B2AI_TOPIC:51
+  - B2AI_TOPIC:53
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Mental Disease Ontology
   formal_specification: https://github.com/jannahastings/mental-functioning-ontology
+  has_relevant_organization:
+  - B2AI_ORG:209
+  - B2AI_ORG:210
   has_training_resource:
   - B2AI_STANDARD:1001
   is_open: true
   name: MFOMD
-  purpose_detail: Mental diseases such as schizophrenia, annotated with DSM-IV and
-    ICD codes where applicable.
+  purpose_detail: MFOMD, the Mental Functioning Ontology of Mental Disease (also referred
+    to as the Mental Disease Ontology, MDO), is an OBO Foundry ontology that provides
+    a realism-based representation of mental diseases and their clinical manifestations.
+    It is one component of the broader Mental Functioning Ontology (MF) project, a
+    family of ontologies describing human mental functioning and disease that also
+    includes the Emotion Ontology (MFOEM). MFOMD uses the Basic Formal Ontology (BFO)
+    as its upper-level framework and reuses the Ontology for General Medical Science
+    (OGMS) for generic disease, disorder, diagnosis, and clinical-finding classes,
+    specializing them for psychiatric conditions. It represents mental diseases such
+    as schizophrenia, mood disorders, and anxiety disorders together with their signs,
+    symptoms, and courses, and cross-references established clinical classifications
+    by annotating classes with DSM-IV and ICD codes where applicable. The ontology
+    grew out of work by Werner Ceusters and Barry Smith at the University at Buffalo,
+    who set out foundations for unambiguous, realist reference to the entities involved
+    in mental disease, and it has been developed and maintained as an open community
+    resource by Janna Hastings and collaborators, with ontology files, issue discussions,
+    and documentation hosted in the mental-functioning-ontology GitHub repository.
+    Its intended use is to support consistent annotation, data integration, and automated
+    reasoning over psychiatric and mental-health data across disciplines.
   related_to:
   - B2AI_STANDARD:512
+  - B2AI_STANDARD:408
+  - B2AI_STANDARD:487
+  - B2AI_STANDARD:441
   requires_registration: false
   url: https://github.com/jannahastings/mental-functioning-ontology
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/2041-1480-1-10
+    ref_title: Foundations for a realist ontology of mental disease
+    ref_authors:
+    - Ceusters W
+    - Smith B
+    ref_publication_year: 2010
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:487
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -33012,6 +33043,8 @@ data_standardortools_collection:
     checking, and community-driven refinement, essential for computational neuroscience,
     digital mental health platforms, cognitive science research, and integrative brain
     databases.
+  related_to:
+  - B2AI_STANDARD:486
   requires_registration: false
   url: https://github.com/jannahastings/mental-functioning-ontology
   publication:
