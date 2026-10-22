@@ -34830,6 +34830,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:7
@@ -34840,6 +34842,34 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Ontology of Adverse Events
   formal_specification: https://github.com/OAE-ontology/OAE/
+  has_application:
+  - id: B2AI_APP:528
+    category: B2AI:Application
+    name: LLM text embeddings and OAE ontology semantic analysis of vaccine adverse
+      event profiles
+    description: This study analyzes differential adverse event profiles across US-licensed
+      vaccines by comparing two computational approaches. The authors use the Llama-3
+      large language model to extract adverse event information from FDA package inserts
+      for 111 licensed vaccines (including 15 influenza vaccines), then map the extracted
+      adverse event text to Ontology of Adverse Events (OAE) terms using the BioPortal
+      Annotator and the in-house OntoRetriever tool, with expert manual review of
+      the mappings. Semantic similarity between vaccines is computed from their OAE-mapped
+      term sets using Lin's method, and this ontology-based clustering is contrasted
+      with clustering derived from LLM text embeddings. OAE here provides the standardized
+      term space that structures the extracted adverse events and enables the ontology-driven
+      semantic-similarity analysis against which the LLM embedding approach is benchmarked.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13326-025-00331-8
+      ref_title: Unveiling differential adverse event profiles in vaccines via LLM
+        text embeddings and ontology semantic analysis
+      ref_authors:
+      - Wang Z
+      - Li X
+      - Zheng J
+      - He Y
+      ref_publication_year: 2025
+      ref_journal: Journal of Biomedical Semantics
   is_open: true
   name: OAE
   purpose_detail: Ontology of Adverse Events (OAE) is a community-developed biomedical
@@ -34880,9 +34910,25 @@ data_standardortools_collection:
     safety through earlier detection and characterization of intervention-related
     harms.
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:178
   url: https://github.com/OAE-ontology/OAE/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/2041-1480-5-29
+    ref_title: 'OAE: The Ontology of Adverse Events'
+    ref_authors:
+    - He Y
+    - Sarntivijai S
+    - Lin Y
+    - Xiang Z
+    - Guo A
+    - Zhang S
+    - Jagannathan D
+    - Toldo L
+    - Tao C
+    - Smith B
+    ref_publication_year: 2014
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:517
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
