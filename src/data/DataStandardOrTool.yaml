@@ -23503,6 +23503,7 @@ data_standardortools_collection:
     and machine processability through XML standards.
   related_to:
   - B2AI_STANDARD:829
+  - B2AI_STANDARD:748
   requires_registration: false
   url: http://graphml.graphdrawing.org/specification.html
   publication:
@@ -40474,6 +40475,10 @@ data_standardortools_collection:
   url: https://cromwell.readthedocs.io/en/stable/
 - id: B2AI_STANDARD:748
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - datavisualization
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:21
   - B2AI_TOPIC:60
@@ -40482,14 +40487,130 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Cytoscape software
   formal_specification: https://github.com/cytoscape/cytoscape
+  has_application:
+  - id: B2AI_APP:514
+    category: B2AI:Application
+    name: CyNetSVM network-constrained support vector machines for cancer biomarker
+      identification
+    description: CyNetSVM is a Cytoscape app that implements a machine learning method,
+      the network-constrained support vector machine (NetSVM), to identify a connected
+      subnetwork of genes that serves as a cancer biomarker. The app embeds the supervised
+      classifier directly in the Cytoscape platform, taking gene expression data and
+      a protein-protein interaction network as input and training an SVM whose feature
+      weights are regularized by the network topology so that selected biomarker genes
+      form a connected module. The authors demonstrate it on breast cancer expression
+      data to find a network of genes associated with cancer recurrence, and Cytoscape
+      provides both the computational framework and the visualization of the learned
+      biomarker subnetwork. This is a direct use of Cytoscape as the delivery platform
+      for a supervised machine learning classifier applied to biomedical data.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1371/journal.pone.0170482
+      ref_title: 'CyNetSVM: A Cytoscape App for Cancer Biomarker Identification Using
+        Network Constrained Support Vector Machines'
+      ref_authors:
+      - Shi X
+      - Banerjee S
+      - Chen L
+      - Hilakivi-Clarke L
+      - Clarke R
+      - Xuan J
+      ref_publication_year: 2017
+      ref_journal: PLOS ONE
+  - id: B2AI_APP:515
+    category: B2AI:Application
+    name: CyNetworkBMA gene regulatory network inference by Bayesian model averaging
+    description: CyNetworkBMA is a Cytoscape app that infers gene regulatory networks
+      from gene expression data using networkBMA, a method based on Bayesian model
+      averaging over regression models. The app runs the statistical learning procedure
+      inside Cytoscape, letting users select data, run Bayesian model averaging without
+      writing code, and immediately visualize and explore the inferred regulatory
+      network. Here Cytoscape acts as the interactive environment in which a probabilistic
+      machine learning model is fit to expression data and its output network is rendered
+      and analyzed, making the model accessible to biomedical users through a graphical
+      interface.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1186/s13029-015-0043-5
+      ref_title: 'CyNetworkBMA: a Cytoscape app for inferring gene regulatory networks'
+      ref_authors:
+      - Fronczuk M
+      - Raftery AE
+      - Yeung KY
+      ref_publication_year: 2015
+      ref_journal: Source Code for Biology and Medicine
+  - id: B2AI_APP:516
+    category: B2AI:Application
+    name: Cyni framework for network inference methods in Cytoscape
+    description: Cyni is a Java framework that provides shared infrastructure for
+      building network inference and other data-mining algorithms as Cytoscape apps,
+      including common input handling, missing-value imputation, discretization, and
+      induction graph structures. It lets algorithm developers turn a network inference
+      prototype into an installable Cytoscape app accessible from the App Store with
+      minimal effort, and the authors demonstrate it by reimplementing the ARACNE
+      mutual-information network inference method. Cyni makes Cytoscape a platform
+      on which statistical learning and network inference algorithms are deployed,
+      run against omics data, and visualized, lowering the barrier for delivering
+      such computational methods to biomedical researchers.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btu812
+      ref_title: The Cyni framework for network inference in Cytoscape
+      ref_authors:
+      - Guitart-Pla O
+      - Kustagi M
+      - Rügheimer F
+      - Califano A
+      - Schwikowski B
+      ref_publication_year: 2015
+      ref_journal: Bioinformatics
+  has_relevant_organization:
+  - B2AI_ORG:160
+  - B2AI_ORG:154
+  has_training_resource:
+  - B2AI_STANDARD:1337
   is_open: true
   name: Cytoscape
-  purpose_detail: An open source software platform for visualizing complex networks
-    and integrating these with any type of attribute data.
+  purpose_detail: Cytoscape is an open source software platform for visualizing molecular
+    interaction networks and biological pathways and integrating these networks with
+    annotations, gene expression profiles, and other state data. It was originally
+    developed at the Institute for Systems Biology and is now maintained by the Cytoscape
+    Consortium, with continued core development led from the University of California
+    San Diego. The desktop application represents biological entities as nodes and
+    their relationships as edges, supports import of networks and tabular attribute
+    data in many formats, and offers layout algorithms, filtering, visual styling
+    driven by data attributes, and topological and statistical analyses. Its functionality
+    is extended by a large ecosystem of community-contributed apps distributed through
+    the Cytoscape App Store, covering tasks such as functional enrichment, network
+    inference, clustering, database import, and machine learning. Cytoscape also exposes
+    automation interfaces (CyREST and commands) so that networks can be built and
+    analyzed programmatically from Python or R, and it interoperates with the NDEx
+    network exchange and with the JavaScript library Cytoscape.js for web-based rendering.
+    It is one of the most widely used tools in systems biology and network medicine
+    for exploring omics-derived networks.
+  related_to:
+  - B2AI_STANDARD:1336
+  - B2AI_STANDARD:337
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:194
   url: https://cytoscape.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1101/gr.1239303
+    ref_title: 'Cytoscape: A Software Environment for Integrated Models of Biomolecular
+      Interaction Networks'
+    ref_authors:
+    - Shannon P
+    - Markiel A
+    - Ozier O
+    - Baliga NS
+    - Wang JT
+    - Ramage D
+    - Amin N
+    - Schwikowski B
+    - Ideker T
+    ref_publication_year: 2003
+    ref_journal: Genome Research
 - id: B2AI_STANDARD:749
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -69540,5 +69661,73 @@ data_standardortools_collection:
   - B2AI_STANDARD:730
   requires_registration: false
   url: https://book.ohdsi.org/StandardizedVocabularies.html
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1336
+  category: B2AI_STANDARD:SoftwareOrTool
+  concerns_data_topic:
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Open source JavaScript graph theory library for network visualization
+    and analysis
+  formal_specification: https://github.com/cytoscape/cytoscape.js
+  is_open: true
+  name: Cytoscape.js
+  purpose_detail: Cytoscape.js is an open source JavaScript library for graph theory,
+    network analysis, and interactive visualization that runs in web browsers and
+    in Node.js. Developed by the Bader lab at the University of Toronto as a companion
+    to the Cytoscape desktop application, it provides a programmatic API for representing
+    graphs (nodes and edges with arbitrary data), a collection of graph theory algorithms
+    such as traversals, shortest paths, and centrality measures, layout algorithms,
+    and event-driven interactive rendering with data-driven styling. It is framework-agnostic,
+    free of external dependencies, and widely embedded in bioinformatics web applications
+    and general-purpose network tools to display and manipulate graphs on the web.
+    It is distinct from the Cytoscape desktop platform but shares its conceptual model
+    and community.
+  related_to:
+  - B2AI_STANDARD:748
+  requires_registration: false
+  url: https://js.cytoscape.org/
+  publication:
+    ref_url: https://doi.org/10.1093/bioinformatics/btv557
+    ref_title: 'Cytoscape.js: a graph theory library for visualisation and analysis'
+    ref_authors:
+    - Franz M
+    - Lopes CT
+    - Huck G
+    - Dong Y
+    - Sumer O
+    - Bader GD
+    ref_publication_year: 2015
+    ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1337
+  category: B2AI_STANDARD:TrainingProgram
+  concerns_data_topic:
+  - B2AI_TOPIC:52
+  - B2AI_TOPIC:21
+  - B2AI_TOPIC:60
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Official Cytoscape user manual and step-by-step tutorials
+  is_open: true
+  name: Cytoscape Manual and Tutorials
+  purpose_detail: The Cytoscape user manual is the platform's official, versioned
+    documentation, covering installation, loading and importing networks and tables,
+    layouts, visual styling, filtering, analysis, app management, and the automation
+    and command interfaces. It is complemented by a maintained set of step-by-step
+    tutorials hosted by the Cytoscape project that walk new users through core workflows
+    such as importing networks, styling and analyzing them, performing functional
+    enrichment, and automating Cytoscape from Python and R. Together these are the
+    authoritative training resources for learning to use Cytoscape.
+  related_to:
+  - B2AI_STANDARD:748
+  requires_registration: false
+  url: https://manual.cytoscape.org/en/stable/
   publication:
     ref_url: ''
