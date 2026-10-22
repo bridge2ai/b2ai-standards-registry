@@ -33185,21 +33185,95 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:71
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:25
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Mouse Developmental Anatomy Ontology
   formal_specification: https://github.com/obophenotype/mouse-anatomy-ontology
+  has_application:
+  - id: B2AI_APP:523
+    category: B2AI:Application
+    name: Automated ontology-term annotation of mouse embryo gene expression images
+    description: This work builds a machine-learning and image-processing pipeline
+      that automatically identifies and annotates spatial gene expression patterns
+      in mouse embryo in situ hybridisation images, replacing slow and costly manual
+      curation. The label space is the set of anatomical component terms from the
+      Edinburgh Mouse Atlas developmental anatomy ontology (the EMAP/EMAPA ontology
+      underlying this entry), as applied to the EURExpress-II whole-mount and section
+      image collection; the authors train one binary classifier per anatomical term,
+      turning multi-label annotation into per-term presence/absence decisions. Tested
+      on nine anatomical terms (humerus, handplate, fibula, tibia, femur, ribs, petrous
+      part, scapula, and head mesenchyme), the classifiers reach roughly 70-80% accuracy.
+      The ontology therefore supplies the controlled anatomical vocabulary that defines
+      the supervised prediction targets and the curated training labels. An earlier
+      conference paper from the same group presents the initial version of the framework.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/bioinformatics/btr105
+      ref_title: Automatically identifying and annotating mouse embryo gene expression
+        patterns
+      ref_authors:
+      - Han L
+      - van Hemert JI
+      - Baldock RA
+      ref_publication_year: 2011
+      ref_journal: Bioinformatics
+    - ref_url: https://doi.org/10.1007/978-3-642-03348-3_46
+      ref_title: Automating Gene Expression Annotation for Mouse Embryo
+      ref_authors:
+      - Han L
+      - van Hemert J
+      - Baldock R
+      - Atkinson M
+      ref_publication_year: 2009
+      ref_journal: Lecture Notes in Computer Science (Advanced Data Mining and Applications)
+  has_relevant_organization:
+  - B2AI_ORG:199
   is_open: true
   name: EMAPA
-  purpose_detail: Mouse anatomy covering embryonic development and postnatal stages.
+  purpose_detail: EMAPA is the Mouse Developmental Anatomy Ontology, the abstract
+    (non-stage-specific) component of the Edinburgh Mouse Atlas Project (EMAP) anatomy
+    ontology. It provides a standardized, species-specific controlled vocabulary of
+    mouse anatomical structures spanning embryonic development (organized against
+    Theiler stages) through postnatal and adult stages. In the 2013 reorganization,
+    each anatomical entity is represented as a single term carrying the first and
+    last developmental stage at which it is considered present, and the terms are
+    arranged as a directed acyclic graph that permits multiple parent (part-of and
+    is-a) relationships rather than a separate strict partonomy for every stage. The
+    ontology was originally developed at the MRC Human Genetics Unit in Edinburgh
+    and is now maintained and expanded by the Gene Expression Database (GXD) team
+    at the Mouse Genome Informatics (MGI) resource, The Jackson Laboratory. EMAPA
+    is the primary anatomical framework used by GXD to annotate the tissue location
+    of mouse gene expression results from in situ hybridisation, immunohistochemistry,
+    RT-PCR, RNA-seq, and other assays, and it underpins spatial browsing and query
+    tools such as the GXD Anatomy Browser and the EMAGE spatial expression database.
+    It is distributed as an OBO Foundry ontology, is released under an open license,
+    and interoperates with Uberon and other anatomy and phenotype resources, making
+    it a standard vocabulary for integrating developmental mouse expression and phenotype
+    data across projects.
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:181
   url: http://www.informatics.jax.org/expression.shtml
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/2041-1480-4-15
+    ref_title: 'EMAP/EMAPA ontology of mouse developmental anatomy: 2013 update'
+    ref_authors:
+    - Hayamizu TF
+    - Wicks MN
+    - Davidson DR
+    - Burger A
+    - Ringwald M
+    - Baldock RA
+    ref_publication_year: 2013
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:497
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -68945,5 +69019,40 @@ data_standardortools_collection:
   - B2AI_STANDARD:563
   requires_registration: false
   url: https://obophenotype.github.io/uberon/
+  publication:
+    ref_url: ''
+- id: B2AI_STANDARD:1342
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:34
+  - B2AI_TOPIC:25
+  - B2AI_TOPIC:71
+  contribution_date: '2026-10-21'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Gene Expression Database (GXD)
+  has_relevant_organization:
+  - B2AI_ORG:181
+  is_open: true
+  name: GXD
+  purpose_detail: The Gene Expression Database (GXD) is the community resource for
+    mouse developmental gene expression information, part of the Mouse Genome Informatics
+    (MGI) system at The Jackson Laboratory. GXD stores and integrates expression data
+    from in situ hybridisation, immunohistochemistry, RT-PCR, Northern and Western
+    blots, and RNA-seq experiments, capturing where and when genes are expressed in
+    wild-type and mutant mice across embryonic and postnatal stages. Expression results
+    are annotated to standardized mouse anatomical structures using the EMAPA Mouse
+    Developmental Anatomy Ontology, enabling queries by gene, anatomical structure,
+    developmental stage, and assay type, and allowing integration with phenotype,
+    genotype, and image data elsewhere in MGI. GXD also curates and serves the EMAPA
+    ontology itself. It is openly accessible without registration and is a primary
+    consumer and maintainer of EMAPA.
+  related_to:
+  - B2AI_STANDARD:496
+  requires_registration: false
+  url: https://www.informatics.jax.org/expression.shtml
   publication:
     ref_url: ''
