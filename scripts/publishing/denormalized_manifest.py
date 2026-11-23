@@ -11,6 +11,7 @@ import base64
 import gzip
 import json
 import sys
+import time
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 from urllib.parse import quote
@@ -66,14 +67,50 @@ def build_lookup_dicts() -> Dict[str, Dict[str, str]]:
     return lookups
 
 
+# OLS intermittently stalls past a few seconds (scheduled runs have failed on
+# 5 s read timeouts), so give each request longer and retry transient errors
+# before giving up and holding the Manifest back.
+OLS_TIMEOUT = 15
+OLS_ATTEMPTS = 3
+OLS_BACKOFF = 2  # seconds; doubles after each failed attempt
+
+
+def _is_transient(error: requests.RequestException) -> bool:
+    """Timeouts, dropped connections, 429s and 5xx responses are worth retrying."""
+    if isinstance(error, (requests.Timeout, requests.ConnectionError)):
+        return True
+    response = getattr(error, 'response', None)
+    return response is not None and (response.status_code == 429 or response.status_code >= 500)
+
+
+def fetch_anatomy_label(ontology_id: str) -> Optional[str]:
+    """
+    Look up an ontology label from OLS, retrying transient errors with
+    exponential backoff. Raises the last requests.RequestException if every
+    attempt fails, or immediately for a non-transient error.
+    """
+    delay = OLS_BACKOFF
+    for attempt in range(1, OLS_ATTEMPTS + 1):
+        try:
+            return get_ontology_label(ontology_id, timeout=OLS_TIMEOUT, raise_on_error=True)
+        except requests.RequestException as e:
+            if attempt == OLS_ATTEMPTS or not _is_transient(e):
+                raise
+            print(f"  Anatomy label lookup for {ontology_id} failed "
+                  f"(attempt {attempt}/{OLS_ATTEMPTS}), retrying in {delay}s: {e}")
+            time.sleep(delay)
+            delay *= 2
+    return None  # unreachable; keeps type checkers content
+
+
 def get_anatomy_label_cached(ontology_id: str, cache: Dict[str, Optional[str]], failures: List[str]) -> Optional[str]:
     """
     Resolve an anatomy ontology ID to a label, with caching. IDs whose lookup
-    failed (rather than having no label) are appended to failures.
+    failed after retries (rather than having no label) are appended to failures.
     """
     if ontology_id not in cache:
         try:
-            cache[ontology_id] = get_ontology_label(ontology_id, raise_on_error=True)
+            cache[ontology_id] = fetch_anatomy_label(ontology_id)
         except requests.RequestException as e:
             print(f"  Anatomy label lookup failed for {ontology_id}: {e}")
             cache[ontology_id] = None
