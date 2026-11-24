@@ -32717,24 +32717,71 @@ data_standardortools_collection:
   url: http://db-mml.sjtu.edu.cn/ICEberg/
 - id: B2AI_STANDARD:475
   category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - implementation_maturity_pilot
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:58
+  - B2AI_TOPIC:75
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Intelligence Task Ontology
   formal_specification: https://github.com/OpenBioLink/ITO
+  has_application:
+  - id: B2AI_APP:547
+    category: B2AI:Application
+    name: Mapping benchmark creation and saturation in artificial intelligence
+    description: This study by the ITO developers built condensed maps of how AI benchmarks
+      are created and saturated, covering 3,765 benchmarks in computer vision and
+      natural language processing. It found that many benchmarks quickly approach
+      near-saturation and that many never find widespread use. ITO, curated from Papers
+      With Code data, supplied the coherent model of AI results, benchmarks, and tasks
+      used in the analysis. This is an analysis of AI evaluation practice rather than
+      the training of a model on ITO.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41467-022-34591-0
+      ref_title: Mapping global dynamics of benchmark creation and saturation in artificial
+        intelligence
+      ref_authors:
+      - Ott S
+      - Barbosa-Silva A
+      - Blagec K
+      - Brauner J
+      - Samwald M
+      ref_publication_year: 2022
+      ref_journal: Nature Communications
   has_relevant_organization:
   - B2AI_ORG:87
   is_open: true
   name: ITO
-  purpose_detail: Comprehensive, curated and interlinked data of artificial intelligence
-    tasks, benchmarks, AI performance metrics, benchmark results and research papers.
+  purpose_detail: The Intelligence Task Ontology and Knowledge Graph (ITO) is a curated
+    resource on artificial intelligence tasks, benchmarks, performance metrics, benchmark
+    results, and research papers. Benchmark results were imported from Papers With
+    Code and further curated into a class hierarchy. The version described in 2022
+    holds 685,560 edges, 1,100 classes representing AI processes, and 1,995 properties
+    representing performance metrics. Its primary goal is to support analysis of the
+    global landscape of AI tasks and capabilities. ITO is distributed as an OWL file
+    that can be queried with SPARQL, and is available through BioPortal and the ITO
+    Explorer dashboard. The latest tagged release is version 1.01, from May 2022,
+    and the repository has not been updated since October 2022, so it does not describe
+    more recent AI benchmarks.
+  related_to:
+  - B2AI_STANDARD:717
   requires_registration: false
   url: https://openbiolink.github.io/ITOExplorer/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1038/s41597-022-01435-x
+    ref_title: A curated, ontology-based, large-scale knowledge graph of artificial
+      intelligence tasks and benchmarks
+    ref_authors:
+    - Blagec K
+    - Barbosa-Silva A
+    - Ott S
+    - Samwald M
+    ref_publication_year: 2022
+    ref_journal: Scientific Data
 - id: B2AI_STANDARD:476
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
