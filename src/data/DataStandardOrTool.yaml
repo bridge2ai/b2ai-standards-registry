@@ -29103,26 +29103,150 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:425
   category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:7
   - B2AI_TOPIC:53
   - B2AI_TOPIC:81
+  - B2AI_TOPIC:66
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Common Terminology Criteria for Adverse Events
-  formal_specification: https://ctep.cancer.gov/protocoldevelopment/electronic_applications/ctc.htm
+  formal_specification: https://dctd.cancer.gov/research/ctep-trials/for-sites/adverse-events
+  has_application:
+  - id: B2AI_APP:535
+    category: B2AI:Application
+    name: Extracting CTCAE adverse events from immunotherapy trial notes with GPT-5
+    description: This comparative study tested whether a large language model can
+      identify adverse events documented in 54 clinical encounter notes from four
+      randomized immunotherapy trials. GPT-5 was prompted zero-shot to extract adverse
+      events classified by CTCAE version 5.0, and its output was compared with a majority-vote
+      consensus of three clinician reviewers who used the same criteria. The model
+      reached a mean encounter F1 score of 0.76 (95% CI, 0.70-0.82), comparable to
+      individual reviewers, while the reviewers themselves showed only moderate agreement
+      (Krippendorff alpha of 0.56). Laboratory-related events were excluded. CTCAE
+      supplies the label set for both the model output and the reference standard.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1001/jamanetworkopen.2026.31840
+      ref_title: Large Language Models and Adverse Event Detection Within Immunotherapy
+        Clinical Trials
+      ref_authors:
+      - Elia MV
+      - Friesner ID
+      - Kwon D
+      - Ni L
+      - Sinha S
+      - Ishiyama Y
+      - Zack T
+      - Bridge M
+      - Fong L
+      - Hong JC
+      ref_publication_year: 2026
+      ref_journal: JAMA Network Open
+  - id: B2AI_APP:536
+    category: B2AI:Application
+    name: Grading chemotherapy toxicities in fictitious cases with a large language
+      model
+    description: This pilot study compared a contextualized large language model with
+      13 oncologists in classifying subjective chemotherapy toxicities across 30 fictitious
+      cases, using CTCAE version 5 criteria. The model reached 85.7% accuracy in general
+      toxicity categories and 64.6% in specific categories, against ranges of 66.7%
+      to 89.2% and 57.0% to 76.0% for individual oncologists. CTCAE provides the categories
+      that the model predicts and that the oncologists assigned. The cases were fictitious,
+      and the authors call for validation with real patients.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3390/cancers16162830
+      ref_title: 'Leveraging Large Language Models for Precision Monitoring of Chemotherapy-Induced
+        Toxicities: A Pilot Study with Expert Comparisons and Future Directions'
+      ref_authors:
+      - Ruiz Sarrias O
+      - Martínez del Prado MP
+      - Sala Gonzalez MÁ
+      - Azcuna Sagarduy J
+      - Casado Cuesta P
+      - Figaredo Berjano C
+      - Galve-Calvo E
+      - López de San Vicente Hernández B
+      - López-Santillán M
+      - Nuño Escolástico M
+      - Sánchez Togneri L
+      - Sande Sardina L
+      - Pérez Hoyos MT
+      - Abad Villar MT
+      - Zabalza Zudaire M
+      - Sayar Beristain O
+      ref_publication_year: 2024
+      ref_journal: Cancers
+  - id: B2AI_APP:537
+    category: B2AI:Application
+    name: Abstracting CTCAE symptoms from radiation oncology notes with natural language
+      processing
+    description: This study built a natural language processing pipeline on the Apache
+      clinical Text Analysis Knowledge Extraction System (cTAKES) to extract CTCAE
+      version 5.0 symptoms from 100 on-treatment visit notes recorded during radiation
+      therapy. Output was compared with two physician reviewers, adjudicated by a
+      third. The pipeline performed well on common symptoms, including radiation dermatitis
+      (F1 of 0.88), fatigue (0.85), and nausea (0.88), and had poor sensitivity for
+      negated symptoms. CTCAE terms define the symptoms extracted and the labels used
+      for evaluation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamiaopen/ooaa064
+      ref_title: 'Natural language processing for abstraction of cancer treatment
+        toxicities: accuracy versus human experts'
+      ref_authors:
+      - Hong JC
+      - Fairchild AT
+      - Tanksley JP
+      - Palta M
+      - Tenenbaum JD
+      ref_publication_year: 2020
+      ref_journal: JAMIA Open
   is_open: true
   name: CTCAE
-  purpose_detail: Common Terminology Criteria for Adverse Events (CTCAE) is widely
-    accepted throughout the oncology community as the standard classification and
-    severity grading scale for adverse events in cancer therapy clinical trials and
-    other oncology settings.
+  purpose_detail: The Common Terminology Criteria for Adverse Events (CTCAE) is the
+    National Cancer Institute (NCI) terminology and severity scale for reporting adverse
+    events in cancer clinical trials. It is maintained by the NCI Cancer Therapy Evaluation
+    Program and descends from the Common Toxicity Criteria (CTC), developed in 1982.
+    Each term is paired with descriptions of severity on a scale from Grade 1 to Grade
+    5, so that reports of the same event can be compared across sites and trials.
+    Terms are aligned to MedDRA releases. Version 5.0 was released in 2017 against
+    MedDRA 20.1, and the current version 6.0 was released in 2025 against MedDRA 28.0.
+    NCI distributes version 6.0 as a spreadsheet with tracked changes and a mapping
+    to version 5.0, along with a quick reference document and an online dictionary.
+    CTCAE grades a clinician's assessment and is distinct from PRO-CTCAE, the companion
+    NCI instrument for patient-reported symptoms. CTCAE terms and grades also serve
+    as target labels for natural language processing of oncology notes.
+  related_to:
+  - B2AI_STANDARD:1293
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:71
   url: https://bioportal.bioontology.org/ontologies/CTCAE
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/s1053-4296(03)00031-6
+    ref_title: 'CTCAE v3.0: development of a comprehensive grading system for the
+      adverse effects of cancer treatment'
+    ref_authors:
+    - Trotti A
+    - Colevas A
+    - Setser A
+    - Rusch V
+    - Jaques D
+    - Budach V
+    - Langer C
+    - Murphy B
+    - Cumberlin R
+    - Coleman C
+    ref_publication_year: 2003
+    ref_journal: Seminars in Radiation Oncology
 - id: B2AI_STANDARD:426
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
