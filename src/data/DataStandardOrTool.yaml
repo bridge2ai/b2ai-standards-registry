@@ -46865,25 +46865,141 @@ data_standardortools_collection:
   url: https://mohuangx.github.io/SAVER/
 - id: B2AI_STANDARD:825
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - deprecated
+  - toolkit
   concerns_data_topic:
   - B2AI_TOPIC:54
   - B2AI_TOPIC:58
   - B2AI_TOPIC:60
+  - B2AI_TOPIC:32
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Snorkel
   formal_specification: https://github.com/snorkel-team/snorkel
-  is_open: false
+  has_application:
+  - id: B2AI_APP:542
+    category: B2AI:Application
+    name: Medical device surveillance from clinical notes with weak supervision
+    description: This study applied weak supervision and deep learning with the Snorkel
+      framework to find reports of implant-related complications and pain in clinical
+      notes, and combined them with structured health record data for post-market
+      device surveillance. Candidate relations among implants, complications, and
+      anatomical locations were labeled with data programming in Snorkel, and the
+      resulting labels were used to train a deep learning model. All models were implemented
+      in Snorkel.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41746-019-0168-z
+      ref_title: Medical device surveillance with electronic health records
+      ref_authors:
+      - Callahan A
+      - Fries JA
+      - Ré C
+      - Huddleston JI
+      - Giori NJ
+      - Delp S
+      - Shah NH
+      ref_publication_year: 2019
+      ref_journal: npj Digital Medicine
+  - id: B2AI_APP:543
+    category: B2AI:Application
+    name: Cross-modal weak supervision for medical imaging and monitoring
+    description: This work extends data programming to settings in which weak labels
+      from one modality, such as text reports, train models over another, such as
+      images. Clinicians write labeling functions over reports, and Snorkel generates
+      the probabilistic training labels. Models came on average within 1.75 points
+      ROC-AUC of models supervised with physician-years of hand labeling, using person-days
+      of effort. The method is implemented as an extension to Snorkel.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.patter.2020.100019
+      ref_title: Cross-Modal Data Programming Enables Rapid Medical Machine Learning
+      ref_authors:
+      - Dunnmon JA
+      - Ratner AJ
+      - Saab K
+      - Khandwala N
+      - Markert M
+      - Sagreiya H
+      - Goldman R
+      - Lee-Messer C
+      - Lungren MP
+      - Rubin DL
+      - Ré C
+      ref_publication_year: 2020
+      ref_journal: Patterns
+  - id: B2AI_APP:544
+    category: B2AI:Application
+    name: Ontology-driven weak supervision for clinical entity classification
+    description: Trove is a framework for weakly supervised clinical entity classification
+      that uses medical ontologies and expert-written rules as labeling sources. The
+      authors evaluated it on six benchmark tasks and used it on records of emergency
+      department patients with COVID-19 symptoms and risk factors. In the reported
+      benchmarks, Trove is combined with Snorkel, for example training BioBERT on
+      the BC5CDR task. Performance was comparable to learning from manually labeled
+      data.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41467-021-22328-4
+      ref_title: Ontology-driven weak supervision for clinical entity classification
+        in electronic health records
+      ref_authors:
+      - Fries JA
+      - Steinberg E
+      - Khattar S
+      - Fleming SL
+      - Posada J
+      - Callahan A
+      - Shah NH
+      ref_publication_year: 2021
+      ref_journal: Nature Communications
+  - id: B2AI_APP:545
+    category: B2AI:Application
+    name: Weakly supervised spatial relation extraction from radiology reports
+    description: This study used the Snorkel framework to create weak labels for spatial
+      relations in radiology reports. Labeling functions drew on the RadLex lexicon,
+      regular expressions, and language characteristics of the reports, and the labels
+      were used to fine-tune a BERT model. The weakly supervised model reached a spatial
+      trigger F1 of 72.89 and a relation F1 of 52.47 without manual training annotations,
+      and a relation F1 of 68.76 after further fine-tuning on manual annotations.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamiaopen/ooad027
+      ref_title: Weakly supervised spatial relation extraction from radiology reports
+      ref_authors:
+      - Datta S
+      - Roberts K
+      ref_publication_year: 2023
+      ref_journal: JAMIA Open
+  has_relevant_organization:
+  - B2AI_ORG:186
+  is_open: true
   name: Snorkel
-  purpose_detail: Snorkel is a platform for automated data labeling. It has since
-    been extended into a full machine learning platform (see https://snorkel.ai/).
-  requires_registration: true
+  purpose_detail: Snorkel is an open source Python system for creating machine learning
+    training data programmatically through weak supervision. In place of hand labels,
+    users write labeling functions that encode rules, patterns, or other heuristics.
+    Snorkel combines their noisy outputs into probabilistic training labels, an approach
+    known as data programming. The project began at Stanford in 2015 and has been
+    used widely in biomedical text and image classification. The open source library
+    is released under the Apache 2.0 license, and its latest tagged release is version
+    0.10.0, from February 2024. Its developers state that they now focus on Snorkel
+    Flow, a separate commercial platform.
+  requires_registration: false
   url: https://www.snorkel.org/
-  collection:
-  - deprecated
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1007/s00778-019-00552-1
+    ref_title: 'Snorkel: rapid training data creation with weak supervision'
+    ref_authors:
+    - Ratner A
+    - Bach SH
+    - Ehrenberg H
+    - Fries J
+    - Wu S
+    - Ré C
+    ref_publication_year: 2019
+    ref_journal: The VLDB Journal
 - id: B2AI_STANDARD:826
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
