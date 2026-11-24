@@ -48868,25 +48868,68 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:837
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:9
   - B2AI_TOPIC:60
+  - B2AI_TOPIC:64
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Usagi
   formal_specification: https://github.com/OHDSI/Usagi
-  has_relevant_organization:
-  - B2AI_ORG:76
+  has_application:
+  - id: B2AI_APP:546
+    category: B2AI:Application
+    name: Validating language model translation of surgical procedure codes with Usagi
+    description: MAP-CARE is a framework that uses large language models to translate
+      and transform medical procedure terms into a shared multilingual embedding space,
+      for retrieval and mapping across national procedure classifications. To check
+      the quality of the translated Swiss CHOP codes, the authors loaded the English
+      translations into Usagi, mapped them automatically to SNOMED CT concepts, and
+      reviewed the mappings by hand. Usagi thus supplies the validation workflow for
+      the model's translations and is not the mapping model itself. The framework
+      reached Acc@5 of up to 0.90 in translating procedure codes across English, German,
+      French, and Italian.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1038/s41598-025-34778-7
+      ref_title: LLM-augmented semantic embeddings enable Cross-Lingual mapping of
+        medical procedure terms
+      ref_authors:
+      - Guillen-Ramirez H
+      - Triep K
+      - Gaudet-Blavignac C
+      - Phull B
+      - Beldi G
+      - Endrich O
+      ref_publication_year: 2026
+      ref_journal: Scientific Reports
   has_training_resource:
   - B2AI_STANDARD:844
   is_open: true
   name: Usagi
-  purpose_detail: An application to help create mappings between coding systems and
-    the Vocabulary standard concepts.
+  purpose_detail: Usagi is an Observational Health Data Sciences and Informatics (OHDSI)
+    desktop application that helps map source codes to the standard concepts of the
+    OHDSI vocabularies. It creates an initial mapping automatically from term similarity,
+    using concept names and synonyms, and then supports interactive review and correction.
+    Searches can be filtered by target vocabulary, domain, or concept class, and an
+    existing mapping can be reapplied when the source codes or vocabulary change.
+    Results export to the source_to_concept_map format used in building OMOP Common
+    Data Model datasets. Usagi is a Java application that uses Apache Lucene for term
+    matching and is licensed under Apache 2.0. It is often the lexical baseline against
+    which embedding and language model mapping methods are compared. Its latest tagged
+    release is version 1.4.3, from April 2021.
+  related_to:
+  - B2AI_STANDARD:243
+  - B2AI_STANDARD:730
+  - B2AI_STANDARD:1357
   requires_registration: false
-  url: https://github.com/OHDSI/Usagi
+  responsible_organization:
+  - B2AI_ORG:76
+  url: https://ohdsi.github.io/Usagi/
   publication:
     ref_url: ''
 - id: B2AI_STANDARD:838
@@ -71911,3 +71954,37 @@ data_standardortools_collection:
     - Sali A
     ref_publication_year: 2024
     ref_journal: Journal of Molecular Biology
+- id: B2AI_STANDARD:1357
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:62
+  contribution_date: '2026-11-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: WhiteRabbit and Rabbit in a Hat
+  formal_specification: https://github.com/OHDSI/WhiteRabbit
+  is_open: true
+  name: WhiteRabbit
+  purpose_detail: WhiteRabbit is an Observational Health Data Sciences and Informatics
+    (OHDSI) application that analyzes the structure and contents of a database in
+    preparation for an extract, transform, and load (ETL) process. It scans sources
+    including SQL Server, Oracle, PostgreSQL, MySQL, Amazon Redshift, Google BigQuery,
+    SAS files, and CSV files, and reports on tables, fields, and value frequencies,
+    with a minimum frequency cutoff to protect patient privacy. The accompanying Rabbit
+    in a Hat application uses the scan report to design an ETL to the OMOP Common
+    Data Model interactively and to generate a specification document. Both are Java
+    applications, released under the Apache 2.0 license.
+  related_to:
+  - B2AI_STANDARD:837
+  - B2AI_STANDARD:243
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:76
+  url: https://github.com/OHDSI/WhiteRabbit
+  publication:
+    ref_url: ''
