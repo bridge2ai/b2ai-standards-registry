@@ -71,13 +71,49 @@ class BuildDenormalizedDfTests(unittest.TestCase):
 class AnatomyLabelLookupTests(unittest.TestCase):
     """A failed label lookup is recorded; a term with no label isn't."""
 
+    @patch.object(manifest_module.time, "sleep")
     @patch.object(manifest_module, "get_ontology_label",
                   side_effect=manifest_module.requests.ConnectionError("down"))
-    def test_network_failure_is_recorded(self, _mock_get_ontology_label):
+    def test_network_failure_is_recorded(self, mock_get_ontology_label, _mock_sleep):
         failures: list[str] = []
         label = manifest_module.get_anatomy_label_cached("UBERON:0001", {}, failures)
         self.assertIsNone(label)
         self.assertEqual(failures, ["UBERON:0001"])
+        self.assertEqual(mock_get_ontology_label.call_count, manifest_module.OLS_ATTEMPTS)
+
+    @patch.object(manifest_module.time, "sleep")
+    @patch.object(manifest_module, "get_ontology_label",
+                  side_effect=[manifest_module.requests.ReadTimeout("slow"), "Retina"])
+    def test_timeout_is_retried(self, mock_get_ontology_label, mock_sleep):
+        failures: list[str] = []
+        self.assertEqual(manifest_module.get_anatomy_label_cached("UBERON:0001", {}, failures), "Retina")
+        self.assertEqual(failures, [])
+        self.assertEqual(mock_get_ontology_label.call_count, 2)
+        mock_sleep.assert_called_once_with(manifest_module.OLS_BACKOFF)
+
+    @patch.object(manifest_module.time, "sleep")
+    def test_server_error_is_retried(self, mock_sleep):
+        response = manifest_module.requests.Response()
+        response.status_code = 503
+        error = manifest_module.requests.HTTPError(response=response)
+        with patch.object(manifest_module, "get_ontology_label", side_effect=[error, "Retina"]) as mock_get:
+            failures: list[str] = []
+            self.assertEqual(manifest_module.get_anatomy_label_cached("UBERON:0001", {}, failures), "Retina")
+        self.assertEqual(failures, [])
+        self.assertEqual(mock_get.call_count, 2)
+        mock_sleep.assert_called_once_with(manifest_module.OLS_BACKOFF)
+
+    @patch.object(manifest_module.time, "sleep")
+    def test_client_error_is_not_retried(self, mock_sleep):
+        response = manifest_module.requests.Response()
+        response.status_code = 400
+        error = manifest_module.requests.HTTPError(response=response)
+        with patch.object(manifest_module, "get_ontology_label", side_effect=error) as mock_get:
+            failures: list[str] = []
+            self.assertIsNone(manifest_module.get_anatomy_label_cached("UBERON:0001", {}, failures))
+        self.assertEqual(failures, ["UBERON:0001"])
+        self.assertEqual(mock_get.call_count, 1)
+        mock_sleep.assert_not_called()
 
     @patch.object(manifest_module, "get_ontology_label", return_value=None)
     def test_missing_label_is_not_a_failure(self, _mock_get_ontology_label):

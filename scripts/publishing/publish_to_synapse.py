@@ -78,7 +78,8 @@ def build_all_tables(syn: Synapse) -> Tuple[Dict[str, Built], Dict[str, str]]:
     Build every table we publish.
 
     :return: (tables keyed by name, reasons keyed by name for tables that built
-        but mustn't be published)
+        but mustn't be published; these are warnings, not failures, because
+        the last published version of the table is kept)
     """
     tables: Dict[str, Built] = {name: build_source_table(name) for name in SOURCE_TABLES}
     held_back: Dict[str, str] = {}
@@ -192,9 +193,12 @@ def publish_to_synapse(force: bool = False, dry_run: bool = False, create_views:
     # snapshots, so the others can still be published safely
     failures = []
     for name, (col_defs, df) in tables.items():
+        if name in held_back:
+            # Held back only because an outside lookup (EBI OLS) was unreachable;
+            # the last published version stays in place, so warn, don't fail
+            report_warning(name, held_back[name])
+            continue
         try:
-            if name in held_back:
-                raise PublishError(held_back[name])
             publish_table(syn, name, col_defs, df, force=force, dry_run=dry_run)
         except Exception as e:
             report_failure(name, e)
@@ -205,6 +209,12 @@ def publish_to_synapse(force: bool = False, dry_run: bool = False, create_views:
 
     if failures:
         raise PublishError(f"Failed to publish: {', '.join(failures)}")
+
+
+def report_warning(name: str, message: str) -> None:
+    status('HELD', name, message)
+    if os.getenv('GITHUB_ACTIONS'):
+        print(f"::warning title=Synapse publish held back: {name}::{message}")
 
 
 def report_failure(name: str, error: Exception) -> None:

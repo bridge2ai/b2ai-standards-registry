@@ -86,16 +86,25 @@ class PublishTableTests(unittest.TestCase):
 @patch.object(publish_module, "publish_table")
 @patch.object(publish_module, "initialize_synapse")
 class PublishToSynapseTests(unittest.TestCase):
-    """A held-back table fails the run without stopping the others."""
+    """A held-back table is skipped with a warning; a real failure fails the run."""
 
-    def test_held_back_table_is_not_published(self, _init, publish_table, update_views):
+    def test_held_back_table_is_skipped_without_failing(self, _init, publish_table, update_views):
+        update_views.return_value = []
         tables = {"Manifest": (COLS, make_df()), "T": (COLS, make_df())}
         with patch.object(publish_module, "build_all_tables",
                           return_value=(tables, {"Manifest": "lookup failed"})):
-            with self.assertRaises(publish_module.PublishError):
-                publish_module.publish_to_synapse()
+            publish_module.publish_to_synapse()  # no PublishError
         self.assertEqual([c.args[1] for c in publish_table.call_args_list], ["T"])
         update_views.assert_called_once()
+
+    def test_held_back_table_does_not_mask_other_failures(self, _init, publish_table, update_views):
+        update_views.return_value = []
+        publish_table.side_effect = lambda syn, name, *a, **k: (_ for _ in ()).throw(RuntimeError("boom"))
+        tables = {"Manifest": (COLS, make_df()), "T": (COLS, make_df())}
+        with patch.object(publish_module, "build_all_tables",
+                          return_value=(tables, {"Manifest": "lookup failed"})):
+            with self.assertRaisesRegex(publish_module.PublishError, "Failed to publish: T$"):
+                publish_module.publish_to_synapse()
 
 
 class DependencyOrderTests(unittest.TestCase):
