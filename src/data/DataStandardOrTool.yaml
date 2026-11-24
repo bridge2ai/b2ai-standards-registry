@@ -3689,8 +3689,6 @@ data_standardortools_collection:
     their associated metadata, administrative data, reference data, and audit information.
     ODM facilitates the regulatory-compliant acquisition, archival and exchange of
     metadata and data.
-  related_to:
-  - B2AI_STANDARD:689
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:15
@@ -7019,8 +7017,6 @@ data_standardortools_collection:
     it essential for training and deploying AI models in medical imaging, while its
     widespread clinical adoption ensures that AI tools can integrate seamlessly into
     existing radiological workflows and health IT infrastructure.
-  related_to:
-  - B2AI_STANDARD:691
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:25
@@ -8131,10 +8127,7 @@ data_standardortools_collection:
     real-time decision support at the point of care.
   related_to:
   - B2AI_STANDARD:720
-  - B2AI_STANDARD:688
-  - B2AI_STANDARD:693
-  - B2AI_STANDARD:694
-  - B2AI_STANDARD:697
+  - B2AI_STANDARD:1361
   requires_registration: true
   responsible_organization:
   - B2AI_ORG:40
@@ -17111,10 +17104,6 @@ data_standardortools_collection:
     reusable clinical features, transparent phenotype definitions, and comparable
     validation across heterogeneous healthcare systems.
   related_to:
-  - B2AI_STANDARD:692
-  - B2AI_STANDARD:695
-  - B2AI_STANDARD:698
-  - B2AI_STANDARD:703
   - B2AI_STANDARD:714
   - B2AI_STANDARD:733
   requires_registration: false
@@ -72728,3 +72717,122 @@ data_standardortools_collection:
     - Karr JR
     ref_publication_year: 2022
     ref_journal: Nucleic Acids Research
+- id: B2AI_STANDARD:1361
+  category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - toolkit
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:9
+  - B2AI_TOPIC:60
+  contribution_date: '2026-11-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: HAPI FHIR, an open source Java implementation of the HL7 FHIR standard
+  formal_specification: https://github.com/hapifhir/hapi-fhir
+  has_application:
+  - id: B2AI_APP:554
+    category: B2AI:Application
+    name: Language model and clinical quality language phenotyping of myocarditis
+      from FHIR data
+    description: This feasibility study compared a large language model with clinical
+      quality language (CQL) for extracting features and determining outcomes of myocarditis
+      after mRNA COVID-19 vaccination from patient FHIR data. Llama 3.3 70B Instruct
+      answered yes or no feature questions, and its answers were written back as FHIR
+      Observation resources to support an enhanced CQL method. Patient data were loaded
+      into a database made accessible through a HAPI FHIR server, where vocabularies
+      and units were checked against the value sets and logic. HAPI FHIR is the data
+      access layer rather than the model.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fdgth.2026.1903755
+      ref_title: 'LLM and CQL computable phenotypes for myocarditis adverse event
+        feature and outcome determinations using patient FHIR data: a feasibility
+        study'
+      ref_authors:
+      - Gaspar FW
+      - Roberts SB
+      - Campion FX
+      - Hoeksema L
+      - Kasirsky J
+      - Duncan R
+      - Sonesen M
+      - Estiandan R
+      - Aziz KB
+      - Riddler JA
+      - Zhou J
+      - Ezzeldin H
+      ref_publication_year: 2026
+      ref_journal: Frontiers in Digital Health
+  - id: B2AI_APP:555
+    category: B2AI:Application
+    name: Standardizing medication leaflets as FHIR resources with a language model
+      pipeline
+    description: This work used a large language model question-answer pipeline to
+      extract information from medication leaflets and mapped it through templates
+      to FHIR resources for a mobile application. Validated resources were stored
+      on a locally deployed HAPI FHIR server, from which the application retrieved
+      them. Across ten leaflets, clearly delimited fields reached mean scores of 0.9
+      or higher, while precautions (0.20), interactions (0.30), and undesirable effects
+      (0.40) scored much lower. No formal usability evaluation was conducted.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1007/s10916-026-02370-9
+      ref_title: Integrating Medication Leaflets Utilizing FHIR and an LLM-Based Question-Answer
+        Pipeline in a Mobile Application
+      ref_authors:
+      - Kirchsteiger K
+      - Heiler L
+      - Bödenler M
+      - Hanke S
+      ref_publication_year: 2026
+      ref_journal: Journal of Medical Systems
+  - id: B2AI_APP:556
+    category: B2AI:Application
+    name: Interoperable prediction of outcomes in pediatric acute neurological injury
+    description: This secondary analysis of the TOPICC study trained machine learning
+      models to predict mortality and morbidity in 1,860 pediatric intensive care
+      patients with suspected acute neurological injury. The best ensemble reached
+      an AUROC of 0.91 for mortality. As a proof of concept for interoperability,
+      a HAPI FHIR server held synthetic patient data, and the HAPI FHIR client retrieved
+      them to reconstruct the model's input variables and pass them to a pre-trained
+      random forest. The deployment was demonstrated on synthetic data only.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fped.2023.1177470
+      ref_title: 'Interoperable and explainable machine learning models to predict
+        morbidity and mortality in acute neurological injury in the pediatric intensive
+        care unit: secondary analysis of the TOPICC study'
+      ref_authors:
+      - Munjal NK
+      - Clark RSB
+      - Simon DW
+      - Kochanek PM
+      - Horvat CM
+      ref_publication_year: 2023
+      ref_journal: Frontiers in Pediatrics
+  has_training_resource:
+  - B2AI_STANDARD:845
+  - B2AI_STANDARD:846
+  - B2AI_STANDARD:847
+  - B2AI_STANDARD:850
+  is_open: true
+  name: HAPI FHIR
+  purpose_detail: HAPI FHIR is an open source implementation of the HL7 FHIR standard
+    for healthcare interoperability in Java. It provides a model of FHIR resources
+    with parsing, serialization, and version conversion, client libraries, and server
+    components. Its JPA server stores FHIR resources in a database and supports search,
+    terminology functions, bulk export, partitioning, and master data management.
+    A starter project helps deploy a server, and its documentation notes that security
+    and enterprise logging must be supplied separately before production use. A demonstration
+    server is publicly available. HAPI FHIR is a product of Smile Digital Health,
+    developed as an open community project under the Apache 2.0 license. Version 9.0.0
+    was released in November 2026. HL7 version 2 is supported by a separate project.
+  related_to:
+  - B2AI_STANDARD:109
+  requires_registration: false
+  url: https://hapifhir.io/
+  publication:
+    ref_url: ''
