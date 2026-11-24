@@ -9081,6 +9081,9 @@
       "category": "B2AI_STANDARD:BiomedicalStandard",
       "name": "mmCIF",
       "description": "Macromolecular Crystallographic Information File",
+      "related_to": [
+        "B2AI_STANDARD:1356"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -9461,6 +9464,9 @@
       "category": "B2AI_STANDARD:BiomedicalStandard",
       "name": "MINiML",
       "description": "MIAME Notation in Markup Language",
+      "related_to": [
+        "B2AI_STANDARD:1360"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831'",
@@ -9509,6 +9515,9 @@
       "category": "B2AI_STANDARD:BiomedicalStandard",
       "name": "MAGE-TAB",
       "description": "MicroArray Gene Expression Markup Language Tab format",
+      "related_to": [
+        "B2AI_STANDARD:1360"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -10168,7 +10177,8 @@
       "name": "MIAPPE",
       "description": "Minimum Information About Plant Phenotyping Experiments",
       "related_to": [
-        "B2AI_STANDARD:341"
+        "B2AI_STANDARD:341",
+        "B2AI_STANDARD:1350"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -10378,6 +10388,9 @@
       "category": "B2AI_STANDARD:BiomedicalStandard",
       "name": "ModelCIF",
       "description": "ModelCIF",
+      "related_to": [
+        "B2AI_STANDARD:1356"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -11931,7 +11944,8 @@
       "name": "NeuroML",
       "description": "NeuroML",
       "related_to": [
-        "B2AI_STANDARD:289"
+        "B2AI_STANDARD:289",
+        "B2AI_STANDARD:1352"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -14123,6 +14137,9 @@
       "category": "B2AI_STANDARD:BiomedicalStandard",
       "name": "PDB",
       "description": "Protein Data Bank Format",
+      "related_to": [
+        "B2AI_STANDARD:1355"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -14942,7 +14959,9 @@
         "B2AI_STANDARD:289",
         "B2AI_STANDARD:318",
         "B2AI_STANDARD:249",
-        "B2AI_STANDARD:234"
+        "B2AI_STANDARD:234",
+        "B2AI_STANDARD:1353",
+        "B2AI_STANDARD:1358"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -18918,6 +18937,9 @@
       "category": "B2AI_STANDARD:DataStandard",
       "name": "RO-CRATE",
       "description": "Research Object Crate",
+      "related_to": [
+        "B2AI_STANDARD:1359"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -20517,22 +20539,44 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "APOLLO_SV",
       "description": "Apollo Structured Vocabulary",
+      "related_to": [
+        "B2AI_STANDARD:458"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
-        "B2AI_TOPIC:68"
+        "B2AI_TOPIC:68",
+        "B2AI_TOPIC:7"
       ],
-      "purpose_detail": "Terms and relations for interoperation between epidemic models and public health application software.",
+      "has_relevant_organization": [
+        "B2AI_ORG:75"
+      ],
+      "purpose_detail": "The Apollo Structured Vocabulary (Apollo-SV) is an OWL 2 ontology of phenomena in infectious disease epidemiology and population biology, built for use in epidemic simulation. It defines the terms and relations needed for epidemic simulators and the public health software that interfaces with them to interoperate. It imports the Geographical Entity Ontology (GEO) for places. Its terms are used in the MIDAS portal to make infectious disease modeling data discoverable. Apollo-SV is an active OBO Foundry ontology, released under the CC BY 4.0 license, with a release in July 2026.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://github.com/ApolloDev/apollo-sv",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1186/s13326-016-0092-y",
+        "ref_title": "The Apollo Structured Vocabulary: an OWL2 ontology of phenomena in infectious disease epidemiology and population biology for use in epidemic simulation",
+        "ref_authors": [
+          "Hogan WR",
+          "Wagner MM",
+          "Brochhausen M",
+          "Levander J",
+          "Brown ST",
+          "Millett N",
+          "DePasse J",
+          "Hanna J"
+        ],
+        "ref_publication_year": 2016,
+        "ref_journal": "Journal of Biomedical Semantics"
       },
       "formal_specification": "https://github.com/ApolloDev/apollo-sv"
     },
@@ -21270,7 +21314,8 @@
       "name": "CTCAE",
       "description": "Common Terminology Criteria for Adverse Events",
       "related_to": [
-        "B2AI_STANDARD:1293"
+        "B2AI_STANDARD:1293",
+        "B2AI_STANDARD:1351"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -23731,22 +23776,62 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "ITO",
       "description": "Intelligence Task Ontology",
+      "related_to": [
+        "B2AI_STANDARD:717"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:547",
+          "category": "B2AI:Application",
+          "name": "Mapping benchmark creation and saturation in artificial intelligence",
+          "description": "This study by the ITO developers built condensed maps of how AI benchmarks are created and saturated, covering 3,765 benchmarks in computer vision and natural language processing. It found that many benchmarks quickly approach near-saturation and that many never find widespread use. ITO, curated from Papers With Code data, supplied the coherent model of AI results, benchmarks, and tasks used in the analysis. This is an analysis of AI evaluation practice rather than the training of a model on ITO.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41467-022-34591-0",
+              "ref_title": "Mapping global dynamics of benchmark creation and saturation in artificial intelligence",
+              "ref_authors": [
+                "Ott S",
+                "Barbosa-Silva A",
+                "Blagec K",
+                "Brauner J",
+                "Samwald M"
+              ],
+              "ref_publication_year": 2022,
+              "ref_journal": "Nature Communications"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "implementation_maturity_pilot"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
-        "B2AI_TOPIC:58"
+        "B2AI_TOPIC:58",
+        "B2AI_TOPIC:75"
       ],
       "has_relevant_organization": [
         "B2AI_ORG:87"
       ],
-      "purpose_detail": "Comprehensive, curated and interlinked data of artificial intelligence tasks, benchmarks, AI performance metrics, benchmark results and research papers.",
+      "purpose_detail": "The Intelligence Task Ontology and Knowledge Graph (ITO) is a curated resource on artificial intelligence tasks, benchmarks, performance metrics, benchmark results, and research papers. Benchmark results were imported from Papers With Code and further curated into a class hierarchy. The version described in 2022 holds 685,560 edges, 1,100 classes representing AI processes, and 1,995 properties representing performance metrics. Its primary goal is to support analysis of the global landscape of AI tasks and capabilities. ITO is distributed as an OWL file that can be queried with SPARQL, and is available through BioPortal and the ITO Explorer dashboard. The latest tagged release is version 1.01, from May 2022, and the repository has not been updated since October 2022, so it does not describe more recent AI benchmarks.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://openbiolink.github.io/ITOExplorer/",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1038/s41597-022-01435-x",
+        "ref_title": "A curated, ontology-based, large-scale knowledge graph of artificial intelligence tasks and benchmarks",
+        "ref_authors": [
+          "Blagec K",
+          "Barbosa-Silva A",
+          "Ott S",
+          "Samwald M"
+        ],
+        "ref_publication_year": 2022,
+        "ref_journal": "Scientific Data"
       },
       "formal_specification": "https://github.com/OpenBioLink/ITO"
     },
@@ -26325,22 +26410,49 @@
       "category": "B2AI_STANDARD:OntologyOrVocabulary",
       "name": "OHMI",
       "description": "Ontology of Host-Microbiome Interactions",
+      "related_to": [
+        "B2AI_STANDARD:408"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "collection": [
-        "obofoundry"
+        "obofoundry",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:69"
       ],
-      "purpose_detail": "Entities and relations related to microbiomes, microbiome host organisms (e.g., human and mouse), and the interactions between the hosts and microbiomes at different conditions.",
+      "has_relevant_organization": [
+        "B2AI_ORG:75",
+        "B2AI_ORG:178",
+        "B2AI_ORG:200"
+      ],
+      "purpose_detail": "The Ontology of Host-Microbiome Interactions (OHMI) represents microbiomes, microbial taxonomy, host species, host anatomical entities, and host-microbiome interactions under different conditions, together with study protocols, types of data analysis, and experimental results. It is aligned with the Basic Formal Ontology and reuses terms from more than 10 existing ontologies. As described in 2019, OHMI had over 1,000 terms, of which about 500 were specific to it. In one use, drawing on more than 50 publications, its developers identified over 100 bacteria and fungi associated with six rheumatic diseases. It has since framed evidence synthesis on microbiomes in chronic obstructive pulmonary disease. Development is a collaboration including the University of Michigan and the University of Pennsylvania. OHMI is an active OBO Foundry ontology released under the CC BY 4.0 license, with a release in May 2026.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://github.com/ohmi-ontology/ohmi",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1186/s13326-019-0217-1",
+        "ref_title": "OHMI: the ontology of host-microbiome interactions",
+        "ref_authors": [
+          "He Y",
+          "Wang H",
+          "Zheng J",
+          "Beiting DP",
+          "Masci AM",
+          "Yu H",
+          "Liu K",
+          "Wu J",
+          "Curtis JL",
+          "Smith B",
+          "Alekseyenko AV",
+          "Obeid JS"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "Journal of Biomedical Semantics"
       },
       "formal_specification": "https://github.com/ohmi-ontology/ohmi"
     },
@@ -29453,7 +29565,8 @@
       "name": "Dockstore",
       "description": "Dockstore",
       "related_to": [
-        "B2AI_STANDARD:808"
+        "B2AI_STANDARD:808",
+        "B2AI_STANDARD:1359"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -32520,19 +32633,122 @@
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "IMP",
       "description": "Integrative Modeling Platform",
+      "related_to": [
+        "B2AI_STANDARD:1355",
+        "B2AI_STANDARD:1356"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:552",
+          "category": "B2AI:Application",
+          "name": "Integrative modeling within self-supervised multimodal cell maps",
+          "description": "This study built a global map of human subcellular architecture in U2OS cells by self-supervised integration of biophysical interaction data and immunofluorescence images for over 5,100 proteins, with large language models used to annotate assemblies. The map then guided structural modeling, including AlphaFold-Multimer predictions for protein pairs within assemblies. IMP version 2.18, through its Python Modelling Interface, was used to model an expanded Rag-Ragulator assembly from spatial restraints. The work acknowledges funding from the Bridge2AI program. IMP is used downstream of the machine learning steps.",
+          "used_in_bridge2ai": true,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41586-025-08878-3",
+              "ref_title": "Multimodal cell maps as a foundation for structural and functional genomics",
+              "ref_authors": [
+                "Schaffer LV",
+                "Hu M",
+                "Qian G",
+                "Moon K",
+                "Pal A",
+                "Soni N",
+                "Latham AP",
+                "Pontano Vaites L",
+                "Tsai D",
+                "Mattson NM",
+                "Licon K",
+                "Bachelder R",
+                "Cesnik A",
+                "Gaur I",
+                "Le T",
+                "Leineweber W",
+                "Palar A",
+                "Pulido E",
+                "Qin Y",
+                "Zhao X",
+                "Churas C",
+                "Lenkiewicz J",
+                "Chen J",
+                "Ono K",
+                "Pratt D",
+                "Zage P",
+                "Echeverria I",
+                "Sali A",
+                "Harper JW",
+                "Gygi SP",
+                "Foster LJ",
+                "Huttlin EL",
+                "Lundberg E",
+                "Ideker T"
+              ],
+              "ref_publication_year": 2025,
+              "ref_journal": "Nature"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:553",
+          "category": "B2AI:Application",
+          "name": "Modeling histone deacetylase complexes with IMP and AlphaFold structures",
+          "description": "This study combined crosslinking mass spectrometry with IMP to model the NuRD, SIN3A, and CoREST complexes of human histone deacetylases 1 and 2. AlphaFold2 supplied structures of MTA1, MBD3, and GATAD2B where no structure or homology model was available. AlphaFold3 and crosslink-constrained HADDOCK docking were then used to examine how HDAC1, including its disordered C-terminal region, behaves in these complexes. IMP integrates experimental restraints with component structures, some of them predicted by deep learning.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1016/j.mcpro.2026.101651",
+              "ref_title": "Multicomplex Integrative Structural Modeling of a Human Histone Deacetylase Interactome",
+              "ref_authors": [
+                "Nde J",
+                "Majila K",
+                "Zimmermann RC",
+                "Kempf C",
+                "Zhang Y",
+                "Cesare J",
+                "Thornton JL",
+                "Workman JL",
+                "Florens L",
+                "Viswanath S",
+                "Washburn MP"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "Molecular & Cellular Proteomics"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "proteindata",
+        "implementation_maturity_production"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:27",
-        "B2AI_TOPIC:60"
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:26"
       ],
-      "purpose_detail": "An open source C++ and Python toolbox for solving complex modeling problems, and a number of applications for tackling some common problems in a user-friendly way. IMP can also be used from the Chimera molecular modeling system, or via one of several web applications.",
+      "purpose_detail": "The Integrative Modeling Platform (IMP) is open source software for determining the structures of biomolecules, from small peptides to large macromolecular assemblies, by integrating data from diverse biochemical and biophysical experiments. It provides a C++ and Python toolbox for building modeling protocols, along with applications for common problems, and can also be used from the Chimera molecular modeling system or through web applications. IMP serves as a base for further methods, such as the NestOR software for choosing model representations by Bayesian model selection. It is mostly available under the GNU Lesser General Public License, with some modules under the GNU GPL. Version 2.25.0 was released in August 2026.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://integrativemodeling.org/",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1371/journal.pbio.1001244",
+        "ref_title": "Putting the Pieces Together: Integrative Modeling Platform Software for Structure Determination of Macromolecular Assemblies",
+        "ref_authors": [
+          "Russel D",
+          "Lasker K",
+          "Webb B",
+          "Velázquez-Muriel J",
+          "Tjioe E",
+          "Schneidman-Duhovny D",
+          "Peterson B",
+          "Sali A"
+        ],
+        "ref_publication_year": 2012,
+        "ref_journal": "PLoS Biology"
       },
       "formal_specification": "https://github.com/salilab/imp"
     },
@@ -34142,7 +34358,8 @@
       "description": "Nextflow",
       "related_to": [
         "B2AI_STANDARD:320",
-        "B2AI_STANDARD:389"
+        "B2AI_STANDARD:389",
+        "B2AI_STANDARD:1349"
       ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
@@ -34963,25 +35180,49 @@
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "refget",
       "description": "refget API",
+      "related_to": [
+        "B2AI_STANDARD:21",
+        "B2AI_STANDARD:1354"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "collection": [
+        "referencegenome",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:13",
         "B2AI_TOPIC:60",
         "B2AI_TOPIC:64"
       ],
-      "has_relevant_organization": [
-        "B2AI_ORG:34"
-      ],
-      "purpose_detail": "Enables access to reference genomic sequences without ambiguity from different databases and servers using a checksum identifier based on the sequence content itself.",
+      "purpose_detail": "Refget is a Global Alliance for Genomics and Health (GA4GH) standard for identifying and retrieving reference sequences. A sequence is identified by a checksum derived from its own content, which removes the need for a single accessioning authority and avoids the ambiguity of parallel names for the same sequence, such as chr1 in hg38 and CM000663.2. The specification also defines a retrieval API through which a client can request a full sequence or a sub-sequence. It was designed for nucleotide sequences, and the same mechanism can serve cDNA, CDS, mRNA, or protein sequences. Intended uses include the CRAM file format and genome browsers. Refget Sequences version 1.0 was approved in 2021 and version 2.0 in 2024. It is the basis for the Refget Sequence Collections standard.",
       "is_open": true,
       "requires_registration": false,
-      "url": "https://samtools.github.io/hts-specs/refget.html",
+      "url": "https://ga4gh.github.io/refget/",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btab524",
+        "ref_title": "Refget: standardized access to reference sequences",
+        "ref_authors": [
+          "Yates AD",
+          "Adams J",
+          "Chaturvedi S",
+          "Davies RM",
+          "Laird M",
+          "Leinonen R",
+          "Nag R",
+          "Sheffield NC",
+          "Hofmann O",
+          "Keane TM"
+        ],
+        "ref_publication_year": 2021,
+        "ref_journal": "Bioinformatics"
       },
-      "formal_specification": "https://samtools.github.io/hts-specs/refget.html"
+      "formal_specification": "https://samtools.github.io/hts-specs/refget.html",
+      "responsible_organization": [
+        "B2AI_ORG:34"
+      ]
     },
     {
       "id": "B2AI_STANDARD:820",
@@ -35410,20 +35651,133 @@
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:542",
+          "category": "B2AI:Application",
+          "name": "Medical device surveillance from clinical notes with weak supervision",
+          "description": "This study applied weak supervision and deep learning with the Snorkel framework to find reports of implant-related complications and pain in clinical notes, and combined them with structured health record data for post-market device surveillance. Candidate relations among implants, complications, and anatomical locations were labeled with data programming in Snorkel, and the resulting labels were used to train a deep learning model. All models were implemented in Snorkel.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41746-019-0168-z",
+              "ref_title": "Medical device surveillance with electronic health records",
+              "ref_authors": [
+                "Callahan A",
+                "Fries JA",
+                "Ré C",
+                "Huddleston JI",
+                "Giori NJ",
+                "Delp S",
+                "Shah NH"
+              ],
+              "ref_publication_year": 2019,
+              "ref_journal": "npj Digital Medicine"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:543",
+          "category": "B2AI:Application",
+          "name": "Cross-modal weak supervision for medical imaging and monitoring",
+          "description": "This work extends data programming to settings in which weak labels from one modality, such as text reports, train models over another, such as images. Clinicians write labeling functions over reports, and Snorkel generates the probabilistic training labels. Models came on average within 1.75 points ROC-AUC of models supervised with physician-years of hand labeling, using person-days of effort. The method is implemented as an extension to Snorkel.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1016/j.patter.2020.100019",
+              "ref_title": "Cross-Modal Data Programming Enables Rapid Medical Machine Learning",
+              "ref_authors": [
+                "Dunnmon JA",
+                "Ratner AJ",
+                "Saab K",
+                "Khandwala N",
+                "Markert M",
+                "Sagreiya H",
+                "Goldman R",
+                "Lee-Messer C",
+                "Lungren MP",
+                "Rubin DL",
+                "Ré C"
+              ],
+              "ref_publication_year": 2020,
+              "ref_journal": "Patterns"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:544",
+          "category": "B2AI:Application",
+          "name": "Ontology-driven weak supervision for clinical entity classification",
+          "description": "Trove is a framework for weakly supervised clinical entity classification that uses medical ontologies and expert-written rules as labeling sources. The authors evaluated it on six benchmark tasks and used it on records of emergency department patients with COVID-19 symptoms and risk factors. In the reported benchmarks, Trove is combined with Snorkel, for example training BioBERT on the BC5CDR task. Performance was comparable to learning from manually labeled data.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41467-021-22328-4",
+              "ref_title": "Ontology-driven weak supervision for clinical entity classification in electronic health records",
+              "ref_authors": [
+                "Fries JA",
+                "Steinberg E",
+                "Khattar S",
+                "Fleming SL",
+                "Posada J",
+                "Callahan A",
+                "Shah NH"
+              ],
+              "ref_publication_year": 2021,
+              "ref_journal": "Nature Communications"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:545",
+          "category": "B2AI:Application",
+          "name": "Weakly supervised spatial relation extraction from radiology reports",
+          "description": "This study used the Snorkel framework to create weak labels for spatial relations in radiology reports. Labeling functions drew on the RadLex lexicon, regular expressions, and language characteristics of the reports, and the labels were used to fine-tune a BERT model. The weakly supervised model reached a spatial trigger F1 of 72.89 and a relation F1 of 52.47 without manual training annotations, and a relation F1 of 68.76 after further fine-tuning on manual annotations.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1093/jamiaopen/ooad027",
+              "ref_title": "Weakly supervised spatial relation extraction from radiology reports",
+              "ref_authors": [
+                "Datta S",
+                "Roberts K"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "JAMIA Open"
+            }
+          ]
+        }
+      ],
       "collection": [
-        "deprecated"
+        "deprecated",
+        "toolkit"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:54",
         "B2AI_TOPIC:58",
-        "B2AI_TOPIC:60"
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:32"
       ],
-      "purpose_detail": "Snorkel is a platform for automated data labeling. It has since been extended into a full machine learning platform (see https://snorkel.ai/).",
-      "is_open": false,
-      "requires_registration": true,
+      "has_relevant_organization": [
+        "B2AI_ORG:186"
+      ],
+      "purpose_detail": "Snorkel is an open source Python system for creating machine learning training data programmatically through weak supervision. In place of hand labels, users write labeling functions that encode rules, patterns, or other heuristics. Snorkel combines their noisy outputs into probabilistic training labels, an approach known as data programming. The project began at Stanford in 2015 and has been used widely in biomedical text and image classification. The open source library is released under the Apache 2.0 license, and its latest tagged release is version 0.10.0, from February 2024. Its developers state that they now focus on Snorkel Flow, a separate commercial platform.",
+      "is_open": true,
+      "requires_registration": false,
       "url": "https://www.snorkel.org/",
       "publication": {
-        "ref_url": ""
+        "ref_url": "https://doi.org/10.1007/s00778-019-00552-1",
+        "ref_title": "Snorkel: rapid training data creation with weak supervision",
+        "ref_authors": [
+          "Ratner A",
+          "Bach SH",
+          "Ehrenberg H",
+          "Fries J",
+          "Wu S",
+          "Ré C"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "The VLDB Journal"
       },
       "formal_specification": "https://github.com/snorkel-team/snorkel"
     },
@@ -35583,24 +35937,45 @@
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "TES",
       "description": "Task Execution Service",
+      "related_to": [
+        "B2AI_STANDARD:841",
+        "B2AI_STANDARD:835",
+        "B2AI_STANDARD:320"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "collection": [
+        "standards_process_maturity_draft",
+        "implementation_maturity_production"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:54",
         "B2AI_TOPIC:59",
-        "B2AI_TOPIC:61"
+        "B2AI_TOPIC:61",
+        "B2AI_TOPIC:60"
       ],
-      "has_relevant_organization": [
-        "B2AI_ORG:34"
-      ],
-      "purpose_detail": "The Task Execution Service (TES) API is a proposed standard for describing and executing tasks in a platform-agnostic way. Includes a TES API validator and a Task Execution API specification.",
+      "purpose_detail": "The Task Execution Service (TES) is a Global Alliance for Genomics and Health (GA4GH) schema and API for describing and executing batch tasks. A task defines input files, containers and commands to run, output files, and logging and other metadata. A TES server accepts task documents and runs them asynchronously on available compute, which may be a high-performance computing queue such as Grid Engine or Slurm, or a service such as AWS Batch or Kubernetes. Workflow engines including cwl-tes and Cromwell have extensions that use TES, so an engine can be deployed onto infrastructure it did not previously support. The current release is version 1.1, published in November 2022 under the Apache 2.0 license.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://ga4gh.github.io/task-execution-schemas/docs/",
       "publication": {
-        "ref_url": ""
-      }
+        "ref_url": "https://doi.org/10.1109/mcse.2024.3414994",
+        "ref_title": "The GA4GH Task Execution Application Programming Interface: Enabling Easy Multicloud Task Execution",
+        "ref_authors": [
+          "Kanitz A",
+          "McLoughlin MH",
+          "Beckman L",
+          "Malladi VS",
+          "Ellrott K"
+        ],
+        "ref_publication_year": 2024,
+        "ref_journal": "Computing in Science & Engineering"
+      },
+      "formal_specification": "https://github.com/ga4gh/task-execution-schemas",
+      "responsible_organization": [
+        "B2AI_ORG:34"
+      ]
     },
     {
       "id": "B2AI_STANDARD:831",
@@ -36622,24 +36997,38 @@
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "TRS",
       "description": "Tool Registry Service",
+      "related_to": [
+        "B2AI_STANDARD:841",
+        "B2AI_STANDARD:711",
+        "B2AI_STANDARD:320",
+        "B2AI_STANDARD:389",
+        "B2AI_STANDARD:807",
+        "B2AI_STANDARD:766",
+        "B2AI_STANDARD:1359"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "collection": [
+        "standards_process_maturity_draft",
+        "implementation_maturity_production"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:54",
         "B2AI_TOPIC:59",
         "B2AI_TOPIC:60"
       ],
-      "has_relevant_organization": [
-        "B2AI_ORG:34"
-      ],
-      "purpose_detail": "A proposed standard for sharing and discovering tools and workflows in a platform-agnostic way. Includes a Tool Registry Search validator and a Tool Discovery API specification.",
+      "purpose_detail": "The Tool Registry Service (TRS) is a Global Alliance for Genomics and Health (GA4GH) API for describing, searching, and retrieving tools and workflows across registries. It lets separate repositories share items written in workflow languages such as WDL, CWL, Nextflow, Galaxy, and Snakemake, with dependencies supplied as containers (Docker, Singularity) or alternatives such as Conda. Clients can then discover and fetch a workflow in a consistent way from different registries, which supports sharing and reproducibility of analyses. The schema is maintained by the GA4GH Cloud Work Stream under the Apache 2.0 license, with version 2.0.2 released in September 2025.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://ga4gh.github.io/tool-registry-service-schemas/",
       "publication": {
         "ref_url": ""
-      }
+      },
+      "formal_specification": "https://github.com/ga4gh/tool-registry-service-schemas",
+      "responsible_organization": [
+        "B2AI_ORG:34"
+      ]
     },
     {
       "id": "B2AI_STANDARD:836",
@@ -36706,28 +37095,62 @@
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "Usagi",
       "description": "Usagi",
+      "related_to": [
+        "B2AI_STANDARD:243",
+        "B2AI_STANDARD:730",
+        "B2AI_STANDARD:1357"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "has_application": [
+        {
+          "id": "B2AI_APP:546",
+          "category": "B2AI:Application",
+          "name": "Validating language model translation of surgical procedure codes with Usagi",
+          "description": "MAP-CARE is a framework that uses large language models to translate and transform medical procedure terms into a shared multilingual embedding space, for retrieval and mapping across national procedure classifications. To check the quality of the translated Swiss CHOP codes, the authors loaded the English translations into Usagi, mapped them automatically to SNOMED CT concepts, and reviewed the mappings by hand. Usagi thus supplies the validation workflow for the model's translations and is not the mapping model itself. The framework reached Acc@5 of up to 0.90 in translating procedure codes across English, German, French, and Italian.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41598-025-34778-7",
+              "ref_title": "LLM-augmented semantic embeddings enable Cross-Lingual mapping of medical procedure terms",
+              "ref_authors": [
+                "Guillen-Ramirez H",
+                "Triep K",
+                "Gaudet-Blavignac C",
+                "Phull B",
+                "Beldi G",
+                "Endrich O"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "Scientific Reports"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "implementation_maturity_production"
+      ],
       "concerns_data_topic": [
         "B2AI_TOPIC:53",
         "B2AI_TOPIC:9",
-        "B2AI_TOPIC:60"
-      ],
-      "has_relevant_organization": [
-        "B2AI_ORG:76"
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:64"
       ],
       "has_training_resource": [
         "B2AI_STANDARD:844"
       ],
-      "purpose_detail": "An application to help create mappings between coding systems and the Vocabulary standard concepts.",
+      "purpose_detail": "Usagi is an Observational Health Data Sciences and Informatics (OHDSI) desktop application that helps map source codes to the standard concepts of the OHDSI vocabularies. It creates an initial mapping automatically from term similarity, using concept names and synonyms, and then supports interactive review and correction. Searches can be filtered by target vocabulary, domain, or concept class, and an existing mapping can be reapplied when the source codes or vocabulary change. Results export to the source_to_concept_map format used in building OMOP Common Data Model datasets. Usagi is a Java application that uses Apache Lucene for term matching and is licensed under Apache 2.0. It is often the lexical baseline against which embedding and language model mapping methods are compared. Its latest tagged release is version 1.4.3, from April 2021.",
       "is_open": true,
       "requires_registration": false,
-      "url": "https://github.com/OHDSI/Usagi",
+      "url": "https://ohdsi.github.io/Usagi/",
       "publication": {
         "ref_url": ""
       },
-      "formal_specification": "https://github.com/OHDSI/Usagi"
+      "formal_specification": "https://github.com/OHDSI/Usagi",
+      "responsible_organization": [
+        "B2AI_ORG:76"
+      ]
     },
     {
       "id": "B2AI_STANDARD:838",
@@ -36896,6 +37319,10 @@
       "category": "B2AI_STANDARD:SoftwareOrTool",
       "name": "WES",
       "description": "Workflow Execution Service",
+      "related_to": [
+        "B2AI_STANDARD:835",
+        "B2AI_STANDARD:830"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
@@ -37978,12 +38405,18 @@
       "category": "B2AI_STANDARD:BiomedicalStandard",
       "name": "MINSEQE",
       "description": "Minimum Information about a high-throughput nucleotide SEQuencing Experiment",
+      "related_to": [
+        "B2AI_STANDARD:1360",
+        "B2AI_STANDARD:111"
+      ],
       "contributor_name": "Harry Caufield",
       "contributor_github_name": "caufieldjh",
       "contributor_orcid": "ORCID:0000-0001-5705-7831",
       "contribution_date": "2023-09-25",
       "collection": [
-        "minimuminformationschema"
+        "minimuminformationschema",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
       ],
       "concerns_data_topic": [
         "B2AI_TOPIC:12",
@@ -37994,14 +38427,17 @@
       "has_training_resource": [
         "B2AI_STANDARD:1034"
       ],
-      "purpose_detail": "Five elements of experimental description considered essential when making sequencing data available.",
+      "purpose_detail": "Minimum Information about a high-throughput nucleotide SEQuencing Experiment (MINSEQE) is a reporting guideline from the Functional Genomics Data Society (FGED) that describes what is needed to interpret a sequencing experiment unambiguously and to help reproduce its results. It was developed by analogy to the MIAME guidelines for microarray experiments. Its five elements are a description of the biological system, samples, and experimental variables; the sequence read data for each assay, with FASTQ recommended; the final processed or summary data on which the conclusions are based; general information about the experiment, including a table of sample-data relationships; and the essential experimental and data processing protocols. A draft proposal was issued in 2008 and version 1.0 in June 2012. The specification is archived on Zenodo. FGED operated from 1999 to 2021 and has since closed, so the guideline is no longer under active development by the society.",
       "is_open": true,
       "requires_registration": false,
       "url": "https://www.fged.org/projects/minseqe/",
       "publication": {
         "ref_url": ""
       },
-      "formal_specification": "https://zenodo.org/record/5706412"
+      "formal_specification": "https://zenodo.org/record/5706412",
+      "responsible_organization": [
+        "B2AI_ORG:211"
+      ]
     },
     {
       "id": "B2AI_STANDARD:874",
@@ -57229,6 +57665,873 @@
       "publication": {
         "ref_url": ""
       }
+    },
+    {
+      "id": "B2AI_STANDARD:1359",
+      "category": "B2AI_STANDARD:Registry",
+      "name": "WorkflowHub",
+      "description": "WorkflowHub registry for computational workflows",
+      "related_to": [
+        "B2AI_STANDARD:835",
+        "B2AI_STANDARD:372",
+        "B2AI_STANDARD:711"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "softwareregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:28"
+      ],
+      "purpose_detail": "WorkflowHub is a registry for describing, sharing, and finding computational workflows, sponsored by EOSC-Life and the European research infrastructure ELIXIR. It is agnostic to workflow management systems, and workflows may remain in their own repositories in their original forms. It links to community repositories, interoperates with other platforms and registries, and supports the workflow life cycle, credit for contributors, and the findability, accessibility, interoperability, and reusability (FAIR) of workflows.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://workflowhub.eu/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41597-025-04786-3",
+        "ref_title": "WorkflowHub: a registry for computational workflows",
+        "ref_authors": [
+          "Gustafsson OJR",
+          "Wilkinson SR",
+          "Bacall F",
+          "Soiland-Reyes S",
+          "Leo S",
+          "Pireddu L",
+          "Owen S",
+          "Juty N",
+          "Fernández JM",
+          "Brown T",
+          "Ménager H",
+          "Grüning B",
+          "Capella-Gutierrez S",
+          "Coppens F",
+          "Goble C"
+        ],
+        "ref_publication_year": 2025,
+        "ref_journal": "Scientific Data"
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1354",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "Refget Sequence Collections",
+      "description": "Refget Sequence Collections (seqcol)",
+      "related_to": [
+        "B2AI_STANDARD:819"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "referencegenome",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:64"
+      ],
+      "purpose_detail": "Refget Sequence Collections (seqcol) is a Global Alliance for Genomics and Health (GA4GH) standard for representing, retrieving, and comparing collections of sequences, such as reference genomes, transcriptomes, and proteomes. It extends refget, which identifies single sequences, and handles attributes such as names and lengths. It comprises a data schema, an encoding algorithm that yields identifiers derived from content, a retrieval API, and a comparison protocol that can assess compatibility beyond exact identity, such as a shared coordinate system. Identifiers can replace or complement ambiguous names such as hg38 and GRCh38. Version 1.0 was approved in 2025. Applied to 60 human and 36 mouse reference genomes, it revealed substantial incompatibility among references and duplicates under different names.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://ga4gh.github.io/refget/seqcols/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btag554",
+        "ref_title": "Taming the reference genome jungle: the refget sequence collection standard",
+        "ref_authors": [
+          "Campbell DR",
+          "Cezard T",
+          "Gundersen S",
+          "Yates AD",
+          "Davies RM",
+          "Marshall J",
+          "Park S",
+          "Wagner AH",
+          "Love MI",
+          "Thomas R",
+          "Hofmann O",
+          "Sheffield NC"
+        ],
+        "ref_publication_year": 2026,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/ga4gh/refget",
+      "responsible_organization": [
+        "B2AI_ORG:34"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1360",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "MIAME",
+      "description": "Minimum Information About a Microarray Experiment",
+      "related_to": [
+        "B2AI_STANDARD:873",
+        "B2AI_STANDARD:198",
+        "B2AI_STANDARD:200"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "minimuminformationschema",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:12",
+        "B2AI_TOPIC:34",
+        "B2AI_TOPIC:54"
+      ],
+      "purpose_detail": "Minimum Information About a Microarray Experiment (MIAME) is a reporting guideline, published in 2001 and later promoted by the Functional Genomics Data Society (FGED), for the information needed to interpret the results of a microarray experiment and potentially reproduce it. It specifies the content to be reported rather than a file format. MAGE-TAB and MINiML are formats associated with it, and the later MINSEQE guideline for sequencing experiments was made by analogy to it. FGED lists six critical elements, including raw data, final processed data, sample annotation, and experimental design. FGED closed in 2021.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://www.fged.org/projects/miame/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/ng1201-365",
+        "ref_title": "Minimum information about a microarray experiment (MIAME): toward standards for microarray data",
+        "ref_authors": [
+          "Brazma A",
+          "Hingamp P",
+          "Quackenbush J",
+          "Sherlock G",
+          "Spellman P",
+          "Stoeckert C",
+          "Aach J",
+          "Ansorge W",
+          "Ball CA",
+          "Causton HC",
+          "Gaasterland T",
+          "Glenisson P",
+          "Holstege FCP",
+          "Kim IF",
+          "Markowitz V",
+          "Matese JC",
+          "Parkinson H",
+          "Robinson A",
+          "Sarkans U",
+          "Schulze-Kremer S",
+          "Stewart J",
+          "Taylor R",
+          "Vilo J",
+          "Vingron M"
+        ],
+        "ref_publication_year": 2001,
+        "ref_journal": "Nature Genetics"
+      },
+      "responsible_organization": [
+        "B2AI_ORG:211"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1355",
+      "category": "B2AI_STANDARD:Registry",
+      "name": "PDB-IHM",
+      "description": "PDB-IHM system for archiving integrative structures",
+      "related_to": [
+        "B2AI_STANDARD:263",
+        "B2AI_STANDARD:778",
+        "B2AI_STANDARD:1356"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "dataregistry",
+        "proteindata",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:26",
+        "B2AI_TOPIC:27",
+        "B2AI_TOPIC:62"
+      ],
+      "purpose_detail": "PDB-IHM is a system for depositing, curating, validating, and disseminating structural models of macromolecules obtained by integrative or hybrid modeling, in which complementary experimental and computational techniques are combined. It is managed by the Worldwide Protein Data Bank (wwPDB). It began as the standalone prototype PDB-Dev, and was later unified with the PDB archive and renamed, so that integrative structures now carry PDB accession codes. It can hold structures that combine experimental restraints with coordinates computed by machine learning algorithms. Its data are represented with the IHMCIF dictionary.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://pdb-ihm.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1016/j.jmb.2025.168963",
+        "ref_title": "PDB-IHM: A System for Deposition, Curation, Validation, and Dissemination of Integrative Structures",
+        "ref_authors": [
+          "Vallat B",
+          "Webb BM",
+          "Zalevsky A",
+          "Tangmunarunkit H",
+          "Sekharan MR",
+          "Voinea S",
+          "Shafaeibejestan A",
+          "Sagendorf J",
+          "Hoch JC",
+          "Kurisu G",
+          "Morris KL",
+          "Velankar S",
+          "Kesselman C",
+          "Burley SK",
+          "Berman HM",
+          "Sali A"
+        ],
+        "ref_publication_year": 2025,
+        "ref_journal": "Journal of Molecular Biology"
+      },
+      "responsible_organization": [
+        "B2AI_ORG:82"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1356",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "IHMCIF",
+      "description": "Integrative/hybrid methods extension of the PDBx/mmCIF dictionary",
+      "related_to": [
+        "B2AI_STANDARD:188",
+        "B2AI_STANDARD:215",
+        "B2AI_STANDARD:1355",
+        "B2AI_STANDARD:778"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "proteindata",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:26",
+        "B2AI_TOPIC:27",
+        "B2AI_TOPIC:54"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:82"
+      ],
+      "purpose_detail": "IHMCIF is an extension of the PDBx/mmCIF dictionary that defines the data needed to archive integrative or hybrid structural models in PDB-IHM. It covers multi-scale, multi-state, and ordered ensembles, models of heterogeneous composition, the starting models of individual components, and spatial restraints derived from methods such as electron microscopy, chemical crosslinking mass spectrometry, small angle scattering, and FRET. The dictionary is openly developed on GitHub under the CC0 1.0 dedication.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://mmcif.wwpdb.org/dictionaries/mmcif_ihm.dic/Index/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1016/j.jmb.2024.168546",
+        "ref_title": "IHMCIF: An Extension of the PDBx/mmCIF Data Standard for Integrative Structure Determination Methods",
+        "ref_authors": [
+          "Vallat B",
+          "Webb BM",
+          "Westbrook JD",
+          "Goddard TD",
+          "Hanke CA",
+          "Graziadei A",
+          "Peisach E",
+          "Zalevsky A",
+          "Sagendorf J",
+          "Tangmunarunkit H",
+          "Voinea S",
+          "Sekharan M",
+          "Yu J",
+          "Bonvin AAMJJ",
+          "DiMaio F",
+          "Hummer G",
+          "Meiler J",
+          "Tajkhorshid E",
+          "Ferrin TE",
+          "Lawson CL",
+          "Leitner A",
+          "Rappsilber J",
+          "Seidel CAM",
+          "Jeffries CM",
+          "Burley SK",
+          "Hoch JC",
+          "Kurisu G",
+          "Morris K",
+          "Patwardhan A",
+          "Velankar S",
+          "Schwede T",
+          "Trewhella J",
+          "Kesselman C",
+          "Berman HM",
+          "Sali A"
+        ],
+        "ref_publication_year": 2024,
+        "ref_journal": "Journal of Molecular Biology"
+      },
+      "formal_specification": "https://github.com/ihmwg/IHMCIF"
+    },
+    {
+      "id": "B2AI_STANDARD:1357",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "WhiteRabbit",
+      "description": "WhiteRabbit and Rabbit in a Hat",
+      "related_to": [
+        "B2AI_STANDARD:837",
+        "B2AI_STANDARD:243"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:9",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:62"
+      ],
+      "purpose_detail": "WhiteRabbit is an Observational Health Data Sciences and Informatics (OHDSI) application that analyzes the structure and contents of a database in preparation for an extract, transform, and load (ETL) process. It scans sources including SQL Server, Oracle, PostgreSQL, MySQL, Amazon Redshift, Google BigQuery, SAS files, and CSV files, and reports on tables, fields, and value frequencies, with a minimum frequency cutoff to protect patient privacy. The accompanying Rabbit in a Hat application uses the scan report to design an ETL to the OMOP Common Data Model interactively and to generate a specification document. Both are Java applications, released under the Apache 2.0 license.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://github.com/OHDSI/WhiteRabbit",
+      "publication": {
+        "ref_url": ""
+      },
+      "formal_specification": "https://github.com/OHDSI/WhiteRabbit",
+      "responsible_organization": [
+        "B2AI_ORG:76"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1349",
+      "category": "B2AI_STANDARD:SoftwareOrTool",
+      "name": "nf-core",
+      "description": "Community framework and collection of Nextflow pipelines",
+      "related_to": [
+        "B2AI_STANDARD:807"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "has_application": [
+        {
+          "id": "B2AI_APP:551",
+          "category": "B2AI:Application",
+          "name": "Benchmarking drug response prediction models with an nf-core pipeline",
+          "description": "DrEval is a pipeline for unbiased evaluation of models that predict cancer drug response from cell line omics profiles. It combines a Python package with a Nextflow pipeline that is part of nf-core, and covers hyperparameter tuning, cross-study benchmarks, and ablation studies. With it, the authors found that deep learning models barely outperformed a naive model of mean drug and cell line effects, and that no complex model outperformed tuned tree-based ensembles in relevant settings. nf-core supplies the framework for running the benchmark reproducibly at scale.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1038/s41467-026-72903-w",
+              "ref_title": "Critical evaluation of drug response prediction models with DrEval",
+              "ref_authors": [
+                "Bernett J",
+                "Iversen P",
+                "Picciani M",
+                "Wilhelm M",
+                "Baum K",
+                "List M"
+              ],
+              "ref_publication_year": 2026,
+              "ref_journal": "Nature Communications"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:59",
+        "B2AI_TOPIC:60",
+        "B2AI_TOPIC:20"
+      ],
+      "purpose_detail": "nf-core is a global community that builds and maintains open source Nextflow components and bioinformatics pipelines following shared guidelines. Pipelines come with documentation, stable tagged releases, packaged software dependencies, and continuous integration testing, and can run on laptops, high-performance computing systems, and clouds. The nf-core tools Python package provides templates and commands for creating, checking, and running pipelines. nf-core code is licensed under the MIT license. Pipelines that package machine learning methods, such as deep learning image segmentation and drug response model benchmarking, are built to nf-core conventions.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://nf-co.re/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1038/s41587-020-0439-x",
+        "ref_title": "The nf-core framework for community-curated bioinformatics pipelines",
+        "ref_authors": [
+          "Ewels PA",
+          "Peltzer A",
+          "Fillinger S",
+          "Patel H",
+          "Alneberg J",
+          "Wilm A",
+          "Garcia MU",
+          "Di Tommaso P",
+          "Nahnsen S"
+        ],
+        "ref_publication_year": 2020,
+        "ref_journal": "Nature Biotechnology"
+      },
+      "formal_specification": "https://github.com/nf-core/tools"
+    },
+    {
+      "id": "B2AI_STANDARD:1350",
+      "category": "B2AI_STANDARD:DataStandard",
+      "name": "BrAPI",
+      "description": "Breeding API",
+      "related_to": [
+        "B2AI_STANDARD:210"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:1",
+        "B2AI_TOPIC:25",
+        "B2AI_TOPIC:13",
+        "B2AI_TOPIC:62"
+      ],
+      "purpose_detail": "The Breeding API (BrAPI) is a community-driven RESTful web service specification for exchanging plant breeding data among databases and tools. Version 2 has four modules. Core covers entities for organization and management, such as programs, trials, and studies. Phenotyping covers observations, traits, and methods. Genotyping covers samples, variants, and calls. Germplasm covers germplasm, crosses, and pedigrees. BrAPI is compatible with community standards including MIAPPE, MCPD, GeoJSON, the GA4GH Variants Schema, and the Crop Ontology. Version 2.1 was released in July 2022, and the specification is released under the MIT license.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://brapi.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/bioinformatics/btz190",
+        "ref_title": "BrAPI: an application programming interface for plant breeding applications",
+        "ref_authors": [
+          "Selby P",
+          "Abbeloos R",
+          "Backlund JE",
+          "Basterrechea Salido M",
+          "Bauchet G",
+          "Benites-Alfaro OE",
+          "Birkett C",
+          "Calaminos VC",
+          "Carceller P",
+          "Cornut G",
+          "Vasques Costa B",
+          "Edwards JD",
+          "Finkers R",
+          "Yanxin Gao S",
+          "Ghaffar M",
+          "Glaser P",
+          "Guignon V",
+          "Hok P",
+          "Kilian A",
+          "König P",
+          "Lagare JEB",
+          "Lange M",
+          "Laporte M",
+          "Larmande P",
+          "LeBauer DS",
+          "Lyon DA",
+          "Marshall DS",
+          "Matthews D",
+          "Milne I",
+          "Mistry N",
+          "Morales N",
+          "Mueller LA",
+          "Neveu P",
+          "Papoutsoglou E",
+          "Pearce B",
+          "Perez-Masias I",
+          "Pommier C",
+          "Ramírez-González RH",
+          "Rathore A",
+          "Raquel AM",
+          "Raubach S",
+          "Rife T",
+          "Robbins K",
+          "Rouard M",
+          "Sarma C",
+          "Scholz U",
+          "Sempéré G",
+          "Shaw PD",
+          "Simon R",
+          "Soldevilla N",
+          "Stephen G",
+          "Sun Q",
+          "Tovar C",
+          "Uszynski G",
+          "Verouden M",
+          "The BrAPI consortium"
+        ],
+        "ref_publication_year": 2019,
+        "ref_journal": "Bioinformatics"
+      },
+      "formal_specification": "https://github.com/plantbreeding/BrAPI"
+    },
+    {
+      "id": "B2AI_STANDARD:1351",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "PRO-CTCAE",
+      "description": "Patient-Reported Outcomes version of the Common Terminology Criteria for Adverse Events",
+      "related_to": [
+        "B2AI_STANDARD:425"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "has_application": [
+        {
+          "id": "B2AI_APP:548",
+          "category": "B2AI:Application",
+          "name": "Detecting PRO-CTCAE symptoms in oncology notes with deep learning",
+          "description": "This study tested ten deep learning models for detecting 80 symptoms from the PRO-CTCAE framework in outpatient progress notes from the Dana-Farber Cancer Institute, with 1,125 notes for training and validation and 100 for testing. The ELECTRA-small model performed best, with a token-level F1 of 0.87. In external validation of the ten most common symptoms, note-level F1 ranged from 0.73 to 0.97. PRO-CTCAE defines the symptom labels.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1200/cci.21.00136",
+              "ref_title": "Deep Learning for Cancer Symptoms Monitoring on the Basis of Electronic Health Record Unstructured Clinical Notes",
+              "ref_authors": [
+                "Lindvall C",
+                "Deng C",
+                "Agaronnik ND",
+                "Kwok A",
+                "Samineni S",
+                "Umeton R",
+                "Mackie-Jenkins W",
+                "Kehl KL",
+                "Tulsky JA",
+                "Enzinger AC"
+              ],
+              "ref_publication_year": 2022,
+              "ref_journal": "JCO Clinical Cancer Informatics"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:549",
+          "category": "B2AI:Application",
+          "name": "Clustering older adults with advanced cancer by PRO-CTCAE symptom severity",
+          "description": "In a secondary analysis of the GAP70+ trial, a k-means algorithm clustered 706 older adults with advanced cancer by the severity of 24 PRO-CTCAE symptoms recorded before treatment. It produced low, moderate, and high severity clusters that were associated with risk of unplanned hospitalization and death. PRO-CTCAE severity items are the clustering features.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1001/jamanetworkopen.2023.4198",
+              "ref_title": "An Unsupervised Machine Learning Approach to Evaluating the Association of Symptom Clusters With Adverse Outcomes Among Older Adults With Advanced Cancer: A Secondary Analysis of a Randomized Clinical Trial",
+              "ref_authors": [
+                "Xu H",
+                "Mohamed M",
+                "Flannery M",
+                "Peppone L",
+                "Ramsdale E",
+                "Loh KP",
+                "Wells M",
+                "Jamieson L",
+                "Vogel VG",
+                "Hall BA",
+                "Mustian K",
+                "Mohile S",
+                "Culakova E"
+              ],
+              "ref_publication_year": 2023,
+              "ref_journal": "JAMA Network Open"
+            }
+          ]
+        },
+        {
+          "id": "B2AI_APP:550",
+          "category": "B2AI:Application",
+          "name": "Predicting mortality from health records and patient-reported outcomes in oncology",
+          "description": "This study trained machine learning algorithms to predict short-term mortality from about 200 health record variables and patient-reported outcomes drawn from PRO-CTCAE and PROMIS Global scales. Combining both sources raised the area under the curve to 0.86 in a tertiary practice, against 0.82 for health records alone and 0.74 for patient-reported outcomes alone, and to 0.89 in a community practice. PRO-CTCAE supplies part of the patient-reported feature set.",
+          "used_in_bridge2ai": false,
+          "references": [
+            {
+              "ref_url": "https://doi.org/10.1200/cci.22.00073",
+              "ref_title": "Development of Machine Learning Algorithms Incorporating Electronic Health Record Data, Patient-Reported Outcomes, or Both to Predict Mortality for Outpatients With Cancer",
+              "ref_authors": [
+                "Parikh RB",
+                "Hasler JS",
+                "Zhang Y",
+                "Liu M",
+                "Chivers C",
+                "Ferrell W",
+                "Gabriel PE",
+                "Lerman C",
+                "Bekelman JE",
+                "Chen J"
+              ],
+              "ref_publication_year": 2022,
+              "ref_journal": "JCO Clinical Cancer Informatics"
+            }
+          ]
+        }
+      ],
+      "collection": [
+        "diagnosticinstrument",
+        "standards_process_maturity_final",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:4",
+        "B2AI_TOPIC:31",
+        "B2AI_TOPIC:66",
+        "B2AI_TOPIC:81"
+      ],
+      "has_relevant_organization": [
+        "B2AI_ORG:15",
+        "B2AI_ORG:31"
+      ],
+      "purpose_detail": "The Patient-Reported Outcomes version of the Common Terminology Criteria for Adverse Events (PRO-CTCAE) is a National Cancer Institute (NCI) measurement system for capturing symptomatic adverse events by self-report in cancer clinical trials. It is a companion to CTCAE, through which clinicians report. The item library has 124 items representing 78 symptomatic toxicities drawn from CTCAE, and items address the frequency, severity, interference, amount, or presence of a symptom. A pediatric module, Ped-PRO-CTCAE, supports self-report or caregiver report for ages 7 to 17. PRO-CTCAE is available in more than 60 validated languages. Data standards for it were developed with the Clinical Data Interchange Standards Consortium (CDISC) and the US FDA. The system is publicly available for clinical research, subject to terms of use.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://healthcaredelivery.cancer.gov/pro-ctcae/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/jnci/dju244",
+        "ref_title": "Development of the National Cancer Institute's Patient-Reported Outcomes Version of the Common Terminology Criteria for Adverse Events (PRO-CTCAE)",
+        "ref_authors": [
+          "Basch E",
+          "Reeve BB",
+          "Mitchell SA",
+          "Clauser SB",
+          "Minasian LM",
+          "Dueck AC",
+          "Mendoza TR",
+          "Hay J",
+          "Atkinson TM",
+          "Abernethy AP",
+          "Bruner DW",
+          "Cleeland CS",
+          "Sloan JA",
+          "Chilukuri R",
+          "Baumgartner P",
+          "Denicoff A",
+          "St. Germain D",
+          "O'Mara AM",
+          "Chen A",
+          "Kelaghan J",
+          "Bennett AV",
+          "Sit L",
+          "Rogak L",
+          "Barz A",
+          "Paul DB",
+          "Schrag D"
+        ],
+        "ref_publication_year": 2014,
+        "ref_journal": "JNCI Journal of the National Cancer Institute"
+      },
+      "responsible_organization": [
+        "B2AI_ORG:71"
+      ]
+    },
+    {
+      "id": "B2AI_STANDARD:1352",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "LEMS",
+      "description": "Low Entropy Model Specification",
+      "related_to": [
+        "B2AI_STANDARD:234",
+        "B2AI_STANDARD:289",
+        "B2AI_STANDARD:318"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "markuplanguage",
+        "standards_process_maturity_development",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:41",
+        "B2AI_TOPIC:60"
+      ],
+      "purpose_detail": "The Low Entropy Model Specification (LEMS) is a declarative language for specifying hierarchical models of biological systems based on fundamental physical relationships. It aims to be compact, minimally redundant, and readable and writable by people. Unlike SBML and CellML, it was designed to be written by hand, and it includes physical concepts such as dimensionality and nesting in the language. LEMS defines structures for representing models and is commonly expressed in XML. It underpins NeuroML version 2, whose component types are defined in LEMS. Interpreters include jLEMS in Java and PyLEMS in Python. The repository is released under the GNU GPL version 3.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://lems.github.io/LEMS/",
+      "publication": {
+        "ref_url": "https://doi.org/10.3389/fninf.2014.00079",
+        "ref_title": "LEMS: a language for expressing complex biological models in concise and hierarchical form and its use in underpinning NeuroML 2",
+        "ref_authors": [
+          "Cannon RC",
+          "Gleeson P",
+          "Crook S",
+          "Ganapathy G",
+          "Marin B",
+          "Piasini E",
+          "Silver RA"
+        ],
+        "ref_publication_year": 2014,
+        "ref_journal": "Frontiers in Neuroinformatics"
+      },
+      "formal_specification": "https://github.com/LEMS/LEMS"
+    },
+    {
+      "id": "B2AI_STANDARD:1353",
+      "category": "B2AI_STANDARD:BiomedicalStandard",
+      "name": "MIASE",
+      "description": "Minimum Information About a Simulation Experiment",
+      "related_to": [
+        "B2AI_STANDARD:277"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "minimuminformationschema",
+        "guidelines"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:1",
+        "B2AI_TOPIC:54"
+      ],
+      "purpose_detail": "Minimum Information About a Simulation Experiment (MIASE) is a set of guidelines, published in 2011, for the information needed to share and reproduce simulation experiments on biological models. SED-ML is a computer-readable format for the information that MIASE calls for. No working project site was found when this entry was added, so the published guideline serves as the reference.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://doi.org/10.1371/journal.pcbi.1001122",
+      "publication": {
+        "ref_url": "https://doi.org/10.1371/journal.pcbi.1001122",
+        "ref_title": "Minimum Information About a Simulation Experiment (MIASE)",
+        "ref_authors": [
+          "Waltemath D",
+          "Adams R",
+          "Beard DA",
+          "Bergmann FT",
+          "Bhalla US",
+          "Britten R",
+          "Chelliah V",
+          "Cooling MT",
+          "Cooper J",
+          "Crampin EJ",
+          "Garny A",
+          "Hoops S",
+          "Hucka M",
+          "Hunter P",
+          "Klipp E",
+          "Laibe C",
+          "Miller AK",
+          "Moraru I",
+          "Nickerson D",
+          "Nielsen P",
+          "Nikolski M",
+          "Sahle S",
+          "Sauro HM",
+          "Schmidt H",
+          "Snoep JL",
+          "Tolle D",
+          "Wolkenhauer O",
+          "Le Novère N"
+        ],
+        "ref_publication_year": 2011,
+        "ref_journal": "PLoS Computational Biology"
+      }
+    },
+    {
+      "id": "B2AI_STANDARD:1358",
+      "category": "B2AI_STANDARD:Registry",
+      "name": "BioSimulators",
+      "description": "BioSimulators registry of biosimulation tools",
+      "related_to": [
+        "B2AI_STANDARD:277",
+        "B2AI_STANDARD:289",
+        "B2AI_STANDARD:318",
+        "B2AI_STANDARD:249"
+      ],
+      "contributor_name": "Harry Caufield",
+      "contributor_github_name": "caufieldjh",
+      "contributor_orcid": "ORCID:0000-0001-5705-7831",
+      "contribution_date": "2026-11-24",
+      "collection": [
+        "softwareregistry",
+        "implementation_maturity_production"
+      ],
+      "concerns_data_topic": [
+        "B2AI_TOPIC:1",
+        "B2AI_TOPIC:60"
+      ],
+      "purpose_detail": "BioSimulators is a registry of biological simulation tools and their capabilities, many of which are offered through consistent Python, command-line, and containerized interfaces. It builds on standards including CellML, SBML, SED-ML, and the COMBINE archive (OMEX) format, and provides validation for simulation projects and tools so that the standards are applied consistently. The registry also supports services that recommend tools for particular projects. Its code is released under the MIT license.",
+      "is_open": true,
+      "requires_registration": false,
+      "url": "https://biosimulators.org/",
+      "publication": {
+        "ref_url": "https://doi.org/10.1093/nar/gkac331",
+        "ref_title": "BioSimulators: a central registry of simulation engines and services for recommending specific tools",
+        "ref_authors": [
+          "Shaikh B",
+          "Smith LP",
+          "Vasilescu D",
+          "Marupilla G",
+          "Wilson M",
+          "Agmon E",
+          "Agnew H",
+          "Andrews SS",
+          "Anwar A",
+          "Beber ME",
+          "Bergmann FT",
+          "Brooks D",
+          "Brusch L",
+          "Calzone L",
+          "Choi K",
+          "Cooper J",
+          "Detloff J",
+          "Drawert B",
+          "Dumontier M",
+          "Ermentrout GB",
+          "Faeder JR",
+          "Freiburger AP",
+          "Fröhlich F",
+          "Funahashi A",
+          "Garny A",
+          "Gennari JH",
+          "Gleeson P",
+          "Goelzer A",
+          "Haiman Z",
+          "Hasenauer J",
+          "Hellerstein JL",
+          "Hermjakob H",
+          "Hoops S",
+          "Ison JC",
+          "Jahn D",
+          "Jakubowski HV",
+          "Jordan R",
+          "Kalaš M",
+          "König M",
+          "Liebermeister W",
+          "Sheriff RSM",
+          "Mandal S",
+          "McDougal R",
+          "Medley JK",
+          "Mendes P",
+          "Müller R",
+          "Myers CJ",
+          "Naldi A",
+          "Nguyen TVN",
+          "Nickerson DP",
+          "Olivier BG",
+          "Patoliya D",
+          "Paulevé L",
+          "Petzold LR",
+          "Priya A",
+          "Rampadarath AK",
+          "Rohwer JM",
+          "Saglam AS",
+          "Singh D",
+          "Sinha A",
+          "Snoep J",
+          "Sorby H",
+          "Spangler R",
+          "Starruß J",
+          "Thomas PJ",
+          "van Niekerk D",
+          "Weindl D",
+          "Zhang F",
+          "Zhukova A",
+          "Goldberg AP",
+          "Schaff JC",
+          "Blinov ML",
+          "Sauro HM",
+          "Moraru II",
+          "Karr JR"
+        ],
+        "ref_publication_year": 2022,
+        "ref_journal": "Nucleic Acids Research"
+      },
+      "formal_specification": "https://github.com/biosimulators/Biosimulators"
     }
   ],
   "@type": "DataStandardOrToolContainer"
