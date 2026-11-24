@@ -25846,6 +25846,8 @@ data_standardortools_collection:
     model artifacts, data dictionaries, validation results, evidence graphs, and
     computational environment details so downstream users can discover, validate,
     cite, reproduce, and reuse model-training resources.
+  related_to:
+  - B2AI_STANDARD:1359
   requires_registration: false
   url: https://www.researchobject.org/ro-crate/
   used_in_bridge2ai: true
@@ -39481,6 +39483,7 @@ data_standardortools_collection:
     to researchers regardless of their computational expertise.
   related_to:
   - B2AI_STANDARD:808
+  - B2AI_STANDARD:1359
   requires_registration: false
   url: https://dockstore.org/
   publication:
@@ -48592,6 +48595,9 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:835
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - standards_process_maturity_draft
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:54
   - B2AI_TOPIC:59
@@ -48600,14 +48606,29 @@ data_standardortools_collection:
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Tool Registry Service
-  has_relevant_organization:
-  - B2AI_ORG:34
+  formal_specification: https://github.com/ga4gh/tool-registry-service-schemas
   is_open: true
   name: TRS
-  purpose_detail: A proposed standard for sharing and discovering tools and workflows
-    in a platform-agnostic way. Includes a Tool Registry Search validator and a Tool
-    Discovery API specification.
+  purpose_detail: The Tool Registry Service (TRS) is a Global Alliance for Genomics
+    and Health (GA4GH) API for describing, searching, and retrieving tools and workflows
+    across registries. It lets separate repositories share items written in workflow
+    languages such as WDL, CWL, Nextflow, Galaxy, and Snakemake, with dependencies
+    supplied as containers (Docker, Singularity) or alternatives such as Conda. Clients
+    can then discover and fetch a workflow in a consistent way from different registries,
+    which supports sharing and reproducibility of analyses. The schema is maintained
+    by the GA4GH Cloud Work Stream under the Apache 2.0 license, with version 2.0.2
+    released in September 2025.
+  related_to:
+  - B2AI_STANDARD:841
+  - B2AI_STANDARD:711
+  - B2AI_STANDARD:320
+  - B2AI_STANDARD:389
+  - B2AI_STANDARD:807
+  - B2AI_STANDARD:766
+  - B2AI_STANDARD:1359
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:34
   url: https://ga4gh.github.io/tool-registry-service-schemas/
   publication:
     ref_url: ''
@@ -48941,6 +48962,8 @@ data_standardortools_collection:
     bioinformatics workflow execution platforms and supports integration with related
     GA4GH standards including the Data Object Service for credential management and
     the Task Execution Service for extended task definitions.
+  related_to:
+  - B2AI_STANDARD:835
   requires_registration: false
   url: https://ga4gh.github.io/workflow-execution-service-schemas/docs/
   publication:
@@ -71397,3 +71420,55 @@ data_standardortools_collection:
   url: https://www.cdc.gov/laboratory-systems/php/livd-test-codemapping/index.html
   publication:
     ref_url: ''
+- id: B2AI_STANDARD:1359
+  category: B2AI_STANDARD:Registry
+  collection:
+  - softwareregistry
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:59
+  - B2AI_TOPIC:60
+  - B2AI_TOPIC:54
+  contribution_date: '2026-11-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: WorkflowHub registry for computational workflows
+  has_relevant_organization:
+  - B2AI_ORG:28
+  is_open: true
+  name: WorkflowHub
+  purpose_detail: WorkflowHub is a registry for describing, sharing, and finding computational
+    workflows, sponsored by EOSC-Life and the European research infrastructure ELIXIR.
+    It is agnostic to workflow management systems, and workflows may remain in their
+    own repositories in their original forms. It links to community repositories,
+    interoperates with other platforms and registries, and supports the workflow life
+    cycle, credit for contributors, and the findability, accessibility, interoperability,
+    and reusability (FAIR) of workflows.
+  related_to:
+  - B2AI_STANDARD:835
+  - B2AI_STANDARD:372
+  - B2AI_STANDARD:711
+  requires_registration: false
+  url: https://workflowhub.eu/
+  publication:
+    ref_url: https://doi.org/10.1038/s41597-025-04786-3
+    ref_title: 'WorkflowHub: a registry for computational workflows'
+    ref_authors:
+    - Gustafsson OJR
+    - Wilkinson SR
+    - Bacall F
+    - Soiland-Reyes S
+    - Leo S
+    - Pireddu L
+    - Owen S
+    - Juty N
+    - Fernández JM
+    - Brown T
+    - Ménager H
+    - Grüning B
+    - Capella-Gutierrez S
+    - Coppens F
+    - Goble C
+    ref_publication_year: 2025
+    ref_journal: Scientific Data
