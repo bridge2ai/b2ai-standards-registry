@@ -12830,6 +12830,8 @@ data_standardortools_collection:
     design, and computed-model deposition all require consistent machine-readable
     representations of macromolecular entities, coordinate systems, provenance, and
     quality metrics.
+  related_to:
+  - B2AI_STANDARD:1356
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:82
@@ -14831,6 +14833,8 @@ data_standardortools_collection:
     Crystallographic Information Framework (PDBx/mmCIF); provides an extensible data
     representation for deposition, archiving, and public dissemination of predicted
     3D models of proteins.
+  related_to:
+  - B2AI_STANDARD:1356
   requires_registration: false
   url: http://github.com/ihmwg/ModelCIF
 - id: B2AI_STANDARD:216
@@ -19387,6 +19391,8 @@ data_standardortools_collection:
     enables efficient data compression and transfer, particularly valuable for large-scale
     structural databases supporting machine learning model training across distributed
     computing environments.
+  related_to:
+  - B2AI_STANDARD:1355
   requires_registration: false
   url: https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html
   publication:
@@ -43310,24 +43316,132 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:778
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - proteindata
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:27
   - B2AI_TOPIC:60
+  - B2AI_TOPIC:26
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Integrative Modeling Platform
   formal_specification: https://github.com/salilab/imp
+  has_application:
+  - id: B2AI_APP:552
+    category: B2AI:Application
+    name: Integrative modeling within self-supervised multimodal cell maps
+    description: This study built a global map of human subcellular architecture in
+      U2OS cells by self-supervised integration of biophysical interaction data and
+      immunofluorescence images for over 5,100 proteins, with large language models
+      used to annotate assemblies. The map then guided structural modeling, including
+      AlphaFold-Multimer predictions for protein pairs within assemblies. IMP version
+      2.18, through its Python Modelling Interface, was used to model an expanded
+      Rag-Ragulator assembly from spatial restraints. The work acknowledges funding
+      from the Bridge2AI program. IMP is used downstream of the machine learning steps.
+    used_in_bridge2ai: true
+    references:
+    - ref_url: https://doi.org/10.1038/s41586-025-08878-3
+      ref_title: Multimodal cell maps as a foundation for structural and functional
+        genomics
+      ref_authors:
+      - Schaffer LV
+      - Hu M
+      - Qian G
+      - Moon K
+      - Pal A
+      - Soni N
+      - Latham AP
+      - Pontano Vaites L
+      - Tsai D
+      - Mattson NM
+      - Licon K
+      - Bachelder R
+      - Cesnik A
+      - Gaur I
+      - Le T
+      - Leineweber W
+      - Palar A
+      - Pulido E
+      - Qin Y
+      - Zhao X
+      - Churas C
+      - Lenkiewicz J
+      - Chen J
+      - Ono K
+      - Pratt D
+      - Zage P
+      - Echeverria I
+      - Sali A
+      - Harper JW
+      - Gygi SP
+      - Foster LJ
+      - Huttlin EL
+      - Lundberg E
+      - Ideker T
+      ref_publication_year: 2025
+      ref_journal: Nature
+  - id: B2AI_APP:553
+    category: B2AI:Application
+    name: Modeling histone deacetylase complexes with IMP and AlphaFold structures
+    description: This study combined crosslinking mass spectrometry with IMP to model
+      the NuRD, SIN3A, and CoREST complexes of human histone deacetylases 1 and 2.
+      AlphaFold2 supplied structures of MTA1, MBD3, and GATAD2B where no structure
+      or homology model was available. AlphaFold3 and crosslink-constrained HADDOCK
+      docking were then used to examine how HDAC1, including its disordered C-terminal
+      region, behaves in these complexes. IMP integrates experimental restraints with
+      component structures, some of them predicted by deep learning.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.mcpro.2026.101651
+      ref_title: Multicomplex Integrative Structural Modeling of a Human Histone Deacetylase
+        Interactome
+      ref_authors:
+      - Nde J
+      - Majila K
+      - Zimmermann RC
+      - Kempf C
+      - Zhang Y
+      - Cesare J
+      - Thornton JL
+      - Workman JL
+      - Florens L
+      - Viswanath S
+      - Washburn MP
+      ref_publication_year: 2026
+      ref_journal: Molecular & Cellular Proteomics
   is_open: true
   name: IMP
-  purpose_detail: An open source C++ and Python toolbox for solving complex modeling
-    problems, and a number of applications for tackling some common problems in a
-    user-friendly way. IMP can also be used from the Chimera molecular modeling system,
-    or via one of several web applications.
+  purpose_detail: The Integrative Modeling Platform (IMP) is open source software
+    for determining the structures of biomolecules, from small peptides to large macromolecular
+    assemblies, by integrating data from diverse biochemical and biophysical experiments.
+    It provides a C++ and Python toolbox for building modeling protocols, along with
+    applications for common problems, and can also be used from the Chimera molecular
+    modeling system or through web applications. IMP serves as a base for further
+    methods, such as the NestOR software for choosing model representations by Bayesian
+    model selection. It is mostly available under the GNU Lesser General Public License,
+    with some modules under the GNU GPL. Version 2.25.0 was released in August 2026.
+  related_to:
+  - B2AI_STANDARD:1355
+  - B2AI_STANDARD:1356
   requires_registration: false
   url: https://integrativemodeling.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1371/journal.pbio.1001244
+    ref_title: 'Putting the Pieces Together: Integrative Modeling Platform Software
+      for Structure Determination of Macromolecular Assemblies'
+    ref_authors:
+    - Russel D
+    - Lasker K
+    - Webb B
+    - Velázquez-Muriel J
+    - Tjioe E
+    - Schneidman-Duhovny D
+    - Peterson B
+    - Sali A
+    ref_publication_year: 2012
+    ref_journal: PLoS Biology
 - id: B2AI_STANDARD:779
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -71665,3 +71779,135 @@ data_standardortools_collection:
     - Vingron M
     ref_publication_year: 2001
     ref_journal: Nature Genetics
+- id: B2AI_STANDARD:1355
+  category: B2AI_STANDARD:Registry
+  collection:
+  - dataregistry
+  - proteindata
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:26
+  - B2AI_TOPIC:27
+  - B2AI_TOPIC:62
+  contribution_date: '2026-11-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: PDB-IHM system for archiving integrative structures
+  is_open: true
+  name: PDB-IHM
+  purpose_detail: PDB-IHM is a system for depositing, curating, validating, and disseminating
+    structural models of macromolecules obtained by integrative or hybrid modeling,
+    in which complementary experimental and computational techniques are combined.
+    It is managed by the Worldwide Protein Data Bank (wwPDB). It began as the standalone
+    prototype PDB-Dev, and was later unified with the PDB archive and renamed, so
+    that integrative structures now carry PDB accession codes. It can hold structures
+    that combine experimental restraints with coordinates computed by machine learning
+    algorithms. Its data are represented with the IHMCIF dictionary.
+  related_to:
+  - B2AI_STANDARD:263
+  - B2AI_STANDARD:778
+  - B2AI_STANDARD:1356
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:82
+  url: https://pdb-ihm.org/
+  publication:
+    ref_url: https://doi.org/10.1016/j.jmb.2025.168963
+    ref_title: 'PDB-IHM: A System for Deposition, Curation, Validation, and Dissemination
+      of Integrative Structures'
+    ref_authors:
+    - Vallat B
+    - Webb BM
+    - Zalevsky A
+    - Tangmunarunkit H
+    - Sekharan MR
+    - Voinea S
+    - Shafaeibejestan A
+    - Sagendorf J
+    - Hoch JC
+    - Kurisu G
+    - Morris KL
+    - Velankar S
+    - Kesselman C
+    - Burley SK
+    - Berman HM
+    - Sali A
+    ref_publication_year: 2025
+    ref_journal: Journal of Molecular Biology
+- id: B2AI_STANDARD:1356
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - proteindata
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:26
+  - B2AI_TOPIC:27
+  - B2AI_TOPIC:54
+  contribution_date: '2026-11-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Integrative/hybrid methods extension of the PDBx/mmCIF dictionary
+  formal_specification: https://github.com/ihmwg/IHMCIF
+  has_relevant_organization:
+  - B2AI_ORG:82
+  is_open: true
+  name: IHMCIF
+  purpose_detail: IHMCIF is an extension of the PDBx/mmCIF dictionary that defines
+    the data needed to archive integrative or hybrid structural models in PDB-IHM.
+    It covers multi-scale, multi-state, and ordered ensembles, models of heterogeneous
+    composition, the starting models of individual components, and spatial restraints
+    derived from methods such as electron microscopy, chemical crosslinking mass spectrometry,
+    small angle scattering, and FRET. The dictionary is openly developed on GitHub
+    under the CC0 1.0 dedication.
+  related_to:
+  - B2AI_STANDARD:188
+  - B2AI_STANDARD:215
+  - B2AI_STANDARD:1355
+  - B2AI_STANDARD:778
+  requires_registration: false
+  url: https://mmcif.wwpdb.org/dictionaries/mmcif_ihm.dic/Index/
+  publication:
+    ref_url: https://doi.org/10.1016/j.jmb.2024.168546
+    ref_title: 'IHMCIF: An Extension of the PDBx/mmCIF Data Standard for Integrative
+      Structure Determination Methods'
+    ref_authors:
+    - Vallat B
+    - Webb BM
+    - Westbrook JD
+    - Goddard TD
+    - Hanke CA
+    - Graziadei A
+    - Peisach E
+    - Zalevsky A
+    - Sagendorf J
+    - Tangmunarunkit H
+    - Voinea S
+    - Sekharan M
+    - Yu J
+    - Bonvin AAMJJ
+    - DiMaio F
+    - Hummer G
+    - Meiler J
+    - Tajkhorshid E
+    - Ferrin TE
+    - Lawson CL
+    - Leitner A
+    - Rappsilber J
+    - Seidel CAM
+    - Jeffries CM
+    - Burley SK
+    - Hoch JC
+    - Kurisu G
+    - Morris K
+    - Patwardhan A
+    - Velankar S
+    - Schwede T
+    - Trewhella J
+    - Kesselman C
+    - Berman HM
+    - Sali A
+    ref_publication_year: 2024
+    ref_journal: Journal of Molecular Biology
