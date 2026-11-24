@@ -16646,26 +16646,79 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
   - markuplanguage
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:48
   - B2AI_TOPIC:41
+  - B2AI_TOPIC:60
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: NeuroML
+  formal_specification: https://github.com/NeuroML/NeuroML2
+  has_application:
+  - id: B2AI_APP:541
+    category: B2AI:Application
+    name: Neuron-type identification from simulated extracellular recordings using
+      NeuroML-described models
+    description: This study introduces a machine learning approach that demixes the
+      current sources underlying spatiotemporal extracellular action potential waveforms
+      and uses the relative prevalence of those sources as features for identifying
+      neuron types. The authors obtained 105 multicompartmental models covering 21
+      neuron-type families from the NeuroML Database, downloading them in HOC format
+      for simulation and in NeuroML format for morphometric analysis. All morphometrics
+      were computed from the NeuroML description of each model. The simulated waveforms
+      were run in NEURON from the HOC versions, so NeuroML supports the morphological
+      side of the analysis rather than the simulations themselves.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fninf.2024.1303993
+      ref_title: Discovering optimal features for neuron-type identification from
+        extracellular recordings
+      ref_authors:
+      - Haynes VR
+      - Zhou Y
+      - Crook SM
+      ref_publication_year: 2024
+      ref_journal: Frontiers in Neuroinformatics
+  has_relevant_organization:
+  - B2AI_ORG:19
   has_training_resource:
   - B2AI_STANDARD:1063
   is_open: true
   name: NeuroML
-  purpose_detail: NeuroML is a model description language developed in XML (extensible
-    Markup Language) that was created to facilitate data archiving, data and model
-    exchange, database creation, and model publication in the neurosciences. One of
-    the goals of the NeuroML project is to develop standards for model specification
-    that will allow for greater simulator interoperability and model exchange.
+  purpose_detail: NeuroML is an XML-based model description language for computational
+    neuroscience, used to exchange, archive, and publish models of neurons and neuronal
+    networks independently of any one simulator. NeuroML version 2 consists of a schema
+    together with component type definitions written in LEMS (Low Entropy Model Specification),
+    a language for expressing the structure and dynamics of model components. The
+    surrounding ecosystem of libraries and tools supports the model life cycle, including
+    creating, validating, visualizing, simulating, and sharing standardized models.
+    NeuroML is represented among the delegates of the COmputational Modeling in BIology
+    NEtwork (COMBINE), alongside standards such as SBML and SED-ML. The schema and
+    component definitions are openly developed on GitHub under the LGPL 3.0 license.
+  related_to:
+  - B2AI_STANDARD:289
   requires_registration: false
   url: https://neuroml.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.7554/elife.95135
+    ref_title: The NeuroML ecosystem for standardized multi-scale modeling in neuroscience
+    ref_authors:
+    - Sinha A
+    - Gleeson P
+    - Marin B
+    - Dura-Bernal S
+    - Panagiotou S
+    - Crook S
+    - Cantarelli M
+    - Cannon RC
+    - Davison AP
+    - Gurnani H
+    - Silver RA
+    ref_publication_year: 2025
+    ref_journal: eLife
 - id: B2AI_STANDARD:235
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
