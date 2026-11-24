@@ -16764,6 +16764,7 @@ data_standardortools_collection:
     component definitions are openly developed on GitHub under the LGPL 3.0 license.
   related_to:
   - B2AI_STANDARD:289
+  - B2AI_STANDARD:1352
   requires_registration: false
   url: https://neuroml.org/
   publication:
@@ -72509,3 +72510,49 @@ data_standardortools_collection:
     - Schrag D
     ref_publication_year: 2014
     ref_journal: JNCI Journal of the National Cancer Institute
+- id: B2AI_STANDARD:1352
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - markuplanguage
+  - standards_process_maturity_development
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:41
+  - B2AI_TOPIC:60
+  contribution_date: '2026-11-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Low Entropy Model Specification
+  formal_specification: https://github.com/LEMS/LEMS
+  is_open: true
+  name: LEMS
+  purpose_detail: The Low Entropy Model Specification (LEMS) is a declarative language
+    for specifying hierarchical models of biological systems based on fundamental
+    physical relationships. It aims to be compact, minimally redundant, and readable
+    and writable by people. Unlike SBML and CellML, it was designed to be written
+    by hand, and it includes physical concepts such as dimensionality and nesting
+    in the language. LEMS defines structures for representing models and is commonly
+    expressed in XML. It underpins NeuroML version 2, whose component types are defined
+    in LEMS. Interpreters include jLEMS in Java and PyLEMS in Python. The repository
+    is released under the GNU GPL version 3.
+  related_to:
+  - B2AI_STANDARD:234
+  - B2AI_STANDARD:289
+  - B2AI_STANDARD:318
+  requires_registration: false
+  url: https://lems.github.io/LEMS/
+  publication:
+    ref_url: https://doi.org/10.3389/fninf.2014.00079
+    ref_title: 'LEMS: a language for expressing complex biological models in concise
+      and hierarchical form and its use in underpinning NeuroML 2'
+    ref_authors:
+    - Cannon RC
+    - Gleeson P
+    - Crook S
+    - Ganapathy G
+    - Marin B
+    - Piasini E
+    - Silver RA
+    ref_publication_year: 2014
+    ref_journal: Frontiers in Neuroinformatics
