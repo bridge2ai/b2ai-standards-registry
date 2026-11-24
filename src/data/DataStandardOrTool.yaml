@@ -32657,21 +32657,69 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:20
+  - B2AI_TOPIC:60
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Kinetic Simulation Algorithm Ontology
   formal_specification: https://github.com/SED-ML/KiSAO
+  has_relevant_organization:
+  - B2AI_ORG:19
   is_open: true
   name: KISAO
-  purpose_detail: Algorithms for simulating biology, their parameters, and their outputs.
+  purpose_detail: The Kinetic Simulation Algorithm Ontology (KiSAO) describes algorithms
+    for simulating and analyzing biological models, together with their characteristics,
+    input parameters, and outputs, and the relationships among them. It lets a simulation
+    description name an exact algorithm in a tool-independent way, and its relationships
+    support reasoning about which algorithms can substitute for one another. KiSAO
+    is closely tied to SED-ML, which uses KiSAO terms to specify simulations. Since
+    Level 1 Version 5, SED-ML can also use KiSAO to define tasks, model changes, ranges,
+    and outputs. The ontology is developed in OWL, listed by the OBO Foundry, and
+    browsable through BioPortal and the Ontology Lookup Service. A Python package
+    supports working with its terms. It is released under the Artistic License 2.0,
+    with version 2.35 published in March 2026.
+  related_to:
+  - B2AI_STANDARD:277
   requires_registration: false
-  url: http://co.mbine.org/standards/kisao
+  url: https://obofoundry.org/ontology/kisao.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1038/msb.2011.77
+    ref_title: Controlled vocabularies and semantics in systems biology
+    ref_authors:
+    - Courtot M
+    - Juty N
+    - Knüpfer C
+    - Waltemath D
+    - Zhukova A
+    - Dräger A
+    - Dumontier M
+    - Finney A
+    - Golebiewski M
+    - Hastings J
+    - Hoops S
+    - Keating S
+    - Kell DB
+    - Kerrien S
+    - Lawson J
+    - Lister A
+    - Lu J
+    - Machne R
+    - Mendes P
+    - Pocock M
+    - Rodriguez N
+    - Villeger A
+    - Wilkinson DJ
+    - Wimalaratne S
+    - Laibe C
+    - Hucka M
+    - Le Novère N
+    ref_publication_year: 2011
+    ref_journal: Molecular Systems Biology
 - id: B2AI_STANDARD:479
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
