@@ -35849,6 +35849,8 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:69
@@ -35857,15 +35859,46 @@ data_standardortools_collection:
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Ontology of Host-Microbiome Interactions
   formal_specification: https://github.com/ohmi-ontology/ohmi
+  has_relevant_organization:
+  - B2AI_ORG:75
+  - B2AI_ORG:178
+  - B2AI_ORG:200
   is_open: true
   name: OHMI
-  purpose_detail: Entities and relations related to microbiomes, microbiome host organisms
-    (e.g., human and mouse), and the interactions between the hosts and microbiomes
-    at different conditions.
+  purpose_detail: The Ontology of Host-Microbiome Interactions (OHMI) represents microbiomes,
+    microbial taxonomy, host species, host anatomical entities, and host-microbiome
+    interactions under different conditions, together with study protocols, types
+    of data analysis, and experimental results. It is aligned with the Basic Formal
+    Ontology and reuses terms from more than 10 existing ontologies. As described
+    in 2019, OHMI had over 1,000 terms, of which about 500 were specific to it. In
+    one use, drawing on more than 50 publications, its developers identified over
+    100 bacteria and fungi associated with six rheumatic diseases. It has since framed
+    evidence synthesis on microbiomes in chronic obstructive pulmonary disease. Development
+    is a collaboration including the University of Michigan and the University of
+    Pennsylvania. OHMI is an active OBO Foundry ontology released under the CC BY
+    4.0 license, with a release in May 2026.
+  related_to:
+  - B2AI_STANDARD:408
   requires_registration: false
   url: https://github.com/ohmi-ontology/ohmi
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/s13326-019-0217-1
+    ref_title: 'OHMI: the ontology of host-microbiome interactions'
+    ref_authors:
+    - He Y
+    - Wang H
+    - Zheng J
+    - Beiting DP
+    - Masci AM
+    - Yu H
+    - Liu K
+    - Wu J
+    - Curtis JL
+    - Smith B
+    - Alekseyenko AV
+    - Obeid JS
+    ref_publication_year: 2019
+    ref_journal: Journal of Biomedical Semantics
 - id: B2AI_STANDARD:522
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
