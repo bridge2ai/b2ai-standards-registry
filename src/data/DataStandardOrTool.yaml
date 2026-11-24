@@ -29407,6 +29407,7 @@ data_standardortools_collection:
     as target labels for natural language processing of oncology notes.
   related_to:
   - B2AI_STANDARD:1293
+  - B2AI_STANDARD:1351
   requires_registration: false
   responsible_organization:
   - B2AI_ORG:71
@@ -72348,3 +72349,163 @@ data_standardortools_collection:
     - The BrAPI consortium
     ref_publication_year: 2019
     ref_journal: Bioinformatics
+- id: B2AI_STANDARD:1351
+  category: B2AI_STANDARD:BiomedicalStandard
+  collection:
+  - diagnosticinstrument
+  - standards_process_maturity_final
+  - implementation_maturity_production
+  concerns_data_topic:
+  - B2AI_TOPIC:4
+  - B2AI_TOPIC:31
+  - B2AI_TOPIC:66
+  - B2AI_TOPIC:81
+  contribution_date: '2026-11-24'
+  contributor_github_name: caufieldjh
+  contributor_name: Harry Caufield
+  contributor_orcid: ORCID:0000-0001-5705-7831
+  description: Patient-Reported Outcomes version of the Common Terminology Criteria
+    for Adverse Events
+  has_application:
+  - id: B2AI_APP:548
+    category: B2AI:Application
+    name: Detecting PRO-CTCAE symptoms in oncology notes with deep learning
+    description: This study tested ten deep learning models for detecting 80 symptoms
+      from the PRO-CTCAE framework in outpatient progress notes from the Dana-Farber
+      Cancer Institute, with 1,125 notes for training and validation and 100 for testing.
+      The ELECTRA-small model performed best, with a token-level F1 of 0.87. In external
+      validation of the ten most common symptoms, note-level F1 ranged from 0.73 to
+      0.97. PRO-CTCAE defines the symptom labels.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1200/cci.21.00136
+      ref_title: Deep Learning for Cancer Symptoms Monitoring on the Basis of Electronic
+        Health Record Unstructured Clinical Notes
+      ref_authors:
+      - Lindvall C
+      - Deng C
+      - Agaronnik ND
+      - Kwok A
+      - Samineni S
+      - Umeton R
+      - Mackie-Jenkins W
+      - Kehl KL
+      - Tulsky JA
+      - Enzinger AC
+      ref_publication_year: 2022
+      ref_journal: JCO Clinical Cancer Informatics
+  - id: B2AI_APP:549
+    category: B2AI:Application
+    name: Clustering older adults with advanced cancer by PRO-CTCAE symptom severity
+    description: In a secondary analysis of the GAP70+ trial, a k-means algorithm
+      clustered 706 older adults with advanced cancer by the severity of 24 PRO-CTCAE
+      symptoms recorded before treatment. It produced low, moderate, and high severity
+      clusters that were associated with risk of unplanned hospitalization and death.
+      PRO-CTCAE severity items are the clustering features.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1001/jamanetworkopen.2023.4198
+      ref_title: 'An Unsupervised Machine Learning Approach to Evaluating the Association
+        of Symptom Clusters With Adverse Outcomes Among Older Adults With Advanced
+        Cancer: A Secondary Analysis of a Randomized Clinical Trial'
+      ref_authors:
+      - Xu H
+      - Mohamed M
+      - Flannery M
+      - Peppone L
+      - Ramsdale E
+      - Loh KP
+      - Wells M
+      - Jamieson L
+      - Vogel VG
+      - Hall BA
+      - Mustian K
+      - Mohile S
+      - Culakova E
+      ref_publication_year: 2023
+      ref_journal: JAMA Network Open
+  - id: B2AI_APP:550
+    category: B2AI:Application
+    name: Predicting mortality from health records and patient-reported outcomes in
+      oncology
+    description: This study trained machine learning algorithms to predict short-term
+      mortality from about 200 health record variables and patient-reported outcomes
+      drawn from PRO-CTCAE and PROMIS Global scales. Combining both sources raised
+      the area under the curve to 0.86 in a tertiary practice, against 0.82 for health
+      records alone and 0.74 for patient-reported outcomes alone, and to 0.89 in a
+      community practice. PRO-CTCAE supplies part of the patient-reported feature
+      set.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1200/cci.22.00073
+      ref_title: Development of Machine Learning Algorithms Incorporating Electronic
+        Health Record Data, Patient-Reported Outcomes, or Both to Predict Mortality
+        for Outpatients With Cancer
+      ref_authors:
+      - Parikh RB
+      - Hasler JS
+      - Zhang Y
+      - Liu M
+      - Chivers C
+      - Ferrell W
+      - Gabriel PE
+      - Lerman C
+      - Bekelman JE
+      - Chen J
+      ref_publication_year: 2022
+      ref_journal: JCO Clinical Cancer Informatics
+  has_relevant_organization:
+  - B2AI_ORG:15
+  - B2AI_ORG:31
+  is_open: true
+  name: PRO-CTCAE
+  purpose_detail: The Patient-Reported Outcomes version of the Common Terminology
+    Criteria for Adverse Events (PRO-CTCAE) is a National Cancer Institute (NCI) measurement
+    system for capturing symptomatic adverse events by self-report in cancer clinical
+    trials. It is a companion to CTCAE, through which clinicians report. The item
+    library has 124 items representing 78 symptomatic toxicities drawn from CTCAE,
+    and items address the frequency, severity, interference, amount, or presence of
+    a symptom. A pediatric module, Ped-PRO-CTCAE, supports self-report or caregiver
+    report for ages 7 to 17. PRO-CTCAE is available in more than 60 validated languages.
+    Data standards for it were developed with the Clinical Data Interchange Standards
+    Consortium (CDISC) and the US FDA. The system is publicly available for clinical
+    research, subject to terms of use.
+  related_to:
+  - B2AI_STANDARD:425
+  requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:71
+  url: https://healthcaredelivery.cancer.gov/pro-ctcae/
+  publication:
+    ref_url: https://doi.org/10.1093/jnci/dju244
+    ref_title: Development of the National Cancer Institute's Patient-Reported Outcomes
+      Version of the Common Terminology Criteria for Adverse Events (PRO-CTCAE)
+    ref_authors:
+    - Basch E
+    - Reeve BB
+    - Mitchell SA
+    - Clauser SB
+    - Minasian LM
+    - Dueck AC
+    - Mendoza TR
+    - Hay J
+    - Atkinson TM
+    - Abernethy AP
+    - Bruner DW
+    - Cleeland CS
+    - Sloan JA
+    - Chilukuri R
+    - Baumgartner P
+    - Denicoff A
+    - St. Germain D
+    - O'Mara AM
+    - Chen A
+    - Kelaghan J
+    - Bennett AV
+    - Sit L
+    - Rogak L
+    - Barz A
+    - Paul DB
+    - Schrag D
+    ref_publication_year: 2014
+    ref_journal: JNCI Journal of the National Cancer Institute
