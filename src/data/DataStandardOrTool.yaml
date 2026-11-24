@@ -14446,29 +14446,84 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
   - minimuminformationschema
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:25
   - B2AI_TOPIC:1
   - B2AI_TOPIC:54
+  - B2AI_TOPIC:11
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Minimum Information About Plant Phenotyping Experiments
+  formal_specification: https://github.com/MIAPPE/MIAPPE
+  has_relevant_organization:
+  - B2AI_ORG:29
   has_training_resource:
   - B2AI_STANDARD:1021
   is_open: true
   name: MIAPPE
-  purpose_detail: A reporting guideline for plant phenotyping experiments. Comprises
-    a checklist, i.e., a list of attributes that may be necessary to fully describe
-    an experiment so that it is understandable and replicable. Should be consulted
-    by people recording and depositing the data. Covers description of the following
-    aspects of plant phenotyping experiment - study, environment, experimental design,
-    sample management, biosource, treatment and phenotype. To read more, please visit
-    http://cropnet.pl/phenotypes
+  purpose_detail: Minimum Information About Plant Phenotyping Experiments (MIAPPE)
+    is an open, community-driven standard for harmonizing data from plant phenotyping
+    experiments. It comprises a checklist of the metadata needed to describe an experiment
+    adequately and a conceptual data model. Its coverage includes general metadata,
+    experimental design, biological source material, environment and environmental
+    variables, treatments, sample management, and phenotypes. Version 1.0 was a checklist.
+    Version 1.1 added an explicit data model, support for perennial plants, and clearer
+    definitions and examples. Version 1.2, released in October 2025, clarifies documentation,
+    adds fields, and updates the spreadsheet templates, with a minimal template for
+    required fields only. MIAPPE is implemented in tools, databases, file templates,
+    and exchange formats, with mappings to ISA-Tools and the Breeding API (BrAPI).
+    Its website is hosted by EMBL-EBI, and the standard is released under the CC BY-SA
+    4.0 license.
+  related_to:
+  - B2AI_STANDARD:341
   requires_registration: false
   url: https://www.miappe.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1111/nph.16544
+    ref_title: Enabling reusability of plant phenomic datasets with MIAPPE 1.1
+    ref_authors:
+    - Papoutsoglou EA
+    - Faria D
+    - Arend D
+    - Arnaud E
+    - Athanasiadis IN
+    - Chaves I
+    - Coppens F
+    - Cornut G
+    - Costa BV
+    - Ćwiek‐Kupczyńska H
+    - Droesbeke B
+    - Finkers R
+    - Gruden K
+    - Junker A
+    - King GJ
+    - Krajewski P
+    - Lange M
+    - Laporte M
+    - Michotey C
+    - Oppermann M
+    - Ostler R
+    - Poorter H
+    - Ramı́rez‐Gonzalez R
+    - Ramšak Ž
+    - Reif JC
+    - Rocca‐Serra P
+    - Sansone S
+    - Scholz U
+    - Tardieu F
+    - Uauy C
+    - Usadel B
+    - Visser RGF
+    - Weise S
+    - Kersey PJ
+    - Miguel CM
+    - Adam‐Blondon A
+    - Pommier C
+    ref_publication_year: 2020
+    ref_journal: New Phytologist
 - id: B2AI_STANDARD:211
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -16646,26 +16701,79 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
   - markuplanguage
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:48
   - B2AI_TOPIC:41
+  - B2AI_TOPIC:60
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: NeuroML
+  formal_specification: https://github.com/NeuroML/NeuroML2
+  has_application:
+  - id: B2AI_APP:541
+    category: B2AI:Application
+    name: Neuron-type identification from simulated extracellular recordings using
+      NeuroML-described models
+    description: This study introduces a machine learning approach that demixes the
+      current sources underlying spatiotemporal extracellular action potential waveforms
+      and uses the relative prevalence of those sources as features for identifying
+      neuron types. The authors obtained 105 multicompartmental models covering 21
+      neuron-type families from the NeuroML Database, downloading them in HOC format
+      for simulation and in NeuroML format for morphometric analysis. All morphometrics
+      were computed from the NeuroML description of each model. The simulated waveforms
+      were run in NEURON from the HOC versions, so NeuroML supports the morphological
+      side of the analysis rather than the simulations themselves.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3389/fninf.2024.1303993
+      ref_title: Discovering optimal features for neuron-type identification from
+        extracellular recordings
+      ref_authors:
+      - Haynes VR
+      - Zhou Y
+      - Crook SM
+      ref_publication_year: 2024
+      ref_journal: Frontiers in Neuroinformatics
+  has_relevant_organization:
+  - B2AI_ORG:19
   has_training_resource:
   - B2AI_STANDARD:1063
   is_open: true
   name: NeuroML
-  purpose_detail: NeuroML is a model description language developed in XML (extensible
-    Markup Language) that was created to facilitate data archiving, data and model
-    exchange, database creation, and model publication in the neurosciences. One of
-    the goals of the NeuroML project is to develop standards for model specification
-    that will allow for greater simulator interoperability and model exchange.
+  purpose_detail: NeuroML is an XML-based model description language for computational
+    neuroscience, used to exchange, archive, and publish models of neurons and neuronal
+    networks independently of any one simulator. NeuroML version 2 consists of a schema
+    together with component type definitions written in LEMS (Low Entropy Model Specification),
+    a language for expressing the structure and dynamics of model components. The
+    surrounding ecosystem of libraries and tools supports the model life cycle, including
+    creating, validating, visualizing, simulating, and sharing standardized models.
+    NeuroML is represented among the delegates of the COmputational Modeling in BIology
+    NEtwork (COMBINE), alongside standards such as SBML and SED-ML. The schema and
+    component definitions are openly developed on GitHub under the LGPL 3.0 license.
+  related_to:
+  - B2AI_STANDARD:289
   requires_registration: false
   url: https://neuroml.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.7554/elife.95135
+    ref_title: The NeuroML ecosystem for standardized multi-scale modeling in neuroscience
+    ref_authors:
+    - Sinha A
+    - Gleeson P
+    - Marin B
+    - Dura-Bernal S
+    - Panagiotou S
+    - Crook S
+    - Cantarelli M
+    - Cannon RC
+    - Davison AP
+    - Gurnani H
+    - Silver RA
+    ref_publication_year: 2025
+    ref_journal: eLife
 - id: B2AI_STANDARD:235
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -20095,24 +20203,58 @@ data_standardortools_collection:
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
   - markuplanguage
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:20
   - B2AI_TOPIC:54
+  - B2AI_TOPIC:60
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Simulation Experiment Description Markup Language
+  formal_specification: https://github.com/SED-ML/sed-ml
+  has_relevant_organization:
+  - B2AI_ORG:19
   has_training_resource:
   - B2AI_STANDARD:1093
   is_open: true
   name: SED-ML
-  purpose_detail: SED-ML is an XML-based format for encoding simulation setups, to
-    ensure exchangeability and reproducibility of simulation experiments. It follows
-    the requirements defined in the MIASE guidelines.
+  purpose_detail: The Simulation Experiment Description Markup Language (SED-ML) is
+    an XML-based format for encoding simulation experiments so that they can be exchanged
+    and reproduced across software tools. It is a computer-readable form of the information
+    called for by the Minimum Information About a Simulation Experiment (MIASE) guidelines.
+    SED-ML is independent of any one modeling language, and is supported by tools
+    for constraint-based, kinetic, qualitative, rule-based, and spatial models. Algorithms
+    are identified with terms from the Kinetic Simulation Algorithm Ontology (KiSAO).
+    Level 1 Version 5, the latest release, extends the use of KiSAO so that tasks,
+    model changes, ranges, and outputs can be defined with it as well as simulations.
+    The specification and schema are openly maintained on GitHub, and SED-ML is represented
+    among the delegates of the COmputational Modeling in BIology NEtwork (COMBINE).
+  related_to:
+  - B2AI_STANDARD:478
+  - B2AI_STANDARD:289
+  - B2AI_STANDARD:318
+  - B2AI_STANDARD:249
+  - B2AI_STANDARD:234
   requires_registration: false
   url: https://sed-ml.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1515/jib-2024-0008
+    ref_title: 'The simulation experiment description markup language (SED-ML): language
+      specification for level 1 version 5'
+    ref_authors:
+    - Smith LP
+    - Bergmann FT
+    - Garny A
+    - Helikar T
+    - Karr J
+    - Nickerson D
+    - Sauro H
+    - Waltemath D
+    - König M
+    ref_publication_year: 2024
+    ref_journal: Journal of Integrative Bioinformatics
 - id: B2AI_STANDARD:278
   category: B2AI_STANDARD:BiomedicalStandard
   collection:
@@ -29103,26 +29245,150 @@ data_standardortools_collection:
     ref_url: ''
 - id: B2AI_STANDARD:425
   category: B2AI_STANDARD:OntologyOrVocabulary
+  collection:
+  - codesystem
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:4
   - B2AI_TOPIC:7
   - B2AI_TOPIC:53
   - B2AI_TOPIC:81
+  - B2AI_TOPIC:66
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Common Terminology Criteria for Adverse Events
-  formal_specification: https://ctep.cancer.gov/protocoldevelopment/electronic_applications/ctc.htm
+  formal_specification: https://dctd.cancer.gov/research/ctep-trials/for-sites/adverse-events
+  has_application:
+  - id: B2AI_APP:535
+    category: B2AI:Application
+    name: Extracting CTCAE adverse events from immunotherapy trial notes with GPT-5
+    description: This comparative study tested whether a large language model can
+      identify adverse events documented in 54 clinical encounter notes from four
+      randomized immunotherapy trials. GPT-5 was prompted zero-shot to extract adverse
+      events classified by CTCAE version 5.0, and its output was compared with a majority-vote
+      consensus of three clinician reviewers who used the same criteria. The model
+      reached a mean encounter F1 score of 0.76 (95% CI, 0.70-0.82), comparable to
+      individual reviewers, while the reviewers themselves showed only moderate agreement
+      (Krippendorff alpha of 0.56). Laboratory-related events were excluded. CTCAE
+      supplies the label set for both the model output and the reference standard.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1001/jamanetworkopen.2026.31840
+      ref_title: Large Language Models and Adverse Event Detection Within Immunotherapy
+        Clinical Trials
+      ref_authors:
+      - Elia MV
+      - Friesner ID
+      - Kwon D
+      - Ni L
+      - Sinha S
+      - Ishiyama Y
+      - Zack T
+      - Bridge M
+      - Fong L
+      - Hong JC
+      ref_publication_year: 2026
+      ref_journal: JAMA Network Open
+  - id: B2AI_APP:536
+    category: B2AI:Application
+    name: Grading chemotherapy toxicities in fictitious cases with a large language
+      model
+    description: This pilot study compared a contextualized large language model with
+      13 oncologists in classifying subjective chemotherapy toxicities across 30 fictitious
+      cases, using CTCAE version 5 criteria. The model reached 85.7% accuracy in general
+      toxicity categories and 64.6% in specific categories, against ranges of 66.7%
+      to 89.2% and 57.0% to 76.0% for individual oncologists. CTCAE provides the categories
+      that the model predicts and that the oncologists assigned. The cases were fictitious,
+      and the authors call for validation with real patients.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.3390/cancers16162830
+      ref_title: 'Leveraging Large Language Models for Precision Monitoring of Chemotherapy-Induced
+        Toxicities: A Pilot Study with Expert Comparisons and Future Directions'
+      ref_authors:
+      - Ruiz Sarrias O
+      - Martínez del Prado MP
+      - Sala Gonzalez MÁ
+      - Azcuna Sagarduy J
+      - Casado Cuesta P
+      - Figaredo Berjano C
+      - Galve-Calvo E
+      - López de San Vicente Hernández B
+      - López-Santillán M
+      - Nuño Escolástico M
+      - Sánchez Togneri L
+      - Sande Sardina L
+      - Pérez Hoyos MT
+      - Abad Villar MT
+      - Zabalza Zudaire M
+      - Sayar Beristain O
+      ref_publication_year: 2024
+      ref_journal: Cancers
+  - id: B2AI_APP:537
+    category: B2AI:Application
+    name: Abstracting CTCAE symptoms from radiation oncology notes with natural language
+      processing
+    description: This study built a natural language processing pipeline on the Apache
+      clinical Text Analysis Knowledge Extraction System (cTAKES) to extract CTCAE
+      version 5.0 symptoms from 100 on-treatment visit notes recorded during radiation
+      therapy. Output was compared with two physician reviewers, adjudicated by a
+      third. The pipeline performed well on common symptoms, including radiation dermatitis
+      (F1 of 0.88), fatigue (0.85), and nausea (0.88), and had poor sensitivity for
+      negated symptoms. CTCAE terms define the symptoms extracted and the labels used
+      for evaluation.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1093/jamiaopen/ooaa064
+      ref_title: 'Natural language processing for abstraction of cancer treatment
+        toxicities: accuracy versus human experts'
+      ref_authors:
+      - Hong JC
+      - Fairchild AT
+      - Tanksley JP
+      - Palta M
+      - Tenenbaum JD
+      ref_publication_year: 2020
+      ref_journal: JAMIA Open
   is_open: true
   name: CTCAE
-  purpose_detail: Common Terminology Criteria for Adverse Events (CTCAE) is widely
-    accepted throughout the oncology community as the standard classification and
-    severity grading scale for adverse events in cancer therapy clinical trials and
-    other oncology settings.
+  purpose_detail: The Common Terminology Criteria for Adverse Events (CTCAE) is the
+    National Cancer Institute (NCI) terminology and severity scale for reporting adverse
+    events in cancer clinical trials. It is maintained by the NCI Cancer Therapy Evaluation
+    Program and descends from the Common Toxicity Criteria (CTC), developed in 1982.
+    Each term is paired with descriptions of severity on a scale from Grade 1 to Grade
+    5, so that reports of the same event can be compared across sites and trials.
+    Terms are aligned to MedDRA releases. Version 5.0 was released in 2017 against
+    MedDRA 20.1, and the current version 6.0 was released in 2025 against MedDRA 28.0.
+    NCI distributes version 6.0 as a spreadsheet with tracked changes and a mapping
+    to version 5.0, along with a quick reference document and an online dictionary.
+    CTCAE grades a clinician's assessment and is distinct from PRO-CTCAE, the companion
+    NCI instrument for patient-reported symptoms. CTCAE terms and grades also serve
+    as target labels for natural language processing of oncology notes.
+  related_to:
+  - B2AI_STANDARD:1293
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:71
   url: https://bioportal.bioontology.org/ontologies/CTCAE
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/s1053-4296(03)00031-6
+    ref_title: 'CTCAE v3.0: development of a comprehensive grading system for the
+      adverse effects of cancer treatment'
+    ref_authors:
+    - Trotti A
+    - Colevas A
+    - Setser A
+    - Rusch V
+    - Jaques D
+    - Budach V
+    - Langer C
+    - Murphy B
+    - Cumberlin R
+    - Coleman C
+    ref_publication_year: 2003
+    ref_journal: Seminars in Radiation Oncology
 - id: B2AI_STANDARD:426
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -31114,19 +31380,40 @@ data_standardortools_collection:
   - B2AI_TOPIC:6
   - B2AI_TOPIC:29
   - B2AI_TOPIC:53
+  - B2AI_TOPIC:4
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Gender, Sex, and Sexual Orientation Ontology
   formal_specification: https://github.com/Superraptor/GSSO
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: GSSO
-  purpose_detail: Terms for annotating interdisciplinary information concerning gender,
-    sex, and sexual orientation.
+  purpose_detail: The Gender, Sex, and Sexual Orientation (GSSO) ontology is a multidisciplinary
+    vocabulary for annotating information about gender identity and expression, romantic
+    and sexual identity and orientation, sexual and reproductive behavior, and related
+    topics, primarily for use in biomedicine and adjacent sciences. Version 2, described
+    in 2020, had over 10,000 entries with definitions and over 14,000 database mappings,
+    and over 70% of its terms had no mapping in any other available ontology. Its
+    evaluation covered mappings to terminologies including ICD, DSM, SNOMED, MeSH,
+    and the NCI Thesaurus. The current release, 2.0.11, has a web portal on GitHub
+    Pages with term search, a text annotation detector, a hierarchy browser, and cross-walk
+    lookups. That portal replaced the former site hosted at Cincinnati Children's.
+    GSSO is listed by the OBO Foundry, is available through BioPortal, and is released
+    under the Apache 2.0 license. A class-only version 3.0.0, built from the lgbtDB
+    Wikibase, was announced in November 2026 and has not yet been released.
   requires_registration: false
-  url: https://gsso.research.cchmc.org/
+  url: https://superraptor.github.io/GSSO/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1093/jamia/ocaa061
+    ref_title: 'Development of the Gender, Sex, and Sexual Orientation ontology: Evaluation
+      and workflow'
+    ref_authors:
+    - Kronk CA
+    - Dexheimer JW
+    ref_publication_year: 2020
+    ref_journal: Journal of the American Medical Informatics Association
 - id: B2AI_STANDARD:454
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -32480,21 +32767,69 @@ data_standardortools_collection:
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
   - obofoundry
+  - standards_process_maturity_final
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:53
   - B2AI_TOPIC:20
+  - B2AI_TOPIC:60
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Kinetic Simulation Algorithm Ontology
   formal_specification: https://github.com/SED-ML/KiSAO
+  has_relevant_organization:
+  - B2AI_ORG:19
   is_open: true
   name: KISAO
-  purpose_detail: Algorithms for simulating biology, their parameters, and their outputs.
+  purpose_detail: The Kinetic Simulation Algorithm Ontology (KiSAO) describes algorithms
+    for simulating and analyzing biological models, together with their characteristics,
+    input parameters, and outputs, and the relationships among them. It lets a simulation
+    description name an exact algorithm in a tool-independent way, and its relationships
+    support reasoning about which algorithms can substitute for one another. KiSAO
+    is closely tied to SED-ML, which uses KiSAO terms to specify simulations. Since
+    Level 1 Version 5, SED-ML can also use KiSAO to define tasks, model changes, ranges,
+    and outputs. The ontology is developed in OWL, listed by the OBO Foundry, and
+    browsable through BioPortal and the Ontology Lookup Service. A Python package
+    supports working with its terms. It is released under the Artistic License 2.0,
+    with version 2.35 published in March 2026.
+  related_to:
+  - B2AI_STANDARD:277
   requires_registration: false
-  url: http://co.mbine.org/standards/kisao
+  url: https://obofoundry.org/ontology/kisao.html
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1038/msb.2011.77
+    ref_title: Controlled vocabularies and semantics in systems biology
+    ref_authors:
+    - Courtot M
+    - Juty N
+    - Knüpfer C
+    - Waltemath D
+    - Zhukova A
+    - Dräger A
+    - Dumontier M
+    - Finney A
+    - Golebiewski M
+    - Hastings J
+    - Hoops S
+    - Keating S
+    - Kell DB
+    - Kerrien S
+    - Lawson J
+    - Lister A
+    - Lu J
+    - Machne R
+    - Mendes P
+    - Pocock M
+    - Rodriguez N
+    - Villeger A
+    - Wilkinson DJ
+    - Wimalaratne S
+    - Laibe C
+    - Hucka M
+    - Le Novère N
+    ref_publication_year: 2011
+    ref_journal: Molecular Systems Biology
 - id: B2AI_STANDARD:479
   category: B2AI_STANDARD:OntologyOrVocabulary
   collection:
@@ -36160,14 +36495,35 @@ data_standardortools_collection:
   concerns_data_topic:
   - B2AI_TOPIC:11
   - B2AI_TOPIC:76
+  - B2AI_TOPIC:53
+  - B2AI_TOPIC:1
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Radiation Biology Ontology
   formal_specification: https://github.com/Radiobiology-Informatics-Consortium/RBO
+  has_relevant_organization:
+  - B2AI_ORG:75
   is_open: true
   name: RBO
-  purpose_detail: Effects of radiation on biota in terrestrial and space environments.
+  purpose_detail: The Radiation Biology Ontology (RBO) represents the effects of radiation
+    on biological systems in terrestrial and space environments, with an emphasis
+    on space biology. It is designed to help investigators organize, describe, and
+    archive data from experiments and observations on those effects. RBO is an active
+    OBO Foundry ontology. It is declared as dependent on the Basic Formal Ontology,
+    Chemical Methods Ontology, Environment Ontology, Ontology for Biomedical Investigations,
+    Phenotype and Trait Ontology, Relation Ontology, and Units of Measurement Ontology.
+    It is distributed in OWL, OBO, and JSON formats, with both main and base releases,
+    under a CC BY 3.0 license. Development is open on GitHub under the Radiobiology
+    Informatics Consortium, with releases continuing through November 2026.
+  related_to:
+  - B2AI_STANDARD:408
+  - B2AI_STANDARD:420
+  - B2AI_STANDARD:442
+  - B2AI_STANDARD:511
+  - B2AI_STANDARD:534
+  - B2AI_STANDARD:543
+  - B2AI_STANDARD:566
   requires_registration: false
   url: https://github.com/Radiobiology-Informatics-Consortium/RBO
   publication:
@@ -41120,6 +41476,7 @@ data_standardortools_collection:
   - B2AI_TOPIC:34
   - B2AI_TOPIC:58
   - B2AI_TOPIC:60
+  - B2AI_TOPIC:2
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
@@ -41127,12 +41484,44 @@ data_standardortools_collection:
   formal_specification: https://github.com/OmicsML/dance
   is_open: true
   name: DANCE
-  purpose_detail: A Python toolkit to support deep learning models for analyzing single-cell
-    gene expression at scale.
+  purpose_detail: DANCE is a Python toolkit and benchmark platform for deep learning
+    methods in single-cell analysis. It has three modules. The single-modality module
+    covers cell type annotation, clustering, and gene imputation. The single-cell
+    multimodal omics module covers modality prediction, modality matching, and joint
+    embedding. The spatially resolved transcriptomics module covers spatial domain
+    identification and cell type deconvolution. By providing methods, datasets, and
+    evaluation in one framework, DANCE supports reproducible comparison of computational
+    methods on shared tasks. DANCE 2.0, described in a 2025 preprint, extends the
+    work to automated recommendation of preprocessing pipelines, with modality prediction
+    and matching remaining only in DANCE 1.0. The software is openly developed on
+    GitHub under a BSD 2-Clause license and distributed on PyPI as pydance.
+  related_to:
+  - B2AI_STANDARD:816
   requires_registration: false
-  url: https://omicsml.ai/
+  url: https://pydance.readthedocs.io/en/latest/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1186/s13059-024-03211-z
+    ref_title: 'DANCE: a deep learning library and benchmark platform for single-cell
+      analysis'
+    ref_authors:
+    - Ding J
+    - Liu R
+    - Wen H
+    - Tang W
+    - Li Z
+    - Venegas J
+    - Su R
+    - Molho D
+    - Jin W
+    - Wang Y
+    - Lu Q
+    - Li L
+    - Zuo W
+    - Chang Y
+    - Xie Y
+    - Tang J
+    ref_publication_year: 2024
+    ref_journal: Genome Biology
 - id: B2AI_STANDARD:751
   category: B2AI_STANDARD:SoftwareOrTool
   concerns_data_topic:
@@ -44765,23 +45154,82 @@ data_standardortools_collection:
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
   - graphdataplatform
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:21
   - B2AI_TOPIC:62
   - B2AI_TOPIC:75
+  - B2AI_TOPIC:20
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Network Data Exchange
+  formal_specification: https://github.com/ndexbio/ndex-rest
+  has_application:
+  - id: B2AI_APP:538
+    category: B2AI:Application
+    name: Self-supervised graph learning over molecular networks obtained from NDEx
+    description: Graphene is a self-supervised graph representation learning framework
+      that integrates several molecular networks. It pre-trains graph neural networks
+      to obtain node embeddings, then re-trains with a graph attention architecture
+      for pathway gene recovery, disease gene reprioritization, and comorbidity prediction.
+      The authors downloaded the PCNet composite network, with 2,610,605 connections,
+      from NDEx as one of four input networks, and downloaded 211 NCI Pathway Interaction
+      Database pathways from NDEx as gene sets for the pathway recovery task. NDEx
+      is therefore a source of both training graph structure and labeled gene sets.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1016/j.patter.2022.100651
+      ref_title: Self-supervised graph representation learning integrates multiple
+        molecular networks and decodes gene-disease relationships
+      ref_authors:
+      - Wang Y
+      - Sun Z
+      - He Q
+      - Li J
+      - Ni M
+      - Yang M
+      ref_publication_year: 2023
+      ref_journal: Patterns
   is_open: true
   name: NDEx
-  purpose_detail: The NDEx Project provides an open-source framework where scientists
-    and organizations can store, share, manipulate, and publish biological network
-    knowledge.
+  purpose_detail: The Network Data Exchange (NDEx) is an open-source framework and
+    public web resource for storing, sharing, and publishing biological networks.
+    Researchers can upload, curate, and distribute networks in community-standard
+    formats through the web interface, and can read and write them in programs through
+    a REST API, with client libraries available for Python and JavaScript. It integrates
+    with Cytoscape.js through the js4cytoscape library, and hosts resources such as
+    the NCI Pathway Interaction Database pathways and the composite gene interaction
+    network PCNet, which makes it a source of graph data for machine learning on molecular
+    networks. The server code is openly available under a BSD license.
+  related_to:
+  - B2AI_STANDARD:748
   requires_registration: true
+  responsible_organization:
+  - B2AI_ORG:154
   url: https://www.ndexbio.org/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1016/j.cels.2015.10.001
+    ref_title: NDEx, the Network Data Exchange
+    ref_authors:
+    - Pratt D
+    - Chen J
+    - Welker D
+    - Rivas R
+    - Pillich R
+    - Rynkov V
+    - Ono K
+    - Miello C
+    - Hicks L
+    - Szalma S
+    - Stojmirovic A
+    - Dobrin R
+    - Braxenthaler M
+    - Kuentzer J
+    - Demchak B
+    - Ideker T
+    ref_publication_year: 2015
+    ref_journal: Cell Systems
 - id: B2AI_STANDARD:806
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
@@ -44831,27 +45279,106 @@ data_standardortools_collection:
     used_in_bridge2ai: false
 - id: B2AI_STANDARD:807
   category: B2AI_STANDARD:SoftwareOrTool
+  collection:
+  - implementation_maturity_production
   concerns_data_topic:
   - B2AI_TOPIC:20
   - B2AI_TOPIC:59
   - B2AI_TOPIC:60
+  - B2AI_TOPIC:61
   contributor_github_name: caufieldjh
   contributor_name: Harry Caufield
   contributor_orcid: ORCID:0000-0001-5705-7831
   description: Nextflow
   formal_specification: https://github.com/nextflow-io/nextflow
+  has_application:
+  - id: B2AI_APP:539
+    category: B2AI:Application
+    name: Deep-learning segmentation of plant root microscopy images in a Nextflow
+      pipeline
+    description: The nf-root pipeline automates analysis of fluorescence microscopy
+      images of Arabidopsis thaliana root tissue, including identification of developmental
+      zones and measurement of apoplastic pH. Built with Nextflow and nf-core tools,
+      it contains a module that segments images with a deterministically trained U-Net^2
+      model and adds measures of prediction uncertainty and model interpretability.
+      The authors observed high statistical similarity between manually generated
+      results and the pipeline output. Nextflow provides the reproducible execution
+      framework in which the model is deployed.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1017/qpb.2024.11
+      ref_title: 'Nf-Root: A Best-Practice Pipeline for Deep-Learning-Based Analysis
+        of Apoplastic pH in Microscopy Images of Developmental Zones in Plant Root
+        Tissue'
+      ref_authors:
+      - Wanner J
+      - Kuhn Cuellar L
+      - Rausch L
+      - W. Berendzen K
+      - Wanke F
+      - Gabernet G
+      - Harter K
+      - Nahnsen S
+      ref_publication_year: 2024
+      ref_journal: Quantitative Plant Biology
+  - id: B2AI_APP:540
+    category: B2AI:Application
+    name: Deep-learning rescoring of immunopeptidomics identifications packaged with
+      Nextflow
+    description: DeepRescore is a post-processing tool for mass spectrometry immunopeptidomics
+      that rescores peptide-spectrum matches using deep learning predictions of retention
+      time and MS/MS spectra together with previously used features. On two public
+      datasets it increased the sensitivity and reliability of identifying MHC-binding
+      peptides and neoantigens relative to existing methods, with the gain driven
+      largely by the deep learning-derived features. The tool was developed with Nextflow
+      and Docker, which provide the workflow execution and packaging for its prediction
+      and rescoring steps.
+    used_in_bridge2ai: false
+    references:
+    - ref_url: https://doi.org/10.1002/pmic.201900334
+      ref_title: 'DeepRescore: Leveraging Deep Learning to Improve Peptide Identification
+        in Immunopeptidomics'
+      ref_authors:
+      - Li K
+      - Jain A
+      - Malovannaya A
+      - Wen B
+      - Zhang B
+      ref_publication_year: 2020
+      ref_journal: PROTEOMICS
   has_relevant_organization:
-  - B2AI_ORG:90
   - B2AI_ORG:158
   is_open: true
   name: Nextflow
-  purpose_detail: Enables scalable and reproducible scientific workflows using software
-    containers. It allows the adaptation of pipelines written in the most common scripting
-    languages.
+  purpose_detail: Nextflow is a workflow system and language for building scalable,
+    portable, and reproducible data analysis pipelines. It is based on the dataflow
+    programming model, in which tasks run as their inputs become available, and it
+    allows pipelines to reuse code written in common scripting languages. A pipeline
+    can be run on a local machine, on high-performance computing schedulers, or on
+    AWS Batch, Azure Batch, Google Cloud Batch, and Kubernetes. Software dependencies
+    can be managed with tools including Conda, Spack, Docker, Podman, and Singularity.
+    Nextflow is developed by Seqera and openly released under the Apache 2.0 license.
+    Like CWL and WDL, it describes computational workflows, and it is widely used
+    in bioinformatics, including for pipelines that contain deep learning steps.
+  related_to:
+  - B2AI_STANDARD:320
+  - B2AI_STANDARD:389
   requires_registration: false
+  responsible_organization:
+  - B2AI_ORG:90
   url: https://www.nextflow.io/
   publication:
-    ref_url: ''
+    ref_url: https://doi.org/10.1038/nbt.3820
+    ref_title: Nextflow enables reproducible computational workflows
+    ref_authors:
+    - Di Tommaso P
+    - Chatzou M
+    - Floden EW
+    - Barja PP
+    - Palumbo E
+    - Notredame C
+    ref_publication_year: 2017
+    ref_journal: Nature Biotechnology
 - id: B2AI_STANDARD:808
   category: B2AI_STANDARD:SoftwareOrTool
   collection:
